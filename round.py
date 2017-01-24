@@ -101,6 +101,9 @@ for rndNum in range(2,21):
     ##### Iterate through fold list for fine
     m.iterateFoldsFine(rndNum, fine_folds,rnd_results_fine)
 
+
+    rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
+    rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
     ###### Save coarse results to a file
     f = open('results/_coarseResults.txt', 'w')
     for result in rnd_results_coarse:
@@ -120,8 +123,7 @@ for rndNum in range(2,21):
             f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f} \n'.format(*result))
     f.write(str(rnd_results_fine))
     f.close()
-    rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
-    rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
+
     print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
 
 
