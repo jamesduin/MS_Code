@@ -13,7 +13,7 @@ from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
 import time
-
+import methods as m
 
 start_time = time.perf_counter()
 
@@ -38,6 +38,19 @@ tot = np.array(totals)
 #print(tot)
 totVect = tot/np.sum(tot)
 #print(totVect)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -98,23 +111,24 @@ for i in sorted(classes_all):
 
 
 ##### Create folds for coarse set
-for i in sorted(coarse_set):
-    np.random.shuffle(coarse_set[i])
-    partList = []
-    for j in sorted(coarse_folds):
-        partList.append((j,len(coarse_folds[j])))
-    minIndex = partList[0][0]
-    minVal = partList[0][1]
-    for j in sorted(partList):
-        if(minVal > j[1] ):
-            minVal = j[1]
-            minIndex = j[0]
-    partitionCounter = minIndex
-    for instance in coarse_set[i]:
-        coarse_folds[partitionCounter].append(instance)
-        partitionCounter+=1
-        if partitionCounter > 10:
-            partitionCounter = 1
+# for i in sorted(coarse_set):
+#     np.random.shuffle(coarse_set[i])
+#     partList = []
+#     for j in sorted(coarse_folds):
+#         partList.append((j,len(coarse_folds[j])))
+#     minIndex = partList[0][0]
+#     minVal = partList[0][1]
+#     for j in sorted(partList):
+#         if(minVal > j[1] ):
+#             minVal = j[1]
+#             minIndex = j[0]
+#     partitionCounter = minIndex
+#     for instance in coarse_set[i]:
+#         coarse_folds[partitionCounter].append(instance)
+#         partitionCounter+=1
+#         if partitionCounter > 10:
+#             partitionCounter = 1
+m.createFolds(coarse_set, coarse_folds)
 
 ##### Create folds for fine set
 for i in sorted(fine_set):
