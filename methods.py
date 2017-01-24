@@ -139,6 +139,8 @@ def iterateFoldsCoarse(rndNum, coarse_folds):
         plt.legend(loc="lower right")
         # plt.show()
         plt.savefig('results/rnd'+str(rndNum)+'_coarse_ROC_' + str(testFold) + '.png')
+        plt.clf()
+        #plt.close()
 
         ###### Print this folds pr_auc for coarse
         precision = dict()
@@ -157,6 +159,8 @@ def iterateFoldsCoarse(rndNum, coarse_folds):
         plt.legend(loc="lower left")
         # plt.show()
         plt.savefig('results/rnd'+str(rndNum)+'_coarse_PR_' + str(testFold) + '.png')
+        plt.clf()
+        plt.close()
         rnd1_results_coarse.append([str(testFold)] + [roc_auc[1]] + [average_precision[1]]);
 
     ###### Save coarse results to a file
@@ -271,6 +275,8 @@ def iterateFoldsFine(rndNum,fine_folds):
         plt.legend(loc="lower right")
         # plt.show()
         plt.savefig('results/rnd'+str(rndNum)+'_fine_ROC_' + str(testFold) + '.png')
+        plt.clf()
+        #plt.close()
 
         ##### Print this folds pr_curve for fine
         precision = dict()
@@ -289,6 +295,8 @@ def iterateFoldsFine(rndNum,fine_folds):
         plt.legend(loc="lower left")
         # plt.show()
         plt.savefig('results/rnd'+str(rndNum)+'_fine_PR_' + str(testFold) + '.png')
+        plt.clf()
+        plt.close()
         rnd1_results_fine.append([str(testFold)] + [roc_auc[1]] + [average_precision[1]]);
 
     ###### Save results to a file
@@ -305,5 +313,77 @@ def iterateFoldsFine(rndNum,fine_folds):
 
 
 
+def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,coarseAdd,fineAdd):
+    data = []
+    class_list = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    classes_scaled = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+    coarse_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+    fine_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
 
+    for i in sorted(classes_all):
+        partition = np.asarray(classes_all[i])
+        data = partition
+        y_train, X_trainPreScale = data[:, 0], data[:, 1:data.shape[1]]
+        # print(y_train)
+        # print(X_trainPreScale)
+        y_trainCoarse = []
+        for i in y_train:
+            if i > 0:
+                y_trainCoarse.append(1.)
+            else:
+                y_trainCoarse.append(i)
+
+        y_Col = np.array(y_trainCoarse)[np.newaxis].T
+        #### scale dataset
+        scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
+        X_trainFull = scaler.transform(X_trainPreScale);
+        selector = SelectPercentile(f_classif, percentile=75);
+        selector.fit(X_trainFull, y_trainCoarse);
+        X_train = selector.transform(X_trainFull);
+        # print(y_Col.shape)
+        # print(X_train.shape)
+        # classes_scaled[i] = np.hstack((y_Col,X_train))
+        classes_scaled[i] = X_train
+        rnd_coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse_fold_1.pkl')
+        coarse_decFcn[i] = list(rnd_coarse_clf.decision_function(X_train))
+        rnd_fine_clf = joblib.load('fine_models/rnd' + str(rndNum) + '_fine_fold_1.pkl')
+        fine_decFcn[i] = list(rnd_fine_clf.decision_function(X_train))
+
+    for i in range(coarseAdd):
+        most_uncert = 100
+        most_cls = 0
+        most_ind = 0
+        for i in sorted(coarse_decFcn):
+            # print("class"+str(i))
+            # print(classes_decFcn[i][0:30])
+            for j, inst in enumerate(coarse_decFcn[i]):
+                uncert = np.absolute(inst)
+                if (uncert < most_uncert):
+                    most_cls = i
+                    most_ind = j
+                    most_uncert = uncert
+        # print([most_cls],[most_ind],[most_uncert])
+        coarse_set[most_cls].append(classes_all[most_cls].pop(most_ind))
+        del coarse_decFcn[most_cls][most_ind]
+        del fine_decFcn[most_cls][most_ind]
+
+    for i in range(fineAdd):
+        most_uncert = 100
+        most_cls = 0
+        most_ind = 0
+        for i in sorted(fine_decFcn):
+            # print("class"+str(i))
+            # print(classes_decFcn[i][0:30])
+            for j, inst in enumerate(fine_decFcn[i]):
+                for eachClassEst in inst:
+                    uncert = np.absolute(eachClassEst)
+                    if (uncert < most_uncert):
+                        most_cls = i
+                        most_ind = j
+                        most_uncert = uncert
+        # print([most_cls],[most_ind],[most_uncert])
+        coarse_set[most_cls].append(classes_all[most_cls][most_ind])
+        fine_set[most_cls].append(classes_all[most_cls].pop(most_ind))
+        del coarse_decFcn[most_cls][most_ind]
+        del fine_decFcn[most_cls][most_ind]
 
