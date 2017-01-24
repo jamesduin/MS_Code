@@ -62,48 +62,46 @@ m.createFolds(coarse_set, coarse_folds)
 ##### Create folds for fine set
 m.createFolds(fine_set, fine_folds)
 
-
 rndNum = 1
 
 #####  Iterate through fold list for coarse
 m.iterateFoldsCoarse(rndNum, coarse_folds)
 
-
 ##### Iterate through fold list for fine
 m.iterateFoldsFine(rndNum, fine_folds)
 
-
 print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
 
-start_time = time.perf_counter()
 
 
 
-###### run confidence estimate for coarse and fine
-m.confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,30,70)
+for rndNum in range(2,3):
+    start_time = time.perf_counter()
+    rndNum = 2
+
+    ###### run confidence estimate for coarse and fine
+    m.confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,(rndNum-1),30,70)
 
 
-coarse_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
-fine_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
-##### Create folds for coarse set
-m.createFolds(coarse_set, coarse_folds)
+    coarse_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
+    fine_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
+    ##### Create folds for coarse set
+    m.createFolds(coarse_set, coarse_folds)
 
-##### Create folds for fine set
-m.createFolds(fine_set, fine_folds)
-
-
-
-rndNum = 2
-
-#####  Iterate through fold list for coarse
-m.iterateFoldsCoarse(rndNum, coarse_folds)
+    ##### Create folds for fine set
+    m.createFolds(fine_set, fine_folds)
 
 
-##### Iterate through fold list for fine
-m.iterateFoldsFine(rndNum, fine_folds)
+
+    #####  Iterate through fold list for coarse
+    m.iterateFoldsCoarse(rndNum, coarse_folds)
 
 
-print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
+    ##### Iterate through fold list for fine
+    m.iterateFoldsFine(rndNum, fine_folds)
+
+
+    print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
 
 
 
