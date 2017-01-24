@@ -20,6 +20,8 @@ start_time = time.perf_counter()
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 coarse_set = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 fine_set = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
+rnd_results_coarse = []
+rnd_results_fine = []
 
 #### store totals
 totals = []
@@ -32,9 +34,7 @@ for i in sorted(classes_all):
     np.random.shuffle(classes_all[i])
     totals.append(len(classes_all[i]))
 tot = np.array(totals)
-#print(tot)
 totVect = tot/np.sum(tot)
-#print(totVect)
 
 
 #### randomly add 36 to starter coarse set
@@ -53,7 +53,6 @@ for i in sorted(classes_all):
     for j in range(int(fineStart[i])):
         fine_set[i].append(classes_all[i].pop(j))
 
-
 coarse_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
 fine_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
 ##### Create folds for coarse set
@@ -65,23 +64,28 @@ m.createFolds(fine_set, fine_folds)
 rndNum = 1
 
 #####  Iterate through fold list for coarse
-m.iterateFoldsCoarse(rndNum, coarse_folds)
+m.iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse)
 
 ##### Iterate through fold list for fine
-m.iterateFoldsFine(rndNum, fine_folds)
+m.iterateFoldsFine(rndNum, fine_folds,rnd_results_fine)
 
 print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
+rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
+rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
 
 
 
-
-for rndNum in range(2,3):
+for rndNum in range(2,21):
     start_time = time.perf_counter()
-    rndNum = 2
+
+    ##### determine worst fold
+    worstCoarse = m.determineWorstFold(rnd_results_coarse,(rndNum-1))
+    worstFine = m.determineWorstFold(rnd_results_fine,(rndNum-1))
+
 
     ###### run confidence estimate for coarse and fine
-    m.confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,(rndNum-1),30,70)
-
+    m.confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,worstCoarse,worstFine,(rndNum-1),30,70)
+    print('worstFineFold {0}, worstCoarseFold {1}'.format(worstCoarse,worstFine))
 
     coarse_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
     fine_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
@@ -91,24 +95,34 @@ for rndNum in range(2,3):
     ##### Create folds for fine set
     m.createFolds(fine_set, fine_folds)
 
-
-
     #####  Iterate through fold list for coarse
-    m.iterateFoldsCoarse(rndNum, coarse_folds)
-
+    m.iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse)
 
     ##### Iterate through fold list for fine
-    m.iterateFoldsFine(rndNum, fine_folds)
+    m.iterateFoldsFine(rndNum, fine_folds,rnd_results_fine)
 
+    ###### Save coarse results to a file
+    f = open('results/_coarseResults.txt', 'w')
+    for result in rnd_results_coarse:
+        if (type(result[2]) == str):
+            f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
+        else:
+            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f} \n'.format(*result))
+    f.write(str(rnd_results_coarse))
+    f.close()
 
+    ###### Save results to a file
+    f = open('results/_fineResults.txt', 'w')
+    for result in rnd_results_fine:
+        if (type(result[2]) == str):
+            f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
+        else:
+            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f} \n'.format(*result))
+    f.write(str(rnd_results_fine))
+    f.close()
+    rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
+    rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
     print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
-
-
-
-
-
-
-
 
 
 

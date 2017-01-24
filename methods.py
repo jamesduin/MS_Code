@@ -36,10 +36,10 @@ def createFolds(set, folds):
                 partitionCounter = 1
 
 
-def iterateFoldsCoarse(rndNum, coarse_folds):
+def iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse):
     fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     # fold_list = [1]
-    rnd1_results_coarse = [['fold', 'roc_auc', 'pr_auc']]
+    rnd_results_coarse.append(['rnd','fold', 'roc_auc', 'pr_auc'])
     for testFold in fold_list:
         print("rnd"+str(rndNum)+"_coarse fold" + str(testFold))
         ##### Create train set for coarse
@@ -161,18 +161,7 @@ def iterateFoldsCoarse(rndNum, coarse_folds):
         plt.savefig('results/rnd'+str(rndNum)+'_coarse_PR_' + str(testFold) + '.png')
         plt.clf()
         plt.close()
-        rnd1_results_coarse.append([str(testFold)] + [roc_auc[1]] + [average_precision[1]]);
-
-    ###### Save coarse results to a file
-    f = open('results/rnd'+str(rndNum)+'_coarseResults.txt', 'w')
-    for result in rnd1_results_coarse:
-        index = 0
-        for r in result[:-1]:
-            f.write(str(result[index]) + ", ")
-            index += 1
-        f.write(str(result[-1]))
-        f.write("\n")
-    f.close()
+        rnd_results_coarse.append([rndNum]+[testFold] + [roc_auc[1]] + [average_precision[1]])
 
 
 
@@ -182,10 +171,12 @@ def iterateFoldsCoarse(rndNum, coarse_folds):
 
 
 
-def iterateFoldsFine(rndNum,fine_folds):
+
+
+def iterateFoldsFine(rndNum,fine_folds,rnd_results_fine):
     fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     # fold_list = [1]
-    rnd1_results_fine = [['fold', 'roc_auc', 'pr_auc']]
+    rnd_results_fine.append(['rnd','fold', 'roc_auc', 'pr_auc'])
     for testFold in fold_list:
         print("rnd"+str(rndNum)+"_fine fold" + str(testFold))
         ##### Create train set for fine
@@ -297,28 +288,33 @@ def iterateFoldsFine(rndNum,fine_folds):
         plt.savefig('results/rnd'+str(rndNum)+'_fine_PR_' + str(testFold) + '.png')
         plt.clf()
         plt.close()
-        rnd1_results_fine.append([str(testFold)] + [roc_auc[1]] + [average_precision[1]]);
-
-    ###### Save results to a file
-    f = open('results/rnd'+str(rndNum)+'_fineResults.txt', 'w')
-    for result in rnd1_results_fine:
-        index = 0
-        for r in result[:-1]:
-            f.write(str(result[index]) + ", ")
-            index += 1
-        f.write(str(result[-1]))
-        f.write("\n")
-    f.close()
+        rnd_results_fine.append([rndNum]+[testFold] + [roc_auc[1]] + [average_precision[1]])
 
 
 
 
-def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,coarseAdd,fineAdd):
+def determineWorstFold(rnds,rndNum):
+#    print(rnds)
+    #print(rndNum)
+    results = []
+    for row in rnds:
+        if(row[0] == rndNum):
+            results.append(row)
+
+    results.sort(key=lambda x:x[2])
+    #print(results)
+    return results[0][1]
+
+
+
+
+def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,worstCoarse,worstFine,rndNum,coarseAdd,fineAdd):
     data = []
     class_list = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     classes_scaled = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
     coarse_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
     fine_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+
 
     for i in sorted(classes_all):
         partition = np.asarray(classes_all[i])
@@ -344,9 +340,9 @@ def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,coarseAdd,fi
         # print(X_train.shape)
         # classes_scaled[i] = np.hstack((y_Col,X_train))
         classes_scaled[i] = X_train
-        rnd_coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse_fold_1.pkl')
+        rnd_coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse_fold_'+str(worstCoarse)+'.pkl')
         coarse_decFcn[i] = list(rnd_coarse_clf.decision_function(X_train))
-        rnd_fine_clf = joblib.load('fine_models/rnd' + str(rndNum) + '_fine_fold_1.pkl')
+        rnd_fine_clf = joblib.load('fine_models/rnd' + str(rndNum) + '_fine_fold_'+str(worstFine)+'.pkl')
         fine_decFcn[i] = list(rnd_fine_clf.decision_function(X_train))
 
     for i in range(coarseAdd):
