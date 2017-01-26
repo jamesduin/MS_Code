@@ -26,7 +26,7 @@ rnd_results_fine = []
 #### store totals
 totals = []
 for i in sorted(classes_all):
-    with open("../data/classes/class_" + str(i)) as f:
+    with open("data/classes/class_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
