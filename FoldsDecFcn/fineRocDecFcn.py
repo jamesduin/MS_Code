@@ -84,8 +84,8 @@ print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',i
 
 
 ##### Iterate through fold list for fine
-#fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-fold_list = [1]
+fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#fold_list = [1]
 results_fine = []
 for testFold in fold_list:
     print("fine fold" + str(testFold))
@@ -107,126 +107,126 @@ for testFold in fold_list:
     for cls in sorted(y_trainSets):
         for i in y_train:
             if( i == cls):
-                #y_trainCoarse.append(1.)
                 y_trainSets[cls].append(1.)
             else:
                 y_trainSets[cls].append(0.)
 
-    print('{:<7}{:<5}{:<5}'.format('y_cls', 0, 1))
-    instanceCount = 0
-    classCountTot = [0, 0]
-    for i in sorted(y_trainSets):
-        classCount = [0, 0]
-        #instanceCount += len(y_trainSets[i])
-        for inst in y_trainSets[i]:
-            #classCountTot[int(inst)] += 1
-            classCount[int(inst)] += 1
-        classCount = [i] + classCount
-        print('{:<7}{:<5}{:<5}'.format(*classCount))
+
+    for cls in sorted(y_trainSets):
+        print("train fine cls: "+str(cls))
+        y_train = y_trainSets[cls]
+
+        #### Scale dataset
+        scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
+        X_trainFull = scaler.transform(X_trainPreScale)
+        selector = SelectPercentile(f_classif, percentile=75)
+        selector.fit(X_trainFull, y_train)
+        X_train = selector.transform(X_trainFull)
+
+
+        ##### Train classifier for fine
+        classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=False, cache_size=8192,
+                             decision_function_shape='ovr', verbose=False)
+        clf = classifier.fit(X_train, y_train)
+        joblib.dump(clf, 'fine_models/fine_fold_' + str(testFold) + '_'+str(cls)+'.pkl')
+        # clf = joblib.load('fine_models/fine_fold_' + str(testFold) + '_'+str(cls)+'.pkl')
 
 
 
+    ##### Create test set for fine
+    data_test = np.asarray(fine_folds[testFold])
+    y_test,X_testPreScale = data_test[:,0], data_test[:,1:data_test.shape[1]]
+    X_testFull = scaler.transform(X_testPreScale)
+    X_test = selector.transform(X_testFull)
+    y_testCoarse = []
+    for i in y_test:
+        if i > 0:
+            y_testCoarse.append(1.)
+        else:
+            y_testCoarse.append(i)
+
+    y_score = []
+    for i in range(1,9):
+        clf = joblib.load('fine_models/fine_fold_' + str(testFold) + '_' + str(i) + '.pkl')
+        y_preScore = clf.decision_function(X_test)
+        y_preScore = y_preScore.reshape(y_preScore.shape[0], 1)
+        # print("{}  {}".format(i,y_preScore[0]))
+        #print(y_preScore.shape)
+        if(len(y_score)==0):
+            y_score = y_preScore
+        else:
+            y_score = np.hstack((y_score,y_preScore))
+
+    #print("y_score shape:"+str(y_score.shape))
+    #print(y_score[0:16])
+
+    ##### Predict test set for fine
+    y_scoreTmp = []
+    for i, score in enumerate(y_score):
+        nums = y_score[i]
+        nums = list(map(float, nums))
+        maxFine = max(nums)
+        y_scoreTmp.append(maxFine)
+    y_pred = np.asarray(y_scoreTmp)
+    #print(y_pred)
+
+    ##### Print this folds roc_auc for fine
+    fpr = dict()
+    tpr = dict()
+    roc_auc = dict()
+    fpr[1], tpr[1], thresholds = roc_curve(y_testCoarse, y_pred)
+    roc_auc[1] = auc(fpr[1], tpr[1])
+    # Plot of a ROC curve
+    plt.figure()
+    plt.plot(fpr[1], tpr[1], label='ROC curve (area = %0.5f)' % roc_auc[1])
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('Receiver operating characteristic')
+    plt.legend(loc="lower right")
+    # plt.show()
+    plt.savefig('results/fine_ROC_' + str(testFold) + '.png')
+
+    ##### Print this folds pr_curve for fine
+    precision = dict()
+    recall = dict()
+    average_precision = dict()
+    precision[1], recall[1], _ = precision_recall_curve(y_testCoarse, y_pred)
+    average_precision[1] = average_precision_score(y_testCoarse, y_pred)
+    # Plot Precision-Recall curve
+    plt.clf()
+    plt.plot(recall[1], precision[1], label='Precision-Recall curve')
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    plt.ylim([0.0, 1.05])
+    plt.xlim([0.0, 1.0])
+    plt.title('Precision-Recall: AUC={0:0.5f}'.format(average_precision[1]))
+    plt.legend(loc="lower left")
+    # plt.show()
+    plt.savefig('results/fine_PR_' + str(testFold) + '.png')
+    results_fine.append([str(testFold)] + [roc_auc[1]] + [average_precision[1]])
+
+###### Save results to a file
+f = open('results/_fineResults.txt', 'w')
+f.write('fine\n')
+f.write('{0:5}{1:10}{2:10}\n'.format('fold', 'roc', 'pr'))
+roc_Sum = 0.0
+pr_Sum = 0.0
+for result in results_fine:
+    f.write('{0:<5}{1:<10.3f}{2:<10.3f}\n'.format(*result))
+    roc_Sum += result[1]
+    pr_Sum += result[2]
+f.write('{0:<5}{1:<10.3f}{2:<10.3f} \n'.format('avg', (roc_Sum / 10.0), (pr_Sum / 10.0)))
+f.close()
 
 
-#
-#     #### Scale dataset
-#     scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
-#     X_trainFull = scaler.transform(X_trainPreScale)
-#     selector = SelectPercentile(f_classif, percentile=75)
-#     selector.fit(X_trainFull, y_train)
-#     X_train = selector.transform(X_trainFull)
-#
-#
-#
-#     ##### Create test set for fine
-#     data_test = np.asarray(fine_folds[testFold])
-#     y_test,X_testPreScale = data_test[:,0], data_test[:,1:data_test.shape[1]]
-#     X_testFull = scaler.transform(X_testPreScale)
-#     X_test = selector.transform(X_testFull)
-#     y_testCoarse = []
-#     for i in y_test:
-#         if i > 0:
-#             y_testCoarse.append(1.)
-#         else:
-#             y_testCoarse.append(i)
-#
-#
-#     ##### Train classifier for fine
-#     classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=False, cache_size=8192,
-#                          decision_function_shape='ovr', verbose=False)
-#     clf = classifier.fit(X_train, y_train)
-#     joblib.dump(clf, 'fine_models/fine_fold_' + str(testFold) + '.pkl')
-#     # clf = joblib.load('fine_models/fine_fold_'+str(testFold)+'.pkl')
-#     y_pred = clf.predict(X_test)
-#
-#     ##### Predict test set for fine
-#     y_preScore = clf.decision_function(X_test)
-#     y_scoreTmp = []
-#     for i, score in enumerate(y_preScore):
-#         nums = (y_preScore[i]-y_preScore[i][0])
-#         nums = list(map(float, nums))
-#         maxFine = max(nums[1:])
-#         y_scoreTmp.append(maxFine)
-#     y_score = np.asarray(y_scoreTmp)
-#
-#
-#     ##### Print this folds roc_auc for fine
-#     fpr = dict()
-#     tpr = dict()
-#     roc_auc = dict()
-#     fpr[1], tpr[1], thresholds = roc_curve(y_testCoarse, y_score)
-#     roc_auc[1] = auc(fpr[1], tpr[1])
-#     # Plot of a ROC curve
-#     plt.figure()
-#     plt.plot(fpr[1], tpr[1], label='ROC curve (area = %0.5f)' % roc_auc[1])
-#     plt.plot([0, 1], [0, 1], 'k--')
-#     plt.xlim([0.0, 1.0])
-#     plt.ylim([0.0, 1.05])
-#     plt.xlabel('False Positive Rate')
-#     plt.ylabel('True Positive Rate')
-#     plt.title('Receiver operating characteristic')
-#     plt.legend(loc="lower right")
-#     # plt.show()
-#     plt.savefig('results/fine_ROC_' + str(testFold) + '.png')
-#
-#     ##### Print this folds pr_curve for fine
-#     precision = dict()
-#     recall = dict()
-#     average_precision = dict()
-#     precision[1], recall[1], _ = precision_recall_curve(y_testCoarse, y_score)
-#     average_precision[1] = average_precision_score(y_testCoarse, y_score)
-#     # Plot Precision-Recall curve
-#     plt.clf()
-#     plt.plot(recall[1], precision[1], label='Precision-Recall curve')
-#     plt.xlabel('Recall')
-#     plt.ylabel('Precision')
-#     plt.ylim([0.0, 1.05])
-#     plt.xlim([0.0, 1.0])
-#     plt.title('Precision-Recall: AUC={0:0.5f}'.format(average_precision[1]))
-#     plt.legend(loc="lower left")
-#     # plt.show()
-#     plt.savefig('results/fine_PR_' + str(testFold) + '.png')
-#     results_fine.append([str(testFold)] + [roc_auc[1]] + [average_precision[1]])
-#
-# ###### Save results to a file
-# f = open('results/_fineResults.txt', 'w')
-# f.write('fine\n')
-# f.write('{0:5}{1:10}{2:10}\n'.format('fold', 'roc', 'pr'))
-# roc_Sum = 0.0
-# pr_Sum = 0.0
-# for result in results_fine:
-#     f.write('{0:<5}{1:<10.3f}{2:<10.3f}\n'.format(*result))
-#     roc_Sum += result[1]
-#     pr_Sum += result[2]
-# f.write('{0:<5}{1:<10.3f}{2:<10.3f} \n'.format('avg', (roc_Sum / 10.0), (pr_Sum / 10.0)))
-# f.close()
-#
-#
-# print('Round {0}: {1} seconds'.format('fine',round(time.perf_counter() - start_time, 2)))
-# ### Round fine: 698.51 seconds
-#
-#
-#
+print('Round {0}: {1} seconds'.format('fine',round(time.perf_counter() - start_time, 2)))
+#### Round fine: 228.18 seconds
+
+
+
 
 
 
