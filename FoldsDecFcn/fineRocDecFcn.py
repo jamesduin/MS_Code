@@ -12,7 +12,7 @@ from sklearn.metrics import average_precision_score
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
-
+import time
 
 
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
@@ -24,7 +24,7 @@ fine_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 #### store totals
 totals = []
 for i in sorted(classes_all):
-    with open("../data/classes/class_" + str(i)) as f:
+    with open("../../data/classes/class_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -32,10 +32,9 @@ for i in sorted(classes_all):
     np.random.shuffle(classes_all[i])
     totals.append(len(classes_all[i]))
 tot = np.array(totals)
-#print(tot)
 totVect = tot/np.sum(tot)
-#print(totVect)
 
+start_time = time.perf_counter()
 
 
 ##### Create folds for fine set
@@ -60,19 +59,11 @@ for i in sorted(classes_all):
 
 
 
-
-
-
-
-
-
-
 ##### Iterate through fold list for fine
-#fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-fold_list = [1]
+fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 results_fine = [['fold','roc_auc','pr_auc']]
 for testFold in fold_list:
-    print("rnd1_fine fold" + str(testFold))
+    print("fine fold" + str(testFold))
     ##### Create train set for fine
     data = []
     partition_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -84,8 +75,7 @@ for testFold in fold_list:
             data = partition
         else:
             data = np.vstack((partition, data))
-        #print(str(x)+"=>" +str(data.shape))
-    #print(data.shape)
+
     y_train,X_trainPreScale = data[:,0], data[:,1:data.shape[1]]
 
     #### Scale dataset
@@ -98,7 +88,6 @@ for testFold in fold_list:
 
 
     ##### Create test set for fine
-    #data_test = np.loadtxt("../data/partition_"+str(testFold))
     data_test = np.asarray(fine_folds[testFold])
     y_test,X_testPreScale = data_test[:,0], data_test[:,1:data_test.shape[1]];
     X_testFull = scaler.transform(X_testPreScale);
@@ -120,41 +109,14 @@ for testFold in fold_list:
     y_pred = clf.predict(X_test);
 
     ##### Predict test set for fine
-    y_predCoarse = []
-    for i in y_pred:
-        if i > 0:
-            y_predCoarse.append(1.)
-        else:
-            y_predCoarse.append(i)
-    # Compute confusion matrix
-    # cm = confusion_matrix(y_testCoarse, y_predCoarse)
-    # np.set_printoptions(precision=2)
-    # print('Confusion matrix, without normalization')
-    # print(cm)
-    # print('Precision / Recall')
-    # print(precision_score(y_testCoarse, y_predCoarse, average='binary'))
-    # print(recall_score(y_testCoarse, y_predCoarse, average='binary'))
-
-
-    y_prob = clf.predict_log_proba(X_test)
-    print(y_prob)
-    y_score = []
-    for i in range(0, y_prob.shape[0]):
-        maxVal = max(y_prob[i, :])
-        if maxVal == y_prob[i, 0]:
-            maxVal = 0.
-        y_score.append(maxVal - y_prob[i, 0])
-    print(y_score)
-
-
-    # y_preScore = clf.decision_function(X_test)
-    # y_scoreTmp = []
-    # for i, score in enumerate(y_preScore):
-    #     nums = (y_preScore[i]-y_preScore[i][0])
-    #     nums = list(map(float, nums))
-    #     maxFine = max(nums[1:])
-    #     y_scoreTmp.append(maxFine)
-    # y_score = np.asarray(y_scoreTmp)
+    y_preScore = clf.decision_function(X_test)
+    y_scoreTmp = []
+    for i, score in enumerate(y_preScore):
+        nums = (y_preScore[i]-y_preScore[i][0])
+        nums = list(map(float, nums))
+        maxFine = max(nums[1:])
+        y_scoreTmp.append(maxFine)
+    y_score = np.asarray(y_scoreTmp)
 
 
     ##### Print this folds roc_auc for fine
@@ -207,7 +169,7 @@ for result in results_fine:
 f.close()
 
 
-
+print('Round {0}: {1} seconds'.format('fine',round(time.perf_counter() - start_time, 2)))
 
 
 

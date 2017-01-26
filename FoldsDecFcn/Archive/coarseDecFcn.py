@@ -43,7 +43,7 @@ X_train = selector.transform(X_trainFull)
 
 
 
-clf = joblib.load('../HAL_standard/coarse_models/coarse_fold_1.pkl')
+clf = joblib.load('../HALCreateClasses/coarse_models/coarse_fold_1.pkl')
 X_train_pred = clf.predict(X_train)
 X_train_dec_fcn = clf.decision_function(X_train)
 print('{0:10} {1:10}'.format('Predict','Dec Fcn'))

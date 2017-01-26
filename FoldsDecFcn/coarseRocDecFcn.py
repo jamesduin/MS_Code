@@ -12,7 +12,7 @@ from sklearn.metrics import average_precision_score
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
-
+import time
 
 
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
@@ -24,7 +24,7 @@ fine_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 #### store totals
 totals = []
 for i in sorted(classes_all):
-    with open("../data/classes/class_" + str(i)) as f:
+    with open("../../data/classes/class_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -32,11 +32,9 @@ for i in sorted(classes_all):
     np.random.shuffle(classes_all[i])
     totals.append(len(classes_all[i]))
 tot = np.array(totals)
-#print(tot)
 totVect = tot/np.sum(tot)
-#print(totVect)
 
-
+start_time = time.perf_counter()
 
 
 ##### Create folds for coarse set
@@ -60,36 +58,23 @@ for i in sorted(classes_all):
 
 
 
-
-
-
-
-
-
-
 #####  Iterate through fold list for coarse
 fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-#fold_list = [1]
-results_coarse = [['fold','roc_auc','pr_auc']]
+results_coarse =[]
 for testFold in fold_list:
-    print("rnd1_coarse fold"+str(testFold))
+    print("coarse fold"+str(testFold))
     ##### Create train set for coarse
     data = []
     partition_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     partition_list.remove(testFold)
     for x in partition_list:
-        #partition = np.loadtxt("../data/partition_"+str(x))
-        #partition = np.loadtxt(coarse_folds[x])
         partition = np.asarray(coarse_folds[x])
         if data == []:
             data = partition
         else:
             data = np.vstack((partition, data))
-        #print(str(x)+"=>" +str(data.shape))
-    #print(data.shape)
+
     y_train,X_trainPreScale = data[:,0], data[:,1:data.shape[1]]
-    #print(y_train)
-    #print(X_trainPreScale)
     y_trainCoarse = []
     for i in y_train:
         if i > 0:
@@ -105,7 +90,6 @@ for testFold in fold_list:
     X_train = selector.transform(X_trainFull);
 
     ##### Create test set for coarse
-    #data_test = np.loadtxt("../data/partition_" + str(testFold))
     data_test = np.asarray(coarse_folds[testFold])
     y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
     X_testFull = scaler.transform(X_testPreScale);
@@ -121,8 +105,8 @@ for testFold in fold_list:
     ##### Train classifier for coarse
     classifier = svm.SVC(C=10.0, kernel='poly',degree=3, probability=False, cache_size=8192,decision_function_shape='ovr', verbose=False)
     clf = classifier.fit(X_train,y_trainCoarse)
-    joblib.dump(clf,'coarse_models/rnd1_coarse_fold_'+str(testFold)+'.pkl')
-    #clf = joblib.load('coarse_models/rnd1_coarse_fold_'+str(testFold)+'.pkl')
+    joblib.dump(clf,'coarse_models/coarse_fold_'+str(testFold)+'.pkl')
+    #clf = joblib.load('coarse_models/coarse_fold_'+str(testFold)+'.pkl')
     y_pred = clf.predict(X_test);
 
 
@@ -133,28 +117,8 @@ for testFold in fold_list:
             y_predCoarse.append(1.)
         else:
             y_predCoarse.append(i)
-    # Compute confusion matrix
-    # cm = confusion_matrix(y_testCoarse, y_predCoarse)
-    # np.set_printoptions(precision=2)
-    # print('Confusion matrix, without normalization')
-    # print(cm)
-    # print('Precision / Recall')
-    # print(precision_score(y_testCoarse, y_predCoarse, average='binary'))
-    # print(recall_score(y_testCoarse, y_predCoarse, average='binary'))
 
-
-    y_prob = clf.predict_log_proba(X_test)
-    y_score = []
-    for i in range(0,y_prob.shape[0]):
-        # print(y_prob[i,:])
-        maxVal = max(y_prob[i,:])
-        if maxVal == y_prob[i,0]:
-            maxVal = 0.
-        y_score.append(maxVal-y_prob[i,0])
-
-    # y_score = clf.decision_function(X_test)
-    # #print(y_score)
-
+    y_score = clf.decision_function(X_test)
 
     ###### Print this folds roc_auc for coarse
     fpr = dict()
@@ -173,7 +137,7 @@ for testFold in fold_list:
     plt.title('Receiver operating characteristic')
     plt.legend(loc="lower right")
     #plt.show()
-    plt.savefig('results/rnd1_coarse_ROC_' + str(testFold) + '.png')
+    plt.savefig('results/coarse_ROC_' + str(testFold) + '.png')
 
 
 
@@ -193,24 +157,26 @@ for testFold in fold_list:
     plt.title('Precision-Recall: AUC={0:0.5f}'.format(average_precision[1]))
     plt.legend(loc="lower left")
     #plt.show()
-    plt.savefig('results/rnd1_coarse_PR_' + str(testFold) + '.png')
-    results_coarse.append([str(testFold)]+[roc_auc[1]]+[average_precision[1]]);
+    plt.savefig('results/coarse_PR_' + str(testFold) + '.png')
+    results_coarse.append([str(testFold)]+[roc_auc[1]]+[average_precision[1]])
 
 
 ###### Save coarse results to a file
-f = open('results/rnd1_coarseResults.txt', 'w')
+f = open('results/_coarseResults.txt', 'w')
+f.write('coarse\n')
+f.write('{0:5}{1:10}{2:10}\n'.format('fold', 'roc', 'pr'))
+roc_Sum = 0.0
+pr_Sum = 0.0
 for result in results_coarse:
-    index = 0
-    for r in result[:-1]:
-        f.write(str(result[index])+", ")
-        index += 1
-    f.write(str(result[-1]))
-    f.write("\n")
+    f.write('{0:<5}{1:<10.3f}{2:<10.3f}\n'.format(*result))
+    roc_Sum += result[1]
+    pr_Sum += result[2]
+f.write('{0:<5}{1:<10.3f}{2:<10.3f} \n'.format('avg', (roc_Sum / 10.0), (pr_Sum / 10.0)))
 f.close()
 
 
 
-
+print('Round {0}: {1} seconds'.format('coarse',round(time.perf_counter() - start_time, 2)))
 
 
 
