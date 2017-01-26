@@ -29,7 +29,6 @@ for i in sorted(classes_all):
             nums = line.split()
             nums = list(map(float, nums))
             classes_all[i].append(nums)
-    np.random.shuffle(classes_all[i])
     totals.append(len(classes_all[i]))
 tot = np.array(totals)
 totVect = tot/np.sum(tot)
@@ -55,6 +54,8 @@ for i in sorted(classes_all):
         partitionCounter+=1
         if partitionCounter > 10:
             partitionCounter = 1
+for i in sorted(fine_folds):
+    np.random.shuffle(fine_folds[i])
 
 print('{0:<10}{1:<10}'.format('Classes',''))
 instanceCount = 0
@@ -83,7 +84,8 @@ print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',i
 
 
 ##### Iterate through fold list for fine
-fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+fold_list = [1]
 results_fine = []
 for testFold in fold_list:
     print("fine fold" + str(testFold))
@@ -97,17 +99,32 @@ for testFold in fold_list:
             data = partition
         else:
             data = np.vstack((partition, data))
-#    np.random.shuffle(classes_all[i])
     y_train,X_trainPreScale = data[:,0], data[:,1:data.shape[1]]
 
-    print(y_train.shape)
+    print("y_train shape:"+str(y_train.shape))
 
-    # y_trainCoarse = []
-    # for i in y_train:
-    #     if i > 0:
-    #         y_trainCoarse.append(1.)
-    #     else:
-    #         y_trainCoarse.append(i)
+    y_trainSets = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
+    for cls in sorted(y_trainSets):
+        for i in y_train:
+            if( i == cls):
+                #y_trainCoarse.append(1.)
+                y_trainSets[cls].append(1.)
+            else:
+                y_trainSets[cls].append(0.)
+
+    print('{:<7}{:<5}{:<5}'.format('y_cls', 0, 1))
+    instanceCount = 0
+    classCountTot = [0, 0]
+    for i in sorted(y_trainSets):
+        classCount = [0, 0]
+        #instanceCount += len(y_trainSets[i])
+        for inst in y_trainSets[i]:
+            #classCountTot[int(inst)] += 1
+            classCount[int(inst)] += 1
+        classCount = [i] + classCount
+        print('{:<7}{:<5}{:<5}'.format(*classCount))
+
+
 
 
 
