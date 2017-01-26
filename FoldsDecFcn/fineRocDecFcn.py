@@ -61,7 +61,7 @@ for i in sorted(classes_all):
 
 ##### Iterate through fold list for fine
 fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-results_fine = [['fold','roc_auc','pr_auc']]
+results_fine = []
 for testFold in fold_list:
     print("fine fold" + str(testFold))
     ##### Create train set for fine
@@ -136,7 +136,7 @@ for testFold in fold_list:
     plt.title('Receiver operating characteristic')
     plt.legend(loc="lower right")
     # plt.show()
-    plt.savefig('results/rnd1_fine_ROC_' + str(testFold) + '.png')
+    plt.savefig('results/fine_ROC_' + str(testFold) + '.png')
 
     ##### Print this folds pr_curve for fine
     precision = dict()
@@ -154,23 +154,25 @@ for testFold in fold_list:
     plt.title('Precision-Recall: AUC={0:0.5f}'.format(average_precision[1]))
     plt.legend(loc="lower left")
     # plt.show()
-    plt.savefig('results/rnd1_fine_PR_' + str(testFold) + '.png')
+    plt.savefig('results/fine_PR_' + str(testFold) + '.png')
     results_fine.append([str(testFold)] + [roc_auc[1]] + [average_precision[1]]);
 
 ###### Save results to a file
-f = open('results/rnd1_fineResults.txt', 'w')
+f = open('results/_fineResults.txt', 'w')
+f.write('fine\n')
+f.write('{0:5}{1:10}{2:10}\n'.format('fold', 'roc', 'pr'))
+roc_Sum = 0.0
+pr_Sum = 0.0
 for result in results_fine:
-    index = 0
-    for r in result[:-1]:
-        f.write(str(result[index])+", ")
-        index += 1
-    f.write(str(result[-1]))
-    f.write("\n")
+    f.write('{0:<5}{1:<10.3f}{2:<10.3f}\n'.format(*result))
+    roc_Sum += result[1]
+    pr_Sum += result[2]
+f.write('{0:<5}{1:<10.3f}{2:<10.3f} \n'.format('avg', (roc_Sum / 10.0), (pr_Sum / 10.0)))
 f.close()
 
 
 print('Round {0}: {1} seconds'.format('fine',round(time.perf_counter() - start_time, 2)))
-
+### Round fine: 698.51 seconds
 
 
 
