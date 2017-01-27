@@ -34,21 +34,21 @@ for i in range(1,21):
             pr_Sum += row[3]
     f.write('{0},{1},{2} \n'.format(i,(roc_Sum/10.0),(pr_Sum/10.0)))
 
-
-
-f.write('fine \n')
-for i in range(1,21):
-    roc_Sum = 0.0
-    pr_Sum = 0.0
-    for row in fine_rnds:
-        # if (row[2] == 'Sec'):
-        #     results.append(row)
-        #     f.write('{1},{3} \n'.format(*row))
-
-        if(row[0] == i):
-            roc_Sum += row[2]
-            pr_Sum += row[3]
-    f.write('{0},{1},{2} \n'.format(i,(roc_Sum/10.0),(pr_Sum/10.0)))
-
-
-f.close()
+#
+#
+# f.write('fine \n')
+# for i in range(1,21):
+#     roc_Sum = 0.0
+#     pr_Sum = 0.0
+#     for row in fine_rnds:
+#         # if (row[2] == 'Sec'):
+#         #     results.append(row)
+#         #     f.write('{1},{3} \n'.format(*row))
+#
+#         if(row[0] == i):
+#             roc_Sum += row[2]
+#             pr_Sum += row[3]
+#     f.write('{0},{1},{2} \n'.format(i,(roc_Sum/10.0),(pr_Sum/10.0)))
+#
+#
+# f.close()

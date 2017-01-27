@@ -12,6 +12,7 @@ from sklearn.metrics import average_precision_score
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
+from sklearn.metrics import accuracy_score
 import time
 
 
@@ -84,8 +85,8 @@ print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',i
 
 
 ##### Iterate through fold list for fine
-fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-#fold_list = [1]
+#fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+fold_list = [1]
 results_fine = []
 for testFold in fold_list:
     print("fine fold" + str(testFold))
@@ -104,6 +105,7 @@ for testFold in fold_list:
     print("y_train shape:"+str(y_train.shape))
 
     y_trainSets = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
+    #y_trainSets = {1: []}
     for cls in sorted(y_trainSets):
         for i in y_train:
             if( i == cls):
@@ -111,39 +113,106 @@ for testFold in fold_list:
             else:
                 y_trainSets[cls].append(0.)
 
+    #### Scale dataset
+    min_max_scaler = preprocessing.MinMaxScaler()
+    X_train = min_max_scaler.fit_transform(X_trainPreScale)
+
+
+
+    # scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
+    # X_trainFull = scaler.transform(X_trainPreScale)
+    # X_train = X_trainFull
+
+
+
+    # selector = SelectPercentile(f_classif, percentile=75)
+    # selector.fit(X_trainFull, y_train)
+    # X_train = selector.transform(X_trainFull)
 
     for cls in sorted(y_trainSets):
         print("train fine cls: "+str(cls))
         y_train = y_trainSets[cls]
 
-        #### Scale dataset
-        scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
-        X_trainFull = scaler.transform(X_trainPreScale)
-        selector = SelectPercentile(f_classif, percentile=75)
-        selector.fit(X_trainFull, y_train)
-        X_train = selector.transform(X_trainFull)
+
 
 
         ##### Train classifier for fine
-        classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=False, cache_size=8192,
-                             decision_function_shape='ovr', verbose=False)
+        classifier = svm.SVC(kernel='sigmoid', C=10.0, cache_size=8192)
+
+        # classifier = svm.SVC(C=100.0, kernel='linear', probability=False, cache_size=8192,
+        #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
+        #                      tol=0.00001, shrinking=True)
+
+
+        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
+        #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
+        #                      gamma=0.4, tol=0.001, shrinking=True)
+
+
+
+        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
+        #                      decision_function_shape='ovo', verbose=False,class_weight={0:1,1:1000},
+        #                      gamma=0.0025,tol=0.001,shrinking=True)
+        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
+        #                      decision_function_shape='ovo', verbose=False,class_weight={1: 15},
+        #                      gamma=0.0025,tol=0.001,shrinking=True)
+        # classifier = svm.SVC(C=36.951, kernel='poly', degree=6, probability=False, cache_size=8192,
+        #                      decision_function_shape='ovo', verbose=False,class_weight='balanced',gamma=0.003)
+        # classifier = svm.SVC(C=100.0,class_weight='balanced', kernel='poly', degree=3, probability=False, cache_size=8192,
+        #                      decision_function_shape='ovr', verbose=False,gamma=0.01)
+        # classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=False, cache_size=8192,
+        #                      decision_function_shape='ovr', verbose=False)
+        # classifier = svm.SVC(C=2.0, class_weight='balanced',kernel='rbf', probability=False,
+        #  cache_size=8192, decision_function_shape='ovr', verbose=False,tol=0.001,gamma=0.75)
+        # classifier = svm.SVC(C=10.0, class_weight='balanced', kernel='poly', degree=6, probability=False,
+        #                      cache_size=8192, decision_function_shape='ovo', verbose=False)
         clf = classifier.fit(X_train, y_train)
         joblib.dump(clf, 'fine_models/fine_fold_' + str(testFold) + '_'+str(cls)+'.pkl')
         # clf = joblib.load('fine_models/fine_fold_' + str(testFold) + '_'+str(cls)+'.pkl')
+        score = clf.score(X_train,y_train)
+        print(score)
+        y_pred = clf.predict(X_train)
+        print(confusion_matrix(y_train, y_pred))
+
+        #### Create test set for fine
+        data_test = np.asarray(fine_folds[testFold])
+        y_test,X_testPreScale = data_test[:,0], data_test[:,1:data_test.shape[1]]
+
+        X_test = min_max_scaler.transform(X_testPreScale)
+
+        # X_testFull = scaler.transform(X_testPreScale)
+        # X_test = X_testFull
+        #
+        #X_test = selector.transform(X_testFull)
+        y_testCoarse = []
+        for i in y_test:
+            if i == cls:
+                y_testCoarse.append(1.)
+            else:
+                y_testCoarse.append(0.)
+
+        score = clf.score(X_test, y_testCoarse)
+        print(score)
+        y_pred = clf.predict(X_test)
+        print(confusion_matrix(y_testCoarse, y_pred))
+
 
 
 
     ##### Create test set for fine
     data_test = np.asarray(fine_folds[testFold])
     y_test,X_testPreScale = data_test[:,0], data_test[:,1:data_test.shape[1]]
-    X_testFull = scaler.transform(X_testPreScale)
-    X_test = selector.transform(X_testFull)
+    X_test = min_max_scaler.transform(X_testPreScale)
+    # X_testFull = scaler.transform(X_testPreScale)
+    # X_test = X_testFull
+    #
+    #X_test = selector.transform(X_testFull)
     y_testCoarse = []
     for i in y_test:
         if i > 0:
             y_testCoarse.append(1.)
         else:
-            y_testCoarse.append(i)
+            y_testCoarse.append(0.)
 
     y_score = []
     for i in range(1,9):
@@ -157,6 +226,8 @@ for testFold in fold_list:
         else:
             y_score = np.hstack((y_score,y_preScore))
 
+
+
     #print("y_score shape:"+str(y_score.shape))
     #print(y_score[0:16])
 
@@ -167,14 +238,25 @@ for testFold in fold_list:
         nums = list(map(float, nums))
         maxFine = max(nums)
         y_scoreTmp.append(maxFine)
-    y_pred = np.asarray(y_scoreTmp)
-    #print(y_pred)
+    y_pred_score = np.asarray(y_scoreTmp)
+
+
+    y_pred = []
+    for inst in y_pred_score:
+        if (inst > 0.0):
+            y_pred.append(1.)
+        else:
+            y_pred.append(0.)
+    print("cumulative")
+    print(confusion_matrix(y_testCoarse, y_pred))
+    print(accuracy_score(y_testCoarse, y_pred))
+
 
     ##### Print this folds roc_auc for fine
     fpr = dict()
     tpr = dict()
     roc_auc = dict()
-    fpr[1], tpr[1], thresholds = roc_curve(y_testCoarse, y_pred)
+    fpr[1], tpr[1], thresholds = roc_curve(y_testCoarse, y_pred_score)
     roc_auc[1] = auc(fpr[1], tpr[1])
     # Plot of a ROC curve
     plt.figure()
@@ -193,8 +275,8 @@ for testFold in fold_list:
     precision = dict()
     recall = dict()
     average_precision = dict()
-    precision[1], recall[1], _ = precision_recall_curve(y_testCoarse, y_pred)
-    average_precision[1] = average_precision_score(y_testCoarse, y_pred)
+    precision[1], recall[1], _ = precision_recall_curve(y_testCoarse, y_pred_score)
+    average_precision[1] = average_precision_score(y_testCoarse, y_pred_score)
     # Plot Precision-Recall curve
     plt.clf()
     plt.plot(recall[1], precision[1], label='Precision-Recall curve')
@@ -223,7 +305,7 @@ f.close()
 
 
 print('Round {0}: {1} seconds'.format('fine',round(time.perf_counter() - start_time, 2)))
-#### Round fine: 228.18 seconds
+#### Round fine: 579.31 seconds
 
 
 

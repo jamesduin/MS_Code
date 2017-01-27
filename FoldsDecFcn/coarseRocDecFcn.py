@@ -12,6 +12,7 @@ from sklearn.metrics import average_precision_score
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
+from sklearn.metrics import accuracy_score
 import time
 
 
@@ -56,10 +57,13 @@ for i in sorted(classes_all):
         if partitionCounter > 10:
             partitionCounter = 1
 
+for i in sorted(coarse_folds):
+    np.random.shuffle(coarse_folds[i])
 
 
 #####  Iterate through fold list for coarse
 fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#fold_list = [1]
 results_coarse =[]
 for testFold in fold_list:
     print("coarse fold"+str(testFold))
@@ -83,27 +87,52 @@ for testFold in fold_list:
             y_trainCoarse.append(i)
 
     #### scale dataset
-    scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
-    X_trainFull = scaler.transform(X_trainPreScale);
-    selector = SelectPercentile(f_classif, percentile=75);
-    selector.fit(X_trainFull, y_trainCoarse);
-    X_train = selector.transform(X_trainFull);
+    min_max_scaler = preprocessing.MinMaxScaler()
+    X_train = min_max_scaler.fit_transform(X_trainPreScale)
+
+    # scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
+    # X_trainFull = scaler.transform(X_trainPreScale);
+    # X_train = X_trainFull
+
+    # selector = SelectPercentile(f_classif, percentile=75);
+    # selector.fit(X_trainFull, y_trainCoarse);
+    # X_train = selector.transform(X_trainFull);
 
     ##### Create test set for coarse
     data_test = np.asarray(coarse_folds[testFold])
     y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
-    X_testFull = scaler.transform(X_testPreScale);
-    X_test = selector.transform(X_testFull);
+    X_test = min_max_scaler.transform(X_testPreScale)
+
+    # X_testFull = scaler.transform(X_testPreScale);
+    # X_test = X_testFull
+
+    #X_test = selector.transform(X_testFull);
     y_testCoarse = []
     for i in y_test:
         if i > 0:
             y_testCoarse.append(1.)
         else:
-            y_testCoarse.append(i)
+            y_testCoarse.append(0.)
 
 
     ##### Train classifier for coarse
-    classifier = svm.SVC(C=10.0, kernel='poly',degree=3, probability=False, cache_size=8192,decision_function_shape='ovr', verbose=False)
+
+    classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
+                         decision_function_shape='ovo', verbose=False, class_weight='balanced',
+                         gamma=0.4, tol=0.001, shrinking=True)
+
+    # classifier = svm.SVC(C=10.0, kernel='rbf', probability=False, cache_size=8192,
+    #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
+    #                      gamma=0.5, tol=0.001, shrinking=True)
+
+    # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
+    #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
+    #                      gamma=0.0025, tol=0.001, shrinking=True)
+
+    # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
+    #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
+    #                      gamma=0.0025, tol=0.00001)
+    #classifier = svm.SVC(C=10.0, kernel='poly',degree=3, probability=False, cache_size=8192,decision_function_shape='ovr', verbose=False)
     clf = classifier.fit(X_train,y_trainCoarse)
     joblib.dump(clf,'coarse_models/coarse_fold_'+str(testFold)+'.pkl')
     #clf = joblib.load('coarse_models/coarse_fold_'+str(testFold)+'.pkl')
@@ -119,6 +148,9 @@ for testFold in fold_list:
             y_predCoarse.append(i)
 
     y_score = clf.decision_function(X_test)
+    print("cumulative")
+    print(confusion_matrix(y_testCoarse, y_predCoarse))
+    print(accuracy_score(y_testCoarse, y_predCoarse))
 
     ###### Print this folds roc_auc for coarse
     fpr = dict()
