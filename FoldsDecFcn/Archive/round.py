@@ -24,7 +24,7 @@ fine_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 #### store totals
 totals = []
 for i in sorted(classes_all):
-    with open("../data/classes/class_" + str(i)) as f:
+    with open("../data/classes_part/class_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))

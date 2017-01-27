@@ -8,14 +8,14 @@ classes = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 # data = []
 # partition_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # for x in partition_list:
-#     partition = np.loadtxt("../data/classes/class_" + str(x))
+#     partition = np.loadtxt("../data/classes_part/class_" + str(x))
 #     if data == []:
 #         data = partition
 #     else:
 #         data = np.vstack((partition, data))
 
 for eachClass in sorted(classes):
-    classes[eachClass] = np.loadtxt("../data/classes/class_" + str(eachClass))
+    classes[eachClass] = np.loadtxt("../data/classes_part/class_" + str(eachClass))
     np.random.shuffle(classes[eachClass])
     partitionCounter = int(np.floor(np.random.random_sample()*10)+1)
     for instance in classes[eachClass]:

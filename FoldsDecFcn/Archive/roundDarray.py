@@ -19,7 +19,7 @@ classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 
 totals = []
 for i in sorted(classes_all):
-    with open("../data/classes/class_" + str(i)) as f:
+    with open("../data/classes_part/class_" + str(i)) as f:
         for line in f:
             classes_all[i].append(line.split())
             #print(line.split())
