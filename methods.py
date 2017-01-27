@@ -12,6 +12,7 @@ from sklearn.metrics import average_precision_score
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
+from sklearn import linear_model
 import time
 
 
@@ -34,6 +35,8 @@ def createFolds(set, folds):
             partitionCounter += 1
             if partitionCounter > 10:
                 partitionCounter = 1
+        for i in sorted(folds):
+            np.random.shuffle(folds[i])
 
 
 def iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse):
@@ -47,50 +50,43 @@ def iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse):
         partition_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         partition_list.remove(testFold)
         for x in partition_list:
-            # partition = np.loadtxt("../data/partition_"+str(x))
-            # partition = np.loadtxt(coarse_folds[x])
             partition = np.asarray(coarse_folds[x])
             if data == []:
                 data = partition
             else:
                 data = np.vstack((partition, data))
-                # print(str(x)+"=>" +str(data.shape))
-        # print(data.shape)
+
         y_train, X_trainPreScale = data[:, 0], data[:, 1:data.shape[1]]
-        # print(y_train)
-        # print(X_trainPreScale)
         y_trainCoarse = []
         for i in y_train:
             if i > 0:
                 y_trainCoarse.append(1.)
             else:
                 y_trainCoarse.append(i)
-        # print("print(y_trainCoarse)")
-        # print(y_trainCoarse)
+
+
 
         #### scale dataset
-        scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
-        X_trainFull = scaler.transform(X_trainPreScale);
-        selector = SelectPercentile(f_classif, percentile=75);
-        selector.fit(X_trainFull, y_trainCoarse);
-        X_train = selector.transform(X_trainFull);
+        min_max_scaler = preprocessing.MinMaxScaler()
+        X_train = min_max_scaler.fit_transform(X_trainPreScale)
 
         ##### Create test set for coarse
-        # data_test = np.loadtxt("../data/partition_" + str(testFold))
         data_test = np.asarray(coarse_folds[testFold])
         y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
-        X_testFull = scaler.transform(X_testPreScale);
-        X_test = selector.transform(X_testFull);
+        X_test = min_max_scaler.transform(X_testPreScale)
+
         y_testCoarse = []
         for i in y_test:
             if i > 0:
                 y_testCoarse.append(1.)
             else:
-                y_testCoarse.append(i)
+                y_testCoarse.append(0.)
 
         ##### Train classifier for coarse
-        classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=True, cache_size=8192,
-                             decision_function_shape='ovr', verbose=False)
+        classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
+                                                     fit_intercept=False, intercept_scaling=1, class_weight={1: 30},
+                                                     solver='liblinear',
+                                                     max_iter=1000, n_jobs=-1)
         clf = classifier.fit(X_train, y_trainCoarse)
         joblib.dump(clf, 'coarse_models/rnd'+str(rndNum)+'_coarse_fold_' + str(testFold) + '.pkl')
         # clf = joblib.load('coarse_models/rnd1_coarse_fold_'+str(testFold)+'.pkl')
@@ -103,23 +99,11 @@ def iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse):
                 y_predCoarse.append(1.)
             else:
                 y_predCoarse.append(i)
-        # Compute confusion matrix
-        # cm = confusion_matrix(y_testCoarse, y_predCoarse)
-        # np.set_printoptions(precision=2)
-        # print('Confusion matrix, without normalization')
-        # print(cm)
-        # print('Precision / Recall')
-        # print(precision_score(y_testCoarse, y_predCoarse, average='binary'))
-        # print(recall_score(y_testCoarse, y_predCoarse, average='binary'))
-        y_prob = clf.predict_log_proba(X_test)
-        # print(y_prob.shape)
-        y_score = []
-        for i in range(0, y_prob.shape[0]):
-            # print(y_prob[i,:])
-            maxVal = max(y_prob[i, :])
-            if maxVal == y_prob[i, 0]:
-                maxVal = 0.
-            y_score.append(maxVal - y_prob[i, 0])
+
+        y_score = clf.decision_function(X_test)
+
+
+
 
         ###### Print this folds roc_auc for coarse
         fpr = dict()
@@ -184,75 +168,74 @@ def iterateFoldsFine(rndNum,fine_folds,rnd_results_fine):
         partition_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         partition_list.remove(testFold)
         for x in partition_list:
-            # partition = np.loadtxt("../data/partition_"+str(x))
             partition = np.asarray(fine_folds[x])
             if data == []:
                 data = partition
             else:
                 data = np.vstack((partition, data))
-                # print(str(x)+"=>" +str(data.shape))
-        # print(data.shape)
         y_train, X_trainPreScale = data[:, 0], data[:, 1:data.shape[1]]
 
+        y_trainSets = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+        for cls in sorted(y_trainSets):
+            for i in y_train:
+                if (i == cls):
+                    y_trainSets[cls].append(1.)
+                else:
+                    y_trainSets[cls].append(0.)
+
         #### Scale dataset
-        scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
-        X_trainFull = scaler.transform(X_trainPreScale);
-        selector = SelectPercentile(f_classif, percentile=75);
-        selector.fit(X_trainFull, y_train);
-        X_train = selector.transform(X_trainFull);
+        min_max_scaler = preprocessing.MinMaxScaler()
+        X_train = min_max_scaler.fit_transform(X_trainPreScale)
+
+        for cls in sorted(y_trainSets):
+            y_train = y_trainSets[cls]
+
+            ##### Train classifier for fine
+            classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
+                                                         fit_intercept=False, intercept_scaling=1, class_weight={1: 30},
+                                                         solver='liblinear',
+                                                         max_iter=1000, n_jobs=-1)
+
+            clf = classifier.fit(X_train, y_train)
+            joblib.dump(clf, 'fine_models/rnd'+str(rndNum)+'fine_fold_' + str(testFold) + '_' + str(cls) + '.pkl')
+            # clf = joblib.load('fine_models/rnd'+str(rndNum)+'fine_fold_' + str(testFold) + '_'+str(cls)+'.pkl')
 
         ##### Create test set for fine
-        # data_test = np.loadtxt("../data/partition_"+str(testFold))
         data_test = np.asarray(fine_folds[testFold])
-        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
-        X_testFull = scaler.transform(X_testPreScale);
-        X_test = selector.transform(X_testFull);
+        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
+        X_test = min_max_scaler.transform(X_testPreScale)
         y_testCoarse = []
         for i in y_test:
             if i > 0:
                 y_testCoarse.append(1.)
             else:
-                y_testCoarse.append(i)
+                y_testCoarse.append(0.)
 
-        ##### Train classifier for fine
-        classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=True, cache_size=8192,
-                             decision_function_shape='ovr',
-                             verbose=False)
-        clf = classifier.fit(X_train, y_train)
-        joblib.dump(clf, 'fine_models/rnd'+str(rndNum)+'_fine_fold_' + str(testFold) + '.pkl')
-        # clf = joblib.load('fine_models/rnd1_fine_fold_'+str(testFold)+'.pkl')
-        y_pred = clf.predict(X_test);
+        y_score = []
+        for i in range(1, 9):
+            clf = joblib.load('fine_models/rnd'+str(rndNum)+'fine_fold_' + str(testFold) + '_'+str(cls)+'.pkl')
+            y_preScore = clf.decision_function(X_test)
+            y_preScore = y_preScore.reshape(y_preScore.shape[0], 1)
+            if (len(y_score) == 0):
+                y_score = y_preScore
+            else:
+                y_score = np.hstack((y_score, y_preScore))
 
         ##### Predict test set for fine
-        y_predCoarse = []
-        for i in y_pred:
-            if i > 0:
-                y_predCoarse.append(1.)
-            else:
-                y_predCoarse.append(i)
-        # Compute confusion matrix
-        # cm = confusion_matrix(y_testCoarse, y_predCoarse)
-        # np.set_printoptions(precision=2)
-        # print('Confusion matrix, without normalization')
-        # print(cm)
-        # print('Precision / Recall')
-        # print(precision_score(y_testCoarse, y_predCoarse, average='binary'))
-        # print(recall_score(y_testCoarse, y_predCoarse, average='binary'))
-        y_prob = clf.predict_log_proba(X_test)
-        # print(y_prob.shape)
-        y_score = []
-        for i in range(0, y_prob.shape[0]):
-            # print(y_prob[i,:])
-            maxVal = max(y_prob[i, :])
-            if maxVal == y_prob[i, 0]:
-                maxVal = 0.
-            y_score.append(maxVal - y_prob[i, 0])
+        y_scoreTmp = []
+        for i, score in enumerate(y_score):
+            nums = y_score[i]
+            nums = list(map(float, nums))
+            maxFine = max(nums)
+            y_scoreTmp.append(maxFine)
+        y_pred_score = np.asarray(y_scoreTmp)
+
 
         ##### Print this folds roc_auc for fine
         fpr = dict()
         tpr = dict()
         roc_auc = dict()
-        fpr[1], tpr[1], thresholds = roc_curve(y_testCoarse, y_score)
+        fpr[1], tpr[1], thresholds = roc_curve(y_testCoarse, y_pred_score)
         roc_auc[1] = auc(fpr[1], tpr[1])
         # Plot of a ROC curve
         plt.figure()
@@ -273,8 +256,8 @@ def iterateFoldsFine(rndNum,fine_folds,rnd_results_fine):
         precision = dict()
         recall = dict()
         average_precision = dict()
-        precision[1], recall[1], _ = precision_recall_curve(y_testCoarse, y_score)
-        average_precision[1] = average_precision_score(y_testCoarse, y_score)
+        precision[1], recall[1], _ = precision_recall_curve(y_testCoarse, y_pred_score)
+        average_precision[1] = average_precision_score(y_testCoarse, y_pred_score)
         # Plot Precision-Recall curve
         plt.clf()
         plt.plot(recall[1], precision[1], label='Precision-Recall curve')

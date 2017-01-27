@@ -26,7 +26,7 @@ rnd_results_fine = []
 #### store totals
 totals = []
 for i in sorted(classes_all):
-    with open("data/classes_part/class_" + str(i)) as f:
+    with open("data/classes/class_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -36,30 +36,69 @@ for i in sorted(classes_all):
 tot = np.array(totals)
 totVect = tot/np.sum(tot)
 
-
-#### randomly add 36 to starter coarse set
-coarseStart = np.ceil(totVect*30)
-print(coarseStart)
-print("Sum coarseStart => "+str(np.sum(coarseStart)))
+print("//////////////// Classes ////////////////")
+instanceCount = 0
 for i in sorted(classes_all):
-    for j in range(int(coarseStart[i])):
-        coarse_set[i].append(classes_all[i].pop(j))
+    instanceCount += len(classes_all[i])
+    print(str(i)+","+str(len(classes_all[i])) )
+print( "Total => " + str(instanceCount) )
 
-#### randomly add 74 to starter fine set
-fineStart = np.ceil(totVect*70)
-print(fineStart)
-print("Sum fineStart => "+str(np.sum(fineStart)))
+
+#### randomly add to starter sets
+#coarseStart = np.ceil(totVect*100)
+start = [30,10,11,11,11,10,10,10,10]
+print(start)
+print("Sum start => "+str(np.sum(start)))
 for i in sorted(classes_all):
-    for j in range(int(fineStart[i])):
-        fine_set[i].append(classes_all[i].pop(j))
+    for j in range(int(start[i])):
+        inst = classes_all[i].pop()
+        coarse_set[i].append(inst)
+        fine_set[i].append(inst)
 
 coarse_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
 fine_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
+
 ##### Create folds for coarse set
 m.createFolds(coarse_set, coarse_folds)
 
 ##### Create folds for fine set
 m.createFolds(fine_set, fine_folds)
+
+
+print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Coarse','Folds',0,1,2,3,4,5,6,7,8))
+instanceCount = 0
+classCountTot = [0,0,0,0,0,0,0,0,0]
+for i in sorted(coarse_folds):
+    classCount = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    instanceCount += len(coarse_folds[i])
+    for inst in coarse_folds[i]:
+        classCountTot[int(inst[0])]+=1
+        classCount[int(inst[0])] += 1
+    classCount = [i] + [len(coarse_folds[i])] + classCount
+    print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
+
+print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',instanceCount,*classCountTot))
+
+
+
+print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Fine','Folds',0,1,2,3,4,5,6,7,8))
+instanceCount = 0
+classCountTot = [0,0,0,0,0,0,0,0,0]
+for i in sorted(fine_folds):
+    classCount = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    instanceCount += len(fine_folds[i])
+    for inst in fine_folds[i]:
+        classCountTot[int(inst[0])]+=1
+        classCount[int(inst[0])] += 1
+    classCount = [i] + [len(fine_folds[i])] + classCount
+    print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
+
+print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',instanceCount,*classCountTot))
+
+
+
+
+
 
 rndNum = 1
 
@@ -75,7 +114,7 @@ rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf
 
 
 
-for rndNum in range(2,21):
+for rndNum in range(2,2):
     start_time = time.perf_counter()
 
     ##### determine worst fold
