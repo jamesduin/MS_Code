@@ -13,6 +13,7 @@ from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
 from sklearn.metrics import accuracy_score
+from sklearn import linear_model
 import time
 
 
@@ -90,23 +91,13 @@ for testFold in fold_list:
     min_max_scaler = preprocessing.MinMaxScaler()
     X_train = min_max_scaler.fit_transform(X_trainPreScale)
 
-    # scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
-    # X_trainFull = scaler.transform(X_trainPreScale);
-    # X_train = X_trainFull
-
-    # selector = SelectPercentile(f_classif, percentile=75);
-    # selector.fit(X_trainFull, y_trainCoarse);
-    # X_train = selector.transform(X_trainFull);
 
     ##### Create test set for coarse
     data_test = np.asarray(coarse_folds[testFold])
     y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
     X_test = min_max_scaler.transform(X_testPreScale)
 
-    # X_testFull = scaler.transform(X_testPreScale);
-    # X_test = X_testFull
 
-    #X_test = selector.transform(X_testFull);
     y_testCoarse = []
     for i in y_test:
         if i > 0:
@@ -116,23 +107,11 @@ for testFold in fold_list:
 
 
     ##### Train classifier for coarse
+    classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.0001, C=0.1,
+                                                 fit_intercept=True, intercept_scaling=1, class_weight={1: 7},
+                                                 solver='liblinear',
+                                                 max_iter=1000, n_jobs=-1)
 
-    classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
-                         decision_function_shape='ovo', verbose=False, class_weight='balanced',
-                         gamma=0.4, tol=0.001, shrinking=True)
-
-    # classifier = svm.SVC(C=10.0, kernel='rbf', probability=False, cache_size=8192,
-    #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
-    #                      gamma=0.5, tol=0.001, shrinking=True)
-
-    # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
-    #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
-    #                      gamma=0.0025, tol=0.001, shrinking=True)
-
-    # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
-    #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
-    #                      gamma=0.0025, tol=0.00001)
-    #classifier = svm.SVC(C=10.0, kernel='poly',degree=3, probability=False, cache_size=8192,decision_function_shape='ovr', verbose=False)
     clf = classifier.fit(X_train,y_trainCoarse)
     joblib.dump(clf,'coarse_models/coarse_fold_'+str(testFold)+'.pkl')
     #clf = joblib.load('coarse_models/coarse_fold_'+str(testFold)+'.pkl')
@@ -209,58 +188,6 @@ f.close()
 
 
 print('Round {0}: {1} seconds'.format('coarse',round(time.perf_counter() - start_time, 2)))
-
-
-
-
-
-
-
-
-
-
-#
-# ###### run confidence estimate for coarse
-# data = []
-# #class_list = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-# class_list = [1, 2, 3]
-# for x in class_list:
-#     partition = np.asarray(classes_all[x])
-#     if data == []:
-#         data = partition
-#     else:
-#         data = np.vstack((partition, data))
-#         # print(str(x)+"=>" +str(data.shape))
-# # print(data.shape)
-# y_train, X_trainPreScale = data[:, 0], data[:, 1:data.shape[1]]
-# # print(y_train)
-# # print(X_trainPreScale)
-# y_trainCoarse = []
-# for i in y_train:
-#     if i > 0:
-#         y_trainCoarse.append(1.)
-#     else:
-#         y_trainCoarse.append(i)
-#
-#
-# #### scale dataset
-# scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
-# X_trainFull = scaler.transform(X_trainPreScale);
-# selector = SelectPercentile(f_classif, percentile=75);
-# selector.fit(X_trainFull, y_trainCoarse);
-# X_train = selector.transform(X_trainFull);
-#
-#
-# rnd1_clf = joblib.load('coarse_models/rnd1_coarse_fold_1.pkl')
-# X_train_pred = clf.predict(X_train)
-# X_train_dec_fcn = clf.decision_function(X_train)
-# print('{0:10} {1:10}'.format('Predict','Dec Fcn'))
-# for i,pred in enumerate(X_train_pred):
-#     print('{0:10} {1:10}'.format(X_train_pred[i], X_train_dec_fcn[i]))
-
-
-
-
 
 
 
