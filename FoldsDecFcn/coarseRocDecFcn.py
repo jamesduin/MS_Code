@@ -107,10 +107,9 @@ for testFold in fold_list:
 
 
     ##### Train classifier for coarse
-    classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.0001, C=0.1,
-                                                 fit_intercept=True, intercept_scaling=1, class_weight={1: 7},
-                                                 solver='liblinear',
-                                                 max_iter=1000, n_jobs=-1)
+    classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
+                         decision_function_shape='ovo', verbose=False, class_weight='balanced',
+                         gamma=0.4, tol=0.001, shrinking=True)
 
     clf = classifier.fit(X_train,y_trainCoarse)
     joblib.dump(clf,'coarse_models/coarse_fold_'+str(testFold)+'.pkl')
