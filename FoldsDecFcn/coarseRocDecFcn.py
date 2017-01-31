@@ -63,8 +63,8 @@ for i in sorted(coarse_folds):
 
 
 #####  Iterate through fold list for coarse
-fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-#fold_list = [1]
+#fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+fold_list = [1]
 results_coarse =[]
 for testFold in fold_list:
     print("coarse fold"+str(testFold))
@@ -80,6 +80,7 @@ for testFold in fold_list:
             data = np.vstack((partition, data))
 
     y_train,X_trainPreScale = data[:,0], data[:,1:data.shape[1]]
+
     y_trainCoarse = []
     for i in y_train:
         if i > 0:

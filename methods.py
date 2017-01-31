@@ -56,7 +56,7 @@ def iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse):
             else:
                 data = np.vstack((partition, data))
 
-        y_train, X_trainPreScale = data[:, 0], data[:, 1:data.shape[1]]
+        y_train, X_train = data[:, 0], data[:, 1:data.shape[1]]
         y_trainCoarse = []
         for i in y_train:
             if i > 0:
@@ -64,16 +64,9 @@ def iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse):
             else:
                 y_trainCoarse.append(i)
 
-
-
-        #### scale dataset
-        min_max_scaler = preprocessing.MinMaxScaler()
-        X_train = min_max_scaler.fit_transform(X_trainPreScale)
-
         ##### Create test set for coarse
         data_test = np.asarray(coarse_folds[testFold])
-        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
-        X_test = min_max_scaler.transform(X_testPreScale)
+        y_test, X_test = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
 
         y_testCoarse = []
         for i in y_test:
@@ -89,7 +82,7 @@ def iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse):
                                                      max_iter=1000, n_jobs=-1)
         clf = classifier.fit(X_train, y_trainCoarse)
         joblib.dump(clf, 'coarse_models/rnd'+str(rndNum)+'_coarse_fold_' + str(testFold) + '.pkl')
-        # clf = joblib.load('coarse_models/rnd1_coarse_fold_'+str(testFold)+'.pkl')
+        # clf = joblib.load('coarse_models/rnd'+str(rndNum)+'_coarse_fold_' + str(testFold) + '.pkl')
         y_pred = clf.predict(X_test);
 
         ##### Predict test set for coarse
@@ -101,8 +94,6 @@ def iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse):
                 y_predCoarse.append(i)
 
         y_score = clf.decision_function(X_test)
-
-
 
 
         ###### Print this folds roc_auc for coarse
@@ -173,7 +164,7 @@ def iterateFoldsFine(rndNum,fine_folds,rnd_results_fine):
                 data = partition
             else:
                 data = np.vstack((partition, data))
-        y_train, X_trainPreScale = data[:, 0], data[:, 1:data.shape[1]]
+        y_train, X_train = data[:, 0], data[:, 1:data.shape[1]]
 
         y_trainSets = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
         for cls in sorted(y_trainSets):
@@ -183,9 +174,6 @@ def iterateFoldsFine(rndNum,fine_folds,rnd_results_fine):
                 else:
                     y_trainSets[cls].append(0.)
 
-        #### Scale dataset
-        min_max_scaler = preprocessing.MinMaxScaler()
-        X_train = min_max_scaler.fit_transform(X_trainPreScale)
 
         for cls in sorted(y_trainSets):
             y_train = y_trainSets[cls]
@@ -202,8 +190,7 @@ def iterateFoldsFine(rndNum,fine_folds,rnd_results_fine):
 
         ##### Create test set for fine
         data_test = np.asarray(fine_folds[testFold])
-        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
-        X_test = min_max_scaler.transform(X_testPreScale)
+        y_test, X_test = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
         y_testCoarse = []
         for i in y_test:
             if i > 0:
@@ -276,35 +263,19 @@ def iterateFoldsFine(rndNum,fine_folds,rnd_results_fine):
 
 
 
-def determineWorstFold(rnds,rndNum):
-#    print(rnds)
-    #print(rndNum)
-    results = []
-    for row in rnds:
-        if(row[0] == rndNum):
-            results.append(row)
-
-    results.sort(key=lambda x:x[2])
-    #print(results)
-    return results[0][1]
-
-
-
-
-def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,worstCoarse,worstFine,rndNum,coarseAdd,fineAdd):
-    data = []
-    class_list = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    classes_scaled = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,coarseAdd,fineAdd):
+    coarse_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
+    fine_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
     coarse_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
     fine_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+
+
 
 
     for i in sorted(classes_all):
         partition = np.asarray(classes_all[i])
         data = partition
-        y_train, X_trainPreScale = data[:, 0], data[:, 1:data.shape[1]]
-        # print(y_train)
-        # print(X_trainPreScale)
+        y_train, X_train = data[:, 0], data[:, 1:data.shape[1]]
         y_trainCoarse = []
         for i in y_train:
             if i > 0:
@@ -312,36 +283,32 @@ def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,worstCoarse,worstFi
             else:
                 y_trainCoarse.append(i)
 
-        y_Col = np.array(y_trainCoarse)[np.newaxis].T
-        #### scale dataset
-        scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
-        X_trainFull = scaler.transform(X_trainPreScale);
-        selector = SelectPercentile(f_classif, percentile=75);
-        selector.fit(X_trainFull, y_trainCoarse);
-        X_train = selector.transform(X_trainFull);
-        # print(y_Col.shape)
-        # print(X_train.shape)
-        # classes_scaled[i] = np.hstack((y_Col,X_train))
-        classes_scaled[i] = X_train
+        for i in range(1, 11):
+            coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse_fold_' + str(i) + '.pkl')
+            if(len(coarse_decFcn[i]) == 0):
+                coarse_decFcn[i] = list(coarse_clf.decision_function(X_train))
+            else:
+
         rnd_coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse_fold_'+str(worstCoarse)+'.pkl')
         coarse_decFcn[i] = list(rnd_coarse_clf.decision_function(X_train))
         rnd_fine_clf = joblib.load('fine_models/rnd' + str(rndNum) + '_fine_fold_'+str(worstFine)+'.pkl')
         fine_decFcn[i] = list(rnd_fine_clf.decision_function(X_train))
 
+
+
+
     for i in range(coarseAdd):
         most_uncert = 100
         most_cls = 0
         most_ind = 0
+
         for i in sorted(coarse_decFcn):
-            # print("class"+str(i))
-            # print(classes_decFcn[i][0:30])
             for j, inst in enumerate(coarse_decFcn[i]):
                 uncert = np.absolute(inst)
                 if (uncert < most_uncert):
                     most_cls = i
                     most_ind = j
                     most_uncert = uncert
-        # print([most_cls],[most_ind],[most_uncert])
         coarse_set[most_cls].append(classes_all[most_cls].pop(most_ind))
         del coarse_decFcn[most_cls][most_ind]
         del fine_decFcn[most_cls][most_ind]
@@ -351,8 +318,6 @@ def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,worstCoarse,worstFi
         most_cls = 0
         most_ind = 0
         for i in sorted(fine_decFcn):
-            # print("class"+str(i))
-            # print(classes_decFcn[i][0:30])
             for j, inst in enumerate(fine_decFcn[i]):
                 for eachClassEst in inst:
                     uncert = np.absolute(eachClassEst)
@@ -360,7 +325,6 @@ def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,worstCoarse,worstFi
                         most_cls = i
                         most_ind = j
                         most_uncert = uncert
-        # print([most_cls],[most_ind],[most_uncert])
         coarse_set[most_cls].append(classes_all[most_cls][most_ind])
         fine_set[most_cls].append(classes_all[most_cls].pop(most_ind))
         del coarse_decFcn[most_cls][most_ind]
