@@ -276,25 +276,46 @@ def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,coarseAdd,fi
         partition = np.asarray(classes_all[i])
         data = partition
         y_train, X_train = data[:, 0], data[:, 1:data.shape[1]]
-        y_trainCoarse = []
-        for i in y_train:
-            if i > 0:
-                y_trainCoarse.append(1.)
-            else:
-                y_trainCoarse.append(i)
 
-        for i in range(1, 11):
-            coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse_fold_' + str(i) + '.pkl')
+        for fold in range(1, 11):
+            coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse_fold_' + str(fold) + '.pkl')
+            tmp = coarse_clf.decision_function(X_train).tolist()
             if(len(coarse_decFcn[i]) == 0):
-                coarse_decFcn[i] = list(coarse_clf.decision_function(X_train))
+                coarse_decFcn[i] = tmp
             else:
+                if (type(coarse_decFcn[i][0])==float):
+                    coarse_decFcn[i] = list(map(lambda x, y: [x] + [y], coarse_decFcn[i], tmp))
+                else:
+                    coarse_decFcn[i] = list(map(lambda x, y: x+ [y], coarse_decFcn[i], tmp))
 
-        rnd_coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse_fold_'+str(worstCoarse)+'.pkl')
-        coarse_decFcn[i] = list(rnd_coarse_clf.decision_function(X_train))
-        rnd_fine_clf = joblib.load('fine_models/rnd' + str(rndNum) + '_fine_fold_'+str(worstFine)+'.pkl')
-        fine_decFcn[i] = list(rnd_fine_clf.decision_function(X_train))
+            for cls in range(1,9):
+                fine_clf = joblib.load('fine_models/rnd' + str(rndNum) + 'fine_fold_' + str(fold) + '_' + str(cls) + '.pkl')
+                tmp = fine_clf.decision_function(X_train).tolist()
+                if (len(fine_decFcn[i]) == 0):
+                    fine_decFcn[i] = tmp
+                else:
+                    if (type(fine_decFcn[i][0]) == float):
+                        fine_decFcn[i] = list(map(lambda x, y: [x] + [y], fine_decFcn[i], tmp))
+                    else:
+                        fine_decFcn[i] = list(map(lambda x, y: x + [y], fine_decFcn[i], tmp))
 
-
+    #
+    #
+    # print('{0:<10}{1:<10}'.format('coarse_decFcn', ''))
+    # instanceCount = 0
+    # for i in sorted(coarse_decFcn):
+    #     instanceCount += len(coarse_decFcn[i])
+    #     print('{0:<10}{1:<10}'.format(i, len(coarse_decFcn[i])))
+    # print('{0:<10}{1:<10}'.format('Total', instanceCount))
+    # print('Shape: {0:<10}{1:<10}\n'.format(len(coarse_decFcn[0]),len(coarse_decFcn[0][0])))
+    #
+    # print('{0:<10}{1:<10}'.format('fine_decFcn', ''))
+    # instanceCount = 0
+    # for i in sorted(fine_decFcn):
+    #     instanceCount += len(fine_decFcn[i])
+    #     print('{0:<10}{1:<10}'.format(i, len(fine_decFcn[i])))
+    # print('{0:<10}{1:<10}'.format('Total', instanceCount))
+    # print('Shape: {0:<10}{1:<10}\n'.format(len(fine_decFcn[0]), len(fine_decFcn[0][0])))
 
 
     for i in range(coarseAdd):
@@ -302,13 +323,17 @@ def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,coarseAdd,fi
         most_cls = 0
         most_ind = 0
 
-        for i in sorted(coarse_decFcn):
-            for j, inst in enumerate(coarse_decFcn[i]):
-                uncert = np.absolute(inst)
-                if (uncert < most_uncert):
-                    most_cls = i
-                    most_ind = j
-                    most_uncert = uncert
+        for cls in sorted(coarse_decFcn):
+            for index, inst in enumerate(coarse_decFcn[cls]):
+                max_est = 0.0
+                for eachClassEst in inst:
+                    est = np.absolute(eachClassEst)
+                    if (max_est < est):
+                        max_est = est
+                if(max_est<most_uncert):
+                    most_cls = cls
+                    most_ind = index
+                    most_uncert = max_est
         coarse_set[most_cls].append(classes_all[most_cls].pop(most_ind))
         del coarse_decFcn[most_cls][most_ind]
         del fine_decFcn[most_cls][most_ind]
@@ -317,14 +342,17 @@ def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,coarseAdd,fi
         most_uncert = 100
         most_cls = 0
         most_ind = 0
-        for i in sorted(fine_decFcn):
-            for j, inst in enumerate(fine_decFcn[i]):
+        for cls in sorted(fine_decFcn):
+            for index, inst in enumerate(fine_decFcn[cls]):
+                max_est = 0.0
                 for eachClassEst in inst:
-                    uncert = np.absolute(eachClassEst)
-                    if (uncert < most_uncert):
-                        most_cls = i
-                        most_ind = j
-                        most_uncert = uncert
+                    est = np.absolute(eachClassEst)
+                    if (max_est < est):
+                        max_est = est
+                if (max_est < most_uncert):
+                    most_cls = cls
+                    most_ind = index
+                    most_uncert = max_est
         coarse_set[most_cls].append(classes_all[most_cls][most_ind])
         fine_set[most_cls].append(classes_all[most_cls].pop(most_ind))
         del coarse_decFcn[most_cls][most_ind]
