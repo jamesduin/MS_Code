@@ -12,6 +12,8 @@ from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
 from sklearn.metrics import accuracy_score
 from sklearn import linear_model
+from sklearn import preprocessing
+from sklearn.feature_selection import SelectKBest,chi2,SelectPercentile,f_classif
 import time
 
 
@@ -24,7 +26,8 @@ fine_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 #### store totals
 totals = []
 for i in sorted(classes_all):
-    with open("../data/classes_subsetscld/class_subsetscld" + str(i)) as f:
+    #with open("../data/classes_subsetscld/class_subsetscld" + str(i)) as f:
+    with open("../data/classes_subset/class_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -100,7 +103,7 @@ for testFold in fold_list:
             data = partition
         else:
             data = np.vstack((partition, data))
-    y_train,X_train = data[:,0], data[:,1:data.shape[1]]
+    y_train,X_trainPreScale = data[:,0], data[:,1:data.shape[1]]
 
     print("y_train shape:"+str(y_train.shape))
 
@@ -112,10 +115,21 @@ for testFold in fold_list:
             else:
                 y_trainSets[cls].append(0.)
 
-
+    y_scalers = []
+    y_selectors = []
     for cls in sorted(y_trainSets):
         print("train fine cls: "+str(cls))
         y_train = y_trainSets[cls]
+
+        #### scale dataset
+        scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
+        y_scalers.append(scaler)
+        X_trainFull = scaler.transform(X_trainPreScale);
+        selector = SelectPercentile(f_classif, percentile=75);
+        selector.fit(X_trainFull, y_train);
+        y_selectors.append(selector)
+        X_train = selector.transform(X_trainFull);
+
 
         ##### Train classifier for fine
         classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=False, cache_size=8192,
@@ -138,7 +152,9 @@ for testFold in fold_list:
 
         #### Create test set for fine
         data_test = np.asarray(fine_folds[testFold])
-        y_test,X_test = data_test[:,0], data_test[:,1:data_test.shape[1]]
+        y_test,X_testPreScale = data_test[:,0], data_test[:,1:data_test.shape[1]]
+        X_testFull = scaler.transform(X_testPreScale);
+        X_test = selector.transform(X_testFull);
 
         y_testCoarse = []
         for i in y_test:
@@ -155,18 +171,25 @@ for testFold in fold_list:
 
 
 
-    ##### Create test set for fine
-    data_test = np.asarray(fine_folds[testFold])
-    y_test,X_test = data_test[:,0], data_test[:,1:data_test.shape[1]]
-    y_testCoarse = []
-    for i in y_test:
-        if i > 0:
-            y_testCoarse.append(1.)
-        else:
-            y_testCoarse.append(0.)
 
     y_score = []
     for i in range(1,9):
+
+
+
+        ##### Create test set for fine
+        data_test = np.asarray(fine_folds[testFold])
+        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
+        X_testFull = y_scalers[i-1].transform(X_testPreScale);
+        X_test = y_selectors[i-1].transform(X_testFull);
+        y_testCoarse = []
+        for inst in y_test:
+            if inst > 0:
+                y_testCoarse.append(1.)
+            else:
+                y_testCoarse.append(0.)
+
+
         clf = joblib.load('fine_models/fine_fold_' + str(testFold) + '_' + str(i) + '.pkl')
         y_preScore = clf.decision_function(X_test)
         y_preScore = y_preScore.reshape(y_preScore.shape[0], 1)

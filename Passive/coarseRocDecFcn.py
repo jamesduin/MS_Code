@@ -12,6 +12,8 @@ from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
 from sklearn.metrics import accuracy_score
 from sklearn import linear_model
+from sklearn import preprocessing
+from sklearn.feature_selection import SelectKBest,chi2,SelectPercentile,f_classif
 import time
 
 
@@ -24,7 +26,7 @@ fine_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 #### store totals
 totals = []
 for i in sorted(classes_all):
-    with open("../data/classes_subsetscld/class_subsetscld" + str(i)) as f:
+    with open("../data/classes_subset/class_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -77,7 +79,8 @@ for testFold in fold_list:
         else:
             data = np.vstack((partition, data))
 
-    y_train,X_train = data[:,0], data[:,1:data.shape[1]]
+    y_train,X_trainPreScale = data[:,0], data[:,1:data.shape[1]]
+
 
     y_trainCoarse = []
     for i in y_train:
@@ -86,10 +89,19 @@ for testFold in fold_list:
         else:
             y_trainCoarse.append(i)
 
+    #### scale dataset
+    scaler = preprocessing.StandardScaler().fit(X_trainPreScale);
+    X_trainFull = scaler.transform(X_trainPreScale);
+    selector = SelectPercentile(f_classif, percentile=75);
+    selector.fit(X_trainFull, y_trainCoarse);
+    X_train = selector.transform(X_trainFull);
+
+
     ##### Create test set for coarse
     data_test = np.asarray(coarse_folds[testFold])
-    y_test, X_test = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
-
+    y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
+    X_testFull = scaler.transform(X_testPreScale);
+    X_test = selector.transform(X_testFull);
     y_testCoarse = []
     for i in y_test:
         if i > 0:
