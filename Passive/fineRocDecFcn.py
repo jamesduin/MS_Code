@@ -24,11 +24,12 @@ fine_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 #### store totals
 totals = []
 for i in sorted(classes_all):
-    with open("../data/classes_scaled/class_scaled" + str(i)) as f:
+    with open("../data/classes_subsetscld/class_subsetscld" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
             classes_all[i].append(nums)
+    np.random.shuffle(classes_all[i])
     totals.append(len(classes_all[i]))
 tot = np.array(totals)
 totVect = tot/np.sum(tot)
@@ -117,10 +118,15 @@ for testFold in fold_list:
         y_train = y_trainSets[cls]
 
         ##### Train classifier for fine
-        classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                     fit_intercept=False, intercept_scaling=1, class_weight={1: 30},
-                                                     solver='liblinear',
-                                                     max_iter=1000, n_jobs=-1)
+        classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=False, cache_size=8192,
+                             decision_function_shape='ovr', verbose=False)
+        # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
+        #                                              fit_intercept=False, intercept_scaling=1, class_weight={1: 30},
+        #                                              solver='liblinear',
+        #                                              max_iter=1000, n_jobs=-1)
+        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
+        #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
+        #                      gamma=0.0025, tol=0.00001, shrinking=True)
 
         clf = classifier.fit(X_train, y_train)
         joblib.dump(clf, 'fine_models/fine_fold_' + str(testFold) + '_'+str(cls)+'.pkl')

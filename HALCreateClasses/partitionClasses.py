@@ -79,12 +79,12 @@ for eachClass in sorted(classes):
 
 # partitionStarter = {0:1,1:8,2:1,3:6,4:1,5:10,6:1,7:1,8:5}
 #
-# for eachClass in sorted(classes_part):
-#     np.random.shuffle(classes_part[eachClass])
+# for eachClass in sorted(classes_subset):
+#     np.random.shuffle(classes_subset[eachClass])
 #     if eachClass == 0:
 #         partitionCounter = partitionStarter[eachClass]
 #         instCount = 1
-#         for instance in classes_part[eachClass]:
+#         for instance in classes_subset[eachClass]:
 #             if instCount <= 3827:
 #                 partitions[partitionCounter].append(instance)
 #                 instCount += 1
@@ -94,7 +94,7 @@ for eachClass in sorted(classes):
 #     else:
 #         #partitionCounter = int(np.floor(np.random.random_sample()*10)+1)
 #         partitionCounter = partitionStarter[eachClass]
-#         for instance in classes_part[eachClass]:
+#         for instance in classes_subset[eachClass]:
 #             partitions[partitionCounter].append(instance)
 #             partitionCounter+=1
 #             if partitionCounter > 10:
@@ -114,9 +114,9 @@ for eachClass in sorted(classes):
 #
 # print("//////////////// CLASSES ////////////////")
 # instClassCnt = 0
-# for eachClass in sorted(classes_part):
-#     instClassCnt += len(classes_part[eachClass])
-#     print(str(eachClass)+","+str(len(classes_part[eachClass])) )
+# for eachClass in sorted(classes_subset):
+#     instClassCnt += len(classes_subset[eachClass])
+#     print(str(eachClass)+","+str(len(classes_subset[eachClass])) )
 # print( "Total => " + str(instClassCnt) )
 #
 # print("//////////////// PARTITIONS ////////////////")

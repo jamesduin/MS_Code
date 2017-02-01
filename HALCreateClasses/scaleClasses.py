@@ -19,7 +19,7 @@ def printDataInstance(instance):
 
 
 for i in sorted(classes_PreScale):
-    with open("classes/class_" + str(i)) as f:
+    with open("classes_subset/class_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -61,8 +61,8 @@ print('{0:<10}{1:<10}\n'.format('Total', instanceCount))
 
 for eachClass in sorted(classes):
     np.random.shuffle(classes[eachClass])
-    f = open('classes_scaled/class_scaled' + str(eachClass), 'w')
-    count = 1
+    f = open('classes_subsetscld/class_subsetscld' + str(eachClass), 'w')
+    count = 0
     for instance in classes[eachClass]:
         printDataInstance(instance)
         count += 1
