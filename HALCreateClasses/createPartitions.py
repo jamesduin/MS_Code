@@ -115,7 +115,7 @@ for eachFold in sorted(folds):
     print('class,count: {:<5}{:<5}'.format(eachFold, count))
     f.close()
 
-
+stdout.close()
 
 
 
