@@ -69,7 +69,7 @@ for i in sorted(classes_all):
 print('{0:<10}{1:<10}\n'.format('Total',instanceCount))
 
 
-print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Fine','Folds',0,1,2,3,4,5,6,7,8))
+print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Fine','Folds',0,1,2,3,4,5,6,7,8))
 instanceCount = 0
 classCountTot = [0,0,0,0,0,0,0,0,0]
 for i in sorted(fine_folds):
@@ -79,9 +79,9 @@ for i in sorted(fine_folds):
         classCountTot[int(inst[0])]+=1
         classCount[int(inst[0])] += 1
     classCount = [i] + [len(fine_folds[i])] + classCount
-    print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
+    print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
 
-print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',instanceCount,*classCountTot))
+print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',instanceCount,*classCountTot))
 
 
 

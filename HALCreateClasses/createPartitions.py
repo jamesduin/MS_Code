@@ -18,7 +18,7 @@ import time
 
 
 
-classes_subset = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
+classes = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 
 
@@ -34,22 +34,22 @@ def printDataInstance(instance):
 
 #### store totals
 totals = []
-for i in sorted(classes_subset):
+for i in sorted(classes):
     with open("../data/classes_subset/class_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
-            classes_subset[i].append(nums)
-    np.random.shuffle(classes_subset[i])
-    totals.append(len(classes_subset[i]))
+            classes[i].append(nums)
+    np.random.shuffle(classes[i])
+    totals.append(len(classes[i]))
 tot = np.array(totals)
 totVect = tot/np.sum(tot)
 
 
 
 ##### Create folds for coarse set
-for i in sorted(classes_subset):
-    np.random.shuffle(classes_subset[i])
+for i in sorted(classes):
+    np.random.shuffle(classes[i])
     partList = []
     for j in sorted(folds):
         partList.append((j,len(folds[j])))
@@ -60,7 +60,7 @@ for i in sorted(classes_subset):
             minVal = j[1]
             minIndex = j[0]
     partitionCounter = minIndex
-    for instance in classes_subset[i]:
+    for instance in classes[i]:
         folds[partitionCounter].append(instance)
         partitionCounter+=1
         if partitionCounter > 10:
@@ -70,18 +70,21 @@ for i in sorted(folds):
     np.random.shuffle(folds[i])
 
 
-
-
+stdout = open('partition/terminalout.txt', 'w')
+stdout.write('{0:<10}{1:<10}\n'.format('Classes', ''))
 print('{0:<10}{1:<10}'.format('Classes', ''))
 instanceCount = 0
-for i in sorted(classes_subset):
-    instanceCount += len(classes_subset[i])
-    print('{0:<10}{1:<10}'.format(i, len(classes_subset[i])))
+for i in sorted(classes):
+    instanceCount += len(classes[i])
+    stdout.write('{0:<10}{1:<10}\n'.format(i, len(classes[i])))
+    print('{0:<10}{1:<10}'.format(i, len(classes[i])))
+stdout.write('{0:<10}{1:<10}\n'.format('Total', instanceCount))
 print('{0:<10}{1:<10}\n'.format('Total', instanceCount))
 
 
 
-print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Fine','Folds',0,1,2,3,4,5,6,7,8))
+stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('Fine','Folds',0,1,2,3,4,5,6,7,8))
+print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Fine','Folds',0,1,2,3,4,5,6,7,8))
 instanceCount = 0
 classCountTot = [0,0,0,0,0,0,0,0,0]
 for i in sorted(folds):
@@ -91,9 +94,10 @@ for i in sorted(folds):
         classCountTot[int(inst[0])]+=1
         classCount[int(inst[0])] += 1
     classCount = [i] + [len(folds[i])] + classCount
-    print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
-
-print('{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',instanceCount,*classCountTot))
+    stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format(*classCount))
+    print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
+stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('Total',instanceCount,*classCountTot))
+print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',instanceCount,*classCountTot))
 
 
 
@@ -107,7 +111,8 @@ for eachFold in sorted(folds):
     for instance in folds[eachFold]:
         printDataInstance(instance)
         count += 1
-    print("class,count: %s,%s" % (eachFold,count))
+    stdout.write('class,count: {:<5}{:<5}\n'.format(eachFold,count))
+    print('class,count: {:<5}{:<5}'.format(eachFold, count))
     f.close()
 
 
