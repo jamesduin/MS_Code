@@ -15,7 +15,7 @@ classes = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 #         data = np.vstack((partition, data))
 
 for eachClass in sorted(classes):
-    classes[eachClass] = np.loadtxt("../data/classes_subset/class_" + str(eachClass))
+    classes[eachClass] = np.loadtxt("../data/classes/class_" + str(eachClass))
     np.random.shuffle(classes[eachClass])
     partitionCounter = int(np.floor(np.random.random_sample()*10)+1)
     for instance in classes[eachClass]:
