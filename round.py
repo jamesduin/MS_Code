@@ -122,7 +122,7 @@ for rndNum in range(2,100):
         if (type(result[2]) == str):
             f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
         else:
-            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{3:<10.3f} \n'.format(*result))
+            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
     f.write(str(rnd_results_coarse))
     f.close()
 
@@ -132,7 +132,7 @@ for rndNum in range(2,100):
         if (type(result[2]) == str):
             f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
         else:
-            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{3:<10.3f} \n'.format(*result))
+            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
     f.write(str(rnd_results_fine))
     f.close()
 
