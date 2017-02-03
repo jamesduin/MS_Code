@@ -1,0 +1,7 @@
+fine fold 1
+cumulative
+[ 377   6]
+[  80  16]
+0.82
+avg  0.858  0.603   
+72.77 sec

@@ -1,0 +1,80 @@
+fine fold 1
+y_train shape:(4310,)
+predict train set1
+[4298   0]
+[   0  12]
+1.0
+predict test set1
+[ 478   0]
+[   1   0]
+0.998
+
+predict train set2
+[4144   0]
+[  58 108]
+0.987
+predict test set2
+[ 456   4]
+[  18   1]
+0.954
+
+predict train set3
+[4018   0]
+[ 143 149]
+0.967
+predict test set3
+[ 441   6]
+[  32   0]
+0.921
+
+predict train set4
+[4139   0]
+[  29 142]
+0.993
+predict test set4
+[ 455   5]
+[  15   4]
+0.958
+
+predict train set5
+[4300   0]
+[   3   7]
+0.999
+predict test set5
+[ 478   0]
+[   1   0]
+0.998
+
+predict train set6
+[4217   0]
+[  69  24]
+0.984
+predict test set6
+[ 468   0]
+[  11   0]
+0.977
+
+predict train set7
+[4257   0]
+[  25  28]
+0.994
+predict test set7
+[ 473   0]
+[   6   0]
+0.987
+
+predict train set8
+[4241   0]
+[  10  59]
+0.998
+predict test set8
+[ 469   3]
+[   5   2]
+0.983
+fine fold 1
+cumulative
+[ 380   3]
+[  92   4]
+0.802
+avg  0.065  0.032
+41.8 sec
