@@ -125,8 +125,7 @@ for i in range(n_classes):
 # Compute micro-average ROC curve and ROC area
 precision["micro"], recall["micro"], _ = precision_recall_curve(y_test.ravel(),
     y_score.ravel())
-average_precision["micro"] = average_precision_score(y_test, y_score,
-                                                     average="micro")
+average_precision["micro"] = average_precision_score(y_test, y_score,average="micro")
 
 
 # Plot Precision-Recall curve
