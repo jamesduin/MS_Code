@@ -100,7 +100,6 @@ for i in sorted(fine_folds):
         classCount[int(inst[0])] += 1
     classCount = [i] + [len(fine_folds[i])] + classCount
     print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
-
 print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',instanceCount,*classCountTot))
 
 
@@ -128,8 +127,8 @@ for testFold in fold_list:
 
     y_trainBin = label_binarize(y_train, classes=[0,1,2,3,4,5,6,7,8])
 
-    print("y_train shape:"+str(y_trainBin.shape))
-    f.write('y_train shape:'+str(y_trainBin.shape)+'\n')
+    # print("y_train shape:"+str(y_trainBin.shape))
+    # f.write('y_train shape:'+str(y_trainBin.shape)+'\n')
 
     #### scale dataset
     scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
@@ -139,14 +138,16 @@ for testFold in fold_list:
     X_train = selector.transform(X_trainFull)
 
     ##### Train classifier for fine
-    classifier = OneVsRestClassifier(svm.SVC(C=10.0, kernel='poly',
-        degree=3, probability=False, cache_size=8192, verbose=False))
+    classifier = OneVsRestClassifier(svm.SVC(C=1.0, kernel='rbf', probability=False,
+                        cache_size=8192, verbose=False, class_weight='balanced',
+                         gamma=0.0025, tol=0.00001, shrinking=True))
+    # classifier = OneVsRestClassifier(svm.SVC(C=10.0, kernel='poly',
+    #     degree=3, probability=False, cache_size=8192, verbose=False))
     # classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=False, cache_size=8192,
     #                      decision_function_shape='ovr', verbose=False)
     # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-    #                                              fit_intercept=False, intercept_scaling=1, class_weight={1: 30},
-    #                                              solver='liblinear',
-    #                                              max_iter=1000, n_jobs=-1)
+    #                       fit_intercept=False, intercept_scaling=1, class_weight={1: 30},
+    #                       solver='liblinear', max_iter=1000, n_jobs=-1)
     # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
     #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
     #                      gamma=0.0025, tol=0.00001, shrinking=True)

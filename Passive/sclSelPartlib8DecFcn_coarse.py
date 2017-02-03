@@ -127,9 +127,11 @@ for testFold in fold_list:
 
 
     ##### Train classifier for coarse
-    classifier = OneVsRestClassifier(svm.SVC(C=10.0, kernel='poly',
-        degree=3, probability=False, cache_size=8192, verbose=False))
-
+    classifier = OneVsRestClassifier(svm.SVC(C=1.0, kernel='rbf', probability=False,
+                        cache_size=8192, verbose=False, class_weight='balanced',
+                         gamma=0.0025, tol=0.00001, shrinking=True))
+    # classifier = OneVsRestClassifier(svm.SVC(C=10.0, kernel='poly',
+    #     degree=3, probability=False, cache_size=8192, verbose=False))
     # classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=False, cache_size=8192,
     #                      decision_function_shape='ovr', verbose=False)
     # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
