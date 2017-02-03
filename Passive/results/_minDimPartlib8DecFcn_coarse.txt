@@ -4,4 +4,4 @@ cumulative
 [  12  84]
 0.72
 avg  0.858  0.640   
-1.01 sec
+1.1 sec

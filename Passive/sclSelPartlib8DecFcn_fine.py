@@ -16,6 +16,7 @@ from sklearn import preprocessing
 from sklearn.feature_selection import SelectKBest,chi2,SelectPercentile,f_classif
 import time
 import re
+import methods as m
 from sklearn.preprocessing import label_binarize
 from sklearn.multiclass import OneVsRestClassifier
 
@@ -199,7 +200,12 @@ for testFold in fold_list:
     f.write('{:.3}\n'.format(accuracy_score(y_testCoarse, y_predCoarse)))
 
 
-
+    ###### log the errors
+    err_file = open('other_results/_'+file_name+'Err.txt', 'w')
+    for i,pred in enumerate(y_predCoarse):
+        if(y_predCoarse[i] != y_testCoarse[i]):
+            m.printDataInstance(np.array([y_test[i]]+list(X_test[i])), err_file)
+    err_file.close()
 
     ##### Print this folds roc_auc for fine
     fpr = dict()

@@ -18,6 +18,7 @@ import time
 import re
 from sklearn.preprocessing import label_binarize
 from sklearn.multiclass import OneVsRestClassifier
+import methods as m
 
 file_name = re.split("[/\.]",__file__)[-2]
 level = re.split("_",file_name)[1]
@@ -201,6 +202,12 @@ for testFold in fold_list:
     f.write('{:.3}\n'.format(accuracy_score(y_testCoarse, y_predCoarse)))
 
 
+    ###### log the errors
+    err_file = open('other_results/_'+file_name+'Err.txt', 'w')
+    for i,pred in enumerate(y_predCoarse):
+        if(y_predCoarse[i] != y_testCoarse[i]):
+            m.printDataInstance(np.array([y_test[i]]+list(X_test[i])), err_file)
+    err_file.close()
 
 
     ##### Print this folds roc_auc for fine

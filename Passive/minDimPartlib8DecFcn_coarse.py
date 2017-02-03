@@ -16,12 +16,15 @@ from sklearn.feature_selection import SelectKBest,chi2,SelectPercentile,f_classi
 from sklearn.multiclass import OneVsRestClassifier
 import time
 import re
+import methods as m
 file_name = re.split("[/\.]",__file__)[-2]
 level = re.split("_",file_name)[1]
 
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 coarse_set = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 coarse_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
+
+
 
 # using the pre partitioned data
 #### store totals
@@ -160,7 +163,12 @@ for testFold in fold_list:
     print(accuracy_score(y_testCoarse, y_predCoarse))
     f.write('{:.3}\n'.format(accuracy_score(y_testCoarse, y_predCoarse)))
 
-
+    ###### log the errors
+    err_file = open('other_results/_'+file_name+'Err.txt', 'w')
+    for i,pred in enumerate(y_predCoarse):
+        if(y_predCoarse[i] != y_testCoarse[i]):
+            m.printDataInstance(np.array([y_test[i]]+list(X_test[i])), err_file)
+    err_file.close()
 
     ###### Print this folds roc_auc for coarse
     fpr = dict()
@@ -218,6 +226,10 @@ f.write('{0:<5}{1:<7.3f}{2:<7.3f} \n'.format('avg', (roc_Sum / len(results_coars
 print('{} sec'.format(round(time.perf_counter() - start_time, 2)))
 f.write('{} sec'.format(round(time.perf_counter() - start_time, 2)))
 f.close()
+
+
+
+
 
 
 

@@ -107,7 +107,7 @@ plt.ylabel('True Positive Rate')
 plt.title('Receiver operating characteristic example')
 plt.legend(loc="lower right")
 #plt.show()
-plt.savefig('play_results/' + file_name + '_oneROC.png')
+plt.savefig('other_results/' + file_name + '_oneROC.png')
 
 
 ##############################################################################
@@ -156,4 +156,4 @@ plt.ylabel('True Positive Rate')
 plt.title('Some extension of Receiver operating characteristic to multi-class')
 plt.legend(loc="lower right")
 #plt.show()
-plt.savefig('play_results/' + file_name + '_allROC.png')
+plt.savefig('other_results/' + file_name + '_allROC.png')
