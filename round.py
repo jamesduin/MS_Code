@@ -79,16 +79,18 @@ m.createFolds(fine_set, fine_folds)
 rndNum = 1
 
 #####  Iterate through fold list for coarse
-m.iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse)
+m.iterateFoldsCoarse("coarse",rndNum, coarse_folds,rnd_results_coarse)
 
 ##### Iterate through fold list for fine
-m.iterateFoldsFine(rndNum, fine_folds,rnd_results_fine)
+m.iterateFoldsFine("fine",rndNum, fine_folds,rnd_results_fine)
 
 print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
 rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
 rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
 
 
+# ###### run confidence estimate for coarse and fine
+# m.confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,30,70)
 
 
 for rndNum in range(2,100):
@@ -106,10 +108,10 @@ for rndNum in range(2,100):
     m.createFolds(fine_set, fine_folds)
 
     #####  Iterate through fold list for coarse
-    m.iterateFoldsCoarse(rndNum, coarse_folds,rnd_results_coarse)
+    m.iterateFoldsCoarse("coarse",rndNum, coarse_folds,rnd_results_coarse)
 
     ##### Iterate through fold list for fine
-    m.iterateFoldsFine(rndNum, fine_folds,rnd_results_fine)
+    m.iterateFoldsFine("fine",rndNum, fine_folds,rnd_results_fine)
 
 
     rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
@@ -120,7 +122,7 @@ for rndNum in range(2,100):
         if (type(result[2]) == str):
             f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
         else:
-            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f} \n'.format(*result))
+            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{3:<10.3f} \n'.format(*result))
     f.write(str(rnd_results_coarse))
     f.close()
 
@@ -130,7 +132,7 @@ for rndNum in range(2,100):
         if (type(result[2]) == str):
             f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
         else:
-            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f} \n'.format(*result))
+            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{3:<10.3f} \n'.format(*result))
     f.write(str(rnd_results_fine))
     f.close()
 
