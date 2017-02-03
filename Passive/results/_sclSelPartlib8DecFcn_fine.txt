@@ -1,0 +1,8 @@
+fine fold 1
+y_train shape:(4310, 9)
+cumulative
+[ 373  10]
+[  84  12]
+0.804
+avg  0.958  0.846   
+26.09 sec
