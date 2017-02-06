@@ -79,7 +79,7 @@ def iterateFoldsCoarse(level,rndNum, coarse_folds,rnd_results_coarse):
         ##### Train classifier for coarse
         classifier = OneVsRestClassifier(linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
                                                                          fit_intercept=False, intercept_scaling=1,
-                                                                         class_weight={1: (len(y_train)/90.8)},
+                                                                         class_weight={1: ((13.5/1531)*len(y_train)+(20-(13.5/1531*2010)))},
                                                                          solver='liblinear',
                                                                          max_iter=1000, n_jobs=-1))
         clf = classifier.fit(X_train, y_trainCoarse)
@@ -170,7 +170,7 @@ def iterateFoldsFine(level,rndNum,fine_folds,rnd_results_fine):
         ##### Train classifier for fine
         classifier = OneVsRestClassifier(linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
                                                                          fit_intercept=False, intercept_scaling=1,
-                                                                         class_weight={1: (len(y_train)/90.8)},
+                                                                         class_weight={1: ((13.5/1531)*len(y_train)+(20-(13.5/1531*2010)))},
                                                                          solver='liblinear',
                                                                          max_iter=1000, n_jobs=-1))
 

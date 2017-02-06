@@ -14,6 +14,7 @@ from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
 import time
 import methods as m
+import pickle
 
 start_time = time.perf_counter()
 
@@ -93,7 +94,7 @@ rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf
 # m.confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,30,70)
 
 
-for rndNum in range(2,100):
+for rndNum in range(2,150):
     start_time = time.perf_counter()
 
     ###### run confidence estimate for coarse and fine
@@ -123,7 +124,6 @@ for rndNum in range(2,100):
             f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
         else:
             f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
-    f.write(str(rnd_results_coarse))
     f.close()
 
     ###### Save results to a file
@@ -133,11 +133,16 @@ for rndNum in range(2,100):
             f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
         else:
             f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
-    f.write(str(rnd_results_fine))
     f.close()
 
     print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
 
+    fileName = open('results/rnd_results_fine','wb')
+    pickle.dump(rnd_results_fine,fileName)
+    fileName.close()
+    fileName = open('results/rnd_results_coarse','wb')
+    pickle.dump(rnd_results_coarse,fileName)
+    fileName.close()
 
 
 
