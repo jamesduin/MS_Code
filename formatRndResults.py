@@ -16,40 +16,37 @@ import time
 import methods as m
 import pickle
 
-fileName = open('results/rnd_results_fine','r')
-fine_rnds = pickle.load(fileName)
-fileName.close()
+fileName1 = open('results/rnd_results_fine','rb')
+fine_rnds = pickle.load(fileName1)
+fileName1.close()
 
-fileName = open('results/rnd_results_coarse','r')
-coarse_rnds = pickle.load(fileName)
-fileName.close()
+fileName2 = open('results/rnd_results_coarse','rb')
+coarse_rnds = pickle.load(fileName2)
+fileName2.close()
 
 
 
-f = open('test.txt', 'w')
+f = open('results/_rnds.txt', 'w')
 results = []
-f.write('coarse \n')
+f.write('{:^20}       {:^20}\n'.format('coarse','fine'))
 for i in range(1,int(coarse_rnds[-2][0])+1):
-    roc_Sum = 0.0
-    pr_Sum = 0.0
-    acc_Sum = 0.0
-    for row in coarse_rnds:
-        if(row[0] == i):
-            roc_Sum += row[2]
-            pr_Sum += row[3]
-            acc_Sum += row[4]
-    f.write('{0},{1:.3f},{2:.3f},{3:.3f} \n'.format(i,(roc_Sum/10.0),(pr_Sum/10.0),(acc_Sum/10.0)))
-
-f.write('fine \n')
-for i in range(1,int(fine_rnds[-2][0])+1):
-    roc_Sum = 0.0
-    pr_Sum = 0.0
-    acc_Sum = 0.0
-    for row in fine_rnds:
-        if(row[0] == i):
-            roc_Sum += row[2]
-            pr_Sum += row[3]
-            acc_Sum += row[4]
-    f.write('{0},{1:.3f},{2:.3f},{3:.3f} \n'.format(i,(roc_Sum/10.0),(pr_Sum/10.0),(acc_Sum/10.0)))
-
-f.close()
+    roc_Sum1 = 0.0
+    pr_Sum1 = 0.0
+    acc_Sum1 = 0.0
+    for row1 in coarse_rnds:
+        if(row1[0] == i):
+            roc_Sum1 += row1[2]
+            pr_Sum1 += row1[3]
+            acc_Sum1 += row1[4]
+    roc_Sum2 = 0.0
+    pr_Sum2 = 0.0
+    acc_Sum2 = 0.0
+    for row2 in fine_rnds:
+        if (row2[0] == i):
+            roc_Sum2 += row2[2]
+            pr_Sum2 += row2[3]
+            acc_Sum2 += row2[4]
+    f.write('{0:<4}{1:<5.3f},{2:<5.3f},{3:<5.3f}       '
+            '{4:<4}{5:<5.3f},{6:<5.3f},{7:<5.3f}\n'.format(i,
+            (roc_Sum1/10.0),(pr_Sum1/10.0),(acc_Sum1/10.0),
+            i,(roc_Sum2 / 10.0), (pr_Sum2 / 10.0), (acc_Sum2 / 10.0)))
