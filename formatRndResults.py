@@ -29,7 +29,7 @@ fileName2.close()
 f = open('results/_rnds.txt', 'w')
 results = []
 f.write('{:^20}       {:^20}\n'.format('coarse','fine'))
-for i in range(1,int(coarse_rnds[-2][0])+1):
+for i in range(1,int(coarse_rnds[-3][0])+1):
     roc_Sum1 = 0.0
     pr_Sum1 = 0.0
     acc_Sum1 = 0.0
@@ -50,3 +50,26 @@ for i in range(1,int(coarse_rnds[-2][0])+1):
             '{4:<4}{5:<5.3f},{6:<5.3f},{7:<5.3f}\n'.format(i,
             (roc_Sum1/10.0),(pr_Sum1/10.0),(acc_Sum1/10.0),
             i,(roc_Sum2 / 10.0), (pr_Sum2 / 10.0), (acc_Sum2 / 10.0)))
+f.close()
+
+###### Save coarse results to a file
+f = open('results/_coarseResults.txt', 'w')
+for result in coarse_rnds:
+    if (type(result[2]) == str):
+        f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
+    elif (len(result) == 5):
+        f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
+    #else:
+        #f.write(str(result).strip('[]'))
+f.close()
+
+###### Save results to a file
+f = open('results/_fineResults.txt', 'w')
+for result in fine_rnds:
+    if (type(result[2]) == str):
+        f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
+    elif (len(result) == 5):
+        f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
+    #else:
+        #f.write(str(result).strip('[]'))
+f.close()

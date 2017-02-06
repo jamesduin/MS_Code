@@ -85,20 +85,35 @@ m.iterateFoldsCoarse("coarse",rndNum, coarse_folds,rnd_results_coarse)
 ##### Iterate through fold list for fine
 m.iterateFoldsFine("fine",rndNum, fine_folds,rnd_results_fine)
 
+##### Append round time and fold counts
 print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
 rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
 rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
 
+instanceCount = 0
+fold_cnt = ['coarse_folds']
+for i in sorted(coarse_folds):
+    instanceCount += len(coarse_folds[i])
+    fold_cnt.append(['{0}{1}'.format(i, len(coarse_folds[i]))])
+fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
+rnd_results_coarse.append(fold_cnt)
 
-# ###### run confidence estimate for coarse and fine
-# m.confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,30,70)
+instanceCount = 0
+fold_cnt = ['fine_folds']
+for i in sorted(fine_folds):
+    instanceCount += len(fine_folds[i])
+    fold_cnt.append(['{0}{1}'.format(i, len(fine_folds[i]))])
+fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
+rnd_results_fine.append(fold_cnt)
+
+
 
 
 for rndNum in range(2,150):
     start_time = time.perf_counter()
 
     ###### run confidence estimate for coarse and fine
-    m.confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,(rndNum-1),30,70)
+    m.confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,(rndNum-1),70,30)
 
     coarse_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
     fine_folds = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
@@ -115,25 +130,27 @@ for rndNum in range(2,150):
     m.iterateFoldsFine("fine",rndNum, fine_folds,rnd_results_fine)
 
 
+
+    ##### Append round time and fold counts
     rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
     rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
-    ###### Save coarse results to a file
-    f = open('results/_coarseResults.txt', 'w')
-    for result in rnd_results_coarse:
-        if (type(result[2]) == str):
-            f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
-        else:
-            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
-    f.close()
 
-    ###### Save results to a file
-    f = open('results/_fineResults.txt', 'w')
-    for result in rnd_results_fine:
-        if (type(result[2]) == str):
-            f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
-        else:
-            f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
-    f.close()
+    instanceCount = 0
+    fold_cnt = ['coarse_folds']
+    for i in sorted(coarse_folds):
+        instanceCount += len(coarse_folds[i])
+        fold_cnt.append(['{0}{1}'.format(i, len(coarse_folds[i]))])
+    fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
+    rnd_results_coarse.append(fold_cnt)
+
+    instanceCount = 0
+    fold_cnt = ['fine_folds']
+    for i in sorted(fine_folds):
+        instanceCount += len(fine_folds[i])
+        fold_cnt.append(['{0}{1}'.format(i, len(fine_folds[i]))])
+    fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
+    rnd_results_fine.append(fold_cnt)
+
 
     print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
 

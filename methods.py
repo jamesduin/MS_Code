@@ -315,21 +315,21 @@ def confEstPopSetsCoarseFine(classes_all,coarse_set,fine_set,rndNum,coarseAdd,fi
 
     #
     #
-    print('{0:<10}{1:<10}'.format('coarse_decFcn', ''))
-    instanceCount = 0
-    for i in sorted(coarse_decFcn):
-        instanceCount += len(coarse_decFcn[i])
-        print('{0:<10}{1:<10}'.format(i, len(coarse_decFcn[i])))
-    print('{0:<10}{1:<10}'.format('Total', instanceCount))
-    print('Shape: {0:<10}{1:<10}\n'.format(len(coarse_decFcn[0]),len(coarse_decFcn[0][0])))
-
-    print('{0:<10}{1:<10}'.format('fine_decFcn', ''))
-    instanceCount = 0
-    for i in sorted(fine_decFcn):
-        instanceCount += len(fine_decFcn[i])
-        print('{0:<10}{1:<10}'.format(i, len(fine_decFcn[i])))
-    print('{0:<10}{1:<10}'.format('Total', instanceCount))
-    print('Shape: {0:<10}{1:<10}\n'.format(len(fine_decFcn[0]), len(fine_decFcn[0][0])))
+    # print('{0:<10}{1:<10}'.format('coarse_decFcn', ''))
+    # instanceCount = 0
+    # for i in sorted(coarse_decFcn):
+    #     instanceCount += len(coarse_decFcn[i])
+    #     print('{0:<10}{1:<10}'.format(i, len(coarse_decFcn[i])))
+    # print('{0:<10}{1:<10}'.format('Total', instanceCount))
+    # print('Shape: {0:<10}{1:<10}\n'.format(len(coarse_decFcn[0]),len(coarse_decFcn[0][0])))
+    #
+    # print('{0:<10}{1:<10}'.format('fine_decFcn', ''))
+    # instanceCount = 0
+    # for i in sorted(fine_decFcn):
+    #     instanceCount += len(fine_decFcn[i])
+    #     print('{0:<10}{1:<10}'.format(i, len(fine_decFcn[i])))
+    # print('{0:<10}{1:<10}'.format('Total', instanceCount))
+    # print('Shape: {0:<10}{1:<10}\n'.format(len(fine_decFcn[0]), len(fine_decFcn[0][0])))
 
 
     for i in range(coarseAdd):
