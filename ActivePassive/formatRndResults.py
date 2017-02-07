@@ -13,7 +13,7 @@ from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
 import time
-import methods as m
+import methodsActive as m
 import pickle
 
 fileName1 = open('results/rnd_results_fine','rb')
