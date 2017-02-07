@@ -35,7 +35,7 @@ def printDataInstance(instance):
 #### store totals
 totals = []
 for i in sorted(classes):
-    with open("../data/classes_subset/class_" + str(i)) as f:
+    with open("../data/classes_scaled/class_scaled" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -70,7 +70,7 @@ for i in sorted(folds):
     np.random.shuffle(folds[i])
 
 
-stdout = open('partition/terminalout.txt', 'w')
+stdout = open('partition_scaled/terminalout.txt', 'w')
 stdout.write('{0:<10}{1:<10}\n'.format('Classes', ''))
 print('{0:<10}{1:<10}'.format('Classes', ''))
 instanceCount = 0
@@ -83,8 +83,8 @@ print('{0:<10}{1:<10}\n'.format('Total', instanceCount))
 
 
 
-stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('Fine','Folds',0,1,2,3,4,5,6,7,8))
-print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Fine','Folds',0,1,2,3,4,5,6,7,8))
+stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('part','Folds',0,1,2,3,4,5,6,7,8))
+print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('part','Folds',0,1,2,3,4,5,6,7,8))
 instanceCount = 0
 classCountTot = [0,0,0,0,0,0,0,0,0]
 for i in sorted(folds):
@@ -106,7 +106,7 @@ print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',i
 
 for eachFold in sorted(folds):
     np.random.shuffle(folds[eachFold])
-    f = open('partition_subset/partition_sub' + str(eachFold), 'w')
+    f = open('partition_scaled/partition_scaled' + str(eachFold), 'w')
     count = 0
     for instance in folds[eachFold]:
         printDataInstance(instance)
