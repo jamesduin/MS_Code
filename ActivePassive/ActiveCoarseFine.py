@@ -31,7 +31,7 @@ rnd_results_fine = []
 
 # using the pre partitioned data
 for i in sorted(train_part):
-    with open("../data/partition/partition_" + str(i)) as f:
+    with open("../data/partition_scaled/partition_scaled" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -53,7 +53,7 @@ print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',i
 
 
 for i in sorted(test_part):
-    with open("../data/partition/partition_" + str(i)) as f:
+    with open("../data/partition_scaled/partition_scaled" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -105,10 +105,10 @@ classes_coarse = copy.deepcopy(classes_all)
 rndNum = 1
 
 #####  Iterate through fold list for coarse
-m.iterateFoldsCoarse("coarse",rndNum, coarse_folds,rnd_results_coarse)
+m.iterateFoldsCoarse("coarse",rndNum, coarse_set,test_part,rnd_results_coarse)
 
 ##### Iterate through fold list for fine
-m.iterateFoldsFine("fine",rndNum, fine_folds,rnd_results_fine)
+m.iterateFoldsFine("fine",rndNum, fine_set,test_part,rnd_results_fine)
 
 ##### Append round time and fold counts
 print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
@@ -116,61 +116,53 @@ rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.pe
 rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
 
 instanceCount = 0
-fold_cnt = ['coarse_folds']
-for i in sorted(coarse_folds):
-    instanceCount += len(coarse_folds[i])
-    fold_cnt.append(['{0}{1}'.format(i, len(coarse_folds[i]))])
+fold_cnt = ['coarse_set']
+for i in sorted(coarse_set):
+    instanceCount += len(coarse_set[i])
+    fold_cnt.append(['{0}{1}'.format(i, len(coarse_set[i]))])
 fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
 rnd_results_coarse.append(fold_cnt)
 
 instanceCount = 0
-fold_cnt = ['fine_folds']
-for i in sorted(fine_folds):
-    instanceCount += len(fine_folds[i])
-    fold_cnt.append(['{0}{1}'.format(i, len(fine_folds[i]))])
+fold_cnt = ['fine_set']
+for i in sorted(fine_set):
+    instanceCount += len(fine_set[i])
+    fold_cnt.append(['{0}{1}'.format(i, len(fine_set[i]))])
 fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
 rnd_results_fine.append(fold_cnt)
 
 
 
-
-#for rndNum in range(2,200):
-while(instanceCount > 100):
+while((18088-instanceCount) > 100):
     start_time = time.perf_counter()
     ###### run confidence estimate for coarse and fine
     m.confEstPopSetsCoarseFine(classes_coarse,classes_fine,coarse_set,fine_set,rndNum,100,100)
     rndNum += 1
 
-    ##### Create folds for coarse set
-    m.createFolds(coarse_set, coarse_folds)
-
-    ##### Create folds for fine set
-    m.createFolds(fine_set, fine_folds)
-
     #####  Iterate through fold list for coarse
-    m.iterateFoldsCoarse("coarse",rndNum, coarse_folds,rnd_results_coarse)
+    m.iterateFoldsCoarse("coarse",rndNum, coarse_set,test_part,rnd_results_coarse)
 
     ##### Iterate through fold list for fine
-    m.iterateFoldsFine("fine",rndNum, fine_folds,rnd_results_fine)
+    m.iterateFoldsFine("fine",rndNum, fine_set,test_part,rnd_results_fine)
 
     ##### Append round time and fold counts
     rnd_results_coarse.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
     rnd_results_fine.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
 
     instanceCount = 0
-    fold_cnt = ['coarse_folds']
-    for i in sorted(coarse_folds):
-        instanceCount += len(coarse_folds[i])
-        fold_cnt.append(['{0}{1}'.format(i, len(coarse_folds[i]))])
-    fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
+    fold_cnt = ['coarse_set']
+    for i in sorted(coarse_set):
+        instanceCount += len(coarse_set[i])
+        fold_cnt.append(['({0},{1})'.format(i, len(coarse_set[i]))])
+    fold_cnt.append(['({0},{1})'.format('Total', instanceCount)])
     rnd_results_coarse.append(fold_cnt)
 
     instanceCount = 0
-    fold_cnt = ['fine_folds']
-    for i in sorted(fine_folds):
-        instanceCount += len(fine_folds[i])
-        fold_cnt.append(['{0}{1}'.format(i, len(fine_folds[i]))])
-    fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
+    fold_cnt = ['fine_set']
+    for i in sorted(fine_set):
+        instanceCount += len(fine_set[i])
+        fold_cnt.append(['({0},{1})'.format(i, len(coarse_set[i]))])
+    fold_cnt.append(['({0},{1})'.format('Total', instanceCount)])
     rnd_results_fine.append(fold_cnt)
 
     print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))

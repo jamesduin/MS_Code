@@ -29,47 +29,44 @@ fileName2.close()
 f = open('results/_rnds.txt', 'w')
 results = []
 f.write('{:^20}       {:^20}\n'.format('coarse','fine'))
-for i in range(1,int(coarse_rnds[-3][0])+1):
-    roc_Sum1 = 0.0
-    pr_Sum1 = 0.0
-    acc_Sum1 = 0.0
-    for row1 in coarse_rnds:
-        if(row1[0] == i):
-            roc_Sum1 += row1[2]
-            pr_Sum1 += row1[3]
-            acc_Sum1 += row1[4]
-    roc_Sum2 = 0.0
-    pr_Sum2 = 0.0
-    acc_Sum2 = 0.0
-    for row2 in fine_rnds:
-        if (row2[0] == i):
-            roc_Sum2 += row2[2]
-            pr_Sum2 += row2[3]
-            acc_Sum2 += row2[4]
-    f.write('{0:<4}{1:<5.3f},{2:<5.3f},{3:<5.3f}       '
-            '{4:<4}{5:<5.3f},{6:<5.3f},{7:<5.3f}\n'.format(i,
-            (roc_Sum1/10.0),(pr_Sum1/10.0),(acc_Sum1/10.0),
-            i,(roc_Sum2 / 10.0), (pr_Sum2 / 10.0), (acc_Sum2 / 10.0)))
+for i,result in enumerate(coarse_rnds):
+    if(type(result[0]) != str and coarse_rnds[i][0] == fine_rnds[i][0]):
+        f.write('{0:<4}{1:<5.3f},{2:<5.3f},{3:<5.3f}        {4:<4}{5:<5.3f},{6:<5.3f},{7:<5.3f}\n'.format(coarse_rnds[
+                                                                                                              i][0],
+                                                                                                          coarse_rnds[
+                                                                                                              i][1],
+                                                                                                          coarse_rnds[
+                                                                                                              i][2],
+                                                                                                          coarse_rnds[
+                                                                                                              i][3],
+                                                                                                          fine_rnds[i][
+                                                                                                              0],
+                                                                                                          fine_rnds[i][
+                                                                                                              1],
+                                                                                                          fine_rnds[i][
+                                                                                                              2],
+                                                                                                          fine_rnds[i][
+                                                                                                              3]))
 f.close()
 
 ###### Save coarse results to a file
 f = open('results/_coarseResults.txt', 'w')
 for result in coarse_rnds:
-    if (type(result[2]) == str):
-        f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
-    elif (len(result) == 5):
-        f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
+    # if (type(result[2]) == str):
+    #     f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
+    # elif (len(result) == 5):
+    #     f.write('{0:<5}{1:<10.3f}{2:<10.3f}{3:<10.3f} \n'.format(*result))
     #else:
-        #f.write(str(result).strip('[]'))
+    f.write(str(result) + '\n')
 f.close()
 
 ###### Save results to a file
 f = open('results/_fineResults.txt', 'w')
 for result in fine_rnds:
-    if (type(result[2]) == str):
-        f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
-    elif (len(result) == 5):
-        f.write('{0:<5}{1:<5}{2:<10.3f}{3:<10.3f}{4:<10.3f} \n'.format(*result))
+    # if (type(result[2]) == str):
+    #     f.write('{0:5}{1:5}{2:10}{3:10} \n'.format(*result))
+    # elif (len(result) == 5):
+    #     f.write('{0:<5}{1:<10.3f}{2:<10.3f}{3:<10.3f} \n'.format(*result))
     #else:
-        #f.write(str(result).strip('[]'))
+    f.write(str(result)+'\n')
 f.close()
