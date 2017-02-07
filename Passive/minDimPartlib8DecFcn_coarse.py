@@ -128,7 +128,7 @@ for testFold in fold_list:
 
     ##### Train classifier for coarse
     classifier = OneVsRestClassifier(linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                 fit_intercept=False, intercept_scaling=1, class_weight={1: 6.25},
+                                                 fit_intercept=False, intercept_scaling=1, class_weight={1: 20},
                                                  solver='liblinear',
                                                  max_iter=1000, n_jobs=-1))
     # classifier = OneVsRestClassifier(svm.SVC(C=1.0, kernel='rbf', probability=False,
