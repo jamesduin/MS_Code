@@ -24,7 +24,8 @@ classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 coarse_set = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 coarse_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 
-
+def fcnSclWeight(x):
+    return 0.685331066*x+6.5884
 
 # using the pre partitioned data
 #### store totals
@@ -85,8 +86,8 @@ start_time = time.perf_counter()
 
 f = open('results/_'+file_name+'.txt', 'w')
 #####  Iterate through fold list for coarse
-#fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-fold_list = [1]
+fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#fold_list = [1]
 results_coarse =[]
 for testFold in fold_list:
     print(level+" fold"+str(testFold))
@@ -108,7 +109,7 @@ for testFold in fold_list:
             y_trainCoarse.append(1.)
         else:
             y_trainCoarse.append(0.)
-    train_wt = (len(y_train)/np.sum(y_trainCoarse))
+    train_wt = fcnSclWeight(len(y_train)/np.sum(y_trainCoarse))
     print('train_wt: {}'.format(train_wt))
 
     #### Scale dataset
@@ -223,12 +224,12 @@ for testFold in fold_list:
 
 
 ###### Save coarse results to a file
-#f.write(level+'\n')
-#f.write('{0:5}{1:7}{2:7}\n'.format('fold', 'roc', 'pr'))
+f.write(level+'\n')
+f.write('{0:5}{1:7}{2:7}\n'.format('fold', 'roc', 'pr'))
 roc_Sum = 0.0
 pr_Sum = 0.0
 for result in results_coarse:
-    #f.write('{0:<5}{1:<7.3f}{2:<7.3f}\n'.format(*result))
+    f.write('{0:<5}{1:<7.3f}{2:<7.3f}\n'.format(*result))
     roc_Sum += result[1]
     pr_Sum += result[2]
 f.write('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(results_coarse)), (pr_Sum / len(results_coarse))))

@@ -28,6 +28,10 @@ fine_set = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 fine_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 
 
+def fcnSclWeight(x):
+    return 0.685331066*x+6.5884
+
+
 # using the pre partitioned data
 #### store totals
 totals = []
@@ -101,7 +105,7 @@ for i in sorted(fine_folds):
         classCountTot[int(inst[0])]+=1
         classCount[int(inst[0])] += 1
     classCount = [i] + [len(fine_folds[i])] + classCount
-    print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
+    # print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
 print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',instanceCount,*classCountTot))
 
 
@@ -109,8 +113,8 @@ print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',i
 
 f = open('results/_'+file_name+'.txt', 'w')
 ##### Iterate through fold list for fine
-#fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-fold_list = [1]
+fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#fold_list = [1]
 results_fine = []
 for testFold in fold_list:
     print(level+" fold" + str(testFold))
@@ -128,8 +132,9 @@ for testFold in fold_list:
     y_train,X_trainPreScale = data[:,0], data[:,1:data.shape[1]]
 
     y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
-    y_tot = np.sum(y_trainBin,axis=0)
-    train_wt =len(y_train)/y_tot
+    y_tot = np.sum(y_trainBin)
+    wt =fcnSclWeight(len(y_train)/y_tot)
+    train_wt = {1:wt, 2:wt*0.5, 3:wt*0.9, 4:wt*0.75, 5:wt*5, 6:wt*0.9, 7:wt*2.0, 8:wt}
     print(train_wt)
 
     #### Scale dataset
@@ -139,14 +144,23 @@ for testFold in fold_list:
     classifier = dict()
     for cls in range(8):
         classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                 fit_intercept=False, intercept_scaling=1, class_weight={1: train_wt[cls]},
+                                 fit_intercept=False, intercept_scaling=1, class_weight={1: train_wt[cls+1]},
                                  solver='liblinear',
                                  max_iter=1000, n_jobs=-1)
         clf = classif.fit(X_train, y_trainBin[:,cls])
-        joblib.dump(clf, level+'_models/'+file_name+'_'+str(testFold) + '_'+str(cls)+'.pkl')
+        joblib.dump(clf, level+'_models/'+file_name+'_'+str(testFold) + '_'+str(cls+1)+'.pkl')
         # clf = joblib.load(level+'_models/'+file_name+'_'+str(testFold) + '_'+str(cls)+'.pkl')
         classifier[cls] = clf
+        y_trainPred = clf.predict(X_train)
 
+        # print('cls: {}'.format(cls+1))
+        # f.write('cls: {}\n'.format(cls+1))
+        # confMatrix = confusion_matrix(y_trainBin[:,cls], y_trainPred)
+        # print(confMatrix)
+        # f.write(
+        #     '[{:>4}{:>4}]\n[{:>4}{:>4}]\n'.format(confMatrix[0][0], confMatrix[0][1], confMatrix[1][0], confMatrix[1][1]))
+        # print(accuracy_score(y_trainBin[:,cls], y_trainPred))
+        # f.write('{:.3}\n'.format(accuracy_score(y_trainBin[:,cls], y_trainPred)))
 
     ##### Create test set for coarse
     data_test = np.asarray(fine_folds[testFold])
@@ -160,7 +174,7 @@ for testFold in fold_list:
         else:
             y_testCoarse.append(0.0)
 
-    test_wt = len(y_test) / np.sum(y_testCoarse)
+    test_wt = (len(y_test) / np.sum(y_testCoarse))
     print('test_wt: {}'.format(test_wt))
     y_sampleWeight = []
     for inst in y_testCoarse:
@@ -187,6 +201,8 @@ for testFold in fold_list:
             y_predCoarse.append(1.)
         else:
             y_predCoarse.append(0.)
+
+
     print("cumulative")
     f.write("cumulative\n")
     confMatrix = confusion_matrix(y_testCoarse, y_predCoarse)
@@ -243,16 +259,16 @@ for testFold in fold_list:
     results_fine.append([str(testFold)] + [roc_auc] + [average_precision])
 
 ###### Save results to a file
-#f.write(level+'\n')
-# f.write('{0:5}{1:7}{2:7}\n'.format('fold', 'roc', 'pr'))
+f.write(level+'\n')
+f.write('{0:5}{1:7}{2:7}\n'.format('fold', 'roc', 'pr'))
 roc_Sum = 0.0
 pr_Sum = 0.0
 for result in results_fine:
-    #f.write('{0:<5}{1:<7.3f}{2:<7.3f}\n'.format(*result))
+    f.write('{0:<5}{1:<7.3f}{2:<7.3f}\n'.format(*result))
     roc_Sum += result[1]
     pr_Sum += result[2]
 f.write('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(results_fine)), (pr_Sum / len(results_fine))))
-
+print('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(results_fine)), (pr_Sum / len(results_fine))))
 
 print('{} sec'.format(round(time.perf_counter() - start_time, 2)))
 f.write('{} sec'.format(round(time.perf_counter() - start_time, 2)))

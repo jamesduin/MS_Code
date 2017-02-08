@@ -3,5 +3,62 @@ cumulative
 [1532 382]
 [  21  75]
 0.8
-avg,0.843,0.854 
-4.64 sec
+coarse fold 2
+cumulative
+[1542 372]
+[  17  79]
+0.806
+coarse fold 3
+cumulative
+[1573 341]
+[  17  79]
+0.822
+coarse fold 4
+cumulative
+[1518 396]
+[  17  79]
+0.795
+coarse fold 5
+cumulative
+[1541 373]
+[  14  82]
+0.807
+coarse fold 6
+cumulative
+[1518 396]
+[  14  82]
+0.796
+coarse fold 7
+cumulative
+[1520 393]
+[  16  81]
+0.797
+coarse fold 8
+cumulative
+[1539 374]
+[  26  71]
+0.801
+coarse fold 9
+cumulative
+[1540 373]
+[  25  71]
+0.802
+coarse fold 10
+cumulative
+[1559 354]
+[  19  77]
+0.814
+coarse
+fold roc    pr     
+1    0.843  0.854  
+2    0.884  0.873  
+3    0.882  0.884  
+4    0.883  0.883  
+5    0.889  0.887  
+6    0.880  0.873  
+7    0.890  0.885  
+8    0.835  0.852  
+9    0.865  0.856  
+10   0.870  0.879  
+avg,0.872,0.873 
+51.98 sec
