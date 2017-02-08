@@ -119,16 +119,16 @@ instanceCount = 0
 fold_cnt = ['coarse_set']
 for i in sorted(coarse_set):
     instanceCount += len(coarse_set[i])
-    fold_cnt.append(['{0}{1}'.format(i, len(coarse_set[i]))])
-fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
+    fold_cnt.append(['({0},{1})'.format(i, len(coarse_set[i]))])
+fold_cnt.append(['({0},{1})'.format('Total', instanceCount)])
 rnd_results_coarse.append(fold_cnt)
 
 instanceCount = 0
 fold_cnt = ['fine_set']
 for i in sorted(fine_set):
     instanceCount += len(fine_set[i])
-    fold_cnt.append(['{0}{1}'.format(i, len(fine_set[i]))])
-fold_cnt.append(['{0}{1}'.format('Total', instanceCount)])
+    fold_cnt.append(['({0},{1})'.format(i, len(coarse_set[i]))])
+fold_cnt.append(['({0},{1})'.format('Total', instanceCount)])
 rnd_results_fine.append(fold_cnt)
 
 

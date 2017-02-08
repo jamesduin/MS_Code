@@ -140,7 +140,7 @@ def iterateFoldsFine(level,rndNum,fine_set,test_part,rnd_results_fine):
         else:
             data = np.vstack((partition, data))
     y_train, X_train = data[:, 0], data[:, 1:data.shape[1]]
-    y_trainBin = label_binarize(y_train, classes=[0, 1, 2, 3, 4, 5, 6, 7, 8])
+    y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
 
     ##### Train classifier for fine
     classifier = OneVsRestClassifier(linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
@@ -163,11 +163,10 @@ def iterateFoldsFine(level,rndNum,fine_set,test_part,rnd_results_fine):
         else:
             y_testCoarse.append(0.)
 
-    y_testBin = label_binarize(y_test, classes=[0, 1, 2, 3, 4, 5, 6, 7, 8])
     y_score = clf.decision_function(X_test)
 
     ##### Predict test set for fine
-    y_pred_score = np.amax(y_score[:,1:],axis=1)
+    y_pred_score = np.amax(y_score,axis=1)
 
     y_predCoarse = []
     for inst in y_pred_score:
@@ -183,17 +182,14 @@ def iterateFoldsFine(level,rndNum,fine_set,test_part,rnd_results_fine):
 
 
     ##### Print this folds roc_auc for fine
-    fpr = dict()
-    tpr = dict()
-    roc_auc = dict()
     # Compute micro-average ROC curve and ROC area
-    fpr["micro"], tpr["micro"], _ = roc_curve(y_testBin.ravel(), y_score.ravel())
-    roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
+    fpr, tpr, _ = roc_curve(y_test, y_pred_score)
+    roc_auc = auc(fpr, tpr)
     # Plot of a ROC curve
     plt.figure()
-    plt.plot(fpr["micro"], tpr["micro"],
-             label='micro-average ROC curve (area = {0:0.2f})'
-                   ''.format(roc_auc["micro"]),
+    plt.plot(fpr, tpr,
+             label='ROC curve (area = {0:0.2f})'
+                   ''.format(roc_auc),
              color='deeppink', linestyle=':', linewidth=4)
 
     plt.plot([0, 1], [0, 1], 'k--')
@@ -207,17 +203,14 @@ def iterateFoldsFine(level,rndNum,fine_set,test_part,rnd_results_fine):
     plt.clf()
 
     ##### Print this folds pr_curve for fine
-    precision = dict()
-    recall = dict()
-    average_precision = dict()
-    precision["micro"], recall["micro"], _ = precision_recall_curve(y_testBin.ravel(),y_score.ravel())
-    average_precision["micro"] = average_precision_score(y_testBin, y_score, average="micro")
+    precision, recall, _ = precision_recall_curve(y_testCoarse,y_pred_score)
+    average_precision = average_precision_score(y_testCoarse, y_pred_score)
 
     # Plot Precision-Recall curve
     plt.clf()
     plt.plot(recall["micro"], precision["micro"], color='gold', lw=2,
              label='micro-average Precision-recall curve (area = {0:0.2f})'
-                   ''.format(average_precision["micro"]))
+                   ''.format(average_precision))
     plt.xlabel('Recall')
     plt.ylabel('Precision')
     plt.ylim([0.0, 1.05])
@@ -227,7 +220,7 @@ def iterateFoldsFine(level,rndNum,fine_set,test_part,rnd_results_fine):
     plt.savefig(level+'_results/rnd'+str(rndNum)+'_'+level+'_PR.png')
     plt.clf()
     plt.close()
-    rnd_results_fine.append([rndNum] + [roc_auc["micro"]] + [average_precision["micro"]]+[accuracy_score(y_testCoarse, y_predCoarse)])
+    rnd_results_fine.append([rndNum] + [roc_auc] + [average_precision]+[accuracy_score(y_testCoarse, y_predCoarse)])
 
 
 
@@ -241,85 +234,85 @@ def findAddInstance(classes,set,find_inst):
 
 
 def confEstPopSetsCoarseFine(classes_coarse,classes_fine,coarse_set,fine_set,rndNum,coarseAdd,fineAdd):
-    data = []
-    for x in sorted(classes_coarse):
-        partition = np.asarray(classes_coarse[x])
-        if (len(partition) > 0):
-            if data == []:
-                data = partition
-            else:
-                data = np.vstack((partition, data))
-    np.random.shuffle(data)
-    for i in range(coarseAdd):
-        findAddInstance(classes_coarse,coarse_set,data[i].tolist())
-
-    data = []
-    for x in sorted(classes_fine):
-        partition = np.asarray(classes_fine[x])
-        if (len(partition) > 0):
-            if data == []:
-                data = partition
-            else:
-                data = np.vstack((partition, data))
-    np.random.shuffle(data)
-    for i in range(fineAdd):
-        findAddInstance(classes_fine, fine_set, data[i].tolist())
-
-
-    #
-    #
-    #
-    # coarse_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-    # fine_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-    #
-    # for i in sorted(classes_coarse):
-    #     data = np.asarray(classes_coarse[i])
-    #     if(len(data)>0):
-    #         y_train, X_train = data[:, 0], data[:, 1:]
-    #         coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse.pkl')
-    #         scores = coarse_clf.decision_function(X_train)
-    #         scores = scores.reshape(scores.shape[0],1)
-    #         coarse_decFcn[i] = scores.tolist()
-    #
-    # for i in sorted(classes_fine):
-    #     data = np.asarray(classes_fine[i])
-    #     if (len(data) > 0):
-    #         y_train, X_train = data[:, 0], data[:, 1:data.shape[1]]
-    #         fine_clf = joblib.load('fine_models/rnd' + str(rndNum) + '_fine.pkl')
-    #         scores = fine_clf.decision_function(X_train)
-    #         scores = np.amax(scores[:, 1:], axis=1)
-    #         scores = scores.reshape(scores.shape[0],1)
-    #         fine_decFcn[i] = scores.tolist()
-    #
+    # data = []
+    # for x in sorted(classes_coarse):
+    #     partition = np.asarray(classes_coarse[x])
+    #     if (len(partition) > 0):
+    #         if data == []:
+    #             data = partition
+    #         else:
+    #             data = np.vstack((partition, data))
+    # np.random.shuffle(data)
     # for i in range(coarseAdd):
-    #     most_uncert = 100
-    #     most_cls = 0
-    #     most_ind = 0
+    #     findAddInstance(classes_coarse,coarse_set,data[i].tolist())
     #
-    #     for cls in sorted(coarse_decFcn):
-    #         for index, inst in enumerate(coarse_decFcn[cls]):
-    #             min_est =np.absolute(inst)
-    #             if(min_est<most_uncert):
-    #                 most_cls = cls
-    #                 most_ind = index
-    #                 most_uncert = min_est
-    #     #print('coarse {},{},{},{}'.format(i, most_cls, most_ind, len(classes_coarse[most_cls])))
-    #     coarse_set[most_cls].append(classes_coarse[most_cls].pop(most_ind))
-    #     del coarse_decFcn[most_cls][most_ind]
-    #
+    # data = []
+    # for x in sorted(classes_fine):
+    #     partition = np.asarray(classes_fine[x])
+    #     if (len(partition) > 0):
+    #         if data == []:
+    #             data = partition
+    #         else:
+    #             data = np.vstack((partition, data))
+    # np.random.shuffle(data)
     # for i in range(fineAdd):
-    #     most_uncert = 100
-    #     most_cls = 0
-    #     most_ind = 0
-    #     for cls in sorted(fine_decFcn):
-    #         for index, inst in enumerate(fine_decFcn[cls]):
-    #             min_est = np.absolute(inst)
-    #             if (min_est < most_uncert):
-    #                 most_cls = cls
-    #                 most_ind = index
-    #                 most_uncert = min_est
-    #     #print('fine {},{},{},{}'.format(i, most_cls, most_ind,len(classes_fine[most_cls])))
-    #     fine_set[most_cls].append(classes_fine[most_cls].pop(most_ind))
-    #     del fine_decFcn[most_cls][most_ind]
+    #     findAddInstance(classes_fine, fine_set, data[i].tolist())
+
+
+
+
+
+    coarse_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+    fine_decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+
+    for i in sorted(classes_coarse):
+        data = np.asarray(classes_coarse[i])
+        if(len(data)>0):
+            y_train, X_train = data[:, 0], data[:, 1:]
+            coarse_clf = joblib.load('coarse_models/rnd' + str(rndNum) + '_coarse.pkl')
+            scores = coarse_clf.decision_function(X_train)
+            scores = scores.reshape(scores.shape[0],1)
+            coarse_decFcn[i] = scores.tolist()
+
+    for i in sorted(classes_fine):
+        data = np.asarray(classes_fine[i])
+        if (len(data) > 0):
+            y_train, X_train = data[:, 0], data[:, 1:data.shape[1]]
+            fine_clf = joblib.load('fine_models/rnd' + str(rndNum) + '_fine.pkl')
+            scores = fine_clf.decision_function(X_train)
+            scores = np.amax(scores[:, 1:], axis=1)
+            scores = scores.reshape(scores.shape[0],1)
+            fine_decFcn[i] = scores.tolist()
+
+    for i in range(coarseAdd):
+        most_uncert = 100
+        most_cls = 0
+        most_ind = 0
+
+        for cls in sorted(coarse_decFcn):
+            for index, inst in enumerate(coarse_decFcn[cls]):
+                min_est =np.absolute(inst)
+                if(min_est<most_uncert):
+                    most_cls = cls
+                    most_ind = index
+                    most_uncert = min_est
+        #print('coarse {},{},{},{}'.format(i, most_cls, most_ind, len(classes_coarse[most_cls])))
+        coarse_set[most_cls].append(classes_coarse[most_cls].pop(most_ind))
+        del coarse_decFcn[most_cls][most_ind]
+
+    for i in range(fineAdd):
+        most_uncert = 100
+        most_cls = 0
+        most_ind = 0
+        for cls in sorted(fine_decFcn):
+            for index, inst in enumerate(fine_decFcn[cls]):
+                min_est = np.absolute(inst)
+                if (min_est < most_uncert):
+                    most_cls = cls
+                    most_ind = index
+                    most_uncert = min_est
+        #print('fine {},{},{},{}'.format(i, most_cls, most_ind,len(classes_fine[most_cls])))
+        fine_set[most_cls].append(classes_fine[most_cls].pop(most_ind))
+        del fine_decFcn[most_cls][most_ind]
 
 

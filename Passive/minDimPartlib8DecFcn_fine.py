@@ -7,7 +7,7 @@ from sklearn.metrics import recall_score
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.metrics import precision_recall_curve
 from sklearn.metrics import average_precision_score
-from sklearn.metrics import roc_curve, auc
+from sklearn.metrics import roc_curve, auc, roc_auc_score
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
 from sklearn.metrics import accuracy_score
@@ -32,8 +32,8 @@ fine_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 #### store totals
 totals = []
 for i in sorted(fine_folds):
-    with open("../data/partition_subset/partition_sub" + str(i)) as f:
-    #with open("../data/partition/partition_" + str(i)) as f:
+    #with open("../data/partition_subset/partition_sub" + str(i)) as f:
+    with open("../data/partition/partition_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -126,8 +126,19 @@ for testFold in fold_list:
         else:
             data = np.vstack((partition, data))
     y_train,X_trainPreScale = data[:,0], data[:,1:data.shape[1]]
+    y_trainCoarse = []
+    for i in y_train:
+        if i > 0:
+            y_trainCoarse.append(1.)
+        else:
+            y_trainCoarse.append(0.)
+    train_wt = (len(y_train)/np.sum(y_trainCoarse))
+    print('train_wt: {}'.format(train_wt))
 
-    y_trainBin = label_binarize(y_train, classes=[0,1,2,3,4,5,6,7,8])
+    #y_trainBin = label_binarize(y_train, classes=[0,1,2,3,4,5,6,7,8])
+    y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
+
+    #y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
 
     # print("y_train shape:"+str(y_trainBin.shape))
     # f.write('y_train shape:'+str(y_trainBin.shape)+'\n')
@@ -136,11 +147,13 @@ for testFold in fold_list:
     min_max_scaler = preprocessing.MinMaxScaler()
     X_train = min_max_scaler.fit_transform(X_trainPreScale)
 
+
+
     ##### Train classifier for fine
     classifier = OneVsRestClassifier(linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                 fit_intercept=False, intercept_scaling=1, class_weight={1: 20.0},
+                                                 fit_intercept=False, intercept_scaling=1, class_weight={1: train_wt},
                                                  solver='liblinear',
-                                                 max_iter=1000, n_jobs=-1))
+                                                 max_iter=1000, n_jobs=-1),n_jobs=-1)
     # classifier = OneVsRestClassifier(svm.SVC(C=1.0, kernel='rbf', probability=False,
     #                     cache_size=8192, verbose=False, class_weight='balanced',
     #                      gamma=0.0025, tol=0.00001, shrinking=True))
@@ -168,24 +181,29 @@ for testFold in fold_list:
     y_testCoarse = []
     for inst in y_test:
         if inst > 0:
-            y_testCoarse.append(1.)
+            y_testCoarse.append(1.0)
         else:
-            y_testCoarse.append(0.)
+            y_testCoarse.append(0.0)
 
-    y_testBin = label_binarize(y_test, classes=[0,1, 2, 3, 4, 5, 6, 7, 8])
+    test_wt = len(y_test) / np.sum(y_testCoarse)
+    print('test_wt: {}'.format(test_wt))
+    y_sampleWeight = []
+    for inst in y_testCoarse:
+        if inst > 0:
+            y_sampleWeight.append(test_wt)
+        else:
+            y_sampleWeight.append(1.0)
+
+    #y_testBin = label_binarize(y_test, classes=[0,1, 2, 3, 4, 5, 6, 7, 8])
+    #y_testBin = label_binarize(y_test, classes=[1, 2, 3, 4, 5, 6, 7, 8])
     y_score = clf.decision_function(X_test)
     # print('yscore shape: {}'.format(y_score.shape))
     # print('y_testBin shape: {}'.format(y_testBin.shape))
 
 
     ##### Predict test set for fine
-    y_scoreTmp = []
-    for i, score in enumerate(y_score):
-        nums = score[1:]
-        nums = list(map(float, nums))
-        maxFine = max(nums)
-        y_scoreTmp.append(maxFine)
-    y_pred_score = np.asarray(y_scoreTmp)
+    #y_pred_score = np.amax(y_score[:, 1:], axis=1)
+    y_pred_score = np.amax(y_score, axis=1)
 
     y_predCoarse = []
     for inst in y_pred_score:
@@ -211,23 +229,16 @@ for testFold in fold_list:
 
 
     ##### Print this folds roc_auc for fine
-    fpr = dict()
-    tpr = dict()
-    roc_auc = dict()
-    # fpr[1], tpr[1], thresholds = roc_curve(y_testCoarse, y_pred_score)
-    # roc_auc[1] = auc(fpr[1], tpr[1])
-
-    # Compute micro-average ROC curve and ROC area
-    fpr["micro"], tpr["micro"], _ = roc_curve(y_testBin.ravel(), y_score.ravel())
-    roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
+    #fpr, tpr, threshRoc = roc_curve(y_testCoarse, y_pred_score)
+    fpr, tpr, threshRoc = roc_curve(y_testCoarse, y_pred_score,sample_weight=y_sampleWeight)
+    roc_auc = auc(fpr, tpr,reorder=True)
+    #roc_auc = roc_auc_score(y_testCoarse,y_pred_score,average='weighted')
 
     # Plot of a ROC curve
     plt.figure()
-    #plt.plot(fpr[1], tpr[1], label='ROC curve (area = %0.5f)' % roc_auc[1])
-    plt.plot(fpr["micro"], tpr["micro"],
-             label='micro-average ROC curve (area = {0:0.2f})'
-                   ''.format(roc_auc["micro"]),
-             color='deeppink', linestyle=':', linewidth=4)
+    plt.plot(fpr, tpr,
+             label='ROC curve (area = {0:0.3f})'.format(roc_auc),
+             color='red', linestyle=':', linewidth=4)
     plt.plot([0, 1], [0, 1], 'k--')
     plt.xlim([0.0, 1.0])
     plt.ylim([0.0, 1.05])
@@ -238,31 +249,22 @@ for testFold in fold_list:
     plt.savefig(level+'_results/'+file_name+'_ROC_' + str(testFold) + '.png')
 
     ##### Print this folds pr_curve for fine
-    precision = dict()
-    recall = dict()
-    average_precision = dict()
-    # precision[1], recall[1], _ = precision_recall_curve(y_testCoarse, y_pred_score)
-    # average_precision[1] = average_precision_score(y_testCoarse, y_pred_score)
-    precision["micro"], recall["micro"], _ = precision_recall_curve(y_testBin.ravel(),
-                                                                    y_score.ravel())
-    average_precision["micro"] = average_precision_score(y_testBin, y_score, average="micro")
+    precision, recall, threshPr = precision_recall_curve(y_testCoarse, y_pred_score,sample_weight=y_sampleWeight)
+    #average_precision = average_precision_score(y_testCoarse, y_pred_score, average='weighted')
+    average_precision = auc(recall, precision)
 
     # Plot Precision-Recall curve
     plt.clf()
-    #plt.plot(recall[1], precision[1], label='Precision-Recall curve')
-    plt.plot(recall["micro"], precision["micro"], color='gold', lw=2,
-             label='micro-average Precision-recall curve (area = {0:0.2f})'
-                   ''.format(average_precision["micro"]))
+    plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
+             label='Precision-recall curve (area = {0:0.3f})'.format(average_precision))
     plt.xlabel('Recall')
     plt.ylabel('Precision')
     plt.ylim([0.0, 1.05])
     plt.xlim([0.0, 1.0])
-    #plt.title('Precision-Recall: AUC={0:0.5f}'.format(average_precision[1]))
     plt.title('Precision-Recall')
-    plt.legend(loc="lower left")
+    plt.legend(loc="lower right")
     plt.savefig(level+'_results/'+file_name+'_PR_' + str(testFold) + '.png')
-    #results_fine.append([str(testFold)] + [roc_auc[1]] + [average_precision[1]])
-    results_fine.append([str(testFold)] + [roc_auc["micro"]] + [average_precision["micro"]]);
+    results_fine.append([str(testFold)] + [roc_auc] + [average_precision])
 
 ###### Save results to a file
 #f.write(level+'\n')
@@ -273,7 +275,7 @@ for result in results_fine:
     #f.write('{0:<5}{1:<7.3f}{2:<7.3f}\n'.format(*result))
     roc_Sum += result[1]
     pr_Sum += result[2]
-f.write('{0:<5}{1:<7.3f}{2:<7.3f} \n'.format('avg', (roc_Sum / len(results_fine)), (pr_Sum / len(results_fine))))
+f.write('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(results_fine)), (pr_Sum / len(results_fine))))
 
 
 print('{} sec'.format(round(time.perf_counter() - start_time, 2)))

@@ -6,7 +6,7 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import precision_recall_curve
 from sklearn.metrics import average_precision_score
-from sklearn.metrics import roc_curve, auc
+from sklearn.metrics import roc_curve, auc,roc_auc_score
 from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
 from sklearn.metrics import accuracy_score
@@ -30,8 +30,8 @@ coarse_folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
 #### store totals
 totals = []
 for i in sorted(coarse_folds):
-    with open("../data/partition_subset/partition_sub" + str(i)) as f:
-    #with open("../data/partition/partition_" + str(i)) as f:
+    #with open("../data/partition_subset/partition_sub" + str(i)) as f:
+    with open("../data/partition/partition_" + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -108,29 +108,21 @@ for testFold in fold_list:
             y_trainCoarse.append(1.)
         else:
             y_trainCoarse.append(0.)
+    train_wt = (len(y_train)/np.sum(y_trainCoarse))
+    print('train_wt: {}'.format(train_wt))
 
     #### Scale dataset
     min_max_scaler = preprocessing.MinMaxScaler()
     X_train = min_max_scaler.fit_transform(X_trainPreScale)
 
 
-    ##### Create test set for coarse
-    data_test = np.asarray(coarse_folds[testFold])
-    y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
-    X_test = min_max_scaler.transform(X_testPreScale)
-    y_testCoarse = []
-    for i in y_test:
-        if i > 0:
-            y_testCoarse.append(1.)
-        else:
-            y_testCoarse.append(0.)
 
 
     ##### Train classifier for coarse
     classifier = OneVsRestClassifier(linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                 fit_intercept=False, intercept_scaling=1, class_weight={1: 20},
+                                                 fit_intercept=False, intercept_scaling=1, class_weight={1: train_wt},
                                                  solver='liblinear',
-                                                 max_iter=1000, n_jobs=-1))
+                                                 max_iter=1000, n_jobs=-1),n_jobs=-1)
     # classifier = OneVsRestClassifier(svm.SVC(C=1.0, kernel='rbf', probability=False,
     #                     cache_size=8192, verbose=False, class_weight='balanced',
     #                      gamma=0.0025, tol=0.00001, shrinking=True))
@@ -152,6 +144,27 @@ for testFold in fold_list:
 
 
 
+    ##### Create test set for coarse
+    data_test = np.asarray(coarse_folds[testFold])
+    y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
+    X_test = min_max_scaler.transform(X_testPreScale)
+    y_testCoarse = []
+    for inst in y_test:
+        if inst > 0:
+            y_testCoarse.append(1.0)
+        else:
+            y_testCoarse.append(0.0)
+
+    test_wt = len(y_test) / np.sum(y_testCoarse)
+    print('test_wt: {}'.format(test_wt))
+    y_sampleWeight = []
+    for inst in y_testCoarse:
+        if inst > 0:
+            y_sampleWeight.append(test_wt)
+        else:
+            y_sampleWeight.append(1.0)
+
+
     ##### Predict test set for coarse
     y_predCoarse = clf.predict(X_test)
     y_score = clf.decision_function(X_test)
@@ -171,14 +184,14 @@ for testFold in fold_list:
     err_file.close()
 
     ###### Print this folds roc_auc for coarse
-    fpr = dict()
-    tpr = dict()
-    roc_auc = dict()
-    fpr[1], tpr[1], thresholds = roc_curve(y_testCoarse,y_score)
-    roc_auc[1] = auc(fpr[1], tpr[1])
+    fpr, tpr, threshRoc = roc_curve(y_testCoarse,y_score,sample_weight=y_sampleWeight)
+    roc_auc = auc(fpr, tpr,reorder=True)
+    #roc_auc = roc_auc_score(y_testCoarse, y_score, average='weighted')
     # Plot of a ROC curve
     plt.figure()
-    plt.plot(fpr[1], tpr[1], label='ROC curve (area = %0.5f)' % roc_auc[1])
+    plt.plot(fpr, tpr,
+             label='ROC curve (area = {0:0.3f})'.format(roc_auc),
+             color='red', linestyle=':', linewidth=2)
     plt.plot([0, 1], [0, 1], 'k--')
     plt.xlim([0.0, 1.0])
     plt.ylim([0.0, 1.05])
@@ -186,29 +199,27 @@ for testFold in fold_list:
     plt.ylabel('True Positive Rate')
     plt.title('Receiver operating characteristic')
     plt.legend(loc="lower right")
-    #plt.show()
     plt.savefig(level+'_results/'+file_name+'_ROC_' + str(testFold) + '.png')
 
 
 
     ###### Print this folds pr_auc for coarse
-    precision = dict()
-    recall = dict()
-    average_precision = dict()
-    precision[1], recall[1], _ = precision_recall_curve(y_testCoarse, y_score)
-    average_precision[1] = average_precision_score(y_testCoarse, y_score)
+    precision, recall, threshPr = precision_recall_curve(y_testCoarse, y_score,sample_weight=y_sampleWeight)
+    #average_precision = average_precision_score(y_testCoarse, y_score, average='weighted')
+    average_precision = auc(recall, precision)
     # Plot Precision-Recall curve
     plt.clf()
-    plt.plot(recall[1], precision[1], label='Precision-Recall curve')
+    plt.plot(recall, precision, color='blue', linestyle=':', lw=2,
+             label='Precision-recall curve (area = {0:0.3f})'.format(average_precision))
     plt.xlabel('Recall')
     plt.ylabel('Precision')
     plt.ylim([0.0, 1.05])
     plt.xlim([0.0, 1.0])
-    plt.title('Precision-Recall: AUC={0:0.5f}'.format(average_precision[1]))
-    plt.legend(loc="lower left")
+    plt.title('Precision-Recall')
+    plt.legend(loc="lower right")
     #plt.show()
     plt.savefig(level+'_results/'+file_name+'_PR_' + str(testFold) + '.png')
-    results_coarse.append([str(testFold)]+[roc_auc[1]]+[average_precision[1]])
+    results_coarse.append([str(testFold)]+[roc_auc]+[average_precision])
 
 
 ###### Save coarse results to a file
@@ -220,7 +231,7 @@ for result in results_coarse:
     #f.write('{0:<5}{1:<7.3f}{2:<7.3f}\n'.format(*result))
     roc_Sum += result[1]
     pr_Sum += result[2]
-f.write('{0:<5}{1:<7.3f}{2:<7.3f} \n'.format('avg', (roc_Sum / len(results_coarse)), (pr_Sum / len(results_coarse))))
+f.write('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(results_coarse)), (pr_Sum / len(results_coarse))))
 
 
 print('{} sec'.format(round(time.perf_counter() - start_time, 2)))
