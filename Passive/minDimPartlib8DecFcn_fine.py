@@ -133,9 +133,22 @@ for testFold in fold_list:
 
     y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
     y_tot = np.sum(y_trainBin)
+    print(y_tot)
     wt =fcnSclWeight(len(y_train)/y_tot)
-    train_wt = {1:wt, 2:wt*0.5, 3:wt*0.9, 4:wt*0.75, 5:wt*5, 6:wt*0.9, 7:wt*2.0, 8:wt}
+    #train_tune = {1:1, 2:0.5, 3:0.9, 4:0.75, 5:5, 6:0.9, 7:2.0, 8:1}
+    train_tune = {1: 1, 2: 0.25, 3: 0.4, 4: 0.5, 5: 0.1, 6: 0.75, 7: 1.5, 8: 0.25}
+    train_wt = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1}
+    for i in train_wt:
+        train_wt[i] = train_tune[i]*wt
     print(train_wt)
+    cls_sums = np.sum(y_trainBin,axis=0)
+    print(np.sum(cls_sums))
+    cum_wt = []
+    for i in train_wt:
+        cum_wt.append(train_tune[i]*cls_sums[i-1])
+    print(cum_wt)
+    cum_wt = fcnSclWeight(len(y_train)/np.sum(cum_wt))
+    print(cum_wt)
 
     #### Scale dataset
     min_max_scaler = preprocessing.MinMaxScaler()
@@ -176,10 +189,11 @@ for testFold in fold_list:
 
     test_wt = (len(y_test) / np.sum(y_testCoarse))
     print('test_wt: {}'.format(test_wt))
+    print('cum_wt: {}'.format(cum_wt))
     y_sampleWeight = []
     for inst in y_testCoarse:
         if inst > 0:
-            y_sampleWeight.append(test_wt)
+            y_sampleWeight.append(cum_wt)
         else:
             y_sampleWeight.append(1.0)
 

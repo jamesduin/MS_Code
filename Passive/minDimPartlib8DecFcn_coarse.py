@@ -158,10 +158,11 @@ for testFold in fold_list:
 
     test_wt = len(y_test) / np.sum(y_testCoarse)
     print('test_wt: {}'.format(test_wt))
+    print('train_wt: {}'.format(train_wt))
     y_sampleWeight = []
     for inst in y_testCoarse:
         if inst > 0:
-            y_sampleWeight.append(test_wt)
+            y_sampleWeight.append(train_wt)
         else:
             y_sampleWeight.append(1.0)
 
@@ -233,7 +234,7 @@ for result in results_coarse:
     roc_Sum += result[1]
     pr_Sum += result[2]
 f.write('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(results_coarse)), (pr_Sum / len(results_coarse))))
-
+print('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(results_coarse)), (pr_Sum / len(results_coarse))))
 
 print('{} sec'.format(round(time.perf_counter() - start_time, 2)))
 f.write('{} sec'.format(round(time.perf_counter() - start_time, 2)))
