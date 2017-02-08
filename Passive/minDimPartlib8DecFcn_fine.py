@@ -126,51 +126,26 @@ for testFold in fold_list:
         else:
             data = np.vstack((partition, data))
     y_train,X_trainPreScale = data[:,0], data[:,1:data.shape[1]]
-    y_trainCoarse = []
-    for i in y_train:
-        if i > 0:
-            y_trainCoarse.append(1.)
-        else:
-            y_trainCoarse.append(0.)
-    train_wt = (len(y_train)/np.sum(y_trainCoarse))
-    print('train_wt: {}'.format(train_wt))
 
-    #y_trainBin = label_binarize(y_train, classes=[0,1,2,3,4,5,6,7,8])
     y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
-
-    #y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
-
-    # print("y_train shape:"+str(y_trainBin.shape))
-    # f.write('y_train shape:'+str(y_trainBin.shape)+'\n')
+    y_tot = np.sum(y_trainBin,axis=0)
+    train_wt =len(y_train)/y_tot
+    print(train_wt)
 
     #### Scale dataset
     min_max_scaler = preprocessing.MinMaxScaler()
     X_train = min_max_scaler.fit_transform(X_trainPreScale)
 
-
-
-    ##### Train classifier for fine
-    classifier = OneVsRestClassifier(linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                 fit_intercept=False, intercept_scaling=1, class_weight={1: train_wt},
-                                                 solver='liblinear',
-                                                 max_iter=1000, n_jobs=-1),n_jobs=-1)
-    # classifier = OneVsRestClassifier(svm.SVC(C=1.0, kernel='rbf', probability=False,
-    #                     cache_size=8192, verbose=False, class_weight='balanced',
-    #                      gamma=0.0025, tol=0.00001, shrinking=True))
-    # classifier = OneVsRestClassifier(svm.SVC(C=10.0, kernel='poly',
-    #     degree=3, probability=False, cache_size=8192, verbose=False))
-    # classifier = svm.SVC(C=10.0, kernel='poly', degree=3, probability=False, cache_size=8192,
-    #                      decision_function_shape='ovr', verbose=False)
-    # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-    #                       fit_intercept=False, intercept_scaling=1, class_weight={1: 30},
-    #                       solver='liblinear', max_iter=1000, n_jobs=-1)
-    # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False, cache_size=8192,
-    #                      decision_function_shape='ovo', verbose=False, class_weight='balanced',
-    #                      gamma=0.0025, tol=0.00001, shrinking=True)
-
-    clf = classifier.fit(X_train, y_trainBin)
-    joblib.dump(clf, level+'_models/'+file_name+'_'+str(testFold)+'.pkl')
-    # clf = joblib.load(level+'_models/'+file_name+'_'+str(testFold) + '_'+str(cls)+'.pkl')
+    classifier = dict()
+    for cls in range(8):
+        classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
+                                 fit_intercept=False, intercept_scaling=1, class_weight={1: train_wt[cls]},
+                                 solver='liblinear',
+                                 max_iter=1000, n_jobs=-1)
+        clf = classif.fit(X_train, y_trainBin[:,cls])
+        joblib.dump(clf, level+'_models/'+file_name+'_'+str(testFold) + '_'+str(cls)+'.pkl')
+        # clf = joblib.load(level+'_models/'+file_name+'_'+str(testFold) + '_'+str(cls)+'.pkl')
+        classifier[cls] = clf
 
 
     ##### Create test set for coarse
@@ -194,15 +169,16 @@ for testFold in fold_list:
         else:
             y_sampleWeight.append(1.0)
 
-    #y_testBin = label_binarize(y_test, classes=[0,1, 2, 3, 4, 5, 6, 7, 8])
-    #y_testBin = label_binarize(y_test, classes=[1, 2, 3, 4, 5, 6, 7, 8])
-    y_score = clf.decision_function(X_test)
-    # print('yscore shape: {}'.format(y_score.shape))
-    # print('y_testBin shape: {}'.format(y_testBin.shape))
-
+    y_score = []
+    for cls in range(8):
+        scores = classifier[cls].decision_function(X_test)
+        scores = scores.reshape(scores.shape[0],1)
+        if y_score == []:
+            y_score = scores
+        else:
+            y_score = np.hstack((y_score,scores))
 
     ##### Predict test set for fine
-    #y_pred_score = np.amax(y_score[:, 1:], axis=1)
     y_pred_score = np.amax(y_score, axis=1)
 
     y_predCoarse = []

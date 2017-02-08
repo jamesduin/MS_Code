@@ -88,7 +88,7 @@ def iterateFoldsCoarse(level,rndNum, coarse_folds,rnd_results_coarse):
 
 
         ##### Predict test set for coarse
-        y_predCoarse = clf.predict(X_test);
+        y_predCoarse = clf.predict(X_test)
         y_score = clf.decision_function(X_test)
         print("cumulative")
         # f.write("cumulative\n")
