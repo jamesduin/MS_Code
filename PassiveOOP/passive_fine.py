@@ -22,10 +22,6 @@ for i in sorted(fine_folds):
             nums = list(map(float, nums))
             fine_folds[i].append(nums)
     np.random.shuffle(fine_folds[i])
-start_time = time.perf_counter()
-
-
-
 
 ##### iterate through fold list for fine
 # fold_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -33,12 +29,11 @@ start_time = time.perf_counter()
 # for testFold in fold_list:
 
 testFold = 1
-f = open('results/_'+fName+'.txt', 'w')
-print(lvl+" fold" + str(testFold))
-f.write('{} fold {}\n'.format(lvl,testFold))
+start_time = time.perf_counter()
+rnd = m.LearnRound(lvl,testFold,fine_folds,fName)
 
 ##### create train set
-y_train, X_train, min_max_scaler = m.createTrainSet(fine_folds, testFold)
+y_train, X_train, min_max_scaler = rnd.createTrainSet()
 
 ##### create train_wt (y_train unmodified) for fine
 y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
@@ -54,14 +49,8 @@ for i in Fine_wt:
     train_wt.append(train_tune[i]*cls_sums[i-1])
 train_wt = m.fcnSclWeight(len(y_train)/np.sum(train_wt))
 
-
-
-
 ##### create test set and sample weight
-y_testCoarse, X_test, y_sampleWeight = m.createTestSet(fine_folds, testFold, min_max_scaler, train_wt)
-
-
-
+y_testCoarse, X_test, y_sampleWeight = rnd.createTestSet(min_max_scaler,train_wt)
 
 #### train classifier for fine
 classifier = dict()
@@ -73,8 +62,6 @@ for cls in range(8):
     clf = classif.fit(X_train, y_trainBin[:,cls])
     joblib.dump(clf, lvl+'_models/'+fName+'_'+str(testFold) + '_'+str(cls+1)+'.pkl')
     classifier[cls] = clf
-
-
 
 ##### predict test set for fine
 y_fine_score = []
@@ -94,13 +81,11 @@ for inst in y_score:
         y_predCoarse.append(0.)
 
 ###### print conf matrix,accuracy and f1_score
-m.printConfMatrix(y_testCoarse, y_predCoarse,f)
-
+rnd.printConfMatrix(y_testCoarse, y_predCoarse)
 
 ###### Plot ROC and PR curves
-m.plotRocPrCurves(y_testCoarse,y_score,y_sampleWeight,lvl,fName,testFold,results_fine)
+rnd.plotRocPrCurves(y_testCoarse, y_score, y_sampleWeight)
 
 ###### Save results to a file
-m.saveResults(lvl,results_fine,f,start_time)
-
+rnd.saveResults(start_time)
 
