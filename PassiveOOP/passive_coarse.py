@@ -1,13 +1,10 @@
 import numpy as np
-from sklearn.externals import joblib
-from sklearn import linear_model
 import time
 import re
 import methodsPsvOOP as m
 
 fName = re.split("[/\.]",__file__)[-2]
 lvl = re.split("_",fName)[1]
-
 
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 coarse_set = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
@@ -30,44 +27,15 @@ for i in sorted(coarse_folds):
 
 testFold = 1
 start_time = time.perf_counter()
-rnd = m.LearnRound(lvl,testFold,coarse_folds,fName)
+rnd = m.CoarseRound(lvl,testFold,coarse_folds,fName)
 
-##### create train set
-y_train, X_train, min_max_scaler = rnd.createTrainSet()
-
-##### create train_wt and y_train for coarse
-y_trainCoarse = []
-for i in y_train:
-    if i > 0:
-        y_trainCoarse.append(1.)
-    else:
-        y_trainCoarse.append(0.)
-train_wt = m.fcnSclWeight(len(y_train)/np.sum(y_trainCoarse))
-
-##### create test set and sample weight
-y_testCoarse, X_test, y_sampleWeight = rnd.createTestSet(min_max_scaler,train_wt)
-
-##### train classifier for coarse
-classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                          fit_intercept=False, intercept_scaling=1,
-                                          class_weight={1: train_wt},
-                                          solver='liblinear',
-                                          max_iter=1000, n_jobs=-1)
-clf = classifier.fit(X_train,y_trainCoarse)
-joblib.dump(clf,lvl+'_models/'+fName+'_'+str(testFold)+'.pkl')
-
-
-##### predict test set for coarse
-y_predCoarse = clf.predict(X_test)
-y_score = clf.decision_function(X_test)
-
-###### print conf matrix,accuracy and f1_score
-rnd.printConfMatrix(y_testCoarse, y_predCoarse)
-
-###### Plot ROC and PR curves
-rnd.plotRocPrCurves(y_testCoarse,y_score,y_sampleWeight)
-
-###### Save results to a file
+rnd.createTrainSet()
+rnd.createTrainWtYtrain()
+rnd.createTestSet()
+rnd.trainClassifier()
+rnd.predictTestSet()
+rnd.printConfMatrix()
+rnd.plotRocPrCurves()
 rnd.saveResults(start_time)
 
 

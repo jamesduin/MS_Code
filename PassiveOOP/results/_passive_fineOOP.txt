@@ -1,0 +1,64 @@
+fine fold 1
+[1897  17]
+[  74  22]
+acc_score: 0.955
+f1_score: 0.326
+fine fold 2
+[1888  26]
+[  71  25]
+acc_score: 0.952
+f1_score: 0.340
+fine fold 3
+[1903  11]
+[  79  17]
+acc_score: 0.955
+f1_score: 0.274
+fine fold 4
+[1899  15]
+[  71  25]
+acc_score: 0.957
+f1_score: 0.368
+fine fold 5
+[1895  19]
+[  70  26]
+acc_score: 0.956
+f1_score: 0.369
+fine fold 6
+[1889  25]
+[  74  22]
+acc_score: 0.951
+f1_score: 0.308
+fine fold 7
+[1894  19]
+[  68  29]
+acc_score: 0.957
+f1_score: 0.400
+fine fold 8
+[1895  18]
+[  73  24]
+acc_score: 0.955
+f1_score: 0.345
+fine fold 9
+[1891  22]
+[  72  24]
+acc_score: 0.953
+f1_score: 0.338
+fine fold 10
+[1899  14]
+[  72  24]
+acc_score: 0.957
+f1_score: 0.358
+fine
+fold roc    pr     
+1    0.843  0.910  
+2    0.882  0.918  
+3    0.870  0.917  
+4    0.875  0.927  
+5    0.886  0.926  
+6    0.861  0.916  
+7    0.889  0.928  
+8    0.840  0.913  
+9    0.859  0.903  
+10   0.853  0.917  
+avg,0.866,0.918 
+139.74 sec
