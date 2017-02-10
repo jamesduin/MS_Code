@@ -40,7 +40,7 @@ for i in sorted(train_part):
 m.printClassTotals(classes_all)
 
 #### randomly add to starter sets
-start = [30,10,11,11,11,10,10,10,10]
+start = [952,10,11,16,11,10,10,10,10]
 print(start)
 print("Sum start => "+str(np.sum(start)))
 for i in sorted(classes_all):
@@ -81,11 +81,11 @@ rndFin.printConfMatrix(y_testCoarse,y_predCoarse,rnd_results_fine)
 rndFin.plotRocPrCurves(y_testCoarse,y_pred_score,y_sampleWeight,rnd_results_fine)
 
 ##### Append round time and fold counts
-m.appendRndTimesFoldCnts(rndNum,'coarse',rnd_results_coarse,coarse_set,start_time)
-m.appendRndTimesFoldCnts(rndNum,'fine',rnd_results_fine,fine_set,start_time)
+instanceCount = m.appendRndTimesFoldCnts(rndNum,'coarse',rnd_results_coarse,coarse_set,start_time)
+instanceCount = m.appendRndTimesFoldCnts(rndNum,'fine',rnd_results_fine,fine_set,start_time)
 
-#while((18088-instanceCount) > 100):
-while(rndNum < 3):
+while((18088-instanceCount) > 100):
+#while(rndNum < 3):
     start_time = time.perf_counter()
     ###### run confidence estimate for coarse and fine
     m.confEstAdd(classes_coarse,coarse_set,rndCrs,100)
@@ -120,8 +120,8 @@ while(rndNum < 3):
     rndFin.plotRocPrCurves(y_testCoarse, y_pred_score, y_sampleWeight, rnd_results_fine)
 
     ##### Append round time and fold counts
-    m.appendRndTimesFoldCnts(rndNum, 'coarse', rnd_results_coarse, coarse_set, start_time)
-    m.appendRndTimesFoldCnts(rndNum, 'fine', rnd_results_fine, fine_set, start_time)
+    instanceCount = m.appendRndTimesFoldCnts(rndNum, 'coarse', rnd_results_coarse, coarse_set, start_time)
+    instanceCount = m.appendRndTimesFoldCnts(rndNum, 'fine', rnd_results_fine, fine_set, start_time)
 
     fileName = open('results/rnd_results_fine','wb')
     pickle.dump(rnd_results_fine,fileName)
