@@ -299,8 +299,8 @@ def findAddInstance(classes,set,find_inst):
 
 
 def fcnSclWeight(x):
-    #return 0.370037018*x+13.1579
-    return 0.685331066*x+6.5884
+    return 0.370037018*x+13.1579
+    #return 0.685331066*x+6.5884
 
 
 
