@@ -123,10 +123,10 @@ while((18088-instanceCount) > 100):
     instanceCount = m.appendRndTimesFoldCnts(rndNum, 'coarse', rnd_results_coarse, coarse_set, start_time)
     instanceCount = m.appendRndTimesFoldCnts(rndNum, 'fine', rnd_results_fine, fine_set, start_time)
 
-    fileName = open('results/rnd_results_fine','wb')
+    fileName = open('plots/passive_fine','wb')
     pickle.dump(rnd_results_fine,fileName)
     fileName.close()
-    fileName = open('results/rnd_results_coarse','wb')
+    fileName = open('plots/passive_coarse','wb')
     pickle.dump(rnd_results_coarse,fileName)
     fileName.close()
 

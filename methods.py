@@ -273,7 +273,7 @@ def iterateFoldsFine(level,rndNum,fine_folds,rnd_results_fine):
         plt.savefig(level+'_results/rnd'+str(rndNum)+'_'+level+'_PR_' + str(testFold) + '.png')
         plt.clf()
         plt.close()
-        # rnd_results_fine.append([rndNum]+[testFold] + [roc_auc[1]] + [average_precision[1]])
+        # active_fine.append([rndNum]+[testFold] + [roc_auc[1]] + [average_precision[1]])
         rnd_results_fine.append([rndNum]+[testFold] + [roc_auc["micro"]] + [average_precision["micro"]]+[accuracy_score(y_testCoarse, y_predCoarse)])
 
 

@@ -198,9 +198,8 @@ class FineRound(LearnRound):
         self.y_trainBin = label_binarize(self.y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
         self.wt = len(self.y_train) / np.sum(self.y_trainBin)
         self.train_wt = fcnSclWeight(self.wt)
-        self.Fine_wt = np.array([1,0.5,0.9,0.75    ,4,0.9,2,1])*self.train_wt
-
-
+        #self.Fine_wt = np.array([1,0.5,0.9,0.75    ,4,0.9,2,1])*self.train_wt
+        self.Fine_wt = np.array([0.25, 0.125, 0.225, 0.1875, 1.0, 0.225, 0.5, 0.25]) * self.train_wt
 
     def trainClassifier(self):
         #### train classifier for fine
@@ -234,18 +233,50 @@ class FineRound(LearnRound):
 
 
 
-
-
-
-
 def fcnSclWeight(input):
     #return input
-    y = np.array([20.0, 6.5])
+    y = np.array([80.0, 26.0])
     x = np.array([20.8870, 4.977])
     m = (y[0] - y[1]) / (x[0] - x[1])
     b = y[0] - m * x[0]
     return m * input + b
     #return 0.685331066*x+6.5884
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

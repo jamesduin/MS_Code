@@ -143,7 +143,7 @@ class FineRound(LearnRound):
         y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
-        self.Fine_wt = np.array([1,0.5,0.9,0.75    ,4,0.9,2,1])*train_wt
+        self.Fine_wt = np.array([0.25, 0.125, 0.225, 0.1875,     1.0, 0.225, 0.5, 0.25])*train_wt
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
@@ -177,6 +177,31 @@ class FineRound(LearnRound):
             else:
                 y_predCoarse.append(0.)
         return y_predCoarse,y_pred_score
+
+
+
+
+def fcnSclWeight(input):
+    #return input
+    y = np.array([80.0, 26.0])
+    x = np.array([20.8870, 4.977])
+    m = (y[0] - y[1]) / (x[0] - x[1])
+    b = y[0] - m * x[0]
+    return m * input + b
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -299,16 +324,6 @@ def findAddInstance(classes,set,find_inst):
 
 
 
-
-
-
-def fcnSclWeight(input):
-    #return input
-    y = np.array([20.0, 6.5])
-    x = np.array([20.8870, 4.977])
-    m = (y[0] - y[1]) / (x[0] - x[1])
-    b = y[0] - m * x[0]
-    return m * input + b
 
 
 

@@ -166,10 +166,10 @@ while((18088-instanceCount) > 100):
     rnd_results_fine.append(fold_cnt)
 
     print('Round {0}: {1} seconds'.format(rndNum,round(time.perf_counter() - start_time, 2)))
-    fileName = open('results/rnd_results_fine','wb')
+    fileName = open('results/active_fine','wb')
     pickle.dump(rnd_results_fine,fileName)
     fileName.close()
-    fileName = open('results/rnd_results_coarse','wb')
+    fileName = open('results/active_coarse','wb')
     pickle.dump(rnd_results_coarse,fileName)
     fileName.close()
 

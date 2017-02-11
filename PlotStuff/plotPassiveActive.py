@@ -2,21 +2,21 @@ import numpy as np
 from matplotlib import pyplot as plt
 import pickle
 
-fileName = open('results/ActiveBatches_fine','rb')
+fileName = open('results/active_fine','rb')
 ActiveBatches_fine = pickle.load(fileName)
 fileName.close()
 
-fileName = open('results/ActiveBatches_coarse','rb')
+fileName = open('results/active_coarse','rb')
 ActiveBatches_coarse = pickle.load(fileName)
 fileName.close()
 
-fileName = open('results/PassiveBatches_fine','rb')
-PassiveBatches_fine = pickle.load(fileName)
-fileName.close()
-
-fileName = open('results/PassiveBatches_coarse','rb')
-PassiveBatches_coarse = pickle.load(fileName)
-fileName.close()
+# fileName = open('results/PassiveBatches_fine','rb')
+# PassiveBatches_fine = pickle.load(fileName)
+# fileName.close()
+#
+# fileName = open('results/PassiveBatches_coarse','rb')
+# PassiveBatches_coarse = pickle.load(fileName)
+# fileName.close()
 
 ##### Print this folds pr_curve for fine
 # precision = dict()
@@ -40,19 +40,19 @@ fileName.close()
 # plt.clf()
 # plt.close()
 
-
-plt.figure()
-#with plt.style.context('fivethirtyeight'):
-plt.style.use('ggplot')
-x = []
-y = []
-count = 1
-for result in PassiveBatches_fine:
-    if(result[0] == count):
-        x.append(result[0])
-        y.append(result[2])
-        count+=1
-plt.plot(x,y, label = 'passive/fine')
+#
+# plt.figure()
+# #with plt.style.context('fivethirtyeight'):
+# plt.style.use('ggplot')
+# x = []
+# y = []
+# count = 1
+# for result in PassiveBatches_fine:
+#     if(result[0] == count):
+#         x.append(result[0])
+#         y.append(result[2])
+#         count+=1
+# plt.plot(x,y, label = 'passive/fine')
 
 x = []
 y = []
@@ -64,15 +64,15 @@ for result in ActiveBatches_fine:
         count+=1
 plt.plot(x,y, label = 'active/fine')
 
-x = []
-y = []
-count = 1
-for result in PassiveBatches_coarse:
-    if(result[0] == count):
-        x.append(result[0])
-        y.append(result[2])
-        count+=1
-plt.plot(x,y, label = 'passive/coarse')
+# x = []
+# y = []
+# count = 1
+# for result in PassiveBatches_coarse:
+#     if(result[0] == count):
+#         x.append(result[0])
+#         y.append(result[2])
+#         count+=1
+# plt.plot(x,y, label = 'passive/coarse')
 
 
 x = []
@@ -94,45 +94,45 @@ plt.legend(loc="lower right")
 plt.savefig('results/ActiveVsPassive.png')
 
 
-f = open('results/_rnds.txt', 'w')
-f.write('ActiveBatches_fine\n')
-count = 1
-for i,result in enumerate(ActiveBatches_fine):
-    if(result[0] == count):
-        f.write('{},{},{},{},'.format(result[0],result[1],result[2],result[3]))
-        conf = ActiveBatches_fine[i-1]
-        f.write('{},{},{},{}\n'.format(conf[0],conf[1],conf[2],conf[3]))
-        count+=1
+# f = open('results/_rnds.txt', 'w')
+# f.write('ActiveBatches_fine\n')
+# count = 1
+# for i,result in enumerate(ActiveBatches_fine):
+#     if(result[0] == count):
+#         f.write('{},{},{},{},'.format(result[0],result[1],result[2],result[3]))
+#         conf = ActiveBatches_fine[i-1]
+#         f.write('{},{},{},{}\n'.format(conf[0],conf[1],conf[2],conf[3]))
+#         count+=1
 
-f.write('PassiveBatches_fine\n')
-count = 1
-for i,result in enumerate(PassiveBatches_fine):
-    if(result[0] == count):
-        f.write('{},{},{},{},'.format(result[0],result[1],result[2],result[3]))
-        conf = PassiveBatches_fine[i-1]
-        f.write('{},{},{},{}\n'.format(conf[0],conf[1],conf[2],conf[3]))
-        count+=1
+# f.write('PassiveBatches_fine\n')
+# count = 1
+# for i,result in enumerate(PassiveBatches_fine):
+#     if(result[0] == count):
+#         f.write('{},{},{},{},'.format(result[0],result[1],result[2],result[3]))
+#         conf = PassiveBatches_fine[i-1]
+#         f.write('{},{},{},{}\n'.format(conf[0],conf[1],conf[2],conf[3]))
+#         count+=1
 
-f.write('ActiveBatches_coarse\n')
-count = 1
-for i,result in enumerate(ActiveBatches_coarse):
-    if(result[0] == count):
-        f.write('{},{},{},{},'.format(result[0],result[1],result[2],result[3]))
-        conf = ActiveBatches_coarse[i-1]
-        f.write('{},{},{},{}\n'.format(conf[0],conf[1],conf[2],conf[3]))
-        count+=1
+# f.write('ActiveBatches_coarse\n')
+# count = 1
+# for i,result in enumerate(ActiveBatches_coarse):
+#     if(result[0] == count):
+#         f.write('{},{},{},{},'.format(result[0],result[1],result[2],result[3]))
+#         conf = ActiveBatches_coarse[i-1]
+#         f.write('{},{},{},{}\n'.format(conf[0],conf[1],conf[2],conf[3]))
+#         count+=1
 
-f.write('PassiveBatches_coarse\n')
-count = 1
-for i,result in enumerate(PassiveBatches_coarse):
-    if(result[0] == count and type(PassiveBatches_coarse[i-1][0]) != str):
-        f.write('{},{},{},{},'.format(result[0],result[1],result[2],result[3]))
-        conf = PassiveBatches_coarse[i-1]
-        f.write('{},{},{},{}\n'.format(conf[0],conf[1],conf[2],conf[3]))
-        count+=1
+# f.write('PassiveBatches_coarse\n')
+# count = 1
+# for i,result in enumerate(PassiveBatches_coarse):
+#     if(result[0] == count and type(PassiveBatches_coarse[i-1][0]) != str):
+#         f.write('{},{},{},{},'.format(result[0],result[1],result[2],result[3]))
+#         conf = PassiveBatches_coarse[i-1]
+#         f.write('{},{},{},{}\n'.format(conf[0],conf[1],conf[2],conf[3]))
+#         count+=1
 
 
-f.close()
+#f.close()
 #
 #
 # f = open('results/_rnds.txt', 'w')

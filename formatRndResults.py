@@ -16,11 +16,11 @@ import time
 import methods as m
 import pickle
 
-fileName1 = open('results/rnd_results_fine','rb')
+fileName1 = open('results/active_fine','rb')
 fine_rnds = pickle.load(fileName1)
 fileName1.close()
 
-fileName2 = open('results/rnd_results_coarse','rb')
+fileName2 = open('results/active_coarse','rb')
 coarse_rnds = pickle.load(fileName2)
 fileName2.close()
 
