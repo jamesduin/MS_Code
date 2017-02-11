@@ -1,0 +1,5 @@
+fine fold 1
+[ 179  13]
+[  51  45]
+acc_score: 0.778
+f1_score: 0.584

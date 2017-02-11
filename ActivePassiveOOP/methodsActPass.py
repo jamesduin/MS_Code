@@ -31,7 +31,7 @@ class LearnRound:
         y_train, X_train = data[:, 0], data[:, 1:data.shape[1]]
         return y_train, X_train
 
-    def createTestSet(self,test_part,train_wt):
+    def createTestSet(self,test_part):
         ##### Create test set for coarse
         data_test = np.asarray(test_part[1])
         y_test, X_test = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
@@ -42,9 +42,10 @@ class LearnRound:
                 y_testCoarse.append(1.0)
             else:
                 y_testCoarse.append(0.0)
+        test_wt = len(y_testCoarse) / np.sum(y_testCoarse)
         for inst in y_testCoarse:
             if inst > 0:
-                y_sampleWeight.append(train_wt)
+                y_sampleWeight.append(test_wt)
             else:
                 y_sampleWeight.append(1.0)
         return y_testCoarse, y_sampleWeight, X_test
@@ -112,7 +113,7 @@ class CoarseRound(LearnRound):
                 y_trainCoarse.append(0.0)
         train_wt = fcnSclWeight(len(y_train) / np.sum(y_trainCoarse))
         self.train_wt = train_wt
-        return y_trainCoarse,train_wt
+        return y_trainCoarse
 
     def trainClassifier(self,X_train,y_trainCoarse):
         ##### Train classifier for coarse
@@ -140,25 +141,17 @@ class FineRound(LearnRound):
     def createTrainWtYtrain(self,y_train):
         ##### create train_wt (y_train unmodified) for fine
         y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
-        y_tot = np.sum(y_trainBin)
-        wt = fcnSclWeight(len(y_train) / y_tot)
-        train_tune = {1: 1, 2: 0.25, 3: 0.4, 4: 0.5, 5: 0.1, 6: 0.75, 7: 1.5, 8: 0.25}
-        self.Fine_wt = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1}
-        for i in self.Fine_wt:
-            self.Fine_wt[i] = train_tune[i] * wt
-        cls_sums = np.sum(y_trainBin, axis=0)
-        train_wt = []
-        for i in self.Fine_wt:
-            train_wt.append(train_tune[i] * cls_sums[i - 1])
-        train_wt = fcnSclWeight(len(y_train) / np.sum(train_wt))
-        return y_trainBin,train_wt
+        wt = len(y_train) / np.sum(y_trainBin)
+        train_wt = fcnSclWeight(wt)
+        self.Fine_wt = np.array([1,0.5,0.9,0.75    ,4,0.9,2,1])*train_wt
+        return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
         #### train classifier for fine
         for cls in range(8):
             classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
                                                       fit_intercept=False, intercept_scaling=1,
-                                                      class_weight={1: self.Fine_wt[cls + 1]},
+                                                      class_weight={1: self.Fine_wt[cls]},
                                                       solver='liblinear',
                                                       max_iter=1000, n_jobs=-1)
             clf = classif.fit(X_train, y_trainBin[:, cls])
@@ -256,7 +249,9 @@ def randAdd(classes,set,Addnum):
 
 
 def printClsVsFolds(folds, title):
-    print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(title, '', 0, 1, 2, 3, 4, 5, 6, 7, 8))
+    # stdout.write(
+    #     '{:<14}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format(title, 0, 1, 2, 3, 4, 5, 6, 7, 8))
+    print('{:<14}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(title, 0, 1, 2, 3, 4, 5, 6, 7, 8))
     instanceCount = 0
     classCountTot = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     for i in sorted(folds):
@@ -266,17 +261,26 @@ def printClsVsFolds(folds, title):
             classCountTot[int(inst[0])] += 1
             classCount[int(inst[0])] += 1
         classCount = [i] + [len(folds[i])] + classCount
+        # stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format(*classCount))
         print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
+    # stdout.write(
+    #     '{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('Total', instanceCount, *classCountTot))
     print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total', instanceCount, *classCountTot))
 
-def printClassTotals(classes_all):
+
+def printClassTotals(classes):
+    # stdout.write('{0:<10}{1:<10}\n'.format('Classes', ''))
     print('{0:<10}{1:<10}'.format('Classes', ''))
     instanceCount = 0
-    for i in sorted(classes_all):
-        instanceCount += len(classes_all[i])
-        print('{0:<10}{1:<10}'.format(i, len(classes_all[i])))
-    print('{0:<10}{1:<10}'.format('Total', instanceCount))
-    print('Shape: {0:<10}\n'.format(len(classes_all[0][0])))
+    for i in sorted(classes):
+        instanceCount += len(classes[i])
+        # stdout.write('{0:<10}{1:<10}\n'.format(i, len(classes[i])))
+        print('{0:<10}{1:<10}'.format(i, len(classes[i])))
+    # stdout.write('{0:<10}{1:<10}\n'.format('Total', instanceCount))
+    print('{0:<10}{1:<10}\n'.format('Total', instanceCount))
+    # stdout.write('Shape: {0:<10}\n'.format(len(classes[0][0])))
+    print('Shape: {0:<10}\n'.format(len(classes[0][0])))
+
 
 
 
@@ -298,12 +302,13 @@ def findAddInstance(classes,set,find_inst):
 
 
 
-def fcnSclWeight(x):
-    return 0.055745082*x + 19.7225
-    #return x
-    #return 0.370037018*x+13.1579
-    #return 0.685331066*x+6.5884
-
+def fcnSclWeight(input):
+    #return input
+    y = np.array([20.0, 6.5])
+    x = np.array([20.8870, 4.977])
+    m = (y[0] - y[1]) / (x[0] - x[1])
+    b = y[0] - m * x[0]
+    return m * input + b
 
 
 

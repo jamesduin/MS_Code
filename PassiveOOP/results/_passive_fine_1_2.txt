@@ -1,0 +1,5 @@
+fine fold 1
+[ 921  36]
+[  58  38]
+acc_score: 0.911
+f1_score: 0.447

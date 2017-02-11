@@ -1,0 +1,5 @@
+coarse fold 1
+[ 742 215]
+[  11  85]
+acc_score: 0.785
+f1_score: 0.429

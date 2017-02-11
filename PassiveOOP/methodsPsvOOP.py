@@ -55,9 +55,11 @@ class LearnRound:
                 self.y_testCoarse.append(1.0)
             else:
                 self.y_testCoarse.append(0.0)
+
+        test_wt = len(self.y_testCoarse) / np.sum(self.y_testCoarse)
         for inst in self.y_testCoarse:
             if inst > 0:
-                self.y_sampleWeight.append(self.train_wt)
+                self.y_sampleWeight.append(test_wt)
             else:
                 self.y_sampleWeight.append(1.0)
 
@@ -72,6 +74,9 @@ class LearnRound:
         self.f.write('acc_score: {:.3f}\n'.format(accuracy_score(self.y_testCoarse, self.y_predCoarse)))
         print(f1_score(self.y_testCoarse, self.y_predCoarse))
         self.f.write('f1_score: {:.3f}\n'.format(f1_score(self.y_testCoarse, self.y_predCoarse)))
+        self.results.append([' ']+[confMatrix[0][0]] + [confMatrix[0][1]]  + [' ']+ [np.round(self.wt,3)])
+        self.results.append([' '] + [confMatrix[1][0]] + [confMatrix[1][1]] + [' '] + [np.round(self.train_wt,3)])
+
 
     def plotRocPrCurves(self):
         ###### Plot ROC and PR curves
@@ -90,12 +95,12 @@ class LearnRound:
         plt.legend(loc="lower right")
         plt.savefig(self.lvl + '_results/' + self.fName + '_ROC_' + str(self.testFold) + '.png')
 
-        ##### Plog pr_curve
+        ##### Plot pr_curve
         precision, recall, threshPr = precision_recall_curve(self.y_testCoarse, self.y_pred_score, sample_weight=self.y_sampleWeight)
-        average_precision = auc(recall, precision)
+        pr_auc = auc(recall, precision)
         plt.clf()
-        plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
-                 label='Precision-recall curve (area = {0:0.3f})'.format(average_precision))
+        plt.plot(recall, precision, color='blue', linewidth=4, linestyle=':',
+                 label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
         plt.xlabel('Recall')
         plt.ylabel('Precision')
         plt.ylim([0.0, 1.05])
@@ -103,24 +108,24 @@ class LearnRound:
         plt.title('Precision-Recall')
         plt.legend(loc="lower right")
         plt.savefig(self.lvl + '_results/' + self.fName + '_PR_' + str(self.testFold) + '.png')
-        self.results.append([str(self.testFold)] + [roc_auc] + [average_precision])
+        self.results.append([str(self.testFold)]  + [pr_auc] + [roc_auc]+[accuracy_score(self.y_testCoarse, self.y_predCoarse)]+[f1_score(self.y_testCoarse, self.y_predCoarse)])
 
-    def saveResults(self,start_time):
-        ###### Save results to a file
-        self.f.write(self.lvl + '\n')
-        self.f.write('{0:5}{1:7}{2:7}\n'.format('fold', 'roc', 'pr'))
-        roc_Sum = 0.0
-        pr_Sum = 0.0
-        for result in self.results:
-            self.f.write('{0:<5}{1:<7.3f}{2:<7.3f}\n'.format(*result))
-            roc_Sum += result[1]
-            pr_Sum += result[2]
-        self.f.write('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(self.results)), (pr_Sum / len(self.results))))
-        print('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(self.results)), (pr_Sum / len(self.results))))
-
-        print('{} sec'.format(round(time.perf_counter() - start_time, 2)))
-        self.f.write('{} sec'.format(round(time.perf_counter() - start_time, 2)))
-        self.f.close()
+    # def saveResults(self,start_time):
+    #     ###### Save results to a file
+    #     self.f.write(self.lvl + '\n')
+    #     self.f.write('{0:5}{1:7}{2:7}\n'.format('fold', 'roc', 'pr'))
+    #     roc_Sum = 0.0
+    #     pr_Sum = 0.0
+    #     for result in self.results:
+    #         self.f.write('{0:<5}{1:<7.3f}{2:<7.3f}\n'.format(*result))
+    #         roc_Sum += result[1]
+    #         pr_Sum += result[2]
+    #     #self.f.write('{0:},{1:.3f},{2:.3f} \n'.format('avg', (roc_Sum / len(self.results)), (pr_Sum / len(self.results))))
+    #     #print('{0:},{1:.3f},{2:.3f}'.format('avg', (roc_Sum / len(self.results)), (pr_Sum / len(self.results))))
+    #
+    #     print('{} sec'.format(round(time.perf_counter() - start_time, 2)))
+    #     self.f.write('{} sec'.format(round(time.perf_counter() - start_time, 2)))
+    #     self.f.close()
 
 
 
@@ -134,6 +139,7 @@ class CoarseRound(LearnRound):
     def __init__(self,coarse_folds,fName):
         LearnRound.__init__(self,'coarse',coarse_folds,fName)
         self.train_wt = 0.0
+        self.wt = 0.0
         self.y_trainCoarse = []
         self.clf = []
         self.y_predCoarse = []
@@ -147,7 +153,9 @@ class CoarseRound(LearnRound):
                 self.y_trainCoarse.append(1.)
             else:
                 self.y_trainCoarse.append(0.)
-        self.train_wt = fcnSclWeight(len(self.y_train) / np.sum(self.y_trainCoarse))
+        self.wt =len(self.y_train) / np.sum(self.y_trainCoarse)
+        self.train_wt = fcnSclWeight(self.wt)
+        #self.train_wt = self.wt
 
     def trainClassifier(self):
         ##### train classifier for coarse
@@ -177,6 +185,7 @@ class FineRound(LearnRound):
     def __init__(self,fine_folds,fName):
         LearnRound.__init__(self,'fine',fine_folds,fName)
         self.train_wt = 0.0
+        self.wt = 0.0
         self.Fine_wt = []
         self.y_trainBin = []
         self.y_trainCoarse = []
@@ -187,24 +196,18 @@ class FineRound(LearnRound):
     def createTrainWtYtrain(self):
         ##### create train_wt (y_train unmodified) for fine
         self.y_trainBin = label_binarize(self.y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
-        y_tot = np.sum(self.y_trainBin)
-        wt = fcnSclWeight(len(self.y_train) / y_tot)
-        train_tune = {1: 1, 2: 0.25, 3: 0.4, 4: 0.5, 5: 0.1, 6: 0.75, 7: 1.5, 8: 0.25}
-        self.Fine_wt = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1}
-        for i in self.Fine_wt:
-            self.Fine_wt[i] = train_tune[i] * wt
-        cls_sums = np.sum(self.y_trainBin, axis=0)
-        self.train_wt = []
-        for i in self.Fine_wt:
-            self.train_wt.append(train_tune[i] * cls_sums[i - 1])
-        self.train_wt = fcnSclWeight(len(self.y_train) / np.sum(self.train_wt))
+        self.wt = len(self.y_train) / np.sum(self.y_trainBin)
+        self.train_wt = fcnSclWeight(self.wt)
+        self.Fine_wt = np.array([1,0.5,0.9,0.75    ,4,0.9,2,1])*self.train_wt
+
+
 
     def trainClassifier(self):
         #### train classifier for fine
         for cls in range(8):
             classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
                                                       fit_intercept=False, intercept_scaling=1,
-                                                      class_weight={1: self.Fine_wt[cls + 1]},
+                                                      class_weight={1: self.Fine_wt[cls]},
                                                       solver='liblinear',
                                                       max_iter=1000, n_jobs=-1)
             clf = classif.fit(self.X_train, self.y_trainBin[:, cls])
@@ -235,8 +238,49 @@ class FineRound(LearnRound):
 
 
 
-def fcnSclWeight(x):
-    return 0.685331066*x+6.5884
+def fcnSclWeight(input):
+    #return input
+    y = np.array([20.0, 6.5])
+    x = np.array([20.8870, 4.977])
+    m = (y[0] - y[1]) / (x[0] - x[1])
+    b = y[0] - m * x[0]
+    return m * input + b
+    #return 0.685331066*x+6.5884
+
+
+
+def printClsVsFolds(folds, title):
+    # stdout.write(
+    #     '{:<14}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format(title, 0, 1, 2, 3, 4, 5, 6, 7, 8))
+    print('{:<14}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(title, 0, 1, 2, 3, 4, 5, 6, 7, 8))
+    instanceCount = 0
+    classCountTot = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for i in sorted(folds):
+        classCount = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        instanceCount += len(folds[i])
+        for inst in folds[i]:
+            classCountTot[int(inst[0])] += 1
+            classCount[int(inst[0])] += 1
+        classCount = [i] + [len(folds[i])] + classCount
+        # stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format(*classCount))
+        print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
+    # stdout.write(
+    #     '{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('Total', instanceCount, *classCountTot))
+    print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total', instanceCount, *classCountTot))
+
+
+def printClassTotals(classes):
+    # stdout.write('{0:<10}{1:<10}\n'.format('Classes', ''))
+    print('{0:<10}{1:<10}'.format('Classes', ''))
+    instanceCount = 0
+    for i in sorted(classes):
+        instanceCount += len(classes[i])
+        # stdout.write('{0:<10}{1:<10}\n'.format(i, len(classes[i])))
+        print('{0:<10}{1:<10}'.format(i, len(classes[i])))
+    # stdout.write('{0:<10}{1:<10}\n'.format('Total', instanceCount))
+    print('{0:<10}{1:<10}\n'.format('Total', instanceCount))
+    # stdout.write('Shape: {0:<10}\n'.format(len(classes[0][0])))
+    print('Shape: {0:<10}\n'.format(len(classes[0][0])))
 
 
 

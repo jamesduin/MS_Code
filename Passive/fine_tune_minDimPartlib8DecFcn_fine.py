@@ -160,8 +160,8 @@ for testFold in fold_list:
     y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
     y_tot = np.sum(y_trainBin)
     wt =len(y_train)/y_tot
-    testcls = 8
-    train_wt = {1:wt, 2:wt*0.25, 3:wt*0.25, 4:wt*0.5, 5:wt*5, 6:wt*0.75, 7:wt*1.5, 8:wt*0.25}
+    testcls = 6
+    train_wt = {1:wt, 2:wt*0.25, 3:wt*0.25, 4:wt*0.5, 5:wt*5, 6:wt*1.5, 7:wt*1.5, 8:wt*0.25}
     print(train_wt)
 
     #### Scale dataset
@@ -176,7 +176,7 @@ for testFold in fold_list:
                                      solver='liblinear',
                                      max_iter=1000, n_jobs=-1)
             clf = classif.fit(X_train, y_trainBin[:,cls])
-            joblib.dump(clf, level+'_models/'+file_name+'_'+str(testFold) + '_'+str(cls+1)+'.pkl')
+            joblib.dump(clf, 'fine_models/'+file_name+'_'+str(testFold) + '_'+str(cls+1)+'.pkl')
             # clf = joblib.load(level+'_models/'+file_name+'_'+str(testFold) + '_'+str(cls)+'.pkl')
             classifier[cls] = clf
             y_trainPred = clf.predict(X_train)
@@ -269,7 +269,7 @@ for testFold in fold_list:
     plt.ylabel('True Positive Rate')
     plt.title('Receiver operating characteristic')
     plt.legend(loc="lower right")
-    plt.savefig(level+'_results/'+file_name+'_ROC_' + str(testFold) + '.png')
+    plt.savefig('fine_results/'+file_name+'_ROC_' + str(testFold) + '.png')
 
     ##### Print this folds pr_curve for fine
     precision, recall, threshPr = precision_recall_curve(y_testCoarse, y_pred_score,sample_weight=y_sampleWeight)
@@ -286,7 +286,7 @@ for testFold in fold_list:
     plt.xlim([0.0, 1.0])
     plt.title('Precision-Recall')
     plt.legend(loc="lower right")
-    plt.savefig(level+'_results/'+file_name+'_PR_' + str(testFold) + '.png')
+    plt.savefig('fine_results/'+file_name+'_PR_' + str(testFold) + '.png')
     results_fine.append([str(testFold)] + [roc_auc] + [average_precision])
 
 ###### Save results to a file
