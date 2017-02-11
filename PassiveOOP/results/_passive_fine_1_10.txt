@@ -1,5 +1,5 @@
-fine fold 1
-[ 179  13]
-[  51  45]
-acc_score: 0.778
-f1_score: 0.584
+fine fold 2
+[ 182  10]
+[  49  47]
+acc_score: 0.795
+f1_score: 0.614

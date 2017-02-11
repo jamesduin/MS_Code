@@ -5,9 +5,9 @@ import methodsPsvOOP as m
 
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 folds = {1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[]}
-#partitions = ['1_10','1_5','1_2','1_1']
+partitions = ['1_10','1_5','1_2','1_1']
 #partitions = ['scaled']
-partitions = ['1_1']
+#partitions = ['1_1']
 results = dict()
 
 for part in partitions:

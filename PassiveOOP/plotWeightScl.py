@@ -6,7 +6,7 @@ import pickle
 plt.figure()
 plt.style.use('ggplot')
 
-scale = 4
+scale = 1
 print(scale)
 #yorig = np.array([25., 15.])
 yorig = np.array([20., 6.5])

@@ -33,7 +33,7 @@ class LearnRound:
 
     def createTestSet(self,test_part):
         ##### Create test set for coarse
-        data_test = np.asarray(test_part[1])
+        data_test = np.asarray(test_part[2])
         y_test, X_test = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
         y_testCoarse = []
         y_sampleWeight = []
@@ -80,11 +80,11 @@ class LearnRound:
         plt.title('Receiver operating characteristic')
         plt.legend(loc="lower right")
         plt.savefig(self.lvl + '_results/rnd' + str(self.rndNum) + '_' + self.lvl + '_ROC.png')
+        plt.clf()
 
         ##### Plog pr_curve
         precision, recall, threshPr = precision_recall_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         pr_auc = auc(recall, precision)
-        plt.clf()
         plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
                  label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
         plt.xlabel('Recall')
@@ -94,6 +94,8 @@ class LearnRound:
         plt.title('Precision-Recall')
         plt.legend(loc="lower right")
         plt.savefig(self.lvl + '_results/rnd' + str(self.rndNum) + '_' + self.lvl + '_PR.png')
+        plt.clf()
+        plt.close()
         results.append([self.rndNum] + [roc_auc] + [pr_auc])
 
 class CoarseRound(LearnRound):
@@ -143,7 +145,7 @@ class FineRound(LearnRound):
         y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
-        self.Fine_wt = np.array([0.25, 0.125, 0.225, 0.1875,     1.0, 0.225, 0.5, 0.25])*train_wt
+        self.Fine_wt = np.array([1.0, 0.5, 0.9, 0.75, 4.0, 0.9, 2.0, 1.0]) * train_wt
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
@@ -183,7 +185,7 @@ class FineRound(LearnRound):
 
 def fcnSclWeight(input):
     #return input
-    y = np.array([80.0, 26.0])
+    y = np.array([20.0, 6.5])
     x = np.array([20.8870, 4.977])
     m = (y[0] - y[1]) / (x[0] - x[1])
     b = y[0] - m * x[0]
