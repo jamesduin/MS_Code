@@ -88,8 +88,10 @@ while((18088-instanceCount) > 100):
 #while(rndNum < 3):
     start_time = time.perf_counter()
     ###### run confidence estimate for coarse and fine
-    m.confEstAdd(classes_coarse,coarse_set,rndCrs,100)
-    m.confEstAdd(classes_fine, fine_set, rndFin, 100)
+    # m.confEstAdd(classes_coarse,coarse_set,rndCrs,100)
+    # m.confEstAdd(classes_fine, fine_set, rndFin, 100)
+    m.randAdd(classes_coarse,coarse_set,100)
+    m.randAdd(classes_fine,fine_set,100)
 
     rndNum += 1
 
@@ -123,10 +125,10 @@ while((18088-instanceCount) > 100):
     instanceCount = m.appendRndTimesFoldCnts(rndNum, 'coarse', rnd_results_coarse, coarse_set, start_time)
     instanceCount = m.appendRndTimesFoldCnts(rndNum, 'fine', rnd_results_fine, fine_set, start_time)
 
-    fileName = open('plots/passive_fine','wb')
+    fileName = open('plots/_fine','wb')
     pickle.dump(rnd_results_fine,fileName)
     fileName.close()
-    fileName = open('plots/passive_coarse','wb')
+    fileName = open('plots/_coarse','wb')
     pickle.dump(rnd_results_coarse,fileName)
     fileName.close()
 
