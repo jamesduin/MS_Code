@@ -80,7 +80,7 @@ class LearnRound:
 
     def plotRocPrCurves(self):
         ###### Plot ROC and PR curves
-        fpr, tpr, threshRoc = roc_curve(self.y_testCoarse, self.y_pred_score  )#, sample_weight=self.y_sampleWeight)
+        fpr, tpr, threshRoc = roc_curve(self.y_testCoarse, self.y_pred_score  , sample_weight=self.y_sampleWeight)
         roc_auc = auc(fpr, tpr, reorder=True)
         plt.figure()
         plt.plot(fpr, tpr,
@@ -96,7 +96,7 @@ class LearnRound:
         plt.savefig(self.lvl + '_results/' + self.fName + '_ROC_' + str(self.testFold) + '.png')
 
         ##### Plot pr_curve
-        precision, recall, threshPr = precision_recall_curve(self.y_testCoarse, self.y_pred_score  )#, sample_weight=self.y_sampleWeight)
+        precision, recall, threshPr = precision_recall_curve(self.y_testCoarse, self.y_pred_score  , sample_weight=self.y_sampleWeight)
         pr_auc = auc(recall, precision)
         plt.clf()
         plt.plot(recall, precision, color='blue', linewidth=4, linestyle=':',
@@ -199,7 +199,7 @@ class FineRound(LearnRound):
         self.wt = len(self.y_train) / np.sum(self.y_trainBin)
         self.train_wt = fcnSclWeight(self.wt)
         #self.Fine_wt = np.array([1.0, 1.0, 1.0, 1.0,     1.0, 1.0, 1.0, 1.0]) * self.train_wt
-        self.Fine_wt = np.array([1.0, 0.5, 0.9, 0.75,         4.0, 0.9, 2.0, 1.0])*self.train_wt
+        self.Fine_wt = np.array([0.25, 0.125, 0.225, 0.1875, 1.0, 0.225, 0.5, 0.25])*self.train_wt
         #self.Fine_wt = np.array([0.25, 0.125, 0.225, 0.1875,      1.0, 0.225, 0.5, 0.25]) * self.train_wt
 
     def trainClassifier(self):
@@ -237,8 +237,8 @@ class FineRound(LearnRound):
 def fcnSclWeight(input):
     #return input
     #y = np.array([80.0, 26.0])
-    y = np.array([20.0, 6.5])
-    x = np.array([20.8870, 4.977])
+    y = np.array([80.0, 0.0])
+    x = np.array([20.8870, 0.0])
     m = (y[0] - y[1]) / (x[0] - x[1])
     b = y[0] - m * x[0]
     return m * input + b

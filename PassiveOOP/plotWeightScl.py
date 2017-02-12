@@ -6,14 +6,15 @@ import pickle
 plt.figure()
 plt.style.use('ggplot')
 
-scale = 1
+scale = 3
 print(scale)
 #yorig = np.array([25., 15.])
-yorig = np.array([20., 6.5])
+yorig = np.array([20.0, 6.5])
 print(yorig)
 y = yorig*(scale)
 print(y.tolist())
-x = np.array([20.8870, 4.997])
+x = np.array([20.8870, 4.977])
+print(x)
 
 inp = np.arange(0.,30.,0.1)
 def f(inp):

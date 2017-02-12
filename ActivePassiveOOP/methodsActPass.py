@@ -33,7 +33,7 @@ class LearnRound:
 
     def createTestSet(self,test_part):
         ##### Create test set for coarse
-        data_test = np.asarray(test_part[2])
+        data_test = np.asarray(test_part[1])
         y_test, X_test = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
         y_testCoarse = []
         y_sampleWeight = []
@@ -145,7 +145,7 @@ class FineRound(LearnRound):
         y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
-        self.Fine_wt = np.array([1.0, 0.5, 0.9, 0.75, 4.0, 0.9, 2.0, 1.0]) * train_wt
+        self.Fine_wt = np.array([0.5, 0.25, 0.45, 0.375, 2.0, 0.45, 1.0, 0.5]) * train_wt
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):

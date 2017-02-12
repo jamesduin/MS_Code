@@ -1,5 +1,5 @@
 coarse fold 2
-[ 255 128]
-[  10  86]
-acc_score: 0.712
-f1_score: 0.555
+[ 150 233]
+[   5  91]
+acc_score: 0.503
+f1_score: 0.433

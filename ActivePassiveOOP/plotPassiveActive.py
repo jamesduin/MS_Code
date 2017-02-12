@@ -29,7 +29,8 @@ plt.legend(loc="lower right")
 plt.savefig('results/ActiveVsPassive.png')
 
 
-lvls = ['passive','active']
+#lvls = ['passive','active']
+lvls = ['passive']
 for lvl in lvls:
     fileName1 = open('results/'+lvl+'_fine.res','rb')
     fine_rnds = pickle.load(fileName1)
