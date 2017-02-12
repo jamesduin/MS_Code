@@ -31,9 +31,10 @@ for type in rndTypeSet:
         file = re.split("[/\.]", fname)[1]
         rndType = re.split("[_]", file)
         instType = rndType[0]+'_'+rndType[1]
-        if(type == instType):
+        if(type == instType and fold <1):
             fold +=1
             pr_row = []
+            print(fold)
             foldMatrix[fold] = []
             results = pickle.load(open(fname, 'rb'))
             for result in results:
@@ -49,16 +50,20 @@ for type in rndTypeSet:
                 prs = np.array(pr_row).reshape(len(pr_row),1)
             else:
                 size = prs.shape[0]
-                print(size)
                 row = pr_row[:size]
+
                 while(len(row)!= size):
-                    row.append([0])
+                    row.append(0)
                 pr = np.array(row).reshape(len(row),1)
                 prs = np.hstack((prs,pr))
     f = open('results/_' + type + '.txt', 'w')
+
     for i in range(len(foldMatrix[1])):
         for fold in foldMatrix:
-            f.write(str(foldMatrix[fold][i])+'\n')
+            try:
+                f.write(str(foldMatrix[fold][i])+'\n')
+            except IndexError:
+                pass
 
     # print((prs[0][0]+prs[0][1]+prs[0][2])/3)
     x = np.array(range(1,len(prs)+1))

@@ -16,7 +16,6 @@ class LearnRound:
         self.testFold = testFold
         self.min_max_scaler = []
         self.lvl = lvl
-        self.min_max_scaler = preprocessing.MinMaxScaler()
 
 
     def createTrainSet(self, set):
@@ -29,16 +28,16 @@ class LearnRound:
             else:
                 data = np.vstack((partition, data))
 
-        y_train, X_trainPreScale = data[:, 0], data[:, 1:data.shape[1]]
-        self.min_max_scaler = preprocessing.MinMaxScaler()
-        X_train = self.min_max_scaler.fit_transform(X_trainPreScale)
+        y_train, X_train = data[:, 0], data[:, 1:]
+        # self.min_max_scaler = preprocessing.MinMaxScaler()
+        # X_train = self.min_max_scaler.fit_transform(X_trainPreScale)
         return y_train, X_train
 
     def createTestSet(self,test_part):
         ##### Create test set for coarse
         data_test = np.asarray(test_part)
-        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
-        X_test = self.min_max_scaler.transform(X_testPreScale)
+        y_test, X_test = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
+        #X_test = self.min_max_scaler.transform(X_testPreScale)
         y_testCoarse = []
         y_sampleWeight = []
         for inst in y_test:
@@ -218,6 +217,11 @@ def fcnSclWeight(input):
 
 
 
+
+
+
+
+
 def appendRndTimesFoldCnts(testFold, rndNum,lvl,results,set,start_time):
     print('{},{},{} : {} seconds'.format(testFold,rndNum,lvl,
          round(time.perf_counter() - start_time, 2)))
@@ -241,6 +245,8 @@ def confEstAdd(classes,set,rndLvl,Addnum):
         data = np.asarray(classes[i])
         if(len(data)>0):
             y_train, X_train = data[:, 0], data[:, 1:]
+            # rndLvl.min_max_scaler = preprocessing.MinMaxScaler()
+            # X_train = rndLvl.min_max_scaler.fit_transform(X_trainPreScale)
             y_predCoarse, scores = rndLvl.predictTestSet(X_train)
             scores = scores.reshape(scores.shape[0],1)
             decFcn[i] = scores.tolist()
@@ -256,8 +262,7 @@ def confEstAdd(classes,set,rndLvl,Addnum):
                     most_cls = cls
                     most_ind = index
                     most_uncert = min_est
-        #print('fine {},{},{},{}'.format(i, most_cls, most_ind,len(classes_fine[most_cls])))
-        # print('coarse {},{},{},{}'.format(i, most_cls, most_ind, len(classes_coarse[most_cls])))
+        #print(rndLvl.lvl+' {},{},{},{}'.format(i, most_cls, most_ind, len(classes[most_cls])))
         set[most_cls].append(classes[most_cls].pop(most_ind))
         del decFcn[most_cls][most_ind]
 

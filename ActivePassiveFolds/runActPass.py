@@ -5,9 +5,10 @@ import pickle
 import copy
 
 rndTypes = ['passive', 'active']
+#rndTypes = ['active']
 for rndType in rndTypes:
     #testFolds = [1,2,3,4,5,6,7,8,9,10]
-    testFolds = [1,2,3]
+    testFolds = [2]
     for testFold in testFolds:
         start_time = time.perf_counter()
 
@@ -23,7 +24,7 @@ for rndType in rndTypes:
 
         # using the pre partitioned data
         for i in sorted(train_part):
-            with open("../data/partition_1_1/partition_1_1_" + str(i)) as f:
+            with open("../data/partition_scaled/partition_scaled" + str(i)) as f:
                 for line in f:
                     nums = line.split()
                     nums = list(map(float, nums))
@@ -58,10 +59,10 @@ for rndType in rndTypes:
                     sets[lvl][i].append(inst)
         for lvl in ['coarse','fine']:
             classes[lvl] = copy.deepcopy(classes_all)
-
+        instanceCount = 0
         rndNum = 0
-        #while((18088-instanceCount) > 100):
-        while(rndNum < 10):
+        while((18088-instanceCount) > 100):
+        #while(rndNum < 10):
             if(rndNum>1):
                 start_time = time.perf_counter()
                 for lvl in ['coarse', 'fine']:
