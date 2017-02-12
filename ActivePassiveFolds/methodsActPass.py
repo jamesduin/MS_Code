@@ -60,10 +60,13 @@ class LearnRound:
         acc = accuracy_score(y_testCoarse, y_predCoarse)
         f1 = f1_score(y_testCoarse, y_predCoarse)
         print(confMatrix)
-        print(acc)
-        print(f1)
-        results.append(['conf']+[confMatrix[0][0]] + [confMatrix[0][1]] + [confMatrix[1][0]] + [confMatrix[1][1]])
-        results.append(['acc']+[acc] +['f1']+[f1])
+        print('acc: {:.3f}'.format(acc))
+        print('f1: {:.3f}'.format(f1))
+        results.append(['rnd']+[self.rndNum] +['fold']+[self.testFold]+
+                       ['conf']+[confMatrix[0][0]] + [confMatrix[0][1]] +
+                       [confMatrix[1][0]] + [confMatrix[1][1]])
+        results.append(['rnd']+[self.rndNum] +['fold']+[self.testFold]+
+                       ['acc']+[acc] +['f1']+[f1])
 
 
     def plotRocPrCurves(self,y_testCoarse,y_pred_score,y_sampleWeight,results):
@@ -98,8 +101,8 @@ class LearnRound:
         plt.savefig(self.lvl + '_results/rnd' + str(self.rndNum) +  '_' + str(self.testFold) +'_' + self.lvl + '_PR.png')
         plt.clf()
         plt.close()
-        results.append(['Fold_'+str(self.testFold)]+['Rnd_'+str(self.rndNum)]
-                       +['pr']+ [pr_auc]+ ['roc']+[roc_auc])
+        results.append(['rnd']+[self.rndNum]+['fold']+[self.testFold]+
+                       ['pr']+ [pr_auc]+ ['roc']+[roc_auc])
 
 class CoarseRound(LearnRound):
     def __init__(self,testFold,rndNum):
@@ -146,7 +149,9 @@ class FineRound(LearnRound):
         y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
-        self.Fine_wt = np.array([0.5, 0.25, 0.45, 0.375, 2.0, 0.45, 1.0, 0.5]) * train_wt
+        self.Fine_wt = np.array(
+            [0.4444444444444444, 0.2222222222222222, 0.4, 0.3333333333333333, 1.7777777777777777, 0.4,
+             0.8888888888888888, 0.4444444444444444]) * train_wt
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
@@ -186,7 +191,8 @@ class FineRound(LearnRound):
 
 def fcnSclWeight(input):
     #return input
-    y = np.array([20.0, 6.5])
+    #y = np.array([20.0, 6.5])
+    y = np.array([45.0, 14.625])
     x = np.array([20.8870, 4.977])
     m = (y[0] - y[1]) / (x[0] - x[1])
     b = y[0] - m * x[0]
@@ -208,16 +214,21 @@ def fcnSclWeight(input):
 
 
 
+
+
+
+
 def appendRndTimesFoldCnts(testFold, rndNum,lvl,results,set,start_time):
-    print('Fold_{} Rnd_{}: {1} seconds'.format(testFold,rndNum, round(time.perf_counter() - start_time, 2)))
-    results.append(['Fold_']+[str(testFold)]+['Rnd_'+str(rndNum)] +
-                   ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
+    print('{},{},{} : {} seconds'.format(testFold,rndNum,lvl,
+         round(time.perf_counter() - start_time, 2)))
+    results.append(['rnd']+[rndNum] +['fold']+[testFold]+
+                   ['sec'] + [str(round(time.perf_counter() - start_time, 2))])
     instanceCount = 0
-    fold_cnt = [lvl+'_set']
+    fold_cnt = ['rnd']+[rndNum] +['fold']+[testFold]+[lvl+'_set']
     for i in sorted(set):
         instanceCount += len(set[i])
-        fold_cnt.append(['({0},{1})'.format(i, len(set[i]))])
-    fold_cnt.append(['({0},{1})'.format('Total', instanceCount)])
+        fold_cnt.append((i, len(set[i])))
+    fold_cnt.append(('tot', instanceCount))
     results.append(fold_cnt)
     return instanceCount
 

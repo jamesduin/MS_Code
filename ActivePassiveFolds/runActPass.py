@@ -6,8 +6,8 @@ import copy
 
 rndTypes = ['passive', 'active']
 for rndType in rndTypes:
-    testFolds = [1,2,3,4,5,6,7,8,9,10]
-    #testFolds = [9]
+    #testFolds = [1,2,3,4,5,6,7,8,9,10]
+    testFolds = [1,2,3]
     for testFold in testFolds:
         start_time = time.perf_counter()
 
@@ -59,9 +59,9 @@ for rndType in rndTypes:
         for lvl in ['coarse','fine']:
             classes[lvl] = copy.deepcopy(classes_all)
 
-        rndNum = 1
+        rndNum = 0
         #while((18088-instanceCount) > 100):
-        while(rndNum < 3):
+        while(rndNum < 10):
             if(rndNum>1):
                 start_time = time.perf_counter()
                 for lvl in ['coarse', 'fine']:
@@ -70,9 +70,7 @@ for rndType in rndTypes:
                     elif(rndType == 'active'):
                         ###### run confidence estimate for coarse and fine
                         m.confEstAdd(classes[lvl],sets[lvl],rnds[lvl],100)
-
             rndNum += 1
-
             rnds = dict()
             rnds['coarse'] = m.CoarseRound(testFold,rndNum)
             rnds['fine'] = m.FineRound(testFold,rndNum)
