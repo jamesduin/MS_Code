@@ -18,6 +18,13 @@ from sklearn.preprocessing import label_binarize
 import time
 
 class LearnRound:
+    def __init__(self,rndNum,testFold, lvl):
+        self.rndNum = rndNum
+        self.testFold = testFold
+        self.lvl = lvl
+        print('rnd: ' + str(self.rndNum) + ' fold '+str(self.testFold) +' '+str(self.lvl))
+
+
     def createTrainSet(self, set):
         ##### Create train set for coarse
         data = []
@@ -97,9 +104,8 @@ class LearnRound:
         results.append([self.rndNum] + [roc_auc] + [pr_auc])
 
 class CoarseRound(LearnRound):
-    def __init__(self):
-        self.lvl = "coarse"
-        self.rndNum = 0
+    def __init__(self,rndNum,testFold):
+        LearnRound.__init__(self, rndNum, testFold, 'coarse')
         self.clf = []
         self.train_wt = 0.0
 
@@ -132,9 +138,8 @@ class CoarseRound(LearnRound):
         return y_predCoarse,y_pred_score
 
 class FineRound(LearnRound):
-    def __init__(self):
-        self.lvl = "fine"
-        self.rndNum = 0
+    def __init__(self,rndNum,testFold):
+        LearnRound.__init__(self, rndNum, testFold, 'coarse')
         self.classifier = dict()
         self.Fine_wt = []
 

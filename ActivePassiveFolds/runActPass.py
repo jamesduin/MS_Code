@@ -12,10 +12,9 @@ for testFold in testFolds:
 
         classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
         train_part = {1:[],2: [],3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
-        coarse_set = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
-        fine_set = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
-        rnd_results_coarse = []
-        rnd_results_fine = []
+        sets = dict()
+        rnd_results = dict()
+        classes = dict()
 
         # using the pre partitioned data
         for i in sorted(train_part):
@@ -42,43 +41,26 @@ for testFold in testFolds:
         for i in sorted(classes_all):
             for j in range(int(start[i])):
                 inst = classes_all[i].pop()
-                coarse_set[i].append(inst)
-                fine_set[i].append(inst)
-
-        classes_fine = copy.deepcopy(classes_all)
-        classes_coarse = copy.deepcopy(classes_all)
+                for lvl in ['coarse','fine']:
+                    sets[lvl].append(inst)
+        for lvl in ['coarse','fine']:
+            classes[lvl] = copy.deepcopy(classes_all)
 
         rndNum = 1
-
-        #####  Iterate through fold list for coarse
-        rnd_results_coarse.append(['rnd', 'roc_auc', 'pr_auc', 'acc'])
-        print("rnd" + str(rndNum) + "_" + "coarse")
-        rndCrs = m.CoarseRound()
-        rndCrs.rndNum = rndNum
-        y_train,X_train = rndCrs.createTrainSet(coarse_set)
-        y_trainCoarse = rndCrs.createTrainWtYtrain(y_train)
-        y_testCoarse, y_sampleWeight, X_test = rndCrs.createTestSet(test_part)
-        rndCrs.trainClassifier(X_train,y_trainCoarse)
-        y_predCoarse,y_pred_score = rndCrs.predictTestSet(X_test)
-        rndCrs.printConfMatrix(y_testCoarse,y_predCoarse,rnd_results_coarse)
-        rndCrs.plotRocPrCurves(y_testCoarse,y_pred_score,y_sampleWeight,rnd_results_coarse)
-
-        ##### Iterate through fold list for fine
-        rnd_results_fine.append(['rnd', 'roc_auc', 'pr_auc','acc'])
-        print("rnd" + str(rndNum) + "_" + "fine")
-        rndFin = m.FineRound()
-        rndFin.rndNum = rndNum
-        y_train,X_train = rndFin.createTrainSet(fine_set)
-        y_trainBin = rndFin.createTrainWtYtrain(y_train)
-        y_testCoarse, y_sampleWeight, X_test = rndFin.createTestSet(test_part)
-        rndFin.trainClassifier(X_train,y_trainBin)
-        y_predCoarse,y_pred_score = rndFin.predictTestSet(X_test)
-        rndFin.printConfMatrix(y_testCoarse,y_predCoarse,rnd_results_fine)
-        rndFin.plotRocPrCurves(y_testCoarse,y_pred_score,y_sampleWeight,rnd_results_fine)
-
-        ##### Append round time and fold counts
-        instanceCount = m.appendRndTimesFoldCnts(rndNum,'coarse',rnd_results_coarse,coarse_set,start_time)
-        instanceCount = m.appendRndTimesFoldCnts(rndNum,'fine',rnd_results_fine,fine_set,start_time)
+        rnds = dict()
+        rnds['coarse'] = m.CoarseRound(rndNum, testFold)
+        rnds['fine'] = m.FineRound(rndNum,testFold)
+        #### Run rounds
+        for lvl in ['coarse', 'fine']:
+            y_train,X_train = rnds[lvl].createTrainSet(sets[lvl])
+            y_trainCoarse = rndCrs.createTrainWtYtrain(y_train)
+            y_testCoarse, y_sampleWeight, X_test = rndCrs.createTestSet(test_part)
+            rndCrs.trainClassifier(X_train,y_trainCoarse)
+            y_predCoarse,y_pred_score = rndCrs.predictTestSet(X_test)
+            rndCrs.printConfMatrix(y_testCoarse,y_predCoarse,rnd_results[lvl])
+            rndCrs.plotRocPrCurves(y_testCoarse,y_pred_score,y_sampleWeight,rnd_results[lvl])
+            ##### Append round time and fold counts
+            instanceCount = m.appendRndTimesFoldCnts(rndNum, lvl, rnd_results[lvl], sets[lvl], start_time)
 
         #while((18088-instanceCount) > 100):
         while(rndNum < 3):
