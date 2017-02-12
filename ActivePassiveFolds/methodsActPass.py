@@ -1,14 +1,7 @@
 import numpy as np
-from sklearn import svm
 from sklearn import preprocessing
-from sklearn.feature_selection import SelectKBest,chi2,SelectPercentile,f_classif
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, f1_score
-from sklearn.metrics import precision_score
-from sklearn.metrics import recall_score
-from sklearn.multiclass import OneVsRestClassifier
-from sklearn.metrics import precision_recall_curve
-from sklearn.metrics import average_precision_score
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import precision_recall_curve
@@ -18,11 +11,12 @@ from sklearn.preprocessing import label_binarize
 import time
 
 class LearnRound:
-    def __init__(self,rndNum,testFold, lvl):
+    def __init__(self,testFold,rndNum, lvl):
         self.rndNum = rndNum
         self.testFold = testFold
+        self.min_max_scaler = []
         self.lvl = lvl
-        print('rnd: ' + str(self.rndNum) + ' fold '+str(self.testFold) +' '+str(self.lvl))
+        self.min_max_scaler = preprocessing.MinMaxScaler()
 
 
     def createTrainSet(self, set):
@@ -35,13 +29,16 @@ class LearnRound:
             else:
                 data = np.vstack((partition, data))
 
-        y_train, X_train = data[:, 0], data[:, 1:data.shape[1]]
+        y_train, X_trainPreScale = data[:, 0], data[:, 1:data.shape[1]]
+        self.min_max_scaler = preprocessing.MinMaxScaler()
+        X_train = self.min_max_scaler.fit_transform(X_trainPreScale)
         return y_train, X_train
 
     def createTestSet(self,test_part):
         ##### Create test set for coarse
         data_test = np.asarray(test_part)
-        y_test, X_test = data_test[:, 0], data_test[:, 1:data_test.shape[1]];
+        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
+        X_test = self.min_max_scaler.transform(X_testPreScale)
         y_testCoarse = []
         y_sampleWeight = []
         for inst in y_test:
@@ -66,7 +63,7 @@ class LearnRound:
         print(acc)
         print(f1)
         results.append(['conf']+[confMatrix[0][0]] + [confMatrix[0][1]] + [confMatrix[1][0]] + [confMatrix[1][1]])
-        results.append(['acc']+[np.round(acc,3)] + [' ']+['f1']+[np.round(f1,3)])
+        results.append(['acc']+[acc] +['f1']+[f1])
 
 
     def plotRocPrCurves(self,y_testCoarse,y_pred_score,y_sampleWeight,results):
@@ -84,7 +81,7 @@ class LearnRound:
         plt.ylabel('True Positive Rate')
         plt.title('Receiver operating characteristic')
         plt.legend(loc="lower right")
-        plt.savefig(self.lvl + '_results/rnd' + str(self.rndNum) + '_' + self.lvl + '_ROC.png')
+        plt.savefig(self.lvl + '_results/rnd' + str(self.rndNum) + '_' + str(self.testFold) +'_' + self.lvl + '_ROC.png')
         plt.clf()
 
         ##### Plog pr_curve
@@ -98,14 +95,15 @@ class LearnRound:
         plt.xlim([0.0, 1.0])
         plt.title('Precision-Recall')
         plt.legend(loc="lower right")
-        plt.savefig(self.lvl + '_results/rnd' + str(self.rndNum) + '_' + self.lvl + '_PR.png')
+        plt.savefig(self.lvl + '_results/rnd' + str(self.rndNum) +  '_' + str(self.testFold) +'_' + self.lvl + '_PR.png')
         plt.clf()
         plt.close()
-        results.append([self.rndNum] + [roc_auc] + [pr_auc])
+        results.append(['Fold_'+str(self.testFold)]+['Rnd_'+str(self.rndNum)]
+                       +['pr']+ [pr_auc]+ ['roc']+[roc_auc])
 
 class CoarseRound(LearnRound):
-    def __init__(self,rndNum,testFold):
-        LearnRound.__init__(self, rndNum, testFold, 'coarse')
+    def __init__(self,testFold,rndNum):
+        LearnRound.__init__(self, testFold,rndNum, 'coarse')
         self.clf = []
         self.train_wt = 0.0
 
@@ -138,8 +136,8 @@ class CoarseRound(LearnRound):
         return y_predCoarse,y_pred_score
 
 class FineRound(LearnRound):
-    def __init__(self,rndNum,testFold):
-        LearnRound.__init__(self, rndNum, testFold, 'coarse')
+    def __init__(self,testFold,rndNum):
+        LearnRound.__init__(self, testFold,rndNum, 'fine')
         self.classifier = dict()
         self.Fine_wt = []
 
@@ -210,9 +208,10 @@ def fcnSclWeight(input):
 
 
 
-def appendRndTimesFoldCnts(rndNum,lvl,results,set,start_time):
-    print('Round {0}: {1} seconds'.format(rndNum, round(time.perf_counter() - start_time, 2)))
-    results.append(['Rnd'] + [str(rndNum)] + ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
+def appendRndTimesFoldCnts(testFold, rndNum,lvl,results,set,start_time):
+    print('Fold_{} Rnd_{}: {1} seconds'.format(testFold,rndNum, round(time.perf_counter() - start_time, 2)))
+    results.append(['Fold_']+[str(testFold)]+['Rnd_'+str(rndNum)] +
+                   ['Sec'] + [str(round(time.perf_counter() - start_time, 2))])
     instanceCount = 0
     fold_cnt = [lvl+'_set']
     for i in sorted(set):
@@ -269,7 +268,12 @@ def randAdd(classes,set,Addnum):
 
 
 
-
+def switchClass5instance(test_part,train_part):
+    for i, inst in enumerate(test_part):
+        if inst[0] == 5:
+            for part in train_part:
+                train_part[part].append(test_part.pop(i))
+                return
 
 
 
@@ -293,6 +297,7 @@ def printClsVsFolds(folds, title):
     # stdout.write(
     #     '{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('Total', instanceCount, *classCountTot))
     print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total', instanceCount, *classCountTot))
+    return classCount
 
 
 def printClassTotals(classes):

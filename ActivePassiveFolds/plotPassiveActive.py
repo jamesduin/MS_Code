@@ -15,12 +15,11 @@ for fname in glob.glob('results/*.res'):
     results = pickle.load(open(fname, 'rb'))
     x = []
     y = []
-    count = 1
-    for result in results:
-        if(result[0] == count):
-            x.append(result[0])
-            y.append(result[2])
-            count+=1
+    for count in range(1,180):
+        for result in results:
+            if(result[0] == count):
+                x.append(result[0])
+                y.append(result[3])
     plt.plot(x,y, label = fname)
 
 plt.ylabel('PR-AUC')
