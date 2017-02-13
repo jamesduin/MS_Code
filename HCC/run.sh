@@ -36,9 +36,11 @@ EOF
 
 sbatch <<'EOF'
 #!/bin/sh
-#SBATCH --time=05:00:00          # Run time in hh:mm:ss
+#SBATCH --time=02:00:00          # Run time in hh:mm:ss
 #SBATCH --mem-per-cpu=60000       # Maximum memory required per CPU (in megabytes)
 #SBATCH --job-name=runActPass
+#SBATCH --partition=highmem
+#SBATCH --qos=short
 #SBATCH --error=/work/scott/jamesd/job.%J.runActPass_passive_9.err
 #SBATCH --output=/work/scott/jamesd/job.%J.runActPass_passive_9.out
 module load python/3.5
