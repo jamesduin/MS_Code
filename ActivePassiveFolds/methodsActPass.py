@@ -1,5 +1,7 @@
 import numpy as np
 from sklearn import preprocessing
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, f1_score
 from sklearn.metrics import accuracy_score
@@ -12,6 +14,7 @@ import time
 
 class LearnRound:
     def __init__(self,testFold,rndNum, lvl):
+        self.lvl_rndTime = 0
         self.rndNum = rndNum
         self.testFold = testFold
         self.min_max_scaler = []
@@ -19,6 +22,7 @@ class LearnRound:
 
 
     def createTrainSet(self, set):
+        self.lvl_rndTime = time.perf_counter()
         ##### Create train set for coarse
         data = []
         for x in sorted(set):
@@ -102,6 +106,8 @@ class LearnRound:
         plt.close()
         results.append(['rnd']+[self.rndNum]+['fold']+[self.testFold]+
                        ['pr']+ [pr_auc]+ ['roc']+[roc_auc])
+        results.append(['rnd']+[self.rndNum]+['fold']+[self.testFold]+
+                       [self.lvl+'rndTime'] + [str(round(time.perf_counter() - self.lvl_rndTime, 2))])
 
 class CoarseRound(LearnRound):
     def __init__(self,testFold,rndNum):
@@ -226,7 +232,7 @@ def appendRndTimesFoldCnts(testFold, rndNum,lvl,results,set,start_time):
     print('{},{},{} : {} seconds'.format(testFold,rndNum,lvl,
          round(time.perf_counter() - start_time, 2)))
     results.append(['rnd']+[rndNum] +['fold']+[testFold]+
-                   ['sec'] + [str(round(time.perf_counter() - start_time, 2))])
+                   ['rndTimeTot'] + [str(round(time.perf_counter() - start_time, 2))])
     instanceCount = 0
     fold_cnt = ['rnd']+[rndNum] +['fold']+[testFold]+[lvl+'_set']
     for i in sorted(set):

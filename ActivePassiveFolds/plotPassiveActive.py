@@ -1,9 +1,12 @@
 import numpy as np
-from matplotlib import pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import pickle
 import glob
 import re
-
+#import os
+#os.chdir('/work/scott/jamesd/')
 
 
 plt.figure()
@@ -20,56 +23,60 @@ for fname in glob.glob('results/*.res'):
     #print(rndType[0]+'_'+rndType[1])
     rndTypeSet.add(rndType[0]+'_'+rndType[1])
 print(rndTypeSet)
-#rndTypeSet = {'passive_coarse', 'active_fine', 'active_coarse', 'passive_fine'}
-#rndTypeSet = {'passive_coarse'}
 
 for type in rndTypeSet:
     prs = []
     foldMatrix = dict()
-    fold = 0
-    for fname in glob.glob('results/*.res'):
-        file = re.split("[/\.]", fname)[1]
-        rndType = re.split("[_]", file)
-        instType = rndType[0]+'_'+rndType[1]
-        if(type == instType and fold <1):
-            fold +=1
-            pr_row = []
-            print(fold)
-            foldMatrix[fold] = []
-            results = pickle.load(open(fname, 'rb'))
-            for result in results:
-                foldMatrix[fold].append(result)
-                fnd = False
-                for item in result:
-                    if (fnd):
-                        pr_row.append(item)
-                        fnd = False
-                    elif item == 'pr':
-                        fnd = True
-            if prs == []:
-                prs = np.array(pr_row).reshape(len(pr_row),1)
-            else:
-                size = prs.shape[0]
-                row = pr_row[:size]
+    for fold in range(1,10):
+        for fname in glob.glob('results/*.res'):
+            file = re.split("[/\.]", fname)[1]
+            rndType = re.split("[_]", file)
+            instType = rndType[0]+'_'+rndType[1]
+            #if(type == instType and str(fold) == rndType[2] and fold <=2):
+            if (type == instType and str(fold) == rndType[2] ):
+                pr_row = []
+                print(fold)
+                print(instType)
+                foldMatrix[fold] = []
+                results = pickle.load(open(fname, 'rb'))
+                for result in results:
+                    foldMatrix[fold].append(result)
+                    fnd = False
+                    for item in result:
+                        if (fnd):
+                            pr_row.append(item)
+                            fnd = False
+                        elif item == 'pr':
+                            fnd = True
+                if prs == []:
+                    prs = np.array(pr_row).reshape(len(pr_row),1)
+                else:
+                    size = prs.shape[0]
+                    row = pr_row[:size]
 
-                while(len(row)!= size):
-                    row.append(0)
-                pr = np.array(row).reshape(len(row),1)
-                prs = np.hstack((prs,pr))
-    f = open('results/_' + type + '.txt', 'w')
+                    while(len(row)!= size):
+                        row.append(0)
+                    pr = np.array(row).reshape(len(row),1)
+                    prs = np.hstack((prs,pr))
+        f = open('results/_' + type + '.txt', 'w')
 
-    for i in range(len(foldMatrix[1])):
+        startFold = 0
         for fold in foldMatrix:
-            try:
-                f.write(str(foldMatrix[fold][i])+'\n')
-            except IndexError:
-                pass
+            startFold = fold
+            break
+        if(startFold != 0):
+            for i in range(len(foldMatrix[startFold])):
+                for fold in foldMatrix:
+                    try:
+                        f.write(str(foldMatrix[fold][i])+'\n')
+                    except IndexError:
+                        pass
 
     # print((prs[0][0]+prs[0][1]+prs[0][2])/3)
     x = np.array(range(1,len(prs)+1))
     y = np.mean(prs, axis=1)
-    print(x)
-    print(y)
+    #print(x)
+    #print(y)
     plt.plot(x,y, label = 'avg_'+type)
 
 plt.ylabel('PR-AUC')

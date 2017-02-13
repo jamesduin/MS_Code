@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/scott/jamesd/plotWeightScl.py", line 31, in <module>
+    plt.savefig('results/sampleWeight.png')
+  File "/util/opt/anaconda3/2.0/envs/py35/lib/python3.5/site-packages/matplotlib/pyplot.py", line 688, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "/util/opt/anaconda3/2.0/envs/py35/lib/python3.5/site-packages/matplotlib/figure.py", line 1539, in savefig
+    self.canvas.print_figure(*args, **kwargs)
+  File "/util/opt/anaconda3/2.0/envs/py35/lib/python3.5/site-packages/matplotlib/backend_bases.py", line 2230, in print_figure
+    **kwargs)
+  File "/util/opt/anaconda3/2.0/envs/py35/lib/python3.5/site-packages/matplotlib/backends/backend_agg.py", line 532, in print_png
+    filename_or_obj = open(filename_or_obj, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: 'results/sampleWeight.png'

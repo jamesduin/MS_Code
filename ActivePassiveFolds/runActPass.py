@@ -3,12 +3,16 @@ import time
 import methodsActPass as m
 import pickle
 import copy
+#import os
+#os.chdir('/work/scott/jamesd/')
+#dataDir = '/home/scott/jamesd/MS_Code/'
+dataDir = '../'
 
 rndTypes = ['passive', 'active']
 #rndTypes = ['active']
 for rndType in rndTypes:
     #testFolds = [1,2,3,4,5,6,7,8,9,10]
-    testFolds = [2]
+    testFolds = [6]
     for testFold in testFolds:
         start_time = time.perf_counter()
 
@@ -24,7 +28,7 @@ for rndType in rndTypes:
 
         # using the pre partitioned data
         for i in sorted(train_part):
-            with open("../data/partition_scaled/partition_scaled" + str(i)) as f:
+            with open(dataDir+'data/partition_scaled/partition_scaled' + str(i)) as f:
                 for line in f:
                     nums = line.split()
                     nums = list(map(float, nums))
@@ -84,6 +88,7 @@ for rndType in rndTypes:
                 y_predCoarse, y_pred_score = rnds[lvl].predictTestSet(X_test)
                 rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse, rnd_results[lvl])
                 rnds[lvl].plotRocPrCurves(y_testCoarse, y_pred_score, y_sampleWeight, rnd_results[lvl])
+            for lvl in ['coarse', 'fine']:
                 ##### Append round time and fold counts
                 instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, lvl, rnd_results[lvl], sets[lvl], start_time)
                 fileName = open('results/'+rndType+'_'+lvl+'_'+str(testFold)+'.res','wb')

@@ -1,10 +1,4 @@
 import numpy as np
-from matplotlib import pyplot as plt
-import pickle
-
-
-plt.figure()
-plt.style.use('ggplot')
 
 scale = 2.25
 print(scale)
@@ -21,13 +15,6 @@ def f(inp):
     m = (y[0] - y[1]) / (x[0] - x[1])
     b = y[0] - m * x[0]
     return m*inp+b
-
-plt.plot(inp,f(inp), label = 'scaleWeight')
-plt.ylabel('PR-AUC')
-plt.xlabel('Iteration')
-plt.title('Active vs. Passive Learning')
-plt.legend(loc="lower right")
-plt.savefig('results/sampleWeight.png')
 
 print(f(x))
 
