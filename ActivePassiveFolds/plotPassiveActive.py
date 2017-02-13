@@ -27,7 +27,7 @@ print(rndTypeSet)
 for type in rndTypeSet:
     prs = []
     foldMatrix = dict()
-    for fold in range(1,10):
+    for fold in range(1,11):
         for fname in glob.glob('results/*.res'):
             file = re.split("[/\.]", fname)[1]
             rndType = re.split("[_]", file)
