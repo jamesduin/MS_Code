@@ -4,7 +4,7 @@ rndType = ['active','passive']
 fold = [1,2,3,4,5,6,7,8,9,10]
 #fold = [7,8,9,10]
 #fold = [6,7,8,9,10]
-add2Short = True
+add2Short = False
 cntShrt = 1
 part1 = 'gpu_m2070'
 part2 = 'gpu_k20'
@@ -15,13 +15,13 @@ partDivid = 6
 # "#SBATCH --partition=gpu_m2070\n"  #crane partition
 # "#SBATCH --partition=guest\n"  #sandhills partition
 
-runDir = 'resultsSclBy1_15'
+runDir = 'resultsRBFsclBy1_15'
 for type in rndType:
     for fld in fold:
         f.write(
         "sbatch <<'EOF'\n"
         "#!/bin/sh\n"
-        "#SBATCH --time=3:00:00          # Run time in hh:mm:ss\n"
+        "#SBATCH --time=8:00:00          # Run time in hh:mm:ss\n"
         "#SBATCH --nodes=1       # number of nodes\n"
         "#SBATCH --ntasks=1       # number of cores\n"
         "#SBATCH --mem-per-cpu=2024       # Maximum memory required per CPU (in megabytes)\n")
@@ -42,7 +42,7 @@ for type in rndType:
         #"module load python/3.4\n" #for sandhills
         "module load python/3.5\n" #for crane and tusker
         #"python /home/scott/jamesd/"+runDir+"/runActPass.py " + type + " " + str(fld) + "\n"
-        "python /home/scott/jamesd/"+runDir+"/runActPass.py " + type + " " + str(fld) + "\n"
+        "python /home/scott/jamesd/"+runDir+"/runActPassRBF.py " + type + " " + str(fld) + "\n"
         "EOF\n\n")
 
 f.close()

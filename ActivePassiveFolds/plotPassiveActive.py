@@ -18,9 +18,9 @@ plt.figure()
 plt.style.use('ggplot')
 
 
-resultsDir = 'resultsSclBy1_25/results'
-#resultsDir = 'resultsSclBy1_4375/results'
-#resultsDir = 'resultsSclBy2.03125'
+#resultsDir = 'resultsSclBy1_15/results'
+#resultsDir = 'resultsRBFsclBy1_25/results'
+resultsDir = 'resultsPart11SclBy1_25/results'
 #resultsDir = 'resultsSclBy2.0625/results'
 #resultsDir = 'resultsSclBy1.5/results'
 #resultsDir = 'resultsSclBy1/results'
