@@ -1,22 +1,37 @@
 f = open('run.sh','w')
 f.write('#!/bin/sh\n\n')
 rndType = ['active','passive']
-fold = [8,9,10]
+#fold = [1,2,3,4,5]#,6,7,8,9,10]
+#fold = [6,7]
+fold = [6,7,8,9,10]
+add2Short = False
+cntShrt = 1
+runDir = 'resultsSclBy1_3'
 for type in rndType:
     for fld in fold:
         f.write(
         "sbatch <<'EOF'\n"
         "#!/bin/sh\n"
-        "#SBATCH --time=05:00:00          # Run time in hh:mm:ss\n"
-        "#SBATCH --mem-per-cpu=60000       # Maximum memory required per CPU (in megabytes)\n"
-        #"#SBATCH --partition=opaguest\n"
-        "#SBATCH --job-name=runActPass\n"
-        "#SBATCH --error=/work/scott/jamesd/job.%J.runActPass_" + type + "_" + str(fld) + ".err\n"
-        "#SBATCH --output=/work/scott/jamesd/job.%J.runActPass_" + type + "_" + str(fld) + ".out\n"
-        #"#SBATCH --qos=short\n"
-        "module load python/3.5\n"
-        "python /home/scott/jamesd/MS_Code/ActivePassiveFolds/runActPass.py " + type + " " + str(fld) + "\n"
-        "EOF\n\n"
-        )
+        "#SBATCH --time=02:15:00          # Run time in hh:mm:ss\n"
+        "#SBATCH --nodes=1       # number of nodes\n"
+        "#SBATCH --ntasks=1       # number of cores\n"
+        "#SBATCH --mem-per-cpu=2024       # Maximum memory required per CPU (in megabytes)\n"
+        #"#SBATCH --partition=highmem\n" #tusker partition
+        "#SBATCH --partition=gpu_k20\n" #crane partition
+        #"#SBATCH --partition=gpu_m2070\n"  #crane partition
+        #"#SBATCH --partition=guest\n"  #sandhills partition
+        "#SBATCH --job-name=AP_" + type[0] + "_" + str(fld) + "\n"
+        "#SBATCH --error=/work/scott/jamesd/"+runDir+"/job.%J.AP_" + type + "_" + str(fld) + ".err\n"
+        "#SBATCH --output=/work/scott/jamesd/"+runDir+"/job.%J.AP_" + type + "_" + str(fld) + ".out\n")
+        if(add2Short and cntShrt <=2):
+            f.write(
+            "#SBATCH --qos=short\n")
+            cntShrt+=1
+        f.write(
+        #"module load python/3.4\n" #for sandhills
+        "module load python/3.5\n" #for crane and tusker
+        "python /home/scott/jamesd/"+runDir+"/runActPass.py " + type + " " + str(fld) + "\n"
+        "EOF\n\n")
+
 f.close()
 

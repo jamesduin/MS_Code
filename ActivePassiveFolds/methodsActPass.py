@@ -77,34 +77,38 @@ class LearnRound:
         ###### Plot ROC and PR curves
         fpr, tpr, threshRoc = roc_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         roc_auc = auc(fpr, tpr, reorder=True)
-        plt.figure()
-        plt.plot(fpr, tpr,
-                 label='ROC curve (area = {0:0.3f})'.format(roc_auc),
-                 color='red', linestyle=':', linewidth=4)
-        plt.plot([0, 1], [0, 1], 'k--')
-        plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.05])
-        plt.xlabel('False Positive Rate')
-        plt.ylabel('True Positive Rate')
-        plt.title('Receiver operating characteristic')
-        plt.legend(loc="lower right")
-        plt.savefig(self.lvl + '_results/rnd'+ self.rndType+'_'+ str(self.rndNum) + '_' + str(self.testFold) +'_' + self.lvl + '_ROC.png')
-        plt.clf()
+        if (self.rndNum % 50 == 0):
+            plt.figure()
+            plt.plot(fpr, tpr,
+                     label='ROC curve (area = {0:0.3f})'.format(roc_auc),
+                     color='red', linestyle=':', linewidth=4)
+            plt.plot([0, 1], [0, 1], 'k--')
+            plt.xlim([0.0, 1.0])
+            plt.ylim([0.0, 1.05])
+            plt.xlabel('False Positive Rate')
+            plt.ylabel('True Positive Rate')
+            plt.title('Receiver operating characteristic')
+            plt.legend(loc="lower right")
+            plt.savefig(self.lvl + '_results/rnd'+ self.rndType+'_'+ str(self.rndNum) + '_' + str(self.testFold) +'_' + self.lvl + '_ROC.png')
+            plt.clf()
+            plt.close()
 
         ##### Plog pr_curve
         precision, recall, threshPr = precision_recall_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         pr_auc = auc(recall, precision)
-        plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
-                 label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
-        plt.xlabel('Recall')
-        plt.ylabel('Precision')
-        plt.ylim([0.0, 1.05])
-        plt.xlim([0.0, 1.0])
-        plt.title('Precision-Recall')
-        plt.legend(loc="lower right")
-        plt.savefig(self.lvl + '_results/rnd'+ self.rndType+'_'+ str(self.rndNum) +  '_' + str(self.testFold) +'_' + self.lvl + '_PR.png')
-        plt.clf()
-        plt.close()
+        if (self.rndNum % 50 == 0):
+            plt.figure()
+            plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
+                     label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
+            plt.xlabel('Recall')
+            plt.ylabel('Precision')
+            plt.ylim([0.0, 1.05])
+            plt.xlim([0.0, 1.0])
+            plt.title('Precision-Recall')
+            plt.legend(loc="lower right")
+            plt.savefig(self.lvl + '_results/rnd'+ self.rndType+'_'+ str(self.rndNum) +  '_' + str(self.testFold) +'_' + self.lvl + '_PR.png')
+            plt.clf()
+            plt.close()
         results.append(['rnd']+[self.rndNum]+['fold']+[self.testFold]+
                        ['pr']+ [pr_auc]+ ['roc']+[roc_auc])
         results.append(['rnd']+[self.rndNum]+['fold']+[self.testFold]+
@@ -136,7 +140,8 @@ class CoarseRound(LearnRound):
                                                      solver='liblinear',
                                                      max_iter=1000, n_jobs=-1)
         self.clf = classifier.fit(X_train, y_trainCoarse)
-        joblib.dump(self.clf, self.lvl + '_models/rnd'+ self.rndType+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
+        if (self.rndNum % 50 == 0):
+            joblib.dump(self.clf, self.lvl + '_models/rnd'+ self.rndType+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
 
     def predictTestSet(self,X_test):
         ##### Predict test set for coarse
@@ -156,8 +161,8 @@ class FineRound(LearnRound):
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
         self.Fine_wt = np.array(
-            [0.4444444444444444, 0.2222222222222222, 0.4, 0.3333333333333333, 1.7777777777777777, 0.4,
-             0.8888888888888888, 0.4444444444444444]) * train_wt
+            [0.7692307692307692, 0.3846153846153846, 0.6923076923076923, 0.5769230769230769, 3.0769230769230766,
+             0.6923076923076923, 1.5384615384615383, 0.7692307692307692]) * train_wt
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
@@ -169,7 +174,8 @@ class FineRound(LearnRound):
                                                       solver='liblinear',
                                                       max_iter=1000, n_jobs=-1)
             clf = classif.fit(X_train, y_trainBin[:, cls])
-            joblib.dump(clf, self.lvl + '_models/rnd'+ self.rndType+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
+            if(self.rndNum % 50 == 0):
+                joblib.dump(clf, self.lvl + '_models/rnd'+ self.rndType+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             self.classifier[cls] = clf
 
 
@@ -198,7 +204,7 @@ class FineRound(LearnRound):
 def fcnSclWeight(input):
     #return input
     #y = np.array([20.0, 6.5])
-    y = np.array([45.0, 14.625])
+    y = np.array([26.0, 8.450000000000001])
     x = np.array([20.8870, 4.977])
     m = (y[0] - y[1]) / (x[0] - x[1])
     b = y[0] - m * x[0]

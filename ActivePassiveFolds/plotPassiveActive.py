@@ -5,22 +5,34 @@ import matplotlib.pyplot as plt
 import pickle
 import glob
 import re
-#import os
-#os.chdir('/work/scott/jamesd/')
-
+import os
+rootDir = re.split('[/\.]',__file__)[1]
+if(rootDir == 'Users'):
+    dataDir = '../'
+else:
+    os.chdir('/work/scott/jamesd/')
+    dataDir = '/home/scott/jamesd/MS_Code/'
 
 plt.figure()
 #with plt.style.context('fivethirtyeight'):
 plt.style.use('ggplot')
 
 
+#resultsDir = 'resultsSclBy1.5'
+#resultsDir = 'resultsSclBy2.03125'
+#resultsDir = 'resultsSclBy2.0625/results'
+#resultsDir = 'resultsSclBy1.5/results'
+#resultsDir = 'resultsSclBy1/results'
+resultsDir = 'resultsSclBy1_375/results'
 
 rndTypeSet = set()
-for fname in glob.glob('results/*.res'):
+for fname in glob.glob(resultsDir+'/*.res'):
     #print(fname)
-    file = re.split("[/\.]", fname)[1]
+    file = re.split("[/\.]", fname)[-2]
+    #print(file)
     rndType = re.split("[_]", file)
-    #print(rndType[0]+'_'+rndType[1])
+    #print(rndType)
+    print(rndType[0]+'_'+rndType[1])
     rndTypeSet.add(rndType[0]+'_'+rndType[1])
 print(rndTypeSet)
 
@@ -28,8 +40,8 @@ for type in rndTypeSet:
     prs = []
     foldMatrix = dict()
     for fold in range(1,11):
-        for fname in glob.glob('results/*.res'):
-            file = re.split("[/\.]", fname)[1]
+        for fname in glob.glob(resultsDir+'/*.res'):
+            file = re.split("[/\.]", fname)[-2]
             rndType = re.split("[_]", file)
             instType = rndType[0]+'_'+rndType[1]
             #if(type == instType and str(fold) == rndType[2] and fold <=2):
@@ -58,7 +70,7 @@ for type in rndTypeSet:
                         row.append(0)
                     pr = np.array(row).reshape(len(row),1)
                     prs = np.hstack((prs,pr))
-        f = open('results/_' + type + '.txt', 'w')
+        f = open(resultsDir+'/_' + type + '.txt', 'w')
 
         startFold = 0
         for fold in foldMatrix:
@@ -83,62 +95,4 @@ plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')
 plt.title('Active vs. Passive Learning')
 plt.legend(loc="lower right")
-plt.savefig('results/ActiveVsPassive.png')
-
-
-# results = pickle.load(open(fname, 'rb'))
-# x = []
-# y = []
-# for result in results:
-#     if(result[0] == count):
-#         x.append(result[0])
-#         y.append(result[3])
-# plt.plot(x,y, label = fname)
-#
-# plt.ylabel('PR-AUC')
-# plt.xlabel('Iteration')
-# plt.title('Active vs. Passive Learning')
-# plt.legend(loc="lower right")
-# plt.savefig('results/ActiveVsPassive.png')
-#
-#
-# for fname in glob.glob('results/*.res'):
-#     results = pickle.load(open(fname, 'rb'))
-#     outName = re.split("[/\.]", fname)[1]
-#     # ###### Save coarse results to a file
-#     f = open('results/_' + outName + '.txt', 'w')
-#     for result in results:
-#         f.write(str(result) + '\n')
-#     f.close()
-
-
-#
-# #lvls = ['passive','active']
-# lvls = ['passive']
-# for lvl in lvls:
-#     fileName1 = open('results/'+lvl+'_fine.res','rb')
-#     fine_rnds = pickle.load(fileName1)
-#     fileName1.close()
-#
-#     fileName2 = open('results/'+lvl+'_coarse.res','rb')
-#     coarse_rnds = pickle.load(fileName2)
-#     fileName2.close()
-#
-#     f = open('results/_'+lvl+'_rnds.txt', 'w')
-#     results = []
-#     f.write('{:^20}       {:^20}\n'.format('coarse','fine'))
-#     for i,result in enumerate(coarse_rnds):
-#         if(type(result[0]) != str and coarse_rnds[i][0] == fine_rnds[i][0]):
-#             f.write('{0:<4}{1:<5.3f},{2:<5.3f}        {3:<4}{4:<5.3f},{5:<5.3f}\n'.format(coarse_rnds[
-#                                                                                                                   i][0],
-#                                                                                                               coarse_rnds[
-#                                                                                                                   i][1],
-#                                                                                                               coarse_rnds[
-#                                                                                                                   i][2],
-#                                                                                                               fine_rnds[i][
-#                                                                                                                   0],
-#                                                                                                               fine_rnds[i][
-#                                                                                                                   1],
-#                                                                                                               fine_rnds[i][
-#                                                                                                                   2]))
-#     f.close()
+plt.savefig(resultsDir+'/ActiveVsPassive.png')

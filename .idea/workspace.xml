@@ -2,11 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/ActiveVsPassive.png" afterPath="$PROJECT_DIR$/ActivePassiveFolds/results/ActiveVsPassive.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_passive_coarse.txt" afterPath="$PROJECT_DIR$/ActivePassiveFolds/results/_passive_coarse.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_passive_fine.txt" afterPath="$PROJECT_DIR$/ActivePassiveFolds/results/_passive_fine.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveFolds/test.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HCC/runTmp.sh" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/ActiveVsPassive.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_active_coarse.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_active_fine.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_passive_coarse.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_passive_fine.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/job.6689047.runActPass_active_7.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/job.6689047.runActPass_active_7.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/job.6689048.runActPass_active_8.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/job.6689048.runActPass_active_8.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_7.res" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py" afterPath="$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py" afterPath="$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/runActPass.py" afterPath="$PROJECT_DIR$/ActivePassiveFolds/runActPass.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/GenerateRsh.py" afterPath="$PROJECT_DIR$/HCC/GenerateRsh.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/run.sh" afterPath="$PROJECT_DIR$/HCC/run.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,11 +65,77 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="GenerateRsh.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HCC/GenerateRsh.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HCC/run.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="runTmp.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HCC/runTmp.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="404">
+              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="375">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plotWeightScl.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="runActPass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/runActPass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="methodsActPass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="791">
+              <caret line="206" column="42" lean-forward="false" selection-start-line="206" selection-start-column="42" selection-end-line="206" selection-end-column="42" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -35,13 +145,38 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/test.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/runActPass.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py" />
+        <option value="$PROJECT_DIR$/HCC/GenerateRsh.py" />
+        <option value="$PROJECT_DIR$/HCC/run.sh" />
+        <option value="$PROJECT_DIR$/HCC/runTmp.sh" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1590" />
-    <option name="width" value="1514" />
-    <option name="height" value="900" />
+    <option name="x" value="-1570" />
+    <option name="y" value="7" />
+    <option name="width" value="1424" />
+    <option name="height" value="847" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -81,6 +216,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="HCC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MS_Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MS_Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ActivePassiveFolds" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -93,7 +242,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.plotPassiveActive">
+  <component name="RunManager" selected="Python.GenerateRsh">
     <configuration default="false" name="plotPassiveActive" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -107,6 +256,57 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MS_Code" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ActivePassiveFolds" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MS_Code" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ActivePassiveFolds/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="plotWeightScl" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ActivePassiveFolds" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MS_Code" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GenerateRsh" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HCC" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MS_Code" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HCC/GenerateRsh.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -256,12 +456,18 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.plotPassiveActive" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test" />
+      <item index="2" class="java.lang.String" itemvalue="Python.plotWeightScl" />
+      <item index="3" class="java.lang.String" itemvalue="Python.GenerateRsh" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.plotPassiveActive" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.GenerateRsh" />
+        <item index="1" class="java.lang.String" itemvalue="Python.plotWeightScl" />
+        <item index="2" class="java.lang.String" itemvalue="Python.plotPassiveActive" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -279,15 +485,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1590" y="0" width="1514" height="900" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1570" y="7" width="1424" height="847" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24983256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1575196" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35231787" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -317,10 +523,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="206" column="42" lean-forward="false" selection-start-line="206" selection-start-column="42" selection-end-line="206" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/runActPass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/GenerateRsh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/runTmp.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

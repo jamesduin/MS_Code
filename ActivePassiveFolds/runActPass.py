@@ -4,16 +4,16 @@ import methodsActPass as m
 import pickle
 import copy
 import sys
-#import os
-#os.chdir('/work/scott/jamesd/')
-#dataDir = '/home/scott/jamesd/MS_Code/'
-dataDir = '../'
+import re
+import os
+rootDir = re.split('[/\.]',__file__)[1]
+if(rootDir == 'Users'):
+    dataDir = '../'
+else:
+    os.chdir('/work/scott/jamesd/resultsSclBy1_3')
+    dataDir = '/home/scott/jamesd/MS_Code/'
 
-#rndTypes = ['passive', 'active']
-#rndTypes = ['active']
 rndType = sys.argv[1]
-#testFolds = [1,2,3,4,5,6,7,8,9,10]
-#testFolds = [6]
 testFolds = sys.argv[2:]
 for testFold in testFolds:
     testFold = int(testFold)
