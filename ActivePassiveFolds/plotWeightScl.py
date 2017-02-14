@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 plt.figure()
 plt.style.use('ggplot')
 
-scale = 1.3
+scale = 1.125
 print(scale)
 #yorig = np.array([25., 15.])
 yorig = np.array([20.0, 6.5])

@@ -18,12 +18,13 @@ plt.figure()
 plt.style.use('ggplot')
 
 
-#resultsDir = 'resultsSclBy1.5'
+resultsDir = 'resultsSclBy1_25/results'
+#resultsDir = 'resultsSclBy1_4375/results'
 #resultsDir = 'resultsSclBy2.03125'
 #resultsDir = 'resultsSclBy2.0625/results'
 #resultsDir = 'resultsSclBy1.5/results'
 #resultsDir = 'resultsSclBy1/results'
-resultsDir = 'resultsSclBy1_375/results'
+#resultsDir = 'resultsSclBy1_375/results'
 
 rndTypeSet = set()
 for fname in glob.glob(resultsDir+'/*.res'):

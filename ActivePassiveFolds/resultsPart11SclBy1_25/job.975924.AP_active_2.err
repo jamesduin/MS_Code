@@ -1,0 +1,13 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.5"
+
+Please check the spelling or version number. Also try "module spider ..."
+
+
+
+Traceback (most recent call last):
+  File "/home/scott/jamesd/resultsPart11SclBy1_25/runActPass11.py", line 3, in <module>
+    import methodsActPass11 as m
+  File "/home/scott/jamesd/resultsPart11SclBy1_25/methodsActPass11.py", line 2, in <module>
+    from sklearn import preprocessing
+ImportError: No module named sklearn

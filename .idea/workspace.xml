@@ -2,52 +2,112 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveFolds/test.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HCC/runTmp.sh" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/ActiveVsPassive.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_active_coarse.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_active_fine.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_passive_coarse.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/_passive_fine.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_2.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_3.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_4.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_5.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_6.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_7.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_coarse_8.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_2.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_3.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_4.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_5.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_6.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_7.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/active_fine_8.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/job.6689047.runActPass_active_7.err" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/job.6689047.runActPass_active_7.out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/job.6689048.runActPass_active_8.err" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/job.6689048.runActPass_active_8.out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_10.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_2.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_3.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_4.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_5.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_6.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_coarse_7.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_10.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_2.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_3.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_4.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_5.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_6.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/passive_fine_7.res" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveFolds/methodsActPass11.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveFolds/methodsActPassRBF.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveFolds/runActPass11.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveFolds/runActPassRBF.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DefOutFolders/Icon&#13;" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DefOutFolders/coarse_models/Icon&#13;" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DefOutFolders/coarse_results/Icon&#13;" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DefOutFolders/fine_models/Icon&#13;" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DefOutFolders/fine_results/Icon&#13;" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DefOutFolders/results/Icon&#13;" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/results/sampleWeight.png" afterPath="$PROJECT_DIR$/ActivePassiveFolds/results/sampleWeight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/coarse_models/rndactive_100_coarse.pkl" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/coarse_models/rndactive_100_coarse.pkl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/coarse_models/rndactive_100_coarse.pkl_01.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/coarse_models/rndactive_100_coarse.pkl_01.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/coarse_models/rndactive_100_coarse.pkl_02.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/coarse_models/rndactive_100_coarse.pkl_02.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/coarse_models/rndactive_100_coarse.pkl_03.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/coarse_models/rndactive_100_coarse.pkl_03.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_1.pkl" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_1.pkl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_1.pkl_01.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_1.pkl_01.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_1.pkl_02.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_1.pkl_02.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_1.pkl_03.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_1.pkl_03.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_2.pkl" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_2.pkl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_2.pkl_01.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_2.pkl_01.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_2.pkl_02.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_2.pkl_02.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_2.pkl_03.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_2.pkl_03.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_3.pkl" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_3.pkl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_3.pkl_01.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_3.pkl_01.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_3.pkl_02.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_3.pkl_02.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_3.pkl_03.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_3.pkl_03.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_4.pkl" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_4.pkl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_4.pkl_01.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_4.pkl_01.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_4.pkl_02.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_4.pkl_02.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_4.pkl_03.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_4.pkl_03.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_5.pkl" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_5.pkl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_5.pkl_01.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_5.pkl_01.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_5.pkl_02.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_5.pkl_02.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_5.pkl_03.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_5.pkl_03.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_6.pkl" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_6.pkl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_6.pkl_01.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_6.pkl_01.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_6.pkl_02.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_6.pkl_02.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_6.pkl_03.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_6.pkl_03.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_7.pkl" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_7.pkl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_7.pkl_01.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_7.pkl_01.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_7.pkl_02.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_7.pkl_02.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_7.pkl_03.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_7.pkl_03.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_8.pkl" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_8.pkl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_8.pkl_01.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_8.pkl_01.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_8.pkl_02.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_8.pkl_02.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_8.pkl_03.npy" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/fine_models/rndactive_100_fine_8.pkl_03.npy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_1.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_1.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_10.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_10.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_2.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_2.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_3.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_3.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_4.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_4.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_5.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_5.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_6.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_6.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_7.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_7.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_8.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_8.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_9.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_coarse_9.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_1.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_1.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_10.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_10.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_2.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_2.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_3.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_3.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_4.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_4.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_5.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_5.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_6.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_6.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_7.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_7.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_8.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_8.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_9.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/active_fine_9.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_10.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_10.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_4.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_4.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_5.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_5.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_6.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_6.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_7.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_7.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_8.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_8.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_9.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_coarse_9.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_10.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_10.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_4.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_4.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_5.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_5.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_6.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_6.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_7.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_7.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_8.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_8.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_9.res" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/passive_fine_9.res" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py" afterPath="$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py" afterPath="$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py" afterPath="$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168243.AP_active_1.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168243.AP_active_1.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168244.AP_active_2.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168244.AP_active_2.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168245.AP_active_3.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168245.AP_active_3.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168248.AP_active_6.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168248.AP_active_6.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168249.AP_active_7.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168249.AP_active_7.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168250.AP_active_8.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168250.AP_active_8.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168251.AP_active_9.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168251.AP_active_9.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168252.AP_active_10.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168252.AP_active_10.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168253.AP_passive_6.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168253.AP_passive_6.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168254.AP_passive_7.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168254.AP_passive_7.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168255.AP_passive_8.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168255.AP_passive_8.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168256.AP_passive_9.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168256.AP_passive_9.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168257.AP_passive_10.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168257.AP_passive_10.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168258.AP_passive_4.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168258.AP_passive_4.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168259.AP_passive_5.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168259.AP_passive_5.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168260.AP_active_4.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168260.AP_active_4.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168261.AP_active_5.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168261.AP_active_5.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168262.AP_passive_4.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168262.AP_passive_4.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168263.AP_passive_5.out" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/job.8168263.AP_passive_5.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/_active_coarse.txt" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/_active_coarse.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/_passive_fine.txt" afterPath="$PROJECT_DIR$/ActivePassiveFolds/resultsSclBy1/results/_passive_fine.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveFolds/runActPass.py" afterPath="$PROJECT_DIR$/ActivePassiveFolds/runActPass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/GenerateRsh.py" afterPath="$PROJECT_DIR$/HCC/GenerateRsh.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/run.sh" afterPath="$PROJECT_DIR$/HCC/run.sh" />
@@ -65,11 +125,55 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GenerateRsh.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plotWeightScl.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="runActPass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/runActPass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="49" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="methodsActPass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="164" column="71" lean-forward="false" selection-start-line="164" selection-start-column="71" selection-end-line="164" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenerateRsh.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HCC/GenerateRsh.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            <state relative-caret-position="375">
+              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -81,64 +185,6 @@
             <state relative-caret-position="60">
               <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="runTmp.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HCC/runTmp.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plotWeightScl.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="runActPass.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/runActPass.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="methodsActPass.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="791">
-              <caret line="206" column="42" lean-forward="false" selection-start-line="206" selection-start-column="42" selection-end-line="206" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -159,19 +205,24 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ActivePassiveFolds/test.py" />
+        <option value="$PROJECT_DIR$/HCC/run.sh" />
+        <option value="$PROJECT_DIR$/HCC/runTmp.sh" />
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/sclSelPartlib8DecFcn_fine.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/methodsActPassRBF.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/runActPassRBF.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/methodsActPass11.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveFolds/runActPass11.py" />
         <option value="$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py" />
         <option value="$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py" />
         <option value="$PROJECT_DIR$/ActivePassiveFolds/runActPass.py" />
         <option value="$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py" />
         <option value="$PROJECT_DIR$/HCC/GenerateRsh.py" />
-        <option value="$PROJECT_DIR$/HCC/run.sh" />
-        <option value="$PROJECT_DIR$/HCC/runTmp.sh" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1570" />
-    <option name="y" value="7" />
+    <option name="x" value="-1583" />
+    <option name="y" value="28" />
     <option name="width" value="1424" />
     <option name="height" value="847" />
   </component>
@@ -242,6 +293,11 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ActivePassiveFolds" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.GenerateRsh">
     <configuration default="false" name="plotPassiveActive" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -307,6 +363,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MS_Code" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HCC/GenerateRsh.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="sclSelPartlib8DecFcn_fine" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ActivePassiveFolds" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MS_Code" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ActivePassiveFolds/sclSelPartlib8DecFcn_fine.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -456,18 +529,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.plotPassiveActive" />
       <item index="1" class="java.lang.String" itemvalue="Python.test" />
       <item index="2" class="java.lang.String" itemvalue="Python.plotWeightScl" />
       <item index="3" class="java.lang.String" itemvalue="Python.GenerateRsh" />
+      <item index="4" class="java.lang.String" itemvalue="Python.sclSelPartlib8DecFcn_fine" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.GenerateRsh" />
         <item index="1" class="java.lang.String" itemvalue="Python.plotWeightScl" />
         <item index="2" class="java.lang.String" itemvalue="Python.plotPassiveActive" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.sclSelPartlib8DecFcn_fine" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -485,17 +560,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1570" y="7" width="1424" height="847" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1583" y="28" width="1424" height="847" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1575196" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19458304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35231787" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30993378" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847682" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -515,14 +590,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/results/_passive_coarse.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -530,52 +597,6 @@
           <folding>
             <element signature="e#0#9#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="206" column="42" lean-forward="false" selection-start-line="206" selection-start-column="42" selection-end-line="206" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/runActPass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="48" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HCC/GenerateRsh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HCC/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -587,13 +608,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py">
+    <entry file="file://$PROJECT_DIR$/ActivePassiveOOP/createPartitions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/_sclSelPartlib8DecFcn_fine.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/sclSelPartlib8DecFcn_fine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/results/_passive_coarse.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/results/_passive_fine.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/run1.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/run2.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1201">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/runActPassRBF.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="72" column="4" lean-forward="false" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/runActPass11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/methodsActPass11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-825">
+          <caret line="259" column="27" lean-forward="false" selection-start-line="259" selection-start-column="27" selection-end-line="259" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/methodsActPassRBF.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630">
+          <caret line="219" column="30" lean-forward="false" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotPassiveActive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/methodsActPass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="164" column="71" lean-forward="false" selection-start-line="164" selection-start-column="71" selection-end-line="164" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/plotWeightScl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveFolds/runActPass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="49" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/GenerateRsh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

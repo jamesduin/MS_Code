@@ -10,7 +10,7 @@ rootDir = re.split('[/\.]',__file__)[1]
 if(rootDir == 'Users'):
     dataDir = '../'
 else:
-    os.chdir('/work/scott/jamesd/resultsSclBy1_3')
+    os.chdir('/work/scott/jamesd/resultsSclBy1_15')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
 rndType = sys.argv[1]
