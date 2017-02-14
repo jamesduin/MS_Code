@@ -21,8 +21,8 @@ class LearnRound:
         self.rndType = rndType
         self.testFold = testFold
         #self.min_max_scaler = []
-        self.scaler = []
-        self.selector = []
+        # self.scaler = []
+        # self.selector = []
         self.lvl = lvl
 
 
@@ -38,11 +38,11 @@ class LearnRound:
                 data = np.vstack((partition, data))
 
         y_train, X_trainPreScale = data[:, 0], data[:, 1:]
-        self.scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
-        X_trainFull = self.scaler.transform(X_trainPreScale)
-        self.selector = SelectPercentile(f_classif, percentile=75)
-        self.selector.fit(X_trainFull, y_train)
-        X_train = self.selector.transform(X_trainFull)
+        scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
+        X_trainFull =scaler.transform(X_trainPreScale)
+        selector = SelectPercentile(f_classif, percentile=75)
+        selector.fit(X_trainFull, y_train)
+        X_train = selector.transform(X_trainFull)
         # self.min_max_scaler = preprocessing.MinMaxScaler()
         # X_train = self.min_max_scaler.fit_transform(X_trainPreScale)
         return y_train, X_train
@@ -50,10 +50,15 @@ class LearnRound:
     def createTestSet(self,test_part):
         ##### Create test set for coarse
         data_test = np.asarray(test_part)
-        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
+        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:]
         #X_test = self.min_max_scaler.transform(X_testPreScale)
-        X_testFull = self.scaler.transform(X_testPreScale)
-        X_test = self.selector.transform(X_testFull)
+        # X_testFull = self.scaler.transform(X_testPreScale)
+        # X_test = self.selector.transform(X_testFull)
+        scaler = preprocessing.StandardScaler().fit(X_testPreScale)
+        X_testFull =scaler.transform(X_testPreScale)
+        selector = SelectPercentile(f_classif, percentile=75)
+        selector.fit(X_testFull, y_test)
+        X_test = selector.transform(X_testFull)
         y_testCoarse = []
         y_sampleWeight = []
         for inst in y_test:
@@ -268,17 +273,36 @@ def appendRndTimesFoldCnts(testFold, rndNum,lvl,results,set,start_time):
 
 def confEstAdd(classes,set,rndLvl,Addnum):
     decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-    for i in sorted(classes):
-        data = np.asarray(classes[i])
-        if(len(data)>0):
-            y_train, X_trainPreScale = data[:, 0], data[:, 1:]
-            # rndLvl.min_max_scaler = preprocessing.MinMaxScaler()
-            # X_train = rndLvl.min_max_scaler.fit_transform(X_trainPreScale)
-            X_trainFull = rndLvl.scaler.transform(X_trainPreScale)
-            X_train = rndLvl.selector.transform(X_trainFull)
-            y_predCoarse, scores = rndLvl.predictTestSet(X_train)
-            scores = scores.reshape(scores.shape[0],1)
-            decFcn[i] = scores.tolist()
+    # for i in sorted(classes):
+    #     data = np.asarray(classes[i])
+    #     if(len(data)>0):
+    #         y_train, X_trainPreScale = data[:, 0], data[:, 1:]
+    #         # rndLvl.min_max_scaler = preprocessing.MinMaxScaler()
+    #         # X_train = rndLvl.min_max_scaler.fit_transform(X_trainPreScale)
+    #         X_trainFull = rndLvl.scaler.transform(X_trainPreScale)
+    #         X_train = rndLvl.selector.transform(X_trainFull)
+    #         y_predCoarse, scores = rndLvl.predictTestSet(X_train)
+    #         scores = scores.reshape(scores.shape[0],1)
+    #         decFcn[i] = scores.tolist()
+    data = []
+    for x in sorted(classes):
+        partition = np.asarray(classes[x])
+        if (len(partition) > 0):
+            if data == []:
+                data = partition
+            else:
+                data = np.vstack((partition, data))
+    y_train, X_trainPreScale = data[:, 0], data[:, 1:]
+    scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
+    X_trainFull = scaler.transform(X_trainPreScale)
+    selector = SelectPercentile(f_classif, percentile=75)
+    selector.fit(X_trainFull, y_train)
+    X_train = selector.transform(X_trainFull)
+    y_predCoarse, scores = rndLvl.predictTestSet(X_train)
+    scores = scores.reshape(scores.shape[0], 1)
+
+    for i,instCls in enumerate(y_train):
+        decFcn[instCls].append(scores[i].tolist())
 
     for i in range(Addnum):
         most_uncert = 100

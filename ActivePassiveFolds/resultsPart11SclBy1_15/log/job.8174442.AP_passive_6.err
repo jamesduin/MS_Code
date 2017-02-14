@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/scott/jamesd/resultsPart11SclBy1_15/runActPass11.py", line 89, in <module>
+    y_testCoarse, y_sampleWeight, X_test = rnds[lvl].createTestSet(test_part)
+  File "/home/scott/jamesd/resultsPart11SclBy1_15/methodsActPass11.py", line 46, in createTestSet
+    X_test = min_max_scaler.transform(X_testPreScale)
+  File "/util/opt/anaconda3/2.0/lib/python3.4/site-packages/sklearn/preprocessing/data.py", line 355, in transform
+    check_is_fitted(self, 'scale_')
+  File "/util/opt/anaconda3/2.0/lib/python3.4/site-packages/sklearn/utils/validation.py", line 678, in check_is_fitted
+    raise NotFittedError(msg % {'name': type(estimator).__name__})
+sklearn.utils.validation.NotFittedError: This MinMaxScaler instance is not fitted yet. Call 'fit' with appropriate arguments before using this method.

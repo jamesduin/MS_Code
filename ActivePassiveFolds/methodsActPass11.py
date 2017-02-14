@@ -41,7 +41,8 @@ class LearnRound:
     def createTestSet(self,test_part):
         ##### Create test set for coarse
         data_test = np.asarray(test_part)
-        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:data_test.shape[1]]
+        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:]
+        #self.min_max_scaler = preprocessing.MinMaxScaler()
         X_test = self.min_max_scaler.transform(X_testPreScale)
         y_testCoarse = []
         y_sampleWeight = []
@@ -161,7 +162,8 @@ class FineRound(LearnRound):
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
         self.Fine_wt = np.array(
-            [0.8, 0.4, 0.72, 0.6, 3.2, 0.72, 1.6, 0.8]) * train_wt
+            [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783, 3.4782608695652177,
+             0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
@@ -203,7 +205,7 @@ class FineRound(LearnRound):
 def fcnSclWeight(input):
     #return input
     #y = np.array([20.0, 6.5])
-    y = np.array([25.0, 8.125])
+    y = np.array([23.0, 7.475])
     x = np.array([20.8870, 4.977])
     m = (y[0] - y[1]) / (x[0] - x[1])
     b = y[0] - m * x[0]
@@ -253,14 +255,30 @@ def appendRndTimesFoldCnts(testFold, rndNum,lvl,results,set,start_time):
 
 def confEstAdd(classes,set,rndLvl,Addnum):
     decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-    for i in sorted(classes):
-        data = np.asarray(classes[i])
-        if(len(data)>0):
-            y_train, X_trainPreScale = data[:, 0], data[:, 1:]
-            X_train = rndLvl.min_max_scaler.fit_transform(X_trainPreScale)
-            y_predCoarse, scores = rndLvl.predictTestSet(X_train)
-            scores = scores.reshape(scores.shape[0],1)
-            decFcn[i] = scores.tolist()
+    data = []
+    for x in sorted(classes):
+        partition = np.asarray(classes[x])
+        if (len(partition) > 0):
+            if data == []:
+                data = partition
+            else:
+                data = np.vstack((partition, data))
+    y_train, X_trainPreScale = data[:, 0], data[:, 1:]
+    min_max_scaler = preprocessing.MinMaxScaler()
+    X_train = min_max_scaler.fit_transform(X_trainPreScale)
+    y_predCoarse, scores = rndLvl.predictTestSet(X_train)
+    scores = scores.reshape(scores.shape[0], 1)
+    for i,instCls in enumerate(y_train):
+        decFcn[instCls].append(scores[i])
+    printClassTotals(decFcn)
+    # for i in sorted(classes):
+    #     data = np.asarray(classes[i])
+    #     if(len(data)>0):
+    #         y_train, X_trainPreScale = data[:, 0], data[:, 1:]
+    #         X_train = rndLvl.min_max_scaler.fit_transform(X_trainPreScale)
+    #         y_predCoarse, scores = rndLvl.predictTestSet(X_train)
+    #         scores = scores.reshape(scores.shape[0],1)
+    #         decFcn[i] = scores.tolist()
 
     for i in range(Addnum):
         most_uncert = 100

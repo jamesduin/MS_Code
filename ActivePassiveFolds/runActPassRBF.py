@@ -11,7 +11,7 @@ print(rootDir)
 if(rootDir == 'py'):
     dataDir = '../'
 else:
-    os.chdir('/work/scott/jamesd/resultsRBFsclBy1_15')
+    os.chdir('/work/scott/jamesd/resultsRBF1_15RescaleSep')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
 rndType = sys.argv[1]

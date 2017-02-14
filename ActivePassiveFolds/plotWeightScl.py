@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 plt.figure()
 plt.style.use('ggplot')
 
-scale = 1.125
+scale = 1.15
 print(scale)
 #yorig = np.array([25., 15.])
 yorig = np.array([20.0, 6.5])
@@ -31,7 +31,7 @@ plt.legend(loc="lower right")
 plt.savefig('results/sampleWeight.png')
 
 print(f(x))
-
-print((np.array([1,0.5,0.9,0.75    ,4,0.9,2,1])*1/scale).tolist())
+np.set_printoptions(precision=2)
+print((np.array([1,0.5,0.9,0.75    ,4,0.9,2,1])*1/scale))
 print(np.array([1,0.5,0.9,0.75    ,4,0.9,2,1])*1/scale*f(x[0]))
 print(np.array([1,0.5,0.9,0.75    ,4,0.9,2,1])*1/scale*f(x[1]))

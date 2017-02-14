@@ -1,21 +1,23 @@
-f = open('run.sh','w')
+f = open('run1.sh','w')
 f.write('#!/bin/sh\n\n')
-rndType = ['active','passive']
+#rndType = ['active','passive']
+#rndType = ['active']
+rndType = ['passive']
 fold = [1,2,3,4,5,6,7,8,9,10]
 #fold = [7,8,9,10]
 #fold = [6,7,8,9,10]
 add2Short = False
 cntShrt = 1
-part1 = 'gpu_m2070'
-part2 = 'gpu_k20'
-#part2 = False
-partDivid = 6
+part1 = 'guest'
+#part2 = 'gpu_k20'
+part2 = False
+partDivid = 10
 # "#SBATCH --partition=highmem\n" #tusker partition
 # "#SBATCH --partition=gpu_k20\n" #crane partition
 # "#SBATCH --partition=gpu_m2070\n"  #crane partition
 # "#SBATCH --partition=guest\n"  #sandhills partition
 
-runDir = 'resultsRBFsclBy1_15'
+runDir = 'resultsRBF1_15RescaleSep'
 for type in rndType:
     for fld in fold:
         f.write(
@@ -39,8 +41,9 @@ for type in rndType:
             f.write("#SBATCH --qos=short\n")
             cntShrt+=1
         f.write(
-        #"module load python/3.4\n" #for sandhills
-        "module load python/3.5\n" #for crane and tusker
+        "module load python/3.4\n" #for sandhills
+        #"module load python/3.5\n" #for crane and tusker
+        #"python /home/scott/jamesd/"+runDir+"/runActPass11.py " + type + " " + str(fld) + "\n"
         #"python /home/scott/jamesd/"+runDir+"/runActPass.py " + type + " " + str(fld) + "\n"
         "python /home/scott/jamesd/"+runDir+"/runActPassRBF.py " + type + " " + str(fld) + "\n"
         "EOF\n\n")
