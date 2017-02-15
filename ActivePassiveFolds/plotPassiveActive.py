@@ -7,7 +7,7 @@ import glob
 import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
-if(rootDir == 'Users'):
+if(rootDir == 'Users' or rootDir == 'py'):
     dataDir = '../'
 else:
     os.chdir('/work/scott/jamesd/')
@@ -19,8 +19,8 @@ plt.style.use('ggplot')
 
 
 #resultsDir = 'resultsSclBy1_15/results'
-#resultsDir = 'resultsRBFsclBy1_15/results'
-resultsDir = 'resultsPart11SclBy1_15/results'
+resultsDir = 'resultsRBFsclBy1_15/results'
+#resultsDir = 'results11SclBy1_15/results'
 #resultsDir = 'results'
 
 rndTypeSet = set()

@@ -18,7 +18,6 @@ class LearnRound:
         self.rndNum = rndNum
         self.rndType = rndType
         self.testFold = testFold
-        self.min_max_scaler = []
         self.lvl = lvl
 
 
@@ -33,17 +32,13 @@ class LearnRound:
             else:
                 data = np.vstack((partition, data))
 
-        y_train, X_trainPreScale = data[:, 0], data[:, 1:]
-        self.min_max_scaler = preprocessing.MinMaxScaler()
-        X_train = self.min_max_scaler.fit_transform(X_trainPreScale)
+        y_train, X_train = data[:, 0], data[:, 1:]
         return y_train, X_train
 
     def createTestSet(self,test_part):
         ##### Create test set for coarse
         data_test = np.asarray(test_part)
-        y_test, X_testPreScale = data_test[:, 0], data_test[:, 1:]
-        #self.min_max_scaler = preprocessing.MinMaxScaler()
-        X_test = self.min_max_scaler.transform(X_testPreScale)
+        y_test, X_test = data_test[:, 0], data_test[:, 1:]
         y_testCoarse = []
         y_sampleWeight = []
         for inst in y_test:
@@ -64,14 +59,12 @@ class LearnRound:
         confMatrix = confusion_matrix(y_testCoarse, y_predCoarse)
         acc = accuracy_score(y_testCoarse, y_predCoarse)
         f1 = f1_score(y_testCoarse, y_predCoarse)
-        print(confMatrix)
-        print('acc: {:.3f}'.format(acc))
-        print('f1: {:.3f}'.format(f1))
-        results.append(['rnd']+[self.rndNum] +['fold']+[self.testFold]+
-                       ['conf']+[confMatrix[0][0]] + [confMatrix[0][1]] +
-                       [confMatrix[1][0]] + [confMatrix[1][1]])
-        results.append(['rnd']+[self.rndNum] +['fold']+[self.testFold]+
-                       ['acc']+[acc] +['f1']+[f1])
+        addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       +['conf']+[confMatrix[0][0]] + [confMatrix[0][1]])
+        addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       +['conf'] +[confMatrix[1][0]] + [confMatrix[1][1]])
+        addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       +['acc']+[acc] +['f1']+[f1])
 
 
     def plotRocPrCurves(self,y_testCoarse,y_pred_score,y_sampleWeight,results):
@@ -110,10 +103,10 @@ class LearnRound:
             plt.savefig(self.lvl + '_results/rnd'+ self.rndType+'_'+ str(self.rndNum) +  '_' + str(self.testFold) +'_' + self.lvl + '_PR.png')
             plt.clf()
             plt.close()
-        results.append(['rnd']+[self.rndNum]+['fold']+[self.testFold]+
-                       ['pr']+ [pr_auc]+ ['roc']+[roc_auc])
-        results.append(['rnd']+[self.rndNum]+['fold']+[self.testFold]+
-                       [self.lvl+'rndTime'] + [str(round(time.perf_counter() - self.lvl_rndTime, 2))])
+        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       +['pr']+ [pr_auc]+ ['roc']+[roc_auc])
+        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       +['rndTime'] + [str(round(time.perf_counter() - self.lvl_rndTime, 2))])
 
 class CoarseRound(LearnRound):
     def __init__(self,testFold,rndNum,rndType):
@@ -237,17 +230,15 @@ def fcnSclWeight(input):
 
 
 def appendRndTimesFoldCnts(testFold, rndNum,lvl,results,set,start_time):
-    print('{},{},{} : {} seconds'.format(testFold,rndNum,lvl,
-         round(time.perf_counter() - start_time, 2)))
-    results.append(['rnd']+[rndNum] +['fold']+[testFold]+
-                   ['rndTimeTot'] + [str(round(time.perf_counter() - start_time, 2))])
+    addPrint(results,['rnd']+[rndNum] +['fold']+[testFold]+['lvl']+[lvl]
+                   +['rndTimeTot'] + [str(round(time.perf_counter() - start_time[-1], 2))])
     instanceCount = 0
-    fold_cnt = ['rnd']+[rndNum] +['fold']+[testFold]+[lvl+'_set']
+    fold_cnt = ['rnd']+[rndNum] +['fold']+[testFold]+['lvl']+[lvl]
     for i in sorted(set):
         instanceCount += len(set[i])
         fold_cnt.append((i, len(set[i])))
     fold_cnt.append(('tot', instanceCount))
-    results.append(fold_cnt)
+    addPrint(results,fold_cnt)
     return instanceCount
 
 
@@ -255,30 +246,13 @@ def appendRndTimesFoldCnts(testFold, rndNum,lvl,results,set,start_time):
 
 def confEstAdd(classes,set,rndLvl,Addnum):
     decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-    data = []
-    for x in sorted(classes):
-        partition = np.asarray(classes[x])
-        if (len(partition) > 0):
-            if data == []:
-                data = partition
-            else:
-                data = np.vstack((partition, data))
-    y_train, X_trainPreScale = data[:, 0], data[:, 1:]
-    min_max_scaler = preprocessing.MinMaxScaler()
-    X_train = min_max_scaler.fit_transform(X_trainPreScale)
-    y_predCoarse, scores = rndLvl.predictTestSet(X_train)
-    scores = scores.reshape(scores.shape[0], 1)
-    for i,instCls in enumerate(y_train):
-        decFcn[instCls].append(scores[i])
-    printClassTotals(decFcn)
-    # for i in sorted(classes):
-    #     data = np.asarray(classes[i])
-    #     if(len(data)>0):
-    #         y_train, X_trainPreScale = data[:, 0], data[:, 1:]
-    #         X_train = rndLvl.min_max_scaler.fit_transform(X_trainPreScale)
-    #         y_predCoarse, scores = rndLvl.predictTestSet(X_train)
-    #         scores = scores.reshape(scores.shape[0],1)
-    #         decFcn[i] = scores.tolist()
+    for i in sorted(classes):
+        data = np.asarray(classes[i])
+        if(len(data)>0):
+            y_train, X_train = data[:, 0], data[:, 1:]
+            y_predCoarse, scores = rndLvl.predictTestSet(X_train)
+            scores = scores.reshape(scores.shape[0],1)
+            decFcn[i] = scores.tolist()
 
     for i in range(Addnum):
         most_uncert = 100
@@ -291,7 +265,6 @@ def confEstAdd(classes,set,rndLvl,Addnum):
                     most_cls = cls
                     most_ind = index
                     most_uncert = min_est
-        #print(rndLvl.lvl+' {},{},{},{}'.format(i, most_cls, most_ind, len(classes[most_cls])))
         set[most_cls].append(classes[most_cls].pop(most_ind))
         del decFcn[most_cls][most_ind]
 
@@ -311,6 +284,12 @@ def randAdd(classes,set,Addnum):
 
 
 
+def findAddInstance(classes, set, find_inst):
+    for cls in sorted(classes):
+        for index, inst in enumerate(classes[cls]):
+            if (inst == find_inst):
+                set[inst[0]].append(classes[cls].pop(index))
+                return
 
 
 def switchClass5instance(test_part,train_part):
@@ -323,11 +302,8 @@ def switchClass5instance(test_part,train_part):
 
 
 
-
-def printClsVsFolds(folds, title):
-    # stdout.write(
-    #     '{:<14}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format(title, 0, 1, 2, 3, 4, 5, 6, 7, 8))
-    print('{:<14}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(title, 0, 1, 2, 3, 4, 5, 6, 7, 8))
+def printClsVsFolds(results,folds, title):
+    addPrint(results,'{:<14}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(title, 0, 1, 2, 3, 4, 5, 6, 7, 8))
     instanceCount = 0
     classCountTot = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     for i in sorted(folds):
@@ -337,49 +313,95 @@ def printClsVsFolds(folds, title):
             classCountTot[int(inst[0])] += 1
             classCount[int(inst[0])] += 1
         classCount = [i] + [len(folds[i])] + classCount
-        # stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format(*classCount))
-        print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
-    # stdout.write(
-    #     '{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('Total', instanceCount, *classCountTot))
-    print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total', instanceCount, *classCountTot))
+        addPrint(results,'{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
+    addPrint(results,'{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total', instanceCount, *classCountTot))
     return classCount
 
 
-def printClassTotals(classes):
-    # stdout.write('{0:<10}{1:<10}\n'.format('Classes', ''))
-    print('{0:<10}{1:<10}'.format('Classes', ''))
+def printClassTotals(results,classes):
+    addPrint(results,'{0:<10}{1:<10}'.format('Classes', ''))
     instanceCount = 0
     for i in sorted(classes):
         instanceCount += len(classes[i])
-        # stdout.write('{0:<10}{1:<10}\n'.format(i, len(classes[i])))
-        print('{0:<10}{1:<10}'.format(i, len(classes[i])))
-    # stdout.write('{0:<10}{1:<10}\n'.format('Total', instanceCount))
-    print('{0:<10}{1:<10}\n'.format('Total', instanceCount))
-    # stdout.write('Shape: {0:<10}\n'.format(len(classes[0][0])))
-    print('Shape: {0:<10}\n'.format(len(classes[0][0])))
+        addPrint(results,'{0:<10}{1:<10}'.format(i, len(classes[i])))
+    addPrint(results,'{0:<10}{1:<10}\n'.format('Total', instanceCount))
+    addPrint(results,'Shape: {0:<10}\n'.format(len(classes[0][0])))
+
+
+def addPrint(results,x):
+    results.append(x)
+    print(x)
+
+
+
+def loadScaledPartData(dataDir):
+    all_part = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
+    for i in sorted(all_part):
+        with open(dataDir + 'data/partitionMinMaxScaled/partitionMinMaxScaled_' + str(i)) as f:
+        #with open(dataDir + 'data/partition_scaled/partition_scaled' + str(i)) as f:
+            for line in f:
+                nums = line.split()
+                nums = list(map(float, nums))
+                all_part[i].append(nums)
+        np.random.shuffle(all_part[i])
+    return all_part
 
 
 
 
 
-def findAddInstance(classes,set,find_inst):
-    for cls in sorted(classes):
-        for index, inst in enumerate(classes[cls]):
-            if (inst == find_inst):
-                set[inst[0]].append(classes[cls].pop(index))
-                return
 
 
 
 
 
+def loadAndScaleClassData(dataDir,classes_all):
+    classes_PreScale = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+    #### load Data
+    for i in sorted(classes_PreScale):
+        with open(dataDir + 'data/classes/class_' + str(i)) as f:
+            for line in f:
+                nums = line.split()
+                nums = list(map(float, nums))
+                classes_PreScale[i].append(nums)
+    data_PreScale = []
+    for i in sorted(classes_PreScale):
+        partition = np.asarray(classes_PreScale[i])
+        if len(data_PreScale) == 0:
+            data_PreScale = partition
+        else:
+            data_PreScale = np.vstack((partition, data_PreScale))
+    y_train, X_trainPreScale = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale.shape[1]]
 
 
+    #### Scale dataset
+    min_max_scaler = preprocessing.MinMaxScaler()
+    X_train = min_max_scaler.fit_transform(X_trainPreScale)
+    y_train = np.reshape(y_train, (y_train.shape[0], 1))
+    data = np.hstack((y_train, X_train))
+    for inst in data:
+        classes_all[inst[0]].append(inst)
 
-
-
-
-
-
-
-
+def partitionInto10Folds(classes_all,train_part):
+    for i in sorted(classes_all):
+        np.random.shuffle(classes_all[i])
+        partList = []
+        for j in sorted(train_part):
+            partList.append((j, len(train_part[j])))
+        minIndex = partList[0][0]
+        minVal = partList[0][1]
+        for j in sorted(partList):
+            if (minVal > j[1]):
+                minVal = j[1]
+                minIndex = j[0]
+        partitionCounter = minIndex
+        instCount = 1
+        for instance in classes_all[i]:
+            if not (i == 0 and instCount > 10000000000):
+                instCount += 1
+                train_part[partitionCounter].append(instance)
+                partitionCounter += 1
+                if partitionCounter > 10:
+                    partitionCounter = 1
+    for i in sorted(train_part):
+        np.random.shuffle(train_part[i])

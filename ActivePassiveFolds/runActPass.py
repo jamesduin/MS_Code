@@ -7,7 +7,7 @@ import sys
 import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
-if(rootDir == 'Users'):
+if(rootDir == 'py'):
     dataDir = '../'
 else:
     os.chdir('/work/scott/jamesd/resultsSclBy1_15')
