@@ -8,37 +8,52 @@ import sys
 import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
-print(rootDir)
 if(rootDir == 'py'):
-    dataDir = '../../'
     os.chdir('_results')
+    dataDir = '../../'
 else:
-    os.chdir('/work/scott/jamesd/resultsFFR_1')
+    os.chdir('/work/scott/jamesd/results11SclBy1_15_2')
     dataDir = '/home/scott/jamesd/MS_Code/'
+
+
+
 FFR = float(sys.argv[1])
-start_time = [time.perf_counter()]
-classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
-sets = dict()
-sets['coarse'] = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-sets['fine'] = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-strt_results = []
+testFold = int(sys.argv[2])
 batch = 160
 fineCost = 1
 add = dict()
 add['fine'] = int(batch*FFR/fineCost)
 add['coarse'] = int(batch - add['fine'])
-m.addPrint(strt_results,['batch']+[batch]+['FFR']+[FFR]+['fineCost']
+results = []
+m.addPrint(results,['batch']+[batch]+['FFR']+[FFR]+['fineCost']
 +[fineCost]+['addFine']+[add['fine']]+['addCoarse']+[add['coarse']])
 FFR = str(FFR).replace('.','_')
-part_all = m.loadScaledPartData(dataDir)
-m.printClsVsFolds(strt_results,part_all, 'all')
-for i in sorted(part_all):
-    for index in range(len(part_all[i])):
-        classes_all[part_all[i][index][0]].append(part_all[i][index])
-m.printClassTotals(strt_results,classes_all)
-rnd_results = dict()
-rnd_results['coarse'] = strt_results[:]
-rnd_results['fine'] = strt_results[:]
+
+start_time = [time.perf_counter()]
+classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
+sets = dict()
+sets['coarse'] = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+sets['fine'] = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+train_part = m.loadScaledPartData(dataDir)
+m.printClsVsFolds(results,train_part, 'all')
+test_part = train_part[testFold]
+del train_part[testFold]
+m.printClsVsFolds(results,train_part, 'train')
+classTestTot = m.printClsVsFolds(results,{testFold:test_part}, 'test')
+if(classTestTot[7] == 2):
+    ## not enough of class 5 to have 2 in the test set
+    m.switchClass5instance(test_part,train_part)
+    m.printClsVsFolds(results,train_part, 'train_mod')
+    m.printClsVsFolds(results,{testFold: test_part}, 'test_mod')
+classes_all.clear()
+classes_all = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+for i in sorted(train_part):
+    for index in range(len(train_part[i])):
+        classes_all[train_part[i][index][0]].append(train_part[i][index])
+
+m.printClassTotals(results,classes_all)
+
+
 
 #### randomly add to starter sets
 start = [952,10,11,16,11,10,10,10,10]
@@ -50,38 +65,37 @@ for i in sorted(classes_all):
         for lvl in ['coarse','fine']:
             sets[lvl][i].append(inst)
 
-
 instanceCount = 0
 rndNum = 0
-while((18088-instanceCount) > 100):
-#while(rndNum < 3):
+#while((18088-instanceCount) > 100):
+while(rndNum < 2):
     start_time.append(time.perf_counter())
-    if(rndNum>1):
+    if(rndNum>=1):
         ###### run confidence estimate for coarse and fine
-        m.confEstAdd(classes_all,sets,rnds,add)
+        m.confEstAdd(results,classes_all,sets,rnds,add)
     rndNum += 1
     rnds = dict()
-    rnds['coarse'] = m.CoarseRound( rndNum, FFR)
-    rnds['fine'] = m.FineRound( rndNum, FFR)
+    rnds['coarse'] = m.CoarseRound(testFold, rndNum, FFR)
+    rnds['fine'] = m.FineRound(testFold, rndNum, FFR)
+    y_testCoarse, y_sampleWeight, X_test = m.createTestSet(test_part)
     #### Run rounds
+    y_predCoarse = dict()
+    y_pred_score = dict()
     for lvl in ['coarse', 'fine']:
-        setParts = rnds[lvl].createSetParts(sets[lvl])
-        for fld in range(1,11):
-            y_train, X_train = rnds[lvl].createTrainSet(setParts, fld)
-            y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train)
-            y_testCoarse, y_sampleWeight, X_test = rnds[lvl].createTestSet(setParts[fld])
-            rnds[lvl].trainClassifier(X_train, y_trainCoarse,fld)
-            y_predCoarse, y_pred_score = rnds[lvl].predictTestSet(X_test)
-            rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse, rnd_results[lvl],fld)
-            rnds[lvl].plotRocPrCurves(y_testCoarse, y_pred_score, y_sampleWeight, rnd_results[lvl],fld)
-    for lvl in ['coarse', 'fine']:
-        ##### Append round time and fold counts
-        instanceCount = m.appendRndTimesFoldCnts(FFR, rndNum, lvl, rnd_results[lvl], sets[lvl], start_time)
-        tot = time.perf_counter() - start_time[0]
-        m.addPrint(rnd_results[lvl],['Total Time:']+['{:.0f}hr {:.0f}m {:.2f}sec'.format(
-            *divmod(divmod(tot,60)[0],60),divmod(tot,60)[1])])
-        fileName = open('results/'+lvl+'_'+str(FFR)+'.res','wb')
-        pickle.dump(rnd_results[lvl],fileName)
-        fileName.close()
+        y_train, X_train = rnds[lvl].createTrainSet(sets[lvl])
+        y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train)
+        rnds[lvl].trainClassifier(X_train, y_trainCoarse)
+        y_predCoarse[lvl], y_pred_score[lvl] = rnds[lvl].predictTestSet(X_test)
+        rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], results)
+        rnds[lvl].plotRocPrCurves(y_testCoarse, y_pred_score[lvl], y_sampleWeight, results)
+    m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,FFR)
+    ##### Append round time and fold counts
+    instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, results, sets, start_time)
+    tot = time.perf_counter() - start_time[0]
+    m.addPrint(results,['Total Time:']+['{:.0f}hr {:.0f}m {:.2f}sec'.format(
+        *divmod(divmod(tot,60)[0],60),divmod(tot,60)[1])])
+    fileName = open('results/FFR'+FFR+'_'+str(testFold)+'.res','wb')
+    pickle.dump(results,fileName)
+    fileName.close()
 
 
