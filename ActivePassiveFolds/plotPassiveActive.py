@@ -19,8 +19,9 @@ plt.style.use('ggplot')
 
 
 #resultsDir = 'resultsSclBy1_15/results'
-resultsDir = 'resultsRBFsclBy1_15/results'
+#resultsDir = 'resultsRBFsclBy1_15/results'
 #resultsDir = 'results11SclBy1_15/results'
+resultsDir = 'results11SclBy1_15_2/results'
 #resultsDir = 'results'
 
 rndTypeSet = set()

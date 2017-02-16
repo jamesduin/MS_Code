@@ -1,6 +1,6 @@
 from sklearn import preprocessing
 import numpy as np
-
+from sklearn.feature_selection import SelectKBest,chi2,SelectPercentile,f_classif
 
 def printDataInstance(instance):
     for dimension in instance[:-1]:
@@ -11,7 +11,7 @@ def printDataInstance(instance):
 
 
 
-fname = 'partitionMinMaxScaled'
+fname = 'partitionStdSclSel'
 
 
 classes_PreScale = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
@@ -32,11 +32,20 @@ for i in sorted(classes_PreScale):
         data_PreScale = np.vstack((partition, data_PreScale))
 y_train, X_trainPreScale = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale.shape[1]]
 
+#
+# #### Scale dataset
+# min_max_scaler = preprocessing.MinMaxScaler()
+# X_train = min_max_scaler.fit_transform(X_trainPreScale)
+# y_train = np.reshape(y_train, (y_train.shape[0], 1))
 
-#### Scale dataset
-min_max_scaler = preprocessing.MinMaxScaler()
-X_train = min_max_scaler.fit_transform(X_trainPreScale)
+
+scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
+X_trainFull = scaler.transform(X_trainPreScale)
+selector = SelectPercentile(f_classif, percentile=75)
+selector.fit(X_trainFull, y_train)
+X_train = selector.transform(X_trainFull)
 y_train = np.reshape(y_train, (y_train.shape[0], 1))
+
 data = np.hstack((y_train, X_train))
 for inst in data:
     classes_all[inst[0]].append(inst)
