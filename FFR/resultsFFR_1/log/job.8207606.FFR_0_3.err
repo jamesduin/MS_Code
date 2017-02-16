@@ -1,0 +1,8 @@
+/util/opt/anaconda3/2.0/envs/py35/lib/python3.5/site-packages/sklearn/metrics/classification.py:1074: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+Traceback (most recent call last):
+  File "/home/scott/jamesd/resultsFFR_1/runFFR.py", line 61, in <module>
+    m.confEstAdd(classes_all,sets,rnds,add)
+  File "/home/scott/jamesd/resultsFFR_1/methodsFFR.py", line 303, in confEstAdd
+    set['coarse'][most_cls].append(classes_all[most_cls].pop(most_ind))
+IndexError: pop from empty list

@@ -13,40 +13,40 @@ else:
     os.chdir('/work/scott/jamesd/')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
-plt.figure()
-#with plt.style.context('fivethirtyeight'):
-plt.style.use('ggplot')
 
 
-#resultsDir = 'resultsSclBy1_15/results'
-#resultsDir = 'resultsRBFsclBy1_15/results'
-#resultsDir = 'results11SclBy1_15/results'
-resultsDir = 'results11SclBy1_15_2/results'
+
+def getRndTypeSet(resultsDir):
+    rndTypeSet = set()
+    for fname in glob.glob(resultsDir + '/*.res'):
+        # print(fname)
+        file = re.split("[/\.]", fname)[-2]
+        # print(file)
+        rndType = re.split("[_]", file)
+        # print(rndType)
+        print(rndType[0] + '_' + rndType[1])
+        rndTypeSet.add(rndType[0] + '_' + rndType[1])
+    print(rndTypeSet)
+    return rndTypeSet
+
+
+
+resultsDir = 'results11SclBy1_15/results'
+#resultsDir = 'resultsRBF11sclBy1_15/results'
+#resultsDir = 'resultsSclBy1/results'
 #resultsDir = 'results'
 
-rndTypeSet = set()
-for fname in glob.glob(resultsDir+'/*.res'):
-    #print(fname)
-    file = re.split("[/\.]", fname)[-2]
-    #print(file)
-    rndType = re.split("[_]", file)
-    #print(rndType)
-    print(rndType[0]+'_'+rndType[1])
-    rndTypeSet.add(rndType[0]+'_'+rndType[1])
-print(rndTypeSet)
+rndTypeSet = getRndTypeSet(resultsDir)
 
+rndTypeFoldMat = dict()
 for type in rndTypeSet:
-    prs = []
     foldMatrix = dict()
     for fold in range(1,11):
-        #fold = 11-fold
         for fname in glob.glob(resultsDir+'/*.res'):
             file = re.split("[/\.]", fname)[-2]
             rndType = re.split("[_]", file)
             instType = rndType[0]+'_'+rndType[1]
-            #if(type == instType and str(fold) == rndType[2] and fold <=7):
             if (type == instType and str(fold) == rndType[2] ):
-                pr_row = []
                 print(fold)
                 print(instType)
                 foldMatrix[fold] = []
@@ -57,49 +57,132 @@ for type in rndTypeSet:
                     pass
                 for result in results:
                     foldMatrix[fold].append(result)
-                    fnd = False
-                    for item in result:
-                        if (fnd):
-                            pr_row.append(item)
-                            fnd = False
-                        elif item == 'pr':
-                            fnd = True
-                if prs == []:
-                    prs = np.array(pr_row).reshape(len(pr_row),1)
-                else:
-                    size = prs.shape[0]
-                    row = pr_row[:size]
-                    cntInd = len(row)
-                    y_tmp = np.mean(prs, axis=1)
-                    while(len(row)!= size):
+    rndTypeFoldMat[type] = foldMatrix
 
-                        row.append(y_tmp[cntInd])
-                        cntInd+=1
-                    pr = np.array(row).reshape(len(row),1)
-                    prs = np.hstack((prs,pr))
-        f = open(resultsDir+'/_' + type + '.txt', 'w')
+max = []
+for fold in foldMatrix:
+    max.append(len(foldMatrix[fold]))
+#print(np.max(max))
 
-        startFold = 0
-        for fold in foldMatrix:
-            startFold = fold
-            break
-        if(startFold != 0):
-            for i in range(len(foldMatrix[startFold])):
-                for fold in foldMatrix:
-                    try:
-                        f.write(str(foldMatrix[fold][i])+'\n')
-                    except IndexError:
-                        pass
+for type in rndTypeFoldMat:
+    ### print out the folds
+    f = open(resultsDir+'/_' + type + '.txt', 'w')
+    for fold in rndTypeFoldMat[type]:
+        for rec in rndTypeFoldMat[type][fold]:
+            f.write(str(rec)+'\n')
+    f.close()
 
-    # print((prs[0][0]+prs[0][1]+prs[0][2])/3)
-    x = np.array(range(1,len(prs)+1))
-    y = np.mean(prs, axis=1)
-    #print(x)
-    #print(y)
-    plt.plot(x,y, label = 'avg_'+type)
+
+plt.figure()
+#with plt.style.context('fivethirtyeight'):
+plt.style.use('ggplot')
+for type in rndTypeSet:
+    prs = []
+    for fold in sorted(rndTypeFoldMat[type]):
+        prFold = []
+        for rec in rndTypeFoldMat[type][fold]:
+            #if(not isinstance(rec,str)):
+            if('pr'in rec):
+                ind =[i for i in range(len(rec)) if rec[i] == 'pr']
+                prFold.append(rec[ind[0]+1])
+        prFold = np.array(prFold).reshape(len(prFold),1)
+        if prs == []:
+            prs =prFold
+        else:
+            prs = np.hstack((prs,prFold))
+    x_pr = np.array(range(1,len(prs)+1))
+    y_pr = np.mean(prs, axis=1)
+    plt.plot(x_pr,y_pr, label = 'avg_'+type)
 
 plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')
 plt.title('Active vs. Passive Learning')
 plt.legend(loc="lower right")
-plt.savefig(resultsDir+'/ActiveVsPassive.png')
+plt.savefig(resultsDir+'/ActiveVsPassivePR.png')
+
+
+
+plt.figure()
+#with plt.style.context('fivethirtyeight'):
+plt.style.use('ggplot')
+for type in rndTypeSet:
+    prs = []
+    for fold in sorted(rndTypeFoldMat[type]):
+        prFold = []
+        for rec in rndTypeFoldMat[type][fold]:
+            #if(not isinstance(rec,str)):
+            if('roc'in rec):
+                ind =[i for i in range(len(rec)) if rec[i] == 'roc']
+                prFold.append(rec[ind[0]+1])
+        prFold = np.array(prFold).reshape(len(prFold),1)
+        if prs == []:
+            prs =prFold
+        else:
+            prs = np.hstack((prs,prFold))
+    x_pr = np.array(range(1,len(prs)+1))
+    y_pr = np.mean(prs, axis=1)
+    plt.plot(x_pr,y_pr, label = 'avg_'+type)
+
+plt.ylabel('ROC-AUC')
+plt.xlabel('Iteration')
+plt.title('Active vs. Passive Learning')
+plt.legend(loc="lower right")
+plt.savefig(resultsDir+'/ActiveVsPassiveROC.png')
+
+
+plt.figure()
+#with plt.style.context('fivethirtyeight'):
+plt.style.use('ggplot')
+for type in rndTypeSet:
+    prs = []
+    for fold in sorted(rndTypeFoldMat[type]):
+        prFold = []
+        for rec in rndTypeFoldMat[type][fold]:
+            #if(not isinstance(rec,str)):
+            if('f1'in rec):
+                ind =[i for i in range(len(rec)) if rec[i] == 'f1']
+                prFold.append(rec[ind[0]+1])
+        prFold = np.array(prFold).reshape(len(prFold),1)
+        if prs == []:
+            prs =prFold
+        else:
+            prs = np.hstack((prs,prFold))
+    x_pr = np.array(range(1,len(prs)+1))
+    y_pr = np.mean(prs, axis=1)
+    plt.plot(x_pr,y_pr, label = 'avg_'+type)
+
+plt.ylabel('F-measure')
+plt.xlabel('Iteration')
+plt.title('Active vs. Passive Learning')
+plt.legend(loc="lower right")
+plt.savefig(resultsDir+'/ActiveVsPassiveF1.png')
+
+
+
+
+plt.figure()
+#with plt.style.context('fivethirtyeight'):
+plt.style.use('ggplot')
+for type in rndTypeSet:
+    prs = []
+    for fold in sorted(rndTypeFoldMat[type]):
+        prFold = []
+        for rec in rndTypeFoldMat[type][fold]:
+            #if(not isinstance(rec,str)):
+            if('acc'in rec):
+                ind =[i for i in range(len(rec)) if rec[i] == 'acc']
+                prFold.append(rec[ind[0]+1])
+        prFold = np.array(prFold).reshape(len(prFold),1)
+        if prs == []:
+            prs =prFold
+        else:
+            prs = np.hstack((prs,prFold))
+    x_pr = np.array(range(1,len(prs)+1))
+    y_pr = np.mean(prs, axis=1)
+    plt.plot(x_pr,y_pr, label = 'avg_'+type)
+
+plt.ylabel('Accuracy')
+plt.xlabel('Iteration')
+plt.title('Active vs. Passive Learning')
+plt.legend(loc="lower right")
+plt.savefig(resultsDir+'/ActiveVsPassiveAcc.png')
