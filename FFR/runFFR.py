@@ -27,7 +27,7 @@ add['coarse'] = int(batch - add['fine'])
 results = []
 m.addPrint(results,['batch']+[batch]+['FFR']+[FFR]+['fineCost']
 +[fineCost]+['addFine']+[add['fine']]+['addCoarse']+[add['coarse']])
-FFR = str(FFR).replace('.','_')
+FFR = str(FFR).replace('.','p')
 
 start_time = [time.perf_counter()]
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
@@ -67,8 +67,8 @@ for i in sorted(classes_all):
 
 instanceCount = 0
 rndNum = 0
-#while((18088-instanceCount) > 100):
-while(rndNum < 2):
+while((18088-instanceCount) > 100):
+#while(rndNum < 2):
     start_time.append(time.perf_counter())
     if(rndNum>=1):
         ###### run confidence estimate for coarse and fine
@@ -91,11 +91,11 @@ while(rndNum < 2):
     m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,FFR)
     ##### Append round time and fold counts
     instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, results, sets, start_time)
-    m.printClassTotals(results, classes_all)
+    m.appendSetTotal(rndNum, results, classes_all,'classes_all')
     tot = time.perf_counter() - start_time[0]
     m.addPrint(results,['Total Time:']+['{:.0f}hr {:.0f}m {:.2f}sec'.format(
         *divmod(divmod(tot,60)[0],60),divmod(tot,60)[1])])
-    fileName = open('results/FFR'+FFR+'_'+str(testFold)+'.res','wb')
+    fileName = open('results/FFR_'+FFR+'_'+str(testFold)+'.res','wb')
     pickle.dump(results,fileName)
     fileName.close()
 

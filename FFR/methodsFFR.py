@@ -116,10 +116,10 @@ class CoarseRound(LearnRound):
                                                      class_weight={1: self.train_wt},
                                                      solver='liblinear',
                                                      max_iter=1000, n_jobs=-1)
-        #self.clf = classifier.fit(X_train, y_trainCoarse)
-        #if (self.rndNum % 50 == 0):
-        #joblib.dump(self.clf, self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
-        self.clf = joblib.load(self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
+        self.clf = classifier.fit(X_train, y_trainCoarse)
+        if (self.rndNum % 50 == 0):
+            joblib.dump(self.clf, self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
+        #self.clf = joblib.load(self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
 
     def predictTestSet(self,X_test):
         ##### Predict test set for coarse
@@ -151,10 +151,10 @@ class FineRound(LearnRound):
                                                       class_weight={1: self.Fine_wt[cls]},
                                                       solver='liblinear',
                                                       max_iter=1000, n_jobs=-1)
-            #clf = classif.fit(X_train, y_trainBin[:, cls])
-            #if(self.rndNum % 50 == 0):
-            #joblib.dump(clf, self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
-            clf = joblib.load(self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
+            clf = classif.fit(X_train, y_trainBin[:, cls])
+            if(self.rndNum % 50 == 0):
+                joblib.dump(clf, self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
+            # clf = joblib.load(self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             self.classifier[cls] = clf
 
 
@@ -316,8 +316,8 @@ def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,test
         plt.savefig('comb_results/FFR'+ str(FFR)+'_'+ str(rndNum) + '_' + str(testFold) +'_comb_PR.png')
         plt.clf()
         plt.close()
-    addPrint(results,['FFR']+[FFR]+['fold']+[testFold]+['comb']
-                   +['pr']+ [pr_auc]+ ['roc']+[roc_auc])
+    addPrint(results,['FFR']+[FFR]+['fold']+[testFold]
+                   +['comb_pr']+ [pr_auc]+ ['roc']+[roc_auc])
 
 
 
@@ -344,129 +344,70 @@ def confEstAdd(results,classes_all,sets,rnds,add):
                 else:
                     decFcn[lvl] = np.vstack((decFcnTmp,decFcn[lvl]))
     for lvl in ['coarse', 'fine']:
-        print(lvl)
-        print(decFcn[lvl].shape)
         d_ind = np.array(range(len(decFcn[lvl]))).reshape(len(decFcn[lvl]), 1)
         decFcn[lvl] = np.hstack((d_ind,decFcn[lvl]))
-        print(decFcn[lvl][:20])
         decFcn[lvl] = decFcn[lvl][decFcn[lvl][:,3].argsort()].tolist()
-        pp.pprint(decFcn[lvl][:20])
 
     removeInd = []
-    removed = []
     for i in range(add['fine']):
-        most_uncert = decFcn['fine'][0][3]
-        most_cls = int(decFcn['fine'][0][1])
-        most_ind = int(decFcn['fine'][0][2])
+        most_cls = int(decFcn['fine'][i][1])
+        most_ind = int(decFcn['fine'][i][2])
         removeInd.append([most_cls,most_ind])
-        removed.append([most_cls]+[most_ind]+classes_all[most_cls][most_ind])
         sets['coarse'][most_cls].append(classes_all[most_cls][most_ind])
         sets['fine'][most_cls].append(classes_all[most_cls][most_ind])
-        index = getIndex(decFcn['coarse'],decFcn['fine'][0])
-        coarseUncert = decFcn['coarse'][index][3]
-        del decFcn['coarse'][index]
-        del decFcn['fine'][0]
-        addPrint(results,['fine']+['cls']+[most_cls]+['ind']+
-             [most_ind]+['mostUncert']+[most_uncert]+['coarseUncert']+[coarseUncert])
+        # addPrint(results,['fine']+['cls']+[most_cls]+['ind']+
+        #      [most_ind]+['mostUncert']+[most_uncert]+['coarseUncert']+[coarseUncert])
 
     for i in range(add['coarse']):
-        most_uncert = decFcn['coarse'][i][3]
         most_cls = int(decFcn['coarse'][i][1])
         most_ind = int(decFcn['coarse'][i][2])
         while([most_cls,most_ind] in removeInd):
             del decFcn['coarse'][i]
             try:
-                most_uncert = decFcn['coarse'][i][3]
                 most_cls = int(decFcn['coarse'][i][1])
                 most_ind = int(decFcn['coarse'][i][2])
             except IndexError:
                 print("ran out of coarse indexes")
         removeInd.append([most_cls,most_ind])
-        removed.append([most_cls]+[most_ind]+classes_all[most_cls][most_ind])
         sets['coarse'][most_cls].append(classes_all[most_cls][most_ind])
-        index = getIndex(decFcn['fine'], decFcn['coarse'][i])
-        finUncert = decFcn['fine'][index][3]
-        addPrint(results,['coarse']+['cls']+[most_cls]+['ind']+
-                 [most_ind]+['mostUncertCoarse']+[most_uncert]+['fineUncert']+[finUncert])
+        # addPrint(results,['coarse']+['cls']+[most_cls]+['ind']+
+        #          [most_ind]+['mostUncertCoarse']+[most_uncert]+['fineUncert']+[finUncert])
 
     removeInd = np.array(removeInd)
-    # print('\n')
-    # print(removeInd[:20])
     removeInd = removeInd[removeInd[:,1].argsort()[::-1]]
-    # print('\n')
-    # print(removeInd[:20])
-    removed = np.array(removed)
-    # print('\n')
-    # print(removed[:20][:6])
-    removed = removed[removed[:, 1].argsort()[::-1]]
-    # print('\n')
-    # print(removed[:20][:6])
-    printClassTotals(results, classes_all)
     if(len(removeInd)!= add['coarse']+add['fine']):
         addPrint(results,"Didn't add expected amount to coarse and fine sets.")
         raise SystemExit
     for i,inst in enumerate(removeInd):
-        #print(removed[i][:8])
         most_cls = int(removeInd[i][0])
         most_ind = int(removeInd[i][1])
-        # print(classes_all[most_cls][most_ind][:6])
-        # if(removed[i][2:].tolist() == classes_all[most_cls][most_ind] ):
-        #     print('equal')
-        # else:
-        #     print('not equal')
         del classes_all[most_cls][most_ind]
 
 
 
-def getIndex(decFcnLvl,decFcnInst):
-    for i, inst in enumerate(decFcnLvl):
-        if(inst[:2] == decFcnInst[:2]):
-            # print(decFcnInst)
-            # print(i)
-            # print(decFcnLvl[i])
-            return i
-
-
-
-    # for i in range(add['fine']):
-    #     most_uncert = 100
-    #     most_cls = 0
-    #     most_ind = 0
-    #     for cls in sorted(decFcn['fine']):
-    #         for index, inst in enumerate(decFcn['fine'][cls]):
-    #             max_est = 0.0
-    #             for eachClassEst in inst:
-    #                 est = np.absolute(eachClassEst)
-    #                 if (max_est < est):
-    #                     max_est = est
-    #             if (max_est < most_uncert):
-    #                 most_cls = cls
-    #                 most_ind = index
-    #                 most_uncert = max_est
-    #     sets['coarse'][most_cls].append(classes_all[most_cls][most_ind])
-    #     sets['fine'][most_cls].append(classes_all[most_cls].pop(most_ind))
-    #     del decFcn['coarse'][most_cls][most_ind]
-    #     del decFcn['fine'][most_cls][most_ind]
-    #     addPrint(results,['fine']+['cls']+[most_cls]+['ind']+
-    #          [most_ind]+['mostUncert']+[most_uncert])
-
-
-
-
+def appendSetTotal(rndNum, results, sets,name):
+    instanceCount = 0
+    fold_cnt = ['rnd'] + [rndNum] + [name]
+    for i in sorted(sets):
+        instanceCount += len(sets[i])
+        fold_cnt.append((i, len(sets[i])))
+    fold_cnt.append(('tot', instanceCount))
+    addPrint(results, fold_cnt)
 
 
 def appendRndTimesFoldCnts(testFold, rndNum, results, sets, start_time):
+    instanceCount = dict()
     for lvl in ['coarse', 'fine']:
-        instanceCount = 0
+        instanceCount[lvl] = 0
         fold_cnt = ['rnd']+[rndNum] +['fold']+[testFold]+['lvl']+[lvl]
         for i in sorted(sets[lvl]):
-            instanceCount += len(sets[lvl][i])
+            instanceCount[lvl] += len(sets[lvl][i])
             fold_cnt.append((i, len(sets[lvl][i])))
-        fold_cnt.append(('tot', instanceCount))
+        fold_cnt.append(('tot', instanceCount[lvl]))
         addPrint(results,fold_cnt)
     addPrint(results,['rnd']+[rndNum] +['fold']+[testFold]
                    +['rndTimeTot'] + [str(round(time.perf_counter() - start_time[-1], 2))])
-    return instanceCount
+    return max([instanceCount['fine'],instanceCount['coarse']])
 
 
 
