@@ -91,6 +91,7 @@ while(rndNum < 2):
     m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,FFR)
     ##### Append round time and fold counts
     instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, results, sets, start_time)
+    m.printClassTotals(results, classes_all)
     tot = time.perf_counter() - start_time[0]
     m.addPrint(results,['Total Time:']+['{:.0f}hr {:.0f}m {:.2f}sec'.format(
         *divmod(divmod(tot,60)[0],60),divmod(tot,60)[1])])

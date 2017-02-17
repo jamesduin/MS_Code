@@ -11,6 +11,7 @@ from sklearn.externals import joblib
 from sklearn import linear_model
 from sklearn.preprocessing import label_binarize
 import time
+import pprint as pp
 
 class LearnRound:
     def __init__(self,testFold,rndNum, lvl,FFR):
@@ -320,62 +321,135 @@ def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,test
 
 
 
+
 def confEstAdd(results,classes_all,sets,rnds,add):
     decFcn = dict()
     for lvl in ['coarse', 'fine']:
-        decFcn[lvl] = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+        decFcn[lvl] = []
 
-    for i in sorted(classes_all):
-        partition = np.asarray(classes_all[i])
+    for cls in sorted(classes_all):
+        partition = np.asarray(classes_all[cls])
         data = partition
         if (len(data) > 0):
             y_train, X_train = data[:, 0], data[:, 1:]
             for lvl in ['coarse', 'fine']:
                 y_predCoarse, scores = rnds[lvl].predictTestSet(X_train)
-                decFcn[lvl][i] = scores.reshape(scores.shape[0], 1).tolist()
+                s_tmp = np.abs(scores).reshape(scores.shape[0], 1)
+                s_cls = np.ones(len(s_tmp)).reshape(len(s_tmp),1)*cls
+                s_ind = np.array(range(len(s_tmp))).reshape(len(s_tmp),1)
+                prefixCols = np.hstack((s_cls, s_ind))
+                decFcnTmp = np.hstack((prefixCols,s_tmp))
+                if decFcn[lvl] == []:
+                    decFcn[lvl] = decFcnTmp
+                else:
+                    decFcn[lvl] = np.vstack((decFcnTmp,decFcn[lvl]))
+    for lvl in ['coarse', 'fine']:
+        print(lvl)
+        print(decFcn[lvl].shape)
+        d_ind = np.array(range(len(decFcn[lvl]))).reshape(len(decFcn[lvl]), 1)
+        decFcn[lvl] = np.hstack((d_ind,decFcn[lvl]))
+        print(decFcn[lvl][:20])
+        decFcn[lvl] = decFcn[lvl][decFcn[lvl][:,3].argsort()].tolist()
+        pp.pprint(decFcn[lvl][:20])
+
+    removeInd = []
+    removed = []
+    for i in range(add['fine']):
+        most_uncert = decFcn['fine'][0][3]
+        most_cls = int(decFcn['fine'][0][1])
+        most_ind = int(decFcn['fine'][0][2])
+        removeInd.append([most_cls,most_ind])
+        removed.append([most_cls]+[most_ind]+classes_all[most_cls][most_ind])
+        sets['coarse'][most_cls].append(classes_all[most_cls][most_ind])
+        sets['fine'][most_cls].append(classes_all[most_cls][most_ind])
+        index = getIndex(decFcn['coarse'],decFcn['fine'][0])
+        coarseUncert = decFcn['coarse'][index][3]
+        del decFcn['coarse'][index]
+        del decFcn['fine'][0]
+        addPrint(results,['fine']+['cls']+[most_cls]+['ind']+
+             [most_ind]+['mostUncert']+[most_uncert]+['coarseUncert']+[coarseUncert])
 
     for i in range(add['coarse']):
-        most_uncert = 100
-        most_cls = 0
-        most_ind = 0
-        for cls in sorted(decFcn['coarse']):
-            for index, inst in enumerate(decFcn['coarse'][cls]):
-                max_est = 0.0
-                for eachClassEst in inst:
-                    est = np.absolute(eachClassEst)
-                    if (max_est < est):
-                        max_est = est
-                if (max_est < most_uncert):
-                    most_cls = cls
-                    most_ind = index
-                    most_uncert = max_est
-        sets['coarse'][most_cls].append(classes_all[most_cls].pop(most_ind))
-        del decFcn['coarse'][most_cls][most_ind]
-        del decFcn['fine'][most_cls][most_ind]
-        addPrint(results,['coarse']+['cls']+[most_cls]+['ind']+
-                 [most_ind]+['mostUncert']+[most_uncert])
-
-    for i in range(add['fine']):
-        most_uncert = 100
-        most_cls = 0
-        most_ind = 0
-        for cls in sorted(decFcn['fine']):
-            for index, inst in enumerate(decFcn['fine'][cls]):
-                max_est = 0.0
-                for eachClassEst in inst:
-                    est = np.absolute(eachClassEst)
-                    if (max_est < est):
-                        max_est = est
-                if (max_est < most_uncert):
-                    most_cls = cls
-                    most_ind = index
-                    most_uncert = max_est
+        most_uncert = decFcn['coarse'][i][3]
+        most_cls = int(decFcn['coarse'][i][1])
+        most_ind = int(decFcn['coarse'][i][2])
+        while([most_cls,most_ind] in removeInd):
+            del decFcn['coarse'][i]
+            try:
+                most_uncert = decFcn['coarse'][i][3]
+                most_cls = int(decFcn['coarse'][i][1])
+                most_ind = int(decFcn['coarse'][i][2])
+            except IndexError:
+                print("ran out of coarse indexes")
+        removeInd.append([most_cls,most_ind])
+        removed.append([most_cls]+[most_ind]+classes_all[most_cls][most_ind])
         sets['coarse'][most_cls].append(classes_all[most_cls][most_ind])
-        sets['fine'][most_cls].append(classes_all[most_cls].pop(most_ind))
-        del decFcn['coarse'][most_cls][most_ind]
-        del decFcn['fine'][most_cls][most_ind]
-        addPrint(results,['fine']+['cls']+[most_cls]+['ind']+
-             [most_ind]+['mostUncert']+[most_uncert])
+        index = getIndex(decFcn['fine'], decFcn['coarse'][i])
+        finUncert = decFcn['fine'][index][3]
+        addPrint(results,['coarse']+['cls']+[most_cls]+['ind']+
+                 [most_ind]+['mostUncertCoarse']+[most_uncert]+['fineUncert']+[finUncert])
+
+    removeInd = np.array(removeInd)
+    # print('\n')
+    # print(removeInd[:20])
+    removeInd = removeInd[removeInd[:,1].argsort()[::-1]]
+    # print('\n')
+    # print(removeInd[:20])
+    removed = np.array(removed)
+    # print('\n')
+    # print(removed[:20][:6])
+    removed = removed[removed[:, 1].argsort()[::-1]]
+    # print('\n')
+    # print(removed[:20][:6])
+    printClassTotals(results, classes_all)
+    if(len(removeInd)!= add['coarse']+add['fine']):
+        addPrint(results,"Didn't add expected amount to coarse and fine sets.")
+        raise SystemExit
+    for i,inst in enumerate(removeInd):
+        #print(removed[i][:8])
+        most_cls = int(removeInd[i][0])
+        most_ind = int(removeInd[i][1])
+        # print(classes_all[most_cls][most_ind][:6])
+        # if(removed[i][2:].tolist() == classes_all[most_cls][most_ind] ):
+        #     print('equal')
+        # else:
+        #     print('not equal')
+        del classes_all[most_cls][most_ind]
+
+
+
+def getIndex(decFcnLvl,decFcnInst):
+    for i, inst in enumerate(decFcnLvl):
+        if(inst[:2] == decFcnInst[:2]):
+            # print(decFcnInst)
+            # print(i)
+            # print(decFcnLvl[i])
+            return i
+
+
+
+    # for i in range(add['fine']):
+    #     most_uncert = 100
+    #     most_cls = 0
+    #     most_ind = 0
+    #     for cls in sorted(decFcn['fine']):
+    #         for index, inst in enumerate(decFcn['fine'][cls]):
+    #             max_est = 0.0
+    #             for eachClassEst in inst:
+    #                 est = np.absolute(eachClassEst)
+    #                 if (max_est < est):
+    #                     max_est = est
+    #             if (max_est < most_uncert):
+    #                 most_cls = cls
+    #                 most_ind = index
+    #                 most_uncert = max_est
+    #     sets['coarse'][most_cls].append(classes_all[most_cls][most_ind])
+    #     sets['fine'][most_cls].append(classes_all[most_cls].pop(most_ind))
+    #     del decFcn['coarse'][most_cls][most_ind]
+    #     del decFcn['fine'][most_cls][most_ind]
+    #     addPrint(results,['fine']+['cls']+[most_cls]+['ind']+
+    #          [most_ind]+['mostUncert']+[most_uncert])
+
 
 
 
