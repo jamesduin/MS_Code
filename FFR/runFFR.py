@@ -12,7 +12,7 @@ if(rootDir == 'py'):
     os.chdir('_results')
     dataDir = '../../'
 else:
-    os.chdir('/work/scott/jamesd/results11SclBy1_15_2')
+    os.chdir('/work/scott/jamesd/runFFR_Cst16')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
 
@@ -20,7 +20,7 @@ else:
 FFR = float(sys.argv[1])
 testFold = int(sys.argv[2])
 batch = 160
-fineCost = 1
+fineCost = 16
 add = dict()
 add['fine'] = int(batch*FFR/fineCost)
 add['coarse'] = int(batch - add['fine'])

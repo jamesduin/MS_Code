@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/scott/jamesd/runFFR_0p5/runFFR.py", line 15, in <module>
+    os.chdir('/work/scott/jamesd/results11SclBy1_15_2')
+FileNotFoundError: [Errno 2] No such file or directory: '/work/scott/jamesd/results11SclBy1_15_2'

@@ -27,7 +27,7 @@ def getRndTypeSet(resultsDir):
     print(rndTypeSet)
     return rndTypeSet
 
-resultsDir = '_results/results'
+resultsDir = 'runFFR_0p5/results'
 #resultsDir = 'resultsRBF11sclBy1_15/results'
 #resultsDir = 'resultsSclBy1/results'
 #resultsDir = 'results'
