@@ -27,7 +27,8 @@ def getRndTypeSet(resultsDir):
     print(rndTypeSet)
     return rndTypeSet
 
-resultsDir = 'runFFR_0p5/results'
+#resultsDir = 'runFFR_Cst16/results'
+resultsDir = 'runFFR_Cst1/results'
 #resultsDir = 'resultsRBF11sclBy1_15/results'
 #resultsDir = 'resultsSclBy1/results'
 #resultsDir = 'results'
@@ -91,7 +92,7 @@ for type in rndTypeSet:
 
 plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')
-plt.title('Active vs. Passive Learning')
+plt.title(resultsDir)
 plt.legend(loc="lower right")
 plt.savefig(resultsDir+'/FFR_PR.png')
 
