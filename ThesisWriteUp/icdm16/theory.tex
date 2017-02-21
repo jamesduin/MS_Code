@@ -1,0 +1,345 @@
+\subsection{Learning-Theoretic Advantages}
+\label{sec:learningtheory}
+
+To formalize the intuitive advantage described in
+Section~\ref{sec:intuition}, we present some simple theoretical
+results that immediately follow from the literature.  This
+section's purpose is not to advance the state of the art in 
+learning theory, but to highlight the advantages that over-labeling
+can provide.
+We present observations in both the {\bf probably approximately correct
+(PAC)}~\cite{v-tl-84} and {\bf exact}~\cite{a-lrsqc-87} models of learning. 
+The results below focus on the 
+% simple, but important 
+case of learning concepts
+that are unions of axis-parallel boxes 
+% \textcolor{red}{(as in, e.g., decision trees \cite{})}
+over real and  ordinal feature spaces.  
+% Extending the results to other settings is an item of future work.
+
+\subsubsection{PAC Learning with Active Over-labeling}
+%\noindent {\bf 2.2.1 PAC Learning with Active Over-labeling}
+In PAC, a learner is given parameters $0<\epsilon,\delta < 1/2$ 
+and access to labeled training instances
+drawn iid according to arbitrary distribution $\cal D$.  The
+learner then outputs a hypothesis in polynomial time that,
+with probability at least $1-\delta$, has error at most
+$\epsilon$ on new instances drawn according to $\cal D$.  
+
+\paragraph{Computational Complexity}
+%\noindent {\bf 2.2.1.1 Computational Complexity}
+% We begin by showing that in the passive learning setting, over-labeling
+% offers advantages over standard labeling.
+In the context  of computational complexity, we consider the case
+% (in both the PAC and exact learning models)
+of {\bf proper learning}\footnote{Note that the negative results described
+below for both exact and PAC learning are only for proper learning.  One can
+get positive results for these cases by allowing a logarithmic increase in the
+number of boxes used, by applying the set cover approximation algorithm.},
+in which the training instances are labeled by a
+concept from $\cal C$ and the hypothesis inferred by the learner
+is required to also be from $\cal C$.
+%We consider the real space ${\cal X} = \mathbb{R}^d$.
+%
+%
+We consider learning concepts  that are unions of
+$k$ axis-parallel boxes in $\mathbb{R}^d$.  This
+task is not properly PAC-learnable (i.e., learning $\cal C$ using $\cal C$)
+if RP $\ne$ NP.
+% a fact that can be obtained from results found in previous work.
+\begin{obs}
+The class of $k$-unions of axis-parallel boxes in $\mathbb{R}^d$ is not
+properly PAC-learnable unless RP $=$ NP.
+\end{obs}
+{\bf Proof Sketch}: From Theorem 3.1.1 of Blumer et al.~\cite{behw-lvd-89}, 
+concept class $\cal C$ is properly PAC learnable  iff there exists a 
+randomized polynomial-time algorithm to find a hypothesis from $\cal C$
+consistent with a sufficiently large labeled training sample 
+$\cal X$ (called the {\bf consistent hypothesis problem}).
+It is known to be NP-hard~\cite{behw-lvd-89,m-sncscp-xx} to find a smallest
+set of rectangles to cover a set of points in $\mathbb{R}^d$ even
+for $d=2$.  Thus, the consistent hypothesis problem for
+$k$-unions of boxes is NP-hard, implying that one 
+cannot properly PAC learn $k$-unions of boxes.  \hfill $\square$
+
+In contrast, consider an over-labeling version of this learning problem,
+% the $k$-unions of boxes problem,
+in which each of the $k$ boxes
+is a separate subconcept, as in Figure~\ref{fig:unionex}. 
+Thus, examples from the $i$th box ($i=1,\ldots , k$) have a
+fine-grained label (call it $I_i$) and all other 
+examples are labeled `$-$'.
+\begin{obs}
+In the over-labeling setting, $k$-unions of boxes from $\mathbb{R}^d$
+is properly PAC-learnable.
+\end{obs}
+{\bf Proof Sketch}: Let $m$ be the number of labeled training instances labeled
+by the target concept of some $k$-union of boxes.
+For each sub-concept, a consistent sub-hypothesis
+(single bounding box)
+can be learned from the fine-grained labels in time $O(dm)$.
+The learner can learn each of the $k$ sub-concepts separately and
+output their union in time $O(kdm)$, and this  union
+will be consistent with all the labeled examples.
+Thus, the consistent hypothesis problem can be solved in time polynomial in
+$d$, $k$, and $m$.
+Blumer et al.~\cite{behw-lvd-89} show that, if $m$ is sufficiently large,
+then a consistent hypothesis $h$ will meet the PAC criteria.
+Specifically, Equation~\ref{eqn:behw} below gives sufficient conditions on
+$m$ for error bound $\epsilon$ and bound $\delta$ on probability of failure.
+Because the over-labeling approach is finding a separate consistent hypothesis
+for each of the $k$ fine-grained labels,
+we apply Equation~\ref{eqn:behw}, but reduce
+$\epsilon$ and $\delta$ each by a factor of $k$ to account for this.
+This yields a polynomial bound on $m$.
+% that is polynomial in all relevant parameters.
+ \hfill $\square$
+
+% \subsubsection{Sample Complexity}
+% In the context of sample complexity, we look at passive PAC learning of unions of $k$
+% axis-parallel boxes in $\mathbb{R}^d$.  The
+% classic approach~\cite{behw-lvd-89} to PAC learning a function class $\cal C$ is to
+% draw a labeled sample $\cal X$ of size  at least
+% \begin{equation}
+% m(\epsilon,\delta) = \max \left( {2 \over \epsilon} \log {2 \over \delta}, {8D \over \epsilon} \log {13
+% \over \epsilon}  \right)
+% \enspace ,
+% \label{eqn:behw}
+% \end{equation}
+% where $\epsilon$ and $\delta$ are the PAC parameters and $D$ is
+% the VC-dimension (VCD) of $\cal C$,
+% and to then find some function $c \in {\cal C}$ consistent with
+% $\cal X$.  
+% 
+% The VC-dimension of the class of single $d$-dimensional axis-aligned boxes is $2d$.  Based on
+% Blumer et al.~\cite{behw-lvd-89}, then, the VCD of the $k$-union of
+% $d$-dimensional axis-aligned boxes is
+% $\Theta(d  k \log k)$.  Thus, to directly PAC-learn $k$-unions of $d$-dimensional boxes,
+% it suffices to find a hypothesis consistent with 
+% \[
+% m_{coarse}(\epsilon,\delta) = \Theta \left( {1 \over \epsilon} \log {1 \over \delta}
+% + {d k \log k \over \epsilon} \log {1 \over \epsilon}  \right)
+% \enspace 
+% \]
+% labeled examples\footnote{Note that we are not considering the time complexity of finding such
+% a consistent hypothesis, only the number of training instances.}.
+% In contrast, learning the class of individual $d$-dimensional boxes reduces
+% the VCD from $\Theta(d  k \log k)$ to $\Theta(d)$.  However, since the learning
+% process is repeated $k$ times, one needs to learn each individual box with a smaller value of
+% $\epsilon$ and a smaller value of $\delta$,
+% to allow for the union bound to be applied across all $k$
+% fine-grained hypotheses.  This yields a sample complexity of 
+% \[
+% m_{fine}(\epsilon/k,\delta/k) = \Theta \left( {k \over \epsilon} \log {k \over \delta}
+% + {d k  \over \epsilon} \log {k \over \epsilon}  \right)
+% \enspace 
+% ,
+% \]
+% which grows more slowly than $m_{coarse}$.
+% %  since  $m_{coarse}-m_{fine}$ is positive.
+
+\paragraph{Label Complexity}
+%\noindent {\bf 2.2.1.2 Label Complexity}
+We now consider label complexity, in which one wants to minimize the 
+number of labels purchased by a pool-based active learning algorithm.
+We work in a model where we are given a size-$m$ set of training data $U$,
+but initially the labels are missing. When seeking a PAC algorithm for learning, one
+can apply a standard result from Blumer et al.~\cite{behw-lvd-89} that says if
+the algorithm efficiently finds a hypothesis from $\cal C$ that is
+consistent with $U$, which is
+drawn iid from fixed distribution $\cal D$ and is of size at least
+\begin{equation}
+m(\epsilon,\delta) = \max \left( {2 \over \epsilon} \log {2 \over \delta}, {8D \over \epsilon} \log {13
+\over \epsilon}  \right)
+\label{eqn:behw}
+\end{equation}
+(where $D$ is the {\bf VC dimension} of ${\cal C}$),
+then with probability $ \ge 1-\delta$, the hypothesis will have error
+at most $\epsilon$.  If the instances of $U$ are 
+unlabeled, the goal in active learning is to purchase as few as possible
+labels of
+instances of $U$ and still guarantee a hypothesis consistent with
+all of $U$ (including the yet unlabeled ones), which would yield a PAC result. 
+
+For this example, we focus on what we term the {\bf disjoint $k$-intervals
+problem}.
+% of learning axis-parallel boxes on the real line.
+I.e., $\cal C$ is the set of unions of 
+$ \le k$ disjoint intervals on $\mathbb{R}$. When a coarse-grained label
+of instance $x \in U$ is purchased, it returns
+`$+$' if $x$ lies in one of the $k$ target intervals and `$-$' otherwise.
+When a fine-grained label of $x$ is purchased, the label is an indicator
+of which of the $k$ target intervals it lies in ($I_1,\ldots,I_k$) or `$-$' if
+it does not lie in any interval.  We assume that there is
+at least one point from $U$ in each interval $I_j$ and that there is
+at least  one point from $U$ between each adjacent pair of intervals.
+% (otherwise, those empty intervals/gaps between intervals are irrelevant in the PAC sense).
+
+In the following two observations, we 
+bound the number of purchases needed in each labeling scheme to find a consistent
+hypothesis.  Since the total number of instances needed for PAC learning
+(per Equation~\ref{eqn:behw}) differs between them (due to different VC
+dimensions), in the next two observations, we use $m_c$ for the 
+number of instances in coarse-grained learning and $m_f$ needed
+for fine-grained.
+
+Assume that, for each target interval, there is
+one instance of  $U$ that is pre-labeled for free.  I.e., in the 
+coarse-grained case, there are $k$ instances labeled `$+$' (one in each target
+interval) and in the fine-grained case there is one instance labeled $I_1$,
+one labeled $I_2$, etc. 
+
+\begin{obs}
+The consistent hypothesis problem on disjoint $k$-intervals
+with coarse-grained labels on $m_c$ instances requires
+$\Omega(m_c)$ label purchases in the worst case.
+\end{obs}
+{\bf Proof Sketch}:  
+The algorithm must find the
+left and right boundaries of each of the $k$ target intervals, which
+is tantamount to identifying the leftmost and rightmost negatively
+labeled points between each consecutive pair of intervals.  Consider
+two consecutive intervals $I_j$ and $I_\ell$. 
+% that, when taken together and their intervening gap, contain the largest number of
+% points from $U$ of all consecutive pairs of intervals.  Since
+% it is the largest number of points, this count has to be $\Omega(m/k)$
+% but could be $O(m)$ in the worst case.  
+In searching for
+the negative points from $U$ between $I_j$ and
+$I_\ell$, the learner must purchase the label of some point between $x_j$ and
+$x_\ell$, where $x_j$ and $x_\ell$ are the pre-labeled points from
+$U$ from $I_j$ and $I_\ell$, respectively.
+In the worst case, every query will result in a 
+response of `$+$', until only one remains to be labeled
+`$-$'.  Summed over all pairs of intervals, this 
+requires $\Omega(m_c)$ purchases in the worst case. 
+ \hfill $\square$
+
+\begin{obs}
+The consistent hypothesis problem on disjoint $k$-intervals
+with fine-grained labels on $m_f$ instances
+requires $O(k \log m_f)$ queries in the worst case.
+\end{obs}
+{\bf Proof Sketch}:  
+An algorithm in the active over-labeling setting 
+can perform a binary search between $x_j$ and $x_\ell$  (labeled
+$I_j$ and $I_\ell$ rather than simply `$+$') until a negatively labeled
+instance $x_-$ is found.  When
+that is done, the learner can simply perform two binary searches: one between $x_-$ and
+the right-most point in $I_j$ and one between $x_-$ and
+the left-most point in $I_\ell$. This requires at most $O(\log m_f)$ queries
+per pair of adjacent intervals, for a total of $O(k \log m_f)$ queries. 
+ \hfill $\square$
+
+% Thus, we see that active over-labeling requires exponentially fewer queries
+% (in $m$) in the worst case when compared with standard active learning.
+
+% classic approach~\cite{behw-lvd-89} to PAC learning a function class $\cal C$ is to
+% draw a labeled sample $\cal X$ of size  at least
+% \begin{equation}
+% m(\epsilon,\delta) = \max \left( {2 \over \epsilon} \log {2 \over \delta}, {8D \over \epsilon} \log {13
+% \over \epsilon}  \right)
+% \enspace ,
+% \label{eqn:behw}
+% \end{equation}
+% where $\epsilon$ and $\delta$ are the PAC parameters and $D$ is
+% the VC-dimension (VCD) of $\cal C$,
+% and to then find some function $c \in {\cal C}$ consistent with
+% $\cal X$.  
+
+To bound $m_c$, we use Equation~\ref{eqn:behw} with
+VC dimension~\cite{behw-lvd-89} $D=2k$
+and get (ignoring
+the typically smaller first term) a number of purchases
+$\Omega(m_c)= \Omega ((k / \epsilon ) (\log 1/\epsilon))$.
+To bound $m_f$, note that we have $k$ independent learning problems, each a
+single box.  Thus, we can use VC dimension~\cite{behw-lvd-89} $D=2$,
+but the parameters $\epsilon$ and $\delta$
+must each be reduced by a factor of $k$, since the errors of these hypotheses
+accumulate.  Further, we must apply the learning process $k$ times, so (again
+ignoring the first term) $m_f=O((k^2/\epsilon) \log (k/\epsilon))$, so 
+our worst-case upper bound of purchases is
+$O(k \log (k/\epsilon) + k \log \log (k/\epsilon))$. Both bounds grow linearly in $k$ but the
+coarse-grained learner's bound is worse by a factor  exponential in $1/\epsilon$.
+
+Simply put, the advantage that the fine-grained approach has comes from
+the fact that, for positively-labeled instance $x \in U$, the fine-grained
+label indicates the interval that $x$ lies in, while in the coarse-grained
+approach, the label is simply `$+$'.  The distinct fine-grained label 
+given by each interval allows for a binary search for interval boundaries,
+hence the logarithmic dependence on $m_f$. In contrast,
+the homogeneous `$+$' label across all intervals
+for the coarse-grained labels can force a number of purchases linear in $m_c$.
+
+% Finally, we can show that the worst-case number of label purchases required by a standard active learner
+% is bounded above that of an active over-labeling learner.
+% Applying Equation~\ref{eqn:behw},
+% since the VC dimension $D$ of the union of $k$ intervals is $2k$, we will need
+% $U$ of size 
+% \[
+% m \ge \max \left( {2 \over \epsilon} \log {2 \over \delta}, {16 k \over \epsilon} \log {13
+% \over \epsilon}  \right)
+% \enspace .
+% \]
+% The second term of the max is the dominant one (unless $\delta$ is exponentially small
+% in $k$), so we focus on it.  This gives a worst-case lower bound 
+% of purchases for a coarse-grained learner to be
+% $\Omega ((k / \epsilon ) (\log 1/\epsilon))$,
+% while our worst-case upper bound of purchases for a fine-grained learner is
+% $O(k \log (k/\epsilon) + k \log \log (1/\epsilon))$. Both are linear in $k$ but the
+% coarse-grained learner's bound is worse by a factor  exponential in $1/\epsilon$.
+
+\subsubsection{Exact Learning with Active Over-Labeling}
+%\noindent {\bf 2.2.2 Exact Learning with Active Over-Labeling}
+We now illustrate the computational complexity advantages of
+active over-labeling in the exact learning setting.  In 
+exact learning, the learner gets access to two oracles: a
+{\bf membership query} (MQ) oracle and an {\bf equivalence query}
+(EQ) oracle.  An efficient learner will learn the exact identity
+of the target concept in time and number of queries that are
+polynomial in the problem size.  When the learner poses an EQ, it
+passes to the oracle a hypothesis $h \in {\cal C}$ that it thinks is exactly
+equivalent to the target concept, i.e., that will label all instances
+correctly.  The oracle either responds that the hypothesis
+is exactly correct or gives to the learner a counterexample, which
+is an instance on which $h$ is wrong.  An MQ oracle receives from
+the learner an instance $x$ and provides $x$'s label.  This is similar
+to a pool-based active learning model, except that in the MQ model, the
+instances can be arbitrary, while in pool-based active learning,
+the instances must come from a pre-specified set.
+
+We consider
+%the passive (where all instances are labeled)
+proper learning of $k$-unions of disjoint axis-parallel boxes,
+in a bounded, discretized, $d$-dimensional instance space $\{0,\ldots,t-1\}^d$.
+% (e.g., Figure~\ref{fig:unionex} using integer coordinates).
+
+\begin{obs}
+With over-labeling, disjoint $k$-unions of boxes 
+% in a discrete space
+can be exactly learned with
+$O(k)$ EQs and $O(kd \log t)$ MQs and time polynomial in the number of queries.
+\end{obs}
+{\bf Proof Sketch}:
+Using fine-grained labels for $k$ distinct fine-grained hypotheses (each using one 
+box), one can exactly learn each box $j$ individually with one EQ (to get an
+instance in box $j$)
+and $O(d \log t)$ MQs (for binary search to find the box $j$'s $2d$
+boundaries), for a
+total of $O(k)$ EQs and $O(kd \log t)$ MQs and polynomial time.
+%  polynomial in the number of queries.
+ \hfill $\square$
+
+This contrasts with a result from Bshouty and Burroughs~\cite{bb-plapc-03}
+that one cannot exactly properly learn $k$-unions of axis-parallel boxes
+when (constant) $d>2$ unless P $=$ NP.  I.e., while one 
+can learn $k$-unions with $O(d \log k)$-unions, one cannot 
+efficiently learn $k$-unions with $k$-unions  if P $\ne$ NP.  
+%
+Note that our positive result for over-labeling works for non-constant $d$, while the
+hardness result for direct proper learning holds even for constant $d$. 
+%Thus, there is clearly an advantage to having more refined label information in the form of which of the $k$ boxes an instance lies in.
+
+% The above results show that in both the exact and PAC learning setting, and in active and passive learning,
+% the over-labeling approach offers theoretical advantages over standard learning.  We now present
+% our general method for active over-labeling, and evaluate it experimentally.

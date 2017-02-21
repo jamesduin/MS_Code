@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{Dasgupta2008}
+Sanjoy Dasgupta and Daniel Hsu.
+\newblock {Hierarchical sampling for active learning}.
+\newblock {\em Proceedings of the 25th international conference on Machine
+  learning - ICML '08}, pages 208--215, 2008.
+
+\bibitem{Ling2012fine}
+Xiao Ling and DS~Weld.
+\newblock {Fine-grained entity recognition}.
+\newblock {\em Proceedings of the 26th Conference on Artificial \ldots}, 2012.
+
+\bibitem{lsu-lsal-13}
+W.~Luo, A.~Schwing, and R.~Urtasun.
+\newblock Latent structured active learning.
+\newblock In {\em Advances in Neural Information Processing Systems (NIPS)},
+  2013.
+
+\bibitem{Merialdo2001}
+AKB Merialdo.
+\newblock {Improving Collaborative Filtering For New-Users By Smart Object
+  Selection}.
+\newblock {\em In Proceedings of International Conference on Media Features
+  (ICMF)}, May 2001.
+
+\end{thebibliography}

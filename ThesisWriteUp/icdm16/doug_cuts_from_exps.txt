@@ -1,0 +1,31 @@
+
+
+
+ In this figure, we can 
+see that each active method converges to its upper limit faster than the corresponding 
+passive method.
+In addition, we found that over-labeling is effective: the 
+fine-grained methods have higher performance limits than the coarse methods.
+Among the four methods, active learning with the fine-grained method has the largest AUC.
+At round 100, the PR-AUC difference between the active coarse and active fine-grained classifiers
+is statistically significant ($p < 0.05$, Fisher Exact Test).
+%We compared the active coarse and active fine-grain classifiers
+%at theshold $0.5$ after $12000$ training examples. The Fisher exact test statistic
+%value is $3.7\times10^{-5}$. This result is significant at $p < 0.05$.
+
+
+Figure~\ref{fig:curve-richmond} shows the learning curve of the four approaches.
+The differences between each pair of results is statistically significant; e.g.,
+at example counts of 5000, the differences between the AUC values
+for all pairs of results are significant at a level of $p<0.0001$ (Fisher Exact Test).
+Unsurprisingly, we see that the AUC for the passive approaches are
+much lower than those for the active approaches.  More interestingly, the benefit
+of using fine-grained labels is more significant for active learners versus passive ones.
+
+
+From Figure~\ref{fig:curve-synth}, we can see that the two fine-grained methods have better
+AUC (area under precision-recall curve) compared to their coarse opposites. Similarly, the two
+active curves are better than the two passive curves. Among the four curves, the active
+fine-grain method outperforms the rest. The PR-AUC difference between the active coarse and
+active fine-grained classifiers after 500 iterations is statistically significant ($p < 0.05$,
+Fisher Exact Test).
