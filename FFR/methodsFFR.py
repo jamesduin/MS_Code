@@ -12,6 +12,10 @@ from sklearn import linear_model
 from sklearn.preprocessing import label_binarize
 import time
 import pprint as pp
+from decimal import *
+import numpy as np
+import random
+getcontext().prec = 8
 
 class LearnRound:
     def __init__(self,testFold,rndNum, lvl,FFR):
@@ -320,6 +324,15 @@ def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,test
                    +['comb_pr']+ [pr_auc]+ ['roc']+[roc_auc])
 
 
+def retAddNum(add):
+    remain = add % Decimal(1.0)
+    num = int(add-remain)
+    if(remain >0):
+        x = Decimal(random.random())
+        if(x < remain):
+            num+= 1
+    return num
+
 
 
 def confEstAdd(results,classes_all,sets,rnds,add):
@@ -349,7 +362,7 @@ def confEstAdd(results,classes_all,sets,rnds,add):
         decFcn[lvl] = decFcn[lvl][decFcn[lvl][:,3].argsort()].tolist()
 
     removeInd = []
-    for i in range(add['fine']):
+    for i in range(retAddNum(add['fine'])):
         most_cls = int(decFcn['fine'][i][1])
         most_ind = int(decFcn['fine'][i][2])
         removeInd.append([most_cls,most_ind])
@@ -358,7 +371,7 @@ def confEstAdd(results,classes_all,sets,rnds,add):
         # addPrint(results,['fine']+['cls']+[most_cls]+['ind']+
         #      [most_ind]+['mostUncert']+[most_uncert]+['coarseUncert']+[coarseUncert])
 
-    for i in range(add['coarse']):
+    for i in range(retAddNum(add['coarse'])):
         most_cls = int(decFcn['coarse'][i][1])
         most_ind = int(decFcn['coarse'][i][2])
         while([most_cls,most_ind] in removeInd):

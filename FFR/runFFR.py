@@ -7,6 +7,10 @@ import copy
 import sys
 import re
 import os
+from decimal import *
+import numpy as np
+import random
+getcontext().prec = 8
 rootDir = re.split('[/\.]',__file__)[1]
 if(rootDir == 'py'):
     os.chdir('_results')
@@ -16,17 +20,18 @@ else:
     dataDir = '/home/scott/jamesd/MS_Code/'
 
 
-
 FFR = float(sys.argv[1])
 testFold = int(sys.argv[2])
-batch = 160
-fineCost = 16
+batch = Decimal(100.0)
+fineCost = Decimal(16.0)
+coarseCost = Decimal(1.0)
 add = dict()
-add['fine'] = int(batch*FFR/fineCost)
-add['coarse'] = int(batch - add['fine'])
+add['fine'] = batch*(Decimal(FFR))/fineCost
+add['coarse'] = batch*(Decimal(1.0)-Decimal(FFR))/coarseCost
 results = []
 m.addPrint(results,['batch']+[batch]+['FFR']+[FFR]+['fineCost']
-+[fineCost]+['addFine']+[add['fine']]+['addCoarse']+[add['coarse']])
++[fineCost]+['coarseCost']+[coarseCost]+['addFine']+[add['fine']]
+           +['addCoarse']+[add['coarse']])
 FFR = str(FFR).replace('.','p')
 
 start_time = [time.perf_counter()]
