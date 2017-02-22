@@ -1,5 +1,0 @@
-fine fold 2
-[ 928  29]
-[  57  39]
-acc_score: 0.918
-f1_score: 0.476

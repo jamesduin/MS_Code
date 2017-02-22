@@ -1,5 +1,0 @@
-coarse fold 1
-[1562 352]
-[  18  78]
-acc_score: 0.816
-f1_score: 0.297
