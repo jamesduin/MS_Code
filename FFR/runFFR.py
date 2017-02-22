@@ -16,7 +16,7 @@ if(rootDir == 'py'):
     os.chdir('_results')
     dataDir = '../../'
 else:
-    os.chdir('/work/scott/jamesd/runFFR_Cst16')
+    os.chdir('/work/scott/jamesd/runFFRR_Cst16')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
 
@@ -28,10 +28,11 @@ coarseCost = Decimal(1.0)
 add = dict()
 add['fine'] = batch*(Decimal(FFR))/fineCost
 add['coarse'] = batch*(Decimal(1.0)-Decimal(FFR))/coarseCost
+roundSize = int(add['fine']+add['coarse']+Decimal(1))
 results = []
-m.addPrint(results,['batch']+[batch]+['FFR']+[FFR]+['fineCost']
-+[fineCost]+['coarseCost']+[coarseCost]+['addFine']+[add['fine']]
-           +['addCoarse']+[add['coarse']])
+m.addPrint(results,['batch']+[float(batch)]+['FFR']+[float(FFR)]+['fineCost']
++[float(fineCost)]+['coarseCost']+[float(coarseCost)]+['addFine']+[float(add['fine'])]
+           +['addCoarse']+[float(add['coarse'])]+['roundSize']+[roundSize])
 FFR = str(FFR).replace('.','p')
 
 start_time = [time.perf_counter()]
@@ -72,7 +73,7 @@ for i in sorted(classes_all):
 
 instanceCount = 0
 rndNum = 0
-while((18088-instanceCount) > 100):
+while((18088-instanceCount) > roundSize):
 #while(rndNum < 2):
     start_time.append(time.perf_counter())
     if(rndNum>=1):

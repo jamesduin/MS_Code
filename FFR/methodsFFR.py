@@ -361,8 +361,10 @@ def confEstAdd(results,classes_all,sets,rnds,add):
         decFcn[lvl] = np.hstack((d_ind,decFcn[lvl]))
         decFcn[lvl] = decFcn[lvl][decFcn[lvl][:,3].argsort()].tolist()
 
+    addFine = retAddNum(add['fine'])
+    addCoarse = retAddNum(add['coarse'])
     removeInd = []
-    for i in range(retAddNum(add['fine'])):
+    for i in range(addFine):
         most_cls = int(decFcn['fine'][i][1])
         most_ind = int(decFcn['fine'][i][2])
         removeInd.append([most_cls,most_ind])
@@ -371,7 +373,7 @@ def confEstAdd(results,classes_all,sets,rnds,add):
         # addPrint(results,['fine']+['cls']+[most_cls]+['ind']+
         #      [most_ind]+['mostUncert']+[most_uncert]+['coarseUncert']+[coarseUncert])
 
-    for i in range(retAddNum(add['coarse'])):
+    for i in range(addCoarse):
         most_cls = int(decFcn['coarse'][i][1])
         most_ind = int(decFcn['coarse'][i][2])
         while([most_cls,most_ind] in removeInd):
@@ -385,10 +387,11 @@ def confEstAdd(results,classes_all,sets,rnds,add):
         sets['coarse'][most_cls].append(classes_all[most_cls][most_ind])
         # addPrint(results,['coarse']+['cls']+[most_cls]+['ind']+
         #          [most_ind]+['mostUncertCoarse']+[most_uncert]+['fineUncert']+[finUncert])
+    addPrint(results,['addFine']+[addFine]+['addCoarse']+[addCoarse])
 
     removeInd = np.array(removeInd)
     removeInd = removeInd[removeInd[:,1].argsort()[::-1]]
-    if(len(removeInd)!= add['coarse']+add['fine']):
+    if(len(removeInd)!=addCoarse+addFine):
         addPrint(results,"Didn't add expected amount to coarse and fine sets.")
         raise SystemExit
     for i,inst in enumerate(removeInd):

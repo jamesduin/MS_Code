@@ -28,10 +28,10 @@ def getRndTypeSet(resultsDir):
     return rndTypeSet
 
 #resultsDir = 'runFFR_Cst16/results'
-resultsDir = 'runFFR_Cst1/results'
+#resultsDir = 'runFFR_Cst1/results'
 #resultsDir = 'resultsRBF11sclBy1_15/results'
 #resultsDir = 'resultsSclBy1/results'
-#resultsDir = 'results'
+resultsDir = '_results/results'
 
 rndTypeSet = getRndTypeSet(resultsDir)
 
