@@ -7,12 +7,15 @@
 %% nuthesis.dtx  (with options: `thesis-test')
 %% 
 
-\documentclass[ms,testing]{nuthesis}
+\documentclass[ms]{nuthesis}
 %% Needed to typset the math in this sample
 \usepackage{amsmath}
 \usepackage{amsfonts}
 %% Let's use a different font
 \usepackage[sc,osf]{mathpazo}
+
+%% prevents placing floats before a section
+\usepackage[section]{placeins}
 
 %% Makes things look better
 \usepackage{microtype}
@@ -83,22 +86,9 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 \maketitle
 %% You have a maximum of 350, which includes your title, name, etc.
 \begin{abstract}
-  \par Many classification tasks target high-level concepts that can be
-  decomposed into a hierarchy of finer-grained sub- concepts. For example,
-  some string entities that are Locations are also Attractions, some Attractions
-  are Museums, etc. Such hierarchies are common in named entity recognition (NER),
-  document classification, and biological sequence analysis. We present a new approach
-  for learning hierarchically decomposable concepts. The approach learns a high-level
-  classifier (e.g., location vs. non-location) by seperately learning multiple
-  finer-grained classifiers (e.g., museum vs. non-museum), and then combining the
-  results. Soliciting labels at a finer level of granularity than that of the target
-  concept is a new approach to active learning, which we term active over-labeling.
-  In experiments in NER and document classification tasks, we show that active over-
-  labeling substantially improves area under the precision-recall curve when compared
-  with standard passive or active learning. Finally, because finer-grained labels may be
-  more expensive to obtain, we also present a cost-sensitive active learner that uses a
-  multi-armed bandit approach to dynamically choose the label granularity to target, and
-  show that the bandit-based learner is robust to differences in label cost and labeling budget.
+  \par I made the classifiers to predict the BioDataset, I made the
+  plots for the Active Passive curves, I made the plots for the Fixed
+  Fine Ratio experiments with various costs.
 \end{abstract}
 
 %% Optional
@@ -121,7 +111,11 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 
 %% Optional
 \begin{acknowledgments}
-  I would like to thank my advisor Dr. Stephen Scott, Yugi Mo, and Dr. Douglas Downey.
+  I would like to thank my advisor Dr. Stephen Scott for guidance in selecting this
+  research topic, Yugi Mo for his work in developing the HAL methodology, and Dr.
+  Douglas Downey for his work on this topic. I would like to thank Juan Cui, Jiang Shu,
+  Kevin Chiang for assistance accessing and understanding the protein dataset that is
+  the subject of the paper.
 \end{acknowledgments}
 
 %% Optional
@@ -144,41 +138,141 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 %% Thesis goes here
 \chapter{Introduction}\label{chap:aenied}
 \section{Machine Learning}
-add text'example cite'\cite{Merialdo2001}
-\subsection{Active Learning}
-add text'example cite'\cite{Merialdo2001}
-\subsubsection{Bio Informatics}
-add text'example cite'\cite{Merialdo2001}
-
-
-
-
-
+\par Machine Learning algorithms are defined as computer programs that learn from experience E
+with respect to some class of tasks T and performance measure P, if their performance at
+tasks in T, as measured by P, improves with experience E [4]. In the context of this paper,
+the machine learning algorithm that is used is a support vector machine (SVM) implementation
+by libSvm [3]. The performance measure is the classification of protein instances according to a
+label, for example, originated in the mitochondria or not.  The experience is the number of
+training instances in the training set. The dataset is initially partitioned into training
+and test sets. The algorithm improves its classifier structure based on the features of
+each instance by iterating through all instances in the training set. When training has
+been completed, the classifier is then tested on the test set and the number of instances
+that the classifier correctly or incorrectly labels determines its accuracy, precision
+and recall scores. In our protein dataset there are 20,098 proteins with 449 features each
+relating to their structure. In our experiments an SVM classifier is applied to the dataset
+with the goal of achieving high precision scores for the label “mitochondrion”, that is,
+if the protein originates in the mitochondria or not.
+\section{Hierarchical Data Set}
+\par The protein dataset is labeled according to where it originates in the cell.
+At the root is “mitochondrion”, then there is the sub level labels for if its native
+to the mitochondria or if it has a separate target compartment specification. The complete
+tree along with the number of instances belonging to the each label is included in \ref{fig:Mito_tree}.
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=0.25\columnwidth]{fig/Mito_tree}
+    \label{fig:Mito_tree}
+    \caption{The protein dataset is labeled according to where it originates in the cell. At the
+    root is “mitochondrion”, then there is the sub level labels for if its native to the mitochondria
+    or if it has a separate target compartment specification. The complete tree along with the number
+    of instances belonging to the each label is included in \ref{fig:Mito_tree}.}
+\end{figure}
+\FloatBarrier
+\section{Coarse Grained vs Fine Grained Trade Off}
+\par The classifier that does not take advantage of any of the fine grained labels works off of the root
+labels for each instance and does not train separate classifiers for the fine grained labels. This
+classifier is referred to as the coarse grained classifier. The classifier that does use fine grained
+labels, and trains a separate classifier for each label, then combines them to generate a root level
+label is referred to as the fine grained classifier. It can be demonstrated through a dummy example
+that for certain datasets, a fine grained approach to the root level classifier can achieve higher
+levels of precision for the same level of recall. Such a dataset is shown in \ref{fig:union}. The
+classifiers for this dataset can be thought of as a function of axis parallel rectangular boxes.
+For the course grained to have high recall and return all of the positive circle instances, it must
+encompass the entire dataset and incidentally return all of the negative diamond instances as
+positive also. A fine grained approach is preferable for the dummy dataset pictured. It is the
+intention of this study to demonstrate that the fine grained classification approach for a root
+level classifier will achieve higher levels of precision for the same level of recall when
+applied to the protein dataset.
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=0.25\columnwidth]{fig/union}
+    \label{fig:union}
+    \caption{Demonstration of a dataset that would benefit from multiple fine grained
+    learners for each circle type. In order for the coarse grain learner to have high
+    recall, precision must be scarified and a large amount of false positives returned.
+    By combining fine grained classifiers the same level of recall can be achieved with a
+    higher level of precision because none of the false positive diamonds will be returned}
+\end{figure}
+\FloatBarrier
 
 
 \chapter{Background and Related Work}
-\section{Other Datasets from Yugi}
-add text'example cite'\cite{Merialdo2001}
+\section{Active Learning}
+\par Active Learning relates to the coarse grained vs fine grained tradeoff because it is
+reasonable to assume that fine grained labels may not be as readily available as coarse grained
+labels, and thus have a higher cost. An active learning approach is used to determine how
+many fine grained labels to purchase in order to minimize the total cost to train the
+algorithm an maximize the precision and recall scores. The following equations for
+precision, recall, and a weighted F score are shown below in equations 1 through 3.
+\break
+$Precision eqn$ \break
+$Recall eqn$ \break
+$F0_5 eqn$ \break
+\break
+\par The goal in an active learning approach is to maximize the F measure where β equals 0.5 [2].
+The F-0.5 measure gives more weight to precision, as opposed to recall, so it gives
+incentive to purchase enough fine grained labels to increase the F-0.5 measure. The
+coarse grained labels will cost less than fine grained labels, but the increase in
+the F-0.5 measure justifies the increase in cost up to a certain point. The F-0.5
+measure is used in the results section of this paper. ... That's why we use PRauc in the results.
+
 \section{Other Papers cited by Yugi}
-add text'example cite'\cite{Merialdo2001}
+Describe some of the other papers that Yugi cited.
 
-
-
-
-
-
-
-\chapter{Bio HAL}\label{chap:math}
-\section{BioDataSet}
+\section{Hierarchical Active Learning}
+\par The Hierarchical Active Learning algorithm (HAL) is shown diagrammatically in Figure 3.
+Multiple fine grained classifiers are trained at each level of the Hierarchy of the dataset.
+Queries to the oracle are performed purchase the most cost effective labels to add to the
+training sets of the classifiers. The active learning cycle continues until a cost budget has
+been reached. The benefit of an active learning approach is to maximize the F-0.5 measure
+for a given cost budget. It was the goal of this study to apply the HAL algorithm to the
+protein dataset, however this is not achieved at this time. An existing application of
+HAL is briefly discussed in the following section.
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/Mito_tree}
-    \label{fig:Mito_tree}
-    \caption{Figure of the hierarchical structure of the dataset.}
+    \includegraphics[width=0.5\columnwidth]{fig/AL2}
+    \label{fig:AL2}
+    \caption{Diagram of HAL approach}
 \end{figure}
-\break
+\FloatBarrier
 
 
+
+\section{Application to Dispatch Dataset}
+\par HAL was applied to a Dispatch dataset. This dataset contains 375,026 manually labeled
+hierarchical names across 1,384 newspaper articles [2]. This is a clear example where
+fine grained labels have a higher cost since it is easier for a person to manually
+determine if the article pertains to an organization or not, rather than if it pertains
+to a railroad or a zoo, which would be sub labels of the organization root. The first
+analysis step was to determine that the F-0.5 measure is increased by using fine
+grained classifiers. The results are shown in Figure 4. The highest F-0.5 measure for
+a given iteration of purchases of training instances is obtained by using the active
+learning approach with all fine-grained labels. The passive learning curves were
+ generated by selecting batches of instances randomly rather than querying the
+ oracle for a specific label type that offers that most gain in classifier accuracy.
+ The active learning curves did take advantage of querying for specific labels in
+ order to maximize gain in classifier accuracy. ... add other data sets.
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=0.25\columnwidth]{fig/draft-richmond}
+    \label{fig:draft-richmond}
+    \caption{Application of HAL demonstrating the benefit of Actively selecting the type
+    of labels to purchase for instances rather than randomly selecting labels to purchase,
+    as in the Passive curves.}
+\end{figure}
+\FloatBarrier
+The next analysis step is to apply a given ratio of fine grained vs coarse grained
+labels to purchase at each batch request to the oracle. The results of varying the
+percentage of fine grained labels purchased are shown in Figure 5. The figure shows
+that even a small amount of fine grained labels purchased, that is, 20perc provides a
+significant increase in the F-0.5 measure for a given iteration. ...  pr auc results.
+Add explanation of Bandit approach and results.
+
+
+
+\chapter{Bio HAL Application}\label{chap:math}
+\section{Separation of training sets}
+\section{Training and Testing Coarse Grain and Fine Grain Classifiers}
 \section{Passive SVM Rbf kernel vs Logistic Reg}
 add text'example cite'\cite{Merialdo2001}
 
@@ -196,31 +290,31 @@ each class. Coarse and fine classifiers share the same starter set. During
  separate sets for coarse and fine, 100 of the most uncertain instances are removed
  from each eligible set and added to its corresponding coarse or fine set to be
  trained on for the next round.
-
+\FloatBarrier
 \subsection{Plots for Logistic Regression Active vs Passive curves}
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/ActiveVsPassivePRLR}
+    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassivePRLR}
     \label{fig:ActiveVsPassivePRLR}
     \caption{The PR AUC curves for rounds with the Logistic
 Regression classifier conforms to expectations, with active-fine having
 the highest performance. Active-coarse outperforms passive-coarse. Passive-fine
 doesn't outperform the coarse classifiers until rnd 100. }
 \end{figure}
-\break
+
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/ActiveVsPassiveROCLR}
+    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveROCLR}
     \label{fig:ActiveVsPassiveROCLR}
     \caption{The ROC AUC curves for rounds with the
 Logistic Regression classifier. The active curves beat out the passive
 curves for both coarse and fine. Coarse roc starts with an advantage over
 fine as in the PR curves. Both converge to the same rate after roc auc level after 80.}
 \end{figure}
-\break
+
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/ActiveVsPassiveAccLR}
+    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveAccLR}
     \label{fig:ActiveVsPassiveAccLR}
     \caption{The accuracy of the fine classifiers stays at
 roughly the same rate throughout the rounds, this is due to an effective
@@ -228,21 +322,21 @@ weighting scheme for the fine grained classifiers. The active coarse accuracy
 drops towards the end due to an increase in false positives as more negative
 instances are added in the later rounds.}
 \end{figure}
-\break
+
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/ActiveVsPassiveF1LR}
+    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveF1LR}
     \label{fig:ActiveVsPassiveF1LR}
     \caption{The F-measure of the the fine classifiers increases
 throughout the rounds as more true positives are predicted. The active coarse
 again decreases at later rounds due to increased false positives.}
 \end{figure}
-\break
 
+\FloatBarrier
 \subsection{Plots for SVM Active vs Passive curves}
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/ActiveVsPassivePRSVM}
+    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassivePRSVM}
     \label{fig:ActiveVsPassivePRSVM}
     \caption{The PR AUC curves for rounds with SVM show little
 advantage for fine. The results are slightly different than the ones shown
@@ -250,17 +344,17 @@ on 2/14 due to fixing a bug with the code that wasn't performing the
 preprocessing scaling for the SVM case at the same stage as it was being
 done for the logistic regression classifier.}
 \end{figure}
-\break
+
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/ActiveVsPassiveROCSVM}
+    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveROCSVM}
     \label{fig:ActiveVsPassiveROCSVM}
     \caption{The ROC curves show more of an advantage for coarse classifiers.}
 \end{figure}
-\break
+
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/ActiveVsPassiveAccSVM}
+    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveAccSVM}
     \label{fig:ActiveVsPassiveAccSVM}
     \caption{The accuracy for the coarse decreases sharply due
 to coarse predicting steadily more false positives, behaving similar to the
@@ -268,20 +362,20 @@ Log Reg case. Fine accuracy is higher due to predicting less false positives
 than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
 60 t.p. for coarse at round 60.}
 \end{figure}
-\break
+
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/ActiveVsPassiveF1SVM}
+    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveF1SVM}
     \label{fig:ActiveVsPassiveF1SVM}
     \caption{The F-measure favors coarse, and trends to the same level
     for both coarse and fine.}
 \end{figure}
-\break
 
+\FloatBarrier
 \section{Plots for FFR experiments}
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/FFR_PR_Cost1}
+    \includegraphics[width=0.5\columnwidth]{fig/FFR_PR_Cost1}
     \label{fig:FFR_PR_Cost1}
     \caption{The round size is changed to 160 and a fine has a cost of 1.
 The 0p5 round for instance, corresponds to 0.5 of the total budget being used on fine,
@@ -290,10 +384,10 @@ used for fine and it has the worst performance. After around 0p3 the gains in pe
 are marginal. The performance increases with the green 1p0 curve outperforming the
 rest. The results are an average of 10 folds.}
 \end{figure}
-\break
+
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=\columnwidth]{fig/FFR_PR_Cost16}
+    \includegraphics[width=0.5\columnwidth]{fig/FFR_PR_Cost16}
     \label{fig:FFR_PR_Cost16}
     \caption{The round size is again 160 and fine has a cost of 16. The worst
     performing curve is again 0p0 with no fine instances, but the benefit of fine
@@ -301,7 +395,7 @@ rest. The results are an average of 10 folds.}
     80 are purchased for coarse. For the 1p0 case 16 instances are purchase for
     fine and 144 instances are purchased for coarse.}
 \end{figure}
-\break
+\FloatBarrier
 
 
 
@@ -309,7 +403,7 @@ rest. The results are an average of 10 folds.}
 
 
 \chapter{Conclusions and Future Work}\label{chap:math}
-\par add text'example cite'\cite{Merialdo2001}
+\par I should probably do the Bandit experiments.
 
 
 
@@ -328,7 +422,7 @@ rest. The results are an average of 10 folds.}
 \appendix
 
 \chapter{Tuning the fine grained classes}
-\par add text'example cite'\cite{Merialdo2001}
+\par All the data and results for tuning the fine grained classes.
 
 %% Bibliography goes here (You better have one)
 %% BibTeX is your friend

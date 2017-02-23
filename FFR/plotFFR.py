@@ -27,14 +27,13 @@ def getRndTypeSet(resultsDir):
     print(rndTypeSet)
     return rndTypeSet
 
-#resultsDir = 'runFFR_Cst16/results'
-#resultsDir = 'runFFR_Cst1/results'
-#resultsDir = 'resultsRBF11sclBy1_15/results'
-#resultsDir = 'resultsSclBy1/results'
-resultsDir = '_results/results'
 
-rndTypeSet = getRndTypeSet(resultsDir)
+resultsDir = 'runFFRR_Cst16/results'
+#resultsDir = '_results/results'
 
+#rndTypeSet = getRndTypeSet(resultsDir)
+#rndTypeSet = {'FFR_0p5', 'FFR_0p6', 'FFR_0p2', 'FFR_0p1', 'FFR_1p0', 'FFR_0p3', 'FFR_0p0', 'FFR_0p4', 'FFR_0p7', 'FFR_0p9', 'FFR_0p8'}
+rndTypeSet = {'FFR_0p0','FFR_0p1','FFR_0p2','FFR_0p3','FFR_0p4','FFR_0p5','FFR_0p6'}
 rndTypeFoldMat = dict()
 for type in rndTypeSet:
     foldMatrix = dict()
@@ -85,7 +84,11 @@ for type in rndTypeSet:
         if prs == []:
             prs =prFold
         else:
-            prs = np.hstack((prs,prFold))
+            minRL = min(len(prs),len(prFold))
+            prs = np.hstack((prs[:minRL],prFold[:minRL]))
+            # if(len(prs) == len(prFold)):
+            #     prs = np.hstack((prs, prFold))
+
     x_pr = np.array(range(1,len(prs)+1))
     y_pr = np.mean(prs, axis=1)
     plt.plot(x_pr,y_pr, label = 'avg_'+type)
