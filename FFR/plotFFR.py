@@ -22,18 +22,18 @@ def getRndTypeSet(resultsDir):
         # print(file)
         rndType = re.split("[_]", file)
         # print(rndType)
-        print(rndType[0] + '_' + rndType[1])
+        #print(rndType[0] + '_' + rndType[1])
         rndTypeSet.add(rndType[0] + '_' + rndType[1])
     print(rndTypeSet)
     return rndTypeSet
 
-
-resultsDir = 'runFFRR_Cst16/results'
+resultsDir = 'runFFRR_Cst1/results'
+#resultsDir = 'runFFRR_Cst16/results'
 #resultsDir = '_results/results'
 
-#rndTypeSet = getRndTypeSet(resultsDir)
+rndTypeSet = getRndTypeSet(resultsDir)
 #rndTypeSet = {'FFR_0p5', 'FFR_0p6', 'FFR_0p2', 'FFR_0p1', 'FFR_1p0', 'FFR_0p3', 'FFR_0p0', 'FFR_0p4', 'FFR_0p7', 'FFR_0p9', 'FFR_0p8'}
-rndTypeSet = {'FFR_0p0','FFR_0p1','FFR_0p2','FFR_0p3','FFR_0p4','FFR_0p5','FFR_0p6'}
+#rndTypeSet = {'FFR_1p0'}#'FFR_0p0','FFR_0p1','FFR_0p2','FFR_0p3','FFR_0p4','FFR_0p5','FFR_0p6','FFR_0p7','FFR_0p8','FFR_0p9','FFR_1p10'}
 rndTypeFoldMat = dict()
 for type in rndTypeSet:
     foldMatrix = dict()
@@ -43,8 +43,8 @@ for type in rndTypeSet:
             rndType = re.split("[_]", file)
             instType = rndType[0]+'_'+rndType[1]
             if (type == instType and str(fold) == rndType[2] ):
-                print(fold)
-                print(instType)
+                # print(fold)
+                # print(instType)
                 foldMatrix[fold] = []
                 results = []
                 try:
