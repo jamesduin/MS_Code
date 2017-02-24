@@ -139,8 +139,8 @@ class FineRound(LearnRound):
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
         self.Fine_wt = np.array(
-            [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783, 3.4782608695652177,
-             0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
+            [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783,
+             3.4782608695652177, 0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
@@ -363,7 +363,7 @@ def switchClass5instance(test_part,train_part):
 
 
 def printClsVsFolds(results,folds, title):
-    addPrint(results,'{:<14}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(title, 0, 1, 2, 3, 4, 5, 6, 7, 8))
+    addPrint(results,'{} & {} & {} & {} & {} & {} & {} & {} & {} & {} \\\\'.format(title, 0, 1, 2, 3, 4, 5, 6, 7, 8))
     instanceCount = 0
     classCountTot = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     for i in sorted(folds):
@@ -373,19 +373,19 @@ def printClsVsFolds(results,folds, title):
             classCountTot[int(inst[0])] += 1
             classCount[int(inst[0])] += 1
         classCount = [i] + [len(folds[i])] + classCount
-        addPrint(results,'{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
-    addPrint(results,'{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total', instanceCount, *classCountTot))
+        addPrint(results,'{} & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} \\\\'.format(*classCount))
+    addPrint(results,'{} & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} \\\\'.format('Total', instanceCount, *classCountTot))
     return classCount
 
 
 def printClassTotals(results,classes):
-    addPrint(results,'{0:<10}{1:<10}'.format('Classes', ''))
+    addPrint(results,'{} & {} \\\\'.format('Classes', ''))
     instanceCount = 0
     for i in sorted(classes):
         instanceCount += len(classes[i])
-        addPrint(results,'{0:<10}{1:<10}'.format(i, len(classes[i])))
-    addPrint(results,'{0:<10}{1:<10}\n'.format('Total', instanceCount))
-    addPrint(results,'Shape: {0:<10}\n'.format(len(classes[0][0])))
+        addPrint(results,'{} & {} \\\\'.format(i, len(classes[i])))
+    addPrint(results,'{} & {} \\\\'.format('Total', instanceCount))
+    addPrint(results,'{} & {} \\\\'.format('Shape',len(classes[0][0])))
 
 
 def addPrint(results,x):

@@ -6,12 +6,68 @@ import pickle
 import glob
 import re
 import os
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
 rootDir = re.split('[/\.]',__file__)[1]
 if(rootDir == 'Users' or rootDir == 'py'):
     dataDir = '../'
 else:
     os.chdir('/work/scott/jamesd/')
     dataDir = '/home/scott/jamesd/MS_Code/'
+
+
+
+
+import numpy as np
+from matplotlib.colors import LinearSegmentedColormap as lsc
+
+
+def cmap_map(function, cmap, name='colormap_mod', N=None, gamma=None):
+    """
+    Modify a colormap using `function` which must operate on 3-element
+    arrays of [r, g, b] values.
+
+    You may specify the number of colors, `N`, and the opacity, `gamma`,
+    value of the returned colormap. These values default to the ones in
+    the input `cmap`.
+
+    You may also specify a `name` for the colormap, so that it can be
+    loaded using plt.get_cmap(name).
+    """
+    if N is None:
+        N = cmap.N
+    if gamma is None:
+        gamma = cmap._gamma
+    cdict = cmap._segmentdata
+    # Cast the steps into lists:
+    step_dict = {key: map(lambda x: x[0], cdict[key]) for key in cdict}
+    # Now get the unique steps (first column of the arrays):
+    step_list = np.unique(sum(step_dict.values(), []))
+    # 'y0', 'y1' are as defined in LinearSegmentedColormap docstring:
+    y0 = cmap(step_list)[:, :3]
+    y1 = y0.copy()[:, :3]
+    # Go back to catch the discontinuities, and place them into y0, y1
+    for iclr, key in enumerate(['red', 'green', 'blue']):
+        for istp, step in enumerate(step_list):
+            try:
+                ind = step_dict[key].index(step)
+            except ValueError:
+                # This step is not in this color
+                continue
+            y0[istp, iclr] = cdict[key][ind][1]
+            y1[istp, iclr] = cdict[key][ind][2]
+    # Map the colors to their new values:
+    y0 = np.array(map(function, y0))
+    y1 = np.array(map(function, y1))
+    # Build the new colormap (overwriting step_dict):
+    for iclr, clr in enumerate(['red', 'green', 'blue']):
+        step_dict[clr] = np.vstack((step_list, y0[:, iclr], y1[:, iclr])).T
+    return lsc(name, step_dict, N=N, gamma=gamma)
+
+
+
+
+
 
 
 def getRndTypeSet(resultsDir):
@@ -23,7 +79,8 @@ def getRndTypeSet(resultsDir):
         rndType = re.split("[_]", file)
         # print(rndType)
         #print(rndType[0] + '_' + rndType[1])
-        rndTypeSet.add(rndType[0] + '_' + rndType[1])
+        #rndTypeSet.add(rndType[0] + '_' + rndType[1])
+        rndTypeSet.add(rndType[1].replace('p','.'))
     print(rndTypeSet)
     return rndTypeSet
 
@@ -42,7 +99,8 @@ for type in rndTypeSet:
             file = re.split("[/\.]", fname)[-2]
             rndType = re.split("[_]", file)
             instType = rndType[0]+'_'+rndType[1]
-            if (type == instType and str(fold) == rndType[2] ):
+            typeNm = rndType[0]+'_'+type.replace('.','p')
+            if (typeNm == instType and str(fold) == rndType[2] ):
                 # print(fold)
                 # print(instType)
                 foldMatrix[fold] = []
@@ -71,12 +129,19 @@ for type in rndTypeFoldMat:
 plt.figure()
 #with plt.style.context('fivethirtyeight'):
 plt.style.use('ggplot')
-for type in rndTypeSet:
+
+cmap = plt.get_cmap('rainbow')
+
+cNorm  = colors.Normalize(vmin=-0.0, vmax=1.1)
+scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=cmap)
+lineSty = [[2,1],[4,1],[8,1],[2,1],[4,1],
+           [2, 1], [4, 1], [8, 1], [2, 1], [4, 1],[8, 1]]
+for linInd,type in enumerate(sorted(rndTypeSet)):
     prs = []
     for fold in sorted(rndTypeFoldMat[type]):
         prFold = []
         for rec in rndTypeFoldMat[type][fold]:
-            #if(not isinstance(rec,str)):
+            #if(not isinstance(rec,str)):co
             if('comb_pr'in rec):
                 ind =[i for i in range(len(rec)) if rec[i] == 'comb_pr']
                 prFold.append(rec[ind[0]+1])
@@ -91,11 +156,13 @@ for type in rndTypeSet:
 
     x_pr = np.array(range(1,len(prs)+1))
     y_pr = np.mean(prs, axis=1)
-    plt.plot(x_pr,y_pr, label = 'avg_'+type)
+    colorVal = scalarMap.to_rgba(1-float(type))
+    cVal = np.multiply(colorVal,(.9,.9,.9,1.0))
+    plt.plot(x_pr,y_pr, label = 'FFR['+type+']',linewidth = 1.8 ,  color=cVal,dashes=lineSty[linInd] )
 
 plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')
-plt.title(resultsDir)
+plt.title('FFR Method Fine Cost 1')
 plt.legend(loc="lower right")
 plt.savefig(resultsDir+'/FFR_PR.png')
 

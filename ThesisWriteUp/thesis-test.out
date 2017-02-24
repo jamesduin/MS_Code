@@ -9,13 +9,12 @@
 \BOOKMARK [1][-]{section.2.3}{Hierarchical Active Learning}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.4}{Application to Dispatch Dataset}{chapter.2}% 10
 \BOOKMARK [0][-]{chapter.3}{Bio HAL Application}{}% 11
-\BOOKMARK [1][-]{section.3.1}{Separation of training sets}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.2}{Training and Testing Coarse Grain and Fine Grain Classifiers}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.3}{Passive SVM Rbf kernel vs Logistic Reg}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.4}{Active vs Passive curves}{chapter.3}% 15
-\BOOKMARK [2][-]{subsection.3.4.1}{Plots for Logistic Regression Active vs Passive curves}{section.3.4}% 16
-\BOOKMARK [2][-]{subsection.3.4.2}{Plots for SVM Active vs Passive curves}{section.3.4}% 17
-\BOOKMARK [1][-]{section.3.5}{Plots for FFR experiments}{chapter.3}% 18
-\BOOKMARK [0][-]{chapter.4}{Conclusions and Future Work}{}% 19
-\BOOKMARK [0][-]{appendix.A}{Tuning the fine grained classes}{}% 20
-\BOOKMARK [0][-]{section*.3}{Bibliography}{}% 21
+\BOOKMARK [1][-]{section.3.1}{Training and Testing Coarse Grain and Fine Grain Classifiers}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.2}{Passive SVM Rbf kernel vs Logistic Reg}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.3}{Active vs Passive curves}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.3.1}{Plots for Logistic Regression Active vs Passive curves}{section.3.3}% 15
+\BOOKMARK [2][-]{subsection.3.3.2}{Plots for SVM Active vs Passive curves}{section.3.3}% 16
+\BOOKMARK [1][-]{section.3.4}{Plots for FFR experiments}{chapter.3}% 17
+\BOOKMARK [0][-]{chapter.4}{Conclusions and Future Work}{}% 18
+\BOOKMARK [0][-]{appendix.A}{Tuning the fine grained classes}{}% 19
+\BOOKMARK [0][-]{section*.3}{Bibliography}{}% 20

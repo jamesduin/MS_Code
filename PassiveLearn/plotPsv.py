@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
+import pprint as pp
 import matplotlib.pyplot as plt
 import pickle
 import glob
@@ -19,9 +20,9 @@ def getRndTypeSet(resultsDir):
     for fname in glob.glob(resultsDir + '/*.res'):
         file = re.split("[/\.]", fname)[-2]
         rndType = re.split("[_]", file)
-        print(rndType[0])
+        #print(rndType[0])
         rndTypeSet.add(rndType[0])
-    print(rndTypeSet)
+    #print(rndTypeSet)
     return rndTypeSet
 
 resultsDir = 'results/results'
@@ -37,8 +38,8 @@ for type in rndTypeSet:
             rndType = re.split("[_]", file)
             instType = rndType[0]
             if (type == instType and str(fold) == rndType[1] ):
-                print(fold)
-                print(instType)
+                #print(fold)
+                #print(instType)
                 foldMatrix[fold] = []
                 results = []
                 try:
@@ -65,27 +66,39 @@ for type in rndTypeFoldMat:
 # plt.figure()
 # #with plt.style.context('fivethirtyeight'):
 # plt.style.use('ggplot')
+resultMat = []
+colNum = 0
 for fnd in ['pr','roc','acc','f1']:
     for type in rndTypeSet:
-        prs = dict()
+        outFind = dict()
         for lvl in ['coarse','fine']:
-            prs[lvl]=[]
+            resultMat.append([])
+            print(colNum)
+            resultMat[colNum].append(lvl+'-'+fnd)
+            prFold = []
             for fold in sorted(rndTypeFoldMat[type]):
-                prFold = []
                 for rec in rndTypeFoldMat[type][fold]:
                     #if(not isinstance(rec,str)):
                     if(fnd in rec and lvl in rec):
                         ind =[i for i in range(len(rec)) if rec[i] == fnd]
                         prFold.append(rec[ind[0]+1])
-                prFold = np.array(prFold).reshape(len(prFold),1)
-                if prs[lvl] == []:
-                    prs[lvl] =prFold
-                else:
-                    prs[lvl] = np.hstack((prs[lvl],prFold))
-            print('{},{}'.format(lvl,fnd))
-            for i in prs[lvl][0]:
-                print('{:.3f}'.format(i))
-            print('{},avg,{:.3f}'.format(lvl,np.mean(prs[lvl], axis=1)[0]))
+                        resultMat[colNum].append('{:.3f}'.format(rec[ind[0]+1]))
+            prFold = np.array(prFold)
+            #print(prFold)
+            resultMat[colNum].append('avg {:.3f}'.format(np.mean(prFold)))
+            colNum += 1
+
+
+        f = open('output.txt', 'w')
+        for i in range(len(resultMat)):
+            f.write('|l|')
+        f.write('\n')
+        for i,row in enumerate(resultMat[0]):
+            for j,col in enumerate(resultMat[:-1]):
+                f.write('{} & '.format(resultMat[j][i]))
+            f.write('{} \\\\'.format(resultMat[-1][i]))
+            f.write('\n')
+        f.close()
 #     plt.plot(x_pr,y_pr, label = 'avg_'+type)
 #
 # plt.ylabel('PR-AUC')

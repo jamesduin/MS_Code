@@ -16,14 +16,14 @@ if(rootDir == 'py'):
     os.chdir('_results')
     dataDir = '../../'
 else:
-    os.chdir('/work/scott/jamesd/runFFRR_Cst1')
+    os.chdir('/work/scott/jamesd/runFFRR_Cst8')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
 
 FFR = float(sys.argv[1])
 testFold = int(sys.argv[2])
 batch = Decimal(100.0)
-fineCost = Decimal(1.0)
+fineCost = Decimal(8.0)
 coarseCost = Decimal(1.0)
 add = dict()
 add['fine'] = batch*(Decimal(FFR))/fineCost
