@@ -33,7 +33,7 @@ def getRndTypeSet(resultsDir):
 
 #resultsDir = 'runFFRR_Cst1/results'
 #resultsDir = 'runFFRR_Cst16/results'
-resultsDir = 'runFFRR_Cst8/results'
+resultsDir = 'runFFRR_Cst4/results'
 #resultsDir = '_results/results'
 
 rndTypeSet = getRndTypeSet(resultsDir)
@@ -85,8 +85,44 @@ cmap = plt.get_cmap('rainbow')
 
 cNorm  = colors.Normalize(vmin=-0.0, vmax=1.1)
 scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=cmap)
-lineSty = [[2,1],[4,1],[8,1],[2,1],[4,1],
-           [2, 1], [4, 1], [8, 1], [2, 1], [4, 1],[8, 1]]
+lineSty = [[8,1],[4,1],[2,1],
+           [8, 1], [4, 1], [2, 1],
+           [8, 1], [4, 1], [2, 1],[4, 1],
+           [8, 1]]
+markSty = ['s','8','>',
+           's','8','>',
+           's','8','>','8',
+           's']
+markEvSty = [(1,8),(2,8),(3,8),
+             (1, 8), (2, 8), (3, 8),
+             (1, 8), (2, 8), (3, 8),
+             (1, 8), (2, 8)]
+
+# cVals = [(0.90000000000000002, 0.25162433333706963, 0.12708553664078234, 1.0),
+# (0.90000000000000002, 0.48317993787976221, 0.25162433333706957, 1.0),
+# (0.86294117647058821, 0.67619870060118625, 0.3711206857265133, 1.0),
+# (0.69352941176470584, 0.81992038432147962, 0.48784802082520451, 1.0),
+# (0.53117647058823525, 0.89098219195263628, 0.58975546501210829, 1.0),
+# (0.36882352941176472, 0.89098219195263628, 0.67984446124709452, 1.0),
+# (0.2064705882352941, 0.8199203843214794, 0.75630966447410342, 1.0),
+# (0.037058823529411734, 0.67619870060118592, 0.81992038432147951, 1.0),
+# (0.12529411764705883, 0.48317993787976199, 0.86410948083716543, 1.0),
+# (0.28764705882352942, 0.25162433333706941, 0.89098219195263628, 1.0),
+# (0.45000000000000001, 0.0, 0.90000000000000002, 1.0)]
+cVals = [
+(255.*.9,255*.25, 255*.12, 1.0),
+(254., 50., 7., 1.0),
+(254., 102., 0., 1.0),
+(254., 169., 0., 1.0),
+(255., 209., 32., 1.0),
+(10., 207., 0., 1.0),
+(7., 142., 23., 1.0),
+(11., 156., 152., 1.0),
+(10., 0., 214., 1.0),
+(67., 0., 104., 1.0),
+(0., 0., 0., 1.0)
+]
+
 for linInd,type in enumerate(sorted(rndTypeSet)):
     prs = []
     for fold in sorted(rndTypeFoldMat[type]):
@@ -109,17 +145,22 @@ for linInd,type in enumerate(sorted(rndTypeSet)):
 
     x_pr = np.array(range(1,len(prs)+1))
     y_pr = np.mean(prs, axis=1)
-    #print(prs[:20])
-    colorVal = scalarMap.to_rgba(1-float(type))
-    cVal = np.multiply(colorVal,(.9,.9,.9,1.0))
-    plt.plot(x_pr,y_pr, label = 'FFR['+type+']',linewidth = 1.8 ,  color=cVal,dashes=lineSty[linInd] )
+    cVal = tuple(np.multiply(cVals[linInd],(1/270,1/270,1/270,1.0)))
+    #cVal = cVals[linInd]
+    plt.plot(x_pr,y_pr, label = 'FFR['+type+']',linewidth = 1.8 ,
+             marker=markSty[linInd],markersize=6,fillstyle='none',
+             color=cVal,dashes=lineSty[linInd],
+             markeredgecolor=cVal,
+             markeredgewidth=1.0,
+             markevery=markEvSty[linInd])
+    leg= plt.legend(fancybox=True)
     axes = plt.gca()
-    axes.set_xlim([0, 500])
-    #axes.set_ylim([ymin, ymax])
+    axes.set_xlim([20, 60])
+    axes.set_ylim([0.838, 0.87])
 
 plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')
-plt.title('FFR Method Fine Cost 8 - 500 Rounds')
+plt.title('FFR Method Fine Cost 4 - Rounds 20 to 60')
 plt.legend(loc="lower right")
-plt.savefig(resultsDir+'/FFR_PR_Cost8_500Rnds.png')
+plt.savefig(resultsDir+'/FFR_PR_Cost4_rnd20To60.png')
 
