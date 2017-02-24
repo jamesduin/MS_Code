@@ -17,59 +17,6 @@ else:
 
 
 
-
-import numpy as np
-from matplotlib.colors import LinearSegmentedColormap as lsc
-
-
-def cmap_map(function, cmap, name='colormap_mod', N=None, gamma=None):
-    """
-    Modify a colormap using `function` which must operate on 3-element
-    arrays of [r, g, b] values.
-
-    You may specify the number of colors, `N`, and the opacity, `gamma`,
-    value of the returned colormap. These values default to the ones in
-    the input `cmap`.
-
-    You may also specify a `name` for the colormap, so that it can be
-    loaded using plt.get_cmap(name).
-    """
-    if N is None:
-        N = cmap.N
-    if gamma is None:
-        gamma = cmap._gamma
-    cdict = cmap._segmentdata
-    # Cast the steps into lists:
-    step_dict = {key: map(lambda x: x[0], cdict[key]) for key in cdict}
-    # Now get the unique steps (first column of the arrays):
-    step_list = np.unique(sum(step_dict.values(), []))
-    # 'y0', 'y1' are as defined in LinearSegmentedColormap docstring:
-    y0 = cmap(step_list)[:, :3]
-    y1 = y0.copy()[:, :3]
-    # Go back to catch the discontinuities, and place them into y0, y1
-    for iclr, key in enumerate(['red', 'green', 'blue']):
-        for istp, step in enumerate(step_list):
-            try:
-                ind = step_dict[key].index(step)
-            except ValueError:
-                # This step is not in this color
-                continue
-            y0[istp, iclr] = cdict[key][ind][1]
-            y1[istp, iclr] = cdict[key][ind][2]
-    # Map the colors to their new values:
-    y0 = np.array(map(function, y0))
-    y1 = np.array(map(function, y1))
-    # Build the new colormap (overwriting step_dict):
-    for iclr, clr in enumerate(['red', 'green', 'blue']):
-        step_dict[clr] = np.vstack((step_list, y0[:, iclr], y1[:, iclr])).T
-    return lsc(name, step_dict, N=N, gamma=gamma)
-
-
-
-
-
-
-
 def getRndTypeSet(resultsDir):
     rndTypeSet = set()
     for fname in glob.glob(resultsDir + '/*.res'):
@@ -84,17 +31,20 @@ def getRndTypeSet(resultsDir):
     print(rndTypeSet)
     return rndTypeSet
 
-resultsDir = 'runFFRR_Cst1/results'
+#resultsDir = 'runFFRR_Cst1/results'
 #resultsDir = 'runFFRR_Cst16/results'
+resultsDir = 'runFFRR_Cst8/results'
 #resultsDir = '_results/results'
 
 rndTypeSet = getRndTypeSet(resultsDir)
 #rndTypeSet = {'FFR_0p5', 'FFR_0p6', 'FFR_0p2', 'FFR_0p1', 'FFR_1p0', 'FFR_0p3', 'FFR_0p0', 'FFR_0p4', 'FFR_0p7', 'FFR_0p9', 'FFR_0p8'}
 #rndTypeSet = {'FFR_1p0'}#'FFR_0p0','FFR_0p1','FFR_0p2','FFR_0p3','FFR_0p4','FFR_0p5','FFR_0p6','FFR_0p7','FFR_0p8','FFR_0p9','FFR_1p10'}
+#rndTypeSet = {'1.0'}#{'0.6', '0.8', '0.2', '0.4', '0.0',  }
 rndTypeFoldMat = dict()
 for type in rndTypeSet:
     foldMatrix = dict()
     for fold in range(1,11):
+    #for fold in [3,4,5,6,7,8,9]:
         for fname in glob.glob(resultsDir+'/*.res'):
             file = re.split("[/\.]", fname)[-2]
             rndType = re.split("[_]", file)
@@ -120,7 +70,8 @@ for fold in foldMatrix:
 
 for type in rndTypeFoldMat:
     ### print out the folds
-    f = open(resultsDir+'/_' + type + '.txt', 'w')
+    typeNm = rndType[0] + '_' + type.replace('.', 'p')
+    f = open(resultsDir+'/_' + typeNm + '.txt', 'w')
     for fold in rndTypeFoldMat[type]:
         for rec in rndTypeFoldMat[type][fold]:
             f.write(str(rec)+'\n')
@@ -146,23 +97,29 @@ for linInd,type in enumerate(sorted(rndTypeSet)):
                 ind =[i for i in range(len(rec)) if rec[i] == 'comb_pr']
                 prFold.append(rec[ind[0]+1])
         prFold = np.array(prFold).reshape(len(prFold),1)
-        if prs == []:
+        #print(prFold[:1])
+        if len(prs)==0:
             prs =prFold
         else:
+           # if(len(prFold)!=0):
             minRL = min(len(prs),len(prFold))
             prs = np.hstack((prs[:minRL],prFold[:minRL]))
             # if(len(prs) == len(prFold)):
-            #     prs = np.hstack((prs, prFold))
+                #     prs = np.hstack((prs, prFold))
 
     x_pr = np.array(range(1,len(prs)+1))
     y_pr = np.mean(prs, axis=1)
+    #print(prs[:20])
     colorVal = scalarMap.to_rgba(1-float(type))
     cVal = np.multiply(colorVal,(.9,.9,.9,1.0))
     plt.plot(x_pr,y_pr, label = 'FFR['+type+']',linewidth = 1.8 ,  color=cVal,dashes=lineSty[linInd] )
+    axes = plt.gca()
+    axes.set_xlim([0, 500])
+    #axes.set_ylim([ymin, ymax])
 
 plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')
-plt.title('FFR Method Fine Cost 1')
+plt.title('FFR Method Fine Cost 8 - 500 Rounds')
 plt.legend(loc="lower right")
-plt.savefig(resultsDir+'/FFR_PR.png')
+plt.savefig(resultsDir+'/FFR_PR_Cost8_500Rnds.png')
 

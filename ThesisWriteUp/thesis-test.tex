@@ -160,9 +160,11 @@ if the protein originates in the mitochondria or not.
 At the root is “mitochondrion”, then there is the sub level labels for if its native
 to the mitochondria or if it has a separate target compartment specification. The complete
 tree along with the number of instances belonging to the each label is included in \textit{Figure} \ref{fig:Mito_tree}.
+
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.25\columnwidth]{fig/Mito_tree}
+    \includegraphics[width=0.5\columnwidth]{fig/Mito_tree}
     \label{fig:Mito_tree}
     \caption{The protein dataset is labeled according to where it originates in the cell. At the
     root is “mitochondrion”, then there is the sub level labels for if its native to the mitochondria
@@ -170,6 +172,7 @@ tree along with the number of instances belonging to the each label is included 
     of instances belonging to the each label is included in \ref{fig:Mito_tree}.}
 \end{figure}
 \FloatBarrier
+
 \section{Coarse Grained vs Fine Grained Trade Off}
 \par The classifier that does not take advantage of any of the fine grained labels works off of the root
 labels for each instance and does not train separate classifiers for the fine grained labels. This
@@ -185,9 +188,11 @@ positive also. A fine grained approach is preferable for the dummy dataset pictu
 intention of this study to demonstrate that the fine grained classification approach for a root
 level classifier will achieve higher levels of precision for the same level of recall when
 applied to the protein dataset.
+
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.25\columnwidth]{fig/union}
+    \includegraphics[width=0.5\columnwidth]{fig/union}
     \label{fig:union}
     \caption{Demonstration of a dataset that would benefit from multiple fine grained
     learners for each circle type. In order for the coarse grain learner to have high
@@ -230,6 +235,9 @@ been reached. The benefit of an active learning approach is to maximize the F-0.
 for a given cost budget. It was the goal of this study to apply the HAL algorithm to the
 protein dataset, however this is not achieved at this time. An existing application of
 HAL is briefly discussed in the following section.
+
+
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=0.5\columnwidth]{fig/AL2}
@@ -254,15 +262,19 @@ learning approach with all fine-grained labels. The passive learning curves were
  oracle for a specific label type that offers that most gain in classifier accuracy.
  The active learning curves did take advantage of querying for specific labels in
  order to maximize gain in classifier accuracy. ... add other data sets.
+
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.25\columnwidth]{fig/draft-richmond}
+    \includegraphics[width=1.0\columnwidth]{fig/draft-richmond}
     \label{fig:draft-richmond}
     \caption{Application of HAL demonstrating the benefit of Actively selecting the type
     of labels to purchase for instances rather than randomly selecting labels to purchase,
     as in the Passive curves.}
 \end{figure}
 \FloatBarrier
+
+
 The next analysis step is to apply a given ratio of fine grained vs coarse grained
 labels to purchase at each batch request to the oracle. The results of varying the
 percentage of fine grained labels purchased are shown in Figure 5. The figure shows
@@ -327,6 +339,8 @@ looks like Table \ref{tab:partitions}
 \par Then 9 of the folds are compressed into the test set and the fold held out
 is the test set the totals of each class in the train and test set for fold 1 is shown in
 Table \ref{tab:TrainTest}.
+
+
 \FloatBarrier
 \begin{table}[h]
   \centering
@@ -415,31 +429,37 @@ each class. Coarse and fine classifiers share the same starter set. During
  separate sets for coarse and fine, 100 of the most uncertain instances are removed
  from each eligible set and added to its corresponding coarse or fine set to be
  trained on for the next round.
+
+
 \FloatBarrier
 \subsection{Plots for Logistic Regression Active vs Passive curves}
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassivePRLR}
+    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassivePRLR}
     \label{fig:ActiveVsPassivePRLR}
     \caption{The PR AUC curves for rounds with the Logistic
 Regression classifier conforms to expectations, with active-fine having
 the highest performance. Active-coarse outperforms passive-coarse. Passive-fine
 doesn't outperform the coarse classifiers until rnd 100. }
 \end{figure}
+\FloatBarrier
 
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveROCLR}
+    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassiveROCLR}
     \label{fig:ActiveVsPassiveROCLR}
     \caption{The ROC AUC curves for rounds with the
 Logistic Regression classifier. The active curves beat out the passive
 curves for both coarse and fine. Coarse roc starts with an advantage over
 fine as in the PR curves. Both converge to the same rate after roc auc level after 80.}
 \end{figure}
+\FloatBarrier
 
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveAccLR}
+    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassiveAccLR}
     \label{fig:ActiveVsPassiveAccLR}
     \caption{The accuracy of the fine classifiers stays at
 roughly the same rate throughout the rounds, this is due to an effective
@@ -447,21 +467,25 @@ weighting scheme for the fine grained classifiers. The active coarse accuracy
 drops towards the end due to an increase in false positives as more negative
 instances are added in the later rounds.}
 \end{figure}
+\FloatBarrier
 
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveF1LR}
+    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassiveF1LR}
     \label{fig:ActiveVsPassiveF1LR}
     \caption{The F-measure of the the fine classifiers increases
 throughout the rounds as more true positives are predicted. The active coarse
 again decreases at later rounds due to increased false positives.}
 \end{figure}
+\FloatBarrier
+
 
 \FloatBarrier
 \subsection{Plots for SVM Active vs Passive curves}
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassivePRSVM}
+    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassivePRSVM}
     \label{fig:ActiveVsPassivePRSVM}
     \caption{The PR AUC curves for rounds with SVM show little
 advantage for fine. The results are slightly different than the ones shown
@@ -469,17 +493,22 @@ on 2/14 due to fixing a bug with the code that wasn't performing the
 preprocessing scaling for the SVM case at the same stage as it was being
 done for the logistic regression classifier.}
 \end{figure}
+\FloatBarrier
 
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveROCSVM}
+    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassiveROCSVM}
     \label{fig:ActiveVsPassiveROCSVM}
     \caption{The ROC curves show more of an advantage for coarse classifiers.}
 \end{figure}
+\FloatBarrier
 
+
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveAccSVM}
+    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassiveAccSVM}
     \label{fig:ActiveVsPassiveAccSVM}
     \caption{The accuracy for the coarse decreases sharply due
 to coarse predicting steadily more false positives, behaving similar to the
@@ -487,20 +516,24 @@ Log Reg case. Fine accuracy is higher due to predicting less false positives
 than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
 60 t.p. for coarse at round 60.}
 \end{figure}
+\FloatBarrier
 
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/ActiveVsPassiveF1SVM}
+    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassiveF1SVM}
     \label{fig:ActiveVsPassiveF1SVM}
     \caption{The F-measure favors coarse, and trends to the same level
     for both coarse and fine.}
 \end{figure}
+\FloatBarrier
+
 
 \FloatBarrier
 \section{Plots for FFR experiments}
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/FFR_PR_Cost1}
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost1}
     \label{fig:FFR_PR_Cost1}
     \caption{The round size is changed to 160 and a fine has a cost of 1.
 The 0p5 round for instance, corresponds to 0.5 of the total budget being used on fine,
@@ -509,22 +542,47 @@ used for fine and it has the worst performance. After around 0p3 the gains in pe
 are marginal. The performance increases with the green 1p0 curve outperforming the
 rest. The results are an average of 10 folds.}
 \end{figure}
+\FloatBarrier
 
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/FFR_PR_Cost16}
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16}
     \label{fig:FFR_PR_Cost16}
-    \caption{The round size is again 160 and fine has a cost of 16. The worst
-    performing curve is again 0p0 with no fine instances, but the benefit of fine
-    instances is marginal. For the 0p5 case 5 instances are purchased for fine and
-    80 are purchased for coarse. For the 1p0 case 16 instances are purchase for
-    fine and 144 instances are purchased for coarse.}
+    \caption{The round size is very small only 7.}
+\end{figure}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16_500Rnds}
+    \label{fig:FFR_PR_Cost16_500Rnds}
+    \caption{The round size is very small only 7. Extended it to 500 rounds.}
 \end{figure}
 \FloatBarrier
 
 
 
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8}
+    \label{fig:FFR_PR_Cost8}
+    \caption{The 0.2 is now slightly outperforming the 0.0.}
+\end{figure}
+\FloatBarrier
 
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8_500Rnds}
+    \label{fig:FFR_PR_Cost8_500Rnds}
+    \caption{The extended picture of the FR cost 8 round size is small only 13.}
+\end{figure}
+\FloatBarrier
 
 
 \chapter{Conclusions and Future Work}\label{chap:math}

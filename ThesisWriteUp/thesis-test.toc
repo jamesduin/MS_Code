@@ -14,7 +14,7 @@
 \contentsline {section}{\numberline {3.3}Active vs Passive curves}{9}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Plots for Logistic Regression Active vs Passive curves}{10}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Plots for SVM Active vs Passive curves}{13}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Plots for FFR experiments}{14}{section.3.4}
-\contentsline {chapter}{\chapternumberline {4}Conclusions and Future Work}{16}{chapter.4}
-\contentsline {appendix}{\chapternumberline {A}Tuning the fine grained classes}{17}{appendix.A}
-\contentsline {chapter}{Bibliography}{18}{section*.3}
+\contentsline {section}{\numberline {3.4}Plots for FFR experiments}{17}{section.3.4}
+\contentsline {chapter}{\chapternumberline {4}Conclusions and Future Work}{23}{chapter.4}
+\contentsline {appendix}{\chapternumberline {A}Tuning the fine grained classes}{24}{appendix.A}
+\contentsline {chapter}{Bibliography}{25}{section*.3}
