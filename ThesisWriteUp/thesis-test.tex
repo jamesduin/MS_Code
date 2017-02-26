@@ -369,12 +369,28 @@ this dataset.
 \par because the experiment will involve running multiple rounds with increasing the instances to
  be trained on iteratively I tested each classifier against the full dataset and then a reduced
  dataset with one fifth of the negative instances.
-\par I tried using SVM.
-\par I tried different scaling methods (min max scaler, std scaler), I settled on std scaler
+
+
+
+\par I tried using SVM. Throughout this project I used the python library sci-kit learn \cite{scikit-learn}.
+The support vector machine implemented by this library has the following default parameters. SVC C=1.0,
+kernel='rbf', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache-size=200,
+class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, random-state=None.
+
+\par I tried different scaling methods (min max scaler, std scaler), I settled on std scaler.
+
+
+
 \par I tried different feature select measures, I settled on 75 perc feature select.
+
+
+
 \par I tried different different C costs, kernels, decision function shape, gamma, tolerance
 settled on classif = svm.SVC(C=1.0, kernel='rbf',decisionfunctionshape='ovo',gamma=0.0025,
  tol=0.00001)
+
+
+
 \par I left the class weight as balanced for this part, the results did not show much advantage
 for using the fine grained classifier.
 
@@ -533,7 +549,7 @@ than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
 \section{Plots for FFR experiments}
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost1}
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost1_rnds0_171}
     \label{fig:FFR_PR_Cost1}
     \caption{The round size is changed to 160 and a fine has a cost of 1.
 The 0p5 round for instance, corresponds to 0.5 of the total budget being used on fine,
@@ -547,8 +563,8 @@ rest. The results are an average of 10 folds.}
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16}
-    \label{fig:FFR_PR_Cost16}
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16_rnds0_171}
+    \label{fig:FFR_PR_Cost16_rnds0_171}
     \caption{The round size is very small only 7.}
 \end{figure}
 \FloatBarrier
@@ -557,8 +573,8 @@ rest. The results are an average of 10 folds.}
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16_500Rnds}
-    \label{fig:FFR_PR_Cost16_500Rnds}
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16_rnds0_500}
+    \label{fig:FFR_PR_Cost16_rnds0_500}
     \caption{The round size is very small only 7. Extended it to 500 rounds.}
 \end{figure}
 \FloatBarrier
@@ -568,8 +584,8 @@ rest. The results are an average of 10 folds.}
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8}
-    \label{fig:FFR_PR_Cost8}
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8_rnds0_171}
+    \label{fig:FFR_PR_Cost8_rnds0_171}
     \caption{The 0.2 is now slightly outperforming the 0.0.}
 \end{figure}
 \FloatBarrier
@@ -578,11 +594,51 @@ rest. The results are an average of 10 folds.}
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8_500Rnds}
-    \label{fig:FFR_PR_Cost8_500Rnds}
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8_rnds0_500}
+    \label{fig:FFR_PR_Cost8_rnds0_500}
     \caption{The extended picture of the FR cost 8 round size is small only 13.}
 \end{figure}
 \FloatBarrier
+
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost4_rnds0_171}
+    \label{fig:FFR_PR_Cost4_rnds0_171}
+    \caption{The 0.3 is doing the best}
+\end{figure}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost4_rnds20_60}
+    \label{fig:FFR_PR_Cost4_rnds20_60}
+    \caption{The 0.3 is doing the best}
+\end{figure}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost2_rnds0_171}
+    \label{fig:FFR_PR_Cost2_rnds0_171}
+    \caption{The 0.3 is doing the best}
+\end{figure}
+\FloatBarrier
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost2_rnds20_60}
+    \label{fig:FFR_PR_Cost2_rnds20_60}
+    \caption{The 0.3 is doing the best}
+\end{figure}
+\FloatBarrier
+
 
 
 \chapter{Conclusions and Future Work}\label{chap:math}
@@ -609,8 +665,9 @@ rest. The results are an average of 10 folds.}
 
 %% Bibliography goes here (You better have one)
 %% BibTeX is your friend
-\bibliographystyle{plain}
-\bibliography{nuthesis}
+%\bibliographystyle{plain}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,nuthesis}
 %% Pull in all the entries in the bibtex file. Is is a useful trick to
 %% check all your references.
 \nocite{*}

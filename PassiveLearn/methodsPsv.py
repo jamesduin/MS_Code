@@ -10,7 +10,9 @@ from sklearn.metrics import precision_recall_curve
 from sklearn.externals import joblib
 from sklearn import linear_model
 from sklearn.preprocessing import label_binarize
+from sklearn.feature_selection import SelectKBest,chi2,SelectPercentile,f_classif
 import time
+from sklearn import svm
 import pprint as pp
 
 class LearnRound:
@@ -111,11 +113,16 @@ class CoarseRound(LearnRound):
 
     def trainClassifier(self,X_train,y_trainCoarse):
         ##### Train classifier for coarse
-        classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                     fit_intercept=False, intercept_scaling=1,
-                                                     class_weight={1: self.train_wt},
-                                                     solver='liblinear',
-                                                     max_iter=1000, n_jobs=-1)
+        # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
+        #                                              fit_intercept=False, intercept_scaling=1,
+        #                                              class_weight={1: self.train_wt},
+        #                                              solver='liblinear',
+        #                                              max_iter=1000, n_jobs=-1)
+        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
+        #                 cache_size=8192, verbose=False, class_weight={1:self.train_wt},
+        #                      decision_function_shape='ovo',
+        #                  gamma=0.0025, tol=0.00001, shrinking=True)
+        classifier = svm.SVC(C=1.0, kernel='rbf')
         self.clf = classifier.fit(X_train, y_trainCoarse)
         if (self.rndNum % 50 == 0):
             joblib.dump(self.clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
@@ -146,11 +153,16 @@ class FineRound(LearnRound):
     def trainClassifier(self,X_train,y_trainBin):
         #### train classifier for fine
         for cls in range(8):
-            classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                      fit_intercept=False, intercept_scaling=1,
-                                                      class_weight={1: self.Fine_wt[cls]},
-                                                      solver='liblinear',
-                                                      max_iter=1000, n_jobs=-1)
+            # classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
+            #                                           fit_intercept=False, intercept_scaling=1,
+            #                                           class_weight={1: self.Fine_wt[cls]},
+            #                                           solver='liblinear',
+            #                                           max_iter=1000, n_jobs=-1)
+            # classif = svm.SVC(C=1.0, kernel='rbf', probability=False,
+            #                      cache_size=8192, verbose=False, class_weight={1:self.Fine_wt[cls]},
+            #                   decision_function_shape='ovo',
+            #                      gamma=0.0025, tol=0.00001, shrinking=True)
+            classif = svm.SVC(C=1.0, kernel='rbf')
             clf = classif.fit(X_train, y_trainBin[:, cls])
             if(self.rndNum % 50 == 0):
                 joblib.dump(clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
@@ -407,5 +419,67 @@ def loadScaledPartData(dataDir):
     return all_part
 
 
+def loadAndProcessData(classDir,scalingType):
+    classes_PreScale = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+    classes_all = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
+    #### load Data
+    for i in sorted(classes_PreScale):
+        with open('../../data/'+classDir+'/class_' + str(i)) as f:
+            for line in f:
+                nums = line.split()
+                nums = list(map(float, nums))
+                classes_PreScale[i].append(nums)
+    data_PreScale = []
+    for i in sorted(classes_PreScale):
+        partition = np.asarray(classes_PreScale[i])
+        if len(data_PreScale) == 0:
+            data_PreScale = partition
+        else:
+            data_PreScale = np.vstack((partition, data_PreScale))
+    y_train, X_trainPreScale = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale.shape[1]]
 
+
+    if(scalingType == 'MinMax'):
+        #### Scale dataset
+        min_max_scaler = preprocessing.MinMaxScaler()
+        X_train = min_max_scaler.fit_transform(X_trainPreScale)
+        y_train = np.reshape(y_train, (y_train.shape[0], 1))
+
+    if(scalingType == 'StdSel'):
+        scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
+        X_trainFull = scaler.transform(X_trainPreScale)
+        selector = SelectPercentile(f_classif, percentile=75)
+        selector.fit(X_trainFull, y_train)
+        X_train = selector.transform(X_trainFull)
+        y_train = np.reshape(y_train, (y_train.shape[0], 1))
+
+    data = np.hstack((y_train, X_train))
+    for inst in data:
+        classes_all[inst[0]].append(inst)
+
+    all_part = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
+    for i in sorted(classes_all):
+        np.random.shuffle(classes_all[i])
+        partList = []
+        for j in sorted(all_part):
+            partList.append((j, len(all_part[j])))
+        minIndex = partList[0][0]
+        minVal = partList[0][1]
+        for j in sorted(partList):
+            if (minVal > j[1]):
+                minVal = j[1]
+                minIndex = j[0]
+        partitionCounter = minIndex
+        instCount = 1
+        for instance in classes_all[i]:
+            #if not (i == 0 and instCount < 3827):
+            instCount += 1
+            all_part[partitionCounter].append(instance)
+            partitionCounter += 1
+            if partitionCounter > 10:
+                partitionCounter = 1
+    for i in sorted(all_part):
+        np.random.shuffle(all_part[i])
+
+    return all_part
 

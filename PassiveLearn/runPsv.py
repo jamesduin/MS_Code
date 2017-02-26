@@ -22,7 +22,9 @@ results = []
 
 start_time = [time.perf_counter()]
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
-train_part = m.loadScaledPartData(dataDir)
+#train_part = m.loadScaledPartData(dataDir)
+#MinMax, StdSel, classes, classes_subset
+train_part = m.loadAndProcessData('classes','StdSel')
 m.printClsVsFolds(results,train_part, 'all')
 test_part = train_part[testFold]
 del train_part[testFold]

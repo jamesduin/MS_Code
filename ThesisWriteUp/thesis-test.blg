@@ -1,46 +1,57 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis-test.aux
-The style file: plain.bst
-Database file #1: nuthesis.bib
-You've used 4 entries,
-            2118 wiz_defined-function locations,
-            524 strings with 4691 characters,
-and the built_in function-call counts, 1193 in all, are:
-= -- 115
-> -- 51
-< -- 1
-+ -- 20
-- -- 16
-* -- 65
-:= -- 205
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: IEEEabrv.bib
+Database file #2: nuthesis.bib
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 6 entries,
+            4039 wiz_defined-function locations,
+            1248 strings with 16712 characters,
+and the built_in function-call counts, 4997 in all, are:
+= -- 358
+> -- 187
+< -- 30
++ -- 98
+- -- 39
+* -- 260
+:= -- 736
 add.period$ -- 12
-call.type$ -- 4
-change.case$ -- 20
-chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 54
-empty$ -- 95
-format.name$ -- 16
-if$ -- 251
+call.type$ -- 6
+change.case$ -- 6
+chr.to.int$ -- 78
+cite$ -- 6
+duplicate$ -- 345
+empty$ -- 391
+format.name$ -- 44
+if$ -- 1127
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 4
-newline$ -- 23
-num.names$ -- 8
-pop$ -- 24
+int.to.str$ -- 6
+missing$ -- 71
+newline$ -- 47
+num.names$ -- 6
+pop$ -- 189
 preamble$ -- 1
-purify$ -- 16
-quote$ -- 0
-skip$ -- 42
+purify$ -- 0
+quote$ -- 2
+skip$ -- 368
 stack$ -- 0
-substring$ -- 52
-swap$ -- 14
-text.length$ -- 1
+substring$ -- 188
+swap$ -- 273
+text.length$ -- 4
 text.prefix$ -- 0
-top$ -- 0
-type$ -- 16
+top$ -- 5
+type$ -- 6
 warning$ -- 0
-while$ -- 11
-width$ -- 5
-write$ -- 43
+while$ -- 18
+width$ -- 7
+write$ -- 83
