@@ -9,7 +9,7 @@ import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
 if(rootDir == 'py'):
-    os.chdir('resultsSVM')
+    os.chdir('FmtResultsSVM')
     dataDir = '../../'
 else:
     os.chdir('/work/scott/jamesd/results')
@@ -59,7 +59,7 @@ y_pred_score = dict()
 for lvl in ['coarse', 'fine']:
     y_train, X_train = rnds[lvl].createTrainSet(classes_all)
     y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train)
-    rnds[lvl].trainClassifier(X_train, y_trainCoarse)
+    rnds[lvl].trainClassifier(X_train, y_trainCoarse,clfType)
     y_predCoarse[lvl], y_pred_score[lvl] = rnds[lvl].predictTestSet(X_test)
     rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], results)
     ###### log the errors
@@ -76,11 +76,7 @@ m.appendSetTotal(rndNum, results, classes_all,'classes_all',testFold)
 tot = time.perf_counter() - start_time[0]
 m.addPrint(results,['Total Time:']+['{:.0f}hr {:.0f}m {:.2f}sec'.format(
     *divmod(divmod(tot,60)[0],60),divmod(tot,60)[1])])
-# fileName = open('results/Psv_'+str(testFold)+'.res','wb')
-# pickle.dump(results,fileName)
-# fileName.close()
-f = open('results/Psv_'+str(testFold)+'.txt','w')
-for rec in results:
-    f.write(str(rec) + '\n')
-f.close()
+fileName = open('results/Psv_'+str(testFold)+'.res','wb')
+pickle.dump(results,fileName)
+fileName.close()
 

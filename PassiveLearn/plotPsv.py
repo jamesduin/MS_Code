@@ -8,11 +8,9 @@ import glob
 import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
-if(rootDir == 'Users' or rootDir == 'py'):
-    dataDir = '../'
-else:
-    os.chdir('/work/scott/jamesd/')
-    dataDir = '/home/scott/jamesd/MS_Code/'
+if(rootDir == 'py'):
+    os.chdir('FmtResultsSVM')  #FmtResultsSVM, FmtResultsLogReg
+    dataDir = '../../'
 
 
 def getRndTypeSet(resultsDir):
@@ -25,7 +23,7 @@ def getRndTypeSet(resultsDir):
     #print(rndTypeSet)
     return rndTypeSet
 
-resultsDir = 'results/results'
+resultsDir = 'results'
 
 rndTypeSet = getRndTypeSet(resultsDir)
 
@@ -63,12 +61,11 @@ for type in rndTypeFoldMat:
             f.write(str(rec)+'\n')
     f.close()
 
-# plt.figure()
-# #with plt.style.context('fivethirtyeight'):
-# plt.style.use('ggplot')
+
 resultMat = []
 colNum = 0
-for fnd in ['pr','roc','acc','f1']:
+#for fnd in ['pr','roc','acc','f1']:
+for fnd in ['tn','fn','fp','tp']:
     for type in rndTypeSet:
         outFind = dict()
         for lvl in ['coarse','fine']:
@@ -82,14 +79,16 @@ for fnd in ['pr','roc','acc','f1']:
                     if(fnd in rec and lvl in rec):
                         ind =[i for i in range(len(rec)) if rec[i] == fnd]
                         prFold.append(rec[ind[0]+1])
-                        resultMat[colNum].append('{:.3f}'.format(rec[ind[0]+1]))
+                        #resultMat[colNum].append('{:.3f}'.format(rec[ind[0]+1]))
+                        resultMat[colNum].append('{:}'.format(rec[ind[0] + 1]))
             prFold = np.array(prFold)
             #print(prFold)
-            resultMat[colNum].append('avg {:.3f}'.format(np.mean(prFold)))
+            #resultMat[colNum].append('avg {:.3f}'.format(np.mean(prFold)))
+            resultMat[colNum].append('avg {:.1f}'.format(np.mean(prFold)))
             colNum += 1
 
 
-        f = open('output.txt', 'w')
+        f = open('output2.txt', 'w')
         for i in range(len(resultMat)):
             f.write('|l|')
         f.write('\n')
@@ -99,11 +98,3 @@ for fnd in ['pr','roc','acc','f1']:
             f.write('{} \\\\'.format(resultMat[-1][i]))
             f.write('\n')
         f.close()
-#     plt.plot(x_pr,y_pr, label = 'avg_'+type)
-#
-# plt.ylabel('PR-AUC')
-# plt.xlabel('Iteration')
-# plt.title(resultsDir)
-# plt.legend(loc="lower right")
-# plt.savefig(resultsDir+'/FFR_PR.png')
-

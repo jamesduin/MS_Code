@@ -53,58 +53,68 @@
 \@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces This is what the train and test set look like.}}{8}{table.3.3}}
 \newlabel{tab:TrainTest}{{\M@TitleReference {3.3}{This is what the train and test set look like.}}{8}{This is what the train and test set look like}{table.3.3}{}}
 \@writefile{brf}{\backcite{scikit-learn}{{8}{3.1}{table.3.3}}}
-\citation{Merialdo2001}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Passive SVM Rbf kernel vs Logistic Reg}{9}{section.3.2}}
 \@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces Here are the results for the logistic regression passive 10 folds.}}{9}{table.3.4}}
 \newlabel{tab:logReg}{{\M@TitleReference {3.4}{Here are the results for the logistic regression passive 10 folds.}}{9}{Here are the results for the logistic regression passive 10 folds}{table.3.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Passive SVM Rbf kernel vs Logistic Reg}{9}{section.3.2}}
-\@writefile{brf}{\backcite{Merialdo2001}{{9}{3.2}{section.3.2}}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Active vs Passive curves}{10}{section.3.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Plots for Logistic Regression Active vs Passive curves}{10}{subsection.3.3.1}}
-\newlabel{fig:ActiveVsPassivePRLR}{{\M@TitleReference {3.3.1}{Plots for Logistic Regression Active vs Passive curves}}{11}{Plots for Logistic Regression Active vs Passive curves}{subsection.3.3.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The PR AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with active-fine having the highest performance. Active-coarse outperforms passive-coarse. Passive-fine doesn't outperform the coarse classifiers until rnd 100. }}{11}{figure.3.1}}
-\newlabel{fig:ActiveVsPassiveROCLR}{{\M@TitleReference {3.3.1}{Plots for Logistic Regression Active vs Passive curves}}{12}{Plots for Logistic Regression Active vs Passive curves}{figure.3.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces The ROC AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both coarse and fine. Coarse roc starts with an advantage over fine as in the PR curves. Both converge to the same rate after roc auc level after 80.}}{12}{figure.3.2}}
-\newlabel{fig:ActiveVsPassiveAccLR}{{\M@TitleReference {3.3.1}{Plots for Logistic Regression Active vs Passive curves}}{13}{Plots for Logistic Regression Active vs Passive curves}{figure.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The accuracy of the fine classifiers stays at roughly the same rate throughout the rounds, this is due to an effective weighting scheme for the fine grained classifiers. The active coarse accuracy drops towards the end due to an increase in false positives as more negative instances are added in the later rounds.}}{13}{figure.3.3}}
-\newlabel{fig:ActiveVsPassiveF1LR}{{\M@TitleReference {3.3.1}{Plots for Logistic Regression Active vs Passive curves}}{14}{Plots for Logistic Regression Active vs Passive curves}{figure.3.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces The F-measure of the the fine classifiers increases throughout the rounds as more true positives are predicted. The active coarse again decreases at later rounds due to increased false positives.}}{14}{figure.3.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Plots for SVM Active vs Passive curves}{14}{subsection.3.3.2}}
-\newlabel{fig:ActiveVsPassivePRSVM}{{\M@TitleReference {3.3.2}{Plots for SVM Active vs Passive curves}}{15}{Plots for SVM Active vs Passive curves}{subsection.3.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The PR AUC curves for rounds with SVM show little advantage for fine. The results are slightly different than the ones shown on 2/14 due to fixing a bug with the code that wasn't performing the preprocessing scaling for the SVM case at the same stage as it was being done for the logistic regression classifier.}}{15}{figure.3.5}}
-\newlabel{fig:ActiveVsPassiveROCSVM}{{\M@TitleReference {3.3.2}{Plots for SVM Active vs Passive curves}}{16}{Plots for SVM Active vs Passive curves}{figure.3.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces The ROC curves show more of an advantage for coarse classifiers.}}{16}{figure.3.6}}
-\newlabel{fig:ActiveVsPassiveAccSVM}{{\M@TitleReference {3.3.2}{Plots for SVM Active vs Passive curves}}{17}{Plots for SVM Active vs Passive curves}{figure.3.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces The accuracy for the coarse decreases sharply due to coarse predicting steadily more false positives, behaving similar to the Log Reg case. Fine accuracy is higher due to predicting less false positives than coarse. Fine also predicts less true positives, compare apx. 37 to apx. 60 t.p. for coarse at round 60.}}{17}{figure.3.7}}
-\newlabel{fig:ActiveVsPassiveF1SVM}{{\M@TitleReference {3.3.2}{Plots for SVM Active vs Passive curves}}{18}{Plots for SVM Active vs Passive curves}{figure.3.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces The F-measure favors coarse, and trends to the same level for both coarse and fine.}}{18}{figure.3.8}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Plots for FFR experiments}{18}{section.3.4}}
-\newlabel{fig:FFR_PR_Cost1}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{19}{Plots for FFR experiments}{section.3.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces The round size is changed to 160 and a fine has a cost of 1. The 0p5 round for instance, corresponds to 0.5 of the total budget being used on fine, so 80 goes to fine and 80 goes to coarse. For the 0p0 round, none of the budget is used for fine and it has the worst performance. After around 0p3 the gains in performance are marginal. The performance increases with the green 1p0 curve outperforming the rest. The results are an average of 10 folds.}}{19}{figure.3.9}}
-\newlabel{fig:FFR_PR_Cost16_rnds0_171}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{20}{Plots for FFR experiments}{figure.3.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces The round size is very small only 7.}}{20}{figure.3.10}}
-\newlabel{fig:FFR_PR_Cost16_rnds0_500}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{21}{Plots for FFR experiments}{figure.3.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces The round size is very small only 7. Extended it to 500 rounds.}}{21}{figure.3.11}}
-\newlabel{fig:FFR_PR_Cost8_rnds0_171}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{22}{Plots for FFR experiments}{figure.3.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces The 0.2 is now slightly outperforming the 0.0.}}{22}{figure.3.12}}
-\newlabel{fig:FFR_PR_Cost8_rnds0_500}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{23}{Plots for FFR experiments}{figure.3.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces The extended picture of the FR cost 8 round size is small only 13.}}{23}{figure.3.13}}
-\newlabel{fig:FFR_PR_Cost4_rnds0_171}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{24}{Plots for FFR experiments}{figure.3.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces The 0.3 is doing the best}}{24}{figure.3.14}}
-\newlabel{fig:FFR_PR_Cost4_rnds20_60}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{25}{Plots for FFR experiments}{figure.3.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces The 0.3 is doing the best}}{25}{figure.3.15}}
-\newlabel{fig:FFR_PR_Cost2_rnds0_171}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{26}{Plots for FFR experiments}{figure.3.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces The 0.3 is doing the best}}{26}{figure.3.16}}
-\newlabel{fig:FFR_PR_Cost2_rnds20_60}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{27}{Plots for FFR experiments}{figure.3.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.17}{\ignorespaces The 0.3 is doing the best}}{27}{figure.3.17}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces Here are the results for the logistic regression confusion matrices. The main source of the advantage for fine is from the decreased amount of false negatives.}}{10}{table.3.5}}
+\newlabel{tab:logReg}{{\M@TitleReference {3.5}{Here are the results for the logistic regression confusion matrices. The main source of the advantage for fine is from the decreased amount of false negatives.}}{10}{Here are the results for the logistic regression confusion matrices. The main source of the advantage for fine is from the decreased amount of false negatives}{table.3.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.6}{\ignorespaces Here are the results for the SVM passive 10 folds.}}{10}{table.3.6}}
+\newlabel{tab:SVM}{{\M@TitleReference {3.6}{Here are the results for the SVM passive 10 folds.}}{10}{Here are the results for the SVM passive 10 folds}{table.3.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.7}{\ignorespaces Here are the results for the SVM confusion matrices. Here the fine returns less false negatives than the coarse, but not as many true positives compared to coarse.}}{11}{table.3.7}}
+\newlabel{tab:SVM}{{\M@TitleReference {3.7}{Here are the results for the SVM confusion matrices. Here the fine returns less false negatives than the coarse, but not as many true positives compared to coarse.}}{11}{Here are the results for the SVM confusion matrices. Here the fine returns less false negatives than the coarse, but not as many true positives compared to coarse}{table.3.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.8}{\ignorespaces Here are the jaccard results for log reg.}}{12}{table.3.8}}
+\newlabel{tab:SVM}{{\M@TitleReference {3.8}{Here are the jaccard results for log reg.}}{12}{Here are the jaccard results for log reg}{table.3.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.9}{\ignorespaces Here are the jaccard results for Svm.}}{13}{table.3.9}}
+\newlabel{tab:SVM}{{\M@TitleReference {3.9}{Here are the jaccard results for Svm.}}{13}{Here are the jaccard results for Svm}{table.3.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.10}{\ignorespaces Comparing LogReg Coarse Vs SVM Coarse}}{14}{table.3.10}}
+\newlabel{tab:SVM}{{\M@TitleReference {3.10}{Comparing LogReg Coarse Vs SVM Coarse}}{14}{Comparing LogReg Coarse Vs SVM Coarse}{table.3.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Active vs Passive curves}{15}{section.3.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Plots for Logistic Regression Active vs Passive curves}{15}{subsection.3.3.1}}
+\newlabel{fig:ActiveVsPassivePRLR}{{\M@TitleReference {3.3.1}{Plots for Logistic Regression Active vs Passive curves}}{16}{Plots for Logistic Regression Active vs Passive curves}{subsection.3.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The PR AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with active-fine having the highest performance. Active-coarse outperforms passive-coarse. Passive-fine doesn't outperform the coarse classifiers until rnd 100. }}{16}{figure.3.1}}
+\newlabel{fig:ActiveVsPassiveROCLR}{{\M@TitleReference {3.3.1}{Plots for Logistic Regression Active vs Passive curves}}{17}{Plots for Logistic Regression Active vs Passive curves}{figure.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces The ROC AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both coarse and fine. Coarse roc starts with an advantage over fine as in the PR curves. Both converge to the same rate after roc auc level after 80.}}{17}{figure.3.2}}
+\newlabel{fig:ActiveVsPassiveAccLR}{{\M@TitleReference {3.3.1}{Plots for Logistic Regression Active vs Passive curves}}{18}{Plots for Logistic Regression Active vs Passive curves}{figure.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The accuracy of the fine classifiers stays at roughly the same rate throughout the rounds, this is due to an effective weighting scheme for the fine grained classifiers. The active coarse accuracy drops towards the end due to an increase in false positives as more negative instances are added in the later rounds.}}{18}{figure.3.3}}
+\newlabel{fig:ActiveVsPassiveF1LR}{{\M@TitleReference {3.3.1}{Plots for Logistic Regression Active vs Passive curves}}{19}{Plots for Logistic Regression Active vs Passive curves}{figure.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces The F-measure of the the fine classifiers increases throughout the rounds as more true positives are predicted. The active coarse again decreases at later rounds due to increased false positives.}}{19}{figure.3.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Plots for SVM Active vs Passive curves}{19}{subsection.3.3.2}}
+\newlabel{fig:ActiveVsPassivePRSVM}{{\M@TitleReference {3.3.2}{Plots for SVM Active vs Passive curves}}{20}{Plots for SVM Active vs Passive curves}{subsection.3.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The PR AUC curves for rounds with SVM show little advantage for fine. The results are slightly different than the ones shown on 2/14 due to fixing a bug with the code that wasn't performing the preprocessing scaling for the SVM case at the same stage as it was being done for the logistic regression classifier.}}{20}{figure.3.5}}
+\newlabel{fig:ActiveVsPassiveROCSVM}{{\M@TitleReference {3.3.2}{Plots for SVM Active vs Passive curves}}{21}{Plots for SVM Active vs Passive curves}{figure.3.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces The ROC curves show more of an advantage for coarse classifiers.}}{21}{figure.3.6}}
+\newlabel{fig:ActiveVsPassiveAccSVM}{{\M@TitleReference {3.3.2}{Plots for SVM Active vs Passive curves}}{22}{Plots for SVM Active vs Passive curves}{figure.3.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces The accuracy for the coarse decreases sharply due to coarse predicting steadily more false positives, behaving similar to the Log Reg case. Fine accuracy is higher due to predicting less false positives than coarse. Fine also predicts less true positives, compare apx. 37 to apx. 60 t.p. for coarse at round 60.}}{22}{figure.3.7}}
+\newlabel{fig:ActiveVsPassiveF1SVM}{{\M@TitleReference {3.3.2}{Plots for SVM Active vs Passive curves}}{23}{Plots for SVM Active vs Passive curves}{figure.3.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces The F-measure favors coarse, and trends to the same level for both coarse and fine.}}{23}{figure.3.8}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Plots for FFR experiments}{23}{section.3.4}}
+\newlabel{fig:FFR_PR_Cost1}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{24}{Plots for FFR experiments}{section.3.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces The round size is changed to 160 and a fine has a cost of 1. The 0p5 round for instance, corresponds to 0.5 of the total budget being used on fine, so 80 goes to fine and 80 goes to coarse. For the 0p0 round, none of the budget is used for fine and it has the worst performance. After around 0p3 the gains in performance are marginal. The performance increases with the green 1p0 curve outperforming the rest. The results are an average of 10 folds.}}{24}{figure.3.9}}
+\newlabel{fig:FFR_PR_Cost16_rnds0_171}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{25}{Plots for FFR experiments}{figure.3.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces The round size is very small only 7.}}{25}{figure.3.10}}
+\newlabel{fig:FFR_PR_Cost16_rnds0_500}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{26}{Plots for FFR experiments}{figure.3.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces The round size is very small only 7. Extended it to 500 rounds.}}{26}{figure.3.11}}
+\newlabel{fig:FFR_PR_Cost8_rnds0_171}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{27}{Plots for FFR experiments}{figure.3.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces The 0.2 is now slightly outperforming the 0.0.}}{27}{figure.3.12}}
+\newlabel{fig:FFR_PR_Cost8_rnds0_500}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{28}{Plots for FFR experiments}{figure.3.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces The extended picture of the FR cost 8 round size is small only 13.}}{28}{figure.3.13}}
+\newlabel{fig:FFR_PR_Cost4_rnds0_171}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{29}{Plots for FFR experiments}{figure.3.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces The 0.3 is doing the best}}{29}{figure.3.14}}
+\newlabel{fig:FFR_PR_Cost4_rnds20_60}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{30}{Plots for FFR experiments}{figure.3.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces The 0.3 is doing the best}}{30}{figure.3.15}}
+\newlabel{fig:FFR_PR_Cost2_rnds0_171}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{31}{Plots for FFR experiments}{figure.3.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces The 0.3 is doing the best}}{31}{figure.3.16}}
+\newlabel{fig:FFR_PR_Cost2_rnds20_60}{{\M@TitleReference {3.4}{Plots for FFR experiments}}{32}{Plots for FFR experiments}{figure.3.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.17}{\ignorespaces The 0.3 is doing the best}}{32}{figure.3.17}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}Conclusions and Future Work}{28}{chapter.4}}
-\newlabel{chap:math}{{\M@TitleReference {4}{Conclusions and Future Work}}{28}{Conclusions and Future Work}{chapter.4}{}}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}Conclusions and Future Work}{33}{chapter.4}}
+\newlabel{chap:math}{{\M@TitleReference {4}{Conclusions and Future Work}}{33}{Conclusions and Future Work}{chapter.4}{}}
 \bibstyle{IEEEtran}
 \bibdata{IEEEabrv,nuthesis}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {appendix}{\chapternumberline {A}Tuning the fine grained classes}{29}{appendix.A}}
+\@writefile{toc}{\contentsline {appendix}{\chapternumberline {A}Tuning the fine grained classes}{34}{appendix.A}}
 \bibcite{scikit-learn}{1}
 \bibcite{Merialdo2001}{2}
 \bibcite{lsu-lsal-13}{3}
@@ -112,6 +122,6 @@
 \bibcite{Ling2012fine}{5}
 \bibcite{sklearn_api}{6}
 \citation{*}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{30}{section*.3}}
-\memsetcounter{lastsheet}{35}
-\memsetcounter{lastpage}{30}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{35}{section*.3}}
+\memsetcounter{lastsheet}{40}
+\memsetcounter{lastpage}{35}

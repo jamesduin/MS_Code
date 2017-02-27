@@ -111,18 +111,20 @@ class CoarseRound(LearnRound):
         self.train_wt = train_wt
         return y_trainCoarse
 
-    def trainClassifier(self,X_train,y_trainCoarse):
+    def trainClassifier(self,X_train,y_trainCoarse,clfType):
         ##### Train classifier for coarse
-        # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-        #                                              fit_intercept=False, intercept_scaling=1,
-        #                                              class_weight={1: self.train_wt},
-        #                                              solver='liblinear',
-        #                                              max_iter=1000, n_jobs=-1)
-        classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
-                        cache_size=8192, verbose=False, class_weight={1:self.train_wt},
-                             decision_function_shape='ovo',
-                         gamma=0.0025, tol=0.00001, shrinking=True)
-        #classifier = svm.SVC(C=1.0, kernel='rbf')
+        if (clfType == 'LogReg'):
+            classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
+                                                         fit_intercept=False, intercept_scaling=1,
+                                                         class_weight={1: self.train_wt},
+                                                         solver='liblinear',
+                                                         max_iter=1000, n_jobs=-1)
+        if(clfType == 'SVM'):
+            classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
+                            cache_size=8192, verbose=False, class_weight={1:self.train_wt},
+                                 decision_function_shape='ovo',
+                             gamma=0.0025, tol=0.00001, shrinking=True)
+            #classifier = svm.SVC(C=1.0, kernel='rbf')
         self.clf = classifier.fit(X_train, y_trainCoarse)
         if (self.rndNum % 50 == 0):
             joblib.dump(self.clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
@@ -150,19 +152,21 @@ class FineRound(LearnRound):
              3.4782608695652177, 0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
         return y_trainBin
 
-    def trainClassifier(self,X_train,y_trainBin):
+    def trainClassifier(self,X_train,y_trainBin,clfType):
         #### train classifier for fine
         for cls in range(8):
-            # classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-            #                                           fit_intercept=False, intercept_scaling=1,
-            #                                           class_weight={1: self.Fine_wt[cls]},
-            #                                           solver='liblinear',
-            #                                           max_iter=1000, n_jobs=-1)
-            classif = svm.SVC(C=1.0, kernel='rbf', probability=False,
-                                 cache_size=8192, verbose=False, class_weight={1:self.Fine_wt[cls]},
-                              decision_function_shape='ovo',
-                                 gamma=0.0025, tol=0.00001, shrinking=True)
-            #classif = svm.SVC(C=1.0, kernel='rbf')
+            if(clfType == 'LogReg'):
+                classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
+                                                          fit_intercept=False, intercept_scaling=1,
+                                                          class_weight={1: self.Fine_wt[cls]},
+                                                          solver='liblinear',
+                                                          max_iter=1000, n_jobs=-1)
+            if(clfType == 'SVM'):
+                classif = svm.SVC(C=1.0, kernel='rbf', probability=False,
+                                     cache_size=8192, verbose=False, class_weight={1:self.Fine_wt[cls]},
+                                  decision_function_shape='ovo',
+                                     gamma=0.0025, tol=0.00001, shrinking=True)
+                #classif = svm.SVC(C=1.0, kernel='rbf')
             clf = classif.fit(X_train, y_trainBin[:, cls])
             if(self.rndNum % 50 == 0):
                 joblib.dump(clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
