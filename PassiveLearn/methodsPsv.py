@@ -118,11 +118,11 @@ class CoarseRound(LearnRound):
         #                                              class_weight={1: self.train_wt},
         #                                              solver='liblinear',
         #                                              max_iter=1000, n_jobs=-1)
-        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
-        #                 cache_size=8192, verbose=False, class_weight={1:self.train_wt},
-        #                      decision_function_shape='ovo',
-        #                  gamma=0.0025, tol=0.00001, shrinking=True)
-        classifier = svm.SVC(C=1.0, kernel='rbf')
+        classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
+                        cache_size=8192, verbose=False, class_weight={1:self.train_wt},
+                             decision_function_shape='ovo',
+                         gamma=0.0025, tol=0.00001, shrinking=True)
+        #classifier = svm.SVC(C=1.0, kernel='rbf')
         self.clf = classifier.fit(X_train, y_trainCoarse)
         if (self.rndNum % 50 == 0):
             joblib.dump(self.clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
@@ -158,11 +158,11 @@ class FineRound(LearnRound):
             #                                           class_weight={1: self.Fine_wt[cls]},
             #                                           solver='liblinear',
             #                                           max_iter=1000, n_jobs=-1)
-            # classif = svm.SVC(C=1.0, kernel='rbf', probability=False,
-            #                      cache_size=8192, verbose=False, class_weight={1:self.Fine_wt[cls]},
-            #                   decision_function_shape='ovo',
-            #                      gamma=0.0025, tol=0.00001, shrinking=True)
-            classif = svm.SVC(C=1.0, kernel='rbf')
+            classif = svm.SVC(C=1.0, kernel='rbf', probability=False,
+                                 cache_size=8192, verbose=False, class_weight={1:self.Fine_wt[cls]},
+                              decision_function_shape='ovo',
+                                 gamma=0.0025, tol=0.00001, shrinking=True)
+            #classif = svm.SVC(C=1.0, kernel='rbf')
             clf = classif.fit(X_train, y_trainBin[:, cls])
             if(self.rndNum % 50 == 0):
                 joblib.dump(clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
@@ -223,7 +223,7 @@ def createTestSet(test_part):
             y_sampleWeight.append(test_wt)
         else:
             y_sampleWeight.append(1.0)
-    return y_testCoarse, y_sampleWeight, X_test
+    return y_testCoarse, y_sampleWeight, X_test, y_test
 
 
 def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,Psv):
@@ -406,11 +406,15 @@ def addPrint(results,x):
 
 
 
-def loadScaledPartData(dataDir):
+def loadScaledPartData(clfType):
     all_part = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
+    if(clfType == 'LogReg'):
+        loadDir =  '../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
+    if(clfType == 'SVM'):
+        loadDir =  '../../data/partitionStdSclSel/partitionStdSclSel_'
+
     for i in sorted(all_part):
-        with open(dataDir + 'data/partitionMinMaxScaled/partitionMinMaxScaled_' + str(i)) as f:
-        #with open(dataDir + 'data/partition_scaled/partition_scaled' + str(i)) as f:
+        with open(loadDir + str(i)) as f:
             for line in f:
                 nums = line.split()
                 nums = list(map(float, nums))
@@ -419,7 +423,7 @@ def loadScaledPartData(dataDir):
     return all_part
 
 
-def loadAndProcessData(classDir,scalingType):
+def loadAndProcessData(classDir,clfType):
     classes_PreScale = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
     classes_all = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
     #### load Data
@@ -439,13 +443,13 @@ def loadAndProcessData(classDir,scalingType):
     y_train, X_trainPreScale = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale.shape[1]]
 
 
-    if(scalingType == 'MinMax'):
+    if(clfType == 'LogReg'):
         #### Scale dataset
         min_max_scaler = preprocessing.MinMaxScaler()
         X_train = min_max_scaler.fit_transform(X_trainPreScale)
         y_train = np.reshape(y_train, (y_train.shape[0], 1))
 
-    if(scalingType == 'StdSel'):
+    if(clfType == 'SVM'):
         scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
         X_trainFull = scaler.transform(X_trainPreScale)
         selector = SelectPercentile(f_classif, percentile=75)
@@ -483,3 +487,10 @@ def loadAndProcessData(classDir,scalingType):
 
     return all_part
 
+
+def printDataInstance(instance, file):
+    for dimension in instance[:-1]:
+        file.write(str(dimension) + " ")
+    file.write(str(instance[-1]))
+    file.write("\n")
+    return

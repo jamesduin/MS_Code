@@ -1,0 +1,50 @@
+fine fold 1
+[1849  65]
+[  46  50]
+acc_score: 0.945
+f1_score: 0.474
+fine fold 2
+[1851  63]
+[  49  47]
+acc_score: 0.944
+f1_score: 0.456
+fine fold 3
+[1851  63]
+[  43  53]
+acc_score: 0.947
+f1_score: 0.500
+fine fold 4
+[1853  61]
+[  53  43]
+acc_score: 0.943
+f1_score: 0.430
+fine fold 5
+[1859  55]
+[  52  44]
+acc_score: 0.947
+f1_score: 0.451
+fine fold 6
+[1843  71]
+[  52  44]
+acc_score: 0.939
+f1_score: 0.417
+fine fold 7
+[1841  72]
+[  49  48]
+acc_score: 0.940
+f1_score: 0.442
+fine fold 8
+[1852  61]
+[  59  38]
+acc_score: 0.940
+f1_score: 0.388
+fine fold 9
+[1841  72]
+[  52  44]
+acc_score: 0.938
+f1_score: 0.415
+fine fold 10
+[1836  77]
+[  57  39]
+acc_score: 0.933
+f1_score: 0.368

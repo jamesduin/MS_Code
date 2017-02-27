@@ -1,0 +1,5 @@
+coarse fold 2
+[  62 130]
+[   3  93]
+acc_score: 0.538
+f1_score: 0.583

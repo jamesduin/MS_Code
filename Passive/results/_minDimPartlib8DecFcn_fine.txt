@@ -1,0 +1,64 @@
+fine fold 1
+cumulative
+[1892  22]
+[  69  27]
+0.955
+fine fold 2
+cumulative
+[1883  31]
+[  64  32]
+0.953
+fine fold 3
+cumulative
+[1900  14]
+[  75  21]
+0.956
+fine fold 4
+cumulative
+[1893  21]
+[  68  28]
+0.956
+fine fold 5
+cumulative
+[1892  22]
+[  61  35]
+0.959
+fine fold 6
+cumulative
+[1881  33]
+[  68  28]
+0.95
+fine fold 7
+cumulative
+[1887  26]
+[  64  33]
+0.955
+fine fold 8
+cumulative
+[1887  26]
+[  66  31]
+0.954
+fine fold 9
+cumulative
+[1882  31]
+[  70  26]
+0.95
+fine fold 10
+cumulative
+[1892  21]
+[  68  28]
+0.956
+fine
+fold roc    pr     
+1    0.846  0.908  
+2    0.886  0.916  
+3    0.875  0.916  
+4    0.879  0.925  
+5    0.889  0.925  
+6    0.861  0.912  
+7    0.887  0.923  
+8    0.840  0.910  
+9    0.859  0.905  
+10   0.852  0.913  
+avg,0.867,0.915 
+136.67 sec

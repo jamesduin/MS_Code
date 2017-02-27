@@ -1,0 +1,5 @@
+fine fold 2
+[1846  68]
+[  49  47]
+acc_score: 0.942
+f1_score: 0.445

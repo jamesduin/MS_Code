@@ -1,0 +1,50 @@
+coarse fold 1
+[1460 454]
+[  14  82]
+acc_score: 0.767
+f1_score: 0.259
+coarse fold 2
+[1540 374]
+[  22  74]
+acc_score: 0.803
+f1_score: 0.272
+coarse fold 3
+[1508 406]
+[  12  84]
+acc_score: 0.792
+f1_score: 0.287
+coarse fold 4
+[1486 428]
+[  19  77]
+acc_score: 0.778
+f1_score: 0.256
+coarse fold 5
+[1521 393]
+[  20  76]
+acc_score: 0.795
+f1_score: 0.269
+coarse fold 6
+[1501 413]
+[  19  77]
+acc_score: 0.785
+f1_score: 0.263
+coarse fold 7
+[1496 417]
+[  17  80]
+acc_score: 0.784
+f1_score: 0.269
+coarse fold 8
+[1524 389]
+[  25  72]
+acc_score: 0.794
+f1_score: 0.258
+coarse fold 9
+[1498 415]
+[  18  78]
+acc_score: 0.784
+f1_score: 0.265
+coarse fold 10
+[1497 416]
+[  13  83]
+acc_score: 0.786
+f1_score: 0.279

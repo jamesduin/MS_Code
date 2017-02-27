@@ -275,7 +275,7 @@ learning approach with all fine-grained labels. The passive learning curves were
 \FloatBarrier
 
 
-The next analysis step is to apply a given ratio of fine grained vs coarse grained
+\par The next analysis step is to apply a given ratio of fine grained vs coarse grained
 labels to purchase at each batch request to the oracle. The results of varying the
 percentage of fine grained labels purchased are shown in Figure 5. The figure shows
 that even a small amount of fine grained labels purchased, that is, 20perc provides a
@@ -356,17 +356,15 @@ Table \ref{tab:TrainTest}.
 \end{table}
 \FloatBarrier
 
-\par How did I run coarse and fine classifiers.
 \par coarse just used marked all positives as 1 and ran a binary classifer.
 \par fine grained classifiers trained 8 separate classifiers for the 8 fine grained
 classes, so for fine grain classifier for 1, all other fine grained classes are marked as 0
 in addition to all the coarse instances being marked as 0.
 \par Also the Pr auc and Roc auc are the primary metrics for determining the performance
 of the classifier.
-
 \par The next step is to determine what classifier can be applied to 'learn' the classes of
 this dataset.
-\par because the experiment will involve running multiple rounds with increasing the instances to
+\par Because the experiment will involve running multiple rounds with increasing the instances to
  be trained on iteratively I tested each classifier against the full dataset and then a reduced
  dataset with one fifth of the negative instances.
 
@@ -376,7 +374,6 @@ this dataset.
 The support vector machine implemented by this library has the following default parameters. SVC C=1.0,
 kernel='rbf', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache-size=200,
 class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, random-state=None.
-
 \par I tried different scaling methods (min max scaler, std scaler), I settled on std scaler.
 
 

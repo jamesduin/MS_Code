@@ -1,0 +1,5 @@
+fine fold 2
+[ 376   7]
+[  61  35]
+acc_score: 0.858
+f1_score: 0.507

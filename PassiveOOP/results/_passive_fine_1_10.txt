@@ -1,0 +1,5 @@
+fine fold 2
+[ 189   3]
+[  70  26]
+acc_score: 0.747
+f1_score: 0.416

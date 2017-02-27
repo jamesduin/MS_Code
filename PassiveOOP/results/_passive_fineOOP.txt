@@ -1,0 +1,5 @@
+fine fold 1
+[1894  20]
+[  69  27]
+acc_score: 0.956
+f1_score: 0.378

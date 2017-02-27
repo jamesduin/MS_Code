@@ -1,0 +1,7 @@
+coarse fold 1
+cumulative
+[ 334  49]
+[  33  63]
+0.829
+avg  0.868  0.664   
+6.02 sec

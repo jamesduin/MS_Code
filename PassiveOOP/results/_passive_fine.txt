@@ -1,0 +1,11 @@
+fine fold 1
+cumulative
+[1897  17]
+[  74  22]
+acc_score: 0.955
+f1_score: 0.326
+fine
+fold roc    pr     
+1    0.843  0.910  
+avg,0.843,0.910 
+14.11 sec
