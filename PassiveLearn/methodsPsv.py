@@ -51,47 +51,69 @@ class LearnRound:
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
                        +['acc']+[acc] +['f1']+[f1])
 
+    def printConfMatrixThresh(self,y_testCoarse,y_predCoarse,results,xaxis,yaxis,thresh):
+        ###### print conf matrix,accuracy and f1_score
+        confMatrix = confusion_matrix(y_testCoarse, y_predCoarse)
+        acc = accuracy_score(y_testCoarse, y_predCoarse)
+        f1 = f1_score(y_testCoarse, y_predCoarse)
+        addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       +[xaxis]+[yaxis]+[thresh]
+                       +['conf']+['tn']+[confMatrix[0][0]] +['fn']+ [confMatrix[0][1]])
+        addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       + [xaxis] + [yaxis] + [thresh]
+                       +['conf']+['fp']+[confMatrix[1][0]] +['tp']+ [confMatrix[1][1]])
+        addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
+                        + [xaxis] + [yaxis] + [thresh]
+                       +['acc']+['{:.3f}'.format(acc)] +['f1']+['{:.3f}'.format(f1)])
 
-    def plotRocPrCurves(self,y_testCoarse,y_pred_score,y_sampleWeight,results):
+
+    def plotRocCurves(self,y_testCoarse,y_pred_score,y_sampleWeight,results):
         ###### Plot ROC and PR curves
         fpr, tpr, threshRoc = roc_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         roc_auc = auc(fpr, tpr, reorder=True)
-        if (self.rndNum % 50 == 0):
-            plt.figure()
-            plt.plot(fpr, tpr,
-                     label='ROC curve (area = {0:0.3f})'.format(roc_auc),
-                     color='red', linestyle=':', linewidth=4)
-            plt.plot([0, 1], [0, 1], 'k--')
-            plt.xlim([0.0, 1.0])
-            plt.ylim([0.0, 1.05])
-            plt.xlabel('False Positive Rate')
-            plt.ylabel('True Positive Rate')
-            plt.title('Receiver operating characteristic')
-            plt.legend(loc="lower right")
-            plt.savefig(self.lvl + '_results/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.testFold) +'_' + self.lvl + '_ROC.png')
-            plt.clf()
-            plt.close()
+        #if (self.rndNum % 50 == 0):
+        plt.figure()
+        plt.plot(fpr, tpr,
+                 label='ROC curve (area = {0:0.3f})'.format(roc_auc),
+                 color='red', linestyle=':', linewidth=4)
+        plt.plot([0, 1], [0, 1], 'k--')
+        plt.xlim([0.0, 1.0])
+        plt.ylim([0.0, 1.05])
+        plt.xlabel('False Positive Rate')
+        plt.ylabel('True Positive Rate')
+        plt.title('Receiver operating characteristic')
+        plt.legend(loc="lower right")
+        plt.savefig(self.lvl + '_results/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.testFold) +'_' + self.lvl + '_ROC.png')
+        plt.clf()
+        plt.close()
+        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       +['roc']+[roc_auc])
+        return fpr, tpr, threshRoc
 
+    def plotPrCurves(self, y_testCoarse, y_pred_score, y_sampleWeight, results):
         ##### Plog pr_curve
         precision, recall, threshPr = precision_recall_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         pr_auc = auc(recall, precision)
-        if (self.rndNum % 50 == 0):
-            plt.figure()
-            plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
-                     label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
-            plt.xlabel('Recall')
-            plt.ylabel('Precision')
-            plt.ylim([0.0, 1.05])
-            plt.xlim([0.0, 1.0])
-            plt.title('Precision-Recall')
-            plt.legend(loc="lower right")
-            plt.savefig(self.lvl + '_results/'+ self.Psv+'_'+ str(self.rndNum) +  '_' + str(self.testFold) +'_' + self.lvl + '_PR.png')
-            plt.clf()
-            plt.close()
-        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
-                       +['pr']+ [pr_auc]+ ['roc']+[roc_auc])
+        #if (self.rndNum % 50 == 0):
+        plt.figure()
+        plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
+                 label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
+        plt.xlabel('Recall')
+        plt.ylabel('Precision')
+        plt.ylim([0.0, 1.05])
+        plt.xlim([0.0, 1.0])
+        plt.title('Precision-Recall')
+        plt.legend(loc="lower right")
+        plt.savefig(self.lvl + '_results/'+ self.Psv+'_'+ str(self.rndNum) +  '_' + str(self.testFold) +'_' + self.lvl + '_PR.png')
+        plt.clf()
+        plt.close()
+        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]
+                       +['lvl']+[self.lvl]+['pr']+ [pr_auc])
         addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
                        +['rndTime'] + [str(round(time.perf_counter() - self.lvl_rndTime, 2))])
+        return precision, recall, threshPr
+
+
 
 class CoarseRound(LearnRound):
     def __init__(self,testFold,rndNum,Psv):
@@ -135,6 +157,20 @@ class CoarseRound(LearnRound):
         y_predCoarse = self.clf.predict(X_test)
         y_pred_score = self.clf.decision_function(X_test)
         return y_predCoarse,y_pred_score
+
+    def predictTestSetThreshold(self,X_test,thresh):
+        y_pred_score = self.clf.decision_function(X_test)
+        y_predCoarse = []
+        y_predCoarse = []
+        for inst in y_pred_score:
+            if (inst > thresh):
+                y_predCoarse.append(1.0)
+            else:
+                y_predCoarse.append(0.0)
+
+        return np.array(y_predCoarse),y_pred_score
+
+
 
 class FineRound(LearnRound):
     def __init__(self,testFold,rndNum,Psv):
@@ -193,6 +229,24 @@ class FineRound(LearnRound):
                 y_predCoarse.append(0.0)
         return np.array(y_predCoarse),y_pred_score
 
+    def predictTestSetThreshold(self,X_test,thresh):
+        ##### predict test set for fine
+        y_fine_score = []
+        for cls in range(8):
+            scores = self.classifier[cls].decision_function(X_test)
+            scores = scores.reshape(scores.shape[0], 1)
+            if y_fine_score == []:
+                y_fine_score = scores
+            else:
+                y_fine_score = np.hstack((y_fine_score, scores))
+        y_pred_score = np.amax(y_fine_score, axis=1)
+        y_predCoarse = []
+        for inst in y_pred_score:
+            if (inst > thresh):
+                y_predCoarse.append(1.0)
+            else:
+                y_predCoarse.append(0.0)
+        return np.array(y_predCoarse),y_pred_score
 
 
 

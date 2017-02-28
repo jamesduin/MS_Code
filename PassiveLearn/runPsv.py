@@ -9,7 +9,7 @@ import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
 if(rootDir == 'py'):
-    os.chdir('FmtResultsSVM')
+    os.chdir('FindThresholdLogReg')
     dataDir = '../../'
 else:
     os.chdir('/work/scott/jamesd/results')
@@ -18,7 +18,7 @@ else:
 
 
 testFold = int(sys.argv[1])
-clfType = 'SVM'  #LogReg, SVM
+clfType = 'LogReg'  #LogReg, SVM
 results = []
 
 start_time = [time.perf_counter()]
@@ -57,19 +57,33 @@ y_testCoarse, y_sampleWeight, X_test, y_test = m.createTestSet(test_part)
 y_predCoarse = dict()
 y_pred_score = dict()
 for lvl in ['coarse', 'fine']:
+#for lvl in ['fine']:
     y_train, X_train = rnds[lvl].createTrainSet(classes_all)
     y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train)
     rnds[lvl].trainClassifier(X_train, y_trainCoarse,clfType)
     y_predCoarse[lvl], y_pred_score[lvl] = rnds[lvl].predictTestSet(X_test)
     rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], results)
     ###### log the errors
-    err_file = open('jaccard/'+clfType+'_'+lvl+'_'+str(testFold)+'.txt', 'w')
-    for i,pred in enumerate(y_predCoarse[lvl]):
-        if(y_predCoarse[lvl][i] != y_testCoarse[i]):
-            m.printDataInstance(np.array([y_test[i]]+list(X_test[i])), err_file)
-    err_file.close()
-    rnds[lvl].plotRocPrCurves(y_testCoarse, y_pred_score[lvl], y_sampleWeight, results)
-m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,"Psv")
+    # err_file = open('jaccard/'+clfType+'_'+lvl+'_'+str(testFold)+'.txt', 'w')
+    # for i,pred in enumerate(y_predCoarse[lvl]):
+    #     if(y_predCoarse[lvl][i] != y_testCoarse[i]):
+    #         m.printDataInstance(np.array([y_test[i]]+list(X_test[i])), err_file)
+    # err_file.close()
+    fpr, tpr, threshRoc = rnds[lvl].plotRocCurves(y_testCoarse, y_pred_score[lvl], y_sampleWeight, results)
+    precision, recall, threshPr = rnds[lvl].plotPrCurves(y_testCoarse, y_pred_score[lvl], y_sampleWeight, results)
+    print('threshRoc {}'.format(len(threshRoc)))
+    print('threshPr {}'.format(len(threshPr)))
+    for tInd,thresh in enumerate(threshRoc):
+        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(X_test,thresh)
+        rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,'flsPos: {:.5f}'.format(fpr[tInd]),
+                                        'truPos: {:.5f}'.format(tpr[tInd]),'{:.3f}'.format(thresh))
+
+    for tInd,thresh in enumerate(threshPr):
+        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(X_test,thresh)
+        rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,'rec: {:.5f}'.format(recall[tInd]),
+                                        'prec: {:.5f}'.format(precision[tInd]),'{:.3f}'.format(thresh))
+
+#m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,"Psv")
 ##### Append round time and fold counts
 instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, results, classes_all, start_time)
 m.appendSetTotal(rndNum, results, classes_all,'classes_all',testFold)

@@ -9,7 +9,7 @@ import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
 if(rootDir == 'py'):
-    os.chdir('FmtResultsSVM')  #FmtResultsSVM, FmtResultsLogReg
+    os.chdir('FindThresholdLogReg')  #FmtResultsSVM, FmtResultsLogReg
     dataDir = '../../'
 
 
@@ -64,13 +64,13 @@ for type in rndTypeFoldMat:
 
 resultMat = []
 colNum = 0
-#for fnd in ['pr','roc','acc','f1']:
-for fnd in ['tn','fn','fp','tp']:
+for fnd in ['pr','roc','acc','f1']:
+#for fnd in ['tn','fn','fp','tp']:
     for type in rndTypeSet:
         outFind = dict()
         for lvl in ['coarse','fine']:
             resultMat.append([])
-            print(colNum)
+            print('{} {}'.format(colNum,fnd))
             resultMat[colNum].append(lvl+'-'+fnd)
             prFold = []
             for fold in sorted(rndTypeFoldMat[type]):
@@ -82,7 +82,7 @@ for fnd in ['tn','fn','fp','tp']:
                         #resultMat[colNum].append('{:.3f}'.format(rec[ind[0]+1]))
                         resultMat[colNum].append('{:}'.format(rec[ind[0] + 1]))
             prFold = np.array(prFold)
-            #print(prFold)
+            print(prFold)
             #resultMat[colNum].append('avg {:.3f}'.format(np.mean(prFold)))
             resultMat[colNum].append('avg {:.1f}'.format(np.mean(prFold)))
             colNum += 1
