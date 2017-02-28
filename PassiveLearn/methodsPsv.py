@@ -51,20 +51,20 @@ class LearnRound:
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
                        +['acc']+[acc] +['f1']+[f1])
 
-    def printConfMatrixThresh(self,y_testCoarse,y_predCoarse,results,xaxis,yaxis,thresh):
+    def printConfMatrixThresh(self,y_testCoarse,y_predCoarse,results,xaxislb,xaxis,yaxislb,yaxis,threshlb,thresh):
         ###### print conf matrix,accuracy and f1_score
         confMatrix = confusion_matrix(y_testCoarse, y_predCoarse)
         acc = accuracy_score(y_testCoarse, y_predCoarse)
         f1 = f1_score(y_testCoarse, y_predCoarse)
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
-                       +[xaxis]+[yaxis]+[thresh]
-                       +['conf']+['tn']+[confMatrix[0][0]] +['fn']+ [confMatrix[0][1]])
+                       #+[xaxislb]+[xaxis]+[yaxislb]+[yaxis]+[threshlb]+[thresh]
+                       +['co']+['tNg']+[confMatrix[0][0]] +['fNg']+ [confMatrix[0][1]])
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
-                       + [xaxis] + [yaxis] + [thresh]
-                       +['conf']+['fp']+[confMatrix[1][0]] +['tp']+ [confMatrix[1][1]])
+                 #+ [xaxislb] + [xaxis] + [yaxislb] + [yaxis] + [threshlb] + [thresh]
+                       +['co']+['fPs']+[confMatrix[1][0]] +['tPs']+ [confMatrix[1][1]])
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
-                        + [xaxis] + [yaxis] + [thresh]
-                       +['acc']+['{:.3f}'.format(acc)] +['f1']+['{:.3f}'.format(f1)])
+                 + [xaxislb] + [xaxis] + [yaxislb] + [yaxis] + [threshlb] + [thresh]
+                       +['ac']+['{:.3f}'.format(acc)] +['fmes']+[f1])
 
 
     def plotRocCurves(self,y_testCoarse,y_pred_score,y_sampleWeight,results):

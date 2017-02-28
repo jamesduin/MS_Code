@@ -9,7 +9,7 @@ import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
 if(rootDir == 'py'):
-    os.chdir('FindThresholdLogReg')
+    os.chdir('FindThresholdSVM')
     dataDir = '../../'
 else:
     os.chdir('/work/scott/jamesd/results')
@@ -18,7 +18,7 @@ else:
 
 
 testFold = int(sys.argv[1])
-clfType = 'LogReg'  #LogReg, SVM
+clfType = 'SVM'  #LogReg, SVM
 results = []
 
 start_time = [time.perf_counter()]
@@ -75,13 +75,17 @@ for lvl in ['coarse', 'fine']:
     print('threshPr {}'.format(len(threshPr)))
     for tInd,thresh in enumerate(threshRoc):
         y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(X_test,thresh)
-        rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,'flsPos: {:.5f}'.format(fpr[tInd]),
-                                        'truPos: {:.5f}'.format(tpr[tInd]),'{:.3f}'.format(thresh))
+        rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,
+                                        'flsPos',fpr[tInd],
+                                        'truPos',tpr[tInd],
+                                        'thresh',thresh)
 
     for tInd,thresh in enumerate(threshPr):
         y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(X_test,thresh)
-        rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,'rec: {:.5f}'.format(recall[tInd]),
-                                        'prec: {:.5f}'.format(precision[tInd]),'{:.3f}'.format(thresh))
+        rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,
+                                        'rec', recall[tInd],
+                                        'prec', precision[tInd],
+                                        'thresh', thresh)
 
 #m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,"Psv")
 ##### Append round time and fold counts
