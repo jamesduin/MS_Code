@@ -9,9 +9,10 @@ import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
 if(rootDir == 'py'):
-    os.chdir('FindThresholdLogReg')  #FmtResultsSVM, FmtResultsLogReg
+    os.chdir('FindThresholdSVM')  # FindThresholdSVM, FindThresholdLogReg
     dataDir = '../../'
 
+clftype = 'SVM' #LogReg, SVM
 
 def getRndTypeSet(resultsDir):
     rndTypeSet = set()
@@ -101,7 +102,7 @@ for lvl in ['fine','coarse']:
     plt.figure()
     plt.style.use('ggplot')
     for fold in sorted(rndTypeFoldMat['Psv']):
-    #for fold in [1]:
+    #for fold in [1,2,3]:
         resultMat = []
         colNum = 0
         for fnd in finds:
@@ -159,13 +160,23 @@ for lvl in ['fine','coarse']:
     # x = np.array([-0.16014818705856193, 0.076105413470758165])
     # m = (y[0] - y[1]) / (x[0] - x[1])
     # b = y[0] - m * x[0]
-    if lvl == 'fine':
-        plt.plot(0.034, 0.942, label='Chosen Threshold', linewidth=1.8,
-                 fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2], markeredgewidth=3.0)
-    if lvl == 'coarse':
-        plt.plot(0.216, 0.787, label='Chosen Threshold', linewidth=1.8,
-                 fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
-                 markeredgewidth=3.0)
+    if clftype == 'LogReg':
+        if lvl == 'fine':
+            plt.plot(0.034, 0.942, label='Chosen Threshold', linewidth=1.8,
+                     fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2], markeredgewidth=3.0)
+        if lvl == 'coarse':
+            plt.plot(0.216, 0.787, label='Chosen Threshold', linewidth=1.8,
+                     fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
+                     markeredgewidth=3.0)
+    if clftype == 'SVM':
+        if lvl == 'fine':
+            plt.plot(0.017241379310344827, 0.957, label='Chosen Threshold', linewidth=1.8,
+                     fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
+                     markeredgewidth=3.0)
+        if lvl == 'coarse':
+            plt.plot(0.045, 0.939, label='Chosen Threshold', linewidth=1.8, #038140020898641588
+                     fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
+                     markeredgewidth=3.0)
     leg= plt.legend(fancybox=True)
     axes = plt.gca()
 
@@ -178,7 +189,7 @@ for lvl in ['fine','coarse']:
     title = 'Receiver Operating Characteristic'
     plt.title(title)
     plt.legend(loc="lower right")
-    plt.savefig('../../ThesisWriteUp/fig'+'/FindThresholdLogReg_RocCurve_'+lvl+'.png')
+    plt.savefig('../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_RocCurve_'+lvl+'.png')
 
 
 
@@ -192,7 +203,7 @@ for lvl in ['coarse','fine']:
     plt.figure()
     plt.style.use('ggplot')
     for fold in sorted(rndTypeFoldMat['Psv']):
-    #for fold in [1]:
+    #for fold in [1, 2, 3]:
         resultMat = []
         colNum = 0
         for fnd in finds:
@@ -250,13 +261,24 @@ for lvl in ['coarse','fine']:
     # x = np.array([-0.16014818705856193, 0.076105413470758165])
     # m = (y[0] - y[1]) / (x[0] - x[1])
     # b = y[0] - m * x[0]
-    if lvl == 'fine':
-        plt.plot(0.52083333333333337, 0.434, label='Chosen Threshold', linewidth=1.8,
-                 fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2], markeredgewidth=3.0)
-    if lvl == 'coarse':
-        plt.plot(0.85416666666666663, 0.268, label='Chosen Threshold', linewidth=1.8,
-                 fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
-                 markeredgewidth=3.0)
+    if clftype == 'LogReg':
+        if lvl == 'fine':
+            plt.plot(0.52083333333333337, 0.434, label='Chosen Threshold', linewidth=1.8,
+                     fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2], markeredgewidth=3.0)
+        if lvl == 'coarse':
+            plt.plot(0.85416666666666663, 0.268, label='Chosen Threshold', linewidth=1.8,
+                     fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
+                     markeredgewidth=3.0)
+    if clftype == 'SVM':
+        if lvl == 'fine':
+            plt.plot(0.4375, 0.457, label='Chosen Threshold', linewidth=1.8,
+                     fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
+                     markeredgewidth=3.0)
+        if lvl == 'coarse':
+            plt.plot(0.64583333333333337, 0.468, label='Chosen Threshold', linewidth=1.8,
+                     fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
+                     markeredgewidth=3.0)
+
 
     leg= plt.legend(fancybox=True)
     axes = plt.gca()
@@ -270,4 +292,4 @@ for lvl in ['coarse','fine']:
     title = 'Precision Recall'
     plt.title(title)
     plt.legend(loc="lower right")
-    plt.savefig('../../ThesisWriteUp/fig'+'/FindThresholdLogReg_PrCurve_'+lvl+'.png')
+    plt.savefig('../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_PrCurve_'+lvl+'.png')

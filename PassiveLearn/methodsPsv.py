@@ -158,8 +158,7 @@ class CoarseRound(LearnRound):
         y_pred_score = self.clf.decision_function(X_test)
         return y_predCoarse,y_pred_score
 
-    def predictTestSetThreshold(self,X_test,thresh):
-        y_pred_score = self.clf.decision_function(X_test)
+    def predictTestSetThreshold(self,thresh,y_pred_score):
         y_predCoarse = []
         y_predCoarse = []
         for inst in y_pred_score:
@@ -229,17 +228,8 @@ class FineRound(LearnRound):
                 y_predCoarse.append(0.0)
         return np.array(y_predCoarse),y_pred_score
 
-    def predictTestSetThreshold(self,X_test,thresh):
+    def predictTestSetThreshold(self,thresh,y_pred_score):
         ##### predict test set for fine
-        y_fine_score = []
-        for cls in range(8):
-            scores = self.classifier[cls].decision_function(X_test)
-            scores = scores.reshape(scores.shape[0], 1)
-            if y_fine_score == []:
-                y_fine_score = scores
-            else:
-                y_fine_score = np.hstack((y_fine_score, scores))
-        y_pred_score = np.amax(y_fine_score, axis=1)
         y_predCoarse = []
         for inst in y_pred_score:
             if (inst > thresh):

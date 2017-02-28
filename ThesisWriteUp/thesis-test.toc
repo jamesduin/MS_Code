@@ -10,11 +10,11 @@
 \contentsline {section}{\numberline {2.4}Application to Dispatch Dataset}{5}{section.2.4}
 \contentsline {chapter}{\chapternumberline {3}Bio HAL Application}{7}{chapter.3}
 \contentsline {section}{\numberline {3.1}Training and Testing Coarse Grain and Fine Grain Classifiers}{7}{section.3.1}
-\contentsline {section}{\numberline {3.2}Passive SVM Rbf kernel vs Logistic Reg}{9}{section.3.2}
-\contentsline {section}{\numberline {3.3}Active vs Passive curves}{15}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Plots for Logistic Regression Active vs Passive curves}{15}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Plots for SVM Active vs Passive curves}{19}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Plots for FFR experiments}{23}{section.3.4}
-\contentsline {chapter}{\chapternumberline {4}Conclusions and Future Work}{33}{chapter.4}
-\contentsline {appendix}{\chapternumberline {A}Tuning the fine grained classes}{34}{appendix.A}
-\contentsline {chapter}{Bibliography}{35}{section*.3}
+\contentsline {section}{\numberline {3.2}Passive SVM Rbf kernel vs Logistic Reg}{10}{section.3.2}
+\contentsline {section}{\numberline {3.3}Active vs Passive curves}{16}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Plots for Logistic Regression Active vs Passive curves}{16}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Plots for SVM Active vs Passive curves}{20}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Plots for FFR experiments}{24}{section.3.4}
+\contentsline {chapter}{\chapternumberline {4}Conclusions and Future Work}{34}{chapter.4}
+\contentsline {appendix}{\chapternumberline {A}Tuning the fine grained classes}{35}{appendix.A}
+\contentsline {chapter}{Bibliography}{36}{section*.37}

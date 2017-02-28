@@ -29,6 +29,10 @@
 %% Be able to include graphicsx
 \usepackage{graphicx}
 
+%% Be able to use subfigure
+\usepackage{caption}
+\usepackage{subcaption}
+
 %% I like darker colors
 \usepackage{color}
 \definecolor{dark-red}{rgb}{0.6,0,0}
@@ -402,6 +406,7 @@ line an then multiplying that by a ratio.
 I got this vector of ratios
 [0.87, 0.4, 0.78, 0.65, 3.48, 0.78, 1.74, 0.87]
 
+\break
 
 \section{Passive SVM Rbf kernel vs Logistic Reg}
 \par This shows the advantage to fine grained labels to justify the experiment.
@@ -498,9 +503,97 @@ I got this vector of ratios
 
 
 
+\FloatBarrier
+\begin{figure*}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_RocCurve_coarse}
+        \caption{Log Reg ROC Curves - coarse}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_RocCurve_fine}
+        \caption{Log Reg ROC Curves - fine}
+    \end{subfigure}
+    \caption{Fine has a higher accuracy than coarse at the default threshold.}
+\end{figure*}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{figure*}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_coarse}
+        \caption{Log Reg Pr Curves - coarse}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_fine}
+        \caption{Log Reg Pr Curves - fine}
+    \end{subfigure}
+    \caption{The fine threshold occurs at a point on the pr-curve associated with a higher
+    f-measure than the coarse curves.}
+\end{figure*}
+\FloatBarrier
+
+
+
+
+\FloatBarrier
+\begin{figure*}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_RocCurve_coarse}
+        \caption{SVM ROC Curves - coarse}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_RocCurve_fine}
+        \caption{SVM ROC Curves - fine}
+    \end{subfigure}
+    \caption{SVM results are similar between coarse and fine.}
+\end{figure*}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{figure*}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_PrCurve_coarse}
+        \caption{SVM Pr Curves - coarse}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_PrCurve_fine}
+        \caption{SVM Pr Curves - fine}
+    \end{subfigure}
+    \caption{SVM results for PR-curves and F-measure have coarse and fine picking
+    different parts of the curves for their respective thresholds, coarse f1 avg is
+    slightly higher at 0.468 compared to 0.457 for fine.}
+\end{figure*}
+\FloatBarrier
+
+
+
+
+
+
+
+
 
 \FloatBarrier
 \begin{table}[h]
+  \small
   \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l||l|}\toprule
     Titles & fld1 & fld2 & fld3 & fld4 & fld5 & fld6 & fld7 & fld8 & fld9 & fld10 & Avg \\ \midrule
@@ -542,7 +635,11 @@ I got this vector of ratios
     8 & 0 & 2 & 0 & 2 & 4 & 2 & 0 & 3 & 3 & 5 & 2.1 \\
     Total & 111 & 112 & 106 & 114 & 107 & 123 & 121 & 120 & 123 & 134 & 117.1 \\ \bottomrule
   \end{tabular}
-  \caption{Here are the jaccard results for log reg.}
+  \caption{The jaccard results for Logistic Regression. Of the 117 instances in the
+  Fine error set, 82 match with instances in the Coarse error set. The Jaccard index is 0.18,
+  this compares to a higher Jaccard index of 0.43 in the SVM results. The difference is mainly
+  due to the higher number of instances in the Coarse error set in the Log Reg results, 428 compared
+  to 123. The error sets and the intersection sets contain representative samples of all the classes.}
   \label{tab:SVM}
 \end{table}
 \FloatBarrier
@@ -551,6 +648,7 @@ I got this vector of ratios
 
 \FloatBarrier
 \begin{table}[h]
+  \small
   \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l||l|}\toprule
     Titles & fld1 & fld2 & fld3 & fld4 & fld5 & fld6 & fld7 & fld8 & fld9 & fld10 & Avg \\ \midrule
@@ -592,60 +690,9 @@ I got this vector of ratios
     8 & 7 & 2 & 7 & 4 & 7 & 7 & 5 & 3 & 6 & 5 & 5.3 \\
     Total & 87 & 86 & 82 & 89 & 94 & 89 & 83 & 85 & 81 & 83 & 85.9 \\ \bottomrule
   \end{tabular}
-  \caption{Here are the jaccard results for Svm.}
-  \label{tab:SVM}
-\end{table}
-\FloatBarrier
-
-
-
-
-
-
-\FloatBarrier
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    Titles & fld1 & fld2 & fld3 & fld4 & fld5 & fld6 & fld7 & fld8 & fld9 & fld10 & Avg \\ \midrule
-    fineErr & 87 & 86 & 82 & 89 & 94 & 89 & 83 & 85 & 81 & 83 & 85.9 \\
-    coarseErr & 120 & 119 & 112 & 130 & 138 & 132 & 116 & 124 & 116 & 124 & 123.1 \\
-    total & 207 & 205 & 194 & 219 & 232 & 221 & 199 & 209 & 197 & 207 & 209.0 \\
-    jaccardInd & 0.41 & 0.4 & 0.47 & 0.42 & 0.41 & 0.41 & 0.47 & 0.45 & 0.44 & 0.45 & 0.43 \\
-    InterSect &  &  &  &  &  &  &  &  &  &  &  \\
-    0 & 27 & 23 & 19 & 27 & 22 & 22 & 20 & 23 & 22 & 19 & 22.4 \\
-    1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0.90 \\
-    2 & 11 & 12 & 13 & 12 & 14 & 12 & 15 & 12 & 12 & 12 & 12.5 \\
-    3 & 11 & 9 & 14 & 10 & 10 & 15 & 12 & 16 & 12 & 15 & 12.4 \\
-    4 & 3 & 8 & 7 & 7 & 10 & 10 & 8 & 8 & 4 & 8 & 7.3 \\
-    5 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0.50 \\
-    6 & 2 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & 0.50 \\
-    7 & 2 & 4 & 3 & 5 & 4 & 3 & 4 & 2 & 4 & 4 & 3.5 \\
-    8 & 3 & 1 & 4 & 3 & 5 & 1 & 4 & 2 & 3 & 4 & 3.0 \\
-    Total & 60 & 59 & 62 & 65 & 67 & 64 & 64 & 65 & 60 & 64 & 63.0 \\
-    Coarse &  &  &  &  &  &  &  &  &  &  &  \\
-    0 & 86 & 81 & 67 & 92 & 92 & 87 & 71 & 80 & 77 & 78 & 81.1 \\
-    1 & 1 & 1 & 1 & 1 & 1 & 0 & 2 & 1 & 2 & 1 & 1.1 \\
-    2 & 11 & 12 & 14 & 12 & 14 & 12 & 15 & 12 & 12 & 12 & 12.6 \\
-    3 & 11 & 10 & 14 & 10 & 10 & 16 & 12 & 17 & 12 & 15 & 12.7 \\
-    4 & 4 & 9 & 8 & 7 & 10 & 10 & 8 & 8 & 4 & 9 & 7.7 \\
-    5 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0.50 \\
-    6 & 2 & 0 & 0 & 0 & 0 & 2 & 0 & 2 & 1 & 0 & 0.70 \\
-    7 & 2 & 4 & 3 & 5 & 5 & 3 & 4 & 2 & 4 & 4 & 3.6 \\
-    8 & 3 & 1 & 4 & 3 & 5 & 2 & 4 & 2 & 3 & 4 & 3.1 \\
-    Total & 120 & 119 & 112 & 130 & 138 & 132 & 116 & 124 & 116 & 124 & 123.1 \\
-    Fine &  &  &  &  &  &  &  &  &  &  &  \\
-    0 & 33 & 26 & 21 & 32 & 28 & 25 & 21 & 26 & 25 & 23 & 26.0 \\
-    1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0.90 \\
-    2 & 15 & 18 & 16 & 16 & 15 & 18 & 17 & 16 & 16 & 17 & 16.4 \\
-    3 & 18 & 15 & 19 & 19 & 22 & 19 & 17 & 23 & 19 & 19 & 19.0 \\
-    4 & 7 & 11 & 11 & 9 & 12 & 12 & 12 & 11 & 8 & 10 & 10.3 \\
-    5 & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0.60 \\
-    6 & 4 & 6 & 3 & 1 & 3 & 3 & 4 & 2 & 1 & 3 & 3.0 \\
-    7 & 2 & 6 & 3 & 6 & 5 & 5 & 6 & 3 & 4 & 4 & 4.4 \\
-    8 & 7 & 2 & 7 & 4 & 7 & 7 & 5 & 3 & 6 & 5 & 5.3 \\
-    Total & 87 & 86 & 82 & 89 & 94 & 89 & 83 & 85 & 81 & 83 & 85.9 \\ \bottomrule
-  \end{tabular}
-  \caption{Comparing LogReg Coarse Vs SVM Coarse}
+  \caption{The jaccard results for SVM. The fine error set has a total of 86 instances, with
+  63 of those matching with the coarse set. Similar to the Log Reg jaccard results,
+  the error sets and the intersection sets contain representative samples of all the classes.}
   \label{tab:SVM}
 \end{table}
 \FloatBarrier
@@ -662,6 +709,8 @@ an intersection of 0.
 
 \par Comparing the Log Reg coarse error set to the SVM fine error set had
 an intersection of 0.
+
+
 
 \section{Active vs Passive curves}
 \par The following plots were obtained with a round batch size of 100
@@ -728,6 +777,13 @@ again decreases at later rounds due to increased false positives.}
 \FloatBarrier
 
 
+
+
+
+
+
+
+
 \FloatBarrier
 \subsection{Plots for SVM Active vs Passive curves}
 \begin{figure}[!htb]
@@ -776,18 +832,20 @@ than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
 \FloatBarrier
 
 
+\break
+
 \FloatBarrier
 \section{Plots for FFR experiments}
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost1_rnds0_171}
     \label{fig:FFR_PR_Cost1}
-    \caption{The round size is changed to 160 and a fine has a cost of 1.
-The 0p5 round for instance, corresponds to 0.5 of the total budget being used on fine,
-so 80 goes to fine and 80 goes to coarse. For the 0p0 round, none of the budget is
-used for fine and it has the worst performance. After around 0p3 the gains in performance
-are marginal. The performance increases with the green 1p0 curve outperforming the
-rest. The results are an average of 10 folds.}
+    \caption{The strategy is changed from purchasing a set number of instances
+    per round to having a set budget per round and spending a portion of that budget
+    on fine and coarse grained labels. For this curve the fine and coarse grain labels
+    both have a cost of 1. The purple 1.0 curve shows that if only fine grained labels
+    are purchased, the highest performing PR-AUC can be obtained. The results are an
+    average of 10 folds.}
 \end{figure}
 \FloatBarrier
 
@@ -796,7 +854,12 @@ rest. The results are an average of 10 folds.}
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16_rnds0_171}
     \label{fig:FFR_PR_Cost16_rnds0_171}
-    \caption{The round size is very small only 7.}
+    \caption{The fine cost is increased to 16. The budget for each iteration is 100, and
+    for the case of the 0.5 curve, 50 instances are bought for coarse and 3.125 instances are
+    bought for fine. The remainder 0.125 is then turned into a 0.125 chance for any round to
+    purchase an extra fine label. The round size for the FFR 1.0 curve is very small, with only
+    7 labels purchased per iteration. The cost is to high for the fine label advantage to offset
+    the decreased number of instances purchased.}
 \end{figure}
 \FloatBarrier
 
@@ -806,7 +869,10 @@ rest. The results are an average of 10 folds.}
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16_rnds0_500}
     \label{fig:FFR_PR_Cost16_rnds0_500}
-    \caption{The round size is very small only 7. Extended it to 500 rounds.}
+    \caption{This shows the iterations continuing through round 500, the curves
+    with the higher fine rates eventually settle to the same end point that the
+    curves with the high rates of coarse labels purchased achieved at previous
+    iterations.}
 \end{figure}
 \FloatBarrier
 
@@ -817,7 +883,8 @@ rest. The results are an average of 10 folds.}
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8_rnds0_171}
     \label{fig:FFR_PR_Cost8_rnds0_171}
-    \caption{The 0.2 is now slightly outperforming the 0.0.}
+    \caption{At fine cost 8 the FFR 0.0 rate is no longer the best option, 0.1
+    generally outperforms 0.0 slightly.}
 \end{figure}
 \FloatBarrier
 
@@ -827,7 +894,8 @@ rest. The results are an average of 10 folds.}
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8_rnds0_500}
     \label{fig:FFR_PR_Cost8_rnds0_500}
-    \caption{The extended picture of the FR cost 8 round size is small only 13.}
+    \caption{The extended picture of the FFR cost 8. The round size for FFR 1.0
+    is small, only 13 instances purchase per iteration.}
 \end{figure}
 \FloatBarrier
 
@@ -837,7 +905,7 @@ rest. The results are an average of 10 folds.}
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost4_rnds0_171}
     \label{fig:FFR_PR_Cost4_rnds0_171}
-    \caption{The 0.3 is doing the best}
+    \caption{At fine cost 4, FFR 0.3 appears to be the highest performing rate.}
 \end{figure}
 \FloatBarrier
 
@@ -847,7 +915,7 @@ rest. The results are an average of 10 folds.}
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost4_rnds20_60}
     \label{fig:FFR_PR_Cost4_rnds20_60}
-    \caption{The 0.3 is doing the best}
+    \caption{The fine cost 4 curves shown expanding the rounds 20-60.}
 \end{figure}
 \FloatBarrier
 
@@ -857,7 +925,8 @@ rest. The results are an average of 10 folds.}
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost2_rnds0_171}
     \label{fig:FFR_PR_Cost2_rnds0_171}
-    \caption{The 0.3 is doing the best}
+    \caption{At fine cost 2, the preferred rate jumps up to 0.8,
+    similar to the cost 1 results.}
 \end{figure}
 \FloatBarrier
 
@@ -866,7 +935,7 @@ rest. The results are an average of 10 folds.}
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost2_rnds20_60}
     \label{fig:FFR_PR_Cost2_rnds20_60}
-    \caption{The 0.3 is doing the best}
+    \caption{The fine cost 2 curves shown expanding rounds 20-60.}
 \end{figure}
 \FloatBarrier
 

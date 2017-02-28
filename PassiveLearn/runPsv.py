@@ -74,14 +74,14 @@ for lvl in ['coarse', 'fine']:
     print('threshRoc {}'.format(len(threshRoc)))
     print('threshPr {}'.format(len(threshPr)))
     for tInd,thresh in enumerate(threshRoc):
-        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(X_test,thresh)
+        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(thresh,y_pred_score[lvl])
         rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,
                                         'flsPos',fpr[tInd],
                                         'truPos',tpr[tInd],
                                         'thresh',thresh)
 
     for tInd,thresh in enumerate(threshPr):
-        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(X_test,thresh)
+        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(thresh,y_pred_score[lvl])
         rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,
                                         'rec', recall[tInd],
                                         'prec', precision[tInd],
