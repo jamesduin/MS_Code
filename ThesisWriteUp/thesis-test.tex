@@ -291,8 +291,12 @@ Add explanation of Bandit approach and results.
 \chapter{Bio HAL Application}\label{chap:math}
 \section{Training and Testing Coarse Grain and Fine Grain Classifiers}
 \par The first step is to examine the dataset.
+
+
+
 \FloatBarrier
-\begin{table}[h]
+\begin{table}[!htb]
+\begin{subtable}{.15\linewidth}
   \centering
   \begin{tabular}{|l||l|}\toprule
     Classes & All \\ \midrule
@@ -309,17 +313,11 @@ Add explanation of Bandit approach and results.
     Shape & 450 \\
  \bottomrule
   \end{tabular}
-  \caption{This is what the dataset looks like there are 20098 instances total with 450 features each.}
   \label{tab:ClassesAll}
-\end{table}
-\FloatBarrier
-
-\par Next the dataset is partitioned into 10 folds, each fold contains a representative proportion
-of each of the classes, the instances are added to each partition at random. The total partitioning
-looks like Table \ref{tab:partitions}
-\FloatBarrier
-\begin{table}[h]
-  \centering
+  \caption{Classes}
+\end{subtable}%
+\begin{subtable}{.85\linewidth}
+\centering
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
     All & Folds & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \midrule
     1 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
@@ -335,10 +333,24 @@ looks like Table \ref{tab:partitions}
     Total & 20098 & 19136 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\
  \bottomrule
   \end{tabular}
-  \caption{This is what the folds of the dataset look like.}
   \label{tab:partitions}
+  \caption{Folds}
+  \end{subtable}
+  \caption{This is what the dataset looks like there are 20098 instances total with 450 features each. This is what the folds of the dataset look like.}
 \end{table}
 \FloatBarrier
+
+
+
+
+
+
+
+
+\par Next the dataset is partitioned into 10 folds, each fold contains a representative proportion
+of each of the classes, the instances are added to each partition at random. The total partitioning
+looks like Table \ref{tab:partitions}
+
 
 \par Then 9 of the folds are compressed into the test set and the fold held out
 is the test set the totals of each class in the train and test set for fold 1 is shown in
