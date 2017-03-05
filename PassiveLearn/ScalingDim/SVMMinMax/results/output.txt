@@ -1,0 +1,57 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.860 & 0.801 & 0.864 & 0.789 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.889 & 0.836 & 0.845 & 0.817 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.898 & 0.861 & 0.881 & 0.851 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.865 & 0.840 & 0.835 & 0.799 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.856 & 0.798 & 0.821 & 0.764 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.874 & 0.852 & 0.847 & 0.832 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.895 & 0.823 & 0.866 & 0.770 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.892 & 0.869 & 0.863 & 0.843 & 0.797 & 0.797 & 0.000 & 0.000 \\
+0.883 & 0.830 & 0.846 & 0.798 & 0.797 & 0.797 & 0.000 & 0.000 \\
+0.887 & 0.861 & 0.853 & 0.829 & 0.801 & 0.801 & 0.000 & 0.000 \\
+avg 0.880 & avg 0.837 & avg 0.852 & avg 0.809 & avg 0.799 & avg 0.799 & avg 0.000 & avg 0.000 \\ \bottomrule
+\end{tabular}
+\caption{SVMMinMax}
+\label{tab:SVMMinMax}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+382 & 382 & 0 & 0 & 97 & 97 & 0 & 0 \\
+382 & 382 & 0 & 0 & 97 & 97 & 0 & 0 \\
+382 & 382 & 0 & 0 & 95 & 95 & 0 & 0 \\
+avg 382.7 & avg 382.7 & avg 0.0 & avg 0.0 & avg 96.1 & avg 96.1 & avg 0.0 & avg 0.0 \\ \bottomrule
+\end{tabular}
+\caption{SVMMinMax}
+\label{tab:SVMMinMax}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.880 & 0.852 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
+fine & 0.837 & 0.809 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMMinMax}
+\label{tab:SVMMinMax}
+\end{table}
+\FloatBarrier
+

@@ -1,0 +1,57 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.932 & 0.882 & 0.923 & 0.856 & 0.883 & 0.812 & 0.616 & 0.118 \\
+0.920 & 0.891 & 0.895 & 0.857 & 0.871 & 0.808 & 0.581 & 0.080 \\
+0.939 & 0.914 & 0.919 & 0.889 & 0.898 & 0.806 & 0.692 & 0.061 \\
+0.899 & 0.864 & 0.857 & 0.814 & 0.873 & 0.806 & 0.585 & 0.061 \\
+0.923 & 0.900 & 0.903 & 0.874 & 0.887 & 0.806 & 0.658 & 0.061 \\
+0.886 & 0.850 & 0.847 & 0.821 & 0.871 & 0.808 & 0.592 & 0.080 \\
+0.934 & 0.890 & 0.906 & 0.866 & 0.904 & 0.812 & 0.713 & 0.118 \\
+0.910 & 0.847 & 0.867 & 0.817 & 0.881 & 0.804 & 0.642 & 0.060 \\
+0.922 & 0.900 & 0.896 & 0.874 & 0.881 & 0.806 & 0.623 & 0.079 \\
+0.916 & 0.882 & 0.891 & 0.852 & 0.864 & 0.809 & 0.581 & 0.081 \\
+avg 0.918 & avg 0.882 & avg 0.890 & avg 0.852 & avg 0.881 & avg 0.808 & avg 0.628 & avg 0.080 \\ \bottomrule
+\end{tabular}
+\caption{SVMSel75}
+\label{tab:SVMSel75}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+378 & 383 & 5 & 0 & 51 & 90 & 45 & 6 \\
+374 & 383 & 9 & 0 & 53 & 92 & 43 & 4 \\
+375 & 383 & 8 & 0 & 41 & 93 & 55 & 3 \\
+375 & 383 & 8 & 0 & 53 & 93 & 43 & 3 \\
+373 & 383 & 10 & 0 & 44 & 93 & 52 & 3 \\
+372 & 383 & 11 & 0 & 51 & 92 & 45 & 4 \\
+376 & 383 & 7 & 0 & 39 & 90 & 57 & 6 \\
+371 & 382 & 11 & 0 & 46 & 94 & 51 & 3 \\
+375 & 382 & 7 & 0 & 50 & 93 & 47 & 4 \\
+367 & 382 & 15 & 0 & 50 & 91 & 45 & 4 \\
+avg 373.6 & avg 382.7 & avg 9.1 & avg 0.0 & avg 47.8 & avg 92.1 & avg 48.3 & avg 4.0 \\ \bottomrule
+\end{tabular}
+\caption{SVMSel75}
+\label{tab:SVMSel75}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.918 & 0.890 & 0.881 & 0.628 & ( 373.6 / 47.8 ) & ( 9.1 / 48.3 ) \\
+fine & 0.882 & 0.852 & 0.808 & 0.080 & ( 382.7 / 92.1 ) & ( 0.0 / 4.0 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMSel75}
+\label{tab:SVMSel75}
+\end{table}
+\FloatBarrier
+

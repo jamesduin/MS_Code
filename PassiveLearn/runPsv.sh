@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-for i in $(seq 2 10)
+for i in $(seq 1 10)
     do echo $i
-    python runPsv.py $i &
+    #python runPsv.py $i &
+    python runPsv.py $i
 done
 
 wait

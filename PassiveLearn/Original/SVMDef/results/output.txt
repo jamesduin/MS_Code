@@ -1,0 +1,57 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.838 & 0.809 & 0.817 & 0.771 & 0.810 & 0.800 & 0.222 & 0.000 \\
+0.828 & 0.821 & 0.787 & 0.778 & 0.829 & 0.804 & 0.281 & 0.041 \\
+0.828 & 0.793 & 0.795 & 0.753 & 0.827 & 0.797 & 0.314 & 0.000 \\
+0.850 & 0.824 & 0.820 & 0.790 & 0.827 & 0.806 & 0.303 & 0.061 \\
+0.859 & 0.815 & 0.827 & 0.769 & 0.835 & 0.802 & 0.313 & 0.021 \\
+0.830 & 0.824 & 0.765 & 0.763 & 0.825 & 0.802 & 0.263 & 0.021 \\
+0.853 & 0.828 & 0.814 & 0.782 & 0.831 & 0.806 & 0.308 & 0.061 \\
+0.853 & 0.828 & 0.815 & 0.786 & 0.827 & 0.797 & 0.303 & 0.000 \\
+0.842 & 0.824 & 0.805 & 0.774 & 0.825 & 0.800 & 0.288 & 0.020 \\
+0.834 & 0.811 & 0.799 & 0.769 & 0.822 & 0.803 & 0.234 & 0.021 \\
+avg 0.842 & avg 0.818 & avg 0.804 & avg 0.773 & avg 0.826 & avg 0.802 & avg 0.283 & avg 0.024 \\ \bottomrule
+\end{tabular}
+\caption{SVMDef}
+\label{tab:SVMDef}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+375 & 383 & 8 & 0 & 83 & 96 & 13 & 0 \\
+381 & 383 & 2 & 0 & 80 & 94 & 16 & 2 \\
+377 & 382 & 6 & 1 & 77 & 96 & 19 & 0 \\
+378 & 383 & 5 & 0 & 78 & 93 & 18 & 3 \\
+382 & 383 & 1 & 0 & 78 & 95 & 18 & 1 \\
+380 & 383 & 3 & 0 & 81 & 95 & 15 & 1 \\
+380 & 383 & 3 & 0 & 78 & 93 & 18 & 3 \\
+378 & 382 & 4 & 0 & 79 & 97 & 18 & 0 \\
+378 & 382 & 4 & 0 & 80 & 96 & 17 & 1 \\
+379 & 382 & 3 & 0 & 82 & 94 & 13 & 1 \\
+avg 378.8 & avg 382.6 & avg 3.9 & avg 0.1 & avg 79.6 & avg 94.9 & avg 16.5 & avg 1.2 \\ \bottomrule
+\end{tabular}
+\caption{SVMDef}
+\label{tab:SVMDef}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.842 & 0.804 & 0.826 & 0.283 & ( 378.8 / 79.6 ) & ( 3.9 / 16.5 ) \\
+fine & 0.818 & 0.773 & 0.802 & 0.024 & ( 382.6 / 94.9 ) & ( 0.1 / 1.2 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMDef}
+\label{tab:SVMDef}
+\end{table}
+\FloatBarrier
+

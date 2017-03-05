@@ -1,0 +1,128 @@
+
+
+
+
+\FloatBarrier
+\begin{table}[h]
+  \small
+  \centering
+  \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l||l|}\toprule
+    Titles & fld1 & fld2 & fld3 & fld4 & fld5 & fld6 & fld7 & fld8 & fld9 & fld10 & Avg \\ \midrule
+    fineErr & 111 & 112 & 106 & 114 & 107 & 123 & 121 & 120 & 123 & 134 & 117.1 \\
+    coarseErr & 468 & 396 & 418 & 447 & 413 & 432 & 434 & 414 & 433 & 429 & 428.4 \\
+    total & 579 & 508 & 524 & 561 & 520 & 555 & 555 & 534 & 556 & 563 & 545.5 \\
+    jaccardInd & 0.15 & 0.2 & 0.16 & 0.16 & 0.17 & 0.19 & 0.18 & 0.19 & 0.19 & 0.2 & 0.18 \\
+    InterSect &  &  &  &  &  &  &  &  &  &  &  \\
+    0 & 63 & 62 & 62 & 61 & 55 & 69 & 69 & 60 & 69 & 79 & 64.9 \\
+    1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 0.80 \\
+    2 & 5 & 10 & 5 & 10 & 6 & 3 & 5 & 10 & 6 & 5 & 6.5 \\
+    3 & 5 & 10 & 4 & 3 & 8 & 10 & 8 & 8 & 6 & 4 & 6.6 \\
+    4 & 3 & 0 & 1 & 1 & 2 & 4 & 1 & 3 & 1 & 2 & 1.8 \\
+    5 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0.10 \\
+    6 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.00 \\
+    7 & 1 & 2 & 2 & 3 & 2 & 1 & 1 & 2 & 3 & 1 & 1.8 \\
+    8 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0.10 \\
+    Total & 77 & 84 & 74 & 79 & 75 & 88 & 85 & 85 & 87 & 92 & 82.6 \\
+    Coarse &  &  &  &  &  &  &  &  &  &  &  \\
+    0 & 454 & 374 & 406 & 428 & 393 & 413 & 417 & 389 & 415 & 416 & 410.5 \\
+    1 & 0 & 0 & 0 & 1 & 1 & 1 & 2 & 1 & 2 & 1 & 0.90 \\
+    2 & 5 & 10 & 5 & 10 & 6 & 3 & 5 & 10 & 6 & 5 & 6.5 \\
+    3 & 5 & 10 & 4 & 3 & 8 & 10 & 8 & 8 & 6 & 4 & 6.6 \\
+    4 & 3 & 0 & 1 & 1 & 2 & 4 & 1 & 3 & 1 & 2 & 1.8 \\
+    5 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0.10 \\
+    6 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.00 \\
+    7 & 1 & 2 & 2 & 4 & 2 & 1 & 1 & 2 & 3 & 1 & 1.9 \\
+    8 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0.10 \\
+    Total & 468 & 396 & 418 & 447 & 413 & 432 & 434 & 414 & 433 & 429 & 428.4 \\
+    Fine &  &  &  &  &  &  &  &  &  &  &  \\
+    0 & 65 & 63 & 63 & 61 & 55 & 71 & 72 & 61 & 72 & 77 & 66.0 \\
+    1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 0.90 \\
+    2 & 11 & 16 & 13 & 16 & 16 & 11 & 10 & 15 & 15 & 13 & 13.6 \\
+    3 & 18 & 20 & 11 & 21 & 17 & 17 & 17 & 23 & 15 & 21 & 18.0 \\
+    4 & 6 & 3 & 7 & 5 & 6 & 10 & 11 & 10 & 8 & 7 & 7.3 \\
+    5 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 0.50 \\
+    6 & 3 & 3 & 8 & 3 & 2 & 5 & 5 & 4 & 4 & 4 & 4.1 \\
+    7 & 6 & 5 & 4 & 5 & 5 & 5 & 4 & 3 & 4 & 5 & 4.6 \\
+    8 & 0 & 2 & 0 & 2 & 4 & 2 & 0 & 3 & 3 & 5 & 2.1 \\
+    Total & 111 & 112 & 106 & 114 & 107 & 123 & 121 & 120 & 123 & 134 & 117.1 \\ \bottomrule
+  \end{tabular}
+  \caption{The jaccard results for Logistic Regression. Of the 117 instances in the
+  Fine error set, 82 match with instances in the Coarse error set. The Jaccard index is 0.18,
+  this compares to a higher Jaccard index of 0.43 in the SVM results. The difference is mainly
+  due to the higher number of instances in the Coarse error set in the Log Reg results, 428 compared
+  to 123. The error sets and the intersection sets contain representative samples of all the classes.}
+  \label{tab:SVM}
+\end{table}
+\FloatBarrier
+
+
+
+\FloatBarrier
+\begin{table}[h]
+  \small
+  \centering
+  \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l||l|}\toprule
+    Titles & fld1 & fld2 & fld3 & fld4 & fld5 & fld6 & fld7 & fld8 & fld9 & fld10 & Avg \\ \midrule
+    fineErr & 87 & 86 & 82 & 89 & 94 & 89 & 83 & 85 & 81 & 83 & 85.9 \\
+    coarseErr & 120 & 119 & 112 & 130 & 138 & 132 & 116 & 124 & 116 & 124 & 123.1 \\
+    total & 207 & 205 & 194 & 219 & 232 & 221 & 199 & 209 & 197 & 207 & 209.0 \\
+    jaccardInd & 0.41 & 0.4 & 0.47 & 0.42 & 0.41 & 0.41 & 0.47 & 0.45 & 0.44 & 0.45 & 0.43 \\
+    InterSect &  &  &  &  &  &  &  &  &  &  &  \\
+    0 & 27 & 23 & 19 & 27 & 22 & 22 & 20 & 23 & 22 & 19 & 22.4 \\
+    1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0.90 \\
+    2 & 11 & 12 & 13 & 12 & 14 & 12 & 15 & 12 & 12 & 12 & 12.5 \\
+    3 & 11 & 9 & 14 & 10 & 10 & 15 & 12 & 16 & 12 & 15 & 12.4 \\
+    4 & 3 & 8 & 7 & 7 & 10 & 10 & 8 & 8 & 4 & 8 & 7.3 \\
+    5 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0.50 \\
+    6 & 2 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & 0.50 \\
+    7 & 2 & 4 & 3 & 5 & 4 & 3 & 4 & 2 & 4 & 4 & 3.5 \\
+    8 & 3 & 1 & 4 & 3 & 5 & 1 & 4 & 2 & 3 & 4 & 3.0 \\
+    Total & 60 & 59 & 62 & 65 & 67 & 64 & 64 & 65 & 60 & 64 & 63.0 \\
+    Coarse &  &  &  &  &  &  &  &  &  &  &  \\
+    0 & 86 & 81 & 67 & 92 & 92 & 87 & 71 & 80 & 77 & 78 & 81.1 \\
+    1 & 1 & 1 & 1 & 1 & 1 & 0 & 2 & 1 & 2 & 1 & 1.1 \\
+    2 & 11 & 12 & 14 & 12 & 14 & 12 & 15 & 12 & 12 & 12 & 12.6 \\
+    3 & 11 & 10 & 14 & 10 & 10 & 16 & 12 & 17 & 12 & 15 & 12.7 \\
+    4 & 4 & 9 & 8 & 7 & 10 & 10 & 8 & 8 & 4 & 9 & 7.7 \\
+    5 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0.50 \\
+    6 & 2 & 0 & 0 & 0 & 0 & 2 & 0 & 2 & 1 & 0 & 0.70 \\
+    7 & 2 & 4 & 3 & 5 & 5 & 3 & 4 & 2 & 4 & 4 & 3.6 \\
+    8 & 3 & 1 & 4 & 3 & 5 & 2 & 4 & 2 & 3 & 4 & 3.1 \\
+    Total & 120 & 119 & 112 & 130 & 138 & 132 & 116 & 124 & 116 & 124 & 123.1 \\
+    Fine &  &  &  &  &  &  &  &  &  &  &  \\
+    0 & 33 & 26 & 21 & 32 & 28 & 25 & 21 & 26 & 25 & 23 & 26.0 \\
+    1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0.90 \\
+    2 & 15 & 18 & 16 & 16 & 15 & 18 & 17 & 16 & 16 & 17 & 16.4 \\
+    3 & 18 & 15 & 19 & 19 & 22 & 19 & 17 & 23 & 19 & 19 & 19.0 \\
+    4 & 7 & 11 & 11 & 9 & 12 & 12 & 12 & 11 & 8 & 10 & 10.3 \\
+    5 & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0.60 \\
+    6 & 4 & 6 & 3 & 1 & 3 & 3 & 4 & 2 & 1 & 3 & 3.0 \\
+    7 & 2 & 6 & 3 & 6 & 5 & 5 & 6 & 3 & 4 & 4 & 4.4 \\
+    8 & 7 & 2 & 7 & 4 & 7 & 7 & 5 & 3 & 6 & 5 & 5.3 \\
+    Total & 87 & 86 & 82 & 89 & 94 & 89 & 83 & 85 & 81 & 83 & 85.9 \\ \bottomrule
+  \end{tabular}
+  \caption{The jaccard results for SVM. The fine error set has a total of 86 instances, with
+  63 of those matching with the coarse set. Similar to the Log Reg jaccard results,
+  the error sets and the intersection sets contain representative samples of all the classes.}
+  \label{tab:SVM}
+\end{table}
+\FloatBarrier
+
+
+
+
+
+
+
+
+\par Comparing the Log Reg coarse error set to the SVM coarse error set had
+an intersection of 0.
+
+\par Comparing the Log Reg fine error set to the SVM fine error set had
+an intersection of 0.
+
+\par Comparing the Log Reg fine error set to the SVM coarse error set had
+an intersection of 0.
+
+\par Comparing the Log Reg coarse error set to the SVM fine error set had
+an intersection of 0.

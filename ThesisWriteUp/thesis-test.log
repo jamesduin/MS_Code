@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  28 FEB 2017 22:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 MAR 2017 14:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -677,19 +677,10 @@ File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 )
 (./thesis-test.aux
 
-LaTeX Warning: Label `tab:ClassesAll' multiply defined.
-
-
-LaTeX Warning: Label `tab:partitions' multiply defined.
+LaTeX Warning: Label `tab:TrainTest' multiply defined.
 
 
 LaTeX Warning: Label `tab:logReg' multiply defined.
-
-
-LaTeX Warning: Label `tab:SVM' multiply defined.
-
-
-LaTeX Warning: Label `tab:SVM' multiply defined.
 
 
 LaTeX Warning: Label `tab:SVM' multiply defined.
@@ -1015,264 +1006,268 @@ Overfull \hbox (14.6496pt too wide) in paragraph at lines 301--317
  []
 
 
+Package caption Warning: \label without proper \caption on input line 336.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:partitions' on page 7 undefined on input line 352
+.
+
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7
 
-] [8]
+]
+Overfull \hbox (9.6496pt too wide) in paragraph at lines 395--411
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9]
-<fig/LogReg_FindThreshold_RocCurve_coarse.png, id=192, 578.16pt x 433.62pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10] [11]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12]
+<fig/LogReg_FindThreshold_RocCurve_coarse.png, id=216, 578.16pt x 433.62pt>
 File: fig/LogReg_FindThreshold_RocCurve_coarse.png Graphic file (type png)
 
 <use fig/LogReg_FindThreshold_RocCurve_coarse.png>
 Package pdftex.def Info: fig/LogReg_FindThreshold_RocCurve_coarse.png used on i
-nput line 523.
+nput line 734.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
 
-<fig/LogReg_FindThreshold_RocCurve_fine.png, id=193, 578.16pt x 433.62pt>
+<fig/LogReg_FindThreshold_RocCurve_fine.png, id=217, 578.16pt x 433.62pt>
 File: fig/LogReg_FindThreshold_RocCurve_fine.png Graphic file (type png)
 
 <use fig/LogReg_FindThreshold_RocCurve_fine.png>
 Package pdftex.def Info: fig/LogReg_FindThreshold_RocCurve_fine.png used on inp
-ut line 529.
+ut line 740.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
 
-Overfull \hbox (4.42pt too wide) in paragraph at lines 521--532
+Overfull \hbox (4.42pt too wide) in paragraph at lines 732--743
  [][]  [] 
  []
 
-[10]
-<fig/LogReg_FindThreshold_PrCurve_coarse.png, id=200, 578.16pt x 433.62pt>
+[13]
+<fig/LogReg_FindThreshold_PrCurve_coarse.png, id=224, 578.16pt x 433.62pt>
 File: fig/LogReg_FindThreshold_PrCurve_coarse.png Graphic file (type png)
 
 <use fig/LogReg_FindThreshold_PrCurve_coarse.png>
 Package pdftex.def Info: fig/LogReg_FindThreshold_PrCurve_coarse.png used on in
-put line 542.
+put line 753.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
 
-<fig/LogReg_FindThreshold_PrCurve_fine.png, id=201, 578.16pt x 433.62pt>
+<fig/LogReg_FindThreshold_PrCurve_fine.png, id=225, 578.16pt x 433.62pt>
 File: fig/LogReg_FindThreshold_PrCurve_fine.png Graphic file (type png)
 
 <use fig/LogReg_FindThreshold_PrCurve_fine.png>
 Package pdftex.def Info: fig/LogReg_FindThreshold_PrCurve_fine.png used on inpu
-t line 548.
+t line 759.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
 
-Overfull \hbox (4.42pt too wide) in paragraph at lines 540--552
+Overfull \hbox (4.42pt too wide) in paragraph at lines 751--763
  [][]  [] 
  []
 
-<fig/SVM_FindThreshold_RocCurve_coarse.png, id=202, 578.16pt x 433.62pt>
+<fig/SVM_FindThreshold_RocCurve_coarse.png, id=226, 578.16pt x 433.62pt>
 File: fig/SVM_FindThreshold_RocCurve_coarse.png Graphic file (type png)
 
 <use fig/SVM_FindThreshold_RocCurve_coarse.png>
 Package pdftex.def Info: fig/SVM_FindThreshold_RocCurve_coarse.png used on inpu
-t line 564.
+t line 775.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
 
-<fig/SVM_FindThreshold_RocCurve_fine.png, id=203, 578.16pt x 433.62pt>
+<fig/SVM_FindThreshold_RocCurve_fine.png, id=227, 578.16pt x 433.62pt>
 File: fig/SVM_FindThreshold_RocCurve_fine.png Graphic file (type png)
 
 <use fig/SVM_FindThreshold_RocCurve_fine.png>
 Package pdftex.def Info: fig/SVM_FindThreshold_RocCurve_fine.png used on input 
-line 570.
+line 781.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
 
-Overfull \hbox (4.42pt too wide) in paragraph at lines 562--573
+Overfull \hbox (4.42pt too wide) in paragraph at lines 773--784
  [][]  [] 
  []
 
-[11 <./fig/LogReg_FindThreshold_RocCurve_coarse.png> <./fig/LogReg_FindThreshol
+[14 <./fig/LogReg_FindThreshold_RocCurve_coarse.png> <./fig/LogReg_FindThreshol
 d_RocCurve_fine.png> <./fig/LogReg_FindThreshold_PrCurve_coarse.png> <./fig/Log
 Reg_FindThreshold_PrCurve_fine.png>]
-<fig/SVM_FindThreshold_PrCurve_coarse.png, id=214, 578.16pt x 433.62pt>
+<fig/SVM_FindThreshold_PrCurve_coarse.png, id=239, 578.16pt x 433.62pt>
 File: fig/SVM_FindThreshold_PrCurve_coarse.png Graphic file (type png)
 
 <use fig/SVM_FindThreshold_PrCurve_coarse.png>
 Package pdftex.def Info: fig/SVM_FindThreshold_PrCurve_coarse.png used on input
- line 583.
+ line 794.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
 
-<fig/SVM_FindThreshold_PrCurve_fine.png, id=215, 578.16pt x 433.62pt>
+<fig/SVM_FindThreshold_PrCurve_fine.png, id=240, 578.16pt x 433.62pt>
 File: fig/SVM_FindThreshold_PrCurve_fine.png Graphic file (type png)
 
 <use fig/SVM_FindThreshold_PrCurve_fine.png>
 Package pdftex.def Info: fig/SVM_FindThreshold_PrCurve_fine.png used on input l
-ine 589.
+ine 800.
 (pdftex.def)             Requested size: 234.8775pt x 176.15768pt.
 
-Overfull \hbox (4.42pt too wide) in paragraph at lines 581--594
+Overfull \hbox (4.42pt too wide) in paragraph at lines 792--805
  [][]  [] 
  []
 
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 610.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 610.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 610.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 610.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 610.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 610.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[12 <./fig/SVM_FindThreshold_RocCurve_coarse.png> <./fig/SVM_FindThreshold_RocC
+[15 <./fig/SVM_FindThreshold_RocCurve_coarse.png> <./fig/SVM_FindThreshold_RocC
 urve_fine.png> <./fig/SVM_FindThreshold_PrCurve_coarse.png> <./fig/SVM_FindThre
 shold_PrCurve_fine.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[13] [14]
 LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 743.
- <fig/ActiveVsPassivePRLR.png, id=237, 578.16pt x 433.62pt>
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 829.
+
+<fig/ActiveVsPassivePRLR.png, id=251, 578.16pt x 433.62pt>
 File: fig/ActiveVsPassivePRLR.png Graphic file (type png)
 
 <use fig/ActiveVsPassivePRLR.png>
-Package pdftex.def Info: fig/ActiveVsPassivePRLR.png used on input line 746.
+Package pdftex.def Info: fig/ActiveVsPassivePRLR.png used on input line 832.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [15
 
-]
-<fig/ActiveVsPassiveROCLR.png, id=242, 578.16pt x 433.62pt>
+<fig/ActiveVsPassiveROCLR.png, id=252, 578.16pt x 433.62pt>
 File: fig/ActiveVsPassiveROCLR.png Graphic file (type png)
 
 <use fig/ActiveVsPassiveROCLR.png>
-Package pdftex.def Info: fig/ActiveVsPassiveROCLR.png used on input line 758.
+Package pdftex.def Info: fig/ActiveVsPassiveROCLR.png used on input line 844.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [16 <./fig/ActiveVsPassivePRLR.png>]
-[17 <./fig/ActiveVsPassiveROCLR.png>]
-<fig/ActiveVsPassiveAccLR.png, id=255, 578.16pt x 433.62pt>
+<fig/ActiveVsPassiveAccLR.png, id=259, 578.16pt x 433.62pt>
 File: fig/ActiveVsPassiveAccLR.png Graphic file (type png)
 
 <use fig/ActiveVsPassiveAccLR.png>
-Package pdftex.def Info: fig/ActiveVsPassiveAccLR.png used on input line 770.
+Package pdftex.def Info: fig/ActiveVsPassiveAccLR.png used on input line 856.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
-
-<fig/ActiveVsPassiveF1LR.png, id=256, 578.16pt x 433.62pt>
+ [17 <./fig/ActiveVsPassiveROCLR.png>]
+[18 <./fig/ActiveVsPassiveAccLR.png>]
+<fig/ActiveVsPassiveF1LR.png, id=272, 578.16pt x 433.62pt>
 File: fig/ActiveVsPassiveF1LR.png Graphic file (type png)
 
 <use fig/ActiveVsPassiveF1LR.png>
-Package pdftex.def Info: fig/ActiveVsPassiveF1LR.png used on input line 783.
+Package pdftex.def Info: fig/ActiveVsPassiveF1LR.png used on input line 869.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [18
 
- <./fig/ActiveVsPassiveAccLR.png>]
-<fig/ActiveVsPassivePRSVM.png, id=263, 578.16pt x 433.62pt>
+<fig/ActiveVsPassivePRSVM.png, id=273, 578.16pt x 433.62pt>
 File: fig/ActiveVsPassivePRSVM.png Graphic file (type png)
 
 <use fig/ActiveVsPassivePRSVM.png>
-Package pdftex.def Info: fig/ActiveVsPassivePRSVM.png used on input line 803.
+Package pdftex.def Info: fig/ActiveVsPassivePRSVM.png used on input line 889.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [19 <./fig/ActiveVsPassiveF1LR.png>]
-<fig/ActiveVsPassiveROCSVM.png, id=270, 578.16pt x 433.62pt>
+ [19
+
+ <./fig/ActiveVsPassiveF1LR.png>]
+<fig/ActiveVsPassiveROCSVM.png, id=280, 578.16pt x 433.62pt>
 File: fig/ActiveVsPassiveROCSVM.png Graphic file (type png)
 
 <use fig/ActiveVsPassiveROCSVM.png>
-Package pdftex.def Info: fig/ActiveVsPassiveROCSVM.png used on input line 816.
+Package pdftex.def Info: fig/ActiveVsPassiveROCSVM.png used on input line 902.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [20 <./fig/ActiveVsPassivePRSVM.png>]
 [21 <./fig/ActiveVsPassiveROCSVM.png>]
-<fig/ActiveVsPassiveAccSVM.png, id=284, 578.16pt x 433.62pt>
+<fig/ActiveVsPassiveAccSVM.png, id=294, 578.16pt x 433.62pt>
 File: fig/ActiveVsPassiveAccSVM.png Graphic file (type png)
 
 <use fig/ActiveVsPassiveAccSVM.png>
-Package pdftex.def Info: fig/ActiveVsPassiveAccSVM.png used on input line 826.
+Package pdftex.def Info: fig/ActiveVsPassiveAccSVM.png used on input line 912.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
 
-<fig/ActiveVsPassiveF1SVM.png, id=285, 578.16pt x 433.62pt>
+<fig/ActiveVsPassiveF1SVM.png, id=295, 578.16pt x 433.62pt>
 File: fig/ActiveVsPassiveF1SVM.png Graphic file (type png)
 
 <use fig/ActiveVsPassiveF1SVM.png>
-Package pdftex.def Info: fig/ActiveVsPassiveF1SVM.png used on input line 839.
+Package pdftex.def Info: fig/ActiveVsPassiveF1SVM.png used on input line 925.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [22
 
  <./fig/ActiveVsPassiveAccSVM.png>]
-<fig/FFR_PR_Cost1_rnds0_171.png, id=292, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost1_rnds0_171.png, id=302, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost1_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost1_rnds0_171.png>
-Package pdftex.def Info: fig/FFR_PR_Cost1_rnds0_171.png used on input line 853.
+Package pdftex.def Info: fig/FFR_PR_Cost1_rnds0_171.png used on input line 939.
 
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [23 <./fig/ActiveVsPassiveF1SVM.png>]
-<fig/FFR_PR_Cost16_rnds0_171.png, id=299, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost16_rnds0_171.png, id=310, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost16_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost16_rnds0_171.png>
-Package pdftex.def Info: fig/FFR_PR_Cost16_rnds0_171.png used on input line 867
+Package pdftex.def Info: fig/FFR_PR_Cost16_rnds0_171.png used on input line 953
 .
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [24 <./fig/FFR_PR_Cost1_rnds0_171.png>]
 [25 <./fig/FFR_PR_Cost16_rnds0_171.png>]
-<fig/FFR_PR_Cost16_rnds0_500.png, id=313, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost16_rnds0_500.png, id=323, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost16_rnds0_500.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost16_rnds0_500.png>
-Package pdftex.def Info: fig/FFR_PR_Cost16_rnds0_500.png used on input line 882
+Package pdftex.def Info: fig/FFR_PR_Cost16_rnds0_500.png used on input line 968
 .
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
 
-<fig/FFR_PR_Cost8_rnds0_171.png, id=314, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost8_rnds0_171.png, id=324, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost8_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost8_rnds0_171.png>
-Package pdftex.def Info: fig/FFR_PR_Cost8_rnds0_171.png used on input line 896.
+Package pdftex.def Info: fig/FFR_PR_Cost8_rnds0_171.png used on input line 982.
 
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [26
 
  <./fig/FFR_PR_Cost16_rnds0_500.png>]
-<fig/FFR_PR_Cost8_rnds0_500.png, id=322, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost8_rnds0_500.png, id=332, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost8_rnds0_500.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost8_rnds0_500.png>
-Package pdftex.def Info: fig/FFR_PR_Cost8_rnds0_500.png used on input line 907.
+Package pdftex.def Info: fig/FFR_PR_Cost8_rnds0_500.png used on input line 993.
 
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [27 <./fig/FFR_PR_Cost8_rnds0_171.png>]
 [28 <./fig/FFR_PR_Cost8_rnds0_500.png>]
-<fig/FFR_PR_Cost4_rnds0_171.png, id=335, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost4_rnds0_171.png, id=345, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost4_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost4_rnds0_171.png>
-Package pdftex.def Info: fig/FFR_PR_Cost4_rnds0_171.png used on input line 918.
-
+Package pdftex.def Info: fig/FFR_PR_Cost4_rnds0_171.png used on input line 1004
+.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
 
-<fig/FFR_PR_Cost4_rnds20_60.png, id=336, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost4_rnds20_60.png, id=346, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost4_rnds20_60.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost4_rnds20_60.png>
-Package pdftex.def Info: fig/FFR_PR_Cost4_rnds20_60.png used on input line 928.
-
+Package pdftex.def Info: fig/FFR_PR_Cost4_rnds20_60.png used on input line 1014
+.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [29
 
  <./fig/FFR_PR_Cost4_rnds0_171.png>]
-<fig/FFR_PR_Cost2_rnds0_171.png, id=343, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost2_rnds0_171.png, id=353, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost2_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost2_rnds0_171.png>
-Package pdftex.def Info: fig/FFR_PR_Cost2_rnds0_171.png used on input line 938.
-
+Package pdftex.def Info: fig/FFR_PR_Cost2_rnds0_171.png used on input line 1024
+.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [30 <./fig/FFR_PR_Cost4_rnds20_60.png>]
 [31 <./fig/FFR_PR_Cost2_rnds0_171.png>]
-<fig/FFR_PR_Cost2_rnds20_60.png, id=356, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost2_rnds20_60.png, id=366, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost2_rnds20_60.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost2_rnds20_60.png>
-Package pdftex.def Info: fig/FFR_PR_Cost2_rnds20_60.png used on input line 948.
-
+Package pdftex.def Info: fig/FFR_PR_Cost2_rnds20_60.png used on input line 1034
+.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [32
 
@@ -1292,7 +1287,7 @@ bibitemlist
 Class memoir Warning: The material used in the footer is too large
 (8.39996pt) for the given foot skip (0.0pt), it is recommended to
 either increase the foot skip or redesign the fotoer
-(in both cases you will find help in the memoir manual). on input line 990.
+(in both cases you will find help in the memoir manual). on input line 1076.
 
 [35
 
@@ -1300,11 +1295,12 @@ either increase the foot skip or redesign the fotoer
 \tf@toc=\write6
 \openout6 = `thesis-test.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 990.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 990.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1076.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1076.
  (./thesis-test.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 990.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 990.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1076.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1076.
+
 
 
 Package rerunfilecheck Warning: File `thesis-test.out' has changed.
@@ -1312,32 +1308,27 @@ Package rerunfilecheck Warning: File `thesis-test.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `thesis-test.out':
-(rerunfilecheck)             Before: 90B83CD0E7FA22599D3525C599AD0C89;1439
-(rerunfilecheck)             After:  1A7CE0D6E3918D324323B76E2F93EB42;1439.
-
-Package rerunfilecheck Warning: File `thesis-test.brf' has changed.
-(rerunfilecheck)                Rerun to get bibliographical references right.
-
-Package rerunfilecheck Info: Checksums for `thesis-test.brf':
-(rerunfilecheck)             Before: 8CB9327DA22FE08172DA7070E4D64026;52
-(rerunfilecheck)             After:  BD93D9050A857D4D816193EB0ACAD5AE;52.
+(rerunfilecheck)             Before: CE718793C6A0CBC53C0A29978A862A27;1439
+(rerunfilecheck)             After:  565E2EA03F7A11554F574567EC2566C7;1439.
+Package rerunfilecheck Info: File `thesis-test.brf' has not changed.
+(rerunfilecheck)             Checksum: BD93D9050A857D4D816193EB0ACAD5AE;52.
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 990.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1076.
  ) 
 Here is how much of TeX's memory you used:
- 13827 strings out of 493089
- 211962 string characters out of 6134842
- 427065 words of memory out of 5000000
- 16776 multiletter control sequences out of 15000+600000
- 48907 words of font info for 256 fonts, out of 8000000 for 9000
+ 13814 strings out of 493089
+ 211655 string characters out of 6134842
+ 390193 words of memory out of 5000000
+ 16748 multiletter control sequences out of 15000+600000
+ 41911 words of font info for 239 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,11n,46p,1040b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.38} has been referenced but does not exi
+ 40i,11n,46p,626b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{section*.45} has been referenced but does not exi
 st, replaced by a fixed one
 
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
@@ -1347,10 +1338,10 @@ dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2015/texmf-dist/fo
 nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
 e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on thesis-test.pdf (40 pages, 2086601 bytes).
+Output written on thesis-test.pdf (40 pages, 2083716 bytes).
 PDF statistics:
- 438 PDF objects out of 1000 (max. 8388607)
- 329 compressed objects within 4 object streams
- 102 named destinations out of 1000 (max. 500000)
- 37170 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 451 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 34098 words of extra memory for PDF output out of 35830 (max. 10000000)
 

@@ -1,0 +1,57 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.794 & 0.744 & 0.779 & 0.692 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.808 & 0.556 & 0.807 & 0.534 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.838 & 0.674 & 0.827 & 0.672 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.835 & 0.594 & 0.821 & 0.572 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.808 & 0.736 & 0.796 & 0.666 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.834 & 0.692 & 0.826 & 0.687 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.781 & 0.641 & 0.771 & 0.650 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.784 & 0.695 & 0.789 & 0.679 & 0.797 & 0.797 & 0.000 & 0.000 \\
+0.794 & 0.620 & 0.801 & 0.611 & 0.797 & 0.797 & 0.000 & 0.000 \\
+0.827 & 0.619 & 0.818 & 0.592 & 0.801 & 0.801 & 0.000 & 0.000 \\
+avg 0.810 & avg 0.657 & avg 0.804 & avg 0.636 & avg 0.799 & avg 0.799 & avg 0.000 & avg 0.000 \\ \bottomrule
+\end{tabular}
+\caption{SVMNorm}
+\label{tab:SVMNorm}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+382 & 382 & 0 & 0 & 97 & 97 & 0 & 0 \\
+382 & 382 & 0 & 0 & 97 & 97 & 0 & 0 \\
+382 & 382 & 0 & 0 & 95 & 95 & 0 & 0 \\
+avg 382.7 & avg 382.7 & avg 0.0 & avg 0.0 & avg 96.1 & avg 96.1 & avg 0.0 & avg 0.0 \\ \bottomrule
+\end{tabular}
+\caption{SVMNorm}
+\label{tab:SVMNorm}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.810 & 0.804 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
+fine & 0.657 & 0.636 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMNorm}
+\label{tab:SVMNorm}
+\end{table}
+\FloatBarrier
+

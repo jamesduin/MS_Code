@@ -7,24 +7,37 @@ import copy
 import sys
 import re
 import os
-rootDir = re.split('[/\.]',__file__)[1]
-if(rootDir == 'py'):
-    os.chdir('FindThresholdSVM')
-    dataDir = '../../'
-else:
-    os.chdir('/work/scott/jamesd/results')
-    dataDir = '/home/scott/jamesd/MS_Code/'
-
+import shutil
 
 
 testFold = int(sys.argv[1])
-clfType = 'SVM'  #LogReg, SVM
+dir = 'ScalingDim/SVMSel75'
+if not os.path.exists(dir):
+    os.makedirs(dir)
+    os.makedirs(dir+'/coarse_results')
+    os.makedirs(dir+'/fine_results')
+    os.makedirs(dir+'/results')
+# else:
+#     shutil.rmtree(dir)  # removes all the subdirectories!
+#     os.makedirs(dir)
+
+
+
+os.chdir(dir)
+
+
 results = []
 
 start_time = [time.perf_counter()]
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
-train_part = m.loadScaledPartData(clfType)
-#train_part = m.loadAndProcessData('classes',clfType)  #classes, classes_subset
+# loadDir =  '../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
+#loadDir = '../../data/partitionStdSclSel/partitionStdSclSel_'
+#train_part = m.loadScaledPartData(loadDir)
+
+#loadDir = '../../../data/classes/class_'
+loadDir = '../../../data/classes_subset/class_'
+train_part = m.loadAndProcessData(loadDir)  #classes, classes_subset
+
 m.printClsVsFolds(results,train_part, 'all')
 test_part = train_part[testFold]
 del train_part[testFold]
@@ -57,31 +70,28 @@ y_testCoarse, y_sampleWeight, X_test, y_test = m.createTestSet(test_part)
 y_predCoarse = dict()
 y_pred_score = dict()
 for lvl in ['coarse', 'fine']:
-#for lvl in ['fine']:
     y_train, X_train = rnds[lvl].createTrainSet(classes_all)
     y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train)
-    rnds[lvl].trainClassifier(X_train, y_trainCoarse,clfType)
+    rnds[lvl].trainClassifier(X_train, y_trainCoarse)
     y_predCoarse[lvl], y_pred_score[lvl] = rnds[lvl].predictTestSet(X_test)
     rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], results)
-    ###### log the errors
-    # err_file = open('jaccard/'+clfType+'_'+lvl+'_'+str(testFold)+'.txt', 'w')
-    # for i,pred in enumerate(y_predCoarse[lvl]):
-    #     if(y_predCoarse[lvl][i] != y_testCoarse[i]):
-    #         m.printDataInstance(np.array([y_test[i]]+list(X_test[i])), err_file)
-    # err_file.close()
-    fpr, tpr, threshRoc = rnds[lvl].plotRocCurves(y_testCoarse, y_pred_score[lvl], y_sampleWeight, results)
-    precision, recall, threshPr = rnds[lvl].plotPrCurves(y_testCoarse, y_pred_score[lvl], y_sampleWeight, results)
+    fpr, tpr, threshRoc = rnds[lvl].plotRocCurves(y_testCoarse, y_pred_score[lvl],
+                                                  y_sampleWeight, results)
+    precision, recall, threshPr = rnds[lvl].plotPrCurves(y_testCoarse,
+                        y_pred_score[lvl], y_sampleWeight, results)
     print('threshRoc {}'.format(len(threshRoc)))
     print('threshPr {}'.format(len(threshPr)))
     for tInd,thresh in enumerate(threshRoc):
-        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(thresh,y_pred_score[lvl])
+        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(thresh,
+                                            y_pred_score[lvl])
         rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,
                                         'flsPos',fpr[tInd],
                                         'truPos',tpr[tInd],
                                         'thresh',thresh)
 
     for tInd,thresh in enumerate(threshPr):
-        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(thresh,y_pred_score[lvl])
+        y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(thresh,
+                                            y_pred_score[lvl])
         rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,results,
                                         'rec', recall[tInd],
                                         'prec', precision[tInd],
@@ -89,7 +99,8 @@ for lvl in ['coarse', 'fine']:
 
 #m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,"Psv")
 ##### Append round time and fold counts
-instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, results, classes_all, start_time)
+instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, results, classes_all,
+                                 start_time)
 m.appendSetTotal(rndNum, results, classes_all,'classes_all',testFold)
 tot = time.perf_counter() - start_time[0]
 m.addPrint(results,['Total Time:']+['{:.0f}hr {:.0f}m {:.2f}sec'.format(

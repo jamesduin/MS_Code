@@ -373,30 +373,241 @@ Table \ref{tab:TrainTest}.
 \FloatBarrier
 
 \par coarse just used marked all positives as 1 and ran a binary classifer.
-\par fine grained classifiers trained 8 separate classifiers for the 8 fine grained
+ fine grained classifiers trained 8 separate classifiers for the 8 fine grained
 classes, so for fine grain classifier for 1, all other fine grained classes are marked as 0
-in addition to all the coarse instances being marked as 0.
-\par Also the Pr auc and Roc auc are the primary metrics for determining the performance
-of the classifier.
-\par The next step is to determine what classifier can be applied to 'learn' the classes of
-this dataset.
-\par Because the experiment will involve running multiple rounds with increasing the instances to
- be trained on iteratively I tested each classifier against the full dataset and then a reduced
- dataset with one fifth of the negative instances.
-
-
+in addition to all the coarse instances being marked as 0. Also the Pr auc and Roc auc are the
+primary metrics for determining the performance
+of the classifier. The next step is to determine what classifier can be applied to 'learn' the classes of
+this dataset. Because the experiment will involve running multiple rounds with increasing the instances to
+be trained on iteratively I tested each classifier against the full dataset and then a reduced
+dataset with one fifth of the negative instances.
 
 \par I tried using SVM. Throughout this project I used the python library sci-kit learn \cite{scikit-learn}.
 The support vector machine implemented by this library has the following default parameters. SVC C=1.0,
 kernel='rbf', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache-size=200,
 class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, random-state=None.
+
+
+\FloatBarrier
+\begin{table}[!htb]
+\begin{subtable}{.15\linewidth}
+  \centering
+  \begin{tabular}{|l||l|}\toprule
+    Classes & All \\ \midrule
+    0 & 3827 \\
+    1 & 13 \\
+    2 & 185 \\
+    3 & 324 \\
+    4 & 190 \\
+    5 & 11 \\
+    6 & 104 \\
+    7 & 59 \\
+    8 & 76 \\
+    Total & 4789 \\
+    Shape & 450 \\
+ \bottomrule
+  \end{tabular}
+  \label{tab:ClassesSub}
+  \caption{Classes Subset}
+\end{subtable}%
+\begin{subtable}{.85\linewidth}
+\centering
+  \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
+    All & Folds & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \midrule
+    1 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+    2 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+    3 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+    4 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 5 & 8 \\
+    5 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 10 & 6 & 8 \\
+    6 & 479 & 383 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+    7 & 479 & 383 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+    8 & 479 & 382 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+    9 & 479 & 382 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+    10 & 478 & 382 & 2 & 18 & 32 & 19 & 2 & 10 & 6 & 7 \\ \midrule
+    Total & 4789 & 3827 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\
+ \bottomrule
+  \end{tabular}
+  \label{tab:Partitions Subset}
+  \caption{Folds Subset}
+  \end{subtable}
+  \caption{This is for the partitions subset.}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
+    train & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    Total & 4310 & 3444 & 12 & 166 & 292 & 171 & 10 & 93 & 53 & 69 \\ \midrule
+    test & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    Total & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+ \bottomrule
+  \end{tabular}
+  \caption{This is what the train and test set look like for the subset.}
+  \label{tab:TrainTest}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.838 & 0.809 & 0.817 & 0.771 & 0.810 & 0.800 & 0.222 & 0.000  \\
+0.828 & 0.821 & 0.787 & 0.778 & 0.829 & 0.804 & 0.281 & 0.041  \\
+0.828 & 0.793 & 0.795 & 0.753 & 0.827 & 0.797 & 0.314 & 0.000  \\
+0.850 & 0.824 & 0.820 & 0.790 & 0.827 & 0.806 & 0.303 & 0.061  \\
+0.859 & 0.815 & 0.827 & 0.769 & 0.835 & 0.802 & 0.313 & 0.021  \\
+0.830 & 0.824 & 0.765 & 0.763 & 0.825 & 0.802 & 0.263 & 0.021  \\
+0.853 & 0.828 & 0.814 & 0.782 & 0.831 & 0.806 & 0.308 & 0.061  \\
+0.853 & 0.828 & 0.815 & 0.786 & 0.827 & 0.797 & 0.303 & 0.000  \\
+0.842 & 0.824 & 0.805 & 0.774 & 0.825 & 0.800 & 0.288 & 0.020  \\
+0.834 & 0.811 & 0.799 & 0.769 & 0.822 & 0.803 & 0.234 & 0.021  \\
+avg 0.842 & avg 0.818 & avg 0.804 & avg 0.773 & avg 0.826 & avg 0.802 & avg 0.283 & avg 0.024 \\ \bottomrule
+\end{tabular}
+\caption{Default svm results}
+\label{tab:defSVMResults}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+375 & 383 & 8 & 0 & 83 & 96 & 13 & 0 \\
+381 & 383 & 2 & 0 & 80 & 94 & 16 & 2 \\
+377 & 382 & 6 & 1 & 77 & 96 & 19 & 0 \\
+378 & 383 & 5 & 0 & 78 & 93 & 18 & 3 \\
+382 & 383 & 1 & 0 & 78 & 95 & 18 & 1 \\
+380 & 383 & 3 & 0 & 81 & 95 & 15 & 1 \\
+380 & 383 & 3 & 0 & 78 & 93 & 18 & 3 \\
+378 & 382 & 4 & 0 & 79 & 97 & 18 & 0 \\
+378 & 382 & 4 & 0 & 80 & 96 & 17 & 1 \\
+379 & 382 & 3 & 0 & 82 & 94 & 13 & 1 \\
+avg 378.8 & avg 382.6 & avg 3.9 & avg 0.1 & avg 79.6 & avg 94.9 & avg 16.5 & avg 1.2 \\ \bottomrule
+\end{tabular}
+\caption{SVMDefConfMat}
+\label{tab:SVMDef}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.842 & 0.804 & 0.826 & 0.283 & ( 378.8 / 79.6 ) & ( 3.9 / 16.5 ) \\
+fine & 0.818 & 0.773 & 0.802 & 0.024 & ( 382.6 / 94.9 ) & ( 0.1 / 1.2 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMDefCondensed}
+\label{tab:SVMDefCondensed}
+\end{table}
+\FloatBarrier
+
+
+
 \par I tried different scaling methods (min max scaler, std scaler), I settled on std scaler.
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.919 & 0.894 & 0.881 & 0.635 & ( 371.9 / 46.3 ) & ( 10.8 / 49.8 ) \\
+fine & 0.887 & 0.862 & 0.811 & 0.106 & ( 382.7 / 90.7 ) & ( 0.0 / 5.4 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMStandard}
+\label{tab:SVMStandard}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.880 & 0.852 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
+fine & 0.837 & 0.809 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMMinMax}
+\label{tab:SVMMinMax}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.810 & 0.804 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
+fine & 0.657 & 0.636 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMNorm}
+\label{tab:SVMNorm}
+\end{table}
+\FloatBarrier
+
 
 
 
 \par I tried different feature select measures, I settled on 75 perc feature select.
 
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.904 & 0.873 & 0.874 & 0.620 & ( 369.6 / 47.0 ) & ( 13.1 / 49.1 ) \\
+fine & 0.854 & 0.823 & 0.807 & 0.072 & ( 382.7 / 92.5 ) & ( 0.0 / 3.6 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMSel25}
+\label{tab:SVMSel25}
+\end{table}
+\FloatBarrier
 
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.912 & 0.884 & 0.880 & 0.632 & ( 371.9 / 46.7 ) & ( 10.8 / 49.4 ) \\
+fine & 0.879 & 0.850 & 0.808 & 0.085 & ( 382.7 / 91.8 ) & ( 0.0 / 4.3 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMSel50}
+\label{tab:SVMSel50}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.918 & 0.890 & 0.881 & 0.628 & ( 373.6 / 47.8 ) & ( 9.1 / 48.3 ) \\
+fine & 0.882 & 0.852 & 0.808 & 0.080 & ( 382.7 / 92.1 ) & ( 0.0 / 4.0 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMSel75}
+\label{tab:SVMSel75}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
+coarse & 0.919 & 0.894 & 0.881 & 0.635 & ( 371.9 / 46.3 ) & ( 10.8 / 49.8 ) \\
+fine & 0.887 & 0.862 & 0.811 & 0.106 & ( 382.7 / 90.7 ) & ( 0.0 / 5.4 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMSel100}
+\label{tab:SVMSel100}
+\end{table}
+\FloatBarrier
 
 \par I tried different different C costs, kernels, decision function shape, gamma, tolerance
 settled on classif = svm.SVC(C=1.0, kernel='rbf',decisionfunctionshape='ovo',gamma=0.0025,
@@ -448,7 +659,7 @@ I got this vector of ratios
 \begin{table}[h]
   \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
-    coarse-tn & fine-tn & coarse-fn & fine-fn & coarse-fp & fine-fp & coarse-tp & fine-tp \\ \midrule
+    coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
     1460 & 1849 & 454 & 65 & 14 & 46 & 82 & 50 \\
     1540 & 1851 & 374 & 63 & 22 & 49 & 74 & 47 \\
     1508 & 1851 & 406 & 63 & 12 & 43 & 84 & 53 \\
@@ -494,7 +705,7 @@ I got this vector of ratios
 \begin{table}[h]
   \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
-    coarse-tn & fine-tn & coarse-fn & fine-fn & coarse-fp & fine-fp & coarse-tp & fine-tp \\ \midrule
+    coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
     1828 & 1881 & 86 & 33 & 34 & 54 & 62 & 42 \\
     1833 & 1888 & 81 & 26 & 38 & 60 & 58 & 36 \\
     1847 & 1893 & 67 & 21 & 45 & 61 & 51 & 35 \\
@@ -596,131 +807,6 @@ I got this vector of ratios
 \FloatBarrier
 
 
-
-
-
-
-
-
-
-\FloatBarrier
-\begin{table}[h]
-  \small
-  \centering
-  \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    Titles & fld1 & fld2 & fld3 & fld4 & fld5 & fld6 & fld7 & fld8 & fld9 & fld10 & Avg \\ \midrule
-    fineErr & 111 & 112 & 106 & 114 & 107 & 123 & 121 & 120 & 123 & 134 & 117.1 \\
-    coarseErr & 468 & 396 & 418 & 447 & 413 & 432 & 434 & 414 & 433 & 429 & 428.4 \\
-    total & 579 & 508 & 524 & 561 & 520 & 555 & 555 & 534 & 556 & 563 & 545.5 \\
-    jaccardInd & 0.15 & 0.2 & 0.16 & 0.16 & 0.17 & 0.19 & 0.18 & 0.19 & 0.19 & 0.2 & 0.18 \\
-    InterSect &  &  &  &  &  &  &  &  &  &  &  \\
-    0 & 63 & 62 & 62 & 61 & 55 & 69 & 69 & 60 & 69 & 79 & 64.9 \\
-    1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 0.80 \\
-    2 & 5 & 10 & 5 & 10 & 6 & 3 & 5 & 10 & 6 & 5 & 6.5 \\
-    3 & 5 & 10 & 4 & 3 & 8 & 10 & 8 & 8 & 6 & 4 & 6.6 \\
-    4 & 3 & 0 & 1 & 1 & 2 & 4 & 1 & 3 & 1 & 2 & 1.8 \\
-    5 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0.10 \\
-    6 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.00 \\
-    7 & 1 & 2 & 2 & 3 & 2 & 1 & 1 & 2 & 3 & 1 & 1.8 \\
-    8 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0.10 \\
-    Total & 77 & 84 & 74 & 79 & 75 & 88 & 85 & 85 & 87 & 92 & 82.6 \\
-    Coarse &  &  &  &  &  &  &  &  &  &  &  \\
-    0 & 454 & 374 & 406 & 428 & 393 & 413 & 417 & 389 & 415 & 416 & 410.5 \\
-    1 & 0 & 0 & 0 & 1 & 1 & 1 & 2 & 1 & 2 & 1 & 0.90 \\
-    2 & 5 & 10 & 5 & 10 & 6 & 3 & 5 & 10 & 6 & 5 & 6.5 \\
-    3 & 5 & 10 & 4 & 3 & 8 & 10 & 8 & 8 & 6 & 4 & 6.6 \\
-    4 & 3 & 0 & 1 & 1 & 2 & 4 & 1 & 3 & 1 & 2 & 1.8 \\
-    5 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0.10 \\
-    6 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0.00 \\
-    7 & 1 & 2 & 2 & 4 & 2 & 1 & 1 & 2 & 3 & 1 & 1.9 \\
-    8 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0.10 \\
-    Total & 468 & 396 & 418 & 447 & 413 & 432 & 434 & 414 & 433 & 429 & 428.4 \\
-    Fine &  &  &  &  &  &  &  &  &  &  &  \\
-    0 & 65 & 63 & 63 & 61 & 55 & 71 & 72 & 61 & 72 & 77 & 66.0 \\
-    1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 2 & 1 & 0.90 \\
-    2 & 11 & 16 & 13 & 16 & 16 & 11 & 10 & 15 & 15 & 13 & 13.6 \\
-    3 & 18 & 20 & 11 & 21 & 17 & 17 & 17 & 23 & 15 & 21 & 18.0 \\
-    4 & 6 & 3 & 7 & 5 & 6 & 10 & 11 & 10 & 8 & 7 & 7.3 \\
-    5 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 0.50 \\
-    6 & 3 & 3 & 8 & 3 & 2 & 5 & 5 & 4 & 4 & 4 & 4.1 \\
-    7 & 6 & 5 & 4 & 5 & 5 & 5 & 4 & 3 & 4 & 5 & 4.6 \\
-    8 & 0 & 2 & 0 & 2 & 4 & 2 & 0 & 3 & 3 & 5 & 2.1 \\
-    Total & 111 & 112 & 106 & 114 & 107 & 123 & 121 & 120 & 123 & 134 & 117.1 \\ \bottomrule
-  \end{tabular}
-  \caption{The jaccard results for Logistic Regression. Of the 117 instances in the
-  Fine error set, 82 match with instances in the Coarse error set. The Jaccard index is 0.18,
-  this compares to a higher Jaccard index of 0.43 in the SVM results. The difference is mainly
-  due to the higher number of instances in the Coarse error set in the Log Reg results, 428 compared
-  to 123. The error sets and the intersection sets contain representative samples of all the classes.}
-  \label{tab:SVM}
-\end{table}
-\FloatBarrier
-
-
-
-\FloatBarrier
-\begin{table}[h]
-  \small
-  \centering
-  \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    Titles & fld1 & fld2 & fld3 & fld4 & fld5 & fld6 & fld7 & fld8 & fld9 & fld10 & Avg \\ \midrule
-    fineErr & 87 & 86 & 82 & 89 & 94 & 89 & 83 & 85 & 81 & 83 & 85.9 \\
-    coarseErr & 120 & 119 & 112 & 130 & 138 & 132 & 116 & 124 & 116 & 124 & 123.1 \\
-    total & 207 & 205 & 194 & 219 & 232 & 221 & 199 & 209 & 197 & 207 & 209.0 \\
-    jaccardInd & 0.41 & 0.4 & 0.47 & 0.42 & 0.41 & 0.41 & 0.47 & 0.45 & 0.44 & 0.45 & 0.43 \\
-    InterSect &  &  &  &  &  &  &  &  &  &  &  \\
-    0 & 27 & 23 & 19 & 27 & 22 & 22 & 20 & 23 & 22 & 19 & 22.4 \\
-    1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0.90 \\
-    2 & 11 & 12 & 13 & 12 & 14 & 12 & 15 & 12 & 12 & 12 & 12.5 \\
-    3 & 11 & 9 & 14 & 10 & 10 & 15 & 12 & 16 & 12 & 15 & 12.4 \\
-    4 & 3 & 8 & 7 & 7 & 10 & 10 & 8 & 8 & 4 & 8 & 7.3 \\
-    5 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0.50 \\
-    6 & 2 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & 0.50 \\
-    7 & 2 & 4 & 3 & 5 & 4 & 3 & 4 & 2 & 4 & 4 & 3.5 \\
-    8 & 3 & 1 & 4 & 3 & 5 & 1 & 4 & 2 & 3 & 4 & 3.0 \\
-    Total & 60 & 59 & 62 & 65 & 67 & 64 & 64 & 65 & 60 & 64 & 63.0 \\
-    Coarse &  &  &  &  &  &  &  &  &  &  &  \\
-    0 & 86 & 81 & 67 & 92 & 92 & 87 & 71 & 80 & 77 & 78 & 81.1 \\
-    1 & 1 & 1 & 1 & 1 & 1 & 0 & 2 & 1 & 2 & 1 & 1.1 \\
-    2 & 11 & 12 & 14 & 12 & 14 & 12 & 15 & 12 & 12 & 12 & 12.6 \\
-    3 & 11 & 10 & 14 & 10 & 10 & 16 & 12 & 17 & 12 & 15 & 12.7 \\
-    4 & 4 & 9 & 8 & 7 & 10 & 10 & 8 & 8 & 4 & 9 & 7.7 \\
-    5 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0.50 \\
-    6 & 2 & 0 & 0 & 0 & 0 & 2 & 0 & 2 & 1 & 0 & 0.70 \\
-    7 & 2 & 4 & 3 & 5 & 5 & 3 & 4 & 2 & 4 & 4 & 3.6 \\
-    8 & 3 & 1 & 4 & 3 & 5 & 2 & 4 & 2 & 3 & 4 & 3.1 \\
-    Total & 120 & 119 & 112 & 130 & 138 & 132 & 116 & 124 & 116 & 124 & 123.1 \\
-    Fine &  &  &  &  &  &  &  &  &  &  &  \\
-    0 & 33 & 26 & 21 & 32 & 28 & 25 & 21 & 26 & 25 & 23 & 26.0 \\
-    1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 0.90 \\
-    2 & 15 & 18 & 16 & 16 & 15 & 18 & 17 & 16 & 16 & 17 & 16.4 \\
-    3 & 18 & 15 & 19 & 19 & 22 & 19 & 17 & 23 & 19 & 19 & 19.0 \\
-    4 & 7 & 11 & 11 & 9 & 12 & 12 & 12 & 11 & 8 & 10 & 10.3 \\
-    5 & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0.60 \\
-    6 & 4 & 6 & 3 & 1 & 3 & 3 & 4 & 2 & 1 & 3 & 3.0 \\
-    7 & 2 & 6 & 3 & 6 & 5 & 5 & 6 & 3 & 4 & 4 & 4.4 \\
-    8 & 7 & 2 & 7 & 4 & 7 & 7 & 5 & 3 & 6 & 5 & 5.3 \\
-    Total & 87 & 86 & 82 & 89 & 94 & 89 & 83 & 85 & 81 & 83 & 85.9 \\ \bottomrule
-  \end{tabular}
-  \caption{The jaccard results for SVM. The fine error set has a total of 86 instances, with
-  63 of those matching with the coarse set. Similar to the Log Reg jaccard results,
-  the error sets and the intersection sets contain representative samples of all the classes.}
-  \label{tab:SVM}
-\end{table}
-\FloatBarrier
-
-
-\par Comparing the Log Reg coarse error set to the SVM coarse error set had
-an intersection of 0.
-
-\par Comparing the Log Reg fine error set to the SVM fine error set had
-an intersection of 0.
-
-\par Comparing the Log Reg fine error set to the SVM coarse error set had
-an intersection of 0.
-
-\par Comparing the Log Reg coarse error set to the SVM fine error set had
-an intersection of 0.
 
 
 

@@ -24,6 +24,19 @@ class LearnRound:
         self.lvl = lvl
 
 
+    def getClf(self):
+        # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
+        #                                              fit_intercept=False, intercept_scaling=1,
+        #                                              class_weight={1: self.train_wt},
+        #                                              solver='liblinear',
+        #                                              max_iter=1000, n_jobs=-1)
+        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
+        #                      cache_size=8192, verbose=False, class_weight={1: self.train_wt},
+        #                      decision_function_shape='ovo',
+        #                      gamma=0.0025, tol=0.00001, shrinking=True)
+        classifier = svm.SVC(C=1.0, kernel='rbf', cache_size=8192)
+        return classifier
+
     def createTrainSet(self, set):
         self.lvl_rndTime = time.perf_counter()
         ##### Create train set for coarse
@@ -45,9 +58,9 @@ class LearnRound:
         acc = accuracy_score(y_testCoarse, y_predCoarse)
         f1 = f1_score(y_testCoarse, y_predCoarse)
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
-                       +['conf']+['tn']+[confMatrix[0][0]] +['fn']+ [confMatrix[0][1]])
+                       +['conf']+['tn']+[confMatrix[0][0]] +['fp']+ [confMatrix[0][1]])
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
-                       +['conf']+['fp']+[confMatrix[1][0]] +['tp']+ [confMatrix[1][1]])
+                       +['conf']+['fn']+[confMatrix[1][0]] +['tp']+ [confMatrix[1][1]])
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
                        +['acc']+[acc] +['f1']+[f1])
 
@@ -58,10 +71,10 @@ class LearnRound:
         f1 = f1_score(y_testCoarse, y_predCoarse)
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
                        #+[xaxislb]+[xaxis]+[yaxislb]+[yaxis]+[threshlb]+[thresh]
-                       +['co']+['tNg']+[confMatrix[0][0]] +['fNg']+ [confMatrix[0][1]])
+                       +['co']+['tNg']+[confMatrix[0][0]] +['fPs']+ [confMatrix[0][1]])
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
                  #+ [xaxislb] + [xaxis] + [yaxislb] + [yaxis] + [threshlb] + [thresh]
-                       +['co']+['fPs']+[confMatrix[1][0]] +['tPs']+ [confMatrix[1][1]])
+                       +['co']+['fNg']+[confMatrix[1][0]] +['tPs']+ [confMatrix[1][1]])
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
                  + [xaxislb] + [xaxis] + [yaxislb] + [yaxis] + [threshlb] + [thresh]
                        +['ac']+['{:.3f}'.format(acc)] +['fmes']+[f1])
@@ -71,7 +84,6 @@ class LearnRound:
         ###### Plot ROC and PR curves
         fpr, tpr, threshRoc = roc_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         roc_auc = auc(fpr, tpr, reorder=True)
-        #if (self.rndNum % 50 == 0):
         plt.figure()
         plt.plot(fpr, tpr,
                  label='ROC curve (area = {0:0.3f})'.format(roc_auc),
@@ -94,7 +106,6 @@ class LearnRound:
         ##### Plog pr_curve
         precision, recall, threshPr = precision_recall_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         pr_auc = auc(recall, precision)
-        #if (self.rndNum % 50 == 0):
         plt.figure()
         plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
                  label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
@@ -133,23 +144,11 @@ class CoarseRound(LearnRound):
         self.train_wt = train_wt
         return y_trainCoarse
 
-    def trainClassifier(self,X_train,y_trainCoarse,clfType):
+    def trainClassifier(self,X_train,y_trainCoarse):
         ##### Train classifier for coarse
-        if (clfType == 'LogReg'):
-            classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                         fit_intercept=False, intercept_scaling=1,
-                                                         class_weight={1: self.train_wt},
-                                                         solver='liblinear',
-                                                         max_iter=1000, n_jobs=-1)
-        if(clfType == 'SVM'):
-            classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
-                            cache_size=8192, verbose=False, class_weight={1:self.train_wt},
-                                 decision_function_shape='ovo',
-                             gamma=0.0025, tol=0.00001, shrinking=True)
-            #classifier = svm.SVC(C=1.0, kernel='rbf')
+        classifier = self.getClf()
         self.clf = classifier.fit(X_train, y_trainCoarse)
-        if (self.rndNum % 50 == 0):
-            joblib.dump(self.clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
+        #joblib.dump(self.clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
         #self.clf = joblib.load(self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
 
     def predictTestSet(self,X_test):
@@ -187,24 +186,12 @@ class FineRound(LearnRound):
              3.4782608695652177, 0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
         return y_trainBin
 
-    def trainClassifier(self,X_train,y_trainBin,clfType):
+    def trainClassifier(self,X_train,y_trainBin):
         #### train classifier for fine
         for cls in range(8):
-            if(clfType == 'LogReg'):
-                classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                          fit_intercept=False, intercept_scaling=1,
-                                                          class_weight={1: self.Fine_wt[cls]},
-                                                          solver='liblinear',
-                                                          max_iter=1000, n_jobs=-1)
-            if(clfType == 'SVM'):
-                classif = svm.SVC(C=1.0, kernel='rbf', probability=False,
-                                     cache_size=8192, verbose=False, class_weight={1:self.Fine_wt[cls]},
-                                  decision_function_shape='ovo',
-                                     gamma=0.0025, tol=0.00001, shrinking=True)
-                #classif = svm.SVC(C=1.0, kernel='rbf')
+            classif = self.getClf()
             clf = classif.fit(X_train, y_trainBin[:, cls])
-            if(self.rndNum % 50 == 0):
-                joblib.dump(clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
+            #joblib.dump(clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             # clf = joblib.load(self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             self.classifier[cls] = clf
 
@@ -344,38 +331,37 @@ def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,test
     ###### Plot ROC and PR curves
     fpr, tpr, threshRoc = roc_curve(y_testCoarse, combPredScore, sample_weight=y_sampleWeight)
     roc_auc = auc(fpr, tpr, reorder=True)
-    if (rndNum % 50 == 0):
-        plt.figure()
-        plt.plot(fpr, tpr,
-                 label='ROC curve (area = {0:0.3f})'.format(roc_auc),
-                 color='red', linestyle=':', linewidth=4)
-        plt.plot([0, 1], [0, 1], 'k--')
-        plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.05])
-        plt.xlabel('False Positive Rate')
-        plt.ylabel('True Positive Rate')
-        plt.title('Receiver operating characteristic')
-        plt.legend(loc="lower right")
-        plt.savefig('comb_results/'+ str(Psv)+'_'+ str(rndNum) + '_' + str(testFold) +'_comb_ROC.png')
-        plt.clf()
-        plt.close()
+    # plt.figure()
+    # plt.plot(fpr, tpr,
+    #          label='ROC curve (area = {0:0.3f})'.format(roc_auc),
+    #          color='red', linestyle=':', linewidth=4)
+    # plt.plot([0, 1], [0, 1], 'k--')
+    # plt.xlim([0.0, 1.0])
+    # plt.ylim([0.0, 1.05])
+    # plt.xlabel('False Positive Rate')
+    # plt.ylabel('True Positive Rate')
+    # plt.title('Receiver operating characteristic')
+    # plt.legend(loc="lower right")
+    # plt.savefig('comb_results/'+ str(Psv)+'_'+ str(rndNum) + '_' + str(testFold) +'_comb_ROC.png')
+    # plt.clf()
+    # plt.close()
 
     ##### Plog pr_curve
     precision, recall, threshPr = precision_recall_curve(y_testCoarse, combPredScore, sample_weight=y_sampleWeight)
     pr_auc = auc(recall, precision)
-    if (rndNum % 50 == 0):
-        plt.figure()
-        plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
-                 label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
-        plt.xlabel('Recall')
-        plt.ylabel('Precision')
-        plt.ylim([0.0, 1.05])
-        plt.xlim([0.0, 1.0])
-        plt.title('Precision-Recall')
-        plt.legend(loc="lower right")
-        plt.savefig('comb_results/'+ str(Psv)+'_'+ str(rndNum) + '_' + str(testFold) +'_comb_PR.png')
-        plt.clf()
-        plt.close()
+
+    # plt.figure()
+    # plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
+    #          label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
+    # plt.xlabel('Recall')
+    # plt.ylabel('Precision')
+    # plt.ylim([0.0, 1.05])
+    # plt.xlim([0.0, 1.0])
+    # plt.title('Precision-Recall')
+    # plt.legend(loc="lower right")
+    # plt.savefig('comb_results/'+ str(Psv)+'_'+ str(rndNum) + '_' + str(testFold) +'_comb_PR.png')
+    # plt.clf()
+    # plt.close()
     addPrint(results,['rnd']+[rndNum] +['fold']+[testFold]
                    +['comb']+['pr']+ [pr_auc]+ ['roc']+[roc_auc])
 
@@ -454,13 +440,8 @@ def addPrint(results,x):
 
 
 
-def loadScaledPartData(clfType):
+def loadScaledPartData(loadDir):
     all_part = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
-    if(clfType == 'LogReg'):
-        loadDir =  '../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
-    if(clfType == 'SVM'):
-        loadDir =  '../../data/partitionStdSclSel/partitionStdSclSel_'
-
     for i in sorted(all_part):
         with open(loadDir + str(i)) as f:
             for line in f:
@@ -471,12 +452,12 @@ def loadScaledPartData(clfType):
     return all_part
 
 
-def loadAndProcessData(classDir,clfType):
+def loadAndProcessData(loadDir):
     classes_PreScale = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
     classes_all = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
     #### load Data
     for i in sorted(classes_PreScale):
-        with open('../../data/'+classDir+'/class_' + str(i)) as f:
+        with open(loadDir + str(i)) as f:
             for line in f:
                 nums = line.split()
                 nums = list(map(float, nums))
@@ -489,22 +470,28 @@ def loadAndProcessData(classDir,clfType):
         else:
             data_PreScale = np.vstack((partition, data_PreScale))
     y_train, X_trainPreScale = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale.shape[1]]
+    #y_train, X_train = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale.shape[1]]
 
 
-    if(clfType == 'LogReg'):
-        #### Scale dataset
-        min_max_scaler = preprocessing.MinMaxScaler()
-        X_train = min_max_scaler.fit_transform(X_trainPreScale)
-        y_train = np.reshape(y_train, (y_train.shape[0], 1))
 
-    if(clfType == 'SVM'):
-        scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
-        X_trainFull = scaler.transform(X_trainPreScale)
-        selector = SelectPercentile(f_classif, percentile=75)
-        selector.fit(X_trainFull, y_train)
-        X_train = selector.transform(X_trainFull)
-        y_train = np.reshape(y_train, (y_train.shape[0], 1))
+    #### Scale dataset
+    # normalizer = preprocessing.Normalizer().fit(X_trainPreScale)
+    # X_train = normalizer.transform(X_trainPreScale)
 
+
+    # min_max_scaler = preprocessing.MinMaxScaler()
+    # X_train = min_max_scaler.fit_transform(X_trainPreScale)
+    # y_train = np.reshape(y_train, (y_train.shape[0], 1))
+
+    scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
+    #X_trainFull = scaler.transform(X_trainPreScale)
+    X_train = scaler.transform(X_trainPreScale)
+    # selector = SelectPercentile(f_classif, percentile=75)
+    # selector.fit(X_trainFull, y_train)
+    # X_train = selector.transform(X_trainFull)
+
+
+    y_train = np.reshape(y_train, (y_train.shape[0], 1))
     data = np.hstack((y_train, X_train))
     for inst in data:
         classes_all[inst[0]].append(inst)
@@ -542,3 +529,14 @@ def printDataInstance(instance, file):
     file.write(str(instance[-1]))
     file.write("\n")
     return
+
+
+
+
+def logErrors(clfType, lvl, testFold, y_predCoarse,y_testCoarse,y_test,X_test):
+    ###### log the errors
+    err_file = open('jaccard/'+clfType+'_'+lvl+'_'+str(testFold)+'.txt', 'w')
+    for i,pred in enumerate(y_predCoarse[lvl]):
+        if(y_predCoarse[lvl][i] != y_testCoarse[i]):
+            printDataInstance(np.array([y_test[i]]+list(X_test[i])), err_file)
+    err_file.close()
