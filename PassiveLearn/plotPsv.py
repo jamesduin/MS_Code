@@ -7,15 +7,33 @@ import pickle
 import glob
 import re
 import os
-#dir = 'ScalingDim/SVMStandard/results'
+
 #dir = 'Original/SVMDef/results'
+#dir = 'ScalingDim/SVMStandard/results'
 #dir = 'ScalingDim/SVMMinMax/results'
 #dir = 'ScalingDim/SVMNorm/results'
 #dir = 'ScalingDim/SVMSel25/results'
 #dir = 'ScalingDim/SVMSel50/results'
-dir = 'ScalingDim/SVMSel75/results'
+#dir = 'ScalingDim/SVMSel75/results'
+#dir = 'DecFcnShape/SVM_ovo/results'
+#dir = 'DecFcnShape/SVM_ovr/results'
+
+
+dir = 'Tolerance/SVM_0001/results'
+
+#dir = 'CostGamma/SVM_C1_G003/results'
+#dir = 'CostGamma/SVM_C10_G003/results'
+#dir = 'CostGamma/SVM_C01_G003/results'
+#dir = 'CostGamma/SVM_C1_G001/results'
+#dir = 'CostGamma/SVM_C1_G0025/results'
+#dir = 'CostGamma/SVM_C1_G01/results'
+#dir = 'CostGamma/SVM_C1_G1/results'
+#dir = 'CostGamma/SVM_C1_G03/results'
+#dir = 'EndPoint/currSetting/results'
+#dir = 'EndPoint/currSettingG01/results'
+
 os.chdir(dir)
-tableName = re.split('[/]',dir)[1]
+tableName = re.split('[/]',dir)[1].replace('_','-')
 
 def getRndTypeSet():
     rndTypeSet = set()
@@ -184,7 +202,7 @@ for col,colItem in enumerate(resultConf):
 table.append([tmpCol[0]]+['( {} / {} )'.format(tmpCol[1],tmpCol[2])]+
              ['( {} / {} )'.format(tmpCol[3], tmpCol[4])])
 
-tmpCol = ['confMat (fp/tp)','','','','']
+tmpCol = ['conf (fp/tp)','','','','']
 for col,colItem in enumerate(resultConf):
     if('coarse-fp' in resultConf[col][0]):
         tmpCol[1] = resultConf[col][-1].replace('avg ','')

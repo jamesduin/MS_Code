@@ -15,6 +15,21 @@ import time
 from sklearn import svm
 import pprint as pp
 
+
+
+
+def fcnSclWeight(input):
+    #return input
+    #y = np.array([20.0, 6.5])
+    y = np.array([23.0, 7.475])
+    x = np.array([20.8870, 4.977])
+    m = (y[0] - y[1]) / (x[0] - x[1])
+    b = y[0] - m * x[0]
+    return m * input + b
+
+
+
+
 class LearnRound:
     def __init__(self,testFold,rndNum, lvl,Psv):
         self.lvl_rndTime = 0
@@ -24,17 +39,24 @@ class LearnRound:
         self.lvl = lvl
 
 
-    def getClf(self):
+    def getClf(self,train_wt):
         # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
         #                                              fit_intercept=False, intercept_scaling=1,
         #                                              class_weight={1: self.train_wt},
         #                                              solver='liblinear',
         #                                              max_iter=1000, n_jobs=-1)
+
         # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
-        #                      cache_size=8192, verbose=False, class_weight={1: self.train_wt},
+        #                      cache_size=8192, verbose=False, class_weight={1: train_wt},
         #                      decision_function_shape='ovo',
         #                      gamma=0.0025, tol=0.00001, shrinking=True)
-        classifier = svm.SVC(C=1.0, kernel='rbf', cache_size=8192)
+        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
+        #                      cache_size=8192, verbose=False, class_weight={1: train_wt},
+        #                      decision_function_shape='ovo',
+        #                      gamma=0.01, tol=0.00001, shrinking=True)
+        classifier = svm.SVC(kernel='rbf', cache_size=8192,
+                            decision_function_shape = 'ovo',
+                            C=1.0, tol = 0.01)
         return classifier
 
     def createTrainSet(self, set):
@@ -146,7 +168,7 @@ class CoarseRound(LearnRound):
 
     def trainClassifier(self,X_train,y_trainCoarse):
         ##### Train classifier for coarse
-        classifier = self.getClf()
+        classifier = self.getClf(self.train_wt)
         self.clf = classifier.fit(X_train, y_trainCoarse)
         #joblib.dump(self.clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
         #self.clf = joblib.load(self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
@@ -184,12 +206,15 @@ class FineRound(LearnRound):
         self.Fine_wt = np.array(
             [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783,
              3.4782608695652177, 0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
+        # self.Fine_wt = np.array(
+        #     [1.0, 1.0, 1.0, 1.0,
+        #      1.0, 1.0, 1.0, 1.0]) * train_wt
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
         #### train classifier for fine
         for cls in range(8):
-            classif = self.getClf()
+            classif = self.getClf(self.Fine_wt[cls])
             clf = classif.fit(X_train, y_trainBin[:, cls])
             #joblib.dump(clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             # clf = joblib.load(self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
@@ -224,20 +249,6 @@ class FineRound(LearnRound):
             else:
                 y_predCoarse.append(0.0)
         return np.array(y_predCoarse),y_pred_score
-
-
-
-def fcnSclWeight(input):
-    #return input
-    #y = np.array([20.0, 6.5])
-    y = np.array([23.0, 7.475])
-    x = np.array([20.8870, 4.977])
-    m = (y[0] - y[1]) / (x[0] - x[1])
-    b = y[0] - m * x[0]
-    return m * input + b
-
-
-
 
 
 
@@ -451,76 +462,6 @@ def loadScaledPartData(loadDir):
         np.random.shuffle(all_part[i])
     return all_part
 
-
-def loadAndProcessData(loadDir):
-    classes_PreScale = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-    classes_all = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-    #### load Data
-    for i in sorted(classes_PreScale):
-        with open(loadDir + str(i)) as f:
-            for line in f:
-                nums = line.split()
-                nums = list(map(float, nums))
-                classes_PreScale[i].append(nums)
-    data_PreScale = []
-    for i in sorted(classes_PreScale):
-        partition = np.asarray(classes_PreScale[i])
-        if len(data_PreScale) == 0:
-            data_PreScale = partition
-        else:
-            data_PreScale = np.vstack((partition, data_PreScale))
-    y_train, X_trainPreScale = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale.shape[1]]
-    #y_train, X_train = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale.shape[1]]
-
-
-
-    #### Scale dataset
-    # normalizer = preprocessing.Normalizer().fit(X_trainPreScale)
-    # X_train = normalizer.transform(X_trainPreScale)
-
-
-    # min_max_scaler = preprocessing.MinMaxScaler()
-    # X_train = min_max_scaler.fit_transform(X_trainPreScale)
-    # y_train = np.reshape(y_train, (y_train.shape[0], 1))
-
-    scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
-    #X_trainFull = scaler.transform(X_trainPreScale)
-    X_train = scaler.transform(X_trainPreScale)
-    # selector = SelectPercentile(f_classif, percentile=75)
-    # selector.fit(X_trainFull, y_train)
-    # X_train = selector.transform(X_trainFull)
-
-
-    y_train = np.reshape(y_train, (y_train.shape[0], 1))
-    data = np.hstack((y_train, X_train))
-    for inst in data:
-        classes_all[inst[0]].append(inst)
-
-    all_part = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: [], 10: []}
-    for i in sorted(classes_all):
-        np.random.shuffle(classes_all[i])
-        partList = []
-        for j in sorted(all_part):
-            partList.append((j, len(all_part[j])))
-        minIndex = partList[0][0]
-        minVal = partList[0][1]
-        for j in sorted(partList):
-            if (minVal > j[1]):
-                minVal = j[1]
-                minIndex = j[0]
-        partitionCounter = minIndex
-        instCount = 1
-        for instance in classes_all[i]:
-            #if not (i == 0 and instCount < 3827):
-            instCount += 1
-            all_part[partitionCounter].append(instance)
-            partitionCounter += 1
-            if partitionCounter > 10:
-                partitionCounter = 1
-    for i in sorted(all_part):
-        np.random.shuffle(all_part[i])
-
-    return all_part
 
 
 def printDataInstance(instance, file):

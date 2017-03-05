@@ -296,6 +296,7 @@ Add explanation of Bandit approach and results.
 
 \FloatBarrier
 \begin{table}[!htb]
+\centering
 \begin{subtable}{.15\linewidth}
   \centering
   \begin{tabular}{|l||l|}\toprule
@@ -361,9 +362,9 @@ Table \ref{tab:TrainTest}.
 \begin{table}[h]
   \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    train & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    train & all & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 18088 & 17222 & 12 & 166 & 292 & 171 & 10 & 93 & 53 & 69 \\ \midrule
-    test & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    test & all &  0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
  \bottomrule
   \end{tabular}
@@ -390,6 +391,7 @@ class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, ran
 
 \FloatBarrier
 \begin{table}[!htb]
+\centering
 \begin{subtable}{.15\linewidth}
   \centering
   \begin{tabular}{|l||l|}\toprule
@@ -438,9 +440,9 @@ class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, ran
 \begin{table}[h]
   \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    train & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    train & all & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 4310 & 3444 & 12 & 166 & 292 & 171 & 10 & 93 & 53 & 69 \\ \midrule
-    test & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    test & all & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
  \bottomrule
   \end{tabular}
@@ -454,20 +456,20 @@ class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, ran
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
 coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
-0.838 & 0.809 & 0.817 & 0.771 & 0.810 & 0.800 & 0.222 & 0.000  \\
-0.828 & 0.821 & 0.787 & 0.778 & 0.829 & 0.804 & 0.281 & 0.041  \\
-0.828 & 0.793 & 0.795 & 0.753 & 0.827 & 0.797 & 0.314 & 0.000  \\
-0.850 & 0.824 & 0.820 & 0.790 & 0.827 & 0.806 & 0.303 & 0.061  \\
-0.859 & 0.815 & 0.827 & 0.769 & 0.835 & 0.802 & 0.313 & 0.021  \\
-0.830 & 0.824 & 0.765 & 0.763 & 0.825 & 0.802 & 0.263 & 0.021  \\
-0.853 & 0.828 & 0.814 & 0.782 & 0.831 & 0.806 & 0.308 & 0.061  \\
-0.853 & 0.828 & 0.815 & 0.786 & 0.827 & 0.797 & 0.303 & 0.000  \\
-0.842 & 0.824 & 0.805 & 0.774 & 0.825 & 0.800 & 0.288 & 0.020  \\
-0.834 & 0.811 & 0.799 & 0.769 & 0.822 & 0.803 & 0.234 & 0.021  \\
-avg 0.842 & avg 0.818 & avg 0.804 & avg 0.773 & avg 0.826 & avg 0.802 & avg 0.283 & avg 0.024 \\ \bottomrule
+0.807 & 0.796 & 0.779 & 0.768 & 0.816 & 0.802 & 0.214 & 0.021 \\
+0.848 & 0.822 & 0.828 & 0.790 & 0.825 & 0.804 & 0.263 & 0.041 \\
+0.846 & 0.821 & 0.810 & 0.765 & 0.818 & 0.802 & 0.243 & 0.021 \\
+0.860 & 0.832 & 0.826 & 0.775 & 0.831 & 0.802 & 0.319 & 0.021 \\
+0.859 & 0.829 & 0.828 & 0.783 & 0.833 & 0.804 & 0.298 & 0.041 \\
+0.796 & 0.763 & 0.748 & 0.715 & 0.816 & 0.806 & 0.214 & 0.061 \\
+0.838 & 0.825 & 0.797 & 0.792 & 0.818 & 0.800 & 0.243 & 0.020 \\
+0.836 & 0.816 & 0.803 & 0.770 & 0.823 & 0.800 & 0.309 & 0.020 \\
+0.863 & 0.845 & 0.833 & 0.805 & 0.829 & 0.797 & 0.305 & 0.000 \\
+0.844 & 0.806 & 0.806 & 0.758 & 0.836 & 0.807 & 0.339 & 0.061 \\
+avg 0.840 & avg 0.815 & avg 0.806 & avg 0.772 & avg 0.825 & avg 0.802 & avg 0.275 & avg 0.031 \\ \bottomrule
 \end{tabular}
-\caption{Default svm results}
-\label{tab:defSVMResults}
+\caption{SVMDef result stats}
+\label{tab:SVMDefResStats}
 \end{table}
 \FloatBarrier
 
@@ -477,35 +479,37 @@ avg 0.842 & avg 0.818 & avg 0.804 & avg 0.773 & avg 0.826 & avg 0.802 & avg 0.28
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
 coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
-375 & 383 & 8 & 0 & 83 & 96 & 13 & 0 \\
-381 & 383 & 2 & 0 & 80 & 94 & 16 & 2 \\
-377 & 382 & 6 & 1 & 77 & 96 & 19 & 0 \\
-378 & 383 & 5 & 0 & 78 & 93 & 18 & 3 \\
-382 & 383 & 1 & 0 & 78 & 95 & 18 & 1 \\
-380 & 383 & 3 & 0 & 81 & 95 & 15 & 1 \\
-380 & 383 & 3 & 0 & 78 & 93 & 18 & 3 \\
-378 & 382 & 4 & 0 & 79 & 97 & 18 & 0 \\
-378 & 382 & 4 & 0 & 80 & 96 & 17 & 1 \\
-379 & 382 & 3 & 0 & 82 & 94 & 13 & 1 \\
-avg 378.8 & avg 382.6 & avg 3.9 & avg 0.1 & avg 79.6 & avg 94.9 & avg 16.5 & avg 1.2 \\ \bottomrule
+379 & 383 & 4 & 0 & 84 & 95 & 12 & 1 \\
+380 & 383 & 3 & 0 & 81 & 94 & 15 & 2 \\
+378 & 383 & 5 & 0 & 82 & 95 & 14 & 1 \\
+379 & 383 & 4 & 0 & 77 & 95 & 19 & 1 \\
+382 & 383 & 1 & 0 & 79 & 94 & 17 & 2 \\
+379 & 383 & 4 & 0 & 84 & 93 & 12 & 3 \\
+378 & 382 & 5 & 1 & 82 & 95 & 14 & 1 \\
+375 & 382 & 7 & 0 & 78 & 96 & 19 & 1 \\
+379 & 382 & 3 & 0 & 79 & 97 & 18 & 0 \\
+379 & 382 & 3 & 0 & 75 & 92 & 20 & 3 \\
+avg 378.8 & avg 382.6 & avg 3.9 & avg 0.1 & avg 80.1 & avg 94.6 & avg 16.0 & avg 1.5 \\ \bottomrule
 \end{tabular}
-\caption{SVMDefConfMat}
-\label{tab:SVMDef}
+\caption{SVMDef conf matrix}
+\label{tab:SVMDefConfMat}
 \end{table}
 \FloatBarrier
+
 
 \FloatBarrier
 \begin{table}[h]
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
-coarse & 0.842 & 0.804 & 0.826 & 0.283 & ( 378.8 / 79.6 ) & ( 3.9 / 16.5 ) \\
-fine & 0.818 & 0.773 & 0.802 & 0.024 & ( 382.6 / 94.9 ) & ( 0.1 / 1.2 ) \\ \bottomrule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.840 & 0.806 & 0.825 & 0.275 & ( 378.8 / 80.1 ) & ( 3.9 / 16.0 ) \\
+fine & 0.815 & 0.772 & 0.802 & 0.031 & ( 382.6 / 94.6 ) & ( 0.1 / 1.5 ) \\ \bottomrule
 \end{tabular}
-\caption{SVMDefCondensed}
-\label{tab:SVMDefCondensed}
+\caption{SVMDef}
+\label{tab:SVMDef}
 \end{table}
 \FloatBarrier
+
 
 
 
@@ -515,38 +519,39 @@ fine & 0.818 & 0.773 & 0.802 & 0.024 & ( 382.6 / 94.9 ) & ( 0.1 / 1.2 ) \\ \bott
 \begin{table}[h]
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
-coarse & 0.919 & 0.894 & 0.881 & 0.635 & ( 371.9 / 46.3 ) & ( 10.8 / 49.8 ) \\
-fine & 0.887 & 0.862 & 0.811 & 0.106 & ( 382.7 / 90.7 ) & ( 0.0 / 5.4 ) \\ \bottomrule
-\end{tabular}
-\caption{SVMStandard}
-\label{tab:SVMStandard}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\begin{table}[h]
-\centering
-\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
-coarse & 0.880 & 0.852 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
-fine & 0.837 & 0.809 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.881 & 0.855 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
+fine & 0.840 & 0.810 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
 \caption{SVMMinMax}
 \label{tab:SVMMinMax}
 \end{table}
 \FloatBarrier
 
+
 \FloatBarrier
 \begin{table}[h]
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
-coarse & 0.810 & 0.804 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
-fine & 0.657 & 0.636 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.801 & 0.791 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
+fine & 0.636 & 0.615 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
 \caption{SVMNorm}
 \label{tab:SVMNorm}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.912 & 0.882 & 0.881 & 0.631 & ( 372.7 / 47.1 ) & ( 10.0 / 49.0 ) \\
+fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bottomrule
+\end{tabular}
+\caption{SVMStandard}
+\label{tab:SVMStandard}
 \end{table}
 \FloatBarrier
 
@@ -559,9 +564,9 @@ fine & 0.657 & 0.636 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bott
 \begin{table}[h]
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
-coarse & 0.904 & 0.873 & 0.874 & 0.620 & ( 369.6 / 47.0 ) & ( 13.1 / 49.1 ) \\
-fine & 0.854 & 0.823 & 0.807 & 0.072 & ( 382.7 / 92.5 ) & ( 0.0 / 3.6 ) \\ \bottomrule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.907 & 0.875 & 0.877 & 0.623 & ( 370.7 / 47.1 ) & ( 12.0 / 49.0 ) \\
+fine & 0.854 & 0.823 & 0.806 & 0.068 & ( 382.7 / 92.7 ) & ( 0.0 / 3.4 ) \\ \bottomrule
 \end{tabular}
 \caption{SVMSel25}
 \label{tab:SVMSel25}
@@ -573,9 +578,9 @@ fine & 0.854 & 0.823 & 0.807 & 0.072 & ( 382.7 / 92.5 ) & ( 0.0 / 3.6 ) \\ \bott
 \begin{table}[h]
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
-coarse & 0.912 & 0.884 & 0.880 & 0.632 & ( 371.9 / 46.7 ) & ( 10.8 / 49.4 ) \\
-fine & 0.879 & 0.850 & 0.808 & 0.085 & ( 382.7 / 91.8 ) & ( 0.0 / 4.3 ) \\ \bottomrule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.913 & 0.885 & 0.879 & 0.632 & ( 371.3 / 46.4 ) & ( 11.4 / 49.7 ) \\
+fine & 0.874 & 0.842 & 0.810 & 0.097 & ( 382.7 / 91.2 ) & ( 0.0 / 4.9 ) \\ \bottomrule
 \end{tabular}
 \caption{SVMSel50}
 \label{tab:SVMSel50}
@@ -583,35 +588,176 @@ fine & 0.879 & 0.850 & 0.808 & 0.085 & ( 382.7 / 91.8 ) & ( 0.0 / 4.3 ) \\ \bott
 \FloatBarrier
 
 
+
 \FloatBarrier
 \begin{table}[h]
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
-coarse & 0.918 & 0.890 & 0.881 & 0.628 & ( 373.6 / 47.8 ) & ( 9.1 / 48.3 ) \\
-fine & 0.882 & 0.852 & 0.808 & 0.080 & ( 382.7 / 92.1 ) & ( 0.0 / 4.0 ) \\ \bottomrule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.913 & 0.883 & 0.878 & 0.622 & ( 372.1 / 47.9 ) & ( 10.6 / 48.2 ) \\
+fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bottomrule
 \end{tabular}
 \caption{SVMSel75}
 \label{tab:SVMSel75}
 \end{table}
 \FloatBarrier
 
+
+
+\par I tried different different C costs, kernels, decision function shape, gamma, tolerance
+settled on classif = svm.SVC(C=1.0, kernel='rbf',decisionfunctionshape='ovo',gamma=0.0025,
+ tol=0.00001). The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
+ cost is actually 1.0, and the default class weight is balanced wiched weights each class by
+ the number of instances it has in the train set. Tolerance default is 0.001.
+
+
 \FloatBarrier
 \begin{table}[h]
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & confMat (fp/tp) \\ \midrule
-coarse & 0.919 & 0.894 & 0.881 & 0.635 & ( 371.9 / 46.3 ) & ( 10.8 / 49.8 ) \\
-fine & 0.887 & 0.862 & 0.811 & 0.106 & ( 382.7 / 90.7 ) & ( 0.0 / 5.4 ) \\ \bottomrule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.913 & 0.883 & 0.878 & 0.621 & ( 372.1 / 48.0 ) & ( 10.6 / 48.1 ) \\
+fine & 0.880 & 0.847 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bottomrule
 \end{tabular}
-\caption{SVMSel100}
-\label{tab:SVMSel100}
+\caption{SVM-ovr}
+\label{tab:SVM-ovr}
 \end{table}
 \FloatBarrier
 
-\par I tried different different C costs, kernels, decision function shape, gamma, tolerance
-settled on classif = svm.SVC(C=1.0, kernel='rbf',decisionfunctionshape='ovo',gamma=0.0025,
- tol=0.00001)
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.913 & 0.883 & 0.878 & 0.622 & ( 372.1 / 47.9 ) & ( 10.6 / 48.2 ) \\
+fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-ovo}
+\label{tab:SVM-ovo}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.913 & 0.883 & 0.878 & 0.622 & ( 372.2 / 47.9 ) & ( 10.5 / 48.2 ) \\
+fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-C1-G003}
+\label{tab:SVM-C1-G003}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.908 & 0.880 & 0.877 & 0.656 & ( 363.8 / 40.0 ) & ( 18.9 / 56.1 ) \\
+fine & 0.890 & 0.857 & 0.844 & 0.391 & ( 379.7 / 71.9 ) & ( 3.0 / 24.2 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-C10-G003}
+\label{tab:SVM-C10-G003}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.903 & 0.871 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
+fine & 0.874 & 0.844 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-C01-G003}
+\label{tab:SVM-C01-G003}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.902 & 0.873 & 0.865 & 0.556 & ( 373.7 / 55.5 ) & ( 9.0 / 40.6 ) \\
+fine & 0.852 & 0.825 & 0.804 & 0.047 & ( 382.7 / 93.8 ) & ( 0.0 / 2.3 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-C1-G001}
+\label{tab:SVM-C1-G001}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.902 & 0.873 & 0.869 & 0.560 & ( 376.4 / 56.2 ) & ( 6.3 / 39.9 ) \\
+fine & 0.886 & 0.854 & 0.809 & 0.092 & ( 382.7 / 91.4 ) & ( 0.0 / 4.7 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-C1-G01}
+\label{tab:SVM-C1-G01}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.729 & 0.528 & 0.800 & 0.006 & ( 382.7 / 95.8 ) & ( 0.0 / 0.3 ) \\
+fine & 0.728 & 0.510 & 0.800 & 0.006 & ( 382.7 / 95.8 ) & ( 0.0 / 0.3 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-C1-G1}
+\label{tab:SVM-C1-G1}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.841 & 0.819 & 0.811 & 0.117 & ( 382.1 / 90.0 ) & ( 0.6 / 6.1 ) \\
+fine & 0.820 & 0.794 & 0.801 & 0.016 & ( 382.7 / 95.3 ) & ( 0.0 / 0.8 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-C1-G03}
+\label{tab:SVM-C1-G03}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.901 & 0.874 & 0.836 & 0.645 & ( 328.7 / 24.6 ) & ( 54.0 / 71.5 ) \\
+fine & 0.905 & 0.877 & 0.873 & 0.602 & ( 372.0 / 50.0 ) & ( 10.7 / 46.1 ) \\ \bottomrule
+\end{tabular}
+\caption{currSetting}
+\label{tab:currSetting}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.900 & 0.871 & 0.872 & 0.601 & ( 371.4 / 49.9 ) & ( 11.3 / 46.2 ) \\
+fine & 0.876 & 0.842 & 0.828 & 0.266 & ( 381.6 / 81.1 ) & ( 1.1 / 15.0 ) \\ \bottomrule
+\end{tabular}
+\caption{currSettingG01}
+\label{tab:currSettingG01}
+\end{table}
+\FloatBarrier
 
 
 

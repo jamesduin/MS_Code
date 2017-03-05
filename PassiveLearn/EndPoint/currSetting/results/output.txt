@@ -1,0 +1,57 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.869 & 0.879 & 0.835 & 0.848 & 0.800 & 0.860 & 0.579 & 0.568 \\
+0.907 & 0.911 & 0.883 & 0.892 & 0.843 & 0.871 & 0.658 & 0.581 \\
+0.891 & 0.894 & 0.863 & 0.864 & 0.829 & 0.866 & 0.627 & 0.568 \\
+0.886 & 0.897 & 0.869 & 0.872 & 0.818 & 0.860 & 0.613 & 0.531 \\
+0.912 & 0.913 & 0.883 & 0.878 & 0.846 & 0.887 & 0.661 & 0.654 \\
+0.896 & 0.894 & 0.856 & 0.862 & 0.839 & 0.871 & 0.648 & 0.603 \\
+0.915 & 0.912 & 0.886 & 0.891 & 0.843 & 0.873 & 0.664 & 0.621 \\
+0.933 & 0.926 & 0.910 & 0.900 & 0.852 & 0.887 & 0.687 & 0.658 \\
+0.891 & 0.905 & 0.882 & 0.884 & 0.846 & 0.881 & 0.670 & 0.637 \\
+0.911 & 0.914 & 0.871 & 0.875 & 0.843 & 0.876 & 0.648 & 0.599 \\
+avg 0.901 & avg 0.905 & avg 0.874 & avg 0.877 & avg 0.836 & avg 0.873 & avg 0.645 & avg 0.602 \\ \bottomrule
+\end{tabular}
+\caption{currSetting}
+\label{tab:currSetting}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+317 & 368 & 66 & 15 & 30 & 52 & 66 & 44 \\
+332 & 374 & 51 & 9 & 24 & 53 & 72 & 43 \\
+328 & 373 & 55 & 10 & 27 & 54 & 69 & 42 \\
+323 & 374 & 60 & 9 & 27 & 58 & 69 & 38 \\
+333 & 374 & 50 & 9 & 24 & 45 & 72 & 51 \\
+331 & 370 & 52 & 13 & 25 & 49 & 71 & 47 \\
+330 & 368 & 53 & 15 & 22 & 46 & 74 & 50 \\
+330 & 373 & 52 & 9 & 19 & 45 & 78 & 52 \\
+330 & 372 & 52 & 10 & 22 & 47 & 75 & 50 \\
+333 & 374 & 49 & 8 & 26 & 51 & 69 & 44 \\
+avg 328.7 & avg 372.0 & avg 54.0 & avg 10.7 & avg 24.6 & avg 50.0 & avg 71.5 & avg 46.1 \\ \bottomrule
+\end{tabular}
+\caption{currSetting}
+\label{tab:currSetting}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.901 & 0.874 & 0.836 & 0.645 & ( 328.7 / 24.6 ) & ( 54.0 / 71.5 ) \\
+fine & 0.905 & 0.877 & 0.873 & 0.602 & ( 372.0 / 50.0 ) & ( 10.7 / 46.1 ) \\ \bottomrule
+\end{tabular}
+\caption{currSetting}
+\label{tab:currSetting}
+\end{table}
+\FloatBarrier
+

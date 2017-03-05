@@ -2,11 +2,375 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PassiveLearn/plotPsvThreshold.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PassiveLearn/test.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ThesisWriteUp/jaccard.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_10_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_10_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_1_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_1_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_2_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_2_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_3_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_3_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_4_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_4_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_5_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_5_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_6_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_6_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_7_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_7_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_8_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_8_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_9_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/coarse_results/Psv_1_9_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_10_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_10_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_1_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_1_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_2_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_2_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_3_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_3_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_4_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_4_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_5_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_5_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_6_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_6_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_7_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_7_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_8_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_8_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_9_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/fine_results/Psv_1_9_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/Psv_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/_Psv.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/output.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_10_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_10_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_1_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_1_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_2_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_2_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_3_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_3_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_4_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_4_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_5_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_5_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_6_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_6_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_7_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_7_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_8_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_8_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_9_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/coarse_results/Psv_1_9_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_10_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_10_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_1_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_1_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_2_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_2_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_3_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_3_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_4_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_4_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_5_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_5_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_6_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_6_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_7_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_7_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_8_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_8_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_9_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/fine_results/Psv_1_9_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/Psv_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/_Psv.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/output.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_10_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_10_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_1_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_1_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_2_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_2_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_3_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_3_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_4_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_4_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_5_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_5_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_6_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_6_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_7_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_7_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_8_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_8_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_9_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/coarse_results/Psv_1_9_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_10_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_10_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_1_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_1_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_2_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_2_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_3_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_3_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_4_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_4_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_5_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_5_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_6_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_6_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_7_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_7_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_8_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_8_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_9_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/fine_results/Psv_1_9_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/Psv_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/_Psv.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/output.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_10_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_10_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_1_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_1_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_2_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_2_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_3_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_3_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_4_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_4_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_5_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_5_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_6_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_6_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_7_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_7_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_8_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_8_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_9_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/coarse_results/Psv_1_9_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_10_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_10_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_1_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_1_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_2_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_2_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_3_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_3_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_4_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_4_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_5_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_5_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_6_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_6_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_7_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_7_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_8_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_8_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_9_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/fine_results/Psv_1_9_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/Psv_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/_Psv.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/output.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_10_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_10_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_1_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_1_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_2_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_2_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_3_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_3_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_4_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_4_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_5_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_5_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_6_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_6_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_7_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_7_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_8_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_8_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_9_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/coarse_results/Psv_1_9_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_10_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_10_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_1_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_1_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_2_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_2_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_3_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_3_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_4_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_4_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_5_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_5_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_6_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_6_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_7_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_7_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_8_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_8_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_9_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/fine_results/Psv_1_9_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/Psv_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/_Psv.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/output.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_10_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_10_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_1_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_1_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_2_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_2_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_3_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_3_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_4_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_4_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_5_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_5_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_6_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_6_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_7_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_7_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_8_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_8_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_9_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/coarse_results/Psv_1_9_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_10_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_10_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_1_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_1_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_2_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_2_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_3_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_3_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_4_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_4_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_5_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_5_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_6_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_6_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_7_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_7_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_8_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_8_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_9_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/fine_results/Psv_1_9_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/Psv_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/_Psv.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/output.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_10_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_10_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_1_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_1_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_2_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_2_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_3_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_3_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_4_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_4_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_5_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_5_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_6_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_6_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_7_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_7_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_8_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_8_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_9_coarse_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/coarse_results/Psv_1_9_coarse_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_10_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_10_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_1_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_1_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_2_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_2_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_3_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_3_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_4_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_4_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_5_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_5_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_6_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_6_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_7_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_7_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_8_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_8_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_9_fine_PR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/fine_results/Psv_1_9_fine_ROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/Psv_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/_Psv.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/output.txt" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/HALCreateClasses/getConfidenceEstimateCoarse.py" afterPath="$PROJECT_DIR$/HALCreateClasses/Archive/getConfidenceEstimateCoarse.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/HALCreateClasses/getConfidenceEstimateFine.py" afterPath="$PROJECT_DIR$/HALCreateClasses/Archive/getConfidenceEstimateFine.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HALCreateClasses/createScaledPartitions.py" afterPath="$PROJECT_DIR$/HALCreateClasses/createScaledPartitions.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" afterPath="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/plotPsv.py" afterPath="$PROJECT_DIR$/PassiveLearn/plotPsv.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/runPsv.py" afterPath="$PROJECT_DIR$/PassiveLearn/runPsv.py" />
@@ -29,14 +393,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.37754473">
+    <splitter split-orientation="horizontal" split-proportion="0.45619115">
       <split-first>
         <leaf>
           <file leaf-file-name="runPsv.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="41" />
+                <state relative-caret-position="165">
+                  <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -47,8 +411,8 @@
           <file leaf-file-name="runPsv.sh" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.sh">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+                <state relative-caret-position="150">
+                  <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -58,35 +422,13 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="methodsPsv.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="methodsPsv.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PassiveLearn/methodsPsv.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-6913">
-                  <caret line="36" column="65" lean-forward="false" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="65" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="createPartitions.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/HALCreateClasses/createPartitions.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-407">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="465">
+                  <caret line="255" column="0" lean-forward="true" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="createScaledPartitions.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/HALCreateClasses/createScaledPartitions.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#33#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -95,18 +437,18 @@
           <file leaf-file-name="plotPsv.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/PassiveLearn/plotPsv.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+                <state relative-caret-position="135">
+                  <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="output.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/output.txt">
+            <entry file="file://$PROJECT_DIR$/PassiveLearn/Tolerance/SVM_0001/results/output.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="493">
-                  <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="55" selection-end-column="13" />
+                <state relative-caret-position="329">
+                  <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -159,9 +501,9 @@
       <find>dataDir</find>
       <find>acc</find>
       <find>resultMat</find>
+      <find>trainClassi</find>
       <find>clfType</find>
       <find>resultConf</find>
-      <find>trainClassi</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/ThesisWriteUp/bib</dir>
@@ -173,9 +515,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ActivePassiveFolds/results11SclBy1_15/run.sh" />
         <option value="$PROJECT_DIR$/ActivePassiveFolds/runActPass11.py" />
-        <option value="$PROJECT_DIR$/HALCreateClasses/createScaledPartitions.py" />
         <option value="$PROJECT_DIR$/ActivePassiveFolds/methodsAPRBF11.py" />
         <option value="$PROJECT_DIR$/ActivePassiveFolds/runAPRBF11.py" />
         <option value="$PROJECT_DIR$/FFR/runActPass11.py" />
@@ -217,8 +557,10 @@
         <option value="$PROJECT_DIR$/PassiveLearn/Preprocessing/results/output.txt" />
         <option value="$PROJECT_DIR$/PassiveLearn/Preprocessing1/results/output.txt" />
         <option value="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/output.txt" />
-        <option value="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/output.txt" />
         <option value="$PROJECT_DIR$/PassiveLearn/test.py" />
+        <option value="$PROJECT_DIR$/data/part_subStd/terminalout.txt" />
+        <option value="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/output.txt" />
+        <option value="$PROJECT_DIR$/HALCreateClasses/createScaledPartitions.py" />
         <option value="$PROJECT_DIR$/PassiveLearn/runPsv.sh" />
         <option value="$PROJECT_DIR$/PassiveLearn/runPsv.py" />
         <option value="$PROJECT_DIR$/PassiveLearn/plotPsv.py" />
@@ -229,8 +571,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1151" />
+    <option name="width" value="1680" />
+    <option name="height" value="1001" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -253,20 +595,6 @@
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="MS_Code" />
@@ -301,7 +629,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="HALCreateClasses" />
+              <option name="myItemId" value="PassiveLearn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tolerance" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SVM_0001" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -316,6 +652,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/HALCreateClasses/Archive" />
       <recent name="$PROJECT_DIR$/PassiveLearn/Original/SVMDef" />
       <recent name="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard" />
       <recent name="$PROJECT_DIR$/PassiveLearn" />
@@ -600,16 +937,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1151" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="1001" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14639284" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16757083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23890463" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27832782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -651,126 +988,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/resultsLogReg/jaccard/_jaccardTmp_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="80" column="9" lean-forward="false" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/resultsSVM/jaccard/_jaccardTmp_2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-585">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/resultsSVM/jaccard/_jaccardTmp_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1155">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/resultsSVM/jaccard/SVM_coarse_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-495">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/resultsSVM/results/Psv_2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FFR/runFFR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/results/results/_Psv.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9360">
-          <caret line="624" column="65" lean-forward="false" selection-start-line="624" selection-start-column="48" selection-end-line="624" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/resultsSVM/results/Psv_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/resultsLogReg/results/Psv_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/AverageResults.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="22" column="86" lean-forward="false" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/FmtResultsLogReg/output.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/FmtResultsSVM/output.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/FmtResultsLogReg/results/_Psv.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1440">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/FmtResultsLogReg/output2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="12" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/FmtResultsLogReg/jaccard/_jaccardTmp_1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1095">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/FmtResultsSVM/output2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="12" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/FmtResultsLogReg/jaccard/_jaccardTdmp.txt" />
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/FmtResultsLogReg/jaccard/_jaccardTmp.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="43" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="38" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/_jaccardSvmLogRegCoarse_.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -891,67 +1108,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HALCreateClasses/createPartitions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HALCreateClasses/scaleClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-512">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/part_subStd/terminalout.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/_Psv.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1035">
-          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        <state relative-caret-position="240">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="36" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/partition_subset/terminalout.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/output.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="509">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/output.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="314">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMMinMax/results/output.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="508">
+          <caret line="55" column="13" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="55" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMNorm/results/output.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="524">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel25/results/output.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
+        <state relative-caret-position="329">
           <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="55" selection-end-column="13" />
           <folding />
         </state>
@@ -959,24 +1204,172 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel50/results/output.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="314">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/plotPsv.py">
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/_Psv.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HALCreateClasses/createScaledPartitions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="55" column="52" lean-forward="false" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#33#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMSel75/results/output.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="55" selection-end-column="13" />
+        <state relative-caret-position="509">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/DecFcnShape/SVM_ovo/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/DecFcnShape/SVM_ovo/results/_Psv.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-570">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/DecFcnShape/SVM_ovr/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C1_G003/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C10_G003/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C01_G003/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C1_G001/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C1_G01/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C1_G1/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C1_G0025/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C1_G03/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/EndPoint/currSetting/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/EndPoint/currSettingG01/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/plotPsv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/Tolerance/SVM_0001/results/output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -992,40 +1385,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/methodsPsv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6913">
-          <caret line="36" column="65" lean-forward="false" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HALCreateClasses/createPartitions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-407">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="465">
+          <caret line="255" column="0" lean-forward="true" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HALCreateClasses/createScaledPartitions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>

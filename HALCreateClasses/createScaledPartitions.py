@@ -1,6 +1,10 @@
 from sklearn import preprocessing
 import numpy as np
 from sklearn.feature_selection import SelectKBest,chi2,SelectPercentile,f_classif
+import os
+import re
+import shutil
+
 
 def printDataInstance(instance):
     for dimension in instance[:-1]:
@@ -11,14 +15,18 @@ def printDataInstance(instance):
 
 
 
-fname = 'partitionStdSclSel'
 
+dir = '../data/part_subSel75'
+if not os.path.exists(dir):
+    os.makedirs(dir)
+
+fname = re.split('[/]',dir)[2]
 
 classes_PreScale = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 #### load Data
 for i in sorted(classes_PreScale):
-    with open('../data/classes/class_' + str(i)) as f:
+    with open('../data/classes_subset/class_' + str(i)) as f:
         for line in f:
             nums = line.split()
             nums = list(map(float, nums))
@@ -33,17 +41,22 @@ for i in sorted(classes_PreScale):
 y_train, X_trainPreScale = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale.shape[1]]
 
 #
-# #### Scale dataset
+#### Scale dataset
+# normalizer = preprocessing.Normalizer().fit(X_trainPreScale)
+# X_train = normalizer.transform(X_trainPreScale)
+
+
 # min_max_scaler = preprocessing.MinMaxScaler()
 # X_train = min_max_scaler.fit_transform(X_trainPreScale)
-# y_train = np.reshape(y_train, (y_train.shape[0], 1))
 
 
 scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
 X_trainFull = scaler.transform(X_trainPreScale)
+#X_train = scaler.transform(X_trainPreScale)
 selector = SelectPercentile(f_classif, percentile=75)
 selector.fit(X_trainFull, y_train)
 X_train = selector.transform(X_trainFull)
+
 y_train = np.reshape(y_train, (y_train.shape[0], 1))
 
 data = np.hstack((y_train, X_train))
@@ -80,20 +93,21 @@ for i in sorted(all_part):
 
 stdout = open('../data/'+fname+'/terminalout.txt', 'w')
 
-stdout.write('{0:<10}{1:<10}\n'.format('Classes', ''))
-print('{0:<10}{1:<10}'.format('Classes', ''))
+stdout.write('{} & {} \\\\ \n'.format('Classes', ''))
+print('{} & {} \\\\'.format('Classes', ''))
 instanceCount = 0
 for i in sorted(classes_all):
     instanceCount += len(classes_all[i])
-    stdout.write('{0:<10}{1:<10}\n'.format(i, len(classes_all[i])))
-    print('{0:<10}{1:<10}'.format(i, len(classes_all[i])))
-stdout.write('{0:<10}{1:<10}\n'.format('Total', instanceCount))
-print('{0:<10}{1:<10}\n'.format('Total', instanceCount))
+    stdout.write('{} & {} \\\\ \n'.format(i, len(classes_all[i])))
+    print('{} & {} \\\\'.format(i, len(classes_all[i])))
+stdout.write('{} & {} \\\\ \n'.format('Total', instanceCount))
+print('{} & {} \\\\ \n'.format('Total', instanceCount))
+stdout.write('{} & {} \\\\ \n'.format('Shape',len(classes_all[0][0])))
+print('{} & {} \\\\'.format('Shape',len(classes_all[0][0])))
 
 
-
-stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('part','Folds',0,1,2,3,4,5,6,7,8))
-print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('part','Folds',0,1,2,3,4,5,6,7,8))
+stdout.write('{} & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} \\\\ \n'.format('part','Folds',0,1,2,3,4,5,6,7,8))
+print('{} & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} \\\\'.format('part','Folds',0,1,2,3,4,5,6,7,8))
 instanceCount = 0
 classCountTot = [0,0,0,0,0,0,0,0,0]
 for i in sorted(all_part):
@@ -103,10 +117,10 @@ for i in sorted(all_part):
         classCountTot[int(inst[0])]+=1
         classCount[int(inst[0])] += 1
     classCount = [i] + [len(all_part[i])] + classCount
-    stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format(*classCount))
-    print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format(*classCount))
-stdout.write('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}\n'.format('Total',instanceCount,*classCountTot))
-print('{:<7}{:<7}{:<7}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}{:<5}'.format('Total',instanceCount,*classCountTot))
+    stdout.write('{} & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} \\\\ \n'.format(*classCount))
+    print('{} & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} \\\\'.format(*classCount))
+stdout.write('{} & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} \\\\ \n'.format('Total',instanceCount,*classCountTot))
+print('{} & {} & {} & {} & {} & {} & {} & {} & {} & {} & {} \\\\'.format('Total',instanceCount,*classCountTot))
 
 
 
@@ -125,7 +139,5 @@ for eachFold in sorted(all_part):
     f.close()
 
 stdout.close()
-
-
 
 

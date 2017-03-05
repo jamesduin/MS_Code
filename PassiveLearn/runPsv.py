@@ -11,32 +11,48 @@ import shutil
 
 
 testFold = int(sys.argv[1])
-dir = 'ScalingDim/SVMSel75'
+#dir = 'Original/SVMDef'
+#dir = 'ScalingDim/SVMStandard'
+#dir = 'ScalingDim/SVMMinMax'
+#dir = 'ScalingDim/SVMNorm'
+#dir = 'ScalingDim/SVMSel25'
+#dir = 'ScalingDim/SVMSel50'
+#dir = 'DecFcnShape/SVM_ovo'
+#dir = 'DecFcnShape/SVM_ovr'
+
+
+dir = 'Tolerance/SVM_0001'
+
+#dir = 'CostGamma/SVM_C10_G003'
+#dir = 'CostGamma/SVM_C1_G001'
+#dir = 'CostGamma/SVM_C1_G0025'
+#dir = 'CostGamma/SVM_C1_G01'
+#dir = 'CostGamma/SVM_C1_G1'
+#dir = 'CostGamma/SVM_C1_G03'
+#dir = 'EndPoint/currSetting'
+#dir = 'EndPoint/currSettingG01'
+
 if not os.path.exists(dir):
     os.makedirs(dir)
     os.makedirs(dir+'/coarse_results')
     os.makedirs(dir+'/fine_results')
     os.makedirs(dir+'/results')
-# else:
-#     shutil.rmtree(dir)  # removes all the subdirectories!
-#     os.makedirs(dir)
-
-
-
 os.chdir(dir)
 
-
 results = []
-
 start_time = [time.perf_counter()]
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
-# loadDir =  '../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
-#loadDir = '../../data/partitionStdSclSel/partitionStdSclSel_'
-#train_part = m.loadScaledPartData(loadDir)
+#loadDir =  '../../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
+#loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
+#loadDir = '../../../data/partition_subset/partition_sub'
+#loadDir = '../../../data/part_subStd/part_subStd_'
+#loadDir = '../../../data/part_subMinMax/part_subMinMax_'
+#loadDir = '../../../data/part_subNorm/part_subNorm_'
+#loadDir = '../../../data/part_subSel25/part_subSel25_'
+#loadDir = '../../../data/part_subSel50/part_subSel50_'
+loadDir = '../../../data/part_subSel75/part_subSel75_'
+train_part = m.loadScaledPartData(loadDir)
 
-#loadDir = '../../../data/classes/class_'
-loadDir = '../../../data/classes_subset/class_'
-train_part = m.loadAndProcessData(loadDir)  #classes, classes_subset
 
 m.printClsVsFolds(results,train_part, 'all')
 test_part = train_part[testFold]
