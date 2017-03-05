@@ -1,0 +1,49 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.862 & 0.823 & 0.861 & 0.815 & 0.843 & 0.829 & 0.571 & 0.481 \\
+0.848 & 0.829 & 0.820 & 0.815 & 0.841 & 0.829 & 0.553 & 0.414 \\
+0.851 & 0.808 & 0.829 & 0.789 & 0.852 & 0.825 & 0.603 & 0.468 \\
+0.869 & 0.826 & 0.852 & 0.797 & 0.843 & 0.814 & 0.581 & 0.461 \\
+0.863 & 0.839 & 0.864 & 0.833 & 0.848 & 0.829 & 0.588 & 0.431 \\
+0.892 & 0.875 & 0.867 & 0.844 & 0.851 & 0.864 & 0.599 & 0.570 \\
+avg 0.864 & avg 0.833 & avg 0.849 & avg 0.816 & avg 0.846 & avg 0.831 & avg 0.583 & avg 0.471 \\ \bottomrule
+\end{tabular}
+\caption{LogRegStandard}
+\label{tab:LogRegStandard}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+354 & 359 & 29 & 24 & 46 & 58 & 50 & 38 \\
+356 & 368 & 27 & 15 & 49 & 67 & 47 & 29 \\
+354 & 358 & 29 & 25 & 42 & 59 & 54 & 37 \\
+352 & 352 & 30 & 30 & 45 & 59 & 52 & 38 \\
+354 & 366 & 28 & 16 & 45 & 66 & 52 & 31 \\
+353 & 369 & 29 & 13 & 42 & 52 & 53 & 43 \\
+avg 353.8 & avg 362.0 & avg 28.7 & avg 20.5 & avg 44.8 & avg 60.2 & avg 51.3 & avg 36.0 \\ \bottomrule
+\end{tabular}
+\caption{LogRegStandard}
+\label{tab:LogRegStandard}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.864 & 0.849 & 0.846 & 0.583 & ( 353.8 / 44.8 ) & ( 28.7 / 51.3 ) \\
+fine & 0.833 & 0.816 & 0.831 & 0.471 & ( 362.0 / 60.2 ) & ( 20.5 / 36.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegStandard}
+\label{tab:LogRegStandard}
+\end{table}
+\FloatBarrier
+

@@ -1,0 +1,57 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.770 & 0.741 & 0.746 & 0.704 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.795 & 0.773 & 0.764 & 0.749 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.759 & 0.730 & 0.732 & 0.709 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.816 & 0.787 & 0.788 & 0.756 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.775 & 0.758 & 0.743 & 0.721 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.798 & 0.774 & 0.767 & 0.745 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.807 & 0.792 & 0.776 & 0.744 & 0.800 & 0.800 & 0.000 & 0.000 \\
+0.797 & 0.753 & 0.779 & 0.746 & 0.797 & 0.797 & 0.000 & 0.000 \\
+0.755 & 0.744 & 0.720 & 0.701 & 0.797 & 0.797 & 0.000 & 0.000 \\
+0.831 & 0.816 & 0.792 & 0.772 & 0.801 & 0.801 & 0.000 & 0.000 \\
+avg 0.790 & avg 0.767 & avg 0.761 & avg 0.735 & avg 0.799 & avg 0.799 & avg 0.000 & avg 0.000 \\ \bottomrule
+\end{tabular}
+\caption{LogRegNorm}
+\label{tab:LogRegNorm}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+383 & 383 & 0 & 0 & 96 & 96 & 0 & 0 \\
+382 & 382 & 0 & 0 & 97 & 97 & 0 & 0 \\
+382 & 382 & 0 & 0 & 97 & 97 & 0 & 0 \\
+382 & 382 & 0 & 0 & 95 & 95 & 0 & 0 \\
+avg 382.7 & avg 382.7 & avg 0.0 & avg 0.0 & avg 96.1 & avg 96.1 & avg 0.0 & avg 0.0 \\ \bottomrule
+\end{tabular}
+\caption{LogRegNorm}
+\label{tab:LogRegNorm}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.790 & 0.761 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
+fine & 0.767 & 0.735 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegNorm}
+\label{tab:LogRegNorm}
+\end{table}
+\FloatBarrier
+

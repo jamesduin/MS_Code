@@ -16,7 +16,7 @@ def printDataInstance(instance):
 
 
 
-dir = '../data/part_subSel75'
+dir = '../data/part_subMinSel75'
 if not os.path.exists(dir):
     os.makedirs(dir)
 
@@ -46,14 +46,15 @@ y_train, X_trainPreScale = data_PreScale[:, 0], data_PreScale[:, 1:data_PreScale
 # X_train = normalizer.transform(X_trainPreScale)
 
 
-# min_max_scaler = preprocessing.MinMaxScaler()
+min_max_scaler = preprocessing.MinMaxScaler()
 # X_train = min_max_scaler.fit_transform(X_trainPreScale)
+X_trainFull = min_max_scaler.fit_transform(X_trainPreScale)
 
 
-scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
-X_trainFull = scaler.transform(X_trainPreScale)
+# scaler = preprocessing.StandardScaler().fit(X_trainPreScale)
+# X_trainFull = scaler.transform(X_trainPreScale)
 #X_train = scaler.transform(X_trainPreScale)
-selector = SelectPercentile(f_classif, percentile=75)
+selector = SelectPercentile(f_classif, percentile=25)
 selector.fit(X_trainFull, y_train)
 X_train = selector.transform(X_trainFull)
 

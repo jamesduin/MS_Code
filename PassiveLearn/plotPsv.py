@@ -18,19 +18,16 @@ import os
 #dir = 'DecFcnShape/SVM_ovo/results'
 #dir = 'DecFcnShape/SVM_ovr/results'
 
-
-dir = 'Tolerance/SVM_0001/results'
-
-#dir = 'CostGamma/SVM_C1_G003/results'
-#dir = 'CostGamma/SVM_C10_G003/results'
-#dir = 'CostGamma/SVM_C01_G003/results'
-#dir = 'CostGamma/SVM_C1_G001/results'
-#dir = 'CostGamma/SVM_C1_G0025/results'
-#dir = 'CostGamma/SVM_C1_G01/results'
-#dir = 'CostGamma/SVM_C1_G1/results'
-#dir = 'CostGamma/SVM_C1_G03/results'
-#dir = 'EndPoint/currSetting/results'
-#dir = 'EndPoint/currSettingG01/results'
+#dir = 'Original/LogRegDef/results'
+#dir = 'ScalingDim/LogRegStandard/results'
+#dir = 'ScalingDim/LogRegMinMax/results'
+#dir = 'ScalingDim/LogRegNorm/results'
+#dir = 'ScalingDim/LogRegSel25/results'
+#dir = 'ScalingDim/LogRegSel50/results'
+#dir = 'ScalingDim/LogRegSel75/results'
+#dir = 'ClassWeight/LogRegWtOrig/results'
+#dir = 'ClassWeight/LogRegWt10/results'
+dir = 'ClassWeight/LogRegWt7p5/results'
 
 os.chdir(dir)
 tableName = re.split('[/]',dir)[1].replace('_','-')

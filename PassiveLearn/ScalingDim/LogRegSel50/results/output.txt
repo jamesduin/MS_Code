@@ -1,0 +1,57 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.919 & 0.905 & 0.907 & 0.892 & 0.871 & 0.806 & 0.581 & 0.061 \\
+0.876 & 0.880 & 0.840 & 0.847 & 0.854 & 0.804 & 0.521 & 0.041 \\
+0.881 & 0.872 & 0.862 & 0.852 & 0.846 & 0.802 & 0.471 & 0.021 \\
+0.874 & 0.871 & 0.852 & 0.853 & 0.839 & 0.804 & 0.430 & 0.041 \\
+0.822 & 0.837 & 0.816 & 0.813 & 0.827 & 0.804 & 0.465 & 0.078 \\
+0.849 & 0.833 & 0.821 & 0.822 & 0.839 & 0.802 & 0.483 & 0.078 \\
+0.908 & 0.901 & 0.887 & 0.883 & 0.858 & 0.802 & 0.514 & 0.021 \\
+0.870 & 0.867 & 0.827 & 0.825 & 0.843 & 0.806 & 0.468 & 0.079 \\
+0.884 & 0.858 & 0.833 & 0.822 & 0.871 & 0.797 & 0.569 & 0.000 \\
+0.868 & 0.890 & 0.843 & 0.853 & 0.845 & 0.809 & 0.471 & 0.081 \\
+avg 0.875 & avg 0.872 & avg 0.849 & avg 0.846 & avg 0.849 & avg 0.803 & avg 0.497 & avg 0.050 \\ \bottomrule
+\end{tabular}
+\caption{LogRegSel50}
+\label{tab:LogRegSel50}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+374 & 383 & 9 & 0 & 53 & 93 & 43 & 3 \\
+371 & 383 & 12 & 0 & 58 & 94 & 38 & 2 \\
+372 & 383 & 11 & 0 & 63 & 95 & 33 & 1 \\
+373 & 383 & 10 & 0 & 67 & 94 & 29 & 2 \\
+360 & 381 & 23 & 2 & 60 & 92 & 36 & 4 \\
+366 & 380 & 17 & 3 & 60 & 92 & 36 & 4 \\
+375 & 383 & 8 & 0 & 60 & 95 & 36 & 1 \\
+371 & 382 & 11 & 0 & 64 & 93 & 33 & 4 \\
+376 & 382 & 6 & 0 & 56 & 97 & 41 & 0 \\
+370 & 382 & 12 & 0 & 62 & 91 & 33 & 4 \\
+avg 370.8 & avg 382.2 & avg 11.9 & avg 0.5 & avg 60.3 & avg 93.6 & avg 35.8 & avg 2.5 \\ \bottomrule
+\end{tabular}
+\caption{LogRegSel50}
+\label{tab:LogRegSel50}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.875 & 0.849 & 0.849 & 0.497 & ( 370.8 / 60.3 ) & ( 11.9 / 35.8 ) \\
+fine & 0.872 & 0.846 & 0.803 & 0.050 & ( 382.2 / 93.6 ) & ( 0.5 / 2.5 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegSel50}
+\label{tab:LogRegSel50}
+\end{table}
+\FloatBarrier
+

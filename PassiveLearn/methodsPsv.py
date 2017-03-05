@@ -18,18 +18,6 @@ import pprint as pp
 
 
 
-def fcnSclWeight(input):
-    #return input
-    #y = np.array([20.0, 6.5])
-    y = np.array([23.0, 7.475])
-    x = np.array([20.8870, 4.977])
-    m = (y[0] - y[1]) / (x[0] - x[1])
-    b = y[0] - m * x[0]
-    return m * input + b
-
-
-
-
 class LearnRound:
     def __init__(self,testFold,rndNum, lvl,Psv):
         self.lvl_rndTime = 0
@@ -40,23 +28,27 @@ class LearnRound:
 
 
     def getClf(self,train_wt):
-        # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-        #                                              fit_intercept=False, intercept_scaling=1,
+        # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001,
+        #                                                C=0.1,
+        #                                              fit_intercept=False,
+        #                                                intercept_scaling=1,
         #                                              class_weight={1: self.train_wt},
         #                                              solver='liblinear',
         #                                              max_iter=1000, n_jobs=-1)
+        classifier = linear_model.LogisticRegression(penalty='l2',
+                                                     C=1.0,
+                                                     solver='liblinear',
+                                                     class_weight={1: train_wt},
+                                                     n_jobs=-1)
+
 
         # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
         #                      cache_size=8192, verbose=False, class_weight={1: train_wt},
         #                      decision_function_shape='ovo',
         #                      gamma=0.0025, tol=0.00001, shrinking=True)
-        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
-        #                      cache_size=8192, verbose=False, class_weight={1: train_wt},
-        #                      decision_function_shape='ovo',
-        #                      gamma=0.01, tol=0.00001, shrinking=True)
-        classifier = svm.SVC(kernel='rbf', cache_size=8192,
-                            decision_function_shape = 'ovo',
-                            C=1.0, tol = 0.01)
+        # classifier = svm.SVC(kernel='rbf', cache_size=8192,
+        #                     decision_function_shape = 'ovo',
+        #                     C=1.0, tol = 0.01)
         return classifier
 
     def createTrainSet(self, set):
@@ -154,7 +146,7 @@ class CoarseRound(LearnRound):
         self.clf = []
         self.train_wt = 0.0
 
-    def createTrainWtYtrain(self,y_train):
+    def createTrainWtYtrain(self,y_train,results):
         ##### create train_wt and y_train for coarse
         y_trainCoarse = []
         for i in y_train:
@@ -164,6 +156,7 @@ class CoarseRound(LearnRound):
                 y_trainCoarse.append(0.0)
         train_wt = fcnSclWeight(len(y_train) / np.sum(y_trainCoarse))
         self.train_wt = train_wt
+        addPrint(results,'coarseTrainWt: {}'.format(self.train_wt))
         return y_trainCoarse
 
     def trainClassifier(self,X_train,y_trainCoarse):
@@ -198,17 +191,18 @@ class FineRound(LearnRound):
         self.classifier = dict()
         self.Fine_wt = []
 
-    def createTrainWtYtrain(self,y_train):
+    def createTrainWtYtrain(self,y_train,results):
         ##### create train_wt (y_train unmodified) for fine
         y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
-        self.Fine_wt = np.array(
-            [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783,
-             3.4782608695652177, 0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
         # self.Fine_wt = np.array(
-        #     [1.0, 1.0, 1.0, 1.0,
-        #      1.0, 1.0, 1.0, 1.0]) * train_wt
+        #     [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783,
+        #      3.4782608695652177, 0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
+        self.Fine_wt = np.array(
+            [1.0, 1.0, 1.0, 1.0,
+             1.0, 1.0, 1.0, 1.0]) * train_wt
+        addPrint(results, 'fineTrainWt: {},{},{},{},{},{},{},{}'.format(*self.Fine_wt))
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
@@ -219,7 +213,6 @@ class FineRound(LearnRound):
             #joblib.dump(clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             # clf = joblib.load(self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             self.classifier[cls] = clf
-
 
     def predictTestSet(self,X_test):
         ##### predict test set for fine
@@ -249,6 +242,44 @@ class FineRound(LearnRound):
             else:
                 y_predCoarse.append(0.0)
         return np.array(y_predCoarse),y_pred_score
+
+
+
+
+
+def fcnSclWeight(input):
+    #return input
+    #y = np.array([20.0, 6.5])
+    #y = np.array([23.0, 7.475])
+    y = np.array([23.0, 7.5])
+    x = np.array([20.8870, 4.977])
+    m = (y[0] - y[1]) / (x[0] - x[1])
+    b = y[0] - m * x[0]
+    return m * input + b
+    return input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

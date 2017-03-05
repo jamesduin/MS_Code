@@ -17,20 +17,22 @@ testFold = int(sys.argv[1])
 #dir = 'ScalingDim/SVMNorm'
 #dir = 'ScalingDim/SVMSel25'
 #dir = 'ScalingDim/SVMSel50'
+#dir = 'ScalingDim/SVMSel75'
 #dir = 'DecFcnShape/SVM_ovo'
 #dir = 'DecFcnShape/SVM_ovr'
 
+#dir = 'Original/LogRegDef'
+#dir = 'ScalingDim/LogRegStandard'
+#dir = 'ScalingDim/LogRegMinMax'
+#dir = 'ScalingDim/LogRegNorm'
+#dir = 'ScalingDim/LogRegSel25'
+#dir = 'ScalingDim/LogRegSel50'
+#dir = 'ScalingDim/LogRegSel75'
+#dir = 'ClassWeight/LogRegWtOrig'
+#dir = 'ClassWeight/LogRegWt10'
+#dir = 'ClassWeight/LogRegWt7p5'
+dir = 'CostGamma/LogRegWt7p5'
 
-dir = 'Tolerance/SVM_0001'
-
-#dir = 'CostGamma/SVM_C10_G003'
-#dir = 'CostGamma/SVM_C1_G001'
-#dir = 'CostGamma/SVM_C1_G0025'
-#dir = 'CostGamma/SVM_C1_G01'
-#dir = 'CostGamma/SVM_C1_G1'
-#dir = 'CostGamma/SVM_C1_G03'
-#dir = 'EndPoint/currSetting'
-#dir = 'EndPoint/currSettingG01'
 
 if not os.path.exists(dir):
     os.makedirs(dir)
@@ -46,11 +48,14 @@ classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 #loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
 #loadDir = '../../../data/partition_subset/partition_sub'
 #loadDir = '../../../data/part_subStd/part_subStd_'
-#loadDir = '../../../data/part_subMinMax/part_subMinMax_'
+loadDir = '../../../data/part_subMinMax/part_subMinMax_'
 #loadDir = '../../../data/part_subNorm/part_subNorm_'
 #loadDir = '../../../data/part_subSel25/part_subSel25_'
 #loadDir = '../../../data/part_subSel50/part_subSel50_'
-loadDir = '../../../data/part_subSel75/part_subSel75_'
+#loadDir = '../../../data/part_subSel75/part_subSel75_'
+#loadDir = '../../../data/part_subMinSel25/part_subMinSel25_'
+#loadDir = '../../../data/part_subMinSel50/part_subMinSel50_'
+#loadDir = '../../../data/part_subMinSel75/part_subMinSel75_'
 train_part = m.loadScaledPartData(loadDir)
 
 
@@ -87,11 +92,12 @@ y_predCoarse = dict()
 y_pred_score = dict()
 for lvl in ['coarse', 'fine']:
     y_train, X_train = rnds[lvl].createTrainSet(classes_all)
-    y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train)
+    y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train, results)
     rnds[lvl].trainClassifier(X_train, y_trainCoarse)
     y_predCoarse[lvl], y_pred_score[lvl] = rnds[lvl].predictTestSet(X_test)
     rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], results)
-    fpr, tpr, threshRoc = rnds[lvl].plotRocCurves(y_testCoarse, y_pred_score[lvl],
+    fpr, tpr, threshRoc = rnds[lvl].plotRocCurves(y_testCoarse,
+                                                  y_pred_score[lvl],
                                                   y_sampleWeight, results)
     precision, recall, threshPr = rnds[lvl].plotPrCurves(y_testCoarse,
                         y_pred_score[lvl], y_sampleWeight, results)
