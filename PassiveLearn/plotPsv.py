@@ -17,7 +17,6 @@ import os
 #dir = 'ScalingDim/SVMSel75/results'
 #dir = 'DecFcnShape/SVM_ovo/results'
 #dir = 'DecFcnShape/SVM_ovr/results'
-
 #dir = 'Original/LogRegDef/results'
 #dir = 'ScalingDim/LogRegStandard/results'
 #dir = 'ScalingDim/LogRegMinMax/results'
@@ -26,8 +25,18 @@ import os
 #dir = 'ScalingDim/LogRegSel50/results'
 #dir = 'ScalingDim/LogRegSel75/results'
 #dir = 'ClassWeight/LogRegWtOrig/results'
-#dir = 'ClassWeight/LogRegWt10/results'
-dir = 'ClassWeight/LogRegWt7p5/results'
+#dir = 'CostGamma/LogRegWtOrig_Cp1/results'
+#dir = 'CostGamma/LogRegWtOrig_C10/results'
+#dir = 'CostGamma/LogRegWt10_C1/results'
+#dir = 'CostGamma/LogRegWt10_Cp1/results'
+#dir = 'CostGamma/LogRegWt10_C10/results'
+#dir = 'CostGamma/LogRegWt7p5_C1/results'
+#dir = 'CostGamma/LogRegWt7p5_Cp1/results'
+#dir = 'CostGamma/LogRegWt7p5_C10/results'
+
+dir = 'FineTune/LogRegCls1_Wtp5/results'
+
+
 
 os.chdir(dir)
 tableName = re.split('[/]',dir)[1].replace('_','-')

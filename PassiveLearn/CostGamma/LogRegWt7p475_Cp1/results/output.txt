@@ -1,0 +1,53 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.854 & 0.853 & 0.827 & 0.834 & 0.653 & 0.852 & 0.488 & 0.564 \\
+0.900 & 0.902 & 0.892 & 0.894 & 0.708 & 0.871 & 0.551 & 0.663 \\
+0.839 & 0.834 & 0.842 & 0.817 & 0.637 & 0.833 & 0.494 & 0.545 \\
+0.900 & 0.911 & 0.876 & 0.885 & 0.704 & 0.875 & 0.556 & 0.651 \\
+0.879 & 0.883 & 0.864 & 0.846 & 0.656 & 0.866 & 0.507 & 0.628 \\
+0.885 & 0.870 & 0.871 & 0.856 & 0.622 & 0.858 & 0.490 & 0.622 \\
+0.902 & 0.902 & 0.880 & 0.883 & 0.706 & 0.875 & 0.552 & 0.655 \\
+0.855 & 0.869 & 0.828 & 0.838 & 0.646 & 0.841 & 0.489 & 0.558 \\
+avg 0.877 & avg 0.878 & avg 0.860 & avg 0.857 & avg 0.666 & avg 0.859 & avg 0.516 & avg 0.611 \\ \bottomrule
+\end{tabular}
+\caption{LogRegWt7p475-Cp1}
+\label{tab:LogRegWt7p475-Cp1}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+234 & 362 & 149 & 21 & 17 & 50 & 79 & 46 \\
+253 & 356 & 130 & 27 & 10 & 35 & 86 & 61 \\
+220 & 351 & 163 & 32 & 11 & 48 & 85 & 48 \\
+248 & 363 & 135 & 20 & 7 & 40 & 89 & 56 \\
+229 & 361 & 154 & 22 & 11 & 42 & 85 & 54 \\
+211 & 355 & 171 & 27 & 10 & 41 & 87 & 56 \\
+251 & 362 & 131 & 20 & 10 & 40 & 87 & 57 \\
+227 & 353 & 155 & 29 & 14 & 47 & 81 & 48 \\
+avg 234.1 & avg 357.9 & avg 148.5 & avg 24.8 & avg 11.2 & avg 42.9 & avg 84.9 & avg 53.2 \\ \bottomrule
+\end{tabular}
+\caption{LogRegWt7p475-Cp1}
+\label{tab:LogRegWt7p475-Cp1}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.877 & 0.860 & 0.666 & 0.516 & ( 234.1 / 11.2 ) & ( 148.5 / 84.9 ) \\
+fine & 0.878 & 0.857 & 0.859 & 0.611 & ( 357.9 / 42.9 ) & ( 24.8 / 53.2 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegWt7p475-Cp1}
+\label{tab:LogRegWt7p475-Cp1}
+\end{table}
+\FloatBarrier
+

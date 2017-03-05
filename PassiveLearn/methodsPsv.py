@@ -16,6 +16,19 @@ from sklearn import svm
 import pprint as pp
 
 
+def fcnSclWeight(input):
+    #return input
+    #y = np.array([20.0, 6.5])
+    #y = np.array([23.0, 7.475])
+    #y = np.array([23.0, 10.0])
+    y = np.array([23.0, 7.5])
+    x = np.array([20.8870, 4.977])
+    m = (y[0] - y[1]) / (x[0] - x[1])
+    b = y[0] - m * x[0]
+    return m * input + b
+    #return input
+
+
 
 
 class LearnRound:
@@ -36,7 +49,7 @@ class LearnRound:
         #                                              solver='liblinear',
         #                                              max_iter=1000, n_jobs=-1)
         classifier = linear_model.LogisticRegression(penalty='l2',
-                                                     C=1.0,
+                                                     C=0.1,
                                                      solver='liblinear',
                                                      class_weight={1: train_wt},
                                                      n_jobs=-1)
@@ -200,7 +213,7 @@ class FineRound(LearnRound):
         #     [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783,
         #      3.4782608695652177, 0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
         self.Fine_wt = np.array(
-            [1.0, 1.0, 1.0, 1.0,
+            [0.5, 1.0, 1.0, 1.0,
              1.0, 1.0, 1.0, 1.0]) * train_wt
         addPrint(results, 'fineTrainWt: {},{},{},{},{},{},{},{}'.format(*self.Fine_wt))
         return y_trainBin
@@ -247,16 +260,7 @@ class FineRound(LearnRound):
 
 
 
-def fcnSclWeight(input):
-    #return input
-    #y = np.array([20.0, 6.5])
-    #y = np.array([23.0, 7.475])
-    y = np.array([23.0, 7.5])
-    x = np.array([20.8870, 4.977])
-    m = (y[0] - y[1]) / (x[0] - x[1])
-    b = y[0] - m * x[0]
-    return m * input + b
-    return input
+
 
 
 

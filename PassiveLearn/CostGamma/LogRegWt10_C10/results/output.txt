@@ -1,0 +1,57 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.836 & 0.831 & 0.809 & 0.807 & 0.722 & 0.789 & 0.533 & 0.570 \\
+0.882 & 0.880 & 0.881 & 0.871 & 0.762 & 0.818 & 0.599 & 0.617 \\
+0.892 & 0.849 & 0.853 & 0.822 & 0.749 & 0.806 & 0.577 & 0.594 \\
+0.833 & 0.819 & 0.811 & 0.791 & 0.678 & 0.749 & 0.493 & 0.520 \\
+0.883 & 0.879 & 0.855 & 0.855 & 0.710 & 0.768 & 0.544 & 0.558 \\
+0.885 & 0.884 & 0.867 & 0.866 & 0.747 & 0.808 & 0.581 & 0.613 \\
+0.873 & 0.849 & 0.858 & 0.833 & 0.699 & 0.787 & 0.541 & 0.582 \\
+0.865 & 0.840 & 0.855 & 0.817 & 0.691 & 0.775 & 0.537 & 0.568 \\
+0.905 & 0.900 & 0.900 & 0.885 & 0.762 & 0.837 & 0.610 & 0.664 \\
+0.856 & 0.877 & 0.818 & 0.828 & 0.711 & 0.782 & 0.527 & 0.563 \\
+avg 0.871 & avg 0.861 & avg 0.851 & avg 0.837 & avg 0.723 & avg 0.792 & avg 0.554 & avg 0.585 \\ \bottomrule
+\end{tabular}
+\caption{LogRegWt10-C10}
+\label{tab:LogRegWt10-C10}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+270 & 311 & 113 & 72 & 20 & 29 & 76 & 67 \\
+280 & 322 & 103 & 61 & 11 & 26 & 85 & 70 \\
+277 & 318 & 106 & 65 & 14 & 28 & 82 & 68 \\
+250 & 294 & 133 & 89 & 21 & 31 & 75 & 65 \\
+257 & 298 & 126 & 85 & 13 & 26 & 83 & 70 \\
+274 & 314 & 109 & 69 & 12 & 23 & 84 & 73 \\
+250 & 306 & 133 & 77 & 11 & 25 & 85 & 71 \\
+245 & 300 & 137 & 82 & 11 & 26 & 86 & 71 \\
+276 & 324 & 106 & 58 & 8 & 20 & 89 & 77 \\
+262 & 306 & 120 & 76 & 18 & 28 & 77 & 67 \\
+avg 264.1 & avg 309.3 & avg 118.6 & avg 73.4 & avg 13.9 & avg 26.2 & avg 82.2 & avg 69.9 \\ \bottomrule
+\end{tabular}
+\caption{LogRegWt10-C10}
+\label{tab:LogRegWt10-C10}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.871 & 0.851 & 0.723 & 0.554 & ( 264.1 / 13.9 ) & ( 118.6 / 82.2 ) \\
+fine & 0.861 & 0.837 & 0.792 & 0.585 & ( 309.3 / 26.2 ) & ( 73.4 / 69.9 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegWt10-C10}
+\label{tab:LogRegWt10-C10}
+\end{table}
+\FloatBarrier
+

@@ -29,10 +29,17 @@ testFold = int(sys.argv[1])
 #dir = 'ScalingDim/LogRegSel50'
 #dir = 'ScalingDim/LogRegSel75'
 #dir = 'ClassWeight/LogRegWtOrig'
-#dir = 'ClassWeight/LogRegWt10'
-#dir = 'ClassWeight/LogRegWt7p5'
-dir = 'CostGamma/LogRegWt7p5'
+#dir = 'CostGamma/LogRegWtOrig_Cp1'
+#dir = 'CostGamma/LogRegWtOrig_C10'
+#dir = 'CostGamma/LogRegWt10_C1'
+#dir = 'CostGamma/LogRegWt10_Cp1'
+#dir = 'CostGamma/LogRegWt10_C10'
+#dir = 'CostGamma/LogRegWt7p5_C1'
+#dir = 'CostGamma/LogRegWt7p5_Cp1'
+#dir = 'CostGamma/LogRegWt7p5_C10'
 
+dir = 'FineTune/LogRegCls1_Wtp5'
+dir = 'FineTune/LogRegCls1_Wtp75'
 
 if not os.path.exists(dir):
     os.makedirs(dir)
@@ -90,7 +97,7 @@ y_testCoarse, y_sampleWeight, X_test, y_test = m.createTestSet(test_part)
 #### Run rounds
 y_predCoarse = dict()
 y_pred_score = dict()
-for lvl in ['coarse', 'fine']:
+for lvl in ['fine']:#['coarse', 'fine']:
     y_train, X_train = rnds[lvl].createTrainSet(classes_all)
     y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train, results)
     rnds[lvl].trainClassifier(X_train, y_trainCoarse)
