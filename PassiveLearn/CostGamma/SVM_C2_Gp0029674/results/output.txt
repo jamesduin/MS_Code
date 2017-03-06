@@ -1,0 +1,55 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.875 & 0.871 & 0.840 & 0.836 & 0.831 & 0.856 & 0.605 & 0.543 \\
+0.892 & 0.880 & 0.862 & 0.843 & 0.866 & 0.860 & 0.677 & 0.531 \\
+0.891 & 0.877 & 0.873 & 0.853 & 0.868 & 0.850 & 0.659 & 0.486 \\
+0.912 & 0.896 & 0.877 & 0.862 & 0.868 & 0.868 & 0.674 & 0.559 \\
+0.899 & 0.878 & 0.859 & 0.846 & 0.862 & 0.856 & 0.660 & 0.524 \\
+0.918 & 0.900 & 0.890 & 0.869 & 0.868 & 0.873 & 0.687 & 0.591 \\
+0.930 & 0.913 & 0.902 & 0.881 & 0.883 & 0.875 & 0.720 & 0.605 \\
+0.894 & 0.893 & 0.882 & 0.864 & 0.866 & 0.875 & 0.673 & 0.589 \\
+0.912 & 0.904 & 0.869 & 0.860 & 0.878 & 0.872 & 0.691 & 0.561 \\
+avg 0.903 & avg 0.890 & avg 0.873 & avg 0.857 & avg 0.866 & avg 0.865 & avg 0.672 & avg 0.554 \\ \bottomrule
+\end{tabular}
+\caption{SVM-C2-Gp0029674}
+\label{tab:SVM-C2-Gp0029674}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+336 & 369 & 47 & 14 & 34 & 55 & 62 & 41 \\
+348 & 374 & 35 & 9 & 29 & 58 & 67 & 38 \\
+355 & 373 & 28 & 10 & 35 & 62 & 61 & 34 \\
+351 & 376 & 32 & 7 & 31 & 56 & 65 & 40 \\
+349 & 372 & 34 & 11 & 32 & 58 & 64 & 38 \\
+347 & 374 & 36 & 9 & 27 & 52 & 69 & 44 \\
+351 & 373 & 31 & 9 & 25 & 51 & 72 & 46 \\
+349 & 376 & 33 & 6 & 31 & 54 & 66 & 43 \\
+354 & 377 & 28 & 5 & 30 & 56 & 65 & 39 \\
+avg 348.9 & avg 373.8 & avg 33.8 & avg 8.9 & avg 30.4 & avg 55.8 & avg 65.7 & avg 40.3 \\ \bottomrule
+\end{tabular}
+\caption{SVM-C2-Gp0029674}
+\label{tab:SVM-C2-Gp0029674}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.903 & 0.873 & 0.866 & 0.672 & ( 348.9 / 30.4 ) & ( 33.8 / 65.7 ) \\
+fine & 0.890 & 0.857 & 0.865 & 0.554 & ( 373.8 / 55.8 ) & ( 8.9 / 40.3 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-C2-Gp0029674}
+\label{tab:SVM-C2-Gp0029674}
+\end{table}
+\FloatBarrier
+

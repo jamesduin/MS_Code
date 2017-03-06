@@ -14,12 +14,15 @@ testFold = int(sys.argv[1])
 #dir = 'CostGamma/SVM_OrigWithFtune'
 #dir = 'CostGamma/SVM_Cp1'
 #dir = 'CostGamma/SVM_C1_Gp0029674'
+dir = 'CostGamma/SVM_C2_Gp0029674'
 #dir = 'CostGamma/SVM_Cp1_Gp0029674'
 #dir = 'CostGamma/SVM_Cp05_Gp0029674'
 #dir = 'CostGamma/SVM_Cp15_Gp0029674'
 #dir = 'CostGamma/SVM_Cp2_Gp0029674'
 #dir = 'CostGamma/SVM_C1_Gp002'
 #dir = 'CostGamma/SVM_C1_Gp001'
+#dir = 'CostGamma/SVM_C1_Gp0005'
+#dir = 'CostGamma/SVM_C1_Gp0015'
 #dir = 'CostGamma/SVM_C1_Gp0025'
 #dir = 'CostGamma/SVM_C1_Gp0035'
 #dir = 'CostGamma/SVM_Cp1_Gp003'
@@ -33,7 +36,8 @@ testFold = int(sys.argv[1])
 #dir = 'CostGamma/SVM_Cp3_Gp002'
 #dir = 'CostGamma/SVM_Cp15_Gp002_tolp00001'
 #dir = 'CostGamma/SVM_C1_Gp0025_tolp00001'
-dir = 'ClassWeight/SVM_All'
+#dir = 'ClassWeight/SVM_All'
+#dir = 'ClassWeight/SVM_AllQuick'
 #fineCls = 8
 
 if not os.path.exists(dir):
@@ -47,7 +51,7 @@ results = []
 start_time = [time.perf_counter()]
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 #loadDir =  '../../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
-loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
+#loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
 #loadDir = '../../../data/partition_subset/partition_sub'
 #loadDir = '../../../data/part_subStd/part_subStd_'
 
@@ -57,7 +61,7 @@ loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
 #loadDir = '../../../data/part_subSel25/part_subSel25_'
 #loadDir = '../../../data/part_subSel50/part_subSel50_'
 
-#loadDir = '../../../data/part_subSel75/part_subSel75_'
+loadDir = '../../../data/part_subSel75/part_subSel75_'
 
 #loadDir = '../../../data/part_subMinSel25/part_subMinSel25_'
 #loadDir = '../../../data/part_subMinSel50/part_subMinSel50_'

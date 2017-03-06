@@ -12,13 +12,16 @@ import os
 #dir = 'CostGamma/SVM_OrigWithFtune/results'
 #dir = 'CostGamma/SVM_Cp1/results'
 #dir = 'CostGamma/SVM_C1_Gp0029674/results'
+dir = 'CostGamma/SVM_C2_Gp0029674/results'
 #dir = 'CostGamma/SVM_Cp1_Gp0029674/results'
 #dir = 'CostGamma/SVM_Cp05_Gp0029674/results'
 #dir = 'CostGamma/SVM_Cp15_Gp0029674/results'
 #dir = 'CostGamma/SVM_Cp2_Gp0029674/results'
 #dir = 'CostGamma/SVM_C1_Gp002/results'
 #dir = 'CostGamma/SVM_C1_Gp001/results'
-#dir = 'CostGamma/SVM_C1_Gp0025/results'
+#dir = 'CostGamma/SVM_C1_Gp0005/results'
+#dir = 'CostGamma/SVM_C1_Gp0015/results'
+# dir = 'CostGamma/SVM_C1_Gp0025/results'
 #dir = 'CostGamma/SVM_C1_Gp0035/results'
 #dir = 'CostGamma/SVM_Cp1_Gp003/results'
 #dir = 'CostGamma/SVM_Cp1_Gp0025/results'
@@ -31,7 +34,8 @@ import os
 #dir = 'CostGamma/SVM_Cp3_Gp002/results'
 #dir = 'CostGamma/SVM_Cp15_Gp002_tolp00001/results'
 #dir = 'CostGamma/SVM_C1_Gp0025_tolp00001/results'
-dir = 'ClassWeight/SVM_All/results'
+#dir = 'ClassWeight/SVM_All/results'
+#dir = 'ClassWeight/SVM_AllQuick/results'
 
 os.chdir(dir)
 tableName = re.split('[/]',dir)[1].replace('_','-')
