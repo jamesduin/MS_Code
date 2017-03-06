@@ -1,0 +1,55 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.898 & 0.905 & 0.905 & 0.898 & 0.789 & 0.920 & 0.276 & 0.424 \\
+0.870 & 0.871 & 0.846 & 0.851 & 0.815 & 0.923 & 0.282 & 0.397 \\
+0.864 & 0.860 & 0.852 & 0.852 & 0.796 & 0.915 & 0.270 & 0.396 \\
+0.855 & 0.864 & 0.858 & 0.857 & 0.811 & 0.928 & 0.286 & 0.444 \\
+0.867 & 0.863 & 0.874 & 0.864 & 0.800 & 0.917 & 0.274 & 0.406 \\
+0.872 & 0.882 & 0.874 & 0.879 & 0.803 & 0.918 & 0.288 & 0.425 \\
+0.835 & 0.843 & 0.843 & 0.842 & 0.811 & 0.918 & 0.275 & 0.348 \\
+0.870 & 0.880 & 0.869 & 0.875 & 0.802 & 0.920 & 0.276 & 0.427 \\
+0.872 & 0.872 & 0.891 & 0.889 & 0.803 & 0.915 & 0.293 & 0.369 \\
+avg 0.867 & avg 0.871 & avg 0.868 & avg 0.868 & avg 0.803 & avg 0.919 & avg 0.280 & avg 0.404 \\ \bottomrule
+\end{tabular}
+\caption{LogRegAllOrig-Wt20p887}
+\label{tab:LogRegAllOrig-Wt20p887}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+1504 & 1791 & 410 & 123 & 15 & 37 & 81 & 59 \\
+1565 & 1804 & 349 & 110 & 23 & 45 & 73 & 51 \\
+1524 & 1783 & 390 & 131 & 20 & 40 & 76 & 56 \\
+1554 & 1807 & 360 & 107 & 20 & 38 & 76 & 58 \\
+1532 & 1786 & 382 & 128 & 20 & 39 & 76 & 57 \\
+1535 & 1784 & 378 & 129 & 17 & 36 & 80 & 61 \\
+1559 & 1801 & 354 & 112 & 25 & 53 & 72 & 44 \\
+1534 & 1787 & 379 & 126 & 19 & 35 & 76 & 60 \\
+1531 & 1788 & 382 & 125 & 14 & 46 & 82 & 50 \\
+avg 1537.6 & avg 1792.3 & avg 376.0 & avg 121.2 & avg 19.2 & avg 41.0 & avg 76.9 & avg 55.1 \\ \bottomrule
+\end{tabular}
+\caption{LogRegAllOrig-Wt20p887}
+\label{tab:LogRegAllOrig-Wt20p887}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.867 & 0.868 & 0.803 & 0.280 & ( 1537.6 / 19.2 ) & ( 376.0 / 76.9 ) \\
+fine & 0.871 & 0.868 & 0.919 & 0.404 & ( 1792.3 / 41.0 ) & ( 121.2 / 55.1 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegAllOrig-Wt20p887}
+\label{tab:LogRegAllOrig-Wt20p887}
+\end{table}
+\FloatBarrier
+

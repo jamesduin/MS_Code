@@ -11,79 +11,13 @@ import shutil
 
 
 testFold = int(sys.argv[1])
-#dir = 'Original/SVMDef'
-#dir = 'ScalingDim/SVMStandard'
-#dir = 'ScalingDim/SVMMinMax'
-#dir = 'ScalingDim/SVMNorm'
-#dir = 'ScalingDim/SVMSel25'
-#dir = 'ScalingDim/SVMSel50'
-#dir = 'ScalingDim/SVMSel75'
-#dir = 'DecFcnShape/SVM_ovo'
-#dir = 'DecFcnShape/SVM_ovr'
-
-#dir = 'Original/LogRegDef'
-#dir = 'ScalingDim/LogRegStandard'
-#dir = 'ScalingDim/LogRegMinMax'
-#dir = 'ScalingDim/LogRegNorm'
-#dir = 'ScalingDim/LogRegSel25'
-#dir = 'ScalingDim/LogRegSel50'
-#dir = 'ScalingDim/LogRegSel75'
-#dir = 'ClassWeight/LogRegWtOrig'
-#dir = 'CostGamma/LogRegWtOrig_Cp1'
-#dir = 'CostGamma/LogRegWtOrig_C10'
-#dir = 'CostGamma/LogRegWt10_C1'
-#dir = 'CostGamma/LogRegWt10_Cp1'
-#dir = 'CostGamma/LogRegWt10_C10'
-#dir = 'CostGamma/LogRegWt7p5_C1'
-#dir = 'CostGamma/LogRegWt7p5_Cp1'
-#dir = 'CostGamma/LogRegWt7p5_C10'
-
-
-#dir = 'FineTune/LogRegCls1_Wt1'
-#dir = 'FineTune/LogRegCls1_Wtp5'
-#dir = 'FineTune/LogRegCls1_Wt1p5'
-#dir = 'FineTune/LogRegCls1_Wt2'
-#dir = 'FineTune/LogRegCls1_Wt3'
-#dir = 'FineTune/LogRegCls1_Wt5'
-
-#dir = 'FineTune/LogRegCls2_Wt1'
-#dir = 'FineTune/LogRegCls2_Wtp5'
-#dir = 'FineTune/LogRegCls2_Wt1p5'
-
-#dir = 'FineTune/LogRegCls3_Wt1'
-#dir = 'FineTune/LogRegCls3_Wtp5'
-#dir = 'FineTune/LogRegCls3_Wt1p5'
-
-#dir = 'FineTune/LogRegCls4_Wt1'
-#dir = 'FineTune/LogRegCls4_Wtp5'
-#dir = 'FineTune/LogRegCls4_Wt1p5'
-#dir = 'FineTune/LogRegCls4_Wt2'
-
-#dir = 'FineTune/LogRegCls5_Wt1'
-#dir = 'FineTune/LogRegCls5_Wtp5'
-#dir = 'FineTune/LogRegCls5_Wt1p5'
-#dir = 'FineTune/LogRegCls5_Wt5'
-#dir = 'FineTune/LogRegCls5_Wt10'
-#dir = 'FineTune/LogRegCls5_Wt20'
-
-#dir = 'FineTune/LogRegCls6_Wt1'
-#dir = 'FineTune/LogRegCls6_Wtp5'
-#dir = 'FineTune/LogRegCls6_Wt1p5'
-#dir = 'FineTune/LogRegCls6_Wt2'
-#dir = 'FineTune/LogRegCls6_Wt3'
-
-#dir = 'FineTune/LogRegCls7_Wt1'
-#dir = 'FineTune/LogRegCls7_Wtp5'
-#dir = 'FineTune/LogRegCls7_Wt1p5'
-#dir = 'FineTune/LogRegCls7_Wt2'
-#dir = 'FineTune/LogRegCls7_Wt3'
-#dir = 'FineTune/LogRegCls7_Wt5'
-
-#dir = 'FineTune/LogRegCls8_Wt1'
-#dir = 'FineTune/LogRegCls8_Wtp5'
-#dir = 'FineTune/LogRegCls8_Wtp75'
-#dir = 'FineTune/LogRegCls8_Wt1p5'
-fineCls = 8
+#dir = 'Tolerance/LogRegOrig_0001'
+#dir = 'Tolerance/LogReg_00001'
+#dir = 'Tolerance/LogReg_000001'
+#dir = 'ClassWeight/LogRegAllOrig_Wt20p887'
+#dir = 'ClassWeight/LogRegAll_Wt23'
+dir = 'ClassWeight/LogRegAll_Wt25'
+#fineCls = 8
 
 if not os.path.exists(dir):
     os.makedirs(dir)
@@ -95,11 +29,13 @@ os.chdir(dir)
 results = []
 start_time = [time.perf_counter()]
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
-#loadDir =  '../../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
+loadDir =  '../../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
 #loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
 #loadDir = '../../../data/partition_subset/partition_sub'
 #loadDir = '../../../data/part_subStd/part_subStd_'
-loadDir = '../../../data/part_subMinMax/part_subMinMax_'
+
+#loadDir = '../../../data/part_subMinMax/part_subMinMax_'
+
 #loadDir = '../../../data/part_subNorm/part_subNorm_'
 #loadDir = '../../../data/part_subSel25/part_subSel25_'
 #loadDir = '../../../data/part_subSel50/part_subSel50_'
@@ -141,16 +77,14 @@ y_testCoarse, y_sampleWeight, X_test, y_test = m.createTestSet(test_part)
 #### Run rounds
 y_predCoarse = dict()
 y_pred_score = dict()
-for lvl in ['fine']:#['coarse', 'fine']:
+for lvl in ['coarse', 'fine']:
     y_train, X_train = rnds[lvl].createTrainSet(classes_all)
     y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train, results)
     rnds[lvl].trainClassifier(X_train, y_trainCoarse)
     y_predCoarse[lvl], y_pred_score[lvl] = rnds[lvl].predictTestSet(X_test)
     rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], results)
-    rnds[lvl].predictTestSetFineCls(X_train,y_train,fineCls,
-                                    'trainCls',results)
-    rnds[lvl].predictTestSetFineCls(X_test,y_test,fineCls,
-                                    'testCls',results)
+    # rnds[lvl].predictTestSetFineCls(X_train,y_train,fineCls,'trainCls',results)
+    # rnds[lvl].predictTestSetFineCls(X_test,y_test,fineCls,'testCls',results)
 
 
 

@@ -8,35 +8,14 @@ import glob
 import re
 import os
 
-#dir = 'Original/SVMDef/results'
-#dir = 'ScalingDim/SVMStandard/results'
-#dir = 'ScalingDim/SVMMinMax/results'
-#dir = 'ScalingDim/SVMNorm/results'
-#dir = 'ScalingDim/SVMSel25/results'
-#dir = 'ScalingDim/SVMSel50/results'
-#dir = 'ScalingDim/SVMSel75/results'
-#dir = 'DecFcnShape/SVM_ovo/results'
-#dir = 'DecFcnShape/SVM_ovr/results'
-#dir = 'Original/LogRegDef/results'
-#dir = 'ScalingDim/LogRegStandard/results'
-#dir = 'ScalingDim/LogRegMinMax/results'
-#dir = 'ScalingDim/LogRegNorm/results'
-#dir = 'ScalingDim/LogRegSel25/results'
-#dir = 'ScalingDim/LogRegSel50/results'
-#dir = 'ScalingDim/LogRegSel75/results'
-#dir = 'ClassWeight/LogRegWtOrig/results'
-#dir = 'CostGamma/LogRegWtOrig_Cp1/results'
-#dir = 'CostGamma/LogRegWtOrig_C10/results'
-#dir = 'CostGamma/LogRegWt10_C1/results'
-#dir = 'CostGamma/LogRegWt10_Cp1/results'
-#dir = 'CostGamma/LogRegWt10_C10/results'
-#dir = 'CostGamma/LogRegWt7p5_C1/results'
-#dir = 'CostGamma/LogRegWt7p5_Cp1/results'
-#dir = 'CostGamma/LogRegWt7p5_C10/results'
-
-dir = 'FineTune/LogRegCls1_Wtp5/results'
-
-
+#dir = 'FineTune/LogRegAftFineTune/results'
+#dir = 'FineTune/OldFineTune/results'
+#dir = 'Tolerance/LogRegOrig_0001/results'
+#dir = 'Tolerance/LogReg_00001/results'
+#dir = 'Tolerance/LogReg_000001/results'
+#dir = 'ClassWeight/LogRegAllOrig_Wt20p887/results'
+#dir = 'ClassWeight/LogRegAll_Wt23/results'
+dir = 'ClassWeight/LogRegAll_Wt25/results'
 
 os.chdir(dir)
 tableName = re.split('[/]',dir)[1].replace('_','-')

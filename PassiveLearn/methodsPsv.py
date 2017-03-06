@@ -21,7 +21,8 @@ def fcnSclWeight(input):
     #y = np.array([20.0, 6.5])
     #y = np.array([23.0, 7.475])
     #y = np.array([23.0, 10.0])
-    y = np.array([23.0, 7.5])
+    #y = np.array([23.0, 7.5])
+    y = np.array([25.0, 7.5])
     x = np.array([20.8870, 4.977])
     m = (y[0] - y[1]) / (x[0] - x[1])
     b = y[0] - m * x[0]
@@ -50,6 +51,7 @@ class LearnRound:
         #                                              max_iter=1000, n_jobs=-1)
         classifier = linear_model.LogisticRegression(penalty='l2',
                                                      C=0.1,
+                                                     tol=0.00001,
                                                      solver='liblinear',
                                                      class_weight={1: train_wt},
                                                      n_jobs=-1)

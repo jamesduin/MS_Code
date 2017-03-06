@@ -1,0 +1,55 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.898 & 0.905 & 0.905 & 0.899 & 0.753 & 0.906 & 0.248 & 0.405 \\
+0.870 & 0.871 & 0.847 & 0.852 & 0.790 & 0.912 & 0.262 & 0.397 \\
+0.864 & 0.860 & 0.852 & 0.853 & 0.764 & 0.900 & 0.248 & 0.379 \\
+0.854 & 0.864 & 0.859 & 0.857 & 0.781 & 0.909 & 0.262 & 0.401 \\
+0.867 & 0.863 & 0.874 & 0.864 & 0.768 & 0.907 & 0.250 & 0.403 \\
+0.871 & 0.882 & 0.873 & 0.879 & 0.773 & 0.901 & 0.262 & 0.393 \\
+0.834 & 0.842 & 0.843 & 0.841 & 0.784 & 0.902 & 0.257 & 0.351 \\
+0.870 & 0.880 & 0.869 & 0.876 & 0.766 & 0.907 & 0.249 & 0.404 \\
+0.873 & 0.873 & 0.892 & 0.890 & 0.771 & 0.900 & 0.268 & 0.367 \\
+avg 0.867 & avg 0.871 & avg 0.868 & avg 0.868 & avg 0.772 & avg 0.905 & avg 0.256 & avg 0.389 \\ \bottomrule
+\end{tabular}
+\caption{LogRegAll-Wt25}
+\label{tab:LogRegAll-Wt25}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+1431 & 1758 & 483 & 156 & 14 & 32 & 82 & 64 \\
+1513 & 1776 & 401 & 138 & 21 & 38 & 75 & 58 \\
+1458 & 1749 & 456 & 165 & 18 & 35 & 78 & 61 \\
+1492 & 1767 & 422 & 147 & 18 & 35 & 78 & 61 \\
+1465 & 1760 & 449 & 154 & 18 & 33 & 78 & 63 \\
+1472 & 1748 & 441 & 165 & 16 & 33 & 81 & 64 \\
+1501 & 1761 & 412 & 152 & 22 & 44 & 75 & 53 \\
+1460 & 1759 & 453 & 154 & 17 & 32 & 78 & 63 \\
+1465 & 1751 & 448 & 162 & 12 & 38 & 84 & 58 \\
+avg 1473.0 & avg 1758.8 & avg 440.6 & avg 154.8 & avg 17.3 & avg 35.6 & avg 78.8 & avg 60.6 \\ \bottomrule
+\end{tabular}
+\caption{LogRegAll-Wt25}
+\label{tab:LogRegAll-Wt25}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.867 & 0.868 & 0.772 & 0.256 & ( 1473.0 / 17.3 ) & ( 440.6 / 78.8 ) \\
+fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegAll-Wt25}
+\label{tab:LogRegAll-Wt25}
+\end{table}
+\FloatBarrier
+

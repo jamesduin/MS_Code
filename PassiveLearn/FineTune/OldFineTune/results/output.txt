@@ -1,0 +1,51 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.854 & 0.851 & 0.827 & 0.833 & 0.653 & 0.846 & 0.488 & 0.471 \\
+0.901 & 0.899 & 0.892 & 0.894 & 0.710 & 0.856 & 0.556 & 0.561 \\
+0.900 & 0.909 & 0.876 & 0.882 & 0.704 & 0.877 & 0.556 & 0.593 \\
+0.879 & 0.884 & 0.864 & 0.844 & 0.656 & 0.864 & 0.507 & 0.558 \\
+0.885 & 0.883 & 0.871 & 0.860 & 0.622 & 0.871 & 0.490 & 0.608 \\
+0.902 & 0.895 & 0.880 & 0.871 & 0.706 & 0.854 & 0.552 & 0.521 \\
+0.855 & 0.873 & 0.828 & 0.842 & 0.646 & 0.847 & 0.489 & 0.503 \\
+avg 0.882 & avg 0.885 & avg 0.863 & avg 0.861 & avg 0.671 & avg 0.859 & avg 0.520 & avg 0.545 \\ \bottomrule
+\end{tabular}
+\caption{OldFineTune}
+\label{tab:OldFineTune}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+234 & 372 & 149 & 11 & 17 & 63 & 79 & 33 \\
+253 & 366 & 130 & 17 & 9 & 52 & 87 & 44 \\
+248 & 377 & 135 & 6 & 7 & 53 & 89 & 43 \\
+229 & 373 & 154 & 10 & 11 & 55 & 85 & 41 \\
+211 & 369 & 171 & 13 & 10 & 49 & 87 & 48 \\
+251 & 371 & 131 & 11 & 10 & 59 & 87 & 38 \\
+227 & 367 & 155 & 15 & 14 & 58 & 81 & 37 \\
+avg 236.1 & avg 370.7 & avg 146.4 & avg 11.9 & avg 11.1 & avg 55.6 & avg 85.0 & avg 40.6 \\ \bottomrule
+\end{tabular}
+\caption{OldFineTune}
+\label{tab:OldFineTune}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.882 & 0.863 & 0.671 & 0.520 & ( 236.1 / 11.1 ) & ( 146.4 / 85.0 ) \\
+fine & 0.885 & 0.861 & 0.859 & 0.545 & ( 370.7 / 55.6 ) & ( 11.9 / 40.6 ) \\ \bottomrule
+\end{tabular}
+\caption{OldFineTune}
+\label{tab:OldFineTune}
+\end{table}
+\FloatBarrier
+
