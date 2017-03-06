@@ -1,0 +1,57 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.862 & 0.878 & 0.829 & 0.843 & 0.647 & 0.856 & 0.496 & 0.615 \\
+0.887 & 0.904 & 0.879 & 0.880 & 0.681 & 0.868 & 0.543 & 0.627 \\
+0.872 & 0.872 & 0.852 & 0.851 & 0.645 & 0.835 & 0.494 & 0.509 \\
+0.874 & 0.895 & 0.850 & 0.868 & 0.660 & 0.864 & 0.511 & 0.620 \\
+0.906 & 0.911 & 0.886 & 0.883 & 0.674 & 0.887 & 0.524 & 0.693 \\
+0.885 & 0.904 & 0.849 & 0.858 & 0.628 & 0.875 & 0.476 & 0.667 \\
+0.914 & 0.917 & 0.896 & 0.891 & 0.653 & 0.875 & 0.515 & 0.651 \\
+0.917 & 0.920 & 0.899 & 0.896 & 0.681 & 0.883 & 0.543 & 0.671 \\
+0.899 & 0.913 & 0.885 & 0.888 & 0.683 & 0.881 & 0.542 & 0.685 \\
+0.874 & 0.898 & 0.840 & 0.861 & 0.667 & 0.878 & 0.517 & 0.646 \\
+avg 0.889 & avg 0.901 & avg 0.867 & avg 0.872 & avg 0.662 & avg 0.870 & avg 0.516 & avg 0.638 \\ \bottomrule
+\end{tabular}
+\caption{SVM-Cp1-Gp002}
+\label{tab:SVM-Cp1-Gp002}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+227 & 355 & 156 & 28 & 13 & 41 & 83 & 55 \\
+235 & 363 & 148 & 20 & 5 & 43 & 91 & 53 \\
+226 & 359 & 157 & 24 & 13 & 55 & 83 & 41 \\
+231 & 361 & 152 & 22 & 11 & 43 & 85 & 53 \\
+237 & 364 & 146 & 19 & 10 & 35 & 86 & 61 \\
+220 & 359 & 163 & 24 & 15 & 36 & 81 & 60 \\
+225 & 363 & 158 & 20 & 8 & 40 & 88 & 56 \\
+235 & 366 & 147 & 16 & 6 & 40 & 91 & 57 \\
+237 & 360 & 145 & 22 & 7 & 35 & 90 & 62 \\
+233 & 366 & 149 & 16 & 10 & 42 & 85 & 53 \\
+avg 230.6 & avg 361.6 & avg 152.1 & avg 21.1 & avg 9.8 & avg 41.0 & avg 86.3 & avg 55.1 \\ \bottomrule
+\end{tabular}
+\caption{SVM-Cp1-Gp002}
+\label{tab:SVM-Cp1-Gp002}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.889 & 0.867 & 0.662 & 0.516 & ( 230.6 / 9.8 ) & ( 152.1 / 86.3 ) \\
+fine & 0.901 & 0.872 & 0.870 & 0.638 & ( 361.6 / 41.0 ) & ( 21.1 / 55.1 ) \\ \bottomrule
+\end{tabular}
+\caption{SVM-Cp1-Gp002}
+\label{tab:SVM-Cp1-Gp002}
+\end{table}
+\FloatBarrier
+

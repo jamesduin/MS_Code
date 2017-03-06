@@ -42,28 +42,18 @@ class LearnRound:
 
 
     def getClf(self,train_wt):
-        # classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001,
-        #                                                C=0.1,
-        #                                              fit_intercept=False,
-        #                                                intercept_scaling=1,
-        #                                              class_weight={1: self.train_wt},
+        # classifier = linear_model.LogisticRegression(penalty='l2',
+        #                                              C=0.1,
+        #                                              tol=0.00001,
         #                                              solver='liblinear',
-        #                                              max_iter=1000, n_jobs=-1)
-        classifier = linear_model.LogisticRegression(penalty='l2',
-                                                     C=0.1,
-                                                     tol=0.00001,
-                                                     solver='liblinear',
-                                                     class_weight={1: train_wt},
-                                                     n_jobs=-1)
+        #                                              class_weight={1: train_wt},
+        #                                              n_jobs=-1)
 
-
-        # classifier = svm.SVC(C=1.0, kernel='rbf', probability=False,
-        #                      cache_size=8192, verbose=False, class_weight={1: train_wt},
-        #                      decision_function_shape='ovo',
-        #                      gamma=0.0025, tol=0.00001, shrinking=True)
-        # classifier = svm.SVC(kernel='rbf', cache_size=8192,
-        #                     decision_function_shape = 'ovo',
-        #                     C=1.0, tol = 0.01)
+        classifier = svm.SVC(kernel='rbf', cache_size=8192,
+                            decision_function_shape = 'ovo',
+                             class_weight={1: train_wt},
+                            C=0.15,
+                             gamma=0.002)
         return classifier
 
     def createTrainSet(self, set):

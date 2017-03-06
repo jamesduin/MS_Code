@@ -8,14 +8,30 @@ import glob
 import re
 import os
 
-#dir = 'FineTune/LogRegAftFineTune/results'
-#dir = 'FineTune/OldFineTune/results'
-#dir = 'Tolerance/LogRegOrig_0001/results'
-#dir = 'Tolerance/LogReg_00001/results'
-#dir = 'Tolerance/LogReg_000001/results'
-#dir = 'ClassWeight/LogRegAllOrig_Wt20p887/results'
-#dir = 'ClassWeight/LogRegAll_Wt23/results'
-dir = 'ClassWeight/LogRegAll_Wt25/results'
+
+#dir = 'CostGamma/SVM_OrigWithFtune/results'
+#dir = 'CostGamma/SVM_Cp1/results'
+#dir = 'CostGamma/SVM_C1_Gp0029674/results'
+#dir = 'CostGamma/SVM_Cp1_Gp0029674/results'
+#dir = 'CostGamma/SVM_Cp05_Gp0029674/results'
+#dir = 'CostGamma/SVM_Cp15_Gp0029674/results'
+#dir = 'CostGamma/SVM_Cp2_Gp0029674/results'
+#dir = 'CostGamma/SVM_C1_Gp002/results'
+#dir = 'CostGamma/SVM_C1_Gp001/results'
+#dir = 'CostGamma/SVM_C1_Gp0025/results'
+#dir = 'CostGamma/SVM_C1_Gp0035/results'
+#dir = 'CostGamma/SVM_Cp1_Gp003/results'
+#dir = 'CostGamma/SVM_Cp1_Gp0025/results'
+#dir = 'CostGamma/SVM_Cp1_Gp002/results'
+#dir = 'CostGamma/SVM_Cp1_Gp001/results'
+#dir = 'CostGamma/SVM_Cp05_Gp002/results'
+#dir = 'CostGamma/SVM_Cp15_Gp002/results'
+#dir = 'CostGamma/SVM_Cp15_Gp001/results'
+#dir = 'CostGamma/SVM_Cp5_Gp002/results'
+#dir = 'CostGamma/SVM_Cp3_Gp002/results'
+#dir = 'CostGamma/SVM_Cp15_Gp002_tolp00001/results'
+#dir = 'CostGamma/SVM_C1_Gp0025_tolp00001/results'
+dir = 'ClassWeight/SVM_All/results'
 
 os.chdir(dir)
 tableName = re.split('[/]',dir)[1].replace('_','-')

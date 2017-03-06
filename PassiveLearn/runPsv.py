@@ -11,12 +11,29 @@ import shutil
 
 
 testFold = int(sys.argv[1])
-#dir = 'Tolerance/LogRegOrig_0001'
-#dir = 'Tolerance/LogReg_00001'
-#dir = 'Tolerance/LogReg_000001'
-#dir = 'ClassWeight/LogRegAllOrig_Wt20p887'
-#dir = 'ClassWeight/LogRegAll_Wt23'
-dir = 'ClassWeight/LogRegAll_Wt25'
+#dir = 'CostGamma/SVM_OrigWithFtune'
+#dir = 'CostGamma/SVM_Cp1'
+#dir = 'CostGamma/SVM_C1_Gp0029674'
+#dir = 'CostGamma/SVM_Cp1_Gp0029674'
+#dir = 'CostGamma/SVM_Cp05_Gp0029674'
+#dir = 'CostGamma/SVM_Cp15_Gp0029674'
+#dir = 'CostGamma/SVM_Cp2_Gp0029674'
+#dir = 'CostGamma/SVM_C1_Gp002'
+#dir = 'CostGamma/SVM_C1_Gp001'
+#dir = 'CostGamma/SVM_C1_Gp0025'
+#dir = 'CostGamma/SVM_C1_Gp0035'
+#dir = 'CostGamma/SVM_Cp1_Gp003'
+#dir = 'CostGamma/SVM_Cp1_Gp0025'
+#dir = 'CostGamma/SVM_Cp1_Gp002'
+#dir = 'CostGamma/SVM_Cp1_Gp001'
+#dir = 'CostGamma/SVM_Cp05_Gp002'
+#dir = 'CostGamma/SVM_Cp15_Gp002'
+#dir = 'CostGamma/SVM_Cp15_Gp001'
+#dir = 'CostGamma/SVM_Cp5_Gp002'
+#dir = 'CostGamma/SVM_Cp3_Gp002'
+#dir = 'CostGamma/SVM_Cp15_Gp002_tolp00001'
+#dir = 'CostGamma/SVM_C1_Gp0025_tolp00001'
+dir = 'ClassWeight/SVM_All'
 #fineCls = 8
 
 if not os.path.exists(dir):
@@ -29,8 +46,8 @@ os.chdir(dir)
 results = []
 start_time = [time.perf_counter()]
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
-loadDir =  '../../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
-#loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
+#loadDir =  '../../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
+loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
 #loadDir = '../../../data/partition_subset/partition_sub'
 #loadDir = '../../../data/part_subStd/part_subStd_'
 
@@ -39,7 +56,9 @@ loadDir =  '../../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
 #loadDir = '../../../data/part_subNorm/part_subNorm_'
 #loadDir = '../../../data/part_subSel25/part_subSel25_'
 #loadDir = '../../../data/part_subSel50/part_subSel50_'
+
 #loadDir = '../../../data/part_subSel75/part_subSel75_'
+
 #loadDir = '../../../data/part_subMinSel25/part_subMinSel25_'
 #loadDir = '../../../data/part_subMinSel50/part_subMinSel50_'
 #loadDir = '../../../data/part_subMinSel75/part_subMinSel75_'
