@@ -857,18 +857,455 @@ fine & 0.863 & 0.839 & 0.810 & 0.588 & ( 323.3 / 31.4 ) & ( 59.4 / 64.7 ) \\ \bo
 \end{table}
 \FloatBarrier
 
+
+
 \FloatBarrier
 \begin{table}[h]
 \centering
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
-coarse & 0.878 & 0.860 & 0.666 & 0.515 & ( 234.2 / 11.4 ) & ( 148.4 / 84.7 ) \\
-fine & 0.878 & 0.852 & 0.859 & 0.614 & ( 357.3 / 42.2 ) & ( 25.3 / 53.9 ) \\ \bottomrule
+fine & 0.881 & 0.858 & 0.859 & 0.613 & ( 357.3 / 42.3 ) & ( 25.4 / 53.8 ) \\
+trainCls-1 & 0.995 & 0.999 & 0.998 & 0.477 & ( 4297.7 / 7.7 ) & ( 0.8 / 4.0 ) \\
+testCls-1 & 0.722 & 0.996 & 0.997 & 0.100 & ( 477.4 / 1.2 ) & ( 0.1 / 0.1 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls1-Wt1}
+\label{tab:LogRegCls1-Wt1}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.880 & 0.856 & 0.859 & 0.613 & ( 357.4 / 42.3 ) & ( 25.3 / 53.8 ) \\
+trainCls-1 & 0.994 & 0.998 & 0.997 & 0.142 & ( 4298.5 / 10.8 ) & ( 0.0 / 0.9 ) \\
+testCls-1 & 0.696 & 0.995 & 0.997 & 0.000 & ( 477.5 / 1.3 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
 \caption{LogRegCls1-Wtp5}
 \label{tab:LogRegCls1-Wtp5}
 \end{table}
 \FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
+trainCls-1 & 0.995 & 1.000 & 0.999 & 0.854 & ( 4295.8 / 1.0 ) & ( 2.7 / 10.7 ) \\
+testCls-1 & 0.722 & 0.997 & 0.998 & 0.400 & ( 477.1 / 0.7 ) & ( 0.4 / 0.6 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls1-Wt3: this won!}
+\label{tab:LogRegCls1-Wt3}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.881 & 0.859 & 0.860 & 0.618 & ( 357.0 / 41.5 ) & ( 25.7 / 54.6 ) \\
+trainCls-1 & 0.995 & 1.000 & 0.999 & 0.850 & ( 4294.3 / 0.0 ) & ( 4.2 / 11.7 ) \\
+testCls-1 & 0.722 & 0.997 & 0.998 & 0.513 & ( 476.9 / 0.5 ) & ( 0.6 / 0.8 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls1-Wt5}
+\label{tab:LogRegCls1-Wt5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
+trainCls-2 & 0.800 & 0.804 & 0.952 & 0.200 & ( 4076.9 / 140.5 ) & ( 66.8 / 26.0 ) \\
+testCls-2 & 0.655 & 0.689 & 0.944 & 0.081 & ( 450.7 / 17.3 ) & ( 9.6 / 1.2 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls2-Wt1: this won!}
+\label{tab:LogRegCls2-Wt1}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.882 & 0.857 & 0.862 & 0.618 & ( 359.1 / 42.5 ) & ( 23.6 / 53.6 ) \\
+trainCls-2 & 0.785 & 0.787 & 0.961 & 0.052 & ( 4139.4 / 161.9 ) & ( 4.3 / 4.6 ) \\
+testCls-2 & 0.656 & 0.694 & 0.960 & 0.009 & ( 459.4 / 18.4 ) & ( 0.9 / 0.1 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls2-Wtp5}
+\label{tab:LogRegCls2-Wtp5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.877 & 0.857 & 0.855 & 0.620 & ( 352.5 / 39.3 ) & ( 30.2 / 56.8 ) \\
+trainCls-2 & 0.806 & 0.814 & 0.924 & 0.263 & ( 3924.1 / 108.1 ) & ( 219.6 / 58.4 ) \\
+testCls-2 & 0.652 & 0.684 & 0.914 & 0.123 & ( 434.8 / 15.6 ) & ( 25.5 / 2.9 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls2-Wt1p5}
+\label{tab:LogRegCls2-Wt1p5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
+trainCls-3 & 0.846 & 0.852 & 0.882 & 0.401 & ( 3628.6 / 120.7 ) & ( 390.0 / 170.9 ) \\
+testCls-3 & 0.795 & 0.803 & 0.873 & 0.360 & ( 401.2 / 15.4 ) & ( 45.2 / 17.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls3-Wt1: this won!}
+\label{tab:LogRegCls3-Wt1}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.870 & 0.852 & 0.839 & 0.445 & ( 370.9 / 65.1 ) & ( 11.8 / 31.0 ) \\
+trainCls-3 & 0.838 & 0.838 & 0.929 & 0.288 & ( 3942.0 / 229.7 ) & ( 76.6 / 61.9 ) \\
+testCls-3 & 0.792 & 0.798 & 0.925 & 0.246 & ( 437.2 / 26.5 ) & ( 9.2 / 5.9 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls3-Wtp5}
+\label{tab:LogRegCls3-Wtp5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.879 & 0.855 & 0.832 & 0.626 & ( 331.2 / 28.9 ) & ( 51.5 / 67.2 ) \\
+trainCls-3 & 0.849 & 0.859 & 0.813 & 0.351 & ( 3288.4 / 74.5 ) & ( 730.2 / 217.1 ) \\
+testCls-3 & 0.795 & 0.805 & 0.804 & 0.318 & ( 363.3 / 10.6 ) & ( 83.1 / 21.8 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls3-Wt1p5}
+\label{tab:LogRegCls3-Wt1p5}
+\end{table}
+\FloatBarrier
+
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
+trainCls-4 & 0.937 & 0.942 & 0.960 & 0.531 & ( 4038.6 / 72.9 ) & ( 100.6 / 98.1 ) \\
+testCls-4 & 0.882 & 0.902 & 0.952 & 0.433 & ( 447.1 / 10.2 ) & ( 12.7 / 8.8 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls4-Wt1}
+\label{tab:LogRegCls4-Wt1}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.875 & 0.852 & 0.855 & 0.590 & ( 359.2 / 45.9 ) & ( 23.5 / 50.2 ) \\
+trainCls-4 & 0.928 & 0.932 & 0.965 & 0.397 & ( 4108.1 / 120.9 ) & ( 31.1 / 50.1 ) \\
+testCls-4 & 0.878 & 0.898 & 0.962 & 0.320 & ( 456.0 / 14.6 ) & ( 3.8 / 4.4 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls4-Wtp5}
+\label{tab:LogRegCls4-Wtp5}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
+trainCls-4 & 0.941 & 0.947 & 0.936 & 0.462 & ( 3918.1 / 53.2 ) & ( 221.1 / 117.8 ) \\
+testCls-4 & 0.886 & 0.903 & 0.926 & 0.382 & ( 432.5 / 8.0 ) & ( 27.3 / 11.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls4-Wt1p5: this won!}
+\label{tab:LogRegCls4-Wt1p5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.880 & 0.859 & 0.853 & 0.627 & ( 348.9 / 36.7 ) & ( 33.8 / 59.4 ) \\
+trainCls-4 & 0.943 & 0.950 & 0.917 & 0.429 & ( 3817.7 / 36.5 ) & ( 321.5 / 134.5 ) \\
+testCls-4 & 0.886 & 0.903 & 0.906 & 0.352 & ( 421.8 / 6.8 ) & ( 38.0 / 12.2 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls4-Wt2}
+\label{tab:LogRegCls4-Wt2}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
+trainCls-5 & 0.940 & 0.941 & 0.998 & 0.000 & ( 4300.2 / 10.0 ) & ( 0.0 / 0.0 ) \\
+testCls-5 & 0.393 & 0.681 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls5-Wt1}
+\label{tab:LogRegCls5-Wt1}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
+trainCls-5 & 0.911 & 0.912 & 0.998 & 0.000 & ( 4300.2 / 10.0 ) & ( 0.0 / 0.0 ) \\
+testCls-5 & 0.389 & 0.672 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls5-Wtp5}
+\label{tab:LogRegCls5-Wtp5}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
+trainCls-5 & 0.957 & 0.958 & 0.998 & 0.000 & ( 4300.2 / 10.0 ) & ( 0.0 / 0.0 ) \\
+testCls-5 & 0.396 & 0.687 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls5-Wt1p5}
+\label{tab:LogRegCls5-Wt1p5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
+trainCls-5 & 0.990 & 0.990 & 0.998 & 0.374 & ( 4299.8 / 7.6 ) & ( 0.4 / 2.4 ) \\
+testCls-5 & 0.401 & 0.694 & 0.998 & 0.000 & ( 477.7 / 1.0 ) & ( 0.1 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls5-Wt5}
+\label{tab:LogRegCls5-Wt5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.883 & 0.861 & 0.855 & 0.623 & ( 352.1 / 38.8 ) & ( 30.6 / 57.3 ) \\
+trainCls-5 & 0.996 & 0.997 & 0.998 & 0.609 & ( 4293.4 / 2.7 ) & ( 6.8 / 7.3 ) \\
+testCls-5 & 0.402 & 0.696 & 0.996 & 0.000 & ( 476.8 / 1.0 ) & ( 1.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls5-Wt10: this won!}
+\label{tab:LogRegCls5-Wt10}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.881 & 0.860 & 0.854 & 0.622 & ( 351.6 / 38.7 ) & ( 31.1 / 57.4 ) \\
+trainCls-5 & 0.998 & 0.998 & 0.992 & 0.355 & ( 4265.8 / 0.5 ) & ( 34.4 / 9.5 ) \\
+testCls-5 & 0.381 & 0.616 & 0.989 & 0.000 & ( 473.5 / 1.0 ) & ( 4.3 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls5-Wt20}
+\label{tab:LogRegCls5-Wt20}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.883 & 0.861 & 0.855 & 0.623 & ( 352.1 / 38.8 ) & ( 30.6 / 57.3 ) \\
+trainCls-6 & 0.945 & 0.962 & 0.976 & 0.303 & ( 4182.5 / 70.8 ) & ( 34.1 / 22.8 ) \\
+testCls-6 & 0.892 & 0.936 & 0.972 & 0.191 & ( 463.9 / 8.8 ) & ( 4.5 / 1.6 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls6-Wt1}
+\label{tab:LogRegCls6-Wt1}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.882 & 0.860 & 0.855 & 0.622 & ( 352.1 / 38.9 ) & ( 30.6 / 57.2 ) \\
+trainCls-6 & 0.938 & 0.956 & 0.978 & 0.006 & ( 4216.5 / 93.3 ) & ( 0.1 / 0.3 ) \\
+testCls-6 & 0.881 & 0.928 & 0.978 & 0.000 & ( 468.3 / 10.4 ) & ( 0.1 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls6-Wtp5}
+\label{tab:LogRegCls6-Wtp5}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.884 & 0.861 & 0.855 & 0.627 & ( 350.8 / 37.6 ) & ( 31.9 / 58.5 ) \\
+trainCls-6 & 0.950 & 0.967 & 0.949 & 0.380 & ( 4023.8 / 26.4 ) & ( 192.8 / 67.2 ) \\
+testCls-6 & 0.897 & 0.939 & 0.945 & 0.292 & ( 447.0 / 5.0 ) & ( 21.4 / 5.4 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls6-Wt2: this wins!}
+\label{tab:LogRegCls6-Wt2}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.884 & 0.860 & 0.850 & 0.629 & ( 346.6 / 35.5 ) & ( 36.1 / 60.6 ) \\
+trainCls-6 & 0.952 & 0.969 & 0.921 & 0.335 & ( 3885.8 / 8.3 ) & ( 330.8 / 85.3 ) \\
+testCls-6 & 0.898 & 0.940 & 0.915 & 0.281 & ( 430.5 / 2.6 ) & ( 37.9 / 7.8 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls6-Wt3}
+\label{tab:LogRegCls6-Wt3}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.884 & 0.862 & 0.855 & 0.628 & ( 350.8 / 37.5 ) & ( 31.9 / 58.6 ) \\
+trainCls-7 & 0.892 & 0.893 & 0.988 & 0.000 & ( 4257.1 / 53.1 ) & ( 0.0 / 0.0 ) \\
+testCls-7 & 0.648 & 0.720 & 0.988 & 0.000 & ( 472.9 / 5.9 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls7-Wt1}
+\label{tab:LogRegCls7-Wt1}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.884 & 0.861 & 0.855 & 0.627 & ( 350.8 / 37.6 ) & ( 31.9 / 58.5 ) \\
+trainCls-7 & 0.859 & 0.857 & 0.988 & 0.000 & ( 4257.1 / 53.1 ) & ( 0.0 / 0.0 ) \\
+testCls-7 & 0.636 & 0.708 & 0.988 & 0.000 & ( 472.9 / 5.9 ) & ( 0.0 / 0.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls7-Wtp5}
+\label{tab:LogRegCls7-Wtp5}
+\end{table}
+\FloatBarrier
+
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\
+trainCls-7 & 0.930 & 0.939 & 0.986 & 0.344 & ( 4234.1 / 37.3 ) & ( 23.0 / 15.8 ) \\
+testCls-7 & 0.667 & 0.739 & 0.983 & 0.105 & ( 470.1 / 5.4 ) & ( 2.8 / 0.5 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls7-Wt3: this won!}
+\label{tab:LogRegCls7-Wt3}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.883 & 0.860 & 0.847 & 0.628 & ( 344.0 / 34.4 ) & ( 38.7 / 61.7 ) \\
+trainCls-7 & 0.941 & 0.953 & 0.956 & 0.265 & ( 4086.0 / 18.9 ) & ( 171.1 / 34.2 ) \\
+testCls-7 & 0.674 & 0.744 & 0.948 & 0.099 & ( 452.3 / 4.5 ) & ( 20.6 / 1.4 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls7-Wt5}
+\label{tab:LogRegCls7-Wt5}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\
+trainCls-8 & 0.967 & 0.978 & 0.982 & 0.453 & ( 4199.8 / 36.1 ) & ( 42.0 / 32.3 ) \\
+testCls-8 & 0.896 & 0.952 & 0.978 & 0.308 & ( 465.7 / 5.2 ) & ( 5.5 / 2.4 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls8-Wt1: this won!}
+\label{tab:LogRegCls8-Wt1}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.885 & 0.862 & 0.855 & 0.630 & ( 350.4 / 37.0 ) & ( 32.3 / 59.1 ) \\
+trainCls-8 & 0.961 & 0.972 & 0.984 & 0.253 & ( 4229.6 / 56.7 ) & ( 12.2 / 11.7 ) \\
+testCls-8 & 0.893 & 0.952 & 0.982 & 0.135 & ( 469.5 / 6.8 ) & ( 1.7 / 0.8 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls8-Wtp5}
+\label{tab:LogRegCls8-Wtp5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 349.5 / 36.4 ) & ( 33.2 / 59.7 ) \\
+trainCls-8 & 0.967 & 0.980 & 0.978 & 0.478 & ( 4169.7 / 24.3 ) & ( 72.1 / 44.1 ) \\
+testCls-8 & 0.892 & 0.947 & 0.973 & 0.376 & ( 462.2 / 3.9 ) & ( 9.0 / 3.7 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls8-Wt1p5}
+\label{tab:LogRegCls8-Wt1p5}
+\end{table}
+\FloatBarrier
+
 
 
 

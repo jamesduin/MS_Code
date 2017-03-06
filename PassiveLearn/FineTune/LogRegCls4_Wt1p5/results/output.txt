@@ -1,0 +1,58 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l||l|}\toprule
+fine-pr & trainCls-pr & testCls-pr & fine-roc & trainCls-roc & testCls-roc & fine-acc & trainCls-acc & testCls-acc & fine-f1 & trainCls-f1 & testCls-f1 \\ \midrule
+0.860 & 0.941 & 0.851 & 0.837 & 0.947 & 0.894 & 0.866 & 0.935 & 0.933 & 0.628 & 0.453 & 0.385 \\
+0.905 & 0.939 & 0.908 & 0.899 & 0.945 & 0.910 & 0.868 & 0.936 & 0.923 & 0.663 & 0.458 & 0.373 \\
+0.886 & 0.938 & 0.906 & 0.847 & 0.946 & 0.923 & 0.856 & 0.939 & 0.931 & 0.635 & 0.482 & 0.353 \\
+0.836 & 0.947 & 0.846 & 0.824 & 0.954 & 0.836 & 0.835 & 0.938 & 0.919 & 0.568 & 0.473 & 0.316 \\
+0.902 & 0.940 & 0.919 & 0.887 & 0.945 & 0.927 & 0.848 & 0.937 & 0.919 & 0.597 & 0.461 & 0.339 \\
+0.905 & 0.938 & 0.915 & 0.880 & 0.944 & 0.945 & 0.866 & 0.934 & 0.935 & 0.648 & 0.452 & 0.492 \\
+0.882 & 0.942 & 0.858 & 0.846 & 0.948 & 0.891 & 0.854 & 0.938 & 0.923 & 0.620 & 0.467 & 0.351 \\
+0.878 & 0.940 & 0.896 & 0.864 & 0.947 & 0.934 & 0.856 & 0.937 & 0.925 & 0.642 & 0.465 & 0.438 \\
+0.904 & 0.942 & 0.875 & 0.887 & 0.947 & 0.910 & 0.871 & 0.935 & 0.925 & 0.663 & 0.456 & 0.400 \\
+0.869 & 0.941 & 0.888 & 0.836 & 0.949 & 0.864 & 0.836 & 0.935 & 0.931 & 0.571 & 0.453 & 0.377 \\
+avg 0.883 & avg 0.941 & avg 0.886 & avg 0.861 & avg 0.947 & avg 0.903 & avg 0.856 & avg 0.936 & avg 0.926 & avg 0.624 & avg 0.462 & avg 0.382 \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls4-Wt1p5}
+\label{tab:LogRegCls4-Wt1p5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l||l|}\toprule
+fine-tn & trainCls-tn & testCls-tn & fine-fp & trainCls-fp & testCls-fp & fine-fn & trainCls-fn & testCls-fn & fine-tp & trainCls-tp & testCls-tp \\ \midrule
+361 & 3914 & 437 & 22 & 225 & 23 & 42 & 55 & 9 & 54 & 116 & 10 \\
+354 & 3919 & 431 & 29 & 220 & 29 & 34 & 55 & 8 & 62 & 116 & 11 \\
+350 & 3926 & 437 & 33 & 213 & 23 & 36 & 49 & 10 & 60 & 122 & 9 \\
+348 & 3923 & 431 & 35 & 216 & 29 & 44 & 51 & 10 & 52 & 120 & 9 \\
+352 & 3923 & 430 & 31 & 216 & 30 & 42 & 55 & 9 & 54 & 116 & 10 \\
+356 & 3909 & 433 & 27 & 230 & 27 & 37 & 54 & 4 & 59 & 117 & 15 \\
+352 & 3923 & 432 & 31 & 216 & 28 & 39 & 53 & 9 & 57 & 118 & 10 \\
+348 & 3921 & 429 & 34 & 218 & 31 & 35 & 53 & 5 & 62 & 118 & 14 \\
+356 & 3910 & 431 & 26 & 229 & 29 & 36 & 53 & 7 & 61 & 118 & 12 \\
+347 & 3913 & 434 & 35 & 228 & 24 & 43 & 54 & 9 & 52 & 117 & 10 \\
+avg 352.4 & avg 3918.1 & avg 432.5 & avg 30.3 & avg 221.1 & avg 27.3 & avg 38.8 & avg 53.2 & avg 8.0 & avg 57.3 & avg 117.8 & avg 11.0 \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls4-Wt1p5}
+\label{tab:LogRegCls4-Wt1p5}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
+trainCls-4 & 0.941 & 0.947 & 0.936 & 0.462 & ( 3918.1 / 53.2 ) & ( 221.1 / 117.8 ) \\
+testCls-4 & 0.886 & 0.903 & 0.926 & 0.382 & ( 432.5 / 8.0 ) & ( 27.3 / 11.0 ) \\ \bottomrule
+\end{tabular}
+\caption{LogRegCls4-Wt1p5}
+\label{tab:LogRegCls4-Wt1p5}
+\end{table}
+\FloatBarrier
+

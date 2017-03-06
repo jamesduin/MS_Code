@@ -38,8 +38,52 @@ testFold = int(sys.argv[1])
 #dir = 'CostGamma/LogRegWt7p5_Cp1'
 #dir = 'CostGamma/LogRegWt7p5_C10'
 
-dir = 'FineTune/LogRegCls1_Wtp5'
-dir = 'FineTune/LogRegCls1_Wtp75'
+
+#dir = 'FineTune/LogRegCls1_Wt1'
+#dir = 'FineTune/LogRegCls1_Wtp5'
+#dir = 'FineTune/LogRegCls1_Wt1p5'
+#dir = 'FineTune/LogRegCls1_Wt2'
+#dir = 'FineTune/LogRegCls1_Wt3'
+#dir = 'FineTune/LogRegCls1_Wt5'
+
+#dir = 'FineTune/LogRegCls2_Wt1'
+#dir = 'FineTune/LogRegCls2_Wtp5'
+#dir = 'FineTune/LogRegCls2_Wt1p5'
+
+#dir = 'FineTune/LogRegCls3_Wt1'
+#dir = 'FineTune/LogRegCls3_Wtp5'
+#dir = 'FineTune/LogRegCls3_Wt1p5'
+
+#dir = 'FineTune/LogRegCls4_Wt1'
+#dir = 'FineTune/LogRegCls4_Wtp5'
+#dir = 'FineTune/LogRegCls4_Wt1p5'
+#dir = 'FineTune/LogRegCls4_Wt2'
+
+#dir = 'FineTune/LogRegCls5_Wt1'
+#dir = 'FineTune/LogRegCls5_Wtp5'
+#dir = 'FineTune/LogRegCls5_Wt1p5'
+#dir = 'FineTune/LogRegCls5_Wt5'
+#dir = 'FineTune/LogRegCls5_Wt10'
+#dir = 'FineTune/LogRegCls5_Wt20'
+
+#dir = 'FineTune/LogRegCls6_Wt1'
+#dir = 'FineTune/LogRegCls6_Wtp5'
+#dir = 'FineTune/LogRegCls6_Wt1p5'
+#dir = 'FineTune/LogRegCls6_Wt2'
+#dir = 'FineTune/LogRegCls6_Wt3'
+
+#dir = 'FineTune/LogRegCls7_Wt1'
+#dir = 'FineTune/LogRegCls7_Wtp5'
+#dir = 'FineTune/LogRegCls7_Wt1p5'
+#dir = 'FineTune/LogRegCls7_Wt2'
+#dir = 'FineTune/LogRegCls7_Wt3'
+#dir = 'FineTune/LogRegCls7_Wt5'
+
+#dir = 'FineTune/LogRegCls8_Wt1'
+#dir = 'FineTune/LogRegCls8_Wtp5'
+#dir = 'FineTune/LogRegCls8_Wtp75'
+#dir = 'FineTune/LogRegCls8_Wt1p5'
+fineCls = 8
 
 if not os.path.exists(dir):
     os.makedirs(dir)
@@ -103,6 +147,13 @@ for lvl in ['fine']:#['coarse', 'fine']:
     rnds[lvl].trainClassifier(X_train, y_trainCoarse)
     y_predCoarse[lvl], y_pred_score[lvl] = rnds[lvl].predictTestSet(X_test)
     rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], results)
+    rnds[lvl].predictTestSetFineCls(X_train,y_train,fineCls,
+                                    'trainCls',results)
+    rnds[lvl].predictTestSetFineCls(X_test,y_test,fineCls,
+                                    'testCls',results)
+
+
+
     fpr, tpr, threshRoc = rnds[lvl].plotRocCurves(y_testCoarse,
                                                   y_pred_score[lvl],
                                                   y_sampleWeight, results)

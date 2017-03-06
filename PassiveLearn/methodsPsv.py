@@ -213,8 +213,8 @@ class FineRound(LearnRound):
         #     [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783,
         #      3.4782608695652177, 0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
         self.Fine_wt = np.array(
-            [0.5, 1.0, 1.0, 1.0,
-             1.0, 1.0, 1.0, 1.0]) * train_wt
+            [3.0, 1.0, 1.0, 1.5,
+             10.0, 2.0, 3.0, 1.0]) * train_wt
         addPrint(results, 'fineTrainWt: {},{},{},{},{},{},{},{}'.format(*self.Fine_wt))
         return y_trainBin
 
@@ -226,6 +226,7 @@ class FineRound(LearnRound):
             #joblib.dump(clf, self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             # clf = joblib.load(self.lvl + '_models/'+ self.Psv+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             self.classifier[cls] = clf
+
 
     def predictTestSet(self,X_test):
         ##### predict test set for fine
@@ -246,6 +247,41 @@ class FineRound(LearnRound):
                 y_predCoarse.append(0.0)
         return np.array(y_predCoarse),y_pred_score
 
+    def predictTestSetFineCls(self,X_test,y_test,fineCls,label,results):
+        ##### predict test set for fine
+        y_predFine = self.classifier[fineCls-1].predict(X_test)
+        y_pred_score = self.classifier[fineCls-1].decision_function(X_test)
+        y_testFine = label_binarize(y_test, classes=[fineCls])
+        ###### print conf matrix,accuracy and f1_score
+        confMatrix = confusion_matrix(y_testFine, y_predFine)
+        acc = accuracy_score(y_testFine, y_predFine)
+        f1 = f1_score(y_testFine, y_predFine)
+        addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+
+                 [label]+['conf']+['tn']+[confMatrix[0][0]] +['fp']+ [confMatrix[0][1]])
+        addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+
+                 [label]+['conf']+['fn']+[confMatrix[1][0]] +['tp']+ [confMatrix[1][1]])
+        addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+
+                 [label]+['acc']+[acc] +['f1']+[f1])
+
+        y_sampleWeight = []
+        test_wt = len(y_testFine) / np.sum(y_testFine)
+        for inst in y_testFine:
+            if inst > 0:
+                y_sampleWeight.append(test_wt)
+            else:
+                y_sampleWeight.append(1.0)
+        fpr, tpr, threshRoc = roc_curve(y_testFine, y_pred_score, sample_weight=y_sampleWeight)
+        roc_auc = auc(fpr, tpr, reorder=True)
+        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+
+                 [label]+['roc']+ [roc_auc])
+
+        precision, recall, threshPr = precision_recall_curve(y_testFine, y_pred_score, sample_weight=y_sampleWeight)
+        pr_auc = auc(recall, precision)
+        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+
+                 [label]+['pr']+ [pr_auc])
+
+
+
     def predictTestSetThreshold(self,thresh,y_pred_score):
         ##### predict test set for fine
         y_predCoarse = []
@@ -255,8 +291,6 @@ class FineRound(LearnRound):
             else:
                 y_predCoarse.append(0.0)
         return np.array(y_predCoarse),y_pred_score
-
-
 
 
 
@@ -328,9 +362,9 @@ def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,test
     acc = accuracy_score(y_testCoarse, combPredCoarse)
     f1 = f1_score(y_testCoarse, combPredCoarse)
     addPrint(results, ['rnd'] + [rndNum] + ['fold'] + [testFold] + ['combPred']
-             + ['conf'] +['tn']+ [confMatrix[0][0]] +['fn']+ [confMatrix[0][1]])
+             + ['conf'] +['tn']+ [confMatrix[0][0]] +['fp']+ [confMatrix[0][1]])
     addPrint(results, ['rnd'] + [rndNum] + ['fold'] + [testFold] + ['combPred']
-             + ['conf'] +['fp']+ [confMatrix[1][0]] +['tp']+ [confMatrix[1][1]])
+             + ['conf'] +['fn']+ [confMatrix[1][0]] +['tp']+ [confMatrix[1][1]])
     addPrint(results, ['rnd'] + [rndNum] + ['fold'] + [testFold] + ['combPred']
              + ['acc'] + [acc] + ['f1'] + [f1])
     combConfMat = dict()
