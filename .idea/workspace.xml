@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/plotActPassParam.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/ActiveVsPassiveAcc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/ActiveVsPassiveF1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/ActiveVsPassivePR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/ActiveVsPassiveROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/passive_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/passive_fine_1.res" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFR/plotFFR.py" afterPath="$PROJECT_DIR$/FFR/plotFFR.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/GenerateRshActPass.py" afterPath="$PROJECT_DIR$/HCC/GenerateRshActPass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/run.sh" afterPath="$PROJECT_DIR$/HCC/run.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,77 +24,37 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49845916">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="runActPassParam.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="146" column="49" lean-forward="false" selection-start-line="146" selection-start-column="49" selection-end-line="146" selection-end-column="49" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="GenerateRshActPass.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/HCC/GenerateRshActPass.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="methodsActPassParam.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="529">
-                  <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="72" column="5" lean-forward="false" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="plotActPassParam.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotActPassParam.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-611">
-                  <caret line="86" column="21" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="21" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
-              <provider selected="true" editor-type-id="LaTeXFileEditor">
-                <state />
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="runActPassParam.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="428">
+              <caret line="148" column="21" lean-forward="true" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1065">
+              <caret line="72" column="5" lean-forward="false" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
+          <provider selected="true" editor-type-id="LaTeXFileEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,12 +89,12 @@
       <find>clfType</find>
       <find>plt</find>
       <find>y_predCoarse</find>
-      <find>plot</find>
       <find>count</find>
-      <find>write</find>
       <find>threshResults</find>
-      <find>addPrint</find>
       <find>printConfMatrixThresh</find>
+      <find>addPrint</find>
+      <find>plot</find>
+      <find>write</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/ThesisWriteUp/bib</dir>
@@ -194,15 +155,15 @@
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py" />
         <option value="$PROJECT_DIR$/HCC/GenerateRshActPass.py" />
         <option value="$PROJECT_DIR$/HCC/run.sh" />
-        <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-6" />
-    <option name="y" value="84" />
-    <option name="width" value="1620" />
+    <option name="x" value="12" />
+    <option name="y" value="58" />
+    <option name="width" value="1565" />
     <option name="height" value="955" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -233,38 +194,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HCC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HCC" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DefFoldersThresh" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -578,17 +507,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="84" width="1620" height="955" extended-state="0" />
-    <editor active="false" />
+    <frame x="12" y="58" width="1565" height="955" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18824266" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19494818" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3542354" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31517962" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31517962" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -987,14 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotActPassParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-611">
-          <caret line="86" column="21" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
       <provider selected="true" editor-type-id="LaTeXFileEditor">
         <state />
@@ -1011,39 +932,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="72" column="5" lean-forward="false" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HCC/DefFoldersThresh/run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="146" column="49" lean-forward="false" selection-start-line="146" selection-start-column="49" selection-end-line="146" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1060,6 +953,42 @@
         <state relative-caret-position="255">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotActPassParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-611">
+          <caret line="86" column="21" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="72" column="5" lean-forward="false" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="148" column="21" lean-forward="true" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

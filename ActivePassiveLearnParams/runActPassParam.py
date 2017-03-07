@@ -81,7 +81,6 @@ for lvl in ['coarse','fine']:
 instanceCount = 0
 rndNum = 0
 threshResults = {'coarse':[],'fine':[]}
-threshCount = 0
 while((18088-instanceCount) > 100):
 #while(rndNum < 10):
     start_time.append(time.perf_counter())
@@ -93,7 +92,6 @@ while((18088-instanceCount) > 100):
                 ###### run confidence estimate for coarse and fine
                 m.confEstAdd(rnd_results[lvl],classes[lvl],sets[lvl],rnds[lvl],lvl,100)
     rndNum += 1
-    threshCount += 1
     rnds = dict()
     rnds['coarse'] = m.CoarseRound(testFold, rndNum, rndType)
     rnds['fine'] = m.FineRound(testFold, rndNum, rndType)
@@ -143,10 +141,11 @@ while((18088-instanceCount) > 100):
         f = open('results/'+rndType+'_'+lvl+'_'+str(testFold)+'.res','wb')
         pickle.dump(rnd_results[lvl], f)
         f.close()
-        if(rndNum == 100 or rndNum == 171):
+    instanceCount = max([instanceCount['fine'], instanceCount['coarse']])
+    if(rndNum == 100 or (18088-instanceCount) <= 100 ):
+        for lvl in ['coarse', 'fine']:
             f = open('thresh/thresh_'+str(rndNum)+'_' + rndType + '_' + lvl + '_' + str(testFold) + '.res', 'wb')
             pickle.dump(threshResults[lvl], f)
             f.close()
-            threshCount = 0
-            threshResults = {'coarse': [], 'fine': []}
-    instanceCount = max([instanceCount['fine'], instanceCount['coarse']])
+            threshResults[lvl] = []
+
