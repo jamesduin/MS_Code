@@ -2,7 +2,8 @@ f = open('run.sh','w')
 f.write('#!/bin/sh\n\n')
 rndType = ['active','passive']
 fold = [1,2,3,4,5,6,7,8,9,10]
-add2Short = True
+#add2Short = True
+add2Short = False
 part1 = 'gpu_m2070'
 part2 = 'gpu_k20'
 part3 = False
@@ -22,7 +23,7 @@ for type in rndType:
         f.write(
         "sbatch <<'EOF'\n"
         "#!/bin/sh\n"
-        "#SBATCH --time=3:00:00          # Run time in hh:mm:ss\n"
+        "#SBATCH --time=10:00:00          # Run time in hh:mm:ss\n"
         "#SBATCH --nodes=1       # number of nodes\n"
         "#SBATCH --ntasks=1       # number of cores\n"
         "#SBATCH --mem-per-cpu=2024       # Maximum memory required per CPU (in megabytes)\n")

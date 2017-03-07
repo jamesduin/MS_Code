@@ -23,8 +23,9 @@ def getRndTypeSet(resultsDir):
 
 
 
-#resultsDir = 'runActPassLogReg/results'
-resultsDir = 'runActPassSVM/results'
+resultsDir = 'runActPassLogReg/results'
+#resultsDir = 'runActPassSVM/results'
+#resultsDir = 'runActPassSVMTimeOut/results'
 
 rndTypeSet = getRndTypeSet(resultsDir)
 
@@ -88,10 +89,11 @@ for type in rndTypeSet:
                 ind =[i for i in range(len(rec)) if rec[i] == 'pr']
                 prFold.append(rec[ind[0]+1])
         prFold = np.array(prFold).reshape(len(prFold),1)
-        if prs == []:
+        if len(prs) == 0:
             prs =prFold
         else:
-            prs = np.hstack((prs,prFold))
+            minRL = min(len(prs), len(prFold))
+            prs = np.hstack((prs[:minRL], prFold[:minRL]))
     x_pr = np.array(range(1,len(prs)+1))
     y_pr = np.mean(prs, axis=1)
     plt.plot(x_pr,y_pr, label = type)
@@ -117,10 +119,11 @@ for type in rndTypeSet:
                 ind =[i for i in range(len(rec)) if rec[i] == 'roc']
                 prFold.append(rec[ind[0]+1])
         prFold = np.array(prFold).reshape(len(prFold),1)
-        if prs == []:
+        if len(prs) == 0:
             prs =prFold
         else:
-            prs = np.hstack((prs,prFold))
+            minRL = min(len(prs), len(prFold))
+            prs = np.hstack((prs[:minRL], prFold[:minRL]))
     x_pr = np.array(range(1,len(prs)+1))
     y_pr = np.mean(prs, axis=1)
     plt.plot(x_pr,y_pr, label = 'avg_'+type)
@@ -145,10 +148,11 @@ for type in rndTypeSet:
                 ind =[i for i in range(len(rec)) if rec[i] == 'f1']
                 prFold.append(rec[ind[0]+1])
         prFold = np.array(prFold).reshape(len(prFold),1)
-        if prs == []:
+        if len(prs) == 0:
             prs =prFold
         else:
-            prs = np.hstack((prs,prFold))
+            minRL = min(len(prs), len(prFold))
+            prs = np.hstack((prs[:minRL], prFold[:minRL]))
     x_pr = np.array(range(1,len(prs)+1))
     y_pr = np.mean(prs, axis=1)
     plt.plot(x_pr,y_pr, label = 'avg_'+type)
@@ -175,10 +179,11 @@ for type in rndTypeSet:
                 ind =[i for i in range(len(rec)) if rec[i] == 'acc']
                 prFold.append(rec[ind[0]+1])
         prFold = np.array(prFold).reshape(len(prFold),1)
-        if prs == []:
+        if len(prs) == 0:
             prs =prFold
         else:
-            prs = np.hstack((prs,prFold))
+            minRL = min(len(prs), len(prFold))
+            prs = np.hstack((prs[:minRL], prFold[:minRL]))
     x_pr = np.array(range(1,len(prs)+1))
     y_pr = np.mean(prs, axis=1)
     plt.plot(x_pr,y_pr, label = 'avg_'+type)

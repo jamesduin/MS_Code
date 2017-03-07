@@ -2,15 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/active_coarse_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/active_fine_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/ActiveVsPassiveAcc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/ActiveVsPassiveF1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/ActiveVsPassivePR.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/ActiveVsPassiveROC.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/passive_coarse_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVM/results/passive_fine_1.res" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/fixActive/results/active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/fixActive/results/active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/fixActive/thresh/thresh_100_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/fixActive/thresh/thresh_100_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/ActiveVsPassiveAcc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/ActiveVsPassiveF1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/ActiveVsPassivePR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/ActiveVsPassiveROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/run.sh" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/GenerateRshActPass.py" afterPath="$PROJECT_DIR$/HCC/GenerateRshActPass.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/run.sh" afterPath="$PROJECT_DIR$/HCC/run.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,37 +68,55 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="runActPassParam.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="148" column="21" lean-forward="true" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="72" column="5" lean-forward="false" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
-          <provider selected="true" editor-type-id="LaTeXFileEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.58477235">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="runActPassParam.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="432">
+                  <caret line="148" column="21" lean-forward="false" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GenerateRshActPass.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HCC/GenerateRshActPass.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="357">
+                  <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
+              <provider selected="true" editor-type-id="LaTeXFileEditor">
+                <state />
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -152,19 +214,19 @@
         <option value="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotActPassParam.py" />
         <option value="$PROJECT_DIR$/FFR/plotFFR.py" />
-        <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py" />
-        <option value="$PROJECT_DIR$/HCC/GenerateRshActPass.py" />
         <option value="$PROJECT_DIR$/HCC/run.sh" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py" />
+        <option value="$PROJECT_DIR$/HCC/GenerateRshActPass.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="12" />
-    <option name="y" value="58" />
-    <option name="width" value="1565" />
-    <option name="height" value="955" />
+    <option name="y" value="55" />
+    <option name="width" value="1596" />
+    <option name="height" value="958" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -194,6 +256,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MS_Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MS_Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MS_Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HCC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -507,17 +583,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="12" y="58" width="1565" height="955" extended-state="0" />
-    <editor active="true" />
+    <frame x="12" y="55" width="1596" height="958" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19494818" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19111112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3542354" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35334873" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31517962" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31408775" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -528,25 +604,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47480106" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35519803" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33805478" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14639284" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47480106" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -906,10 +963,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/_passive_coarse.txt">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/DefFoldersThresh/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotActPassParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-611">
+          <caret line="86" column="21" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FFR/plotFFR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2520">
-          <caret line="168" column="20" lean-forward="false" selection-start-line="158" selection-start-column="47" selection-end-line="168" selection-end-column="20" />
+        <state relative-caret-position="224">
+          <caret line="149" column="12" lean-forward="false" selection-start-line="149" selection-start-column="12" selection-end-line="150" selection-end-column="57" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -927,68 +1015,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/_passive_coarse.txt">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HCC/DefFoldersThresh/run.sh">
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="432">
+          <caret line="148" column="21" lean-forward="false" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HCC/run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="28" selection-end-column="3" />
+        <state relative-caret-position="150">
+          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HCC/GenerateRshActPass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotActPassParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-611">
-          <caret line="86" column="21" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="21" />
+        <state relative-caret-position="357">
+          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="72" column="5" lean-forward="false" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+        <state relative-caret-position="360">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="148" column="21" lean-forward="true" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
