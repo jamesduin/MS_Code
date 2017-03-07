@@ -8,28 +8,33 @@ import sys
 import re
 import os
 rootDir = re.split('[/\.]',__file__)[1]
+clfType = sys.argv[1]
+dir = sys.argv[2]
+rndType = sys.argv[3]
+testFold = int(sys.argv[4])
 
-dir = 'resultsTmp'
-loadDir =  '../../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
-#loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
+baseDir = ''
+if(rootDir == 'py'):
+    baseDir = '../../'
 
-if(rootDir != 'py'):
+else:
     os.chdir('/work/scott/jamesd/')
-    loadDir = '/home/scott/jamesd/MS_Code/data/partitionMinMaxScaled/partitionMinMaxScaled_'
-    # loadDir = '/home/scott/jamesd/MS_Code/data/partitionStdSclSel/partitionStdSclSel_'
+    baseDir = '/home/scott/jamesd/MS_Code/'
+
+
+if(clfType == 'LogReg'):
+    loadDir = baseDir+'data/partitionMinMaxScaled/partitionMinMaxScaled_'
+elif(clfType == 'SVM'):
+    loadDir = baseDir+'data/partitionStdSclSel/partitionStdSclSel_'
 
 if not os.path.exists(dir):
     os.makedirs(dir)
-    os.makedirs(dir+'/coarse_results')
-    os.makedirs(dir + '/coarse_models')
-    os.makedirs(dir+'/fine_results')
-    os.makedirs(dir + '/fine_models')
-    os.makedirs(dir+'/results')
+    os.makedirs(dir + '/log')
+    os.makedirs(dir + '/results')
 os.chdir(dir)
 
 
-rndType = sys.argv[1]
-testFold = int(sys.argv[2])
+
 start_time = [time.perf_counter()]
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 sets = dict()
@@ -75,8 +80,10 @@ for lvl in ['coarse','fine']:
     classes[lvl] = copy.deepcopy(classes_all)
 instanceCount = 0
 rndNum = 0
-#while((18088-instanceCount) > 100):
-while(rndNum < 10):
+threshResults = {'coarse':[],'fine':[]}
+threshCount = 0
+while((18088-instanceCount) > 100):
+#while(rndNum < 10):
     start_time.append(time.perf_counter())
     if(rndNum>=1):
         for lvl in ['coarse', 'fine']:
@@ -84,29 +91,62 @@ while(rndNum < 10):
                 m.randAdd(classes[lvl],sets[lvl],100)
             elif(rndType == 'active'):
                 ###### run confidence estimate for coarse and fine
-                m.confEstAdd(classes[lvl],sets[lvl],rnds[lvl],100)
+                m.confEstAdd(rnd_results[lvl],classes[lvl],sets[lvl],rnds[lvl],lvl,100)
     rndNum += 1
+    threshCount += 1
     rnds = dict()
     rnds['coarse'] = m.CoarseRound(testFold, rndNum, rndType)
     rnds['fine'] = m.FineRound(testFold, rndNum, rndType)
     #### Run rounds
+    y_predCoarse = dict()
+    y_pred_score = dict()
     for lvl in ['coarse', 'fine']:
         y_train, X_train = rnds[lvl].createTrainSet(sets[lvl])
-        y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train)
+        y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train,rnd_results[lvl])
         y_testCoarse, y_sampleWeight, X_test = rnds[lvl].createTestSet(test_part)
-        rnds[lvl].trainClassifier(X_train, y_trainCoarse)
-        y_predCoarse, y_pred_score = rnds[lvl].predictTestSet(X_test)
-        rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse, rnd_results[lvl])
-        rnds[lvl].plotRocPrCurves(y_testCoarse, y_pred_score, y_sampleWeight, rnd_results[lvl])
+        rnds[lvl].trainClassifier(X_train, y_trainCoarse,clfType)
+        y_predCoarse[lvl], y_pred_score[lvl] = rnds[lvl].predictTestSet(X_test)
+        rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], rnd_results[lvl])
+        fpr, tpr, threshRoc = rnds[lvl].plotRocCurves(y_testCoarse,
+                                                      y_pred_score[lvl],
+                                                      y_sampleWeight, rnd_results[lvl])
+        precision, recall, threshPr = rnds[lvl].plotPrCurves(y_testCoarse,
+                            y_pred_score[lvl], y_sampleWeight, rnd_results[lvl])
+        m.addPrint(rnd_results[lvl],'threshRoc {}'.format(len(threshRoc)))
+        m.addPrint(rnd_results[lvl],'threshPr {}'.format(len(threshPr)))
+
+        for tInd,thresh in enumerate(threshRoc):
+            y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(thresh,
+                                                y_pred_score[lvl])
+            rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,threshResults[lvl],
+                                            'flsPos',fpr[tInd],
+                                            'truPos',tpr[tInd],
+                                            'thresh',thresh)
+
+        for tInd,thresh in enumerate(threshPr):
+            y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(thresh,
+                                                y_pred_score[lvl])
+            rnds[lvl].printConfMatrixThresh(y_testCoarse,y_predCrsThresh,threshResults[lvl],
+                                            'rec', recall[tInd],
+                                            'prec', precision[tInd],
+                                            'thresh', thresh)
 
     ##### Append round time and fold counts
+    instanceCount = dict()
     for lvl in ['coarse', 'fine']:
-        instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, rnd_results[lvl], sets, start_time)
+        instanceCount[lvl] = m.appendRndTimesFoldCnts(testFold, rndNum,lvl,rnd_results[lvl],
+                                                      sets[lvl], start_time)
         m.appendSetTotal(rndNum, rnd_results[lvl], classes_all, 'classes_all')
         tot = time.perf_counter() - start_time[0]
         m.addPrint(rnd_results[lvl], ['Total Time:'] + ['{:.0f}hr {:.0f}m {:.2f}sec'.format(
             *divmod(divmod(tot, 60)[0], 60), divmod(tot, 60)[1])])
-        fileName = open('results/'+rndType+'_'+lvl+'_'+str(testFold)+'.res','wb')
-        pickle.dump(rnd_results[lvl], fileName)
-        fileName.close()
-
+        f = open('results/'+rndType+'_'+lvl+'_'+str(testFold)+'.res','wb')
+        pickle.dump(rnd_results[lvl], f)
+        f.close()
+        if(rndNum == 100 or rndNum == 171):
+            f = open('thresh/thresh_'+str(rndNum)+'_' + rndType + '_' + lvl + '_' + str(testFold) + '.res', 'wb')
+            pickle.dump(threshResults[lvl], f)
+            f.close()
+            threshCount = 0
+            threshResults = {'coarse': [], 'fine': []}
+    instanceCount = max([instanceCount['fine'], instanceCount['coarse']])

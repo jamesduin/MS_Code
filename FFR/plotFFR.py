@@ -43,10 +43,6 @@ cost = 4
 
 
 
-
-
-
-
 rndTypeSet = getRndTypeSet(resultsDir)
 #rndTypeSet = {'FFR_0p5', 'FFR_0p6', 'FFR_0p2', 'FFR_0p1', 'FFR_1p0', 'FFR_0p3', 'FFR_0p0', 'FFR_0p4', 'FFR_0p7', 'FFR_0p9', 'FFR_0p8'}
 #rndTypeSet = {'FFR_1p0'}#'FFR_0p0','FFR_0p1','FFR_0p2','FFR_0p3','FFR_0p4','FFR_0p5','FFR_0p6','FFR_0p7','FFR_0p8','FFR_0p9','FFR_1p10'}
@@ -160,6 +156,29 @@ for linInd,type in enumerate(sorted(rndTypeSet)):
     y_pr = np.mean(prs, axis=1)
     #cVal = tuple(np.multiply(cVals[linInd],(1/270,1/270,1/270,1.0)))
     cVal = cVals[linInd]
+    plt.plot(x_pr,y_pr, label = 'FFR['+type+']',linewidth = 1.8 ,
+             fillstyle='none',
+             color=cVal,dashes=lineSty[linInd],
+             marker=markSty[linInd],
+             markersize=6,
+             markeredgecolor=cVal,
+             markeredgewidth=1.0,
+             markevery=markEvSty[linInd]
+             )
+    leg= plt.legend(fancybox=True)
+    axes = plt.gca()
 
+    axes.set_xlim(Xlims)
+    #axes.set_ylim([0.842, 0.875])
+    axes.set_ylim([0.838, 0.87])
 
-
+plt.ylabel('PR-AUC')
+plt.xlabel('Iteration')
+title = 'FFR Method Fine Cost '+str(cost)
+if(Xlims[1] == 500):
+    title = title+' - '+str(Xlims[1])+' Rounds'
+if(Xlims[1] == 60):
+    title = title + ' - '+ str(Xlims[0])+' to '+ str(Xlims[1]) + ' Rounds'
+plt.title(title)
+plt.legend(loc="lower right")
+plt.savefig('../ThesisWriteUp/fig'+'/FFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')

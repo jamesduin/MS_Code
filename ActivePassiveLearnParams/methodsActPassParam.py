@@ -11,6 +11,9 @@ from sklearn.externals import joblib
 from sklearn import linear_model
 from sklearn.preprocessing import label_binarize
 import time
+from sklearn import svm
+
+
 
 class LearnRound:
     def __init__(self,testFold,rndNum, lvl,rndType):
@@ -20,6 +23,21 @@ class LearnRound:
         self.testFold = testFold
         self.lvl = lvl
 
+    def getClf(self,train_wt,clfType):
+        if(clfType == 'LogReg'):
+            classifier = linear_model.LogisticRegression(penalty='l2',
+                                                         C=0.1,
+                                                         tol=0.00001,
+                                                         solver='liblinear',
+                                                         class_weight={1: train_wt},
+                                                         n_jobs=-1)
+        elif(clfType == 'SVM'):
+            classifier = svm.SVC(kernel='rbf', cache_size=8192,
+                                decision_function_shape = 'ovo',
+                                 class_weight={1: train_wt},
+                                C=0.15,
+                                 gamma=0.002)
+        return classifier
 
     def createTrainSet(self, set):
         self.lvl_rndTime = time.perf_counter()
@@ -60,53 +78,59 @@ class LearnRound:
         acc = accuracy_score(y_testCoarse, y_predCoarse)
         f1 = f1_score(y_testCoarse, y_predCoarse)
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
-                       +['conf']+[confMatrix[0][0]] + [confMatrix[0][1]])
+                       +['conf']+['tn']+[confMatrix[0][0]] +['fp']+ [confMatrix[0][1]])
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
-                       +['conf'] +[confMatrix[1][0]] + [confMatrix[1][1]])
+                       +['conf']+['fn']+[confMatrix[1][0]] +['tp']+ [confMatrix[1][1]])
         addPrint(results,['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
                        +['acc']+[acc] +['f1']+[f1])
 
 
-    def plotRocPrCurves(self,y_testCoarse,y_pred_score,y_sampleWeight,results):
+    def printConfMatrixThresh(self,y_testCoarse,y_predCoarse,results,xaxislb,xaxis,yaxislb,yaxis,threshlb,thresh):
+        ###### print conf matrix,accuracy and f1_score
+        # confMatrix = confusion_matrix(y_testCoarse, y_predCoarse)
+        # acc = accuracy_score(y_testCoarse, y_predCoarse)
+        # f1 = f1_score(y_testCoarse, y_predCoarse)
+        confMatrix = [[0,0],[0,0]]
+        acc = 0
+        f1 = 0
+        results.append(['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       #+[xaxislb]+[xaxis]+[yaxislb]+[yaxis]+[threshlb]+[thresh]
+                       +['co']+['tNg']+[confMatrix[0][0]] +['fPs']+ [confMatrix[0][1]])
+        results.append(['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
+                 #+ [xaxislb] + [xaxis] + [yaxislb] + [yaxis] + [threshlb] + [thresh]
+                       +['co']+['fNg']+[confMatrix[1][0]] +['tPs']+ [confMatrix[1][1]])
+        results.append(['rnd']+[self.rndNum] +['fold']+[self.testFold]+['lvl']+[self.lvl]
+                 + [xaxislb] + [xaxis] + [yaxislb] + [yaxis] + [threshlb] + [thresh]
+                       +['ac']+['{:.3f}'.format(acc)] +['fmes']+[f1])
+
+
+    def plotRocCurves(self,y_testCoarse,y_pred_score,y_sampleWeight,results):
         ###### Plot ROC and PR curves
         fpr, tpr, threshRoc = roc_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         roc_auc = auc(fpr, tpr, reorder=True)
-        if (self.rndNum % 50 == 0):
-            plt.figure()
-            plt.plot(fpr, tpr,
-                     label='ROC curve (area = {0:0.3f})'.format(roc_auc),
-                     color='red', linestyle=':', linewidth=4)
-            plt.plot([0, 1], [0, 1], 'k--')
-            plt.xlim([0.0, 1.0])
-            plt.ylim([0.0, 1.05])
-            plt.xlabel('False Positive Rate')
-            plt.ylabel('True Positive Rate')
-            plt.title('Receiver operating characteristic')
-            plt.legend(loc="lower right")
-            plt.savefig(self.lvl + '_results/rnd'+ self.rndType+'_'+ str(self.rndNum) + '_' + str(self.testFold) +'_' + self.lvl + '_ROC.png')
-            plt.clf()
-            plt.close()
+        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
+                       +['roc']+[roc_auc])
+        return fpr, tpr, threshRoc
 
+    def plotPrCurves(self, y_testCoarse, y_pred_score, y_sampleWeight, results):
         ##### Plog pr_curve
         precision, recall, threshPr = precision_recall_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         pr_auc = auc(recall, precision)
-        if (self.rndNum % 50 == 0):
-            plt.figure()
-            plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
-                     label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
-            plt.xlabel('Recall')
-            plt.ylabel('Precision')
-            plt.ylim([0.0, 1.05])
-            plt.xlim([0.0, 1.0])
-            plt.title('Precision-Recall')
-            plt.legend(loc="lower right")
-            plt.savefig(self.lvl + '_results/rnd'+ self.rndType+'_'+ str(self.rndNum) +  '_' + str(self.testFold) +'_' + self.lvl + '_PR.png')
-            plt.clf()
-            plt.close()
-        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
-                       +['pr']+ [pr_auc]+ ['roc']+[roc_auc])
+        addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]
+                       +['lvl']+[self.lvl]+['pr']+ [pr_auc])
         addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
                        +['rndTime'] + [str(round(time.perf_counter() - self.lvl_rndTime, 2))])
+        return precision, recall, threshPr
+
+    def predictTestSetThreshold(self,thresh,y_pred_score):
+        y_predCoarse = []
+        for inst in y_pred_score:
+            if (inst > thresh):
+                y_predCoarse.append(1.0)
+            else:
+                y_predCoarse.append(0.0)
+        return np.array(y_predCoarse),y_pred_score
+
 
 class CoarseRound(LearnRound):
     def __init__(self,testFold,rndNum,rndType):
@@ -114,7 +138,7 @@ class CoarseRound(LearnRound):
         self.clf = []
         self.train_wt = 0.0
 
-    def createTrainWtYtrain(self,y_train):
+    def createTrainWtYtrain(self,y_train,results):
         ##### create train_wt and y_train for coarse
         y_trainCoarse = []
         for i in y_train:
@@ -124,18 +148,14 @@ class CoarseRound(LearnRound):
                 y_trainCoarse.append(0.0)
         train_wt = fcnSclWeight(len(y_train) / np.sum(y_trainCoarse))
         self.train_wt = train_wt
+        addPrint(results,'coarseTrainWt: {}'.format(self.train_wt))
         return y_trainCoarse
 
-    def trainClassifier(self,X_train,y_trainCoarse):
+
+    def trainClassifier(self,X_train,y_trainCoarse,clfType):
         ##### Train classifier for coarse
-        classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                     fit_intercept=False, intercept_scaling=1,
-                                                     class_weight={1: self.train_wt},
-                                                     solver='liblinear',
-                                                     max_iter=1000, n_jobs=-1)
+        classifier = self.getClf(self.train_wt,clfType)
         self.clf = classifier.fit(X_train, y_trainCoarse)
-        if (self.rndNum % 50 == 0):
-            joblib.dump(self.clf, self.lvl + '_models/rnd'+ self.rndType+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
 
     def predictTestSet(self,X_test):
         ##### Predict test set for coarse
@@ -143,33 +163,31 @@ class CoarseRound(LearnRound):
         y_pred_score = self.clf.decision_function(X_test)
         return y_predCoarse,y_pred_score
 
+
+
+
 class FineRound(LearnRound):
     def __init__(self,testFold,rndNum,rndType):
         LearnRound.__init__(self, testFold,rndNum, 'fine',rndType)
         self.classifier = dict()
         self.Fine_wt = []
 
-    def createTrainWtYtrain(self,y_train):
+    def createTrainWtYtrain(self,y_train,results):
         ##### create train_wt (y_train unmodified) for fine
         y_trainBin = label_binarize(y_train, classes=[1, 2, 3, 4, 5, 6, 7, 8])
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
         self.Fine_wt = np.array(
-            [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783, 3.4782608695652177,
-             0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
+            [3.0, 1.0, 1.0, 1.5,
+             10.0, 2.0, 3.0, 1.0]) * train_wt
+        addPrint(results, 'fineTrainWt: {},{},{},{},{},{},{},{}'.format(*self.Fine_wt))
         return y_trainBin
 
-    def trainClassifier(self,X_train,y_trainBin):
+    def trainClassifier(self,X_train,y_trainBin,clfType):
         #### train classifier for fine
         for cls in range(8):
-            classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                      fit_intercept=False, intercept_scaling=1,
-                                                      class_weight={1: self.Fine_wt[cls]},
-                                                      solver='liblinear',
-                                                      max_iter=1000, n_jobs=-1)
+            classif = self.getClf(self.Fine_wt[cls],clfType)
             clf = classif.fit(X_train, y_trainBin[:, cls])
-            if(self.rndNum % 50 == 0):
-                joblib.dump(clf, self.lvl + '_models/rnd'+ self.rndType+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             self.classifier[cls] = clf
 
 
@@ -190,15 +208,14 @@ class FineRound(LearnRound):
                 y_predCoarse.append(1.)
             else:
                 y_predCoarse.append(0.)
-        return y_predCoarse,y_pred_score
+        return np.array(y_predCoarse),y_pred_score
 
 
 
 
 def fcnSclWeight(input):
     #return input
-    #y = np.array([20.0, 6.5])
-    y = np.array([23.0, 7.475])
+    y = np.array([23.0, 7.5])
     x = np.array([20.8870, 4.977])
     m = (y[0] - y[1]) / (x[0] - x[1])
     b = y[0] - m * x[0]
@@ -222,35 +239,44 @@ def fcnSclWeight(input):
 
 
 
+def confEstAdd(results,classes_all,sets,rndLvl,lvl,add):
+    decFcn = []
 
-
-
-
-
-def confEstAdd(classes,set,rndLvl,Addnum):
-    decFcn = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
-    for i in sorted(classes):
-        data = np.asarray(classes[i])
-        if(len(data)>0):
+    for cls in sorted(classes_all):
+        partition = np.asarray(classes_all[cls])
+        data = partition
+        if (len(data) > 0):
             y_train, X_train = data[:, 0], data[:, 1:]
             y_predCoarse, scores = rndLvl.predictTestSet(X_train)
-            scores = scores.reshape(scores.shape[0],1)
-            decFcn[i] = scores.tolist()
+            s_tmp = np.abs(scores).reshape(scores.shape[0], 1)
+            s_cls = np.ones(len(s_tmp)).reshape(len(s_tmp),1)*cls
+            s_ind = np.array(range(len(s_tmp))).reshape(len(s_tmp),1)
+            prefixCols = np.hstack((s_cls, s_ind))
+            decFcnTmp = np.hstack((prefixCols,s_tmp))
+            if decFcn == []:
+                decFcn = decFcnTmp
+            else:
+                decFcn = np.vstack((decFcnTmp,decFcn))
+    d_ind = np.array(range(len(decFcn))).reshape(len(decFcn), 1)
+    decFcn = np.hstack((d_ind,decFcn))
+    decFcn = decFcn[decFcn[:,3].argsort()].tolist()
 
-    for i in range(Addnum):
-        most_uncert = 100
-        most_cls = 0
-        most_ind = 0
-        for cls in sorted(decFcn):
-            for index, inst in enumerate(decFcn[cls]):
-                min_est = np.absolute(inst)
-                if (min_est < most_uncert):
-                    most_cls = cls
-                    most_ind = index
-                    most_uncert = min_est
-        set[most_cls].append(classes[most_cls].pop(most_ind))
-        del decFcn[most_cls][most_ind]
+    removeInd = []
+    for i in range(add):
+        most_cls = int(decFcn[i][1])
+        most_ind = int(decFcn[i][2])
+        removeInd.append([most_cls,most_ind])
+        sets[most_cls].append(classes_all[most_cls][most_ind])
+        # addPrint(results,[lvl]+['cls']+[most_cls]+['ind']+
+        # [most_ind]+['mostUncert']+[most_uncert])
+    addPrint(results, ['add'+lvl] + [add])
 
+    removeInd = np.array(removeInd)
+    removeInd = removeInd[removeInd[:,1].argsort()[::-1]]
+    for i,inst in enumerate(removeInd):
+        most_cls = int(removeInd[i][0])
+        most_ind = int(removeInd[i][1])
+        del classes_all[most_cls][most_ind]
 
 def randAdd(classes,set,Addnum):
     data = []
@@ -278,20 +304,18 @@ def findAddInstance(classes, set, find_inst):
 
 
 
-def appendRndTimesFoldCnts(testFold, rndNum, results, sets, start_time):
-    instanceCount = dict()
-    for lvl in ['coarse', 'fine']:
-        instanceCount[lvl] = 0
-        fold_cnt = ['rnd']+[rndNum] +['fold']+[testFold]+['lvl']+[lvl]
-        for i in sorted(sets[lvl]):
-            instanceCount[lvl] += len(sets[lvl][i])
-            fold_cnt.append((i, len(sets[lvl][i])))
-        fold_cnt.append(('tot', instanceCount[lvl]))
-        addPrint(results,fold_cnt)
-    addPrint(results,['rnd']+[rndNum] +['fold']+[testFold]
-                   +['rndTimeTot'] + [str(round(time.perf_counter() - start_time[-1], 2))])
-    return max([instanceCount['fine'],instanceCount['coarse']])
 
+def appendRndTimesFoldCnts(testFold, rndNum,lvl,results,set,start_time):
+    addPrint(results,['rnd']+[rndNum] +['fold']+[testFold]+['lvl']+[lvl]
+   +['rndTimeTot'] + [str(round(time.perf_counter() - start_time[-1], 2))])
+    instanceCount = 0
+    fold_cnt = ['rnd']+[rndNum] +['fold']+[testFold]+['lvl']+[lvl]
+    for i in sorted(set):
+        instanceCount += len(set[i])
+        fold_cnt.append((i, len(set[i])))
+    fold_cnt.append(('tot', instanceCount))
+    addPrint(results,fold_cnt)
+    return instanceCount
 
 
 def appendSetTotal(rndNum, results, sets,name):
