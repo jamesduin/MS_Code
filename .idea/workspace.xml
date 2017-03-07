@@ -2,55 +2,115 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/fixActive/results/active_coarse_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/fixActive/results/active_fine_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/fixActive/thresh/thresh_100_active_coarse_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/fixActive/thresh/thresh_100_active_fine_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/ActiveVsPassiveAcc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/ActiveVsPassiveF1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/ActiveVsPassivePR.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/ActiveVsPassiveROC.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_10.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_2.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_3.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_4.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_5.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_6.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_7.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_8.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_coarse_9.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_10.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_2.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_3.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_4.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_5.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_6.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_7.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_8.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/active_fine_9.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_10.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_2.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_3.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_4.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_5.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_6.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_7.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_8.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_coarse_9.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_1.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_10.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_2.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_3.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_4.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_5.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_6.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_7.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_8.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/results/passive_fine_9.res" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassLogReg/run.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896820.AP_active_3.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896820.AP_active_3.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896821.AP_active_4.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896821.AP_active_4.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896822.AP_active_5.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896822.AP_active_5.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896823.AP_active_6.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896823.AP_active_6.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896824.AP_active_7.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896824.AP_active_7.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896825.AP_active_8.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896825.AP_active_8.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896826.AP_active_9.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896826.AP_active_9.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896827.AP_active_10.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896827.AP_active_10.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896828.AP_passive_1.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896828.AP_passive_1.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896829.AP_passive_2.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896829.AP_passive_2.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896830.AP_passive_3.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896830.AP_passive_3.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896831.AP_passive_4.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896831.AP_passive_4.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896832.AP_passive_5.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896832.AP_passive_5.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896833.AP_passive_6.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896833.AP_passive_6.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896834.AP_passive_7.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896834.AP_passive_7.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896835.AP_passive_8.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896835.AP_passive_8.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896836.AP_passive_9.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896836.AP_passive_9.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896837.AP_passive_10.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896837.AP_passive_10.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896841.AP_active_1.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896841.AP_active_1.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896842.AP_active_2.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/log/job.6896842.AP_active_2.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/ActiveVsPassiveAcc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/ActiveVsPassiveF1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/ActiveVsPassivePR.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/ActiveVsPassiveROC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/_active_coarse.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/_active_fine.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/_passive_coarse.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/_passive_fine.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_coarse_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/active_fine_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_coarse_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/results/passive_fine_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/run.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_coarse_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassSVMTimeOut/thresh/thresh_100_passive_fine_9.res" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/GenerateRshActPass.py" afterPath="$PROJECT_DIR$/HCC/GenerateRshActPass.py" />
@@ -68,7 +128,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.58477235">
+    <splitter split-orientation="horizontal" split-proportion="0.49529043">
       <split-first>
         <leaf>
           <file leaf-file-name="runActPassParam.py" pinned="false" current-in-tab="false">
@@ -86,18 +146,28 @@
           <file leaf-file-name="GenerateRshActPass.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/HCC/GenerateRshActPass.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
+                <state relative-caret-position="315">
                   <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="run.sh" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/HCC/run.sh">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                <state relative-caret-position="375">
+                  <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -217,8 +287,8 @@
         <option value="$PROJECT_DIR$/HCC/run.sh" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py" />
-        <option value="$PROJECT_DIR$/HCC/GenerateRshActPass.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py" />
+        <option value="$PROJECT_DIR$/HCC/GenerateRshActPass.py" />
       </list>
     </option>
   </component>
@@ -584,7 +654,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="12" y="55" width="1596" height="958" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19111112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -593,7 +663,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35334873" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31408775" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31408775" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1025,26 +1095,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HCC/run.sh">
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        <state relative-caret-position="375">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HCC/GenerateRshActPass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="315">
           <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
+    <entry file="file://$PROJECT_DIR$/HCC/run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>

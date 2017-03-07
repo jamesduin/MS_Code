@@ -23,7 +23,7 @@ for type in rndType:
         f.write(
         "sbatch <<'EOF'\n"
         "#!/bin/sh\n"
-        "#SBATCH --time=10:00:00          # Run time in hh:mm:ss\n"
+        "#SBATCH --time=20:00:00          # Run time in hh:mm:ss\n"
         "#SBATCH --nodes=1       # number of nodes\n"
         "#SBATCH --ntasks=1       # number of cores\n"
         "#SBATCH --mem-per-cpu=2024       # Maximum memory required per CPU (in megabytes)\n")

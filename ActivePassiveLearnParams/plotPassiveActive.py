@@ -23,8 +23,8 @@ def getRndTypeSet(resultsDir):
 
 
 
-resultsDir = 'runActPassLogReg/results'
-#resultsDir = 'runActPassSVM/results'
+#resultsDir = 'runActPassLogReg/results'
+resultsDir = 'runActPassSVM/results'
 #resultsDir = 'runActPassSVMTimeOut/results'
 
 rndTypeSet = getRndTypeSet(resultsDir)
