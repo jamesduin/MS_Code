@@ -8,9 +8,11 @@ import glob
 import re
 import os
 #os.chdir('FindThresholdSVM')  # FindThresholdSVM, FindThresholdLogReg
-os.chdir('FINAL/LogReg_All')
+#os.chdir('FINAL/LogReg_All')
+#os.chdir('FINAL/LogReg_All')
+os.chdir('FINAL/SVM_All')
 
-clftype = 'LogReg' #LogReg, SVM
+clftype = 'SVM' #LogReg, SVM
 
 def getRndTypeSet(resultsDir):
     rndTypeSet = set()
@@ -213,8 +215,8 @@ for lvl in ['fine','coarse']:
     title = 'Receiver Operating Characteristic - {}'.format(lvl)
     plt.title(title)
     plt.legend(loc="lower right")
-    #plt.savefig('../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_RocCurve_'+lvl+'.png')
-    plt.savefig(clftype + '_RocCurves_' + lvl + '.png')
+    plt.savefig('../../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_RocCurve_'+lvl+'.png')
+    #plt.savefig(clftype + '_RocCurves_' + lvl + '.png')
 
 
 
@@ -321,5 +323,5 @@ for lvl in ['coarse','fine']:
     title = 'Precision Recall - {}'.format(lvl)
     plt.title(title)
     plt.legend(loc="lower right")
-    #plt.savefig('../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_PrCurve_'+lvl+'.png')
-    plt.savefig(clftype + '_PrCurves_' + lvl + '.png')
+    plt.savefig('../../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_PrCurve_'+lvl+'.png')
+    #plt.savefig(clftype + '_PrCurves_' + lvl + '.png')
