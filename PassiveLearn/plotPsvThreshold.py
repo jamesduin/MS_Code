@@ -8,7 +8,7 @@ import glob
 import re
 import os
 #os.chdir('FindThresholdSVM')  # FindThresholdSVM, FindThresholdLogReg
-os.chdir('ClassWeight/LogRegWtOrig')
+os.chdir('FINAL/LogReg_All')
 
 clftype = 'LogReg' #LogReg, SVM
 
@@ -47,20 +47,30 @@ for type in rndTypeSet:
                     foldMatrix[fold].append(result)
     rndTypeFoldMat[type] = foldMatrix
 
-max = []
-for fold in foldMatrix:
-    max.append(len(foldMatrix[fold]))
-#print(np.max(max))
+finds = ['pr','roc','acc','f1']
+AllRes = []
+colNum = 0
+for fnd in finds:
+    for type in rndTypeSet:
+        outFind = dict()
+        for lvl in ['coarse','fine']:
+            AllRes.append([])
+            print(colNum)
+            AllRes[colNum].append(lvl+'-'+fnd)
+            prFold = []
+            for fold in sorted(rndTypeFoldMat[type]):
+                for rec in rndTypeFoldMat[type][fold]:
+                    #if(not isinstance(rec,str)):
+                    if(fnd in rec and lvl in rec):
+                        ind =[i for i in range(len(rec)) if rec[i] == fnd]
+                        prFold.append(rec[ind[0]+1])
+                        AllRes[colNum].append('{:.3f}'.format(rec[ind[0]+1]))
+            prFold = np.array(prFold)
+            #print(prFold)
+            AllRes[colNum].append('avg {:.3f}'.format(np.mean(prFold)))
+            colNum += 1
 
-for type in rndTypeFoldMat:
-    ### print out the folds
-    f = open(resultsDir+'/_' + type + '.txt', 'w')
-    for fold in rndTypeFoldMat[type]:
-        for rec in rndTypeFoldMat[type][fold]:
-            f.write(str(rec)+'\n')
-    f.close()
-
-
+print(AllRes)
 
 lineSty = [[8,1],[4,1],[2,1],
            [8, 1], [4, 1], [2, 1],
@@ -92,15 +102,17 @@ cVals = [(0.90000000000000002, 0.25162433333706963, 0.12708553664078234, 1.0),
 
 
 
-#for fnd in ['pr','roc','acc','f1']:
-#for fnd in ['tn','fn','fp','tp']:
-finds = ['flsPos','truPos','ac']
-#for lvl in ['coarse','fine']:
+
+
+
+#
+finds = ['flsPos','truPos','ac','thresh']
 for lvl in ['fine','coarse']:
     plt.figure()
     plt.style.use('ggplot')
+    x_vals = []
     for fold in sorted(rndTypeFoldMat['Psv']):
-    #for fold in [1,2,3]:
+    #for fold in [1]:
         resultMat = []
         colNum = 0
         for fnd in finds:
@@ -110,7 +122,6 @@ for lvl in ['fine','coarse']:
 
                 resultMat.append([])
                 print('{} {}'.format(colNum,fnd))
-                resultMat[colNum].append(lvl+'-'+fnd)
                 axisValFlds = []
                 #for fold in sorted(rndTypeFoldMat[type]):
                 #for fold in [2]:
@@ -139,45 +150,56 @@ for lvl in ['fine','coarse']:
         #
         # print(resultMat[0][1:20])
         # print(resultMat[2][1:20])
+        resComb = np.hstack((resultMat[0],resultMat[1]))
+        resComb = np.hstack((resComb, resultMat[2]))
+        resComb = np.hstack((resComb, resultMat[3]))
 
+        prev = 0
+        cur = 0
+        for i,res in enumerate(resComb):
+            cur = i
+            if(float(res[3])<0.0):
+                break
+            prev = i
+        print('prev {}, cur{}'.format(prev,cur))
+        print(resComb[prev])
+        print(resComb[cur])
+        y = np.array([float(resComb[prev][0]), float(resComb[cur][0])])
+        x = np.array([float(resComb[prev][3]), float(resComb[cur][3])])
+        m = (y[0] - y[1]) / (x[0] - x[1])
+        b = y[0] - m * x[0]
+        x_val = m * 0.0 + b
+        print('x_val {}'.format(x_val))
+        x_vals.append(x_val)
 
         if fold == 1:
-            plt.plot(resultMat[0][1:],resultMat[1][1:], label = 'ROC curve',linewidth = 1.8 ,
+            if(lvl == 'coarse'):
+                auc = AllRes[2][-1]
+            elif(lvl == 'fine'):
+                auc = AllRes[3][-1]
+
+            if(lvl == 'coarse'):
+                val = AllRes[4][-1]
+            elif(lvl == 'fine'):
+                val = AllRes[5][-1]
+
+            plt.plot(resultMat[0][:],resultMat[1][:],
+                     label = 'ROC-AUC: {}'.format(auc),
+                     linewidth = 1.8 ,
                      fillstyle='none',color=cVals[0],dashes=lineSty[2])
-            plt.plot(resultMat[0][1:],resultMat[2][1:], label = 'Accuradcy',linewidth = 1.8 ,
+            plt.plot(resultMat[0][:],resultMat[2][:],
+                     label = 'Accuracy: {}'.format(val),
+                     linewidth = 1.8 ,
                      fillstyle='none',color=cVals[1],dashes=lineSty[2])
         else:
-            plt.plot(resultMat[0][1:],resultMat[1][1:],linewidth = 1.8 ,
+            plt.plot(resultMat[0][:],resultMat[1][:],linewidth = 1.8 ,
                      fillstyle='none',color=cVals[0],dashes=lineSty[2])
-            plt.plot(resultMat[0][1:],resultMat[2][1:],linewidth = 1.8 ,
+            plt.plot(resultMat[0][:],resultMat[2][:],linewidth = 1.8 ,
                      fillstyle='none',color=cVals[1],dashes=lineSty[2])
 
-    # 0.21525600835945663 = 0.076105413470758165
-    # 0.27063740856844304 = -0.16014818705856193
-    # y = np.array([0.27063740856844304, 0.21525600835945663])
-    # x = np.array([-0.16014818705856193, 0.076105413470758165])
-    # m = (y[0] - y[1]) / (x[0] - x[1])
-    # b = y[0] - m * x[0]
-
-
-    # if clftype == 'LogReg':
-    #     if lvl == 'fine':
-    #         plt.plot(0.034, 0.942, label='Chosen Threshold', linewidth=1.8,
-    #                  fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2], markeredgewidth=3.0)
-    #     if lvl == 'coarse':
-    #         plt.plot(0.216, 0.787, label='Chosen Threshold', linewidth=1.8,
-    #                  fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
-    #                  markeredgewidth=3.0)
-    # if clftype == 'SVM':
-    #     if lvl == 'fine':
-    #         plt.plot(0.017241379310344827, 0.957, label='Chosen Threshold', linewidth=1.8,
-    #                  fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
-    #                  markeredgewidth=3.0)
-    #     if lvl == 'coarse':
-    #         plt.plot(0.045, 0.939, label='Chosen Threshold', linewidth=1.8, #038140020898641588
-    #                  fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
-    #                  markeredgewidth=3.0)
-
+    plt.plot(np.mean(x_vals),float(val.replace('avg ','')),label='Chosen Threshold',
+    fillstyle='none', color=cVals[2], marker='x', markersize=10,
+             markeredgecolor=cVals[2],markeredgewidth=3.0)
 
     leg= plt.legend(fancybox=True)
     axes = plt.gca()
@@ -188,7 +210,7 @@ for lvl in ['fine','coarse']:
 
     plt.ylabel('False Positive Rate (ROC curve) / Accuracy')
     plt.xlabel('True Positive Rate')
-    title = 'Receiver Operating Characteristic'
+    title = 'Receiver Operating Characteristic - {}'.format(lvl)
     plt.title(title)
     plt.legend(loc="lower right")
     #plt.savefig('../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_RocCurve_'+lvl+'.png')
@@ -197,16 +219,13 @@ for lvl in ['fine','coarse']:
 
 
 
-
-
-#for fnd in ['pr','roc','acc','f1']:
-#for fnd in ['tn','fn','fp','tp']:
-finds = ['rec','prec','fmes']
+finds = ['rec','prec','fmes','thresh']
 for lvl in ['coarse','fine']:
     plt.figure()
     plt.style.use('ggplot')
+    x_vals =[]
     for fold in sorted(rndTypeFoldMat['Psv']):
-    #for fold in [1, 2, 3]:
+    #for fold in [1]:
         resultMat = []
         colNum = 0
         for fnd in finds:
@@ -239,51 +258,56 @@ for lvl in ['coarse','fine']:
         print(len(resultMat[0]))
         print(len(resultMat[1]))
         print(len(resultMat[2]))
-        # print(resultMat[0])
-        # print(resultMat[1])
-        #pp.pprint(resultMat)
-        #
-        # print(resultMat[0][1:20])
-        # print(resultMat[2][1:20])
 
+        resComb = np.hstack((resultMat[0], resultMat[1]))
+        resComb = np.hstack((resComb, resultMat[2]))
+        resComb = np.hstack((resComb, resultMat[3]))
+        #pp.pprint(resComb[:5])
+        prev = 0
+        cur = 0
+        for i, res in enumerate(resComb):
+            cur = i
+            if (float(res[3]) > 0.0):
+                break
+            prev = i
+        print('prev {}, cur {}'.format(prev, cur))
+        print(resComb[prev])
+        print(resComb[cur])
+        y = np.array([float(resComb[prev][0]), float(resComb[cur][0])])
+        x = np.array([float(resComb[prev][3]), float(resComb[cur][3])])
+        m = (y[0] - y[1]) / (x[0] - x[1])
+        b = y[0] - m * x[0]
+        x_val = m * 0.0 + b
+        print('x_val {}'.format(x_val))
+        x_vals.append(x_val)
 
         if fold == 1:
-            plt.plot(resultMat[0][1:],resultMat[1][1:], label = 'PR curve',linewidth = 1.8 ,
+            if(lvl == 'coarse'):
+                auc = AllRes[0][-1]
+            elif(lvl == 'fine'):
+                auc = AllRes[1][-1]
+            if (lvl == 'coarse'):
+                val = AllRes[6][-1]
+            elif (lvl == 'fine'):
+                val = AllRes[7][-1]
+
+            plt.plot(resultMat[0][:],resultMat[1][:],
+                     label='PR-AUC: {}'.format(auc),
+                     linewidth = 1.8 ,
                      fillstyle='none',color=cVals[0],dashes=lineSty[2])
-            plt.plot(resultMat[0][1:],resultMat[2][1:], label = 'F-measure',linewidth = 1.8 ,
+            plt.plot(resultMat[0][:],resultMat[2][:],
+                     label = 'F-measure: {}'.format(val),
+                     linewidth = 1.8 ,
                      fillstyle='none',color=cVals[1],dashes=lineSty[2])
         else:
-            plt.plot(resultMat[0][1:],resultMat[1][1:],linewidth = 1.8 ,
+            plt.plot(resultMat[0][:],resultMat[1][:],linewidth = 1.8 ,
                      fillstyle='none',color=cVals[0],dashes=lineSty[2])
-            plt.plot(resultMat[0][1:],resultMat[2][1:],linewidth = 1.8 ,
+            plt.plot(resultMat[0][:],resultMat[2][:],linewidth = 1.8 ,
                      fillstyle='none',color=cVals[1],dashes=lineSty[2])
 
-    # 0.21525600835945663 = 0.076105413470758165
-    # 0.27063740856844304 = -0.16014818705856193
-    # y = np.array([0.27063740856844304, 0.21525600835945663])
-    # x = np.array([-0.16014818705856193, 0.076105413470758165])
-    # m = (y[0] - y[1]) / (x[0] - x[1])
-    # b = y[0] - m * x[0]
-
-
-    # if clftype == 'LogReg':
-    #     if lvl == 'fine':
-    #         plt.plot(0.52083333333333337, 0.434, label='Chosen Threshold', linewidth=1.8,
-    #                  fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2], markeredgewidth=3.0)
-    #     if lvl == 'coarse':
-    #         plt.plot(0.85416666666666663, 0.268, label='Chosen Threshold', linewidth=1.8,
-    #                  fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
-    #                  markeredgewidth=3.0)
-    # if clftype == 'SVM':
-    #     if lvl == 'fine':
-    #         plt.plot(0.4375, 0.457, label='Chosen Threshold', linewidth=1.8,
-    #                  fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
-    #                  markeredgewidth=3.0)
-    #     if lvl == 'coarse':
-    #         plt.plot(0.64583333333333337, 0.468, label='Chosen Threshold', linewidth=1.8,
-    #                  fillstyle='none', color=cVals[2], marker='x', markersize=10, markeredgecolor=cVals[2],
-    #                  markeredgewidth=3.0)
-
+    plt.plot(np.mean(x_vals),float(val.replace('avg ','')),label='Chosen Threshold',
+    fillstyle='none', color=cVals[2], marker='x', markersize=10,
+             markeredgecolor=cVals[2],markeredgewidth=3.0)
 
     leg= plt.legend(fancybox=True)
     axes = plt.gca()
@@ -294,7 +318,7 @@ for lvl in ['coarse','fine']:
 
     plt.ylabel('Precision (PR Curve) / F-measure')
     plt.xlabel('Recall')
-    title = 'Precision Recall'
+    title = 'Precision Recall - {}'.format(lvl)
     plt.title(title)
     plt.legend(loc="lower right")
     #plt.savefig('../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_PrCurve_'+lvl+'.png')
