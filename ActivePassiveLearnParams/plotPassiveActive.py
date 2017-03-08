@@ -23,17 +23,19 @@ def getRndTypeSet(resultsDir):
 
 
 
-#resultsDir = 'runActPassLogReg/results'
-resultsDir = 'runActPassSVM/results'
+loadDir = 'runActPassLogReg/results'
+#resultsDir = 'runActPassSVM/results'
 #resultsDir = 'runActPassSVMTimeOut/results'
+resultsDir = '../ThesisWriteUp/fig/'
 
-rndTypeSet = getRndTypeSet(resultsDir)
+name = re.split("[/]", loadDir)[0]
+rndTypeSet = getRndTypeSet(loadDir)
 
 rndTypeFoldMat = dict()
 for type in rndTypeSet:
     foldMatrix = dict()
     for fold in range(1,11):
-        for fname in glob.glob(resultsDir+'/*.res'):
+        for fname in glob.glob(loadDir+'/*.res'):
             file = re.split("[/\.]", fname)[-2]
             rndType = re.split("[_]", file)
             instType = rndType[0]+'_'+rndType[1]
@@ -57,16 +59,14 @@ for fold in foldMatrix:
 
 for type in rndTypeFoldMat:
     ### print out the folds
-    f = open(resultsDir+'/_' + type + '.txt', 'w')
+    f = open(loadDir+'/_' + type + '.txt', 'w')
     for fold in rndTypeFoldMat[type]:
         for rec in rndTypeFoldMat[type][fold]:
             f.write(str(rec)+'\n')
     f.close()
 
 
-plt.figure()
-#with plt.style.context('fivethirtyeight'):
-plt.style.use('ggplot')
+
 cVals = [(0.90000000000000002, 0.25162433333706963, 0.12708553664078234, 1.0),
 (0.90000000000000002, 0.48317993787976221, 0.25162433333706957, 1.0),
 (0.86294117647058821, 0.67619870060118625, 0.3711206857265133, 1.0),
@@ -79,117 +79,43 @@ cVals = [(0.90000000000000002, 0.25162433333706963, 0.12708553664078234, 1.0),
 (0.28764705882352942, 0.25162433333706941, 0.89098219195263628, 1.0),
 (0.45000000000000001, 0.0, 0.90000000000000002, 1.0)]
 
-for type in rndTypeSet:
-    prs = []
-    for fold in sorted(rndTypeFoldMat[type]):
-        prFold = []
-        for rec in rndTypeFoldMat[type][fold]:
-            #if(not isinstance(rec,str)):
-            if('pr'in rec):
-                ind =[i for i in range(len(rec)) if rec[i] == 'pr']
-                prFold.append(rec[ind[0]+1])
-        prFold = np.array(prFold).reshape(len(prFold),1)
-        if len(prs) == 0:
-            prs =prFold
-        else:
-            minRL = min(len(prs), len(prFold))
-            prs = np.hstack((prs[:minRL], prFold[:minRL]))
-    x_pr = np.array(range(1,len(prs)+1))
-    y_pr = np.mean(prs, axis=1)
-    plt.plot(x_pr,y_pr, label = type)
+rndTypeSet = ['active_fine','passive_fine',
+              'active_coarse','passive_coarse']
+colInd = {'active_fine':0,'passive_fine':4,
+              'active_coarse':7,'passive_coarse':10}
+yLabel = {'pr':'PR-AUC','roc':'ROC-AUC',
+              'f1':'F-measure','acc':'Accuracy'}
 
-plt.ylabel('PR-AUC')
-plt.xlabel('Iteration')
-plt.title('Active vs. Passive Learning')
-plt.legend(loc="lower right")
-plt.savefig(resultsDir+'/ActiveVsPassivePR.png')
+findList = ['pr','roc','f1','acc']
+for find in findList:
+    plt.figure()
+    # with plt.style.context('fivethirtyeight'):
+    plt.style.use('ggplot')
+    for type in rndTypeSet:
+        prs = []
+        for fold in sorted(rndTypeFoldMat[type]):
+            prFold = []
+            for rec in rndTypeFoldMat[type][fold]:
+                #if(not isinstance(rec,str)):
+                if(find in rec):
+                    ind =[i for i in range(len(rec)) if rec[i] == find]
+                    prFold.append(rec[ind[0]+1])
+            prFold = np.array(prFold).reshape(len(prFold),1)
+            if len(prs) == 0:
+                prs =prFold
+            else:
+                minRL = min(len(prs), len(prFold))
+                prs = np.hstack((prs[:minRL], prFold[:minRL]))
+        x_pr = np.array(range(1,len(prs)+1))
+        y_pr = np.mean(prs, axis=1)
 
+        plt.plot(x_pr,y_pr, label = type, linewidth=2.0,
+                 fillstyle='none',color=cVals[colInd[type]])
 
+    plt.ylabel(yLabel[find])
+    plt.xlabel('Iteration')
+    plt.title('Active vs. Passive Learning')
+    plt.legend(loc="lower right")
+    plt.savefig(resultsDir+name+'_'+find+'.png')
+    plt.close()
 
-plt.figure()
-#with plt.style.context('fivethirtyeight'):
-plt.style.use('ggplot')
-for type in rndTypeSet:
-    prs = []
-    for fold in sorted(rndTypeFoldMat[type]):
-        prFold = []
-        for rec in rndTypeFoldMat[type][fold]:
-            #if(not isinstance(rec,str)):
-            if('roc'in rec):
-                ind =[i for i in range(len(rec)) if rec[i] == 'roc']
-                prFold.append(rec[ind[0]+1])
-        prFold = np.array(prFold).reshape(len(prFold),1)
-        if len(prs) == 0:
-            prs =prFold
-        else:
-            minRL = min(len(prs), len(prFold))
-            prs = np.hstack((prs[:minRL], prFold[:minRL]))
-    x_pr = np.array(range(1,len(prs)+1))
-    y_pr = np.mean(prs, axis=1)
-    plt.plot(x_pr,y_pr, label = 'avg_'+type)
-
-plt.ylabel('ROC-AUC')
-plt.xlabel('Iteration')
-plt.title('Active vs. Passive Learning')
-plt.legend(loc="lower right")
-plt.savefig(resultsDir+'/ActiveVsPassiveROC.png')
-
-
-plt.figure()
-#with plt.style.context('fivethirtyeight'):
-plt.style.use('ggplot')
-for type in rndTypeSet:
-    prs = []
-    for fold in sorted(rndTypeFoldMat[type]):
-        prFold = []
-        for rec in rndTypeFoldMat[type][fold]:
-            #if(not isinstance(rec,str)):
-            if('f1'in rec):
-                ind =[i for i in range(len(rec)) if rec[i] == 'f1']
-                prFold.append(rec[ind[0]+1])
-        prFold = np.array(prFold).reshape(len(prFold),1)
-        if len(prs) == 0:
-            prs =prFold
-        else:
-            minRL = min(len(prs), len(prFold))
-            prs = np.hstack((prs[:minRL], prFold[:minRL]))
-    x_pr = np.array(range(1,len(prs)+1))
-    y_pr = np.mean(prs, axis=1)
-    plt.plot(x_pr,y_pr, label = 'avg_'+type)
-
-plt.ylabel('F-measure')
-plt.xlabel('Iteration')
-plt.title('Active vs. Passive Learning')
-plt.legend(loc="lower right")
-plt.savefig(resultsDir+'/ActiveVsPassiveF1.png')
-
-
-
-
-plt.figure()
-#with plt.style.context('fivethirtyeight'):
-plt.style.use('ggplot')
-for type in rndTypeSet:
-    prs = []
-    for fold in sorted(rndTypeFoldMat[type]):
-        prFold = []
-        for rec in rndTypeFoldMat[type][fold]:
-            #if(not isinstance(rec,str)):
-            if('acc'in rec):
-                ind =[i for i in range(len(rec)) if rec[i] == 'acc']
-                prFold.append(rec[ind[0]+1])
-        prFold = np.array(prFold).reshape(len(prFold),1)
-        if len(prs) == 0:
-            prs =prFold
-        else:
-            minRL = min(len(prs), len(prFold))
-            prs = np.hstack((prs[:minRL], prFold[:minRL]))
-    x_pr = np.array(range(1,len(prs)+1))
-    y_pr = np.mean(prs, axis=1)
-    plt.plot(x_pr,y_pr, label = 'avg_'+type)
-
-plt.ylabel('Accuracy')
-plt.xlabel('Iteration')
-plt.title('Active vs. Passive Learning')
-plt.legend(loc="lower right")
-plt.savefig(resultsDir+'/ActiveVsPassiveAcc.png')
