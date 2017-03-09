@@ -13,13 +13,13 @@ partDict = { 1: part1, 2: part1, 3: part2, 4: part2, 5: part3,
 # "#SBATCH --partition=gpu_m2070\n"  #crane partition
 # "#SBATCH --partition=guest\n"  #sandhills partition
 cntShrt = 1
-runDir = 'runFFRR_Cst2'
+runDir = 'runFFRParam_Cst4'
 for type in rndType:
     for fld in fold:
         f.write(
         "sbatch <<'EOF'\n"
         "#!/bin/sh\n"
-        "#SBATCH --time=10:00:00          # Run time in hh:mm:ss\n"
+        "#SBATCH --time=20:00:00          # Run time in hh:mm:ss\n"
         "#SBATCH --nodes=1       # number of nodes\n"
         "#SBATCH --ntasks=1       # number of cores\n"
         "#SBATCH --mem-per-cpu=2024       # Maximum memory required per CPU (in megabytes)\n")
@@ -33,12 +33,8 @@ for type in rndType:
             f.write("#SBATCH --qos=short\n")
             cntShrt+=1
         f.write(
-        #"module load python/3.4\n" #for sandhills
         "module load python/3.5\n" #for crane and tusker
-        #"python /home/scott/jamesd/"+runDir+"/runActPass11.py " + type + " " + str(fld) + "\n"
-        #"python /home/scott/jamesd/"+runDir+"/runActPass.py " + type + " " + str(fld) + "\n"
-        #"python /home/scott/jamesd/"+runDir+"/runActPassRBF.py " + type + " " + str(fld) + "\n"
-        "python /home/scott/jamesd/"+runDir+"/runFFR.py " + type + " " + str(fld) + "\n"
+        "python /home/scott/jamesd/"+runDir+"/runFFRParam.py " + type + " " + str(fld) + "\n"
         "EOF\n\n")
 
 f.close()

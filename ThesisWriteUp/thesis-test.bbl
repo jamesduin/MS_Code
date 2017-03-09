@@ -65,4 +65,8 @@ L.~Buitinck, G.~Louppe, M.~Blondel, F.~Pedregosa, A.~Mueller, O.~Grisel,
   PKDD Workshop: Languages for Data Mining and Machine Learning}, 2013, pp.
   108--122.
 
+\bibitem{mitchell}
+T.~M. Mitchell, \emph{Machine Learning}.\hskip 1em plus 0.5em minus 0.4em\relax
+  McGraw-Hill, 1997.
+
 \end{thebibliography}

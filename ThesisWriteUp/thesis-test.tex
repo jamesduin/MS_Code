@@ -71,7 +71,7 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 \adviser{Professor Stephen Scott}
 \adviserAbstract{Stephen Scott}
 \major{Computer Science}
-\degreemonth{February}
+\degreemonth{March}
 \degreeyear{2017}
 %%
 %% For most people the defaults will be correct, so they are commented
@@ -93,9 +93,24 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 \maketitle
 %% You have a maximum of 350, which includes your title, name, etc.
 \begin{abstract}
-  \par I made the classifiers to predict the BioDataset, I made the
-  plots for the Active Passive curves, I made the plots for the Fixed
-  Fine Ratio experiments with various costs.
+  \par This study investigates an application of the Support Vector Machine
+   and Logistic Regression machine learning algorithms to a protein dataset labeled
+   according to a proteins location of origin in a cell. The dataset is labeled
+   according to a
+    hierarchical scheme, at the root level the protein is from the mitochondria
+    or not, then the hierarchy breaks down further into specific target
+    compartments at the leaf nodes. Our investigation shows that Leveraging separate
+    fine grained classifiers for each of the target compartments produces a higher
+    performing classifer at the highest level in the hierarchy according
+    to the Precision-Recall curves area under the curve. Furthermore, new approach in the
+     Active Learning setting termed \textit{active over-labeling} is applied to this dataset.
+    The approach solicits labels at a finer level of grainularity than the target concept.
+    We show that purchasing fine grained labels in each round of active learning produces a
+      higher performing classifier than purchasing coarse labels, and in both cases purchasing
+      labels actively by selecting only the most uncertain labels outperforms purchasing labels
+      passively, i.e. at random. The fine grained labels also incur a higher cost than coarse
+      grained labels for this dataset, so multiple cost ratios ran and an optimal Fixed Fine
+      ratio purchasing strategy is determined for each fine cost.
 \end{abstract}
 
 %% Optional
@@ -144,12 +159,16 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 
 %% Thesis goes here
 \chapter{Introduction}\label{chap:aenied}
+
+
+
 \section{Machine Learning}
 \par Machine Learning algorithms are defined as computer programs that learn from experience E
 with respect to some class of tasks T and performance measure P, if their performance at
-tasks in T, as measured by P, improves with experience E [4]. In the context of this paper,
-the machine learning algorithm that is used is a support vector machine (SVM) implementation
-by libSvm [3]. The performance measure is the classification of protein instances according to a
+tasks in T, as measured by P, improves with experience E \cite{mitchell}. In the context of this paper,
+the machine learning algorithms that are used include a support vector machine (SVM) implementation, and
+a Logistic Regression (LogReg) implementation by the sci-kit learn python library \cite{scikit-learn}.
+The performance measure is the classification of protein instances according to a
 label, for example, originated in the mitochondria or not.  The experience is the number of
 training instances in the training set. The dataset is initially partitioned into training
 and test sets. The algorithm improves its classifier structure based on the features of
@@ -187,8 +206,8 @@ classifier is referred to as the coarse grained classifier. The classifier that 
 labels, and trains a separate classifier for each label, then combines them to generate a root level
 label is referred to as the fine grained classifier. It can be demonstrated through a dummy example
 that for certain datasets, a fine grained approach to the root level classifier can achieve higher
-levels of precision for the same level of recall. Such a dataset is shown in \ref{fig:union}. The
-classifiers for this dataset can be thought of as a function of axis parallel rectangular boxes.
+levels of precision for the same level of recall. Such a dataset is shown in \textit{Figure}
+\ref{fig:union}. The classifiers for this dataset can be thought of as a function of axis parallel rectangular boxes.
 For the course grained to have high recall and return all of the positive circle instances, it must
 encompass the entire dataset and incidentally return all of the negative diamond instances as
 positive also. A fine grained approach is preferable for the dummy dataset pictured. It is the
@@ -300,10 +319,10 @@ Add explanation of Bandit approach and results.
 \FloatBarrier
 \begin{table}[!htb]
 \centering
-\begin{subtable}{.15\linewidth}
+\begin{subtable}{.25\linewidth}
   \centering
   \begin{tabular}{|l||l|}\toprule
-    Classes & All \\ \midrule
+    Classes & Count \\ \midrule
     0 & 19136 \\
     1 & 13 \\
     2 & 185 \\
@@ -312,18 +331,20 @@ Add explanation of Bandit approach and results.
     5 & 11 \\
     6 & 104 \\
     7 & 59 \\
-    8 & 76 \\
-    Total & 20098 \\
-    Shape & 450 \\
- \bottomrule
+    8 & 76 \\ \midrule
+    Tot All & 20098 \\
+    Tot Coarse & 19136 \\
+    Tot Fine & 962 \\
+    Features & 449 \\ \bottomrule
   \end{tabular}
   \label{tab:ClassesAll}
   \caption{Classes}
 \end{subtable}%
-\begin{subtable}{.85\linewidth}
+\begin{subtable}{.75\linewidth}
 \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    All & Folds & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \midrule
+%    Folds & \multicolumn{9}{c}{Classes} \\ \cmidrule(r){2-11}
+    Folds & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \midrule
     1 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
     2 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
     3 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 5 & 8 \\
