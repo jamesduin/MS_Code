@@ -14,7 +14,23 @@ os.chdir('runActPassLogReg')
 
 clftype = 'LogReg' #LogReg, SVM
 #rndNums = [20,30,40,50,60]
-rndNums = [20]
+#rndNums = [70,60,50,40,30,20,10]
+rndNums = [60,50,40,30,20,10]
+
+
+cVals = [#(0.90000000000000002, 0.25162433333706963, 0.12708553664078234, 1.0),
+         (0.90000000000000002, 0.48317993787976221, 0.25162433333706957, 1.0),
+         (0.86294117647058821, 0.67619870060118625, 0.3711206857265133, 1.0),
+         ##(0.69352941176470584, 0.81992038432147962, 0.48784802082520451, 1.0),
+         (0.53117647058823525, 0.89098219195263628, 0.58975546501210829, 1.0),
+         ##(0.36882352941176472, 0.89098219195263628, 0.67984446124709452, 1.0),
+         (0.2064705882352941, 0.8199203843214794, 0.75630966447410342, 1.0),
+         ##(0.037058823529411734, 0.67619870060118592, 0.81992038432147951, 1.0),
+         (0.12529411764705883, 0.48317993787976199, 0.86410948083716543, 1.0),
+         ##(0.28764705882352942, 0.25162433333706941, 0.89098219195263628, 1.0),
+         (0.45000000000000001, 0.0, 0.90000000000000002, 1.0)
+         ]
+
 
 
 #type = 'active_fine'
@@ -22,7 +38,9 @@ rndTypes = ['active_fine','active_coarse']
 #rndTypes = ['active_coarse']
 logLoc = 'thresh_100_'
 
+rndCnt = -1
 for rndNum in rndNums:
+    rndCnt += 1
     for type in rndTypes:
         resultsDir = 'results'
         rndTypeFoldMat = dict()
@@ -111,21 +129,6 @@ for rndNum in rndNums:
                      (1, 8), (2, 8), (3, 8),
                      (1, 8), (2, 8)]
 
-        cVals = [(0.90000000000000002, 0.25162433333706963, 0.12708553664078234, 1.0),
-        # (0.90000000000000002, 0.48317993787976221, 0.25162433333706957, 1.0),
-        # (0.86294117647058821, 0.67619870060118625, 0.3711206857265133, 1.0),
-        # (0.69352941176470584, 0.81992038432147962, 0.48784802082520451, 1.0),
-        # (0.53117647058823525, 0.89098219195263628, 0.58975546501210829, 1.0),
-        # (0.36882352941176472, 0.89098219195263628, 0.67984446124709452, 1.0),
-        # (0.2064705882352941, 0.8199203843214794, 0.75630966447410342, 1.0),
-        (0.037058823529411734, 0.67619870060118592, 0.81992038432147951, 1.0),
-        # (0.12529411764705883, 0.48317993787976199, 0.86410948083716543, 1.0),
-        # (0.28764705882352942, 0.25162433333706941, 0.89098219195263628, 1.0),
-        (0.45000000000000001, 0.0, 0.90000000000000002, 1.0)
-         ]
-
-
-
 
 
 
@@ -208,14 +211,14 @@ for rndNum in rndNums:
                     plt.plot(resultMat[0][:],resultMat[1][:],
                              label = 'ROC-AUC: {}'.format(auc),
                              linewidth = 1.8 ,
-                             fillstyle='none',color=cVals[0],dashes=lineSty[2])
+                             fillstyle='none',color=cVals[rndCnt],dashes=lineSty[2])
                     # plt.plot(resultMat[0][:],resultMat[2][:],
                     #          label = 'Accuracy: {}'.format(val),
                     #          linewidth = 1.8 ,
                     #          fillstyle='none',color=cVals[1],dashes=lineSty[2])
                 else:
                     plt.plot(resultMat[0][:],resultMat[1][:],linewidth = 1.8 ,
-                             fillstyle='none',color=cVals[0],dashes=lineSty[2])
+                             fillstyle='none',color=cVals[rndCnt],dashes=lineSty[2])
                     # plt.plot(resultMat[0][:],resultMat[2][:],linewidth = 1.8 ,
                     #          fillstyle='none',color=cVals[1],dashes=lineSty[2])
 
@@ -319,14 +322,14 @@ for rndNum in rndNums:
                     plt.plot(resultMat[0][:],resultMat[1][:],
                              label='PR-AUC: {}'.format(auc),
                              linewidth = 1.8 ,
-                             fillstyle='none',color=cVals[0],dashes=lineSty[2])
+                             fillstyle='none',color=cVals[rndCnt],dashes=lineSty[2])
                     # plt.plot(resultMat[0][:],resultMat[2][:],
                     #          label = 'F-measure: {}'.format(val),
                     #          linewidth = 1.8 ,
                     #          fillstyle='none',color=cVals[1],dashes=lineSty[2])
                 else:
                     plt.plot(resultMat[0][:],resultMat[1][:],linewidth = 1.8 ,
-                             fillstyle='none',color=cVals[0],dashes=lineSty[2])
+                             fillstyle='none',color=cVals[rndCnt],dashes=lineSty[2])
                     # plt.plot(resultMat[0][:],resultMat[2][:],linewidth = 1.8 ,
                     #          fillstyle='none',color=cVals[1],dashes=lineSty[2])
 
