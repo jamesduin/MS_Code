@@ -113,7 +113,7 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 
 %% Optional
 \begin{dedication}
-  This thesis is dedicated to my parents Paul and Vicki Duin and fiancee Anna Spady.
+  This thesis is dedicated to my parents Paul and Vicki Duin and fianc\'{e}e Anna Spady.
 \end{dedication}
 
 %% Optional
@@ -166,17 +166,17 @@ if the protein originates in the mitochondria or not.
 \par The protein dataset is labeled according to where it originates in the cell.
 At the root is “mitochondrion”, then there is the sub level labels for if its native
 to the mitochondria or if it has a separate target compartment specification. The complete
-tree along with the number of instances belonging to the each label is included in \textit{Figure} \ref{fig:Mito_tree}.
+tree along with the number of instances belonging to the each label is included in \textit{Figure} \ref{fig:Mitotree}.
 
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=0.5\columnwidth]{fig/Mito_tree}
-    \label{fig:Mito_tree}
     \caption{The protein dataset is labeled according to where it originates in the cell. At the
     root is “mitochondrion”, then there is the sub level labels for if its native to the mitochondria
     or if it has a separate target compartment specification. The complete tree along with the number
-    of instances belonging to the each label is included in \ref{fig:Mito_tree}.}
+    of instances belonging to the each label is included in this figure.}
+    \label{fig:Mitotree}
 \end{figure}
 \FloatBarrier
 
@@ -200,12 +200,12 @@ applied to the protein dataset.
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=0.5\columnwidth]{fig/union}
-    \label{fig:union}
     \caption{Demonstration of a dataset that would benefit from multiple fine grained
     learners for each circle type. In order for the coarse grain learner to have high
     recall, precision must be scarified and a large amount of false positives returned.
     By combining fine grained classifiers the same level of recall can be achieved with a
     higher level of precision because none of the false positive diamonds will be returned}
+    \label{fig:union}
 \end{figure}
 \FloatBarrier
 
@@ -291,7 +291,7 @@ Add explanation of Bandit approach and results.
 
 
 
-\chapter{Bio HAL Application}\label{chap:math}
+\chapter{Bio HAL Application Experimental Setup}\label{chap:math}
 \section{Training and Testing Coarse Grain and Fine Grain Classifiers}
 \par The first step is to examine the dataset.
 
