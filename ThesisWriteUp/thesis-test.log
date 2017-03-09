@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  8 MAR 2017 01:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  8 MAR 2017 10:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1138,144 +1138,109 @@ File: fig/runActPassLogReg_roc.png Graphic file (type png)
 Package pdftex.def Info: fig/runActPassLogReg_roc.png used on input line 1786.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [26 <./fig/runActPassLogReg_pr.png>]
-<fig/runActPassLogReg_acc.png, id=368, 578.16pt x 433.62pt>
-File: fig/runActPassLogReg_acc.png Graphic file (type png)
+<fig/runActPassSVM_pr.png, id=368, 578.16pt x 433.62pt>
+File: fig/runActPassSVM_pr.png Graphic file (type png)
 
-<use fig/runActPassLogReg_acc.png>
-Package pdftex.def Info: fig/runActPassLogReg_acc.png used on input line 1798.
+<use fig/runActPassSVM_pr.png>
+Package pdftex.def Info: fig/runActPassSVM_pr.png used on input line 1831.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
  [27 <./fig/runActPassLogReg_roc.png>]
-[28 <./fig/runActPassLogReg_acc.png>]
-<fig/runActPassLogReg_f1.png, id=381, 578.16pt x 433.62pt>
-File: fig/runActPassLogReg_f1.png Graphic file (type png)
+<fig/runActPassSVM_roc.png, id=375, 578.16pt x 433.62pt>
+File: fig/runActPassSVM_roc.png Graphic file (type png)
 
-<use fig/runActPassLogReg_f1.png>
-Package pdftex.def Info: fig/runActPassLogReg_f1.png used on input line 1811.
+<use fig/runActPassSVM_roc.png>
+Package pdftex.def Info: fig/runActPassSVM_roc.png used on input line 1844.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
-
-<fig/ActiveVsPassivePRSVM.png, id=382, 578.16pt x 433.62pt>
-File: fig/ActiveVsPassivePRSVM.png Graphic file (type png)
-
-<use fig/ActiveVsPassivePRSVM.png>
-Package pdftex.def Info: fig/ActiveVsPassivePRSVM.png used on input line 1831.
-(pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [29
-
- <./fig/runActPassLogReg_f1.png>]
-<fig/ActiveVsPassiveROCSVM.png, id=389, 578.16pt x 433.62pt>
-File: fig/ActiveVsPassiveROCSVM.png Graphic file (type png)
-
-<use fig/ActiveVsPassiveROCSVM.png>
-Package pdftex.def Info: fig/ActiveVsPassiveROCSVM.png used on input line 1844.
-
-(pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [30 <./fig/ActiveVsPassivePRSVM.png>]
-[31 <./fig/ActiveVsPassiveROCSVM.png>]
-<fig/ActiveVsPassiveAccSVM.png, id=402, 578.16pt x 433.62pt>
-File: fig/ActiveVsPassiveAccSVM.png Graphic file (type png)
-
-<use fig/ActiveVsPassiveAccSVM.png>
-Package pdftex.def Info: fig/ActiveVsPassiveAccSVM.png used on input line 1854.
-
-(pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
-
-<fig/ActiveVsPassiveF1SVM.png, id=403, 578.16pt x 433.62pt>
-File: fig/ActiveVsPassiveF1SVM.png Graphic file (type png)
-
-<use fig/ActiveVsPassiveF1SVM.png>
-Package pdftex.def Info: fig/ActiveVsPassiveF1SVM.png used on input line 1867.
-(pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [32
-
- <./fig/ActiveVsPassiveAccSVM.png>]
-<fig/FFR_PR_Cost1_rnds0_171.png, id=411, 578.16pt x 433.62pt>
+ [28 <./fig/runActPassSVM_pr.png>] [29 <./fig/runActPassSVM_roc.png>]
+<fig/FFR_PR_Cost1_rnds0_171.png, id=388, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost1_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost1_rnds0_171.png>
 Package pdftex.def Info: fig/FFR_PR_Cost1_rnds0_171.png used on input line 1881
 .
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [33 <./fig/ActiveVsPassiveF1SVM.png>]
-<fig/FFR_PR_Cost16_rnds0_171.png, id=418, 578.16pt x 433.62pt>
+
+<fig/FFR_PR_Cost16_rnds0_171.png, id=389, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost16_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost16_rnds0_171.png>
 Package pdftex.def Info: fig/FFR_PR_Cost16_rnds0_171.png used on input line 189
 5.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [34 <./fig/FFR_PR_Cost1_rnds0_171.png>]
-[35 <./fig/FFR_PR_Cost16_rnds0_171.png>]
-<fig/FFR_PR_Cost16_rnds0_500.png, id=432, 578.16pt x 433.62pt>
+ [30
+
+ <./fig/FFR_PR_Cost1_rnds0_171.png>]
+<fig/FFR_PR_Cost16_rnds0_500.png, id=396, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost16_rnds0_500.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost16_rnds0_500.png>
 Package pdftex.def Info: fig/FFR_PR_Cost16_rnds0_500.png used on input line 191
 0.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
-
-<fig/FFR_PR_Cost8_rnds0_171.png, id=433, 578.16pt x 433.62pt>
+ [31 <./fig/FFR_PR_Cost16_rnds0_171.png>]
+[32 <./fig/FFR_PR_Cost16_rnds0_500.png>]
+<fig/FFR_PR_Cost8_rnds0_171.png, id=410, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost8_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost8_rnds0_171.png>
 Package pdftex.def Info: fig/FFR_PR_Cost8_rnds0_171.png used on input line 1924
 .
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [36
 
- <./fig/FFR_PR_Cost16_rnds0_500.png>]
-<fig/FFR_PR_Cost8_rnds0_500.png, id=440, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost8_rnds0_500.png, id=411, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost8_rnds0_500.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost8_rnds0_500.png>
 Package pdftex.def Info: fig/FFR_PR_Cost8_rnds0_500.png used on input line 1935
 .
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [37 <./fig/FFR_PR_Cost8_rnds0_171.png>]
-[38 <./fig/FFR_PR_Cost8_rnds0_500.png>]
-<fig/FFR_PR_Cost4_rnds0_171.png, id=454, 578.16pt x 433.62pt>
+ [33
+
+ <./fig/FFR_PR_Cost8_rnds0_171.png>]
+<fig/FFR_PR_Cost4_rnds0_171.png, id=418, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost4_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost4_rnds0_171.png>
 Package pdftex.def Info: fig/FFR_PR_Cost4_rnds0_171.png used on input line 1946
 .
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
-
-<fig/FFR_PR_Cost4_rnds20_60.png, id=455, 578.16pt x 433.62pt>
+ [34 <./fig/FFR_PR_Cost8_rnds0_500.png>]
+[35 <./fig/FFR_PR_Cost4_rnds0_171.png>]
+<fig/FFR_PR_Cost4_rnds20_60.png, id=432, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost4_rnds20_60.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost4_rnds20_60.png>
 Package pdftex.def Info: fig/FFR_PR_Cost4_rnds20_60.png used on input line 1956
 .
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [39
 
- <./fig/FFR_PR_Cost4_rnds0_171.png>]
-<fig/FFR_PR_Cost2_rnds0_171.png, id=462, 578.16pt x 433.62pt>
+<fig/FFR_PR_Cost2_rnds0_171.png, id=433, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost2_rnds0_171.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost2_rnds0_171.png>
 Package pdftex.def Info: fig/FFR_PR_Cost2_rnds0_171.png used on input line 1966
 .
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [40 <./fig/FFR_PR_Cost4_rnds20_60.png>]
-[41 <./fig/FFR_PR_Cost2_rnds0_171.png>]
-<fig/FFR_PR_Cost2_rnds20_60.png, id=475, 578.16pt x 433.62pt>
+ [36
+
+ <./fig/FFR_PR_Cost4_rnds20_60.png>]
+<fig/FFR_PR_Cost2_rnds20_60.png, id=440, 578.16pt x 433.62pt>
 File: fig/FFR_PR_Cost2_rnds20_60.png Graphic file (type png)
 
 <use fig/FFR_PR_Cost2_rnds20_60.png>
 Package pdftex.def Info: fig/FFR_PR_Cost2_rnds20_60.png used on input line 1976
 .
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
- [42
+ [37 <./fig/FFR_PR_Cost2_rnds0_171.png>]
+[38 <./fig/FFR_PR_Cost2_rnds20_60.png>] [39
 
- <./fig/FFR_PR_Cost2_rnds20_60.png>]
-[43
 
-] (./thesis-test.bbl (./thesis-test.brf)
+] (./thesis-test.bbl
+(./thesis-test.brf)
 \tf@brf=\write5
 \openout5 = `thesis-test.brf'.
 
- [44
+ [40
 
 ]
 bibitemlist
@@ -1286,7 +1251,7 @@ Class memoir Warning: The material used in the footer is too large
 either increase the foot skip or redesign the fotoer
 (in both cases you will find help in the memoir manual). on input line 2018.
 
-[45
+[41
 
 ]
 \tf@toc=\write6
@@ -1298,11 +1263,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 2018.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2018.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2018.
 
-Package rerunfilecheck Info: File `thesis-test.out' has not changed.
-(rerunfilecheck)             Checksum: 5A1D1D5075065E1CA007ED8A5559B3FE;1440.
+
+
+Package rerunfilecheck Warning: File `thesis-test.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `thesis-test.out':
+(rerunfilecheck)             Before: 5A1D1D5075065E1CA007ED8A5559B3FE;1440
+(rerunfilecheck)             After:  F294E82415DB43C0D59093B73D47A6CA;1440.
 Package rerunfilecheck Info: File `thesis-test.brf' has not changed.
 (rerunfilecheck)             Checksum: BD93D9050A857D4D816193EB0ACAD5AE;52.
-
 
 LaTeX Warning: There were undefined references.
 
@@ -1312,24 +1283,27 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2018.
  ) 
 Here is how much of TeX's memory you used:
- 14011 strings out of 493089
- 214873 string characters out of 6134842
+ 13984 strings out of 493089
+ 214125 string characters out of 6134842
  398387 words of memory out of 5000000
- 16861 multiletter control sequences out of 15000+600000
+ 16845 multiletter control sequences out of 15000+600000
  42169 words of font info for 243 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,11n,46p,627b,527s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
-ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/ur
-w/palatino/uplri8a.pfb>
-Output written on thesis-test.pdf (50 pages, 2156595 bytes).
+ 40i,11n,46p,626b,527s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{section*.112} has been referenced but does not ex
+ist, replaced by a fixed one
+
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/
+palatino/uplri8a.pfb>
+Output written on thesis-test.pdf (46 pages, 1947328 bytes).
 PDF statistics:
- 574 PDF objects out of 1000 (max. 8388607)
- 454 compressed objects within 5 object streams
- 187 named destinations out of 1000 (max. 500000)
- 34098 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 543 PDF objects out of 1000 (max. 8388607)
+ 435 compressed objects within 5 object streams
+ 180 named destinations out of 1000 (max. 500000)
+ 34078 words of extra memory for PDF output out of 35830 (max. 10000000)
 

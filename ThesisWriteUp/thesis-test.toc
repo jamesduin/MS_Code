@@ -13,8 +13,8 @@
 \contentsline {section}{\numberline {3.2}Passive SVM Rbf kernel vs Logistic Reg}{22}{section.3.2}
 \contentsline {section}{\numberline {3.3}Active vs Passive curves}{25}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Plots for Logistic Regression Active vs Passive curves}{26}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Plots for SVM Active vs Passive curves}{29}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Plots for FFR experiments}{33}{section.3.4}
-\contentsline {chapter}{\chapternumberline {4}Conclusions and Future Work}{43}{chapter.4}
-\contentsline {appendix}{\chapternumberline {A}Tuning the fine grained classes}{44}{appendix.A}
-\contentsline {chapter}{Bibliography}{45}{section*.112}
+\contentsline {subsection}{\numberline {3.3.2}Plots for SVM Active vs Passive curves}{27}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Plots for FFR experiments}{30}{section.3.4}
+\contentsline {chapter}{\chapternumberline {4}Conclusions and Future Work}{39}{chapter.4}
+\contentsline {appendix}{\chapternumberline {A}Tuning the fine grained classes}{40}{appendix.A}
+\contentsline {chapter}{Bibliography}{41}{section*.108}

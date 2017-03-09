@@ -23,7 +23,7 @@ def getRndTypeSet(resultsDir):
 
 
 
-loadDir = 'runActPassLogReg/results'
+loadDir = 'runActPassSVM/results'
 #resultsDir = 'runActPassSVM/results'
 #resultsDir = 'runActPassSVMTimeOut/results'
 resultsDir = '../ThesisWriteUp/fig/'

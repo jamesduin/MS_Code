@@ -1792,29 +1792,29 @@ fine as in the PR curves. Both converge to the same rate after roc auc level aft
 \end{figure}
 \FloatBarrier
 
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_acc}
-    \label{fig:ActiveVsPassiveAccLR}
-    \caption{The accuracy of the fine classifiers stays at
-roughly the same rate throughout the rounds, this is due to an effective
-weighting scheme for the fine grained classifiers. The active coarse accuracy
-drops towards the end due to an increase in false positives as more negative
-instances are added in the later rounds.}
-\end{figure}
-\FloatBarrier
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_f1}
-    \label{fig:ActiveVsPassiveF1LR}
-    \caption{The F-measure of the the fine classifiers increases
-throughout the rounds as more true positives are predicted. The active coarse
-again decreases at later rounds due to increased false positives.}
-\end{figure}
-\FloatBarrier
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_acc}
+%    \label{fig:ActiveVsPassiveAccLR}
+%    \caption{The accuracy of the fine classifiers stays at
+%roughly the same rate throughout the rounds, this is due to an effective
+%weighting scheme for the fine grained classifiers. The active coarse accuracy
+%drops towards the end due to an increase in false positives as more negative
+%instances are added in the later rounds.}
+%\end{figure}
+%\FloatBarrier
+%
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_f1}
+%    \label{fig:ActiveVsPassiveF1LR}
+%    \caption{The F-measure of the the fine classifiers increases
+%throughout the rounds as more true positives are predicted. The active coarse
+%again decreases at later rounds due to increased false positives.}
+%\end{figure}
+%\FloatBarrier
 
 
 
@@ -1828,7 +1828,7 @@ again decreases at later rounds due to increased false positives.}
 \subsection{Plots for SVM Active vs Passive curves}
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassivePRSVM}
+    \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_pr}
     \label{fig:ActiveVsPassivePRSVM}
     \caption{The PR AUC curves for rounds with SVM show little
 advantage for fine. The results are slightly different than the ones shown
@@ -1841,35 +1841,35 @@ done for the logistic regression classifier.}
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassiveROCSVM}
+    \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_roc}
     \label{fig:ActiveVsPassiveROCSVM}
     \caption{The ROC curves show more of an advantage for coarse classifiers.}
 \end{figure}
 \FloatBarrier
 
 
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassiveAccSVM}
-    \label{fig:ActiveVsPassiveAccSVM}
-    \caption{The accuracy for the coarse decreases sharply due
-to coarse predicting steadily more false positives, behaving similar to the
-Log Reg case. Fine accuracy is higher due to predicting less false positives
-than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
-60 t.p. for coarse at round 60.}
-\end{figure}
-\FloatBarrier
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/ActiveVsPassiveF1SVM}
-    \label{fig:ActiveVsPassiveF1SVM}
-    \caption{The F-measure favors coarse, and trends to the same level
-    for both coarse and fine.}
-\end{figure}
-\FloatBarrier
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_acc}
+%    \label{fig:ActiveVsPassiveAccSVM}
+%    \caption{The accuracy for the coarse decreases sharply due
+%to coarse predicting steadily more false positives, behaving similar to the
+%Log Reg case. Fine accuracy is higher due to predicting less false positives
+%than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
+%60 t.p. for coarse at round 60.}
+%\end{figure}
+%\FloatBarrier
+%
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_f1}
+%    \label{fig:ActiveVsPassiveF1SVM}
+%    \caption{The F-measure favors coarse, and trends to the same level
+%    for both coarse and fine.}
+%\end{figure}
+%\FloatBarrier
 
 
 \break
