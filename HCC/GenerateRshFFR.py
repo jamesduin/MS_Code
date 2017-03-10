@@ -13,7 +13,7 @@ partDict = { 1: part1, 2: part1, 3: part2, 4: part2, 5: part3,
 # "#SBATCH --partition=gpu_m2070\n"  #crane partition
 # "#SBATCH --partition=guest\n"  #sandhills partition
 cntShrt = 1
-runDir = 'runFFRParam_Cst4'
+runDir = 'runFFRParam_Cst8'
 for type in rndType:
     for fld in fold:
         f.write(

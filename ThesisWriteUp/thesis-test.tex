@@ -185,7 +185,7 @@ if the protein originates in the mitochondria or not.
 \par The protein dataset is labeled according to where it originates in the cell.
 At the root is “mitochondrion”, then there is the sub level labels for if its native
 to the mitochondria or if it has a separate target compartment specification. The complete
-tree along with the number of instances belonging to the each label is included in \textit{Figure} \ref{fig:Mitotree}.
+tree along with the number of instances belonging to the each label is included in \textit{Figure \ref{fig:Mitotree} }.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -206,8 +206,8 @@ classifier is referred to as the coarse grained classifier. The classifier that 
 labels, and trains a separate classifier for each label, then combines them to generate a root level
 label is referred to as the fine grained classifier. It can be demonstrated through a dummy example
 that for certain datasets, a fine grained approach to the root level classifier can achieve higher
-levels of precision for the same level of recall. Such a dataset is shown in \textit{Figure}
-\ref{fig:union}. The classifiers for this dataset can be thought of as a function of axis parallel rectangular boxes.
+levels of precision for the same level of recall. Such a dataset is shown in \textit{Figure
+\ref{fig:union}}. The classifiers for this dataset can be thought of as a function of axis parallel rectangular boxes.
 For the course grained to have high recall and return all of the positive circle instances, it must
 encompass the entire dataset and incidentally return all of the negative diamond instances as
 positive also. A fine grained approach is preferable for the dummy dataset pictured. It is the
@@ -248,8 +248,6 @@ incentive to purchase enough fine grained labels to increase the F-0.5 measure. 
 coarse grained labels will cost less than fine grained labels, but the increase in
 the F-0.5 measure justifies the increase in cost up to a certain point. The F-0.5
 measure is used in the results section of this paper. ... That's why we use PRauc in the results.
-
-\section{Other Papers cited by Yugi}
 Describe some of the other papers that Yugi cited.
 
 \section{Hierarchical Active Learning}
@@ -310,10 +308,19 @@ Add explanation of Bandit approach and results.
 
 
 
-\chapter{Bio HAL Application Experimental Setup}\label{chap:math}
+\chapter{Experimental Setup}\label{chap:math}
 \section{Training and Testing Coarse Grain and Fine Grain Classifiers}
-\par The first step is to examine the dataset.
-
+\par The bioinformatics dataset is composed of 9 classes as shown in
+\textit{Figure \ref{fig:Mitotree} } on \textit{page \pageref{fig:Mitotree}}. The coarse level concept is whether or not
+the protein resides within the mitochondria. The negative case of not residing within the mitochondria is class 0. The positive case of residing within the
+  mitochondria corresponds to any of the 8 target compartment classes,  numbered 1 through 8. Since the
+  negative case has no fine grained labels, the fine grained classifier is composed of separate classifiers
+  for each of the fine grained labels. The 8 fine grained classifiers are trained such that only the instances of
+  the class corresponding to that classifiers target compartment are marked as positive, all the others are treated
+  as negative for that specific classifier. The coarse level classifier treats all fine grained target compartment
+  instances as members of a single positive class. For all classifiers the non mitochondrian instances are treated as
+  negative or 0 labeled. The totals for each class type is shown in \textit{Table \ref{tab:ClassesAll} }. Throughout
+  this experiment a 10 folds cross validation strategy is used, an example partitioning in shown in \textit{Table \ref{tab:partitions} }.
 
 
 \FloatBarrier
@@ -337,8 +344,8 @@ Add explanation of Bandit approach and results.
     Tot Fine & 962 \\
     Features & 449 \\ \bottomrule
   \end{tabular}
-  \label{tab:ClassesAll}
   \caption{Classes}
+  \label{tab:ClassesAll}
 \end{subtable}%
 \begin{subtable}{.75\linewidth}
 \centering
@@ -358,29 +365,20 @@ Add explanation of Bandit approach and results.
     Total & 20098 & 19136 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\
  \bottomrule
   \end{tabular}
-  \label{tab:partitions}
   \caption{Folds}
+  \label{tab:partitions}
   \end{subtable}
-  \caption{This is what the dataset looks like there are 20098 instances total with 450 features each. This is what the folds of the dataset look like.}
+  \caption{This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes
+  like 1 and 5 contain only 1-2 instances in a given test set.}
+  \label{tab:dataset}
 \end{table}
 \FloatBarrier
 
 
 
-
-
-
-
-
-\par Next the dataset is partitioned into 10 folds, each fold contains a representative proportion
-of each of the classes, the instances are added to each partition at random. The total partitioning
-looks like Table \ref{tab:partitions}
-
-
-\par Then 9 of the folds are compressed into the test set and the fold held out
-is the test set the totals of each class in the train and test set for fold 1 is shown in
-Table \ref{tab:TrainTest}.
-
+\par Each partition contains a representative portion of each class, the instances are randomly
+distributed between partitions. The train set is composed of joining 9 of the partitions together
+holding 1 fold out for the test set. An example of this is shown in \textit{Table \ref{tab:TrainTest}}.
 
 \FloatBarrier
 \begin{table}[H]
@@ -397,29 +395,20 @@ Table \ref{tab:TrainTest}.
 \end{table}
 \FloatBarrier
 
-\par coarse just used marked all positives as 1 and ran a binary classifer.
- fine grained classifiers trained 8 separate classifiers for the 8 fine grained
-classes, so for fine grain classifier for 1, all other fine grained classes are marked as 0
-in addition to all the coarse instances being marked as 0. Also the Pr auc and Roc auc are the
-primary metrics for determining the performance
-of the classifier. The next step is to determine what classifier can be applied to 'learn' the classes of
-this dataset. Because the experiment will involve running multiple rounds with increasing the instances to
-be trained on iteratively I tested each classifier against the full dataset and then a reduced
-dataset with one fifth of the negative instances.
-
-\par I tried using SVM. Throughout this project I used the python library sci-kit learn \cite{scikit-learn}.
-The support vector machine implemented by this library has the following default parameters. SVC C=1.0,
-kernel='rbf', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache-size=200,
-class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, random-state=None.
-
+\par Because the experiment will involve running multiple rounds iteratively increasing the
+number of instances on which the classifiers are trained and tested, a subset was used to
+tune the parameters of the classifiers. This allowed variations of the classifier parameters to be
+ran rapidly and for the class weight parameter to be tuned for various round sizes. The reduced subset
+contains a randomly chosen group of approximately $1/5^{th}$ of the negatives. The Class totals and example
+partitioning for the reduced subset is shown in \textit{Table \ref{tab:subset}}.
 
 \FloatBarrier
 \begin{table}[!htb]
 \centering
-\begin{subtable}{.15\linewidth}
+\begin{subtable}{.25\linewidth}
   \centering
   \begin{tabular}{|l||l|}\toprule
-    Classes & All \\ \midrule
+    Classes & Count \\ \midrule
     0 & 3827 \\
     1 & 13 \\
     2 & 185 \\
@@ -428,18 +417,19 @@ class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, ran
     5 & 11 \\
     6 & 104 \\
     7 & 59 \\
-    8 & 76 \\
-    Total & 4789 \\
-    Shape & 450 \\
- \bottomrule
+    8 & 76 \\ \midrule
+    Tot All & 4789 \\
+    Tot Coarse & 3827 \\
+    Tot Fine & 962 \\
+    Features & 449 \\ \bottomrule
   \end{tabular}
-  \label{tab:ClassesSub}
   \caption{Classes Subset}
+  \label{tab:ClassesSub}
 \end{subtable}%
-\begin{subtable}{.85\linewidth}
+\begin{subtable}{.75\linewidth}
 \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    All & Folds & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \midrule
+    Folds & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \midrule
     1 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
     2 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
     3 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
@@ -450,13 +440,13 @@ class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, ran
     8 & 479 & 382 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
     9 & 479 & 382 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
     10 & 478 & 382 & 2 & 18 & 32 & 19 & 2 & 10 & 6 & 7 \\ \midrule
-    Total & 4789 & 3827 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\
- \bottomrule
+    Total & 4789 & 3827 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\ \bottomrule
   \end{tabular}
-  \label{tab:Partitions Subset}
   \caption{Folds Subset}
+  \label{tab:PartitionsSubset}
   \end{subtable}
   \caption{This is for the partitions subset.}
+  \label{tab:subset}
 \end{table}
 \FloatBarrier
 
@@ -471,9 +461,17 @@ class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, ran
  \bottomrule
   \end{tabular}
   \caption{This is what the train and test set look like for the subset.}
-  \label{tab:TrainTest}
+  \label{tab:subTrainTest}
 \end{table}
 \FloatBarrier
+
+
+\par I tried using SVM. Throughout this project I used the python library sci-kit learn \cite{scikit-learn}.
+The support vector machine implemented by this library has the following default parameters. SVC C=1.0,
+kernel='rbf', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache-size=200,
+class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, random-state=None.
+
+
 
 \FloatBarrier
 \begin{table}[H]
@@ -1565,6 +1563,7 @@ I got this vector of ratios
 
 \break
 
+\chapter{Results and Analysis}\label{chap:aenied}
 \section{Passive SVM Rbf kernel vs Logistic Reg}
 \par This shows the advantage to fine grained labels to justify the experiment.
 \FloatBarrier
@@ -2019,10 +2018,10 @@ done for the logistic regression classifier.}
 \backmatter
 
 %% Start the correct formatting for the appendices
-\appendix
-
-\chapter{Tuning the fine grained classes}
-\par All the data and results for tuning the fine grained classes.
+%\appendix
+%
+%\chapter{Tuning the fine grained classes}
+%\par All the data and results for tuning the fine grained classes.
 
 %% Bibliography goes here (You better have one)
 %% BibTeX is your friend
