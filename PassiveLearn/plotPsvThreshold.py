@@ -10,9 +10,11 @@ import os
 #os.chdir('FindThresholdSVM')  # FindThresholdSVM, FindThresholdLogReg
 #os.chdir('FINAL/LogReg_All')
 #os.chdir('FINAL/LogReg_All')
-os.chdir('FINAL/SVM_All')
+#os.chdir('FINAL/SVM_All')
+#os.chdir('RocPR/LogRegSampleWeight')
+os.chdir('RocPR/LogRegNoSW')
 
-clftype = 'SVM' #LogReg, SVM
+clftype = 'LogReg' #LogReg, SVM
 
 def getRndTypeSet(resultsDir):
     rndTypeSet = set()
@@ -163,15 +165,15 @@ for lvl in ['fine','coarse']:
             if(float(res[3])<0.0):
                 break
             prev = i
-        print('prev {}, cur{}'.format(prev,cur))
-        print(resComb[prev])
-        print(resComb[cur])
+        #print('prev {}, cur{}'.format(prev,cur))
+        #print(resComb[prev])
+        #print(resComb[cur])
         y = np.array([float(resComb[prev][0]), float(resComb[cur][0])])
         x = np.array([float(resComb[prev][3]), float(resComb[cur][3])])
         m = (y[0] - y[1]) / (x[0] - x[1])
         b = y[0] - m * x[0]
         x_val = m * 0.0 + b
-        print('x_val {}'.format(x_val))
+        #print('x_val {}'.format(x_val))
         x_vals.append(x_val)
 
         if fold == 1:
@@ -215,8 +217,8 @@ for lvl in ['fine','coarse']:
     title = 'Receiver Operating Characteristic - {}'.format(lvl)
     plt.title(title)
     plt.legend(loc="lower right")
-    plt.savefig('../../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_RocCurve_'+lvl+'.png')
-    #plt.savefig(clftype + '_RocCurves_' + lvl + '.png')
+    #plt.savefig('../../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_RocCurve_'+lvl+'.png')
+    plt.savefig(clftype + '_RocCurves_' + lvl + '.png')
 
 
 
@@ -257,9 +259,9 @@ for lvl in ['coarse','fine']:
                 #resultMat[colNum] = np.mean(axisValFlds,axis=1)
                 resultMat[colNum] =axisValFlds
                 colNum += 1
-        print(len(resultMat[0]))
-        print(len(resultMat[1]))
-        print(len(resultMat[2]))
+        #print(len(resultMat[0]))
+        #print(len(resultMat[1]))
+        #print(len(resultMat[2]))
 
         resComb = np.hstack((resultMat[0], resultMat[1]))
         resComb = np.hstack((resComb, resultMat[2]))
@@ -272,15 +274,15 @@ for lvl in ['coarse','fine']:
             if (float(res[3]) > 0.0):
                 break
             prev = i
-        print('prev {}, cur {}'.format(prev, cur))
-        print(resComb[prev])
-        print(resComb[cur])
+        #print('prev {}, cur {}'.format(prev, cur))
+        #print(resComb[prev])
+        #print(resComb[cur])
         y = np.array([float(resComb[prev][0]), float(resComb[cur][0])])
         x = np.array([float(resComb[prev][3]), float(resComb[cur][3])])
         m = (y[0] - y[1]) / (x[0] - x[1])
         b = y[0] - m * x[0]
         x_val = m * 0.0 + b
-        print('x_val {}'.format(x_val))
+        #print('x_val {}'.format(x_val))
         x_vals.append(x_val)
 
         if fold == 1:
@@ -323,5 +325,5 @@ for lvl in ['coarse','fine']:
     title = 'Precision Recall - {}'.format(lvl)
     plt.title(title)
     plt.legend(loc="lower right")
-    plt.savefig('../../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_PrCurve_'+lvl+'.png')
-    #plt.savefig(clftype + '_PrCurves_' + lvl + '.png')
+    #plt.savefig('../../../ThesisWriteUp/fig'+'/'+clftype+'_FindThreshold_PrCurve_'+lvl+'.png')
+    plt.savefig(clftype + '_PrCurves_' + lvl + '.png')

@@ -12,7 +12,7 @@ import os
 #dir = 'CostGamma/SVM_OrigWithFtune/results'
 #dir = 'CostGamma/SVM_Cp1/results'
 #dir = 'CostGamma/SVM_C1_Gp0029674/results'
-dir = 'CostGamma/SVM_C2_Gp0029674/results'
+#dir = 'CostGamma/SVM_C2_Gp0029674/results'
 #dir = 'CostGamma/SVM_Cp1_Gp0029674/results'
 #dir = 'CostGamma/SVM_Cp05_Gp0029674/results'
 #dir = 'CostGamma/SVM_Cp15_Gp0029674/results'
@@ -36,6 +36,8 @@ dir = 'CostGamma/SVM_C2_Gp0029674/results'
 #dir = 'CostGamma/SVM_C1_Gp0025_tolp00001/results'
 #dir = 'ClassWeight/SVM_All/results'
 #dir = 'ClassWeight/SVM_AllQuick/results'
+#dir = 'RocPR/LogRegSampleWeight/results'
+dir = 'RocPR/LogRegNoSW/results'
 
 os.chdir(dir)
 tableName = re.split('[/]',dir)[1].replace('_','-')

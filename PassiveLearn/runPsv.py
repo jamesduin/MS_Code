@@ -14,7 +14,7 @@ testFold = int(sys.argv[1])
 #dir = 'CostGamma/SVM_OrigWithFtune'
 #dir = 'CostGamma/SVM_Cp1'
 #dir = 'CostGamma/SVM_C1_Gp0029674'
-dir = 'CostGamma/SVM_C2_Gp0029674'
+#dir = 'CostGamma/SVM_C2_Gp0029674'
 #dir = 'CostGamma/SVM_Cp1_Gp0029674'
 #dir = 'CostGamma/SVM_Cp05_Gp0029674'
 #dir = 'CostGamma/SVM_Cp15_Gp0029674'
@@ -38,6 +38,9 @@ dir = 'CostGamma/SVM_C2_Gp0029674'
 #dir = 'CostGamma/SVM_C1_Gp0025_tolp00001'
 #dir = 'ClassWeight/SVM_All'
 #dir = 'ClassWeight/SVM_AllQuick'
+#dir = 'RocPR/LogRegSampleWeight'
+#dir = 'RocPR/LogRegNoSW'
+dir = 'RocPR/LogRegNoSW'
 #fineCls = 8
 
 if not os.path.exists(dir):
@@ -55,13 +58,13 @@ classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 #loadDir = '../../../data/partition_subset/partition_sub'
 #loadDir = '../../../data/part_subStd/part_subStd_'
 
-#loadDir = '../../../data/part_subMinMax/part_subMinMax_'
+loadDir = '../../../data/part_subMinMax/part_subMinMax_'
 
 #loadDir = '../../../data/part_subNorm/part_subNorm_'
 #loadDir = '../../../data/part_subSel25/part_subSel25_'
 #loadDir = '../../../data/part_subSel50/part_subSel50_'
 
-loadDir = '../../../data/part_subSel75/part_subSel75_'
+#loadDir = '../../../data/part_subSel75/part_subSel75_'
 
 #loadDir = '../../../data/part_subMinSel25/part_subMinSel25_'
 #loadDir = '../../../data/part_subMinSel50/part_subMinSel50_'
