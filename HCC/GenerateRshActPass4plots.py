@@ -18,7 +18,8 @@ cntShrt = 1
 clfType = 'LogReg'
 #runDir = 'runActPassSVM'
 #runDir = 'runActPassLogReg'
-runDir = 'runActPassLogReg4plots'
+#runDir = 'runActPassLogReg4plots'
+runDir = 'methodsActPassParam4PlotsRocAll'
 
 for type in rndType:
     for fld in fold:
@@ -41,7 +42,9 @@ for type in rndType:
         f.write(
         #"module load python/3.4\n" #for sandhills
         "module load python/3.5\n" #for crane and tusker
-        "python /home/scott/jamesd/runActPassParam/runActPassParam4Plots.py "+clfType+" "
+        # "python /home/scott/jamesd/runActPassParam/runActPassParam4Plots.py "+clfType+" "
+        #                         + runDir+" "+ type + " " + str(fld) + "\n"
+        "python /home/scott/jamesd/runActPassParam/runActPassParam4PlotsRocAll.py "+clfType+" "
                                 + runDir+" "+ type + " " + str(fld) + "\n"
         "EOF\n\n")
 

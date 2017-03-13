@@ -84,8 +84,8 @@ for lvl in ['coarse','fine']:
 instanceCount = 0
 rndNum = 0
 threshResults = {'coarse':[],'fine':[], 'fineTrainOnCrs':[],'coarseTrainOnFin':[]}
-#while((18088-instanceCount) > 100):
-while(rndNum < 40):
+while((18088-instanceCount) > 100):
+#while(rndNum < 40):
     start_time.append(time.perf_counter())
     if(rndNum>=1):
         for lvl in ['coarse', 'fine']:
