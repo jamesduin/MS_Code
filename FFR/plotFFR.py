@@ -31,11 +31,11 @@ def getRndTypeSet(resultsDir):
     print(rndTypeSet)
     return rndTypeSet
 
-resultsDir = 'runFFRParam_Cst1/results'
+resultsDir = 'runFFRParam_Cst16/results'
 Xlims = [0, 180]
 #Xlims = [20,60]
 #Ylims = [0.838, 0.87]
-cost = 1
+cost = 16
 #resultsDir = '_results/results'
 
 
@@ -180,4 +180,4 @@ if(Xlims[1] == 60):
     title = title + ' - '+ str(Xlims[0])+' to '+ str(Xlims[1]) + ' Rounds'
 plt.title(title)
 plt.legend(loc="lower right")
-plt.savefig('../ThesisWriteUp/fig'+'/FFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')
+plt.savefig('../ThesisWriteUp/fig'+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')

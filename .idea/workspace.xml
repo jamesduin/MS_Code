@@ -2,13 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam4Plots.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam4Plots.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/LogReg_PrCurves_coarse.png" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/LogReg_PrCurves_coarse.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/LogReg_PrCurves_fine.png" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/LogReg_PrCurves_fine.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/LogReg_RocCurves_coarse.png" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/LogReg_RocCurves_coarse.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/LogReg_RocCurves_fine.png" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/LogReg_RocCurves_fine.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/coarse_results/Psv_1_10_coarse_PR.png" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/coarse_results/Psv_1_10_coarse_PR.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/coarse_results/Psv_1_10_coarse_ROC.png" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/coarse_results/Psv_1_10_coarse_ROC.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/fine_results/Psv_1_10_fine_PR.png" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/fine_results/Psv_1_10_fine_PR.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/fine_results/Psv_1_10_fine_ROC.png" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/fine_results/Psv_1_10_fine_ROC.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_1.res" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_1.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_10.res" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_10.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_2.res" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_2.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_3.res" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_3.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_5.res" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_5.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_6.res" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_6.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_7.res" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_7.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_8.res" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_8.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_9.res" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/Psv_9.res" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFR/plotFFR.py" afterPath="$PROJECT_DIR$/FFR/plotFFR.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/_Psv.txt" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/_Psv.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/output.txt" afterPath="$PROJECT_DIR$/PassiveLearn/RocPR/LogRegNoSW/results/output.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" afterPath="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/plotPsv.py" afterPath="$PROJECT_DIR$/PassiveLearn/plotPsv.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/plotPsvThreshold.py" afterPath="$PROJECT_DIR$/PassiveLearn/plotPsvThreshold.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/runPsv.py" afterPath="$PROJECT_DIR$/PassiveLearn/runPsv.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,14 +43,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.42014742">
+    <splitter split-orientation="horizontal" split-proportion="0.46404">
       <split-first>
         <leaf>
-          <file leaf-file-name="runPsv.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.py">
+          <file leaf-file-name="runActPassParam4Plots.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam4Plots.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="42" column="23" lean-forward="true" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+                <state relative-caret-position="-522">
+                  <caret line="86" column="17" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -37,11 +58,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="runPsv.sh" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.sh">
+          <file leaf-file-name="GenerateRshActPass.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HCC/GenerateRshActPass.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+                <state relative-caret-position="315">
+                  <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -51,33 +72,31 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="methodsPsv.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/PassiveLearn/methodsPsv.py">
+          <file leaf-file-name="plotPassiveActive.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="478">
-                  <caret line="127" column="81" lean-forward="true" selection-start-line="127" selection-start-column="81" selection-end-line="127" selection-end-column="81" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="plotPsv.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/PassiveLearn/plotPsv.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1530">
-                  <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+                <state relative-caret-position="1560">
+                  <caret line="109" column="15" lean-forward="true" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="plotPsvThreshold.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/PassiveLearn/plotPsvThreshold.py">
+          <file leaf-file-name="plotPassiveActive4plots.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-149">
-                  <caret line="284" column="9" lean-forward="false" selection-start-line="284" selection-start-column="9" selection-end-line="284" selection-end-column="9" />
+                <state relative-caret-position="580">
+                  <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="methodsActPassParam4Plots.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam4Plots.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="78">
+                  <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="36" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -98,15 +117,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>val</find>
-      <find>rndTypeSet</find>
-      <find>rndTypes</find>
-      <find>PRLR</find>
-      <find>x_axis</find>
-      <find>outFind</find>
       <find>rndNums</find>
       <find>type</find>
-      <find>logLoc</find>
       <find>auc</find>
       <find>parents</find>
       <find>cVals</find>
@@ -124,10 +136,17 @@
       <find>Mito-tree</find>
       <find>\ref</find>
       <find>TrainTest</find>
-      <find>sampleWeight</find>
-      <find>print(</find>
       <find>x_vals</find>
+      <find>sampleWeight</find>
       <find>print</find>
+      <find>print(</find>
+      <find>test_part</find>
+      <find>rnd_results</find>
+      <find>logLoc</find>
+      <find>testFold</find>
+      <find>rndTypeSet</find>
+      <find>rndTypeFoldMat</find>
+      <find>threshResults</find>
     </findStrings>
     <replaceStrings>
       <replace>[H]</replace>
@@ -145,8 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/PassiveLearn/output.txt" />
-        <option value="$PROJECT_DIR$/FFR/test.py" />
         <option value="$PROJECT_DIR$/FFR/runFFRR_Cst16/run3.sh" />
         <option value="$PROJECT_DIR$/FFR/runFFR.py" />
         <option value="$PROJECT_DIR$/HCC/GenerateRsh.py" />
@@ -186,23 +203,26 @@
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPsvThreshRndXMap.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPsvThreshRnd.py" />
         <option value="$PROJECT_DIR$/FFR/methodsFFRParam.py" />
-        <option value="$PROJECT_DIR$/FFR/plotFFR.py" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" />
         <option value="$USER_HOME$/Google Drive/Documents/Church/ChristsRenewsHisParishMom.tex" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
         <option value="$PROJECT_DIR$/FFR/runFFRParam.py" />
         <option value="$PROJECT_DIR$/HCC/GenerateRshFFR.py" />
-        <option value="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" />
+        <option value="$PROJECT_DIR$/FFR/plotFFR.py" />
         <option value="$PROJECT_DIR$/PassiveLearn/plotPsv.py" />
-        <option value="$PROJECT_DIR$/PassiveLearn/runPsv.py" />
+        <option value="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" />
         <option value="$PROJECT_DIR$/PassiveLearn/plotPsvThreshold.py" />
+        <option value="$PROJECT_DIR$/PassiveLearn/runPsv.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py" />
+        <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam4Plots.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1683" />
-    <option name="height" value="1151" />
+    <option name="x" value="40" />
+    <option name="y" value="60" />
+    <option name="width" value="1871" />
+    <option name="height" value="1117" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -245,7 +265,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PassiveLearn" />
+              <option name="myItemId" value="HCC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MS_Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MS_Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ActivePassiveLearnParams" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MS_Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MS_Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ActivePassiveLearnParams" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="runActPass4plots" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -267,8 +319,8 @@
       <recent name="$PROJECT_DIR$/ActivePassiveFolds/ArchiveResults" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/FFR" />
       <recent name="$PROJECT_DIR$/ActivePassiveLearnParams" />
+      <recent name="$PROJECT_DIR$/FFR" />
       <recent name="$PROJECT_DIR$/HCC" />
       <recent name="$PROJECT_DIR$/PassiveLearn" />
       <recent name="$PROJECT_DIR$/ThesisWriteUp" />
@@ -545,17 +597,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1683" height="1151" extended-state="0" />
-    <editor active="false" />
+    <frame x="40" y="60" width="1871" height="1117" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15102287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13567567" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35334873" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38054767" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34439024" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -577,30 +629,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/ClassWeight/SVM_All/results/output.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="50" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_OrigWithFtune/results/output.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_OrigWithFtune/results/_Psv.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="3542" column="12" lean-forward="false" selection-start-line="3542" selection-start-column="2" selection-end-line="3542" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C1_Gp0005/results/output.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
@@ -724,14 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HCC/GenerateRshActPass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotActPassParam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-579">
@@ -790,48 +810,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPsvThreshRndXMap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="188" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FFR/runFFR.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-643">
           <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FFR/methodsFFR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="188" column="30" lean-forward="true" selection-start-line="188" selection-start-column="30" selection-end-line="188" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="109" column="15" lean-forward="true" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FFR/plotFFR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -866,37 +848,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HCC/GenerateRshFFR.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FFR/methodsFFRParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FFR/runFFRParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -912,22 +868,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="2128">
           <caret line="601" column="0" lean-forward="false" selection-start-line="601" selection-start-column="0" selection-end-line="601" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="116" column="60" lean-forward="false" selection-start-line="116" selection-start-column="38" selection-end-line="116" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -956,10 +896,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/methodsPsv.py">
+    <entry file="file://$PROJECT_DIR$/FFR/plotFFR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="127" column="81" lean-forward="true" selection-start-line="127" selection-start-column="81" selection-end-line="127" selection-end-column="81" />
+        <state relative-caret-position="105">
+          <caret line="37" column="9" lean-forward="false" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="834">
+          <caret line="122" column="51" lean-forward="false" selection-start-line="122" selection-start-column="51" selection-end-line="122" selection-end-column="51" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -968,16 +918,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/plotPsv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1530">
-          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        <state relative-caret-position="240">
+          <caret line="131" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.py">
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/methodsPsv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="42" column="23" lean-forward="true" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+        <state relative-caret-position="345">
+          <caret line="118" column="42" lean-forward="false" selection-start-line="118" selection-start-column="42" selection-end-line="118" selection-end-column="42" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -986,8 +936,110 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/plotPsvThreshold.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-149">
-          <caret line="284" column="9" lean-forward="false" selection-start-line="284" selection-start-column="9" selection-end-line="284" selection-end-column="9" />
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FFR/methodsFFR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="188" column="30" lean-forward="true" selection-start-line="188" selection-start-column="30" selection-end-line="188" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FFR/runFFRParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-810">
+          <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FFR/methodsFFRParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630">
+          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="116" column="60" lean-forward="false" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/GenerateRshActPass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam4Plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1560">
+          <caret line="109" column="15" lean-forward="true" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="88" column="36" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPsvThreshRndXMap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2595">
+          <caret line="194" column="43" lean-forward="true" selection-start-line="194" selection-start-column="43" selection-end-line="194" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam4Plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-522">
+          <caret line="86" column="17" lean-forward="false" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

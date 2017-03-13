@@ -12,7 +12,8 @@ import os
 #os.chdir('FINAL/LogReg_All')
 #os.chdir('FINAL/SVM_All')
 #os.chdir('RocPR/LogRegSampleWeight')
-os.chdir('RocPR/LogRegNoSW')
+#os.chdir('RocPR/LogRegNoSW')
+os.chdir('RocPR/InvestigateRocPR')
 
 clftype = 'LogReg' #LogReg, SVM
 

@@ -37,7 +37,8 @@ import os
 #dir = 'ClassWeight/SVM_All/results'
 #dir = 'ClassWeight/SVM_AllQuick/results'
 #dir = 'RocPR/LogRegSampleWeight/results'
-dir = 'RocPR/LogRegNoSW/results'
+#dir = 'RocPR/LogRegNoSW/results'
+dir = 'RocPR/InvestigateRocPR/results'
 
 os.chdir(dir)
 tableName = re.split('[/]',dir)[1].replace('_','-')

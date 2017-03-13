@@ -40,7 +40,7 @@ testFold = int(sys.argv[1])
 #dir = 'ClassWeight/SVM_AllQuick'
 #dir = 'RocPR/LogRegSampleWeight'
 #dir = 'RocPR/LogRegNoSW'
-dir = 'RocPR/LogRegNoSW'
+dir = 'RocPR/InvestigateRocPR'
 #fineCls = 8
 
 if not os.path.exists(dir):
@@ -119,8 +119,10 @@ for lvl in ['coarse', 'fine']:
                                                   y_sampleWeight, results)
     precision, recall, threshPr = rnds[lvl].plotPrCurves(y_testCoarse,
                         y_pred_score[lvl], y_sampleWeight, results)
-    print('threshRoc {}'.format(len(threshRoc)))
-    print('threshPr {}'.format(len(threshPr)))
+    m.addPrint(results,'y_testCoarse {}'.format(len(y_testCoarse)))
+    m.addPrint(results, 'y_pred_score[] {}'.format(len(y_pred_score[lvl])))
+    m.addPrint(results,'threshRoc {}'.format(len(threshRoc)))
+    m.addPrint(results,'threshPr {}'.format(len(threshPr)))
     for tInd,thresh in enumerate(threshRoc):
         y_predCrsThresh, y_pred_scr = rnds[lvl].predictTestSetThreshold(thresh,
                                             y_pred_score[lvl])

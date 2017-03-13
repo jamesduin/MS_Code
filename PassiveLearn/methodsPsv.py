@@ -99,7 +99,7 @@ class LearnRound:
 
     def plotRocCurves(self,y_testCoarse,y_pred_score,y_sampleWeight,results):
         ###### Plot ROC and PR curves
-        fpr, tpr, threshRoc = roc_curve(y_testCoarse, y_pred_score  )#, sample_weight=y_sampleWeight)
+        fpr, tpr, threshRoc = roc_curve(y_testCoarse, y_pred_score  ,drop_intermediate=False)#, sample_weight=y_sampleWeight)
         roc_auc = auc(fpr, tpr, reorder=True)
         plt.figure()
         plt.plot(fpr, tpr,

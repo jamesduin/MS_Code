@@ -1,0 +1,597 @@
+all & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+1 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+2 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+3 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 5 & 8 \\
+4 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 10 & 6 & 8 \\
+5 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+6 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+7 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+8 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+9 & 2009 & 1913 & 2 & 18 & 32 & 19 & 2 & 10 & 6 & 7 \\
+10 & 2009 & 1913 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+Total & 20098 & 19136 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\
+train & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+2 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+3 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 5 & 8 \\
+4 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 10 & 6 & 8 \\
+5 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+6 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+7 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+8 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+9 & 2009 & 1913 & 2 & 18 & 32 & 19 & 2 & 10 & 6 & 7 \\
+10 & 2009 & 1913 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+Total & 18088 & 17222 & 12 & 166 & 292 & 171 & 10 & 93 & 53 & 69 \\
+test & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+1 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+Total & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+Classes &  \\
+0 & 17222 \\
+1 & 12 \\
+2 & 166 \\
+3 & 292 \\
+4 & 171 \\
+5 & 10 \\
+6 & 93 \\
+7 & 53 \\
+8 & 69 \\
+Total & 18088 \\
+Shape & 450 \\
+coarseTrainWt: 14.164884863722074
+['rnd', 1, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1354, 'fp', 560]
+['rnd', 1, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 16, 'tp', 80]
+['rnd', 1, 'fold', 1, 'lvl', 'coarse', 'acc', 0.71343283582089556, 'f1', 0.21739130434782608]
+['rnd', 1, 'fold', 1, 'lvl', 'coarse', 'roc', 0.85676266980146287]
+['rnd', 1, 'fold', 1, 'lvl', 'coarse', 'pr', 0.85013843275444922]
+['rnd', 1, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.15']
+threshRoc 152
+threshPr 1955
+['rnd', 1, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '3.73']
+['rnd', 1, 'fold', 1, 'lvl', 'coarse', (0, 952), (1, 10), (2, 11), (3, 16), (4, 11), (5, 10), (6, 10), (7, 10), (8, 10), ('tot', 1040)]
+['rnd', 1, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 0m 18.06sec']
+['addcoarse', 100]
+coarseTrainWt: 14.59343180389692
+['rnd', 2, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1377, 'fp', 537]
+['rnd', 2, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 15, 'tp', 81]
+['rnd', 2, 'fold', 1, 'lvl', 'coarse', 'acc', 0.72537313432835826, 'f1', 0.22689075630252101]
+['rnd', 2, 'fold', 1, 'lvl', 'coarse', 'roc', 0.85892328456983624]
+['rnd', 2, 'fold', 1, 'lvl', 'coarse', 'pr', 0.85181158970361792]
+['rnd', 2, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.16']
+threshRoc 148
+threshPr 1951
+['rnd', 2, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '4.49']
+['rnd', 2, 'fold', 1, 'lvl', 'coarse', (0, 1047), (1, 10), (2, 13), (3, 19), (4, 11), (5, 10), (6, 10), (7, 10), (8, 10), ('tot', 1140)]
+['rnd', 2, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 0m 22.62sec']
+['addcoarse', 100]
+coarseTrainWt: 14.97824946446209
+['rnd', 3, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1392, 'fp', 522]
+['rnd', 3, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 14, 'tp', 82]
+['rnd', 3, 'fold', 1, 'lvl', 'coarse', 'acc', 0.73333333333333328, 'f1', 0.23428571428571426]
+['rnd', 3, 'fold', 1, 'lvl', 'coarse', 'roc', 0.86590038314176243]
+['rnd', 3, 'fold', 1, 'lvl', 'coarse', 'pr', 0.85944679276922686]
+['rnd', 3, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.16']
+threshRoc 156
+threshPr 1946
+['rnd', 3, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '4.75']
+['rnd', 3, 'fold', 1, 'lvl', 'coarse', (0, 1142), (1, 10), (2, 14), (3, 21), (4, 12), (5, 10), (6, 11), (7, 10), (8, 10), ('tot', 1240)]
+['rnd', 3, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 0m 27.45sec']
+['addcoarse', 100]
+coarseTrainWt: 15.32570618710831
+['rnd', 4, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1413, 'fp', 501]
+['rnd', 4, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 14, 'tp', 82]
+['rnd', 4, 'fold', 1, 'lvl', 'coarse', 'acc', 0.74378109452736318, 'f1', 0.24153166421207659]
+['rnd', 4, 'fold', 1, 'lvl', 'coarse', 'roc', 0.87150600835945669]
+['rnd', 4, 'fold', 1, 'lvl', 'coarse', 'pr', 0.86496804039317543]
+['rnd', 4, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.17']
+threshRoc 160
+threshPr 1927
+['rnd', 4, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '5.12']
+['rnd', 4, 'fold', 1, 'lvl', 'coarse', (0, 1237), (1, 10), (2, 16), (3, 23), (4, 12), (5, 10), (6, 12), (7, 10), (8, 10), ('tot', 1340)]
+['rnd', 4, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 0m 32.65sec']
+['addcoarse', 100]
+coarseTrainWt: 15.521819120165611
+['rnd', 5, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1403, 'fp', 511]
+['rnd', 5, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 5, 'fold', 1, 'lvl', 'coarse', 'acc', 0.73930348258706469, 'f1', 0.24057971014492752]
+['rnd', 5, 'fold', 1, 'lvl', 'coarse', 'roc', 0.87540817659352144]
+['rnd', 5, 'fold', 1, 'lvl', 'coarse', 'pr', 0.86774770765538634]
+['rnd', 5, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.2']
+threshRoc 154
+threshPr 1911
+['rnd', 5, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '5.08']
+['rnd', 5, 'fold', 1, 'lvl', 'coarse', (0, 1331), (1, 10), (2, 18), (3, 24), (4, 13), (5, 10), (6, 12), (7, 12), (8, 10), ('tot', 1440)]
+['rnd', 5, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 0m 37.83sec']
+['addcoarse', 100]
+coarseTrainWt: 15.697468094990846
+['rnd', 6, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1394, 'fp', 520]
+['rnd', 6, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 12, 'tp', 84]
+['rnd', 6, 'fold', 1, 'lvl', 'coarse', 'acc', 0.73532338308457712, 'f1', 0.23999999999999996]
+['rnd', 6, 'fold', 1, 'lvl', 'coarse', 'roc', 0.87705721003134796]
+['rnd', 6, 'fold', 1, 'lvl', 'coarse', 'pr', 0.87121484624860235]
+['rnd', 6, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.19']
+threshRoc 152
+threshPr 1850
+['rnd', 6, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '4.9']
+['rnd', 6, 'fold', 1, 'lvl', 'coarse', (0, 1425), (1, 10), (2, 18), (3, 25), (4, 15), (5, 10), (6, 13), (7, 14), (8, 10), ('tot', 1540)]
+['rnd', 6, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 0m 43.02sec']
+['addcoarse', 100]
+coarseTrainWt: 16.077620702586504
+['rnd', 7, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1414, 'fp', 500]
+['rnd', 7, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 11, 'tp', 85]
+['rnd', 7, 'fold', 1, 'lvl', 'coarse', 'acc', 0.74577114427860691, 'f1', 0.24963289280469897]
+['rnd', 7, 'fold', 1, 'lvl', 'coarse', 'roc', 0.88134578544061304]
+['rnd', 7, 'fold', 1, 'lvl', 'coarse', 'pr', 0.87474551214155849]
+['rnd', 7, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.21']
+threshRoc 158
+threshPr 1881
+['rnd', 7, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '5.52']
+['rnd', 7, 'fold', 1, 'lvl', 'coarse', (0, 1521), (1, 10), (2, 20), (3, 26), (4, 16), (5, 10), (6, 13), (7, 14), (8, 10), ('tot', 1640)]
+['rnd', 7, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 0m 48.62sec']
+['addcoarse', 100]
+coarseTrainWt: 16.43304793733041
+['rnd', 8, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1420, 'fp', 494]
+['rnd', 8, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 11, 'tp', 85]
+['rnd', 8, 'fold', 1, 'lvl', 'coarse', 'acc', 0.74875621890547261, 'f1', 0.25185185185185188]
+['rnd', 8, 'fold', 1, 'lvl', 'coarse', 'roc', 0.88235806339254619]
+['rnd', 8, 'fold', 1, 'lvl', 'coarse', 'pr', 0.87466729491208406]
+['rnd', 8, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.27']
+threshRoc 152
+threshPr 1848
+['rnd', 8, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.32']
+['rnd', 8, 'fold', 1, 'lvl', 'coarse', (0, 1617), (1, 10), (2, 20), (3, 30), (4, 16), (5, 10), (6, 13), (7, 14), (8, 10), ('tot', 1740)]
+['rnd', 8, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 0m 55.04sec']
+['addcoarse', 100]
+coarseTrainWt: 16.655813953488373
+['rnd', 9, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1415, 'fp', 499]
+['rnd', 9, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 11, 'tp', 85]
+['rnd', 9, 'fold', 1, 'lvl', 'coarse', 'acc', 0.74626865671641796, 'f1', 0.25]
+['rnd', 9, 'fold', 1, 'lvl', 'coarse', 'roc', 0.88763170498084276]
+['rnd', 9, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88110960394590931]
+['rnd', 9, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.22']
+threshRoc 150
+threshPr 1809
+['rnd', 9, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '5.75']
+['rnd', 9, 'fold', 1, 'lvl', 'coarse', (0, 1712), (1, 10), (2, 23), (3, 31), (4, 17), (5, 10), (6, 13), (7, 14), (8, 10), ('tot', 1840)]
+['rnd', 9, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 1m 0.87sec']
+['addcoarse', 100]
+coarseTrainWt: 17.18976695837161
+['rnd', 10, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1427, 'fp', 487]
+['rnd', 10, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 11, 'tp', 85]
+['rnd', 10, 'fold', 1, 'lvl', 'coarse', 'acc', 0.75223880597014925, 'f1', 0.25449101796407186]
+['rnd', 10, 'fold', 1, 'lvl', 'coarse', 'roc', 0.88938958551027503]
+['rnd', 10, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88376111488218423]
+['rnd', 10, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.27']
+threshRoc 154
+threshPr 1797
+['rnd', 10, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '5.9']
+['rnd', 10, 'fold', 1, 'lvl', 'coarse', (0, 1810), (1, 10), (2, 23), (3, 32), (4, 18), (5, 10), (6, 13), (7, 14), (8, 10), ('tot', 1940)]
+['rnd', 10, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 1m 6.86sec']
+['addcoarse', 100]
+coarseTrainWt: 17.939174684523522
+['rnd', 11, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1451, 'fp', 463]
+['rnd', 11, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 11, 'tp', 85]
+['rnd', 11, 'fold', 1, 'lvl', 'coarse', 'acc', 0.76417910447761195, 'f1', 0.2639751552795031]
+['rnd', 11, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89010797631487282]
+['rnd', 11, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88396968516746366]
+['rnd', 11, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.25']
+threshRoc 150
+threshPr 1788
+['rnd', 11, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '5.99']
+['rnd', 11, 'fold', 1, 'lvl', 'coarse', (0, 1910), (1, 10), (2, 23), (3, 32), (4, 18), (5, 10), (6, 13), (7, 14), (8, 10), ('tot', 2040)]
+['rnd', 11, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 1m 12.93sec']
+['addcoarse', 100]
+coarseTrainWt: 18.445592632801933
+['rnd', 12, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1462, 'fp', 452]
+['rnd', 12, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 12, 'tp', 84]
+['rnd', 12, 'fold', 1, 'lvl', 'coarse', 'acc', 0.76915422885572138, 'f1', 0.26582278481012656]
+['rnd', 12, 'fold', 1, 'lvl', 'coarse', 'roc', 0.8898413009404389]
+['rnd', 12, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88339117860898797]
+['rnd', 12, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.26']
+threshRoc 140
+threshPr 1773
+['rnd', 12, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '5.93']
+['rnd', 12, 'fold', 1, 'lvl', 'coarse', (0, 2008), (1, 10), (2, 24), (3, 33), (4, 18), (5, 10), (6, 13), (7, 14), (8, 10), ('tot', 2140)]
+['rnd', 12, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 1m 18.94sec']
+['addcoarse', 100]
+coarseTrainWt: 18.936893627400394
+['rnd', 13, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1467, 'fp', 447]
+['rnd', 13, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 14, 'tp', 82]
+['rnd', 13, 'fold', 1, 'lvl', 'coarse', 'acc', 0.77064676616915417, 'f1', 0.26239999999999997]
+['rnd', 13, 'fold', 1, 'lvl', 'coarse', 'roc', 0.88963993382096829]
+['rnd', 13, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88358357032513202]
+['rnd', 13, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.3']
+threshRoc 148
+threshPr 1740
+['rnd', 13, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.2']
+['rnd', 13, 'fold', 1, 'lvl', 'coarse', (0, 2106), (1, 10), (2, 25), (3, 33), (4, 19), (5, 10), (6, 13), (7, 14), (8, 10), ('tot', 2240)]
+['rnd', 13, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 1m 25.22sec']
+['addcoarse', 100]
+coarseTrainWt: 19.051964286521756
+['rnd', 14, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1470, 'fp', 444]
+['rnd', 14, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 14, 'tp', 82]
+['rnd', 14, 'fold', 1, 'lvl', 'coarse', 'acc', 0.77213930348258708, 'f1', 0.2636655948553055]
+['rnd', 14, 'fold', 1, 'lvl', 'coarse', 'roc', 0.88863309822361547]
+['rnd', 14, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88347926147079181]
+['rnd', 14, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.32']
+threshRoc 150
+threshPr 1839
+['rnd', 14, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.59']
+['rnd', 14, 'fold', 1, 'lvl', 'coarse', (0, 2201), (1, 10), (2, 25), (3, 36), (4, 19), (5, 10), (6, 13), (7, 15), (8, 11), ('tot', 2340)]
+['rnd', 14, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 1m 31.90sec']
+['addcoarse', 100]
+coarseTrainWt: 18.932909861119484
+['rnd', 15, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1465, 'fp', 449]
+['rnd', 15, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 15, 'fold', 1, 'lvl', 'coarse', 'acc', 0.77014925373134324, 'f1', 0.26433121019108285]
+['rnd', 15, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89166993207941492]
+['rnd', 15, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88516195644763973]
+['rnd', 15, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.32']
+threshRoc 151
+threshPr 1818
+['rnd', 15, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.71']
+['rnd', 15, 'fold', 1, 'lvl', 'coarse', (0, 2294), (1, 10), (2, 25), (3, 39), (4, 20), (5, 10), (6, 15), (7, 16), (8, 11), ('tot', 2440)]
+['rnd', 15, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 1m 38.69sec']
+['addcoarse', 100]
+coarseTrainWt: 19.371151069359744
+['rnd', 16, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1466, 'fp', 448]
+['rnd', 16, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 16, 'tp', 80]
+['rnd', 16, 'fold', 1, 'lvl', 'coarse', 'acc', 0.76915422885572138, 'f1', 0.25641025641025644]
+['rnd', 16, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89100596482062]
+['rnd', 16, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88532930926663245]
+['rnd', 16, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.4']
+threshRoc 155
+threshPr 1873
+['rnd', 16, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '7.41']
+['rnd', 16, 'fold', 1, 'lvl', 'coarse', (0, 2392), (1, 10), (2, 26), (3, 39), (4, 21), (5, 10), (6, 15), (7, 16), (8, 11), ('tot', 2540)]
+['rnd', 16, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 1m 46.19sec']
+['addcoarse', 100]
+coarseTrainWt: 19.684153204490492
+['rnd', 17, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1474, 'fp', 440]
+['rnd', 17, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 15, 'tp', 81]
+['rnd', 17, 'fold', 1, 'lvl', 'coarse', 'acc', 0.77363184079601988, 'f1', 0.26256077795786065]
+['rnd', 17, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89227403343782652]
+['rnd', 17, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88620296171412005]
+['rnd', 17, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.38']
+threshRoc 147
+threshPr 1835
+['rnd', 17, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.98']
+['rnd', 17, 'fold', 1, 'lvl', 'coarse', (0, 2489), (1, 10), (2, 26), (3, 39), (4, 23), (5, 10), (6, 15), (7, 17), (8, 11), ('tot', 2640)]
+['rnd', 17, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 1m 53.26sec']
+['addcoarse', 100]
+coarseTrainWt: 19.873130106851036
+['rnd', 18, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1476, 'fp', 438]
+['rnd', 18, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 15, 'tp', 81]
+['rnd', 18, 'fold', 1, 'lvl', 'coarse', 'acc', 0.77462686567164174, 'f1', 0.26341463414634148]
+['rnd', 18, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89330808080808077]
+['rnd', 18, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88781953966436766]
+['rnd', 18, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.33']
+threshRoc 151
+threshPr 1778
+['rnd', 18, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.93']
+['rnd', 18, 'fold', 1, 'lvl', 'coarse', (0, 2585), (1, 10), (2, 27), (3, 41), (4, 23), (5, 10), (6, 15), (7, 17), (8, 12), ('tot', 2740)]
+['rnd', 18, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 2m 0.27sec']
+['addcoarse', 100]
+coarseTrainWt: 19.522070028054145
+['rnd', 19, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1478, 'fp', 436]
+['rnd', 19, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 14, 'tp', 82]
+['rnd', 19, 'fold', 1, 'lvl', 'coarse', 'acc', 0.77611940298507465, 'f1', 0.26710097719869702]
+['rnd', 19, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89510405781957503]
+['rnd', 19, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88876079331868241]
+['rnd', 19, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.35']
+threshRoc 149
+threshPr 1708
+['rnd', 19, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.91']
+['rnd', 19, 'fold', 1, 'lvl', 'coarse', (0, 2676), (1, 10), (2, 30), (3, 42), (4, 27), (5, 10), (6, 15), (7, 18), (8, 12), ('tot', 2840)]
+['rnd', 19, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 2m 7.28sec']
+['addcoarse', 100]
+coarseTrainWt: 19.90569279001613
+['rnd', 20, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1488, 'fp', 426]
+['rnd', 20, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 20, 'fold', 1, 'lvl', 'coarse', 'acc', 0.78159203980099501, 'f1', 0.27438016528925618]
+['rnd', 20, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89640478056426331]
+['rnd', 20, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88985825600790969]
+['rnd', 20, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.37']
+threshRoc 151
+threshPr 1702
+['rnd', 20, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.53']
+['rnd', 20, 'fold', 1, 'lvl', 'coarse', (0, 2774), (1, 10), (2, 30), (3, 44), (4, 27), (5, 10), (6, 15), (7, 18), (8, 12), ('tot', 2940)]
+['rnd', 20, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 2m 13.90sec']
+['addcoarse', 100]
+coarseTrainWt: 20.072782563685436
+['rnd', 21, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1491, 'fp', 423]
+['rnd', 21, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 21, 'fold', 1, 'lvl', 'coarse', 'acc', 0.78308457711442792, 'f1', 0.27574750830564781]
+['rnd', 21, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89584966039707414]
+['rnd', 21, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88962847500324316]
+['rnd', 21, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.38']
+threshRoc 136
+threshPr 1734
+['rnd', 21, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.63']
+['rnd', 21, 'fold', 1, 'lvl', 'coarse', (0, 2870), (1, 10), (2, 32), (3, 45), (4, 28), (5, 10), (6, 15), (7, 18), (8, 12), ('tot', 3040)]
+['rnd', 21, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 2m 20.61sec']
+['addcoarse', 100]
+coarseTrainWt: 20.33381393895576
+['rnd', 22, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1500, 'fp', 414]
+['rnd', 22, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 12, 'tp', 84]
+['rnd', 22, 'fold', 1, 'lvl', 'coarse', 'acc', 0.78805970149253735, 'f1', 0.28282828282828287]
+['rnd', 22, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89596939219784044]
+['rnd', 22, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88972083890228637]
+['rnd', 22, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.37']
+threshRoc 150
+threshPr 1768
+['rnd', 22, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '6.89']
+['rnd', 22, 'fold', 1, 'lvl', 'coarse', (0, 2967), (1, 10), (2, 34), (3, 46), (4, 28), (5, 10), (6, 15), (7, 18), (8, 12), ('tot', 3140)]
+['rnd', 22, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 2m 27.58sec']
+['addcoarse', 100]
+coarseTrainWt: 20.484620588266626
+['rnd', 23, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1501, 'fp', 413]
+['rnd', 23, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 23, 'fold', 1, 'lvl', 'coarse', 'acc', 0.78805970149253735, 'f1', 0.28040540540540543]
+['rnd', 23, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89523467432950199]
+['rnd', 23, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88851121354277152]
+['rnd', 23, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.38']
+threshRoc 146
+threshPr 1764
+['rnd', 23, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '7.06']
+['rnd', 23, 'fold', 1, 'lvl', 'coarse', (0, 3063), (1, 10), (2, 36), (3, 47), (4, 28), (5, 10), (6, 16), (7, 18), (8, 12), ('tot', 3240)]
+['rnd', 23, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 2m 34.72sec']
+['addcoarse', 100]
+coarseTrainWt: 20.931753402213293
+['rnd', 24, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1504, 'fp', 410]
+['rnd', 24, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 12, 'tp', 84]
+['rnd', 24, 'fold', 1, 'lvl', 'coarse', 'acc', 0.79004975124378107, 'f1', 0.28474576271186436]
+['rnd', 24, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89672587948450011]
+['rnd', 24, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89031802414424854]
+['rnd', 24, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.43']
+threshRoc 148
+threshPr 1754
+['rnd', 24, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '7.61']
+['rnd', 24, 'fold', 1, 'lvl', 'coarse', (0, 3162), (1, 10), (2, 36), (3, 47), (4, 29), (5, 10), (6, 16), (7, 18), (8, 12), ('tot', 3340)]
+['rnd', 24, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 2m 42.41sec']
+['addcoarse', 100]
+coarseTrainWt: 20.964652433600204
+['rnd', 25, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1510, 'fp', 404]
+['rnd', 25, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 25, 'fold', 1, 'lvl', 'coarse', 'acc', 0.79253731343283584, 'f1', 0.28473413379073753]
+['rnd', 25, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89638845350052254]
+['rnd', 25, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89225019132728622]
+['rnd', 25, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.59']
+threshRoc 136
+threshPr 1784
+['rnd', 25, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '8.28']
+['rnd', 25, 'fold', 1, 'lvl', 'coarse', (0, 3257), (1, 10), (2, 38), (3, 48), (4, 29), (5, 10), (6, 16), (7, 20), (8, 12), ('tot', 3440)]
+['rnd', 25, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 2m 50.77sec']
+['addcoarse', 100]
+coarseTrainWt: 21.394595960976144
+['rnd', 26, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1515, 'fp', 399]
+['rnd', 26, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 26, 'fold', 1, 'lvl', 'coarse', 'acc', 0.7950248756218905, 'f1', 0.28719723183391005]
+['rnd', 26, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89613266283524906]
+['rnd', 26, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89123598710372587]
+['rnd', 26, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.44']
+threshRoc 146
+threshPr 1766
+['rnd', 26, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '9.06']
+['rnd', 26, 'fold', 1, 'lvl', 'coarse', (0, 3356), (1, 10), (2, 39), (3, 48), (4, 29), (5, 10), (6, 16), (7, 20), (8, 12), ('tot', 3540)]
+['rnd', 26, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 2m 59.91sec']
+['addcoarse', 100]
+coarseTrainWt: 21.3154537033974
+['rnd', 27, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1509, 'fp', 405]
+['rnd', 27, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 14, 'tp', 82]
+['rnd', 27, 'fold', 1, 'lvl', 'coarse', 'acc', 0.79154228855721398, 'f1', 0.281303602058319]
+['rnd', 27, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89835314350400552]
+['rnd', 27, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88758114352278039]
+['rnd', 27, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.62']
+threshRoc 148
+threshPr 1735
+['rnd', 27, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '8.59']
+['rnd', 27, 'fold', 1, 'lvl', 'coarse', (0, 3450), (1, 10), (2, 39), (3, 51), (4, 31), (5, 10), (6, 16), (7, 21), (8, 12), ('tot', 3640)]
+['rnd', 27, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 3m 8.59sec']
+['addcoarse', 100]
+coarseTrainWt: 21.727803482284184
+['rnd', 28, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1518, 'fp', 396]
+['rnd', 28, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 28, 'fold', 1, 'lvl', 'coarse', 'acc', 0.79651741293532341, 'f1', 0.28869565217391302]
+['rnd', 28, 'fold', 1, 'lvl', 'coarse', 'roc', 0.8983477011494253]
+['rnd', 28, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88756761500433246]
+['rnd', 28, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.5']
+threshRoc 152
+threshPr 1737
+['rnd', 28, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '7.72']
+['rnd', 28, 'fold', 1, 'lvl', 'coarse', (0, 3549), (1, 10), (2, 40), (3, 51), (4, 31), (5, 10), (6, 16), (7, 21), (8, 12), ('tot', 3740)]
+['rnd', 28, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 3m 16.39sec']
+['addcoarse', 100]
+coarseTrainWt: 21.836094860513466
+['rnd', 29, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1523, 'fp', 391]
+['rnd', 29, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 29, 'fold', 1, 'lvl', 'coarse', 'acc', 0.79900497512437807, 'f1', 0.29122807017543856]
+['rnd', 29, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89810279519331238]
+['rnd', 29, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88783170820031221]
+['rnd', 29, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.51']
+threshRoc 154
+threshPr 1672
+['rnd', 29, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '8.38']
+['rnd', 29, 'fold', 1, 'lvl', 'coarse', (0, 3645), (1, 10), (2, 44), (3, 51), (4, 31), (5, 10), (6, 16), (7, 21), (8, 12), ('tot', 3840)]
+['rnd', 29, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 3m 24.84sec']
+['addcoarse', 100]
+coarseTrainWt: 22.13585795097423
+['rnd', 30, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1540, 'fp', 374]
+['rnd', 30, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 30, 'fold', 1, 'lvl', 'coarse', 'acc', 0.80746268656716413, 'f1', 0.30018083182640148]
+['rnd', 30, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89872322361546497]
+['rnd', 30, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89373149250954187]
+['rnd', 30, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.52']
+threshRoc 146
+threshPr 1639
+['rnd', 30, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '9.46']
+['rnd', 30, 'fold', 1, 'lvl', 'coarse', (0, 3743), (1, 10), (2, 45), (3, 52), (4, 31), (5, 10), (6, 16), (7, 21), (8, 12), ('tot', 3940)]
+['rnd', 30, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 3m 34.57sec']
+['addcoarse', 100]
+coarseTrainWt: 21.944832452151193
+['rnd', 31, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1535, 'fp', 379]
+['rnd', 31, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 31, 'fold', 1, 'lvl', 'coarse', 'acc', 0.80497512437810947, 'f1', 0.29749103942652327]
+['rnd', 31, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89823341170323934]
+['rnd', 31, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89359827306579154]
+['rnd', 31, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.75']
+threshRoc 148
+threshPr 1705
+['rnd', 31, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '10.49']
+['rnd', 31, 'fold', 1, 'lvl', 'coarse', (0, 3836), (1, 10), (2, 47), (3, 54), (4, 31), (5, 10), (6, 17), (7, 21), (8, 14), ('tot', 4040)]
+['rnd', 31, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 3m 45.14sec']
+['addcoarse', 100]
+coarseTrainWt: 22.13585795097423
+['rnd', 32, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1540, 'fp', 374]
+['rnd', 32, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 14, 'tp', 82]
+['rnd', 32, 'fold', 1, 'lvl', 'coarse', 'acc', 0.8069651741293532, 'f1', 0.29710144927536231]
+['rnd', 32, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89943617206548243]
+['rnd', 32, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89461260548412724]
+['rnd', 32, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.58']
+threshRoc 150
+threshPr 1714
+['rnd', 32, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '8.37']
+['rnd', 32, 'fold', 1, 'lvl', 'coarse', (0, 3933), (1, 10), (2, 47), (3, 55), (4, 32), (5, 10), (6, 17), (7, 21), (8, 15), ('tot', 4140)]
+['rnd', 32, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 3m 53.62sec']
+['addcoarse', 100]
+coarseTrainWt: 21.95375887732984
+['rnd', 33, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1549, 'fp', 365]
+['rnd', 33, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 33, 'fold', 1, 'lvl', 'coarse', 'acc', 0.81194029850746263, 'f1', 0.30514705882352944]
+['rnd', 33, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89813544932079414]
+['rnd', 33, 'fold', 1, 'lvl', 'coarse', 'pr', 0.88750902917923369]
+['rnd', 33, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.55']
+threshRoc 144
+threshPr 1663
+['rnd', 33, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '8.38']
+['rnd', 33, 'fold', 1, 'lvl', 'coarse', (0, 4026), (1, 11), (2, 52), (3, 55), (4, 33), (5, 10), (6, 17), (7, 21), (8, 15), ('tot', 4240)]
+['rnd', 33, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 4m 2.07sec']
+['addcoarse', 100]
+coarseTrainWt: 21.957916390426742
+['rnd', 34, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1545, 'fp', 369]
+['rnd', 34, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 34, 'fold', 1, 'lvl', 'coarse', 'acc', 0.8099502487562189, 'f1', 0.30291970802919704]
+['rnd', 34, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89940896029258099]
+['rnd', 34, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89499089705421242]
+['rnd', 34, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.54']
+threshRoc 146
+threshPr 1720
+['rnd', 34, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '8.18']
+['rnd', 34, 'fold', 1, 'lvl', 'coarse', (0, 4121), (1, 11), (2, 52), (3, 57), (4, 33), (5, 10), (6, 19), (7, 22), (8, 15), ('tot', 4340)]
+['rnd', 34, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 4m 10.33sec']
+['addcoarse', 100]
+coarseTrainWt: 21.961888300260394
+['rnd', 35, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1550, 'fp', 364]
+['rnd', 35, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 35, 'fold', 1, 'lvl', 'coarse', 'acc', 0.81243781094527368, 'f1', 0.30570902394106814]
+['rnd', 35, 'fold', 1, 'lvl', 'coarse', 'roc', 0.90001850400557293]
+['rnd', 35, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89039972906974529]
+['rnd', 35, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.55']
+threshRoc 150
+threshPr 1708
+['rnd', 35, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '8.35']
+['rnd', 35, 'fold', 1, 'lvl', 'coarse', (0, 4216), (1, 11), (2, 52), (3, 60), (4, 34), (5, 10), (6, 20), (7, 22), (8, 15), ('tot', 4440)]
+['rnd', 35, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 4m 18.95sec']
+['addcoarse', 100]
+coarseTrainWt: 22.13585795097423
+['rnd', 36, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1551, 'fp', 363]
+['rnd', 36, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 36, 'fold', 1, 'lvl', 'coarse', 'acc', 0.81293532338308461, 'f1', 0.30627306273062727]
+['rnd', 36, 'fold', 1, 'lvl', 'coarse', 'roc', 0.89997496516893072]
+['rnd', 36, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89603734146938308]
+['rnd', 36, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.63']
+threshRoc 158
+threshPr 1721
+['rnd', 36, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '9.3']
+['rnd', 36, 'fold', 1, 'lvl', 'coarse', (0, 4313), (1, 11), (2, 53), (3, 61), (4, 34), (5, 10), (6, 20), (7, 23), (8, 15), ('tot', 4540)]
+['rnd', 36, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 4m 28.33sec']
+['addcoarse', 100]
+coarseTrainWt: 22.47769305413124
+['rnd', 37, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1555, 'fp', 359]
+['rnd', 37, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 37, 'fold', 1, 'lvl', 'coarse', 'acc', 0.81492537313432833, 'f1', 0.308550185873606]
+['rnd', 37, 'fold', 1, 'lvl', 'coarse', 'roc', 0.90038858411703249]
+['rnd', 37, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89595001189800261]
+['rnd', 37, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.58']
+threshRoc 148
+threshPr 1734
+['rnd', 37, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '8.98']
+['rnd', 37, 'fold', 1, 'lvl', 'coarse', (0, 4412), (1, 11), (2, 54), (3, 61), (4, 34), (5, 10), (6, 20), (7, 23), (8, 15), ('tot', 4640)]
+['rnd', 37, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 4m 37.38sec']
+['addcoarse', 100]
+coarseTrainWt: 22.641951480323574
+['rnd', 38, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1562, 'fp', 352]
+['rnd', 38, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 14, 'tp', 82]
+['rnd', 38, 'fold', 1, 'lvl', 'coarse', 'acc', 0.81791044776119404, 'f1', 0.30943396226415087]
+['rnd', 38, 'fold', 1, 'lvl', 'coarse', 'roc', 0.90161311389759657]
+['rnd', 38, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89161458057993093]
+['rnd', 38, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.61']
+threshRoc 142
+threshPr 1754
+['rnd', 38, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '9.54']
+['rnd', 38, 'fold', 1, 'lvl', 'coarse', (0, 4509), (1, 11), (2, 54), (3, 62), (4, 35), (5, 10), (6, 20), (7, 24), (8, 15), ('tot', 4740)]
+['rnd', 38, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 4m 47.00sec']
+['addcoarse', 100]
+coarseTrainWt: 22.546925480087094
+['rnd', 39, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1555, 'fp', 359]
+['rnd', 39, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 39, 'fold', 1, 'lvl', 'coarse', 'acc', 0.81492537313432833, 'f1', 0.308550185873606]
+['rnd', 39, 'fold', 1, 'lvl', 'coarse', 'roc', 0.90369209334726586]
+['rnd', 39, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89317166752769006]
+['rnd', 39, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.59']
+threshRoc 150
+threshPr 1735
+['rnd', 39, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '9.87']
+['rnd', 39, 'fold', 1, 'lvl', 'coarse', (0, 4603), (1, 11), (2, 54), (3, 66), (4, 36), (5, 10), (6, 21), (7, 24), (8, 15), ('tot', 4840)]
+['rnd', 39, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 4m 56.96sec']
+['addcoarse', 100]
+coarseTrainWt: 22.70415880997276
+['rnd', 40, 'fold', 1, 'lvl', 'coarse', 'conf', 'tn', 1552, 'fp', 362]
+['rnd', 40, 'fold', 1, 'lvl', 'coarse', 'conf', 'fn', 13, 'tp', 83]
+['rnd', 40, 'fold', 1, 'lvl', 'coarse', 'acc', 0.81343283582089554, 'f1', 0.30683918669131244]
+['rnd', 40, 'fold', 1, 'lvl', 'coarse', 'roc', 0.90467171717171724]
+['rnd', 40, 'fold', 1, 'lvl', 'coarse', 'pr', 0.89352791248940044]
+['rnd', 40, 'fold', 1, 'lvl', 'coarse', 'rndTime', '0.63']
+threshRoc 136
+threshPr 1731
+['rnd', 40, 'fold', 1, 'lvl', 'coarse', 'rndTimeTot', '9.4']
+['rnd', 40, 'fold', 1, 'lvl', 'coarse', (0, 4700), (1, 11), (2, 55), (3, 67), (4, 36), (5, 10), (6, 21), (7, 25), (8, 15), ('tot', 4940)]
+['rnd', 40, 'classes_all', (0, 16270), (1, 2), (2, 155), (3, 276), (4, 160), (5, 0), (6, 83), (7, 43), (8, 59), ('tot', 17048)]
+['Total Time:', '0hr 5m 6.63sec']
