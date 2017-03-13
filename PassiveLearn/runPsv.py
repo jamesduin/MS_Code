@@ -40,7 +40,11 @@ testFold = int(sys.argv[1])
 #dir = 'ClassWeight/SVM_AllQuick'
 #dir = 'RocPR/LogRegSampleWeight'
 #dir = 'RocPR/LogRegNoSW'
-dir = 'RocPR/InvestigateRocPR'
+#dir = 'RocPR/LogRegOrig'
+#dir = 'Tolerance/LogReg_00001Redo'
+#dir = 'RocPR/LogReg_NoSW'
+#dir = 'RocPR/LogReg_NoSW_DropFalse'
+dir = 'RocPR/LogReg_DropFalse'
 #fineCls = 8
 
 if not os.path.exists(dir):

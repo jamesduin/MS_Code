@@ -7,7 +7,7 @@ add2Short = False
 part1 = 'gpu_m2070'
 part2 = 'gpu_k20'
 part3 = False
-partDict = { 1: part1, 2: part1, 3: part2, 4: part2, 5: part1,
+partDict = { 1: part1, 2: part2, 3: part2, 4: part2, 5: part1,
 6: part1, 7: part1, 8: part2, 9: part2, 10: part2 }
 # "#SBATCH --partition=highmem\n" #tusker partition
 # "#SBATCH --partition=gpu_k20\n" #crane partition
@@ -19,7 +19,8 @@ clfType = 'LogReg'
 #runDir = 'runActPassSVM'
 #runDir = 'runActPassLogReg'
 #runDir = 'runActPassLogReg4plots'
-runDir = 'methodsActPassParam4PlotsRocAll'
+#runDir = 'methodsActPassParam4PlotsRocAll'
+runDir = 'methodsActPassParam4PlotsRocAllNoSW'
 
 for type in rndType:
     for fld in fold:
@@ -44,8 +45,10 @@ for type in rndType:
         "module load python/3.5\n" #for crane and tusker
         # "python /home/scott/jamesd/runActPassParam/runActPassParam4Plots.py "+clfType+" "
         #                         + runDir+" "+ type + " " + str(fld) + "\n"
-        "python /home/scott/jamesd/runActPassParam/runActPassParam4PlotsRocAll.py "+clfType+" "
-                                + runDir+" "+ type + " " + str(fld) + "\n"
+        # "python /home/scott/jamesd/runActPassParam/runActPassParam4PlotsRocAll.py "+clfType+" "
+        #                         + runDir+" "+ type + " " + str(fld) + "\n"
+        "python /home/scott/jamesd/runActPassParam/runActPassParam4PlotsRocAllNoSW.py "+clfType+" "
+                        + runDir+" "+ type + " " + str(fld) + "\n"
         "EOF\n\n")
 
 f.close()

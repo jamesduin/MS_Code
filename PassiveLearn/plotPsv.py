@@ -36,9 +36,13 @@ import os
 #dir = 'CostGamma/SVM_C1_Gp0025_tolp00001/results'
 #dir = 'ClassWeight/SVM_All/results'
 #dir = 'ClassWeight/SVM_AllQuick/results'
-#dir = 'RocPR/LogRegSampleWeight/results'
-#dir = 'RocPR/LogRegNoSW/results'
-dir = 'RocPR/InvestigateRocPR/results'
+#dir = 'FINAL/LogReg_00001/results'
+#dir = 'Tolerance/LogReg_00001Redo/results'
+#dir = 'RocPR/LogRegOrig/results'
+dir = 'RocPR/LogReg_NoSW/results'
+#dir = 'RocPR/LogReg_NoSW_DropFalse/results'
+#dir = 'RocPR/LogReg_DropFalse/results'
+
 
 os.chdir(dir)
 tableName = re.split('[/]',dir)[1].replace('_','-')

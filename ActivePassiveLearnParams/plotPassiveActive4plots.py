@@ -25,10 +25,13 @@ def getRndTypeSet(resultsDir):
 
 # loadDir = 'runActPass4plots/results'
 # resultsDir = 'runActPass4plots/results'
-loadDir = 'runActPassLogReg4plots/results'
-resultsDir = 'runActPassLogReg4plots/results'
+# loadDir = 'runActPassLogReg4plots/results'
+# resultsDir = 'runActPassLogReg4plots/results'
 #resultsDir = 'runActPassSVMTimeOut/results'
 #resultsDir = '../ThesisWriteUp/fig/'
+loadDir = 'methodsActPassParam4PlotsRocAll/results'
+resultsDir = 'methodsActPassParam4PlotsRocAll/results'
+
 
 name = re.split("[/]", loadDir)[0]
 rndTypeSet = getRndTypeSet(loadDir)
