@@ -66,6 +66,7 @@ rnd_results = dict()
 rnd_results['coarse'] = strt_results[:]
 rnd_results['fine'] = strt_results[:]
 rnd_results['fineTrainOnCrs'] = strt_results[:]
+rnd_results['coarseTrainOnFin'] = strt_results[:]
 
 #### randomly add to starter sets
 start = [952,10,11,16,11,10,10,10,10]
@@ -82,7 +83,7 @@ for lvl in ['coarse','fine']:
     classes[lvl] = copy.deepcopy(classes_all)
 instanceCount = 0
 rndNum = 0
-threshResults = {'coarse':[],'fine':[], 'fineTrainOnCrs':[]}
+threshResults = {'coarse':[],'fine':[], 'fineTrainOnCrs':[],'coarseTrainOnFin':[]}
 #while((18088-instanceCount) > 100):
 while(rndNum < 40):
     start_time.append(time.perf_counter())
@@ -99,10 +100,12 @@ while(rndNum < 40):
     rnds['fine'] = m.FineRound(testFold, rndNum, rndType)
     rnds['fineTrainOnCrs'] = m.FineRound(testFold, rndNum, rndType)
     sets['fineTrainOnCrs'] = sets['coarse']
+    rnds['coarseTrainOnFin'] = m.CoarseRound(testFold, rndNum, rndType)
+    sets['coarseTrainOnFin'] = sets['fine']
     #### Run rounds
     y_predCoarse = dict()
     y_pred_score = dict()
-    for lvl in ['coarse','fine','fineTrainOnCrs']:
+    for lvl in ['coarse','fine','fineTrainOnCrs','coarseTrainOnFin']:
         y_train, X_train = rnds[lvl].createTrainSet(sets[lvl])
         y_trainCoarse = rnds[lvl].createTrainWtYtrain(y_train,rnd_results[lvl])
         y_testCoarse, y_sampleWeight, X_test = rnds[lvl].createTestSet(test_part)
@@ -135,7 +138,7 @@ while(rndNum < 40):
 
     ##### Append round time and fold counts
     instanceCount = dict()
-    for lvl in ['coarse','fine','fineTrainOnCrs']:
+    for lvl in ['coarse','fine','fineTrainOnCrs','coarseTrainOnFin']:
         instanceCount[lvl] = m.appendRndTimesFoldCnts(testFold, rndNum,lvl,rnd_results[lvl],
                                                       sets[lvl], start_time)
         m.appendSetTotal(rndNum, rnd_results[lvl], classes_all, 'classes_all')
@@ -147,7 +150,7 @@ while(rndNum < 40):
         f.close()
     instanceCount = max([instanceCount['fine'], instanceCount['coarse']])
     #if(rndNum == 100 or (18088-instanceCount) <= 100 ):
-    for lvl in ['coarse', 'fine','fineTrainOnCrs']:
+    for lvl in ['coarse', 'fine','fineTrainOnCrs','coarseTrainOnFin']:
         f = open('thresh/thresh_'+str(rndNum)+'_' + rndType + '_' + lvl + '_' + str(testFold) + '.res', 'wb')
         pickle.dump(threshResults[lvl], f)
         f.close()

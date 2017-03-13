@@ -82,11 +82,11 @@ cVals = [(0.90000000000000002, 0.25162433333706963, 0.12708553664078234, 1.0),
 # rndTypeSet = ['active_fine','passive_fine',
 #               'active_coarse','passive_coarse']
 rndTypeSet = ['active_fine','active_coarse',
-              'active_fineTrainOnCrs']
+              'active_fineTrainOnCrs','active_coarseTrainOnFin']
 # colInd = {'active_fine':0,'passive_fine':4,
 #               'active_coarse':7,'passive_coarse':10}
 colInd = {'active_fine':0,'active_coarse':4,
-              'active_fineTrainOnCrs':7}
+              'active_fineTrainOnCrs':7,'active_coarseTrainOnFin':10}
 yLabel = {'pr':'PR-AUC','roc':'ROC-AUC',
               'f1':'F-measure','acc':'Accuracy'}
 
