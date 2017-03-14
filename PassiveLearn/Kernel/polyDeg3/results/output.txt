@@ -1,0 +1,55 @@
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
+0.814 & 0.763 & 0.816 & 0.753 & 0.810 & 0.802 & 0.150 & 0.059 \\
+0.820 & 0.772 & 0.811 & 0.763 & 0.814 & 0.802 & 0.226 & 0.078 \\
+0.846 & 0.793 & 0.836 & 0.766 & 0.808 & 0.808 & 0.220 & 0.098 \\
+0.820 & 0.746 & 0.814 & 0.725 & 0.804 & 0.802 & 0.130 & 0.059 \\
+0.833 & 0.771 & 0.822 & 0.749 & 0.814 & 0.804 & 0.168 & 0.041 \\
+0.786 & 0.748 & 0.803 & 0.738 & 0.804 & 0.806 & 0.175 & 0.079 \\
+0.796 & 0.724 & 0.795 & 0.703 & 0.800 & 0.797 & 0.158 & 0.058 \\
+0.774 & 0.705 & 0.806 & 0.715 & 0.789 & 0.791 & 0.073 & 0.038 \\
+0.856 & 0.773 & 0.845 & 0.773 & 0.820 & 0.799 & 0.218 & 0.059 \\
+avg 0.816 & avg 0.755 & avg 0.817 & avg 0.743 & avg 0.807 & avg 0.801 & avg 0.169 & avg 0.063 \\ \bottomrule
+\end{tabular}
+\caption{polyDeg3}
+\label{tab:polyDeg3}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
+coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
+380 & 381 & 3 & 2 & 88 & 93 & 8 & 3 \\
+377 & 380 & 6 & 3 & 83 & 92 & 13 & 4 \\
+374 & 382 & 9 & 1 & 83 & 91 & 13 & 5 \\
+378 & 381 & 5 & 2 & 89 & 93 & 7 & 3 \\
+381 & 383 & 2 & 0 & 87 & 94 & 9 & 2 \\
+375 & 382 & 8 & 1 & 86 & 92 & 10 & 4 \\
+374 & 379 & 8 & 3 & 88 & 94 & 9 & 3 \\
+374 & 377 & 8 & 5 & 93 & 95 & 4 & 2 \\
+379 & 378 & 3 & 4 & 83 & 92 & 12 & 3 \\
+avg 376.9 & avg 380.3 & avg 5.8 & avg 2.3 & avg 86.7 & avg 92.9 & avg 9.4 & avg 3.2 \\ \bottomrule
+\end{tabular}
+\caption{polyDeg3}
+\label{tab:polyDeg3}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.816 & 0.817 & 0.807 & 0.169 & ( 376.9 / 86.7 ) & ( 5.8 / 9.4 ) \\
+fine & 0.755 & 0.743 & 0.801 & 0.063 & ( 380.3 / 92.9 ) & ( 2.3 / 3.2 ) \\ \bottomrule
+\end{tabular}
+\caption{polyDeg3}
+\label{tab:polyDeg3}
+\end{table}
+\FloatBarrier
+

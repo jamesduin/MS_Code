@@ -61,7 +61,7 @@ X.~Ling and D.~Weld, ``{Fine-grained entity recognition},'' \emph{Proceedings
   http://www.aaai.org/ocs/index.php/AAAI/AAAI12/paper/download/5152/5124}
 \BIBentrySTDinterwordspacing
 
-\bibitem{sklearn_api}
+\bibitem{sklearn-api}
 L.~Buitinck, G.~Louppe, M.~Blondel, F.~Pedregosa, A.~Mueller, O.~Grisel,
   V.~Niculae, P.~Prettenhofer, A.~Gramfort, J.~Grobler, R.~Layton,
   J.~VanderPlas, A.~Joly, B.~Holt, and G.~Varoquaux, ``{API} design for machine

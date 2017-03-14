@@ -316,11 +316,12 @@ the protein resides within the mitochondria. The negative case of not residing w
   mitochondria corresponds to any of the 8 target compartment classes,  numbered 1 through 8. Since the
   negative case has no fine grained labels, the fine grained classifier is composed of separate classifiers
   for each of the fine grained labels. The 8 fine grained classifiers are trained such that only the instances of
-  the class corresponding to that classifiers target compartment are marked as positive, all the others are treated
-  as negative for that specific classifier. The coarse level classifier treats all fine grained target compartment
+  the class corresponding to that classifier's target compartment are marked as positive, all the others are treated
+  as negative. The coarse level classifier treats all fine grained target compartment
   instances as members of a single positive class. For all classifiers the non mitochondrian instances are treated as
   negative or 0 labeled. The totals for each class type is shown in \textit{Table \ref{tab:ClassesAll} }. Throughout
-  this experiment a 10 folds cross validation strategy is used, an example partitioning in shown in \textit{Table \ref{tab:partitions} }.
+  this experiment a 10 folds cross validation strategy is used, an example partitioning in shown in
+  \textit{Table \ref{tab:partitions} }.
 
 
 \FloatBarrier
@@ -369,7 +370,8 @@ the protein resides within the mitochondria. The negative case of not residing w
   \label{tab:partitions}
   \end{subtable}
   \caption{This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes
-  like 1 and 5 contain only 1-2 instances in a given test set.}
+  like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative
+  instances for each positve instance.}
   \label{tab:dataset}
 \end{table}
 \FloatBarrier
@@ -378,19 +380,21 @@ the protein resides within the mitochondria. The negative case of not residing w
 
 \par Each partition contains a representative portion of each class, the instances are randomly
 distributed between partitions. The train set is composed of joining 9 of the partitions together
-holding 1 fold out for the test set. An example of this is shown in \textit{Table \ref{tab:TrainTest}}.
+holding 1 fold out for the test set. An example of the totals for a Train and Test set
+is shown on \textit{Table \ref{tab:TrainTest}}.
 
 \FloatBarrier
 \begin{table}[H]
   \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    train & all & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    Train & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 18088 & 17222 & 12 & 166 & 292 & 171 & 10 & 93 & 53 & 69 \\ \midrule
-    test & all &  0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    Test & All &  0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
  \bottomrule
   \end{tabular}
-  \caption{This is what the train and test set look like.}
+  \caption{Example of totals for the Train and Test corresponding to when the first fold is
+  held out to be the test set.}
   \label{tab:TrainTest}
 \end{table}
 \FloatBarrier
@@ -399,7 +403,7 @@ holding 1 fold out for the test set. An example of this is shown in \textit{Tabl
 number of instances on which the classifiers are trained and tested, a subset was used to
 tune the parameters of the classifiers. This allowed variations of the classifier parameters to be
 ran rapidly and for the class weight parameter to be tuned for various round sizes. The reduced subset
-contains a randomly chosen group of approximately $1/5^{th}$ of the negatives. The Class totals and example
+contains a randomly chosen group of approximately $1/5^{th}$ of the negatives. The class totals and example
 partitioning for the reduced subset is shown in \textit{Table \ref{tab:subset}}.
 
 \FloatBarrier
@@ -445,7 +449,8 @@ partitioning for the reduced subset is shown in \textit{Table \ref{tab:subset}}.
   \caption{Folds Subset}
   \label{tab:PartitionsSubset}
   \end{subtable}
-  \caption{This is for the partitions subset.}
+  \caption{The subset of instances used for tuning classifier paramters contains approximately
+  $1/5^{th}$ and retains all postive instances.}
   \label{tab:subset}
 \end{table}
 \FloatBarrier
@@ -454,22 +459,20 @@ partitioning for the reduced subset is shown in \textit{Table \ref{tab:subset}}.
 \begin{table}[H]
   \centering
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    train & all & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    Train & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 4310 & 3444 & 12 & 166 & 292 & 171 & 10 & 93 & 53 & 69 \\ \midrule
-    test & all & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    Test & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
  \bottomrule
   \end{tabular}
-  \caption{This is what the train and test set look like for the subset.}
+  \caption{Example totals for the train and test set for the subset of data. The subset of data is
+  used for the majority of the parameter search.}
   \label{tab:subTrainTest}
 \end{table}
 \FloatBarrier
 
 
-\par I tried using SVM. Throughout this project I used the python library sci-kit learn \cite{scikit-learn}.
-The support vector machine implemented by this library has the following default parameters. SVC C=1.0,
-kernel='rbf', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache-size=200,
-class-weight=None, verbose=False, max-iter=-1, decision-function-shape=None, random-state=None.
+\par Throughout this project I used the python library sci-kit learn \cite{scikit-learn}.
 
 
 
@@ -535,7 +538,7 @@ fine & 0.815 & 0.772 & 0.802 & 0.031 & ( 382.6 / 94.6 ) & ( 0.1 / 1.5 ) \\ \bott
 
 
 \subsection{Varied SVM Scaling Methods}
-\par I tried different scaling methods (min max scaler, std scaler), I settled on std scaler.
+\par I tried different scaling methods (min max scaler, std scaler), I settled on std scaler. \cite{scikit-learn}
 
 \FloatBarrier
 \begin{table}[H]
@@ -577,6 +580,74 @@ fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bott
 \end{table}
 \FloatBarrier
 
+
+\subsection{Varied SVM Kernels}
+\FloatBarrier
+\begin{table}[H]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.912 & 0.882 & 0.881 & 0.630 & ( 372.6 / 47.1 ) & ( 10.1 / 49.0 ) \\
+fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bottomrule
+\end{tabular}
+\caption{RbfOrig}
+\label{tab:RbfOrig}
+\end{table}
+\FloatBarrier
+
+
+
+\FloatBarrier
+\begin{table}[H]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.867 & 0.841 & 0.853 & 0.599 & ( 355.5 / 43.4 ) & ( 27.2 / 52.7 ) \\
+fine & 0.816 & 0.789 & 0.828 & 0.523 & ( 351.1 / 50.8 ) & ( 31.6 / 45.3 ) \\ \bottomrule
+\end{tabular}
+\caption{Linear}
+\label{tab:Linear}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[H]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.816 & 0.817 & 0.807 & 0.169 & ( 376.9 / 86.7 ) & ( 5.8 / 9.4 ) \\
+fine & 0.755 & 0.743 & 0.801 & 0.063 & ( 380.3 / 92.9 ) & ( 2.3 / 3.2 ) \\ \bottomrule
+\end{tabular}
+\caption{polyDeg3}
+\label{tab:polyDeg3}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[H]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.659 & 0.637 & 0.797 & 0.037 & ( 379.5 / 94.2 ) & ( 3.2 / 1.9 ) \\
+fine & 0.624 & 0.584 & 0.794 & 0.020 & ( 379.0 / 95.1 ) & ( 3.7 / 1.0 ) \\ \bottomrule
+\end{tabular}
+\caption{polyDeg6}
+\label{tab:polyDeg6}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[H]
+\centering
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.703 & 0.693 & 0.773 & 0.405 & ( 333.0 / 59.0 ) & ( 49.7 / 37.1 ) \\
+fine & 0.653 & 0.622 & 0.789 & 0.127 & ( 370.3 / 88.7 ) & ( 12.4 / 7.4 ) \\ \bottomrule
+\end{tabular}
+\caption{sigmoid}
+\label{tab:sigmoid}
+\end{table}
+\FloatBarrier
 
 
 \subsection{Varied SVM Feature Selection}

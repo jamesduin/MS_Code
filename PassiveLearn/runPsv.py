@@ -44,7 +44,12 @@ testFold = int(sys.argv[1])
 #dir = 'Tolerance/LogReg_00001Redo'
 #dir = 'RocPR/LogReg_NoSW'
 #dir = 'RocPR/LogReg_NoSW_DropFalse'
-dir = 'RocPR/LogReg_DropFalse'
+#dir = 'RocPR/LogReg_DropFalse'
+dir = 'Kernel/RbfOrig'
+#dir = 'Kernel/Linear'
+#dir = 'Kernel/polyDeg3'
+#dir = 'Kernel/polyDeg6'
+#dir = 'Kernel/sigmoid'
 #fineCls = 8
 
 if not os.path.exists(dir):
@@ -60,9 +65,9 @@ classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
 #loadDir =  '../../../data/partitionMinMaxScaled/partitionMinMaxScaled_'
 #loadDir = '../../../data/partitionStdSclSel/partitionStdSclSel_'
 #loadDir = '../../../data/partition_subset/partition_sub'
-#loadDir = '../../../data/part_subStd/part_subStd_'
+loadDir = '../../../data/part_subStd/part_subStd_'
 
-loadDir = '../../../data/part_subMinMax/part_subMinMax_'
+#loadDir = '../../../data/part_subMinMax/part_subMinMax_'
 
 #loadDir = '../../../data/part_subNorm/part_subNorm_'
 #loadDir = '../../../data/part_subSel25/part_subSel25_'

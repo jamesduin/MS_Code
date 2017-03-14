@@ -40,18 +40,19 @@ class LearnRound:
 
 
     def getClf(self,train_wt):
-        classifier = linear_model.LogisticRegression(penalty='l2',
-                                                     C=0.1,
-                                                     tol=0.00001,
-                                                     solver='liblinear',
-                                                     class_weight={1: train_wt},
-                                                     n_jobs=-1)
+        # classifier = linear_model.LogisticRegression(penalty='l2',
+        #                                              C=0.1,
+        #                                              tol=0.00001,
+        #                                              solver='liblinear',
+        #                                              class_weight={1: train_wt},
+        #                                              n_jobs=-1)
 
         # classifier = svm.SVC(kernel='rbf', cache_size=8192,
         #                     decision_function_shape = 'ovo',
         #                      class_weight={1: train_wt},
         #                     C=0.15,
         #                      gamma=0.002)
+        #classifier = svm.SVC(kernel='rbf',cache_size=8192)
         return classifier
 
     def createTrainSet(self, set):

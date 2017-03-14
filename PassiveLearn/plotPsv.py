@@ -39,10 +39,14 @@ import os
 #dir = 'FINAL/LogReg_00001/results'
 #dir = 'Tolerance/LogReg_00001Redo/results'
 #dir = 'RocPR/LogRegOrig/results'
-dir = 'RocPR/LogReg_NoSW/results'
+#dir = 'RocPR/LogReg_NoSW/results'
 #dir = 'RocPR/LogReg_NoSW_DropFalse/results'
 #dir = 'RocPR/LogReg_DropFalse/results'
-
+dir = 'Kernel/RbfOrig/results'
+#dir = 'Kernel/Linear/results'
+#dir = 'Kernel/polyDeg3/results'
+#dir = 'Kernel/polyDeg6/results'
+#dir = 'Kernel/sigmoid/results'
 
 os.chdir(dir)
 tableName = re.split('[/]',dir)[1].replace('_','-')

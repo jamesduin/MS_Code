@@ -10,30 +10,31 @@
 \contentsline {chapter}{\chapternumberline {3}Experimental Setup}{7}{chapter.3}
 \contentsline {section}{\numberline {3.1}Training and Testing Coarse Grain and Fine Grain Classifiers}{7}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Varied SVM Scaling Methods}{10}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Varied SVM Feature Selection}{11}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Varied SVM Decision Function Shape}{11}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Varied Logistic Regression Scaling}{12}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Varied Logistic Regression Feature Selection}{12}{subsection.3.1.5}
-\contentsline {subsection}{\numberline {3.1.6}Varied Logistic Regression Postive Class Weight and Cost}{13}{subsection.3.1.6}
-\contentsline {subsection}{\numberline {3.1.7}Varied Logistic Regression Tune Fine Class Weights}{14}{subsection.3.1.7}
-\contentsline {subsubsection}{\numberline {3.1.7.1}Fine Tune Class 1 Weights}{14}{subsubsection.3.1.7.1}
-\contentsline {subsubsection}{\numberline {3.1.7.2}Fine Tune Class 2 Weights}{15}{subsubsection.3.1.7.2}
-\contentsline {subsubsection}{\numberline {3.1.7.3}Fine Tune Class 3 Weights}{16}{subsubsection.3.1.7.3}
-\contentsline {subsubsection}{\numberline {3.1.7.4}Fine Tune Class 4 Weights}{16}{subsubsection.3.1.7.4}
-\contentsline {subsubsection}{\numberline {3.1.7.5}Fine Tune Class 5 Weights}{17}{subsubsection.3.1.7.5}
-\contentsline {subsubsection}{\numberline {3.1.7.6}Fine Tune Class 6 Weights}{18}{subsubsection.3.1.7.6}
-\contentsline {subsubsection}{\numberline {3.1.7.7}Fine Tune Class 7 Weights}{19}{subsubsection.3.1.7.7}
-\contentsline {subsubsection}{\numberline {3.1.7.8}Fine Tune Class 8 Weights}{20}{subsubsection.3.1.7.8}
-\contentsline {subsection}{\numberline {3.1.8}Varied Logistic Regression Threshold}{21}{subsection.3.1.8}
-\contentsline {subsection}{\numberline {3.1.9}Varied Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{21}{subsection.3.1.9}
-\contentsline {subsection}{\numberline {3.1.10}Varied Logistic Regression Positive Class Weight For Full Dataset}{22}{subsection.3.1.10}
-\contentsline {subsection}{\numberline {3.1.11}Varied SVM Gamma}{22}{subsection.3.1.11}
-\contentsline {subsection}{\numberline {3.1.12}Varied SVM Cost}{23}{subsection.3.1.12}
-\contentsline {chapter}{\chapternumberline {4}Results and Analysis}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Passive SVM Rbf kernel vs Logistic Reg}{25}{section.4.1}
-\contentsline {section}{\numberline {4.2}Active vs Passive curves}{29}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Plots for Logistic Regression Active vs Passive curves}{29}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Plots for SVM Active vs Passive curves}{32}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Plots for FFR experiments}{33}{section.4.3}
-\contentsline {chapter}{\chapternumberline {5}Conclusions and Future Work}{43}{chapter.5}
-\contentsline {chapter}{Bibliography}{44}{section*.111}
+\contentsline {subsection}{\numberline {3.1.2}Varied SVM Kernels}{11}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Varied SVM Feature Selection}{12}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Varied SVM Decision Function Shape}{12}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Varied Logistic Regression Scaling}{13}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}Varied Logistic Regression Feature Selection}{14}{subsection.3.1.6}
+\contentsline {subsection}{\numberline {3.1.7}Varied Logistic Regression Postive Class Weight and Cost}{14}{subsection.3.1.7}
+\contentsline {subsection}{\numberline {3.1.8}Varied Logistic Regression Tune Fine Class Weights}{16}{subsection.3.1.8}
+\contentsline {subsubsection}{\numberline {3.1.8.1}Fine Tune Class 1 Weights}{16}{subsubsection.3.1.8.1}
+\contentsline {subsubsection}{\numberline {3.1.8.2}Fine Tune Class 2 Weights}{16}{subsubsection.3.1.8.2}
+\contentsline {subsubsection}{\numberline {3.1.8.3}Fine Tune Class 3 Weights}{17}{subsubsection.3.1.8.3}
+\contentsline {subsubsection}{\numberline {3.1.8.4}Fine Tune Class 4 Weights}{18}{subsubsection.3.1.8.4}
+\contentsline {subsubsection}{\numberline {3.1.8.5}Fine Tune Class 5 Weights}{18}{subsubsection.3.1.8.5}
+\contentsline {subsubsection}{\numberline {3.1.8.6}Fine Tune Class 6 Weights}{20}{subsubsection.3.1.8.6}
+\contentsline {subsubsection}{\numberline {3.1.8.7}Fine Tune Class 7 Weights}{20}{subsubsection.3.1.8.7}
+\contentsline {subsubsection}{\numberline {3.1.8.8}Fine Tune Class 8 Weights}{21}{subsubsection.3.1.8.8}
+\contentsline {subsection}{\numberline {3.1.9}Varied Logistic Regression Threshold}{22}{subsection.3.1.9}
+\contentsline {subsection}{\numberline {3.1.10}Varied Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{22}{subsection.3.1.10}
+\contentsline {subsection}{\numberline {3.1.11}Varied Logistic Regression Positive Class Weight For Full Dataset}{23}{subsection.3.1.11}
+\contentsline {subsection}{\numberline {3.1.12}Varied SVM Gamma}{23}{subsection.3.1.12}
+\contentsline {subsection}{\numberline {3.1.13}Varied SVM Cost}{25}{subsection.3.1.13}
+\contentsline {chapter}{\chapternumberline {4}Results and Analysis}{26}{chapter.4}
+\contentsline {section}{\numberline {4.1}Passive SVM Rbf kernel vs Logistic Reg}{26}{section.4.1}
+\contentsline {section}{\numberline {4.2}Active vs Passive curves}{30}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Plots for Logistic Regression Active vs Passive curves}{30}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Plots for SVM Active vs Passive curves}{33}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Plots for FFR experiments}{34}{section.4.3}
+\contentsline {chapter}{\chapternumberline {5}Conclusions and Future Work}{44}{chapter.5}
+\contentsline {chapter}{Bibliography}{45}{section*.116}

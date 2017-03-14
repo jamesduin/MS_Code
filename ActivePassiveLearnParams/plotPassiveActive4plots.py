@@ -25,14 +25,14 @@ def getRndTypeSet(resultsDir):
 
 # loadDir = 'runActPass4plots/results'
 # resultsDir = 'runActPass4plots/results'
-# loadDir = 'runActPassLogReg4plots/results'
-# resultsDir = 'runActPassLogReg4plots/results'
+loadDir = 'runActPassLogReg4plots/results'
+resultsDir = 'runActPassLogReg4plots/'
 #resultsDir = 'runActPassSVMTimeOut/results'
 #resultsDir = '../ThesisWriteUp/fig/'
 # loadDir = 'methodsActPassParam4PlotsRocAll/results'
 # resultsDir = 'methodsActPassParam4PlotsRocAll/results'
-loadDir = 'methodsActPassParam4PlotsRocAllNoSW/results'
-resultsDir = 'methodsActPassParam4PlotsRocAllNoSW/results'
+# loadDir = 'methodsActPassParam4PlotsRocAllNoSW/results'
+# resultsDir = 'methodsActPassParam4PlotsRocAllNoSW/results'
 
 name = re.split("[/]", loadDir)[0]
 rndTypeSet = getRndTypeSet(loadDir)
@@ -85,14 +85,14 @@ cVals = [(0.90000000000000002, 0.25162433333706963, 0.12708553664078234, 1.0),
 (0.28764705882352942, 0.25162433333706941, 0.89098219195263628, 1.0),
 (0.45000000000000001, 0.0, 0.90000000000000002, 1.0)]
 
-# rndTypeSet = ['active_fine','passive_fine',
-#               'active_coarse','passive_coarse']
-rndTypeSet = ['active_fine','active_coarse',
-              'active_fineTrainOnCrs','active_coarseTrainOnFin']
-# colInd = {'active_fine':0,'passive_fine':4,
-#               'active_coarse':7,'passive_coarse':10}
-colInd = {'active_fine':0,'active_coarse':4,
-              'active_fineTrainOnCrs':7,'active_coarseTrainOnFin':10}
+rndTypeSet = ['active_fine','passive_fine',
+              'active_coarse','passive_coarse']
+# rndTypeSet = ['active_fine','active_coarse',
+#               'active_fineTrainOnCrs','active_coarseTrainOnFin']
+colInd = {'active_fine':0,'passive_fine':4,
+              'active_coarse':7,'passive_coarse':10}
+# colInd = {'active_fine':0,'active_coarse':4,
+#               'active_fineTrainOnCrs':7,'active_coarseTrainOnFin':10}
 yLabel = {'pr':'PR-AUC','roc':'ROC-AUC',
               'f1':'F-measure','acc':'Accuracy'}
 

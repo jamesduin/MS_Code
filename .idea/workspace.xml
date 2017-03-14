@@ -2,11 +2,204 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971829.AP_active_1.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971829.AP_active_1.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971830.AP_active_2.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971830.AP_active_2.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971831.AP_active_3.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971831.AP_active_3.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971832.AP_active_4.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971832.AP_active_4.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971839.AP_passive_1.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971839.AP_passive_1.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971840.AP_passive_2.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971840.AP_passive_2.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971841.AP_passive_3.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971841.AP_passive_3.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971842.AP_passive_4.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/log/job.6971842.AP_passive_4.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/results/_active_coarse.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/results/_active_coarseTrainOnFin.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/results/_active_fine.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/results/_active_fineTrainOnCrs.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/results/active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/results/active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/results/active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/results/active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/resultsrunActPass4plots_acc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/resultsrunActPass4plots_f1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/resultsrunActPass4plots_pr.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/resultsrunActPass4plots_roc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_10_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_10_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_10_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_10_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_11_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_11_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_11_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_11_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_12_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_12_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_12_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_12_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_13_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_13_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_13_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_13_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_14_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_14_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_14_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_14_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_15_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_15_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_15_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_15_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_16_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_16_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_16_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_16_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_17_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_17_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_17_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_17_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_18_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_18_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_18_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_18_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_19_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_19_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_19_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_19_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_1_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_1_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_1_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_1_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_20_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_20_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_20_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_20_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_21_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_21_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_21_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_21_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_22_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_22_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_22_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_22_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_23_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_23_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_23_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_23_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_24_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_24_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_24_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_24_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_25_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_25_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_25_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_25_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_26_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_26_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_26_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_26_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_27_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_27_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_27_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_27_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_28_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_28_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_28_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_28_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_29_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_29_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_29_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_29_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_2_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_2_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_2_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_2_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_30_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_30_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_30_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_30_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_31_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_31_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_31_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_31_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_32_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_32_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_32_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_32_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_33_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_33_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_33_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_33_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_34_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_34_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_34_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_34_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_35_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_35_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_35_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_35_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_36_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_36_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_36_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_36_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_37_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_37_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_37_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_37_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_38_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_38_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_38_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_38_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_39_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_39_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_39_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_39_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_3_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_3_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_3_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_3_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_40_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_40_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_40_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_40_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_4_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_4_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_4_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_4_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_5_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_5_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_5_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_5_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_6_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_6_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_6_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_6_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_7_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_7_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_7_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_7_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_8_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_8_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_8_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_8_active_fine_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_9_active_coarseTrainOnFin_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_9_active_coarse_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_9_active_fineTrainOnCrs_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/runActPass4plots/thresh/thresh_9_active_fine_1.res" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py" afterPath="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" afterPath="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/plotPsv.py" afterPath="$PROJECT_DIR$/PassiveLearn/plotPsv.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PassiveLearn/runPsv.py" afterPath="$PROJECT_DIR$/PassiveLearn/runPsv.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" afterPath="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.bbl" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.bbl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.out" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
@@ -24,45 +217,22 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.36998785">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="runPsv.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
-              <provider selected="true" editor-type-id="LaTeXFileEditor">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="plotPassiveActive4plots.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
+          <provider selected="true" editor-type-id="LaTeXFileEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nuthesis.bib" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
+          <provider selected="true" editor-type-id="LaTeXFileEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -153,7 +323,6 @@
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPsvThreshRndXMap.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPsvThreshRnd.py" />
         <option value="$PROJECT_DIR$/FFR/methodsFFRParam.py" />
-        <option value="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" />
         <option value="$USER_HOME$/Google Drive/Documents/Church/ChristsRenewsHisParishMom.tex" />
         <option value="$PROJECT_DIR$/FFR/runFFRParam.py" />
         <option value="$PROJECT_DIR$/HCC/GenerateRshFFR.py" />
@@ -163,21 +332,23 @@
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam4Plots.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam4PlotsRocAll.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam4PlotsRocAll.py" />
-        <option value="$PROJECT_DIR$/PassiveLearn/runPsv.py" />
-        <option value="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" />
-        <option value="$PROJECT_DIR$/PassiveLearn/plotPsv.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam4PlotsRocAllNoSW.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam4PlotsRocAllNoSW.py" />
         <option value="$PROJECT_DIR$/HCC/GenerateRshActPass4plots.py" />
-        <option value="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py" />
+        <option value="$PROJECT_DIR$/PassiveLearn/runPsv.py" />
+        <option value="$PROJECT_DIR$/PassiveLearn/plotPsv.py" />
+        <option value="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" />
+        <option value="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" />
+        <option value="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="76" />
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1151" />
+    <option name="width" value="1347" />
+    <option name="height" value="851" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -219,7 +390,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ActivePassiveLearnParams" />
+              <option name="myItemId" value="ThesisWriteUp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -520,16 +691,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1151" extended-state="6" />
-    <editor active="false" />
+    <frame x="76" y="23" width="1347" height="851" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13322802" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1907994" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27667612" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2621871" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -552,13 +723,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_C1_Gp001/results/_Psv.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="3474" column="19" lean-forward="true" selection-start-line="3474" selection-start-column="19" selection-end-line="3474" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/CostGamma/SVM_Cp15_Gp002/results/_Psv.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -672,11 +836,6 @@
         <state relative-caret-position="225">
           <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
-      <provider selected="true" editor-type-id="LaTeXFileEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/RocPR/LogRegSampleWeight/results/_Psv.txt">
@@ -799,14 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/runThesis.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -819,14 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="108" column="92" lean-forward="false" selection-start-line="108" selection-start-column="92" selection-end-line="108" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PassiveLearn/plotPsv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -865,22 +1008,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="28" column="37" lean-forward="false" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PassiveLearn/plotPsv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/methodsPsv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="101" column="8" lean-forward="false" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
+        <state relative-caret-position="375">
+          <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PassiveLearn/runPsv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+        <state relative-caret-position="330">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.cls">
+      <provider selected="true" editor-type-id="LaTeXFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
+      <provider selected="true" editor-type-id="LaTeXFileEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
@@ -890,14 +1067,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="2128">
           <caret line="601" column="0" lean-forward="false" selection-start-line="601" selection-start-column="0" selection-end-line="601" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/plotPassiveActive4plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding />
         </state>
       </provider>
