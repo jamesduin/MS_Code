@@ -33,7 +33,7 @@
 \contentsline {section}{\numberline {4.1}SVM and LogReg Classifier Performance}{28}{section.4.1}
 \contentsline {section}{\numberline {4.2}Active vs Passive curves}{30}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Plots for Logistic Regression Active vs Passive curves}{31}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Plots for SVM Active vs Passive curves}{35}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Plots for FFR experiments}{39}{section.4.3}
-\contentsline {chapter}{\chapternumberline {5}Conclusions and Future Work}{49}{chapter.5}
-\contentsline {chapter}{Bibliography}{50}{section*.115}
+\contentsline {subsection}{\numberline {4.2.2}Plots for SVM Active vs Passive curves}{36}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Plots for Fine Fixed Ratio experiments}{38}{section.4.3}
+\contentsline {chapter}{\chapternumberline {5}Conclusions and Future Work}{46}{chapter.5}
+\contentsline {chapter}{Bibliography}{47}{section*.112}

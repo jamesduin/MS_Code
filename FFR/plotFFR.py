@@ -31,11 +31,12 @@ def getRndTypeSet(resultsDir):
     print(rndTypeSet)
     return rndTypeSet
 
-resultsDir = 'runFFRParam_Cst16/results'
-Xlims = [0, 180]
-#Xlims = [20,60]
-#Ylims = [0.838, 0.87]
-cost = 16
+#resultsDir = 'runFFRParam_Cst16/results'
+resultsDir = 'runFFRParam_Cst8/results'
+#Xlims = [0, 500]
+Xlims = [20,60]
+Ylims = [0.827, 0.863]
+cost = 8
 #resultsDir = '_results/results'
 
 
@@ -158,18 +159,18 @@ for linInd,type in enumerate(sorted(rndTypeSet)):
     plt.plot(x_pr,y_pr, label = 'FFR['+type+']',linewidth = 1.8 ,
              fillstyle='none',
              color=cVal,dashes=lineSty[linInd],
-             # marker=markSty[linInd],
-             # markersize=6,
-             # markeredgecolor=cVal,
-             # markeredgewidth=1.0,
-             # markevery=markEvSty[linInd]
+             marker=markSty[linInd],
+             markersize=6,
+             markeredgecolor=cVal,
+             markeredgewidth=1.0,
+             markevery=markEvSty[linInd]
              )
     leg= plt.legend(fancybox=True)
     axes = plt.gca()
 
     axes.set_xlim(Xlims)
     #axes.set_ylim([0.842, 0.875])
-    #axes.set_ylim(Ylims)
+    axes.set_ylim(Ylims)
 
 plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')

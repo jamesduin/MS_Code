@@ -1898,11 +1898,11 @@ each class. Coarse and fine classifiers share the same starter set. During
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_pr}
-    \label{fig:ActiveVsPassivePRLR}
     \caption{The PR AUC curves for rounds with the Logistic
 Regression classifier conforms to expectations, with Active-fine having
 the highest performance, and Active outperforming Passive for both coarse
 and fine classifier types.}
+\label{fig:runActPassLogReg_pr}
 \end{figure}
 \FloatBarrier
 
@@ -1910,12 +1910,12 @@ and fine classifier types.}
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_roc}
-    \label{fig:ActiveVsPassiveROCLR}
     \caption{The ROC AUC curves for rounds with the
 Logistic Regression classifier. The active curves beat out the passive
 curves for both coarse and fine. Note that Active Fine ROC curve doesn't
 converge to the Active Coarse ROC curve until round 40. This is contrasted
 to a dominance of the Active Fine PR curve after round 10.}
+\label{fig:runActPassLogReg_roc}
 \end{figure}
 \FloatBarrier
 
@@ -1947,46 +1947,67 @@ dominance of Fine over Coarse and Active over Passive.}
 dominating after round 10 while the Active Fine ROC curve is still well below the
  Active Coarse at that round. The experiment is ran again with the Fine classifier
   running on the coarse instance set and vice versa, the results are shown in
-  \textit{Figure \ref{fig:LogReg4plots}}. These results show that the expected
+  \textit{Figure \ref{fig:resultsrunActPassLogReg4plots_pr}} and
+  \textit{Figure \ref{fig:resultsrunActPassLogReg4plots_roc}}.
+
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/resultsrunActPassLogReg4plots_pr}
+    \label{fig:resultsrunActPassLogReg4plots_pr}
+    \caption{LogReg PR Curve Analysis}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/resultsrunActPassLogReg4plots_roc}
+    \label{fig:resultsrunActPassLogReg4plots_roc}
+    \caption{LogReg ROC Curve Analysis}
+\end{figure}
+\FloatBarrier
+
+\par These results show the expected
   relation of PR curve dominance for Active Fine over Active Coarse on a given instance set correlating
   to ROC curve dominance for for those classifiers when trained on the exact same instance set.
-
-\FloatBarrier
-\begin{figure*}[!htb]
-    \centering
-    \begin{subfigure}[t]{0.65\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/resultsrunActPassLogReg4plots_pr}
-        \caption{LogReg PR Curve Analysis}
-    \end{subfigure}% %~
-
-    \begin{subfigure}[t]{0.65\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/resultsrunActPassLogReg4plots_roc}
-        \caption{LogReg ROC Curve Analysis}
-    \end{subfigure}
-    \caption{Note the Active Fine PR curve red line intersects with the Coarse
+  Note the Active Fine PR curve red line intersects with the Coarse
     trained on the Active Fine instance set at approximately round 40. This intersection occurs
     on the Roc curve as well. And similiarly for the Active Coarse green line and the Fine
-     trained on the Active Coarse instance set blue line.}
-    \label{fig:LogReg4plots}
-\end{figure*}
-\FloatBarrier
+     trained on the Active Coarse instance set blue line.
 
-\break
+%\FloatBarrier
+%\begin{figure*}[!htb]
+%    \centering
+%    \begin{subfigure}[t]{0.65\textwidth}
+%        \centering
+%        \includegraphics[width=\textwidth]{fig/resultsrunActPassLogReg4plots_pr}
+%        \caption{LogReg PR Curve Analysis}
+%    \end{subfigure}% %~
+%
+%    \begin{subfigure}[t]{0.65\textwidth}
+%        \centering
+%        \includegraphics[width=\textwidth]{fig/resultsrunActPassLogReg4plots_roc}
+%        \caption{LogReg ROC Curve Analysis}
+%    \end{subfigure}
+%    \caption{Note the Active Fine PR curve red line intersects with the Coarse
+%    trained on the Active Fine instance set at approximately round 40. This intersection occurs
+%    on the Roc curve as well. And similiarly for the Active Coarse green line and the Fine
+%     trained on the Active Coarse instance set blue line.}
+%    \label{fig:LogReg4plots}
+%\end{figure*}
+%\FloatBarrier
 
 
-\FloatBarrier
+
+\clearpage
+
 \subsection{Plots for SVM Active vs Passive curves}
+\FloatBarrier
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_pr}
     \label{fig:ActiveVsPassivePRSVM}
-    \caption{The PR AUC curves for rounds with SVM show little
-advantage for fine. The results are slightly different than the ones shown
-on 2/14 due to fixing a bug with the code that wasn't performing the
-preprocessing scaling for the SVM case at the same stage as it was being
-done for the logistic regression classifier.}
+    \caption{The PR AUC curves for SVM show a slight advantage for Active Fine,
+     similar to the LogReg results.}
 \end{figure}
 \FloatBarrier
 
@@ -1995,63 +2016,65 @@ done for the logistic regression classifier.}
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_roc}
     \label{fig:ActiveVsPassiveROCSVM}
-    \caption{The ROC curves show more of an advantage for coarse classifiers.}
+    \caption{The ROC AUC curves for SVM match the LogReg results, the convergence of
+     Active Fine to Active Coarse takes slightly longer, round 60 commpared to round 40.}
 \end{figure}
 \FloatBarrier
 
 
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_acc}
-    \label{fig:ActiveVsPassiveAccSVM}
-    \caption{The accuracy for the coarse decreases sharply due
-to coarse predicting steadily more false positives, behaving similar to the
-Log Reg case. Fine accuracy is higher due to predicting less false positives
-than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
-60 t.p. for coarse at round 60.}
-\end{figure}
-\FloatBarrier
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_f1}
-    \label{fig:ActiveVsPassiveF1SVM}
-    \caption{The F-measure favors coarse, and trends to the same level
-    for both coarse and fine.}
-\end{figure}
-\FloatBarrier
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_acc}
+%    \label{fig:ActiveVsPassiveAccSVM}
+%    \caption{accuracy is ok.}
+%\end{figure}
+%\FloatBarrier
+%
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_f1}
+%    \label{fig:ActiveVsPassiveF1SVM}
+%    \caption{The active fine fmeasure has weird bump in it}
+%\end{figure}
+%\FloatBarrier
 
 
-\break
+\clearpage
 
-\FloatBarrier
-\section{Plots for FFR experiments}
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost1_rnds0_171}
-    \label{fig:FFR_PR_Cost1}
-    \caption{The strategy is changed from purchasing a set number of instances
+\section{Plots for Fine Fixed Ratio experiments}
+\par The strategy is changed from purchasing a set number of instances
     per round to having a set budget per round and spending a portion of that budget
-    on fine and coarse grained labels. For this curve the fine and coarse grain labels
-    both have a cost of 1. The purple 1.0 curve shows that if only fine grained labels
-    are purchased, the highest performing PR-AUC can be obtained. The results are an
-    average of 10 folds.}
-\end{figure}
-\FloatBarrier
+    on fine and coarse grained labels. The Fine Fixed Ratio (FFR), ranges from 0.0 to
+    1.0 in increments of 0.1. Note that the FFR 0.0 should roughly correlate to the
+    Active Coarse curve shown in \textit{Figure \ref{fig:runActPassLogReg_pr}}. Likewise
+    the Active Fine curve should roughly correlate to the FFR 1.0 curve. However, the correlation
+    is not exact since the FFR experiements use and combination classifier, it trains Fine and
+    Coarse classifiers on a starter set of the same size and proportion as used in the
+    LogReg Active vs Passive experiment, then uses the confidence of both of those classifiers and
+    the end prediction is the max of the two classifiers. Thus even for the FFR 0.0 and FFR 1.0
+    the starter set trained Fine or Coarse classifier still contributes to the PR-AUC curve
+    even at the final round 180. The results are an average of 10 folds.
 
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16_rnds0_171}
-    \label{fig:FFR_PR_Cost16_rnds0_171}
-    \caption{The fine cost is increased to 16. The budget for each iteration is 100, and
-    for the case of the 0.5 curve, 50 instances are bought for coarse and 3.125 instances are
+    \par To determine the number of instances to purchase each round the FFR is multiplied by the
+    round budget of 100, then the round budget for the coarse labels are purchased at a cost of 1.0,
+    the cost of the fine labels will vary and if a decimal occurs it is resolved by randomly purchasing
+    an extra fine label with the probability of the decimal value. For example, if the fine cost is 16 and
+    FFR is 0.5, 50 instances are bought for coarse and 3.125 instances are
     bought for fine. The remainder 0.125 is then turned into a 0.125 chance for any round to
     purchase an extra fine label. The round size for the FFR 1.0 curve is very small, with only
-    7 labels purchased per iteration. The cost is to high for the fine label advantage to offset
-    the decreased number of instances purchased.}
+    7 labels purchased per iteration.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost1_rnds0_180}
+    \label{fig:ParamsFFR_PR_Cost1_rnds0_180}
+    \caption{For this curve the fine and coarse grain labels
+    both have a cost of 1. The purple 1.0 curve shows that if only fine grained labels
+    are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round
+    since the cost of the Fine and Coarse instances is the same the budget}
 \end{figure}
 \FloatBarrier
 
@@ -2059,8 +2082,42 @@ than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16_rnds0_500}
-    \label{fig:FFR_PR_Cost16_rnds0_500}
+    \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost2_rnds0_180}
+    \label{fig:ParamsFFR_PR_Cost2_rnds0_180}
+    \caption{At fine cost 2, advantage of the higher FFR values decreases but the ordering
+    of the curves remains unchanged.}
+\end{figure}
+\FloatBarrier
+
+
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost4_rnds0_180}
+    \label{fig:ParamsFFR_PR_Cost4_rnds0_180}
+    \caption{At fine cost 4, the highest FFR 1.0 is no longer preferred, the
+    cost is to high for Fine instances PR-AUC utility to overcome the PR-AUC
+    increase gained by purchasing more Coarse instances.}
+\end{figure}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_180}
+    \label{fig:ParamsFFR_PR_Cost8_rnds0_180}
+    \caption{At fine cost 8 the middle FFR values outperform the extreme values
+    for rounds 0 to 180.}
+\end{figure}
+\FloatBarrier
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_500}
+    \label{fig:ParamsFFR_PR_Cost8_rnds0_500}
     \caption{This shows the iterations continuing through round 500, the curves
     with the higher fine rates eventually settle to the same end point that the
     curves with the high rates of coarse labels purchased achieved at previous
@@ -2068,15 +2125,13 @@ than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
 \end{figure}
 \FloatBarrier
 
-
-
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8_rnds0_171}
-    \label{fig:FFR_PR_Cost8_rnds0_171}
-    \caption{At fine cost 8 the FFR 0.0 rate is no longer the best option, 0.1
-    generally outperforms 0.0 slightly.}
+    \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds20_60}
+    \label{fig:ParamsFFR_PR_Cost8_rnds20_60}
+    \caption{The fine cost 8 curves shown expanding the rounds 20-60. If a round budget of 40
+    occurs than the recommended Fine Fixed Ratio would be 0.2}
 \end{figure}
 \FloatBarrier
 
@@ -2084,52 +2139,59 @@ than coarse. Fine also predicts less true positives, compare apx. 37 to apx.
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8_rnds0_500}
-    \label{fig:FFR_PR_Cost8_rnds0_500}
-    \caption{The extended picture of the FFR cost 8. The round size for FFR 1.0
-    is small, only 13 instances purchase per iteration.}
+    \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost16_rnds0_180}
+    \label{fig:ParamsFFR_PR_Cost16_rnds0_180}
+    \caption{The fine cost is increased to 16. The cost is to high for the fine label advantage to offset
+    the decreased number of instances purchased.}
 \end{figure}
 \FloatBarrier
 
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost4_rnds0_171}
-    \label{fig:FFR_PR_Cost4_rnds0_171}
-    \caption{At fine cost 4, FFR 0.3 appears to be the highest performing rate.}
-\end{figure}
-\FloatBarrier
-
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost4_rnds20_60}
-    \label{fig:FFR_PR_Cost4_rnds20_60}
-    \caption{The fine cost 4 curves shown expanding the rounds 20-60.}
-\end{figure}
-\FloatBarrier
+%
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost16_rnds0_500}
+%    \label{fig:FFR_PR_Cost16_rnds0_500}
+%    \caption{This shows the iterations continuing through round 500, the curves
+%    with the higher fine rates eventually settle to the same end point that the
+%    curves with the high rates of coarse labels purchased achieved at previous
+%    iterations.}
+%\end{figure}
+%\FloatBarrier
 
 
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost2_rnds0_171}
-    \label{fig:FFR_PR_Cost2_rnds0_171}
-    \caption{At fine cost 2, the preferred rate jumps up to 0.8,
-    similar to the cost 1 results.}
-\end{figure}
-\FloatBarrier
+%
+%
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost8_rnds0_500}
+%    \label{fig:FFR_PR_Cost8_rnds0_500}
+%    \caption{The extended picture of the FFR cost 8. The round size for FFR 1.0
+%    is small, only 13 instances purchase per iteration.}
+%\end{figure}
+%\FloatBarrier
 
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost2_rnds20_60}
-    \label{fig:FFR_PR_Cost2_rnds20_60}
-    \caption{The fine cost 2 curves shown expanding rounds 20-60.}
-\end{figure}
-\FloatBarrier
+
+%
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost4_rnds20_60}
+%    \label{fig:FFR_PR_Cost4_rnds20_60}
+%    \caption{The fine cost 4 curves shown expanding the rounds 20-60.}
+%\end{figure}
+%\FloatBarrier
+
+
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=1.0\columnwidth]{fig/FFR_PR_Cost2_rnds20_60}
+%    \label{fig:FFR_PR_Cost2_rnds20_60}
+%    \caption{The fine cost 2 curves shown expanding rounds 20-60.}
+%\end{figure}
+%\FloatBarrier
 
 
 
