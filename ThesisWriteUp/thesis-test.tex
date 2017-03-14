@@ -534,7 +534,7 @@ fine & 0.815 & 0.772 & 0.802 & 0.031 & ( 382.6 / 94.6 ) & ( 0.1 / 1.5 ) \\ \bott
 
 
 
-
+\subsection{Varied SVM Scaling Methods}
 \par I tried different scaling methods (min max scaler, std scaler), I settled on std scaler.
 
 \FloatBarrier
@@ -579,7 +579,7 @@ fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bott
 
 
 
-
+\subsection{Varied SVM Feature Selection}
 \par I tried different feature select measures, I settled on 75 perc feature select.
 
 \FloatBarrier
@@ -625,7 +625,7 @@ fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bott
 \FloatBarrier
 
 
-
+\subsection{Varied SVM Decision Function Shape}
 \par I tried different different C costs, kernels, decision function shape, gamma, tolerance
 settled on classif = svm.SVC(C=1.0, kernel='rbf',decisionfunctionshape='ovo',gamma=0.0025,
  tol=0.00001). The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
@@ -660,11 +660,11 @@ fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bott
 \end{table}
 \FloatBarrier
 
+
+\subsection{Varied Logistic Regression Scaling}
 \par I left the class weight as balanced for this part, the results did not show much advantage
 for using the fine grained classifier.
 \par next I tried using a Logistic regression classifier.
-
-
 
 \FloatBarrier
 \begin{table}[H]
@@ -718,6 +718,8 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 \end{table}
 \FloatBarrier
 
+
+\subsection{Varied Logistic Regression Feature Selection}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -759,6 +761,7 @@ fine & 0.869 & 0.845 & 0.803 & 0.048 & ( 382.0 / 93.7 ) & ( 0.7 / 2.4 ) \\ \bott
 \FloatBarrier
 
 
+\subsection{Varied Logistic Regression Postive Class Weight and Cost}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -881,6 +884,8 @@ fine & 0.863 & 0.839 & 0.810 & 0.588 & ( 323.3 / 31.4 ) & ( 59.4 / 64.7 ) \\ \bo
 
 
 
+\subsection{Varied Logistic Regression Tune Fine Class Weights}
+\subsubsection{Fine Tune Class 1 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -938,6 +943,8 @@ testCls-1 & 0.722 & 0.997 & 0.998 & 0.513 & ( 476.9 / 0.5 ) & ( 0.6 / 0.8 ) \\ \
 \end{table}
 \FloatBarrier
 
+
+\subsubsection{Fine Tune Class 2 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -980,6 +987,8 @@ testCls-2 & 0.652 & 0.684 & 0.914 & 0.123 & ( 434.8 / 15.6 ) & ( 25.5 / 2.9 ) \\
 \end{table}
 \FloatBarrier
 
+
+\subsubsection{Fine Tune Class 3 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1024,7 +1033,7 @@ testCls-3 & 0.795 & 0.805 & 0.804 & 0.318 & ( 363.3 / 10.6 ) & ( 83.1 / 21.8 ) \
 \FloatBarrier
 
 
-
+\subsubsection{Fine Tune Class 4 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1082,6 +1091,7 @@ testCls-4 & 0.886 & 0.903 & 0.906 & 0.352 & ( 421.8 / 6.8 ) & ( 38.0 / 12.2 ) \\
 \end{table}
 \FloatBarrier
 
+\subsubsection{Fine Tune Class 5 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1168,6 +1178,7 @@ testCls-5 & 0.381 & 0.616 & 0.989 & 0.000 & ( 473.5 / 1.0 ) & ( 4.3 / 0.0 ) \\ \
 \end{table}
 \FloatBarrier
 
+\subsubsection{Fine Tune Class 6 Weights}
 
 \FloatBarrier
 \begin{table}[H]
@@ -1226,6 +1237,8 @@ testCls-6 & 0.898 & 0.940 & 0.915 & 0.281 & ( 430.5 / 2.6 ) & ( 37.9 / 7.8 ) \\ 
 \end{table}
 \FloatBarrier
 
+
+\subsubsection{Fine Tune Class 7 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1284,7 +1297,7 @@ testCls-7 & 0.674 & 0.744 & 0.948 & 0.099 & ( 452.3 / 4.5 ) & ( 20.6 / 1.4 ) \\ 
 \end{table}
 \FloatBarrier
 
-
+\subsubsection{Fine Tune Class 8 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1328,6 +1341,7 @@ testCls-8 & 0.892 & 0.947 & 0.973 & 0.376 & ( 462.2 / 3.9 ) & ( 9.0 / 3.7 ) \\ \
 \end{table}
 \FloatBarrier
 
+\subsection{Varied Logistic Regression Threshold}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1386,7 +1400,7 @@ fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \end{table}
 \FloatBarrier
 
-
+\subsection{Varied Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}
 \FloatBarrier
 \begin{table}[h]
 \centering
@@ -1427,6 +1441,7 @@ fine & 0.663 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \FloatBarrier
 
 
+\subsection{Varied Logistic Regression Positive Class Weight For Full Dataset}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1467,6 +1482,7 @@ fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \
 \FloatBarrier
 
 
+\subsection{Varied SVM Gamma}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1566,7 +1582,7 @@ fine & 0.903 & 0.875 & 0.871 & 0.640 & ( 362.1 / 41.2 ) & ( 20.6 / 54.9 ) \\ \bo
 \end{table}
 \FloatBarrier
 
-
+\subsection{Varied SVM Cost}
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1593,8 +1609,6 @@ fine & 0.900 & 0.872 & 0.868 & 0.641 & ( 358.5 / 39.2 ) & ( 24.2 / 56.9 ) \\ \bo
 \end{table}
 \FloatBarrier
 
-
-
 \par I tried different scaling methods, min max scaler, std scaler, I settled on min max scaler.
 \par I tried different feature select measures, decided to use all of the features.
 \par I tried different C costs, tolerances, and class weights. I settled on C=0.1, tol = 0.00001,
@@ -1604,7 +1618,6 @@ line an then multiplying that by a ratio.
 I got this vector of ratios
 [0.87, 0.4, 0.78, 0.65, 3.48, 0.78, 1.74, 0.87]
 
-\break
 
 \chapter{Results and Analysis}\label{chap:aenied}
 \section{Passive SVM Rbf kernel vs Logistic Reg}

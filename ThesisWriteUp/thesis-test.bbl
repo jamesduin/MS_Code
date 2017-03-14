@@ -21,6 +21,10 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{mitchell}
+T.~M. Mitchell, \emph{Machine Learning}.\hskip 1em plus 0.5em minus 0.4em\relax
+  McGraw-Hill, 1997.
+
 \bibitem{scikit-learn}
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
   M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
@@ -64,9 +68,5 @@ L.~Buitinck, G.~Louppe, M.~Blondel, F.~Pedregosa, A.~Mueller, O.~Grisel,
   learning software: experiences from the scikit-learn project,'' in \emph{ECML
   PKDD Workshop: Languages for Data Mining and Machine Learning}, 2013, pp.
   108--122.
-
-\bibitem{mitchell}
-T.~M. Mitchell, \emph{Machine Learning}.\hskip 1em plus 0.5em minus 0.4em\relax
-  McGraw-Hill, 1997.
 
 \end{thebibliography}
