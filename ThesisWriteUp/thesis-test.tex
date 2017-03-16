@@ -731,7 +731,7 @@ relative to the coarse classifier. An alternative classifier strategy Logistic R
 
 
 \subsection{Varying Logistic Regression Scaling}
-\par Tested out the same options for preprocessing scaling, that were tried for SVM.
+\par Tested out the same options for preprocessing scaling, that were varied for SVM.
 
 \FloatBarrier
 \begin{table}[H]
@@ -787,7 +787,7 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 
 
 \subsection{Varying Logistic Regression Feature Selection}
-\par Tested out the same options for feature selection that were tried for SVM.
+\par Tested out the same options for feature selection that were varied for SVM.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1503,7 +1503,7 @@ fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \end{table}
 \FloatBarrier
 
-\subsection{Varied Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}
+\subsection{Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}
 \par The sample weight, as stated previously, weights fine instances in the ROC and PR curves by the ratio of
 total number of instances in the test set divided by the total number of positives in the test set. This
 weighting is performed identically on the coarse and fine classifier. The ROC curve library has a parameter to determine
@@ -1568,7 +1568,7 @@ fine & 0.663 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \FloatBarrier
 
 
-\subsection{Varied Logistic Regression Positive Class Weight For Full Dataset}
+\subsection{Varying Logistic Regression Positive Class Weight For Full Dataset}
 \par The fine class weight for the subset of data is determined be to 7.5, this value
 should change and be linearly dependent upon the number of instances in the training set.
 The weight for the fine class is tuned using all of the data, the original value is the total number
@@ -1746,10 +1746,10 @@ fine & 0.900 & 0.872 & 0.868 & 0.641 & ( 358.5 / 39.2 ) & ( 24.2 / 56.9 ) \\ \bo
 
 \chapter{Results and Analysis}\label{chap:aenied}
 \section{SVM and LogReg Classifier Performance}
-\par Both the SVM and the LogReg classifiers show a slight advantage for the fine
-classifier over the coarse classifier in terms of the PR-AUC metric. The ROC-AUC
-metric is identical between fine and coarse for both classifiers or a slight
-advantage exists on the order of 0.001.
+\par Both the SVM and the LogReg classifiers show a slight advantage for the Fine
+classifier over the Coarse classifier in terms of the PR-AUC metric. The ROC-AUC
+metric is close to identical between fine and coarse for both classifiers, a slight
+advantage of 0.002 exists for the Fine classifier in the SVM classifier.
 
 
 \FloatBarrier
@@ -1779,16 +1779,40 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
 \end{table}
 \FloatBarrier
 
-\par The coarse classifier in both the LogReg and SVM classifier has a larger
+\par The coarse classifier in both the LogReg and SVM classifier has a greater
  amount of false positives at the default threshold. A further examination of these
- values is shown in \textit{Table \ref{fig:LogRegThreshAcc}} and
- \textit{Table \ref{fig:SVMThreshRoc}}. The figures plot the PR and the ROC
- curves for each of the 10 folds. Also each point on the PR and ROC curve has a
+ values is shown in \textit{Figures \ref{fig:LogRegThreshAcc}-\ref{fig:LogRegThreshPr}}
+  and \textit{Figures \ref{fig:SVMThreshRoc} - \ref{fig:SVMThreshPr}}. The figures' plot the PR and the ROC
+ curves for each of the 10 folds. Each point on the PR and ROC curve has a
  corresponding F-measure or Accuracy value, these values are plotted on the graphs
- as well. The graphs demonstrate that the coarse and fine classifiers are virtually
- idenitcal and a coarse threshold could be chosen to match the fine output for
- accuracy or f-measure or vice versa. The PR-AUC does show a slight advantage for Fine,
- which warrants application of the HAL algorithmn for this dataset.
+ as a blue line. The graphs demonstrate that the coarse and fine classifiers have close
+ to equivalent average AUC, on the order of 0.007 max difference between Fine and Coarse.
+  At the default threshold the Fine appears to outperform Coarse for Accuracy and F-measure
+  metrics, but the inspection of the plots show that a coarse threshold can be chosen to match the fine output for
+ both Accuracy and F-measure. The PR-AUC does show a slight advantage for Fine,
+ which warrants application of the HAL algorithm and Active over labeling approach on this dataset.
+
+
+\FloatBarrier
+\begin{figure*}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_coarse}
+        \caption{Log Reg Pr Curves - Coarse}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_fine}
+        \caption{Log Reg Pr Curves - Fine}
+    \end{subfigure}
+    \caption{The Fine default threshold occurs at a point on the PR curve associated with a higher
+    F-measure score compared to the Coarse curves.}
+    \label{fig:LogRegThreshPr}
+\end{figure*}
+\FloatBarrier
+
 
 \FloatBarrier
 \begin{figure*}[!htb]
@@ -1810,47 +1834,6 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
 \FloatBarrier
 
 
-\FloatBarrier
-\begin{figure*}[!htb]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_coarse}
-        \caption{Log Reg Pr Curves - coarse}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_fine}
-        \caption{Log Reg Pr Curves - fine}
-    \end{subfigure}
-    \caption{The fine threshold occurs at a point on the pr-curve associated with a higher
-    f-measure than the coarse curves for the LogReg classifier.}
-    \label{fig:LogRegThreshPr}
-\end{figure*}
-\FloatBarrier
-
-
-
-
-\FloatBarrier
-\begin{figure*}[!htb]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_RocCurve_coarse}
-        \caption{SVM ROC Curves - coarse}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_RocCurve_fine}
-        \caption{SVM ROC Curves - fine}
-    \end{subfigure}
-    \caption{SVM results are similar between coarse and fine.}
-    \label{fig:SVMThreshRoc}
-\end{figure*}
-\FloatBarrier
 
 
 \FloatBarrier
@@ -1859,18 +1842,38 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_PrCurve_coarse}
-        \caption{SVM Pr Curves - coarse}
+        \caption{SVM Pr Curves - Coarse}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_PrCurve_fine}
-        \caption{SVM Pr Curves - fine}
+        \caption{SVM Pr Curves - Fine}
     \end{subfigure}
-    \caption{SVM results for PR-curves and F-measure have coarse and fine picking
-    different parts of the curves for their respective thresholds, showing a slight
-    advantage for fine at the default threshold.}
+    \caption{SVM results for PR curves and F-measure have Coarse and Fine picking
+    different parts of the curves for their respective thresholds. This results in a slight
+    advantage for Fine at the default threshold, similar to the results for the LogReg classifier.}
     \label{fig:SVMThreshPr}
+\end{figure*}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{figure*}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_RocCurve_coarse}
+        \caption{SVM ROC Curves - Coarse}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_RocCurve_fine}
+        \caption{SVM ROC Curves - Fine}
+    \end{subfigure}
+    \caption{SVM Accuracy results are similar between Coarse and Fine.}
+    \label{fig:SVMThreshRoc}
 \end{figure*}
 \FloatBarrier
 
@@ -1878,19 +1881,21 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
 
 
 
+
 \section{Active vs Passive curves}
 \par The following plots were obtained with a round batch size of 100
-and a starter set of 1040 instances out of the total 2098 instances.
-The plots are the average of 10 folds, for each fold a test set of 2010
-containing representatives of each class was held out, out of the remaining
-18088, the starter set was selected which again contained representatives of
-each class. Coarse and fine classifiers share the same starter set. During
- each round coarse and fine classifiers are trained on their corresponding
- sets, metrics are outputted on the held out test set, then confidence estimates
- are ran on the remaining eligible instances. Eligible instances are kept in
- separate sets for coarse and fine, 100 of the most uncertain instances are removed
- from each eligible set and added to its corresponding coarse or fine set to be
- trained on for the next round.
+and a starter set of 1040 instances out of the total 20098 instances.
+The plots are the average of 10 folds, for each fold a test set of 2010 instances
+is used. The test set remains constant throughout the rounds and contains a represantive proportion
+ of each of the classes. The starter set is chosen out of the remaining 18088 and it also contains representatives
+ from each class in proportion to that class's prominance in the dataset. The 17048 non-test set, non-starter set
+  instances are added to the training set in batches of 100. This results in total of 171 rounds, 170 batch selecting
+  rounds and 1 starter set round. The Passive approach selects 100 random instances
+   and adds them to the train set. The Active approach runs the classifier on the eligible instances, orders them
+   by their uncertainty and adds the 100 most uncertain instances to the train set. Coarse and fine classifiers
+   share the same starter set. During each round, Coarse and Fine classifiers are trained on their corresponding
+ sets, which are independent of one another, metrics are outputted on the held out test set which is the same for
+ both Coarse and Fine.
 
 
 \FloatBarrier
@@ -1898,10 +1903,10 @@ each class. Coarse and fine classifiers share the same starter set. During
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_pr}
-    \caption{The PR AUC curves for rounds with the Logistic
-Regression classifier conforms to expectations, with Active-fine having
-the highest performance, and Active outperforming Passive for both coarse
-and fine classifier types.}
+    \caption{The PR-AUC curves for rounds with the Logistic
+Regression classifier conforms to expectations, with Active Fine having
+the highest performance, and Active outperforming Passive for both Coarse
+and Fine classifier types.}
 \label{fig:runActPassLogReg_pr}
 \end{figure}
 \FloatBarrier
@@ -1910,9 +1915,9 @@ and fine classifier types.}
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_roc}
-    \caption{The ROC AUC curves for rounds with the
+    \caption{The ROC-AUC curves for rounds with the
 Logistic Regression classifier. The active curves beat out the passive
-curves for both coarse and fine. Note that Active Fine ROC curve doesn't
+curves for both Coarse and Fine. Note that Active Fine ROC curve doesn't
 converge to the Active Coarse ROC curve until round 40. This is contrasted
 to a dominance of the Active Fine PR curve after round 10.}
 \label{fig:runActPassLogReg_roc}
@@ -1923,84 +1928,110 @@ to a dominance of the Active Fine PR curve after round 10.}
 \FloatBarrier
 \begin{figure*}[!htb]
     \centering
-    \begin{subfigure}[t]{0.65\textwidth}
+    \begin{subfigure}[t]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{fig/runActPassLogReg_acc}
         \caption{LogReg Accuracy}
     \end{subfigure}% %~
 
-    \begin{subfigure}[t]{0.65\textwidth}
+    \begin{subfigure}[t]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{fig/runActPassLogReg_f1}
         \caption{LogReg F-measure}
     \end{subfigure}
-    \caption{The accuracy of the fine classifiers stays at
+    \caption{The Accuracy of the classifiers stays at
 roughly the same rate throughout the rounds, this is due to an effective
-weighting scheme for the fine grained classifiers. The F-measure also shows a
-dominance of Fine over Coarse and Active over Passive.}
+weighting scheme. Both curves show a dominance of Fine over Coarse and
+Active over Passive.}
     \label{fig:ActiveVsPassiveAccFmesLR}
 \end{figure*}
 \FloatBarrier
 
 
-\par Further analysis is required to justify the difference in the Active Fine PR curve
-dominating after round 10 while the Active Fine ROC curve is still well below the
- Active Coarse at that round. The experiment is ran again with the Fine classifier
-  running on the coarse instance set and vice versa, the results are shown in
-  \textit{Figure \ref{fig:resultsrunActPassLogReg4plots_pr}} and
-  \textit{Figure \ref{fig:resultsrunActPassLogReg4plots_roc}}.
+\par Note that the Active Fine PR-AUC curve
+surpasses Active Coarse after round 10 while the Active Fine ROC-AUC curve is still well below the
+ Active Coarse at that round. These curves are shown in \textit{Figures \ref{fig:rnd20LogRegPr}-
+ \ref{fig:rnd20LogRegRoc}}. This is counter-intuitive, according to a proof in Davis \cite{DavisRocPr}
+ ``For a fixed number of positive and negative examples, one curve dominates a second curve in
+ ROC space if and only if the first dominates the second in Precision-Recall space". The theorem uses the
+ following definition of dominance: that every value in the first curve is above the corrollary value in
+ second curve. The correlation between PR and ROC curves is that Recall in the PR curve is equivalent to
+ the True Positive Rate in the ROC curve. The average PR-AUC concept is different than that of a plot of
+ PR curves for a round, but if all of the PR curves for Fine dominate the curves for Coarse then we would
+  expect all of the ROC curves for Fine to dominate the ROC curves for coarse and both the ROC-AUC and PR-AUC
+   averages for Fine to be greater than that for Coarse. However it is shown in \textit{Figure \ref{fig:rnd20LogRegPr}}
+   that the PR curves for Fine do not completely dominate the PR curves for coarse, and similarly for the ROC curves
+   in \textit{Figure \ref{fig:rnd20LogRegRoc}}. Active Fine PR-AUC curve does not satisfy the theorem's
+   definition of dominance, since each individual ROC and PR curve contains intersection points between
+   Coarse and Fine. Thus given that the average PR-AUC for Fine is great at round 20 than average Coarse PR-AUC,
+   this relationship is not expected to hold between the average ROC-AUC curves.
+   \par According to Davis \cite{DavisRocPr}, a large change in the number of false positives can still yield
+   only a small change in the number of false postives and thus not affect ROC curve performance. However,
+   Davis states, ``Precision, on the other hand, by comparing false positives to true positives rather than true
+   negatives, captures the effect of the large number (incorrectly classified) of negative exaples on the
+   algorithm's performance" \cite{DavisRocPr}. Since our dataset demonstrates a heavy class imbalance with
+    a roughly 1:20 ratio of Positive to Negative instances, the algorithm's ability to classify negative instances
+    should be taken into account when considering overall classifier performance. The PR curve's ability to capture
+    and have a greater sensitivity to the increased number of False Positives, reveals the advantage that the Fine
+    classifier has over the Coarse classifier. This justifies purchasing Fine grained labels over Coarse grained labels
+    to improve classifier performance.
 
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/resultsrunActPassLogReg4plots_pr}
-    \label{fig:resultsrunActPassLogReg4plots_pr}
-    \caption{LogReg PR Curve Analysis}
-\end{figure}
+\FloatBarrier
+\begin{figure*}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/RndNum_20_LogReg_PrCurves_coarse}
+        \caption{Coarse PR curves at Round 20}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/RndNum_20_LogReg_PrCurves_fine}
+        \caption{Fine PR curves at Round 20}
+    \end{subfigure}
+    \caption{PR curves for each fold at Round 20}
+    \label{fig:rnd20LogRegPr}
+\end{figure*}
 \FloatBarrier
 
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/resultsrunActPassLogReg4plots_roc}
-    \label{fig:resultsrunActPassLogReg4plots_roc}
-    \caption{LogReg ROC Curve Analysis}
-\end{figure}
+
+
+\FloatBarrier
+\begin{figure*}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/RndNum_20_LogReg_RocCurves_coarse}
+        \caption{Coarse ROC curves at Round 20}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/RndNum_20_LogReg_RocCurves_fine}
+        \caption{Fine ROC curves at Round 20}
+    \end{subfigure}
+    \caption{ROC curves for each fold at Round 20}
+    \label{fig:rnd20LogRegRoc}
+\end{figure*}
 \FloatBarrier
 
-\par These results show the expected
-  relation of PR curve dominance for Active Fine over Active Coarse on a given instance set correlating
-  to ROC curve dominance for for those classifiers when trained on the exact same instance set.
-  Note the Active Fine PR curve red line intersects with the Coarse
-    trained on the Active Fine instance set at approximately round 40. This intersection occurs
-    on the Roc curve as well. And similiarly for the Active Coarse green line and the Fine
-     trained on the Active Coarse instance set blue line.
 
-%\FloatBarrier
-%\begin{figure*}[!htb]
-%    \centering
-%    \begin{subfigure}[t]{0.65\textwidth}
-%        \centering
-%        \includegraphics[width=\textwidth]{fig/resultsrunActPassLogReg4plots_pr}
-%        \caption{LogReg PR Curve Analysis}
-%    \end{subfigure}% %~
-%
-%    \begin{subfigure}[t]{0.65\textwidth}
-%        \centering
-%        \includegraphics[width=\textwidth]{fig/resultsrunActPassLogReg4plots_roc}
-%        \caption{LogReg ROC Curve Analysis}
-%    \end{subfigure}
-%    \caption{Note the Active Fine PR curve red line intersects with the Coarse
-%    trained on the Active Fine instance set at approximately round 40. This intersection occurs
-%    on the Roc curve as well. And similiarly for the Active Coarse green line and the Fine
-%     trained on the Active Coarse instance set blue line.}
-%    \label{fig:LogReg4plots}
-%\end{figure*}
-%\FloatBarrier
+
+
+
 
 
 
 \clearpage
 
 \subsection{Plots for SVM Active vs Passive curves}
+\par The SVM Active vs Passive experiment is performed with the same methodology
+as the previous section detailed with the exception that a SVM classifier is
+substituted for the LogReg classifier. Due to the greater advantage of average
+PR-AUC in the LogReg classifier, the SVM is not used in the Fixed Fine ratio
+experiments in the section that follows.
+
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering

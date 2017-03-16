@@ -32,6 +32,15 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
   Machine learning in {P}ython,'' \emph{Journal of Machine Learning Research},
   vol.~12, pp. 2825--2830, 2011.
 
+\bibitem{DavisRocPr}
+\BIBentryALTinterwordspacing
+J.~Davis and M.~Goadrich, ``The relationship between precision-recall and roc
+  curves,'' in \emph{Proceedings of the 23rd International Conference on
+  Machine Learning}, ser. ICML '06.\hskip 1em plus 0.5em minus 0.4em\relax New
+  York, NY, USA: ACM, 2006, pp. 233--240. [Online]. Available:
+  \url{http://doi.acm.org/10.1145/1143844.1143874}
+\BIBentrySTDinterwordspacing
+
 \bibitem{lsu-lsal-13}
 W.~Luo, A.~Schwing, and R.~Urtasun, ``Latent structured active learning,'' in
   \emph{Advances in Neural Information Processing Systems (NIPS)}, 2013.

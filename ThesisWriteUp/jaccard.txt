@@ -1,4 +1,39 @@
 
+
+
+
+The experiment is ran again with the Fine classifier
+  running on the coarse instance set and vice versa, the results are shown in
+  \textit{Figure \ref{fig:resultsrunActPassLogReg4plots_pr}} and
+  \textit{Figure \ref{fig:resultsrunActPassLogReg4plots_roc}}.
+
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/resultsrunActPassLogReg4plots_pr}
+    \caption{LogReg PR Curve Analysis}
+    \label{fig:resultsrunActPassLogReg4plots_pr}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/resultsrunActPassLogReg4plots_roc}
+    \caption{LogReg ROC Curve Analysis}
+    \label{fig:resultsrunActPassLogReg4plots_roc}
+\end{figure}
+\FloatBarrier
+
+\par These results show the expected
+relation of PR curve dominance for Active Fine over Active Coarse on a given instance set correlating
+to ROC curve dominance for for those classifiers when trained on the exact same instance set.
+Note the Active Fine PR curve red line intersects with the Coarse
+trained on the Active Fine instance set at approximately round 40. This intersection occurs
+on the Roc curve as well. And similiarly for the Active Coarse green line and the Fine
+trained on the Active Coarse instance set blue line.
+
+
+
+
 %
 %\begin{figure}[!htb]
 %	\centering

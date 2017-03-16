@@ -25,8 +25,8 @@
 \BOOKMARK [3][-]{subsubsection.3.1.7.7}{Fine Tune Class 7 Weights}{subsection.3.1.7}% 25
 \BOOKMARK [3][-]{subsubsection.3.1.7.8}{Fine Tune Class 8 Weights}{subsection.3.1.7}% 26
 \BOOKMARK [2][-]{subsection.3.1.8}{Varying Logistic Regression Tolerance}{section.3.1}% 27
-\BOOKMARK [2][-]{subsection.3.1.9}{Varied Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{section.3.1}% 28
-\BOOKMARK [2][-]{subsection.3.1.10}{Varied Logistic Regression Positive Class Weight For Full Dataset}{section.3.1}% 29
+\BOOKMARK [2][-]{subsection.3.1.9}{Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{section.3.1}% 28
+\BOOKMARK [2][-]{subsection.3.1.10}{Varying Logistic Regression Positive Class Weight For Full Dataset}{section.3.1}% 29
 \BOOKMARK [2][-]{subsection.3.1.11}{Varying SVM Gamma}{section.3.1}% 30
 \BOOKMARK [2][-]{subsection.3.1.12}{Varying SVM Cost}{section.3.1}% 31
 \BOOKMARK [0][-]{chapter.4}{Results and Analysis}{}% 32
