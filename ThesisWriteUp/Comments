@@ -1,0 +1,57 @@
+Ch3 Comments:
+--Need to explain (in this chapter or earlier) where the data set originally
+came from, what it represents, etc. Also, in earlier chapters describe why
+this protein family is important. =>
+
+
+--Use hyphens in 'coarse-level', 'fine-grained', etc. => updated to use hyphens
+
+-- Remove page reference. => done
+
+--Is this zero?   => used equation format for numbers
+
+-- Removed spaces between period and table reference => done
+
+-- Move table captions to top =>
+
+--Change run to ran, remove ^th => done
+
+--So, after tuning, did you hold the parameter values fixed and
+re-run the experiments on a new partitioning? => added explanation
+
+-- Remove library duplicate, added Table, removed capitalization => done
+
+-- If this chapter is experimental setup, why are you presenting results?
+Or, is this just to tune parameters? => yes the plan is to only present
+results that relate to tuning parameters.
+
+-- Define PR, ROC, and AUC (perhaps in an earlier chapter). =>
+
+-- Add text in each section, including a summary of results. =>
+
+-- Do you discuss logistic regression in an earlier chapter?  It's
+important to define how it works and what its parameters are before
+discussing how you tuned them. =>
+
+
+
+Ch4 Comments:
+-- Move table captions to top =>
+
+-- Refer to tables 4.1 - 4.2 in the main text =>
+
+-- Reorder table references, make Accuracy lowercase, remove figures apostrophe, add s to show. => done
+
+-- The plots in Figures 4.5--XXX instead of the following plots => done
+
+-- Add a because, fix mispelling => done
+
+--So, if you're saying that performance on negatives is very important, we should be emphasizing
+ROC over PR?  Isn't that the opposite of what we discussed, or am I missing something? =>
+
+-- Replace section that follows => done
+
+-- Fix wording add a period => done
+
+-- Reword a paragraph =>
+

@@ -78,4 +78,13 @@ L.~Buitinck, G.~Louppe, M.~Blondel, F.~Pedregosa, A.~Mueller, O.~Grisel,
   PKDD Workshop: Languages for Data Mining and Machine Learning}, 2013, pp.
   108--122.
 
+\bibitem{bioPoster}
+\BIBentryALTinterwordspacing
+J.~Z. Kevin~Chiang, Juan~Cui, ``Prediction of nuclear and locally encoded
+  mitochondrion.''\hskip 1em plus 0.5em minus 0.4em\relax Lincoln, NE: Nebraska
+  Gateway to Nutrigenomics 6th Annual Retreat, June 9 2014. [Online].
+  Available:
+  \url{http://cehs.unl.edu/nutrigenomics/nebraska-gateway-nutrigenomics-6th-annual-retreat/}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

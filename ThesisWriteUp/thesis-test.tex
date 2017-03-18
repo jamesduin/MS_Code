@@ -100,16 +100,16 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
     hierarchical scheme, at the root level the protein is from the mitochondria
     or not, then the hierarchy breaks down further into specific target
     compartments at the leaf nodes. Our investigation shows that Leveraging separate
-    fine grained classifiers for each of the target compartments produces a higher
+    fine-grained classifiers for each of the target compartments produces a higher
     performing classifer at the highest level in the hierarchy according
     to the Precision-Recall curves area under the curve. Furthermore, new approach in the
      Active Learning setting termed \textit{active over-labeling} is applied to this dataset.
     The approach solicits labels at a finer level of grainularity than the target concept.
-    We show that purchasing fine grained labels in each round of active learning produces a
+    We show that purchasing fine-grained labels in each round of active learning produces a
       higher performing classifier than purchasing coarse labels, and in both cases purchasing
       labels actively by selecting only the most uncertain labels outperforms purchasing labels
-      passively, i.e. at random. The fine grained labels also incur a higher cost than coarse
-      grained labels for this dataset, so multiple cost ratios ran and an optimal Fixed Fine
+      passively, i.e. at random. The fine-grained labels also incur a higher cost than coarse-grained
+      labels for this dataset, so multiple cost ratios ran and an optimal Fixed Fine
       ratio purchasing strategy is determined for each fine cost.
 \end{abstract}
 
@@ -180,6 +180,8 @@ relating to their structure. In our experiments an SVM classifier is applied to 
 with the goal of achieving high precision scores for the label “mitochondrion”, that is,
 if the protein originates in the mitochondria or not.
 
+%Define PR, ROC, and AUC in this chapter
+
 
 \section{Hierarchical Bioinformatics Data Set}
 \par The protein dataset is labeled according to where it originates in the cell.
@@ -200,18 +202,18 @@ tree along with the number of instances belonging to the each label is included 
 \FloatBarrier
 
 \section{Coarse Grained vs Fine Grained Trade Off}
-\par The classifier that does not take advantage of any of the fine grained labels works off of the root
-labels for each instance and does not train separate classifiers for the fine grained labels. This
-classifier is referred to as the coarse grained classifier. The classifier that does use fine grained
+\par The classifier that does not take advantage of any of the fine-grained labels works off of the root
+labels for each instance and does not train separate classifiers for the fine-grained labels. This
+classifier is referred to as the coarse-grained classifier. The classifier that does use fine-grained
 labels, and trains a separate classifier for each label, then combines them to generate a root level
-label is referred to as the fine grained classifier. It can be demonstrated through a dummy example
-that for certain datasets, a fine grained approach to the root level classifier can achieve higher
+label is referred to as the fine-grained classifier. It can be demonstrated through a dummy example
+that for certain datasets, a fine-grained approach to the root level classifier can achieve higher
 levels of precision for the same level of recall. Such a dataset is shown in \textit{Figure
 \ref{fig:union}}. The classifiers for this dataset can be thought of as a function of axis parallel rectangular boxes.
 For the course grained to have high recall and return all of the positive circle instances, it must
 encompass the entire dataset and incidentally return all of the negative diamond instances as
-positive also. A fine grained approach is preferable for the dummy dataset pictured. It is the
-intention of this study to demonstrate that the fine grained classification approach for a root
+positive also. A fine-grained approach is preferable for the dummy dataset pictured. It is the
+intention of this study to demonstrate that the fine-grained classification approach for a root
 level classifier will achieve higher levels of precision for the same level of recall when
 applied to the protein dataset.
 
@@ -219,10 +221,10 @@ applied to the protein dataset.
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=0.5\columnwidth]{fig/union}
-    \caption{Demonstration of a dataset that would benefit from multiple fine grained
-    learners for each circle type. In order for the coarse grain learner to have high
+    \caption{Demonstration of a dataset that would benefit from multiple fine-grained
+    learners for each circle type. In order for the coarse-grained learner to have high
     recall, precision must be scarified and a large amount of false positives returned.
-    By combining fine grained classifiers the same level of recall can be achieved with a
+    By combining fine-grained classifiers the same level of recall can be achieved with a
     higher level of precision because none of the false positive diamonds will be returned}
     \label{fig:union}
 \end{figure}
@@ -231,10 +233,10 @@ applied to the protein dataset.
 
 \chapter{Background and Related Work}
 \section{Active Learning}
-\par Active Learning relates to the coarse grained vs fine grained tradeoff because it is
-reasonable to assume that fine grained labels may not be as readily available as coarse grained
+\par Active Learning relates to the coarse-grained vs fine-grained tradeoff because it is
+reasonable to assume that fine-grained labels may not be as readily available as coarse-grained
 labels, and thus have a higher cost. An active learning approach is used to determine how
-many fine grained labels to purchase in order to minimize the total cost to train the
+many fine-grained labels to purchase in order to minimize the total cost to train the
 algorithm an maximize the precision and recall scores. The following equations for
 precision, recall, and a weighted F score are shown below in equations 1 through 3.
 \break
@@ -244,15 +246,15 @@ $F0_5 eqn$ \break
 \break
 \par The goal in an active learning approach is to maximize the F measure where β equals 0.5 [2].
 The F-0.5 measure gives more weight to precision, as opposed to recall, so it gives
-incentive to purchase enough fine grained labels to increase the F-0.5 measure. The
-coarse grained labels will cost less than fine grained labels, but the increase in
+incentive to purchase enough fine-grained labels to increase the F-0.5 measure. The
+coarse-grained labels will cost less than fine-grained labels, but the increase in
 the F-0.5 measure justifies the increase in cost up to a certain point. The F-0.5
 measure is used in the results section of this paper. ... That's why we use PRauc in the results.
 Describe some of the other papers that Yugi cited.
 
 \section{Hierarchical Active Learning}
 \par The Hierarchical Active Learning algorithm (HAL) is shown diagrammatically in Figure 3.
-Multiple fine grained classifiers are trained at each level of the Hierarchy of the dataset.
+Multiple fine-grained classifiers are trained at each level of the Hierarchy of the dataset.
 Queries to the oracle are performed purchase the most cost effective labels to add to the
 training sets of the classifiers. The active learning cycle continues until a cost budget has
 been reached. The benefit of an active learning approach is to maximize the F-0.5 measure
@@ -275,11 +277,11 @@ HAL is briefly discussed in the following section.
 \section{Application to Dispatch Dataset}
 \par HAL was applied to a Dispatch dataset. This dataset contains 375,026 manually labeled
 hierarchical names across 1,384 newspaper articles [2]. This is a clear example where
-fine grained labels have a higher cost since it is easier for a person to manually
+fine-grained labels have a higher cost since it is easier for a person to manually
 determine if the article pertains to an organization or not, rather than if it pertains
 to a railroad or a zoo, which would be sub labels of the organization root. The first
-analysis step was to determine that the F-0.5 measure is increased by using fine
-grained classifiers. The results are shown in Figure 4. The highest F-0.5 measure for
+analysis step was to determine that the F-0.5 measure is increased by using fine-grained classifiers.
+The results are shown in Figure 4. The highest F-0.5 measure for
 a given iteration of purchases of training instances is obtained by using the active
 learning approach with all fine-grained labels. The passive learning curves were
  generated by selecting batches of instances randomly rather than querying the
@@ -299,10 +301,10 @@ learning approach with all fine-grained labels. The passive learning curves were
 \FloatBarrier
 
 
-\par The next analysis step is to apply a given ratio of fine grained vs coarse grained
+\par The next analysis step is to apply a given ratio of fine-grained vs coarse-grained
 labels to purchase at each batch request to the oracle. The results of varying the
-percentage of fine grained labels purchased are shown in Figure 5. The figure shows
-that even a small amount of fine grained labels purchased, that is, 20perc provides a
+percentage of fine-grained labels purchased are shown in Figure 5. The figure shows
+that even a small amount of fine-grained labels purchased, that is, 20perc provides a
 significant increase in the F-0.5 measure for a given iteration. ...  pr auc results.
 Add explanation of Bandit approach and results.
 
@@ -311,22 +313,27 @@ Add explanation of Bandit approach and results.
 \chapter{Experimental Setup}\label{chap:math}
 \section{Training and Testing Coarse Grain and Fine Grain Classifiers}
 \par The bioinformatics dataset is composed of 9 classes as shown in
-\textit{Figure \ref{fig:Mitotree} } on \textit{page \pageref{fig:Mitotree}}. The coarse level concept is whether or not
-the protein resides within the mitochondria. The negative case of not residing within the mitochondria is class 0. The positive case of residing within the
-  mitochondria corresponds to any of the 8 target compartment classes,  numbered 1 through 8. Since the
-  negative case has no fine grained labels, the fine grained classifier is composed of separate classifiers
-  for each of the fine grained labels. The 8 fine grained classifiers are trained such that only the instances of
+\textit{Figure \ref{fig:Mitotree} }. The coarse-level concept is whether or not
+the protein resides within the mitochondria. The negative case of not residing within the mitochondria is class $0$.
+The positive case of residing within the
+  mitochondria corresponds to any of the $8$ target compartment classes,  numbered $1$ through $8$. Since the
+  negative case has no fine-grained labels, the fine-grained classifier is composed of separate classifiers
+  for each of the fine-grained labels. The $8$ fine-grained classifiers are trained such that only the instances of
   the class corresponding to that classifier's target compartment are marked as positive, all the others are treated
-  as negative. The coarse level classifier treats all fine grained target compartment
+  as negative. The coarse-level classifier treats all fine-grained target compartment
   instances as members of a single positive class. For all classifiers the non mitochondrian instances are treated as
-  negative or 0 labeled. The totals for each class type is shown in \textit{Table \ref{tab:ClassesAll} }. Throughout
+  negative or $0$ labeled. The totals for each class type is shown in \textit{Table \ref{tab:ClassesAll}}. Throughout
   this experiment a 10 folds cross validation strategy is used, an example partitioning in shown in
-  \textit{Table \ref{tab:partitions} }.
+  \textit{Table \ref{tab:partitions}}.
 
 
 \FloatBarrier
 \begin{table}[!htb]
 \centering
+  \caption{This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes
+  like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative
+  instances for each positve instance.}
+  \label{tab:dataset}
 \begin{subtable}{.25\linewidth}
   \centering
   \begin{tabular}{|l||l|}\toprule
@@ -369,10 +376,6 @@ the protein resides within the mitochondria. The negative case of not residing w
   \caption{Folds}
   \label{tab:partitions}
   \end{subtable}
-  \caption{This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes
-  like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative
-  instances for each positve instance.}
-  \label{tab:dataset}
 \end{table}
 \FloatBarrier
 
@@ -386,6 +389,9 @@ is shown on \textit{Table \ref{tab:TrainTest}}.
 \FloatBarrier
 \begin{table}[H]
   \centering
+  \caption{Example of totals for the Train and Test corresponding to when the first fold is
+  held out to be the test set.}
+  \label{tab:TrainTest}
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
     Train & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 18088 & 17222 & 12 & 166 & 292 & 171 & 10 & 93 & 53 & 69 \\ \midrule
@@ -393,22 +399,24 @@ is shown on \textit{Table \ref{tab:TrainTest}}.
     Total & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
  \bottomrule
   \end{tabular}
-  \caption{Example of totals for the Train and Test corresponding to when the first fold is
-  held out to be the test set.}
-  \label{tab:TrainTest}
 \end{table}
 \FloatBarrier
 
 \par Because the experiment will involve running multiple rounds iteratively increasing the
 number of instances on which the classifiers are trained and tested, a subset was used to
 tune the parameters of the classifiers. This allowed variations of the classifier parameters to be
-ran rapidly and for the class weight parameter to be tuned for various round sizes. The reduced subset
-contains a randomly chosen group of approximately $1/5^{th}$ of the negatives. The class totals and example
-partitioning for the reduced subset is shown in \textit{Table \ref{tab:subset}}.
+run rapidly and for the class weight parameter to be tuned for various round sizes. The reduced subset
+contains a randomly chosen group of approximately $1/5$ of the negatives. The class totals and example
+partitioning for the reduced subset is shown in \textit{Table \ref{tab:subset}}. After tuning parameters
+on the subset of data, parameter values are held fixed and experiments are re-run on a new partitioning
+containing the entire dataset.
 
 \FloatBarrier
 \begin{table}[!htb]
 \centering
+  \caption{The subset of instances used for tuning classifier paramters contains approximately
+  $1/5^{th}$ and retains all postive instances.}
+  \label{tab:subset}
 \begin{subtable}{.25\linewidth}
   \centering
   \begin{tabular}{|l||l|}\toprule
@@ -449,15 +457,15 @@ partitioning for the reduced subset is shown in \textit{Table \ref{tab:subset}}.
   \caption{Folds Subset}
   \label{tab:PartitionsSubset}
   \end{subtable}
-  \caption{The subset of instances used for tuning classifier paramters contains approximately
-  $1/5^{th}$ and retains all postive instances.}
-  \label{tab:subset}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
-  \centering
+\centering
+  \caption{Example totals for the train and test set for the subset of data. The subset of data is
+  used for the majority of the parameter search.}
+  \label{tab:subTrainTest}
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
     Train & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
     Total & 4310 & 3444 & 12 & 166 & 292 & 171 & 10 & 93 & 53 & 69 \\ \midrule
@@ -465,24 +473,25 @@ partitioning for the reduced subset is shown in \textit{Table \ref{tab:subset}}.
     Total & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
  \bottomrule
   \end{tabular}
-  \caption{Example totals for the train and test set for the subset of data. The subset of data is
-  used for the majority of the parameter search.}
-  \label{tab:subTrainTest}
 \end{table}
 \FloatBarrier
 
 
-\par Throughout this project the python library sci-kit learn library is used for the implementation of the
+\par Throughout this project the python library sci-kit learn is used for the implementation of the
 classification, preprocessing, and evaluation algorithms \cite{scikit-learn}. The Support Vector Machine
 (SVM) supervised learning algorithm is used on the un-scaled subset of the data to obtain the base
-results shown in \ref{tab:SVMDefResStats}. The coarse and the fine algorithm performance is shown for each
-of the 10 folds along with the average performance across the 10 folds. Also the Reciever Operator Characteristic
-and Precision Recall curves are calculated with fine instances weighted according to the number of of instances in
+results shown in \textit{Table \ref{tab:SVMDefResStats}}. The coarse and the fine algorithm performance is shown for each
+of the 10 folds along with the average performance across the 10 folds. Also the reciever operator characteristic
+and precision recall curves are calculated with fine instances weighted according to the number of of instances in
 the test set divided by the number of positive instances in the test set which is a value of 4.99 for the data subset.
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM default results without parameter selection or preprocessing. Where Precision Recall
+area under the curve is (pr), Reciever Operator Characteristic area under the curve is (roc), accuracy
+is (acc), F1-measure is (f1).}
+\label{tab:SVMDefResStats}
 \begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
 coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
 0.807 & 0.796 & 0.779 & 0.768 & 0.816 & 0.802 & 0.214 & 0.021 \\
@@ -497,10 +506,6 @@ coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 
 0.844 & 0.806 & 0.806 & 0.758 & 0.836 & 0.807 & 0.339 & 0.061 \\
 avg 0.840 & avg 0.815 & avg 0.806 & avg 0.772 & avg 0.825 & avg 0.802 & avg 0.275 & avg 0.031 \\ \bottomrule
 \end{tabular}
-\caption{SVM default results without parameter selection or preprocessing. Where Precision Recall
-area under the curve is (pr), Reciever Operator Characteristic area under the curve is (roc), Accuracy
-is (acc), F1-measure is (f1).}
-\label{tab:SVMDefResStats}
 \end{table}
 \FloatBarrier
 
@@ -508,6 +513,9 @@ is (acc), F1-measure is (f1).}
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp),
+False Negatives (fn), True Positives is (tp).}
+\label{tab:SVMDefConfMat}
 \begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
 coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fine-tp \\ \midrule
 379 & 383 & 4 & 0 & 84 & 95 & 12 & 1 \\
@@ -522,23 +530,20 @@ coarse-tn & fine-tn & coarse-fp & fine-fp & coarse-fn & fine-fn & coarse-tp & fi
 379 & 382 & 3 & 0 & 75 & 92 & 20 & 3 \\
 avg 378.8 & avg 382.6 & avg 3.9 & avg 0.1 & avg 80.1 & avg 94.6 & avg 16.0 & avg 1.5 \\ \bottomrule
 \end{tabular}
-\caption{SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp),
-False Negatives (fn), True Positives is (tp).}
-\label{tab:SVMDefConfMat}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM default condensed view of summary performance metrics, each value is the average
+of 10 folds.}
+\label{tab:SVMDef}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.840 & 0.806 & 0.825 & 0.275 & ( 378.8 / 80.1 ) & ( 3.9 / 16.0 ) \\
 fine & 0.815 & 0.772 & 0.802 & 0.031 & ( 382.6 / 94.6 ) & ( 0.1 / 1.5 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM default condensed view of summary performance metrics, each value is the average
-of 10 folds.}
-\label{tab:SVMDef}
 \end{table}
 \FloatBarrier
 
@@ -564,15 +569,16 @@ preprocessing strategy is applied on the entire dataset before training and test
 with a radial basis function kernel.
 
 \FloatBarrier
+
 \begin{table}[H]
 \centering
+\caption{SVM minmax-scaler results.}
+\label{tab:SVMMinMax}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.881 & 0.855 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
 fine & 0.840 & 0.810 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM minmax-scaler results.}
-\label{tab:SVMMinMax}
 \end{table}
 \FloatBarrier
 
@@ -580,26 +586,26 @@ fine & 0.840 & 0.810 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bott
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM norm-scaler results.}
+\label{tab:SVMNorm}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.801 & 0.791 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
 fine & 0.636 & 0.615 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM norm-scaler results.}
-\label{tab:SVMNorm}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM std-scaler results. This option is chosen.}
+\label{tab:SVMStandard}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.912 & 0.882 & 0.881 & 0.631 & ( 372.7 / 47.1 ) & ( 10.0 / 49.0 ) \\
 fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM std-scaler results. This option is chosen.}
-\label{tab:SVMStandard}
 \end{table}
 \FloatBarrier
 
@@ -615,65 +621,65 @@ are used in any sections that follow.
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Linear kernel results.}
+\label{tab:Linear}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.867 & 0.841 & 0.853 & 0.599 & ( 355.5 / 43.4 ) & ( 27.2 / 52.7 ) \\
 fine & 0.816 & 0.789 & 0.828 & 0.523 & ( 351.1 / 50.8 ) & ( 31.6 / 45.3 ) \\ \bottomrule
 \end{tabular}
-\caption{Linear kernel results.}
-\label{tab:Linear}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Poly degree 3 kernel results.}
+\label{tab:polyDeg3}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.816 & 0.817 & 0.807 & 0.169 & ( 376.9 / 86.7 ) & ( 5.8 / 9.4 ) \\
 fine & 0.755 & 0.743 & 0.801 & 0.063 & ( 380.3 / 92.9 ) & ( 2.3 / 3.2 ) \\ \bottomrule
 \end{tabular}
-\caption{Poly degree 3 kernel results.}
-\label{tab:polyDeg3}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Poly degree 6 kernel results.}
+\label{tab:polyDeg6}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.659 & 0.637 & 0.797 & 0.037 & ( 379.5 / 94.2 ) & ( 3.2 / 1.9 ) \\
 fine & 0.624 & 0.584 & 0.794 & 0.020 & ( 379.0 / 95.1 ) & ( 3.7 / 1.0 ) \\ \bottomrule
 \end{tabular}
-\caption{Poly degree 6 kernel results.}
-\label{tab:polyDeg6}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Sigmoid kernel results.}
+\label{tab:sigmoid}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.703 & 0.693 & 0.773 & 0.405 & ( 333.0 / 59.0 ) & ( 49.7 / 37.1 ) \\
 fine & 0.653 & 0.622 & 0.789 & 0.127 & ( 370.3 / 88.7 ) & ( 12.4 / 7.4 ) \\ \bottomrule
 \end{tabular}
-\caption{Sigmoid kernel results.}
-\label{tab:sigmoid}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{RBF kernel results. This option is chosen.}
+\label{tab:RbfOrig}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.912 & 0.882 & 0.881 & 0.630 & ( 372.6 / 47.1 ) & ( 10.1 / 49.0 ) \\
 fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bottomrule
 \end{tabular}
-\caption{RBF kernel results. This option is chosen.}
-\label{tab:RbfOrig}
 \end{table}
 \FloatBarrier
 
@@ -686,13 +692,13 @@ percentage of the features. The 100\% example is the option chosen in the previo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM select percentile, keep 25\% of features.}
+\label{tab:SVMSel25}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.907 & 0.875 & 0.877 & 0.623 & ( 370.7 / 47.1 ) & ( 12.0 / 49.0 ) \\
 fine & 0.854 & 0.823 & 0.806 & 0.068 & ( 382.7 / 92.7 ) & ( 0.0 / 3.4 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM select percentile, keep 25\% of features.}
-\label{tab:SVMSel25}
 \end{table}
 \FloatBarrier
 
@@ -700,13 +706,13 @@ fine & 0.854 & 0.823 & 0.806 & 0.068 & ( 382.7 / 92.7 ) & ( 0.0 / 3.4 ) \\ \bott
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM select percentile, keep 50\% of features.}
+\label{tab:SVMSel50}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.913 & 0.885 & 0.879 & 0.632 & ( 371.3 / 46.4 ) & ( 11.4 / 49.7 ) \\
 fine & 0.874 & 0.842 & 0.810 & 0.097 & ( 382.7 / 91.2 ) & ( 0.0 / 4.9 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM select percentile, keep 50\% of features.}
-\label{tab:SVMSel50}
 \end{table}
 \FloatBarrier
 
@@ -715,17 +721,17 @@ fine & 0.874 & 0.842 & 0.810 & 0.097 & ( 382.7 / 91.2 ) & ( 0.0 / 4.9 ) \\ \bott
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM select percentile, keep 75\% of features. This option is chosen.}
+\label{tab:SVMSel75}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.913 & 0.883 & 0.878 & 0.622 & ( 372.1 / 47.9 ) & ( 10.6 / 48.2 ) \\
 fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM select percentile, keep 75\% of features. This option is chosen.}
-\label{tab:SVMSel75}
 \end{table}
 \FloatBarrier
 
-\par Note that leveraging the fine grained labels did not improve classifier performance
+\par Note that leveraging the fine-grained labels did not improve classifier performance
 relative to the coarse classifier. An alternative classifier strategy Logistic Regression
  (LogReg) is investigated.
 
@@ -736,13 +742,13 @@ relative to the coarse classifier. An alternative classifier strategy Logistic R
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logistic Regression - No scaling.}
+\label{tab:LogRegDef}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.887 & 0.862 & 0.867 & 0.615 & ( 364.1 / 45.0 ) & ( 18.6 / 51.1 ) \\
 fine & 0.854 & 0.837 & 0.833 & 0.395 & ( 372.8 / 69.9 ) & ( 9.9 / 26.2 ) \\ \bottomrule
 \end{tabular}
-\caption{Logistic Regression - No scaling.}
-\label{tab:LogRegDef}
 \end{table}
 \FloatBarrier
 
@@ -979,9 +985,9 @@ fine & 0.863 & 0.839 & 0.810 & 0.588 & ( 323.3 / 31.4 ) & ( 59.4 / 64.7 ) \\ \bo
 the class weight of 7.5, determined in the previous section by a fixed ratio. A
 weight ratio of 1.0 would output a fine class weight of 7.5. A weight ratio of
  0.5 would output a fine class weight of 3.75. Subsections showing the tuning results
- for each of the 8 fine grained classes follow. The confusion matrices and output metrics for the individual
+ for each of the 8 fine-grained classes follow. The confusion matrices and output metrics for the individual
  fine class are shown in order to demonstrate how well the classifier is learning that
- fine grained class. These metrics are the average of 10 folds. The coarse classifier output
+ fine-grained class. These metrics are the average of 10 folds. The coarse classifier output
  is not shown as it will not vary or be dependent upon the fine class weight tuning.
 
 \subsubsection{Fine Tune Class 1 Weights}
@@ -1619,7 +1625,7 @@ fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \
 
 \subsection{Varying SVM Gamma}
 \par After the LogReg classifier is tuned with class weights, the SVM is ran again with the
-class weights determined by the LogReg classifier and a slight advantage for the fine grained
+class weights determined by the LogReg classifier and a slight advantage for the fine-grained
 classifier is demonstrated with the SVM as well. The SVM parameters for the Radial Basis Function
 kernel of Cost and Gamma are varied. The Cost is related to a penalty parameter for the error term
 and Gamma is the kernel coefficient and determines the relative size of the kernel.
@@ -1781,15 +1787,15 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
 
 \par The coarse classifier in both the LogReg and SVM classifier has a greater
  amount of false positives at the default threshold. A further examination of these
- values is shown in \textit{Figures \ref{fig:LogRegThreshAcc}-\ref{fig:LogRegThreshPr}}
-  and \textit{Figures \ref{fig:SVMThreshRoc} - \ref{fig:SVMThreshPr}}. The figures' plot the PR and the ROC
+ values is shown in \textit{Figures \ref{fig:LogRegThreshPr}-\ref{fig:LogRegThreshAcc}}
+  and \textit{Figures \ref{fig:SVMThreshPr}-\ref{fig:SVMThreshRoc}}. The figures plot the PR and the ROC
  curves for each of the 10 folds. Each point on the PR and ROC curve has a
- corresponding F-measure or Accuracy value, these values are plotted on the graphs
+ corresponding F-measure or accuracy value, these values are plotted on the graphs
  as a blue line. The graphs demonstrate that the coarse and fine classifiers have close
  to equivalent average AUC, on the order of 0.007 max difference between Fine and Coarse.
-  At the default threshold the Fine appears to outperform Coarse for Accuracy and F-measure
-  metrics, but the inspection of the plots show that a coarse threshold can be chosen to match the fine output for
- both Accuracy and F-measure. The PR-AUC does show a slight advantage for Fine,
+  At the default threshold the Fine appears to outperform Coarse for accuracy and F-measure
+  metrics, but inspection of the plots shows that a coarse threshold can be chosen to match the fine output for
+ both accuracy and F-measure. The PR-AUC does show a slight advantage for Fine,
  which warrants application of the HAL algorithm and Active over labeling approach on this dataset.
 
 
@@ -1872,7 +1878,7 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
         \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_RocCurve_fine}
         \caption{SVM ROC Curves - Fine}
     \end{subfigure}
-    \caption{SVM Accuracy results are similar between Coarse and Fine.}
+    \caption{SVM accuracy results are similar between Coarse and Fine.}
     \label{fig:SVMThreshRoc}
 \end{figure*}
 \FloatBarrier
@@ -1883,10 +1889,11 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
 
 
 \section{Active vs Passive curves}
-\par The following plots were obtained with a round batch size of 100
+\par The plots in \textit{Figures \ref{fig:runActPassLogReg_pr}-\ref{fig:rnd20LogRegRoc}}
+were obtained with a round batch size of 100
 and a starter set of 1040 instances out of the total 20098 instances.
 The plots are the average of 10 folds, for each fold a test set of 2010 instances
-is used. The test set remains constant throughout the rounds and contains a represantive proportion
+is used. The test set remains constant throughout the rounds and contains a representative proportion
  of each of the classes. The starter set is chosen out of the remaining 18088 and it also contains representatives
  from each class in proportion to that class's prominance in the dataset. The 17048 non-test set, non-starter set
   instances are added to the training set in batches of 100. This results in total of 171 rounds, 170 batch selecting
@@ -1931,7 +1938,7 @@ to a dominance of the Active Fine PR curve after round 10.}
     \begin{subfigure}[t]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{fig/runActPassLogReg_acc}
-        \caption{LogReg Accuracy}
+        \caption{LogReg accuracy}
     \end{subfigure}% %~
 
     \begin{subfigure}[t]{0.75\textwidth}
@@ -1939,7 +1946,7 @@ to a dominance of the Active Fine PR curve after round 10.}
         \includegraphics[width=\textwidth]{fig/runActPassLogReg_f1}
         \caption{LogReg F-measure}
     \end{subfigure}
-    \caption{The Accuracy of the classifiers stays at
+    \caption{The accuracy of the classifiers stays at
 roughly the same rate throughout the rounds, this is due to an effective
 weighting scheme. Both curves show a dominance of Fine over Coarse and
 Active over Passive.}
@@ -1951,7 +1958,7 @@ Active over Passive.}
 \par Note that the Active Fine PR-AUC curve
 surpasses Active Coarse after round 10 while the Active Fine ROC-AUC curve is still well below the
  Active Coarse at that round. These curves are shown in \textit{Figures \ref{fig:rnd20LogRegPr}-
- \ref{fig:rnd20LogRegRoc}}. This is counter-intuitive, according to a proof in Davis \cite{DavisRocPr}
+ \ref{fig:rnd20LogRegRoc}}. This is counter-intuitive, because according to a proof in Davis \cite{DavisRocPr}
  ``For a fixed number of positive and negative examples, one curve dominates a second curve in
  ROC space if and only if the first dominates the second in Precision-Recall space". The theorem uses the
  following definition of dominance: that every value in the first curve is above the corrollary value in
@@ -1968,7 +1975,7 @@ surpasses Active Coarse after round 10 while the Active Fine ROC-AUC curve is st
    \par According to Davis \cite{DavisRocPr}, a large change in the number of false positives can still yield
    only a small change in the number of false postives and thus not affect ROC curve performance. However,
    Davis states, ``Precision, on the other hand, by comparing false positives to true positives rather than true
-   negatives, captures the effect of the large number (incorrectly classified) of negative exaples on the
+   negatives, captures the effect of the large number (incorrectly classified) of negative examples on the
    algorithm's performance" \cite{DavisRocPr}. Since our dataset demonstrates a heavy class imbalance with
     a roughly 1:20 ratio of Positive to Negative instances, the algorithm's ability to classify negative instances
     should be taken into account when considering overall classifier performance. The PR curve's ability to capture
@@ -2030,7 +2037,7 @@ surpasses Active Coarse after round 10 while the Active Fine ROC-AUC curve is st
 as the previous section detailed with the exception that a SVM classifier is
 substituted for the LogReg classifier. Due to the greater advantage of average
 PR-AUC in the LogReg classifier, the SVM is not used in the Fixed Fine ratio
-experiments in the section that follows.
+experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -2075,13 +2082,14 @@ experiments in the section that follows.
 \clearpage
 
 \section{Plots for Fine Fixed Ratio experiments}
+\label{ffrSection}
 \par The strategy is changed from purchasing a set number of instances
     per round to having a set budget per round and spending a portion of that budget
     on fine and coarse grained labels. The Fine Fixed Ratio (FFR), ranges from 0.0 to
     1.0 in increments of 0.1. Note that the FFR 0.0 should roughly correlate to the
     Active Coarse curve shown in \textit{Figure \ref{fig:runActPassLogReg_pr}}. Likewise
     the Active Fine curve should roughly correlate to the FFR 1.0 curve. However, the correlation
-    is not exact since the FFR experiements use and combination classifier, it trains Fine and
+    is not exact since the FFR experiements use a combination classifier, it trains Fine and
     Coarse classifiers on a starter set of the same size and proportion as used in the
     LogReg Active vs Passive experiment, then uses the confidence of both of those classifiers and
     the end prediction is the max of the two classifiers. Thus even for the FFR 0.0 and FFR 1.0
@@ -2089,8 +2097,8 @@ experiments in the section that follows.
     even at the final round 180. The results are an average of 10 folds.
 
     \par To determine the number of instances to purchase each round the FFR is multiplied by the
-    round budget of 100, then the round budget for the coarse labels are purchased at a cost of 1.0,
-    the cost of the fine labels will vary and if a decimal occurs it is resolved by randomly purchasing
+    round budget of 100, then the round budget for the coarse labels are purchased at a cost of 1.0.
+    The cost of the fine labels will vary and if a decimal occurs it is resolved by randomly purchasing
     an extra fine label with the probability of the decimal value. For example, if the fine cost is 16 and
     FFR is 0.5, 50 instances are bought for coarse and 3.125 instances are
     bought for fine. The remainder 0.125 is then turned into a 0.125 chance for any round to
@@ -2103,7 +2111,7 @@ experiments in the section that follows.
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost1_rnds0_180}
     \label{fig:ParamsFFR_PR_Cost1_rnds0_180}
     \caption{For this curve the fine and coarse grain labels
-    both have a cost of 1. The purple 1.0 curve shows that if only fine grained labels
+    both have a cost of 1. The purple 1.0 curve shows that if only fine-grained labels
     are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round
     since the cost of the Fine and Coarse instances is the same the budget}
 \end{figure}
