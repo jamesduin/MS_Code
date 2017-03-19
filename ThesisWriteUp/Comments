@@ -4,11 +4,11 @@ came from, what it represents, etc. Also, in earlier chapters describe why
 this protein family is important. =>
 
 
---Use hyphens in 'coarse-level', 'fine-grained', etc. => updated to use hyphens
+--Use hyphens in 'coarse-level', 'fine-grained', etc. => done
 
 -- Remove page reference. => done
 
---Is this zero?   => used equation format for numbers
+--Is this zero? used equation format for numbers => done
 
 -- Removed spaces between period and table reference => done
 
@@ -17,7 +17,7 @@ this protein family is important. =>
 --Change run to ran, remove ^th => done
 
 --So, after tuning, did you hold the parameter values fixed and
-re-run the experiments on a new partitioning? => added explanation
+re-run the experiments on a new partitioning? => done
 
 -- Remove library duplicate, added Table, removed capitalization => done
 
@@ -61,7 +61,7 @@ ROC over PR?  Isn't that the opposite of what we discussed, or am I missing some
 explanation for bio-dataset => done
 explain log reg => done
 explain SVM =>
-explain Accurcay, F-measure, PR, and Roc =>
+explain Accuracy, F-measure, PR, and Roc =>
 explain coarse vs fine trade off =>
 explain active learning =>
 explain Yugi's work =>

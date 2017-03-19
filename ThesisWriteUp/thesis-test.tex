@@ -202,20 +202,41 @@ min_{\theta,c}\frac{1}{2}\theta^{T}\theta + C\sum_{n}^{i=1}log(exp(-y_i(X_{i}^{T
 \end{aligned}
 \end{equation}
 
+\par A SVM constructs a hyper-plane or set of hyper-planes in a high or infinite dimensional space, which
+is used to output a classification for a given instance. The goal is to learn a hyper-plane that has
+the largest distance between training data points of separate classes, this is called functional margin
+\cite{scikit-learn}. In general the larger the functional margin the lower the generalized error of the
+classifier. SVMs are a maximum functional margin method that allow the model to be written as a sum of the
+influence of a subset of the training instances \cite{ethem}. This output is given by kernel functions
+that are measures of similarity between data instances. The SVM implementation used solves the
+\textit{eqn. \ref{eq:svmfcn}}, where $e$ is a vector of all ones, $C$ is the penalty parameter of the
+error term.
 
+\begin{equation}
+\label{eq:svmfcn}
+\begin{aligned}
+min_{\alpha} \frac{1}{2} \alpha^{T} Q\alpha - e^T\alpha, \
+subject\  to\ y^T \alpha = 0 \ where\ 0\leq\alpha_i\leq C,i=1,...,n
+\end{aligned}
+\end{equation}
 
+The $Q$ function is defined in \textit{eqn. \ref{eq:kernelfcn}}, where $K$ is the kernel function.
+\begin{equation}
+\label{eq:kernelfcn}
+\begin{aligned}
+Q_{ij}\equiv y_i y_j K(x_i,x_j), \ where \ K(x_i,x_j)=\phi (x_i)^T \phi(x_j)
+\end{aligned}
+\end{equation}
 
-%The performance measure is the classification of protein instances according to a
-%label, for example, originated in the mitochondria or not.  The experience is the number of
-%training instances in the training set. The dataset is initially partitioned into training
-%and test sets. The algorithm improves its classifier structure based on the features of
-%each instance by iterating through all instances in the training set. When training has
-%been completed, the classifier is then tested on the test set and the number of instances
-%that the classifier correctly or incorrectly labels determines its accuracy, precision
-%and recall scores. In our protein dataset there are 20,098 proteins with 449 features each
-%relating to their structure. In our experiments an SVM classifier is applied to the dataset
-%with the goal of achieving high precision scores for the label “mitochondrion”, that is,
-%if the protein originates in the mitochondria or not.
+In this work the following kernel functions were tested \cite{scikit-learn}:
+\begin{itemize}
+  \item linear: $\left \langle x,x^{'} \right \rangle$
+  \item polynomial: $(\gamma \left \langle x,x^{'} \right \rangle + r)^{d}$. $d$ is the degree
+  of the polynomial, and $r$ is a coefficient passed to the solver, default is $0$.
+  \item radial basis function (rbf): $(-\gamma |x-x^{'}|^{2})$. $\gamma$ is the kernel coefficient.
+  \item sigmoid: $sigmoid(tanh(\gamma \left \langle x,x^{'} \right \rangle + r))$
+  $r$ is a coefficient passed to the solver, default is $0$.
+\end{itemize}
 
 
 
