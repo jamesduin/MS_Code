@@ -12,7 +12,7 @@ this protein family is important. =>
 
 -- Removed spaces between period and table reference => done
 
--- Move table captions to top =>
+-- Move table captions to top => done
 
 --Change run to ran, remove ^th => done
 
@@ -36,7 +36,7 @@ discussing how you tuned them. =>
 
 
 Ch4 Comments:
--- Move table captions to top =>
+-- Move table captions to top => done
 
 -- Refer to tables 4.1 - 4.2 in the main text =>
 
@@ -44,7 +44,7 @@ Ch4 Comments:
 
 -- The plots in Figures 4.5--XXX instead of the following plots => done
 
--- Add a because, fix mispelling => done
+-- Add a semi-colon, add a because, fix mispelling => done
 
 --So, if you're saying that performance on negatives is very important, we should be emphasizing
 ROC over PR?  Isn't that the opposite of what we discussed, or am I missing something? =>
@@ -55,3 +55,15 @@ ROC over PR?  Isn't that the opposite of what we discussed, or am I missing some
 
 -- Reword a paragraph =>
 
+
+
+############# My notes
+explanation for bio-dataset => done
+explain log reg => done
+explain SVM =>
+explain Accurcay, F-measure, PR, and Roc =>
+explain coarse vs fine trade off =>
+explain active learning =>
+explain Yugi's work =>
+explain HAL (FFR) algorithm =>
+explain continuation to bandit algorithm =>

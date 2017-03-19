@@ -33,6 +33,12 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+% Make caption have a universal width
+%\usepackage[width=.75\textwidth]{caption}
+
+%% Make tables with set width
+\usepackage{tabularx}
+
 %% make tables closer
 \usepackage{float}
 
@@ -158,50 +164,136 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 \mainmatter
 
 %% Thesis goes here
-\chapter{Introduction}\label{chap:aenied}
+\chapter{Introduction}
 
 
 
 \section{Machine Learning}
-\par Machine Learning algorithms are defined as computer programs that learn from experience E
+\par Machine learning (ML) algorithms are defined as computer programs that learn from experience E
 with respect to some class of tasks T and performance measure P, if their performance at
 tasks in T, as measured by P, improves with experience E \cite{mitchell}. In the context of this paper,
-the machine learning algorithms that are used include a support vector machine (SVM) implementation, and
-a Logistic Regression (LogReg) implementation by the sci-kit learn python library \cite{scikit-learn}.
-The performance measure is the classification of protein instances according to a
-label, for example, originated in the mitochondria or not.  The experience is the number of
-training instances in the training set. The dataset is initially partitioned into training
-and test sets. The algorithm improves its classifier structure based on the features of
-each instance by iterating through all instances in the training set. When training has
-been completed, the classifier is then tested on the test set and the number of instances
-that the classifier correctly or incorrectly labels determines its accuracy, precision
-and recall scores. In our protein dataset there are 20,098 proteins with 449 features each
-relating to their structure. In our experiments an SVM classifier is applied to the dataset
-with the goal of achieving high precision scores for the label “mitochondrion”, that is,
-if the protein originates in the mitochondria or not.
+the machine learning algorithms that are used include Support Vector Machines (SVM), and Logistic Regression (Logit).
+ This work uses implementations by the sci-kit learn python library \cite{scikit-learn} for both algorithms. Our
+ experiment requires a binary classification task, each algorithm takes a protein instance with a list of 449 features
+ as an input and then outputs a 0 or 1 whether or not the protein belongs to a class. A separate classifier is trained
+ for each class in the protein dataset.
+ \par Logit is a linear model for classification. The classifier function is shown in \textit{eqn \ref{eq:logit}}.
+ Where x is the vector of features, theta is vector of learned parameters, the function $g(z)$ is the sigmoid
+ function \cite{Coursera}.
 
-%Define PR, ROC, and AUC in this chapter
+\begin{equation}
+\label{eq:logit}
+\begin{aligned}
+h_{\theta}(x) = g(\theta \cdot x) \\
+g(z) = \frac{1}{1+e^{-z}}
+\end{aligned}
+\end{equation}
+
+\par The theta parameters are solved for in order to minimize the sum of square errors (L2-norm)
+in the training set, and also to regularize the theta parameters to prevent them from getting to large
+and overfitting the dataset \cite{scikit-learn}. A cost function is used to solve for theta, this
+function is shown in \textit{eqn \ref{eq:costlogit}}. The $C$ parameter is the inverse of the regularization
+strength, a larger value means a stronger regularization \cite{scikit-learn}.
+
+\begin{equation}
+\label{eq:costlogit}
+\begin{aligned}
+min_{\theta,c}\frac{1}{2}\theta^{T}\theta + C\sum_{n}^{i=1}log(exp(-y_i(X_{i}^{T}\theta+c))+1)
+\end{aligned}
+\end{equation}
+
+
+
+
+%The performance measure is the classification of protein instances according to a
+%label, for example, originated in the mitochondria or not.  The experience is the number of
+%training instances in the training set. The dataset is initially partitioned into training
+%and test sets. The algorithm improves its classifier structure based on the features of
+%each instance by iterating through all instances in the training set. When training has
+%been completed, the classifier is then tested on the test set and the number of instances
+%that the classifier correctly or incorrectly labels determines its accuracy, precision
+%and recall scores. In our protein dataset there are 20,098 proteins with 449 features each
+%relating to their structure. In our experiments an SVM classifier is applied to the dataset
+%with the goal of achieving high precision scores for the label “mitochondrion”, that is,
+%if the protein originates in the mitochondria or not.
+
 
 
 \section{Hierarchical Bioinformatics Data Set}
-\par The protein dataset is labeled according to where it originates in the cell.
-At the root is “mitochondrion”, then there is the sub level labels for if its native
-to the mitochondria or if it has a separate target compartment specification. The complete
-tree along with the number of instances belonging to the each label is included in \textit{Figure \ref{fig:Mitotree} }.
+\par Bioinformatics is a field using computer science tools and techniques
+for solving problems in (molecular) biology. The focus of this work is
+a Bioinformatics dataset developed in order to identify the source of
+a certain class of mutations causing mitochondrial disease. Mitochondria are
+present in every cell of the body, with the exception of red blood cells
+\cite{bioPoster}. Mitochondrial diseases may be caused by mutations
+in the proteins that reside within the mitochondria. These mutations that
+occur in locally transcribed and translated mitochondrial DNA (mtDNA), or
+in nuclear DNA (nDNA) whose protein products are imported into the
+mitochondria. These nDNA have many target locations including the mitochondria's
+outer and inner membrane, its matrix, and its ribosomes. Identifying the
+source of the mutation is an important problem in the treatment of a
+mitochondrial disease. It is an essential classification task to determine
+wether or not the offending mutation occurs in the mitochondrion or in
+an imported protein \cite{bioPoster}. The postive dataset is composed of 962
+human mitochondrial proteins from the Mitoproteome dataset \cite{mitoproteome}.
+The negative dataset is composed of 19,136 experimentally validated human
+ proteins from UniProt \cite{UniProt}. A total of 1099 features were assembled
+ by Kevin Chiang from Dr. Cui's bioinformatics lab at University of Nebraska
+ at Lincoln (UNL), these features are described along with references to their
+ sources in \textit{Table \ref{featureList}}. The features were reduced and
+  combined into a resulting set of 449 dimensions \cite{bioPoster}. This
+  bioinformatics dataset is used for experimentation throughout this work.
+
+\FloatBarrier
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Features of the protein dataset along with their respective sources.}
+  \label{tab:featureList}
+  \begin{tabular}{|p{0.15\linewidth}|p{0.5\linewidth}|p{0.35\linewidth}|} \toprule
+    Type of Properties & Features (dimension) & Sources \\ \midrule
+    General sequence features & Amino acid composition (20), sequence length (1),
+     di-peptides composition (400) & Calculated by Kevin Chiang at UNL \cite{bioPoster} \\
+     & Normalized Moreau-Broto, autocorrelation
+     (240), Moran autocorrelation (240), Geary autocorrelation (240),
+     Sequence order (160), Pseudo amino acid composition (50) & Profeat \cite{PROFEAT1} \\ \midrule
+    Physico chemical properties &  Hydrophobicity (21), normalized Van der Waals volume (21),
+    polarity (21), polarizability (21), charge (21), secondary structure (21)
+    and solvent accessibility (21) & Computed with three descriptors: composition (C),
+    transition (T), and distribution (D) \cite{Cui2} \\
+     & Solubility (1), unfoldability (1),
+    disorder regions (3), global charge (1) and hydrophobility (1) &
+    PROSO \cite{PROSO3}, Phobius \cite{Phobius4} \\ \midrule
+    Structural properties & Secondary structural content (4), shape
+    (Radius Gyration) (1) & SSCP \cite{PSSCP5} \\ \midrule
+    Domains and motifs & Signal peptide (1), transmembrane domains
+    (alpha helix and beta barrel) (5), Glycosylation
+    (both N-linked and O-linked) (4),
+    Twin-arginine signal peptides motif (TAT) (1) & SignalP \cite{SignalP6},
+    TMB-Hunt \cite{TMBHunt7}, NetOgly \cite{NetOgly8}, TatP \cite{TatP9} \\
+      \bottomrule
+  \end{tabular}
+\end{table}
+\FloatBarrier
+
+\par The datset composes a classification problem, each protein is labeled
+ according to where it originates in the cell. At the root is is whether or not
+ the protein resides within the mitochondria, then there are the sub level labels
+ if the protein has a separate target compartment specifications. The complete
+ tree along with the number of instances belonging to the each label
+ is included in \textit{Figure \ref{fig:Mitotree}}.
 
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/Mito_tree}
-    \caption{The protein dataset is labeled according to where it originates in the cell. At the
-    root is “mitochondrion”, then there is the sub level labels for if its native to the mitochondria
-    or if it has a separate target compartment specification. The complete tree along with the number
-    of instances belonging to the each label is included in this figure.}
+    \includegraphics[width=0.75\columnwidth]{fig/Mito_tree}
+    \caption{The protein dataset hierarchy of labels along with the instance
+    count for each label.}
     \label{fig:Mitotree}
 \end{figure}
 \FloatBarrier
 
-\section{Coarse Grained vs Fine Grained Trade Off}
+\section{Coarse-grained vs Fine-grained Trade Off}
 \par The classifier that does not take advantage of any of the fine-grained labels works off of the root
 labels for each instance and does not train separate classifiers for the fine-grained labels. This
 classifier is referred to as the coarse-grained classifier. The classifier that does use fine-grained
@@ -310,7 +402,7 @@ Add explanation of Bandit approach and results.
 
 
 
-\chapter{Experimental Setup}\label{chap:math}
+\chapter{Experimental Setup}
 \section{Training and Testing Coarse Grain and Fine Grain Classifiers}
 \par The bioinformatics dataset is composed of 9 classes as shown in
 \textit{Figure \ref{fig:Mitotree} }. The coarse-level concept is whether or not
@@ -733,7 +825,7 @@ fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bott
 
 \par Note that leveraging the fine-grained labels did not improve classifier performance
 relative to the coarse classifier. An alternative classifier strategy Logistic Regression
- (LogReg) is investigated.
+ (Logit) is investigated.
 
 
 \subsection{Varying Logistic Regression Scaling}
@@ -755,39 +847,39 @@ fine & 0.854 & 0.837 & 0.833 & 0.395 & ( 372.8 / 69.9 ) & ( 9.9 / 26.2 ) \\ \bot
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logistic Regression standard scaling.}
+\label{tab:LogRegStandard}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.864 & 0.849 & 0.846 & 0.583 & ( 353.8 / 44.8 ) & ( 28.7 / 51.3 ) \\
 fine & 0.833 & 0.816 & 0.831 & 0.471 & ( 362.0 / 60.2 ) & ( 20.5 / 36.0 ) \\ \bottomrule
 \end{tabular}
-\caption{Logistic Regression standard scaling.}
-\label{tab:LogRegStandard}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logistic Regression normalization scaling.}
+\label{tab:LogRegNorm}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.790 & 0.761 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
 fine & 0.767 & 0.735 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{Logistic Regression normalization scaling.}
-\label{tab:LogRegNorm}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logistic Regression MinMax scaling. This option is chosen.}
+\label{tab:LogRegMinMax}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.891 & 0.867 & 0.864 & 0.581 & ( 368.6 / 50.9 ) & ( 14.1 / 45.2 ) \\
 fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bottomrule
 \end{tabular}
-\caption{Logistic Regression MinMax scaling. This option is chosen.}
-\label{tab:LogRegMinMax}
 \end{table}
 \FloatBarrier
 
@@ -798,13 +890,13 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logistic Regression select percentile 25\%.}
+\label{tab:LogRegSel25}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.872 & 0.848 & 0.849 & 0.497 & ( 370.8 / 60.3 ) & ( 11.9 / 35.8 ) \\
 fine & 0.869 & 0.845 & 0.804 & 0.052 & ( 382.2 / 93.5 ) & ( 0.5 / 2.6 ) \\ \bottomrule
 \end{tabular}
-\caption{Logistic Regression select percentile 25\%.}
-\label{tab:LogRegSel25}
 \end{table}
 \FloatBarrier
 
@@ -812,26 +904,26 @@ fine & 0.869 & 0.845 & 0.804 & 0.052 & ( 382.2 / 93.5 ) & ( 0.5 / 2.6 ) \\ \bott
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logistic Regression select percentile 50\%.}
+\label{tab:LogRegSel50}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.875 & 0.849 & 0.849 & 0.497 & ( 370.8 / 60.3 ) & ( 11.9 / 35.8 ) \\
 fine & 0.872 & 0.846 & 0.803 & 0.050 & ( 382.2 / 93.6 ) & ( 0.5 / 2.5 ) \\ \bottomrule
 \end{tabular}
-\caption{Logistic Regression select percentile 50\%.}
-\label{tab:LogRegSel50}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logistic Regression select percentile 75\%.}
+\label{tab:LogRegSel75}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.871 & 0.847 & 0.848 & 0.493 & ( 370.6 / 60.6 ) & ( 12.1 / 35.5 ) \\
 fine & 0.869 & 0.845 & 0.803 & 0.048 & ( 382.0 / 93.7 ) & ( 0.7 / 2.4 ) \\ \bottomrule
 \end{tabular}
-\caption{Logistic Regression select percentile 75\%.}
-\label{tab:LogRegSel75}
 \end{table}
 \FloatBarrier
 
@@ -839,13 +931,13 @@ fine & 0.869 & 0.845 & 0.803 & 0.048 & ( 382.0 / 93.7 ) & ( 0.7 / 2.4 ) \\ \bott
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logistic Regression select percentile 100\%. This option is chosen.}
+\label{tab:LogRegMinMax}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.891 & 0.867 & 0.864 & 0.581 & ( 368.6 / 50.9 ) & ( 14.1 / 45.2 ) \\
 fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bottomrule
 \end{tabular}
-\caption{Logistic Regression select percentile 100\%. This option is chosen.}
-\label{tab:LogRegMinMax}
 \end{table}
 \FloatBarrier
 
@@ -860,26 +952,26 @@ instances, this is 4.977. The negative instance train weight is always 1.0.
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit weight 4.977, cost 1.0}
+\label{tab:LogRegWtOrig-C1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.886 & 0.868 & 0.787 & 0.606 & ( 298.7 / 17.9 ) & ( 84.0 / 78.2 ) \\
 fine & 0.885 & 0.862 & 0.857 & 0.587 & ( 361.7 / 47.3 ) & ( 21.0 / 48.8 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg weight 4.977, cost 1.0}
-\label{tab:LogRegWtOrig-C1}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit weight 4.977, cost 0.1}
+\label{tab:LogRegWtOrig-Cp1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.861 & 0.755 & 0.579 & ( 280.7 / 15.4 ) & ( 102.0 / 80.7 ) \\
 fine & 0.880 & 0.856 & 0.851 & 0.483 & ( 374.2 / 62.7 ) & ( 8.5 / 33.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg weight 4.977, cost 0.1}
-\label{tab:LogRegWtOrig-Cp1}
 \end{table}
 \FloatBarrier
 
@@ -887,13 +979,13 @@ fine & 0.880 & 0.856 & 0.851 & 0.483 & ( 374.2 / 62.7 ) & ( 8.5 / 33.4 ) \\ \bot
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit weight 4.977, cost 10.0}
+\label{tab:LogRegWtOrig-C10}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.876 & 0.855 & 0.793 & 0.603 & ( 304.6 / 21.1 ) & ( 78.1 / 75.0 ) \\
 fine & 0.866 & 0.842 & 0.835 & 0.583 & ( 344.8 / 40.9 ) & ( 37.9 / 55.2 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg weight 4.977, cost 10.0}
-\label{tab:LogRegWtOrig-C10}
 \end{table}
 \FloatBarrier
 
@@ -901,13 +993,13 @@ fine & 0.866 & 0.842 & 0.835 & 0.583 & ( 344.8 / 40.9 ) & ( 37.9 / 55.2 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit weight 10.0, cost 1.0}
+\label{tab:LogRegWt10-C1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.883 & 0.865 & 0.690 & 0.536 & ( 245.4 / 10.9 ) & ( 137.3 / 85.2 ) \\
 fine & 0.880 & 0.859 & 0.822 & 0.620 & ( 324.2 / 26.7 ) & ( 58.5 / 69.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg weight 10.0, cost 1.0}
-\label{tab:LogRegWt10-C1}
 \end{table}
 \FloatBarrier
 
@@ -915,72 +1007,72 @@ fine & 0.880 & 0.859 & 0.822 & 0.620 & ( 324.2 / 26.7 ) & ( 58.5 / 69.4 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit weight 10.0, cost 0.1}
+\label{tab:LogRegWt10-Cp1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.879 & 0.863 & 0.609 & 0.486 & ( 203.6 / 7.9 ) & ( 179.1 / 88.2 ) \\
 fine & 0.881 & 0.859 & 0.834 & 0.621 & ( 334.5 / 31.1 ) & ( 48.2 / 65.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg weight 10.0, cost 0.1}
-\label{tab:LogRegWt10-Cp1}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit weight 10.0, cost 10.0}
+\label{tab:LogRegWt10-C10}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.871 & 0.851 & 0.723 & 0.554 & ( 264.1 / 13.9 ) & ( 118.6 / 82.2 ) \\
 fine & 0.861 & 0.837 & 0.792 & 0.585 & ( 309.3 / 26.2 ) & ( 73.4 / 69.9 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg weight 10.0, cost 10.0}
-\label{tab:LogRegWt10-C10}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit weight 7.5, cost 1.0}
+\label{tab:LogRegWt7p5-C1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.884 & 0.867 & 0.734 & 0.566 & ( 268.8 / 13.5 ) & ( 113.9 / 82.6 ) \\
 fine & 0.882 & 0.861 & 0.846 & 0.624 & ( 343.4 / 34.6 ) & ( 39.3 / 61.5 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg weight 7.5, cost 1.0}
-\label{tab:LogRegWt7p5-C1}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit weight 7.5, cost 0.1. This option is chosen due to showing advantage for the
+fine classifier compared to the coarse classifier.}
+\label{tab:LogRegWt7p5-Cp1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.881 & 0.858 & 0.859 & 0.613 & ( 357.3 / 42.3 ) & ( 25.4 / 53.8 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg weight 7.5, cost 0.1. This option is chosen due to showing advantage for the
-fine classifier compared to the coarse classifier.}
-\label{tab:LogRegWt7p5-Cp1}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit weight 7.5, cost 10.0}
+\label{tab:LogRegWt7p5-C10}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.873 & 0.852 & 0.757 & 0.578 & ( 283.2 / 16.7 ) & ( 99.5 / 79.4 ) \\
 fine & 0.863 & 0.839 & 0.810 & 0.588 & ( 323.3 / 31.4 ) & ( 59.4 / 64.7 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg weight 7.5, cost 10.0}
-\label{tab:LogRegWt7p5-C10}
 \end{table}
 \FloatBarrier
 
 
 
-\subsection{Varying Logistic Regression Tune Fine Class Weights}
+\subsection{Varying Logistic Regression Fine Class Weights}
 \par The weight for each of the separate fine classes is tuned by multiplying,
 the class weight of 7.5, determined in the previous section by a fixed ratio. A
 weight ratio of 1.0 would output a fine class weight of 7.5. A weight ratio of
@@ -990,18 +1082,18 @@ weight ratio of 1.0 would output a fine class weight of 7.5. A weight ratio of
  fine-grained class. These metrics are the average of 10 folds. The coarse classifier output
  is not shown as it will not vary or be dependent upon the fine class weight tuning.
 
-\subsubsection{Fine Tune Class 1 Weights}
+\subsubsection{Tune Fine Class 1 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 1 weight ratio 1.0}
+\label{tab:LogRegCls1-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.881 & 0.858 & 0.859 & 0.613 & ( 357.3 / 42.3 ) & ( 25.4 / 53.8 ) \\
 trainCls-1 & 0.995 & 0.999 & 0.998 & 0.477 & ( 4297.7 / 7.7 ) & ( 0.8 / 4.0 ) \\
 testCls-1 & 0.722 & 0.996 & 0.997 & 0.100 & ( 477.4 / 1.2 ) & ( 0.1 / 0.1 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 1 weight ratio 1.0}
-\label{tab:LogRegCls1-Wt1}
 \end{table}
 \FloatBarrier
 
@@ -1009,102 +1101,102 @@ testCls-1 & 0.722 & 0.996 & 0.997 & 0.100 & ( 477.4 / 1.2 ) & ( 0.1 / 0.1 ) \\ \
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 1 weight ratio 0.5}
+\label{tab:LogRegCls1-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.880 & 0.856 & 0.859 & 0.613 & ( 357.4 / 42.3 ) & ( 25.3 / 53.8 ) \\
 trainCls-1 & 0.994 & 0.998 & 0.997 & 0.142 & ( 4298.5 / 10.8 ) & ( 0.0 / 0.9 ) \\
 testCls-1 & 0.696 & 0.995 & 0.997 & 0.000 & ( 477.5 / 1.3 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 1 weight ratio 0.5}
-\label{tab:LogRegCls1-Wtp5}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 1 weight ratio 3.0. This option is chosen.}
+\label{tab:LogRegCls1-Wt3}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
 trainCls-1 & 0.995 & 1.000 & 0.999 & 0.854 & ( 4295.8 / 1.0 ) & ( 2.7 / 10.7 ) \\
 testCls-1 & 0.722 & 0.997 & 0.998 & 0.400 & ( 477.1 / 0.7 ) & ( 0.4 / 0.6 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 1 weight ratio 3.0. This option is chosen.}
-\label{tab:LogRegCls1-Wt3}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 1 weight ratio 5.0}
+\label{tab:LogRegCls1-Wt5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.881 & 0.859 & 0.860 & 0.618 & ( 357.0 / 41.5 ) & ( 25.7 / 54.6 ) \\
 trainCls-1 & 0.995 & 1.000 & 0.999 & 0.850 & ( 4294.3 / 0.0 ) & ( 4.2 / 11.7 ) \\
 testCls-1 & 0.722 & 0.997 & 0.998 & 0.513 & ( 476.9 / 0.5 ) & ( 0.6 / 0.8 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 1 weight ratio 5.0}
-\label{tab:LogRegCls1-Wt5}
 \end{table}
 \FloatBarrier
 
 
-\subsubsection{Fine Tune Class 2 Weights}
+\subsubsection{Tune Fine Class 2 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 2 weight ratio 1.0. This option is chosen.}
+\label{tab:LogRegCls2-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
 trainCls-2 & 0.800 & 0.804 & 0.952 & 0.200 & ( 4076.9 / 140.5 ) & ( 66.8 / 26.0 ) \\
 testCls-2 & 0.655 & 0.689 & 0.944 & 0.081 & ( 450.7 / 17.3 ) & ( 9.6 / 1.2 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 2 weight ratio 1.0. This option is chosen.}
-\label{tab:LogRegCls2-Wt1}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 2 weight ratio 0.5}
+\label{tab:LogitCls2-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.857 & 0.862 & 0.618 & ( 359.1 / 42.5 ) & ( 23.6 / 53.6 ) \\
 trainCls-2 & 0.785 & 0.787 & 0.961 & 0.052 & ( 4139.4 / 161.9 ) & ( 4.3 / 4.6 ) \\
 testCls-2 & 0.656 & 0.694 & 0.960 & 0.009 & ( 459.4 / 18.4 ) & ( 0.9 / 0.1 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 2 weight ratio 0.5}
-\label{tab:LogRegCls2-Wtp5}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 2 weight ratio 1.5}
+\label{tab:LogRegCls2-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.877 & 0.857 & 0.855 & 0.620 & ( 352.5 / 39.3 ) & ( 30.2 / 56.8 ) \\
 trainCls-2 & 0.806 & 0.814 & 0.924 & 0.263 & ( 3924.1 / 108.1 ) & ( 219.6 / 58.4 ) \\
 testCls-2 & 0.652 & 0.684 & 0.914 & 0.123 & ( 434.8 / 15.6 ) & ( 25.5 / 2.9 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 2 weight ratio 1.5}
-\label{tab:LogRegCls2-Wt1p5}
 \end{table}
 \FloatBarrier
 
 
-\subsubsection{Fine Tune Class 3 Weights}
+\subsubsection{Tune Fine Class 3 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 3 weight ratio 1.0. This option is chosen.}
+\label{tab:LogRegCls3-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
 trainCls-3 & 0.846 & 0.852 & 0.882 & 0.401 & ( 3628.6 / 120.7 ) & ( 390.0 / 170.9 ) \\
 testCls-3 & 0.795 & 0.803 & 0.873 & 0.360 & ( 401.2 / 15.4 ) & ( 45.2 / 17.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 3 weight ratio 1.0. This option is chosen.}
-\label{tab:LogRegCls3-Wt1}
 \end{table}
 \FloatBarrier
 
@@ -1112,58 +1204,58 @@ testCls-3 & 0.795 & 0.803 & 0.873 & 0.360 & ( 401.2 / 15.4 ) & ( 45.2 / 17.0 ) \
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 3 weight ratio 0.5}
+\label{tab:LogRegCls3-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.870 & 0.852 & 0.839 & 0.445 & ( 370.9 / 65.1 ) & ( 11.8 / 31.0 ) \\
 trainCls-3 & 0.838 & 0.838 & 0.929 & 0.288 & ( 3942.0 / 229.7 ) & ( 76.6 / 61.9 ) \\
 testCls-3 & 0.792 & 0.798 & 0.925 & 0.246 & ( 437.2 / 26.5 ) & ( 9.2 / 5.9 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 3 weight ratio 0.5}
-\label{tab:LogRegCls3-Wtp5}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 3 weight ratio 1.5}
+\label{tab:LogRegCls3-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.879 & 0.855 & 0.832 & 0.626 & ( 331.2 / 28.9 ) & ( 51.5 / 67.2 ) \\
 trainCls-3 & 0.849 & 0.859 & 0.813 & 0.351 & ( 3288.4 / 74.5 ) & ( 730.2 / 217.1 ) \\
 testCls-3 & 0.795 & 0.805 & 0.804 & 0.318 & ( 363.3 / 10.6 ) & ( 83.1 / 21.8 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 3 weight ratio 1.5}
-\label{tab:LogRegCls3-Wt1p5}
 \end{table}
 \FloatBarrier
 
 
-\subsubsection{Fine Tune Class 4 Weights}
+\subsubsection{Tune Fine Class 4 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 4 weight ratio 1.0}
+\label{tab:LogRegCls4-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
 trainCls-4 & 0.937 & 0.942 & 0.960 & 0.531 & ( 4038.6 / 72.9 ) & ( 100.6 / 98.1 ) \\
 testCls-4 & 0.882 & 0.902 & 0.952 & 0.433 & ( 447.1 / 10.2 ) & ( 12.7 / 8.8 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 4 weight ratio 1.0}
-\label{tab:LogRegCls4-Wt1}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 4 weight ratio 0.5}
+\label{tab:LogRegCls4-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.875 & 0.852 & 0.855 & 0.590 & ( 359.2 / 45.9 ) & ( 23.5 / 50.2 ) \\
 trainCls-4 & 0.928 & 0.932 & 0.965 & 0.397 & ( 4108.1 / 120.9 ) & ( 31.1 / 50.1 ) \\
 testCls-4 & 0.878 & 0.898 & 0.962 & 0.320 & ( 456.0 / 14.6 ) & ( 3.8 / 4.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 4 weight ratio 0.5}
-\label{tab:LogRegCls4-Wtp5}
 \end{table}
 \FloatBarrier
 
@@ -1171,43 +1263,43 @@ testCls-4 & 0.878 & 0.898 & 0.962 & 0.320 & ( 456.0 / 14.6 ) & ( 3.8 / 4.4 ) \\ 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 4 weight ratio 1.5. This option is chosen.}
+\label{tab:LogRegCls4-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-4 & 0.941 & 0.947 & 0.936 & 0.462 & ( 3918.1 / 53.2 ) & ( 221.1 / 117.8 ) \\
 testCls-4 & 0.886 & 0.903 & 0.926 & 0.382 & ( 432.5 / 8.0 ) & ( 27.3 / 11.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 4 weight ratio 1.5. This option is chosen.}
-\label{tab:LogRegCls4-Wt1p5}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 4 weight ratio 2.0}
+\label{tab:LogRegCls4-Wt2}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.880 & 0.859 & 0.853 & 0.627 & ( 348.9 / 36.7 ) & ( 33.8 / 59.4 ) \\
 trainCls-4 & 0.943 & 0.950 & 0.917 & 0.429 & ( 3817.7 / 36.5 ) & ( 321.5 / 134.5 ) \\
 testCls-4 & 0.886 & 0.903 & 0.906 & 0.352 & ( 421.8 / 6.8 ) & ( 38.0 / 12.2 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 4 weight ratio 2.0}
-\label{tab:LogRegCls4-Wt2}
 \end{table}
 \FloatBarrier
 
-\subsubsection{Fine Tune Class 5 Weights}
+\subsubsection{Tune Fine Class 5 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 5 weight ratio 1.0}
+\label{tab:LogRegCls5-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-5 & 0.940 & 0.941 & 0.998 & 0.000 & ( 4300.2 / 10.0 ) & ( 0.0 / 0.0 ) \\
 testCls-5 & 0.393 & 0.681 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 5 weight ratio 1.0}
-\label{tab:LogRegCls5-Wt1}
 \end{table}
 \FloatBarrier
 
@@ -1215,14 +1307,14 @@ testCls-5 & 0.393 & 0.681 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 5 weight ratio 0.5}
+\label{tab:LogRegCls5-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-5 & 0.911 & 0.912 & 0.998 & 0.000 & ( 4300.2 / 10.0 ) & ( 0.0 / 0.0 ) \\
 testCls-5 & 0.389 & 0.672 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 5 weight ratio 0.5}
-\label{tab:LogRegCls5-Wtp5}
 \end{table}
 \FloatBarrier
 
@@ -1230,86 +1322,86 @@ testCls-5 & 0.389 & 0.672 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 5 weight ratio 1.5}
+\label{tab:LogRegCls5-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-5 & 0.957 & 0.958 & 0.998 & 0.000 & ( 4300.2 / 10.0 ) & ( 0.0 / 0.0 ) \\
 testCls-5 & 0.396 & 0.687 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 5 weight ratio 1.5}
-\label{tab:LogRegCls5-Wt1p5}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 5 weight ratio 5.0}
+\label{tab:LogRegCls5-Wt5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-5 & 0.990 & 0.990 & 0.998 & 0.374 & ( 4299.8 / 7.6 ) & ( 0.4 / 2.4 ) \\
 testCls-5 & 0.401 & 0.694 & 0.998 & 0.000 & ( 477.7 / 1.0 ) & ( 0.1 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 5 weight ratio 5.0}
-\label{tab:LogRegCls5-Wt5}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 5 weight ratio 10.0. This option is chosen.}
+\label{tab:LogRegCls5-Wt10}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.855 & 0.623 & ( 352.1 / 38.8 ) & ( 30.6 / 57.3 ) \\
 trainCls-5 & 0.996 & 0.997 & 0.998 & 0.609 & ( 4293.4 / 2.7 ) & ( 6.8 / 7.3 ) \\
 testCls-5 & 0.402 & 0.696 & 0.996 & 0.000 & ( 476.8 / 1.0 ) & ( 1.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 5 weight ratio 10.0. This option is chosen.}
-\label{tab:LogRegCls5-Wt10}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{LogitCls5-Wt20}
+\label{tab:LogRegCls5-Wt20}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.881 & 0.860 & 0.854 & 0.622 & ( 351.6 / 38.7 ) & ( 31.1 / 57.4 ) \\
 trainCls-5 & 0.998 & 0.998 & 0.992 & 0.355 & ( 4265.8 / 0.5 ) & ( 34.4 / 9.5 ) \\
 testCls-5 & 0.381 & 0.616 & 0.989 & 0.000 & ( 473.5 / 1.0 ) & ( 4.3 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogRegCls5-Wt20}
-\label{tab:LogRegCls5-Wt20}
 \end{table}
 \FloatBarrier
 
-\subsubsection{Fine Tune Class 6 Weights}
+\subsubsection{Tune Fine Class 6 Weights}
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 6 weight ratio 1.0}
+\label{tab:LogRegCls6-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.855 & 0.623 & ( 352.1 / 38.8 ) & ( 30.6 / 57.3 ) \\
 trainCls-6 & 0.945 & 0.962 & 0.976 & 0.303 & ( 4182.5 / 70.8 ) & ( 34.1 / 22.8 ) \\
 testCls-6 & 0.892 & 0.936 & 0.972 & 0.191 & ( 463.9 / 8.8 ) & ( 4.5 / 1.6 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 6 weight ratio 1.0}
-\label{tab:LogRegCls6-Wt1}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 6 weight ratio 0.5}
+\label{tab:LogRegCls6-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.855 & 0.622 & ( 352.1 / 38.9 ) & ( 30.6 / 57.2 ) \\
 trainCls-6 & 0.938 & 0.956 & 0.978 & 0.006 & ( 4216.5 / 93.3 ) & ( 0.1 / 0.3 ) \\
 testCls-6 & 0.881 & 0.928 & 0.978 & 0.000 & ( 468.3 / 10.4 ) & ( 0.1 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 6 weight ratio 0.5}
-\label{tab:LogRegCls6-Wtp5}
 \end{table}
 \FloatBarrier
 
@@ -1317,58 +1409,58 @@ testCls-6 & 0.881 & 0.928 & 0.978 & 0.000 & ( 468.3 / 10.4 ) & ( 0.1 / 0.0 ) \\ 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 6 weight ratio 2.0. This option is chosen.}
+\label{tab:LogRegCls6-Wt2}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.884 & 0.861 & 0.855 & 0.627 & ( 350.8 / 37.6 ) & ( 31.9 / 58.5 ) \\
 trainCls-6 & 0.950 & 0.967 & 0.949 & 0.380 & ( 4023.8 / 26.4 ) & ( 192.8 / 67.2 ) \\
 testCls-6 & 0.897 & 0.939 & 0.945 & 0.292 & ( 447.0 / 5.0 ) & ( 21.4 / 5.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 6 weight ratio 2.0. This option is chosen.}
-\label{tab:LogRegCls6-Wt2}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 6 weight ratio 3.0}
+\label{tab:LogRegCls6-Wt3}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.884 & 0.860 & 0.850 & 0.629 & ( 346.6 / 35.5 ) & ( 36.1 / 60.6 ) \\
 trainCls-6 & 0.952 & 0.969 & 0.921 & 0.335 & ( 3885.8 / 8.3 ) & ( 330.8 / 85.3 ) \\
 testCls-6 & 0.898 & 0.940 & 0.915 & 0.281 & ( 430.5 / 2.6 ) & ( 37.9 / 7.8 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 6 weight ratio 3.0}
-\label{tab:LogRegCls6-Wt3}
 \end{table}
 \FloatBarrier
 
 
-\subsubsection{Fine Tune Class 7 Weights}
+\subsubsection{Tune Fine Class 7 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 7 weight ratio 1.0}
+\label{tab:LogRegCls7-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.884 & 0.862 & 0.855 & 0.628 & ( 350.8 / 37.5 ) & ( 31.9 / 58.6 ) \\
 trainCls-7 & 0.892 & 0.893 & 0.988 & 0.000 & ( 4257.1 / 53.1 ) & ( 0.0 / 0.0 ) \\
 testCls-7 & 0.648 & 0.720 & 0.988 & 0.000 & ( 472.9 / 5.9 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 7 weight ratio 1.0}
-\label{tab:LogRegCls7-Wt1}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 7 weight ratio 0.5}
+\label{tab:LogRegCls7-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.884 & 0.861 & 0.855 & 0.627 & ( 350.8 / 37.6 ) & ( 31.9 / 58.5 ) \\
 trainCls-7 & 0.859 & 0.857 & 0.988 & 0.000 & ( 4257.1 / 53.1 ) & ( 0.0 / 0.0 ) \\
 testCls-7 & 0.636 & 0.708 & 0.988 & 0.000 & ( 472.9 / 5.9 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 7 weight ratio 0.5}
-\label{tab:LogRegCls7-Wtp5}
 \end{table}
 \FloatBarrier
 
@@ -1377,43 +1469,43 @@ testCls-7 & 0.636 & 0.708 & 0.988 & 0.000 & ( 472.9 / 5.9 ) & ( 0.0 / 0.0 ) \\ \
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 7 weight ratio 3.0. This option is chosen.}
+\label{tab:LogRegCls7-Wt3}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\
 trainCls-7 & 0.930 & 0.939 & 0.986 & 0.344 & ( 4234.1 / 37.3 ) & ( 23.0 / 15.8 ) \\
 testCls-7 & 0.667 & 0.739 & 0.983 & 0.105 & ( 470.1 / 5.4 ) & ( 2.8 / 0.5 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 7 weight ratio 3.0. This option is chosen.}
-\label{tab:LogRegCls7-Wt3}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 7 weight ratio 5.0}
+\label{tab:LogRegCls7-Wt5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.860 & 0.847 & 0.628 & ( 344.0 / 34.4 ) & ( 38.7 / 61.7 ) \\
 trainCls-7 & 0.941 & 0.953 & 0.956 & 0.265 & ( 4086.0 / 18.9 ) & ( 171.1 / 34.2 ) \\
 testCls-7 & 0.674 & 0.744 & 0.948 & 0.099 & ( 452.3 / 4.5 ) & ( 20.6 / 1.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 7 weight ratio 5.0}
-\label{tab:LogRegCls7-Wt5}
 \end{table}
 \FloatBarrier
 
-\subsubsection{Fine Tune Class 8 Weights}
+\subsubsection{Tune Fine Class 8 Weights}
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 8 weight ratio 1.0. This option is chosen.}
+\label{tab:LogRegCls8-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\
 trainCls-8 & 0.967 & 0.978 & 0.982 & 0.453 & ( 4199.8 / 36.1 ) & ( 42.0 / 32.3 ) \\
 testCls-8 & 0.896 & 0.952 & 0.978 & 0.308 & ( 465.7 / 5.2 ) & ( 5.5 / 2.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 8 weight ratio 1.0. This option is chosen.}
-\label{tab:LogRegCls8-Wt1}
 \end{table}
 \FloatBarrier
 
@@ -1421,28 +1513,28 @@ testCls-8 & 0.896 & 0.952 & 0.978 & 0.308 & ( 465.7 / 5.2 ) & ( 5.5 / 2.4 ) \\ \
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 8 weight ratio 0.5}
+\label{tab:LogRegCls8-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.885 & 0.862 & 0.855 & 0.630 & ( 350.4 / 37.0 ) & ( 32.3 / 59.1 ) \\
 trainCls-8 & 0.961 & 0.972 & 0.984 & 0.253 & ( 4229.6 / 56.7 ) & ( 12.2 / 11.7 ) \\
 testCls-8 & 0.893 & 0.952 & 0.982 & 0.135 & ( 469.5 / 6.8 ) & ( 1.7 / 0.8 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 8 weight ratio 0.5}
-\label{tab:LogRegCls8-Wtp5}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Class 8 weight ratio 1.5}
+\label{tab:LogRegCls8-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 349.5 / 36.4 ) & ( 33.2 / 59.7 ) \\
 trainCls-8 & 0.967 & 0.980 & 0.978 & 0.478 & ( 4169.7 / 24.3 ) & ( 72.1 / 44.1 ) \\
 testCls-8 & 0.892 & 0.947 & 0.973 & 0.376 & ( 462.2 / 3.9 ) & ( 9.0 / 3.7 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Class 8 weight ratio 1.5}
-\label{tab:LogRegCls8-Wt1p5}
 \end{table}
 \FloatBarrier
 
@@ -1453,13 +1545,13 @@ stopping criteria. The default tolerance is 0.0001.
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit results after fine tuning, effectively had a tolerance of 0.0001}
+\label{tab:LogRegAftFineTune}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.863 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg results after fine tuning, effectively had a tolerance of 0.0001}
-\label{tab:LogRegAftFineTune}
 \end{table}
 \FloatBarrier
 
@@ -1467,14 +1559,14 @@ fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Tolerance 0.0001, notice that the fine pr and roc decreased by 0.001, and that the
+coarse roc decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.}
+\label{tab:LogRegOrig-0001}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.862 & 0.668 & 0.518 & ( 234.9 / 11.1 ) & ( 147.8 / 85.0 ) \\
 fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Tolerance 0.0001, notice that the fine pr and roc decreased by 0.001, and that the
-coarse roc decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.}
-\label{tab:LogRegOrig-0001}
 \end{table}
 \FloatBarrier
 
@@ -1484,13 +1576,13 @@ coarse roc decreased by 0.001 upon rerunning, there is some statistical variatio
 \FloatBarrier
 \begin{table}[h]
 \centering
+\caption{Logit Tolerance 0.0001. This option is chosen.}
+\label{tab:LogReg-00001Redo}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.863 & 0.668 & 0.517 & ( 234.7 / 11.1 ) & ( 148.0 / 85.0 ) \\
 fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Tolerance 0.0001. This option is chosen.}
-\label{tab:LogReg-00001Redo}
 \end{table}
 \FloatBarrier
 
@@ -1499,13 +1591,13 @@ fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit Tolerance 0.000001}
+\label{tab:LogReg-000001}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg Tolerance 0.000001}
-\label{tab:LogReg-000001}
 \end{table}
 \FloatBarrier
 
@@ -1523,53 +1615,53 @@ then the full 497 points are returned in the calculated roc curve.
 \FloatBarrier
 \begin{table}[H]
 \centering
-\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
-coarse & 0.880 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
-fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
-\end{tabular}
-\caption{LogReg sample weights, drop intermediate values True. The default option is chosen.}
+\caption{Logit sample weights, drop intermediate values True. The default option is chosen.}
 \label{tab:LogRegDefSWDropFalse}
-\end{table}
-\FloatBarrier
-
-
-\FloatBarrier
-\begin{table}[h]
-\centering
-\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
-coarse & 0.649 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
-fine & 0.663 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
-\end{tabular}
-\caption{LogReg no sample weights, drop intermediate values True}
-\label{tab:LogReg-NoSW}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\begin{table}[h]
-\centering
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg sample weights, drop intermediate values False}
-\label{tab:LogReg-DropFalse}
+\end{table}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\caption{Logit no sample weights, drop intermediate values True}
+\label{tab:LogReg-NoSW}
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.649 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
+fine & 0.663 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
+\end{tabular}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[h]
 \centering
+\caption{Logit sample weights, drop intermediate values False}
+\label{tab:LogReg-DropFalse}
+\begin{tabular}{|l||l||l||l||l||l||l|}\toprule
+title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+coarse & 0.880 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
+fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h]
+\centering
+\caption{Logit no sample weights, drop intermediate values False}
+\label{tab:LogReg-NoSW-DropFalse}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.649 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.663 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg no sample weights, drop intermediate values False}
-\label{tab:LogReg-NoSW-DropFalse}
 \end{table}
 \FloatBarrier
 
@@ -1586,46 +1678,46 @@ define a function to map a weight original input to a new tuned weight output fo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit entire dataset, weight 20.887}
+\label{tab:LogRegAllOrig-Wt20p887}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.867 & 0.868 & 0.803 & 0.280 & ( 1537.6 / 19.2 ) & ( 376.0 / 76.9 ) \\
 fine & 0.871 & 0.868 & 0.919 & 0.404 & ( 1792.3 / 41.0 ) & ( 121.2 / 55.1 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg entire dataset, weight 20.887}
-\label{tab:LogRegAllOrig-Wt20p887}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit entire dataset, weight 23.0. This option is chosen.}
+\label{tab:LogRegAll-Wt23}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.870 & 0.871 & 0.787 & 0.268 & ( 1503.2 / 17.8 ) & ( 410.4 / 78.3 ) \\
 fine & 0.875 & 0.871 & 0.913 & 0.403 & ( 1776.5 / 37.3 ) & ( 137.1 / 58.8 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg entire dataset, weight 23.0. This option is chosen.}
-\label{tab:LogRegAll-Wt23}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit entire dataset, weight 25.0.}
+\label{tab:LogRegAll-Wt25}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.867 & 0.868 & 0.772 & 0.256 & ( 1473.0 / 17.3 ) & ( 440.6 / 78.8 ) \\
 fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg entire dataset, weight 25.0.}
-\label{tab:LogRegAll-Wt25}
 \end{table}
 \FloatBarrier
 
 
 \subsection{Varying SVM Gamma}
-\par After the LogReg classifier is tuned with class weights, the SVM is ran again with the
-class weights determined by the LogReg classifier and a slight advantage for the fine-grained
+\par After the Logit classifier is tuned with class weights, the SVM is ran again with the
+class weights determined by the Logit classifier and a slight advantage for the fine-grained
 classifier is demonstrated with the SVM as well. The SVM parameters for the Radial Basis Function
 kernel of Cost and Gamma are varied. The Cost is related to a penalty parameter for the error term
 and Gamma is the kernel coefficient and determines the relative size of the kernel.
@@ -1640,13 +1732,13 @@ The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM Cost 1.0 Gamma 0.0029674}
+\label{tab:SVM-C1-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.901 & 0.874 & 0.846 & 0.651 & ( 336.0 / 27.2 ) & ( 46.7 / 68.9 ) \\
 fine & 0.896 & 0.865 & 0.871 & 0.598 & ( 371.1 / 50.1 ) & ( 11.6 / 46.0 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM Cost 1.0 Gamma 0.0029674}
-\label{tab:SVM-C1-Gp0029674}
 \end{table}
 \FloatBarrier
 
@@ -1654,13 +1746,13 @@ fine & 0.896 & 0.865 & 0.871 & 0.598 & ( 371.1 / 50.1 ) & ( 11.6 / 46.0 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM Cost 2.0 Gamma 0.0029674}
+\label{tab:SVM-C2-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.903 & 0.873 & 0.866 & 0.672 & ( 348.9 / 30.4 ) & ( 33.8 / 65.7 ) \\
 fine & 0.890 & 0.857 & 0.865 & 0.554 & ( 373.8 / 55.8 ) & ( 8.9 / 40.3 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM Cost 2.0 Gamma 0.0029674}
-\label{tab:SVM-C2-Gp0029674}
 \end{table}
 \FloatBarrier
 
@@ -1669,13 +1761,13 @@ fine & 0.890 & 0.857 & 0.865 & 0.554 & ( 373.8 / 55.8 ) & ( 8.9 / 40.3 ) \\ \bot
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM Cost 0.1 Gamma 0.0029674}
+\label{tab:SVM-Cp1-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.892 & 0.869 & 0.664 & 0.518 & ( 231.5 / 9.8 ) & ( 151.2 / 86.3 ) \\
 fine & 0.899 & 0.870 & 0.868 & 0.623 & ( 363.5 / 43.8 ) & ( 19.2 / 52.3 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM Cost 0.1 Gamma 0.0029674}
-\label{tab:SVM-Cp1-Gp0029674}
 \end{table}
 \FloatBarrier
 
@@ -1683,13 +1775,13 @@ fine & 0.899 & 0.870 & 0.868 & 0.623 & ( 363.5 / 43.8 ) & ( 19.2 / 52.3 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM Cost 0.05 Gamma 0.0029674}
+\label{tab:SVM-Cp05-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.883 & 0.860 & 0.591 & 0.474 & ( 194.9 / 8.0 ) & ( 187.8 / 88.1 ) \\
 fine & 0.884 & 0.853 & 0.858 & 0.544 & ( 370.1 / 55.5 ) & ( 12.6 / 40.6 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM Cost 0.05 Gamma 0.0029674}
-\label{tab:SVM-Cp05-Gp0029674}
 \end{table}
 \FloatBarrier
 
@@ -1697,13 +1789,13 @@ fine & 0.884 & 0.853 & 0.858 & 0.544 & ( 370.1 / 55.5 ) & ( 12.6 / 40.6 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.}
+\label{tab:SVM-Cp15-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.896 & 0.873 & 0.714 & 0.553 & ( 257.5 / 11.6 ) & ( 125.2 / 84.5 ) \\
 fine & 0.902 & 0.874 & 0.871 & 0.640 & ( 362.1 / 41.1 ) & ( 20.6 / 55.0 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.}
-\label{tab:SVM-Cp15-Gp0029674}
 \end{table}
 \FloatBarrier
 
@@ -1711,13 +1803,13 @@ fine & 0.902 & 0.874 & 0.871 & 0.640 & ( 362.1 / 41.1 ) & ( 20.6 / 55.0 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM Cost 0.2 Gamma 0.0029674.}
+\label{tab:SVM-Cp2-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.899 & 0.875 & 0.755 & 0.584 & ( 279.6 / 14.0 ) & ( 103.1 / 82.1 ) \\
 fine & 0.903 & 0.875 & 0.871 & 0.640 & ( 362.1 / 41.2 ) & ( 20.6 / 54.9 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM Cost 0.2 Gamma 0.0029674.}
-\label{tab:SVM-Cp2-Gp0029674}
 \end{table}
 \FloatBarrier
 
@@ -1726,33 +1818,33 @@ fine & 0.903 & 0.875 & 0.871 & 0.640 & ( 362.1 / 41.2 ) & ( 20.6 / 54.9 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.}
+\label{tab:SVM-Cp15-Gp002}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.894 & 0.871 & 0.706 & 0.545 & ( 253.6 / 11.7 ) & ( 129.1 / 84.4 ) \\
 fine & 0.906 & 0.877 & 0.869 & 0.646 & ( 358.3 / 38.5 ) & ( 24.4 / 57.6 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.}
-\label{tab:SVM-Cp15-Gp002}
 \end{table}
 \FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM Cost 0.15 Gamma 0.001}
+\label{tab:SVM-Cp15-Gp001}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.883 & 0.864 & 0.664 & 0.516 & ( 232.1 / 10.3 ) & ( 150.6 / 85.8 ) \\
 fine & 0.900 & 0.872 & 0.868 & 0.641 & ( 358.5 / 39.2 ) & ( 24.2 / 56.9 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM Cost 0.15 Gamma 0.001}
-\label{tab:SVM-Cp15-Gp001}
 \end{table}
 \FloatBarrier
 
 
-\chapter{Results and Analysis}\label{chap:aenied}
-\section{SVM and LogReg Classifier Performance}
-\par Both the SVM and the LogReg classifiers show a slight advantage for the Fine
+\chapter{Results and Analysis}
+\section{SVM and Logit Classifier Performance}
+\par Both the SVM and the Logit classifiers show a slight advantage for the Fine
 classifier over the Coarse classifier in terms of the PR-AUC metric. The ROC-AUC
 metric is close to identical between fine and coarse for both classifiers, a slight
 advantage of 0.002 exists for the Fine classifier in the SVM classifier.
@@ -1761,13 +1853,13 @@ advantage of 0.002 exists for the Fine classifier in the SVM classifier.
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{Logit entire dataset results after parameter tuning}
+\label{tab:LogRegAll-Wt23}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.870 & 0.871 & 0.787 & 0.268 & ( 1503.2 / 17.8 ) & ( 410.4 / 78.3 ) \\
 fine & 0.875 & 0.871 & 0.913 & 0.403 & ( 1776.5 / 37.3 ) & ( 137.1 / 58.8 ) \\ \bottomrule
 \end{tabular}
-\caption{LogReg entire dataset results after parameter tuning}
-\label{tab:LogRegAll-Wt23}
 \end{table}
 \FloatBarrier
 
@@ -1775,17 +1867,17 @@ fine & 0.875 & 0.871 & 0.913 & 0.403 & ( 1776.5 / 37.3 ) & ( 137.1 / 58.8 ) \\ \
 \FloatBarrier
 \begin{table}[H]
 \centering
+\caption{SVM entire dataset results after parameter tuning}
+\label{tab:SVM-All}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.892 & 0.880 & 0.866 & 0.347 & ( 1669.5 / 24.8 ) & ( 244.1 / 71.3 ) \\
 fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \bottomrule
 \end{tabular}
-\caption{SVM entire dataset results after parameter tuning}
-\label{tab:SVM-All}
 \end{table}
 \FloatBarrier
 
-\par The coarse classifier in both the LogReg and SVM classifier has a greater
+\par The coarse classifier in both the Logit and SVM classifier has a greater
  amount of false positives at the default threshold. A further examination of these
  values is shown in \textit{Figures \ref{fig:LogRegThreshPr}-\ref{fig:LogRegThreshAcc}}
   and \textit{Figures \ref{fig:SVMThreshPr}-\ref{fig:SVMThreshRoc}}. The figures plot the PR and the ROC
@@ -1834,7 +1926,7 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
         \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_RocCurve_fine}
         \caption{Log Reg ROC Curves - fine}
     \end{subfigure}
-    \caption{Fine has a higher accuracy than coarse at the default threshold for the LogReg classifier.}
+    \caption{Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.}
     \label{fig:LogRegThreshAcc}
 \end{figure*}
 \FloatBarrier
@@ -1858,7 +1950,7 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
     \end{subfigure}
     \caption{SVM results for PR curves and F-measure have Coarse and Fine picking
     different parts of the curves for their respective thresholds. This results in a slight
-    advantage for Fine at the default threshold, similar to the results for the LogReg classifier.}
+    advantage for Fine at the default threshold, similar to the results for the Logit classifier.}
     \label{fig:SVMThreshPr}
 \end{figure*}
 \FloatBarrier
@@ -1938,16 +2030,16 @@ to a dominance of the Active Fine PR curve after round 10.}
     \begin{subfigure}[t]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{fig/runActPassLogReg_acc}
-        \caption{LogReg accuracy}
+        \caption{Logit accuracy}
     \end{subfigure}% %~
 
     \begin{subfigure}[t]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{fig/runActPassLogReg_f1}
-        \caption{LogReg F-measure}
+        \caption{Logit F-measure}
     \end{subfigure}
     \caption{The accuracy of the classifiers stays at
-roughly the same rate throughout the rounds, this is due to an effective
+roughly the same rate throughout the rounds; this is due to an effective
 weighting scheme. Both curves show a dominance of Fine over Coarse and
 Active over Passive.}
     \label{fig:ActiveVsPassiveAccFmesLR}
@@ -2035,8 +2127,8 @@ surpasses Active Coarse after round 10 while the Active Fine ROC-AUC curve is st
 \subsection{Plots for SVM Active vs Passive curves}
 \par The SVM Active vs Passive experiment is performed with the same methodology
 as the previous section detailed with the exception that a SVM classifier is
-substituted for the LogReg classifier. Due to the greater advantage of average
-PR-AUC in the LogReg classifier, the SVM is not used in the Fixed Fine ratio
+substituted for the Logit classifier. Due to the greater advantage of average
+PR-AUC in the Logit classifier, the SVM is not used in the Fixed Fine ratio
 experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
 
 \FloatBarrier
@@ -2045,7 +2137,7 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
     \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_pr}
     \label{fig:ActiveVsPassivePRSVM}
     \caption{The PR AUC curves for SVM show a slight advantage for Active Fine,
-     similar to the LogReg results.}
+     similar to the Logit results.}
 \end{figure}
 \FloatBarrier
 
@@ -2054,7 +2146,7 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_roc}
     \label{fig:ActiveVsPassiveROCSVM}
-    \caption{The ROC AUC curves for SVM match the LogReg results, the convergence of
+    \caption{The ROC AUC curves for SVM match the Logit results, the convergence of
      Active Fine to Active Coarse takes slightly longer, round 60 commpared to round 40.}
 \end{figure}
 \FloatBarrier
@@ -2091,7 +2183,7 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
     the Active Fine curve should roughly correlate to the FFR 1.0 curve. However, the correlation
     is not exact since the FFR experiements use a combination classifier, it trains Fine and
     Coarse classifiers on a starter set of the same size and proportion as used in the
-    LogReg Active vs Passive experiment, then uses the confidence of both of those classifiers and
+    Logit Active vs Passive experiment, then uses the confidence of both of those classifiers and
     the end prediction is the max of the two classifiers. Thus even for the FFR 0.0 and FFR 1.0
     the starter set trained Fine or Coarse classifier still contributes to the PR-AUC curve
     even at the final round 180. The results are an average of 10 folds.
@@ -2234,7 +2326,7 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
 
 
 
-\chapter{Conclusions and Future Work}\label{chap:math}
+\chapter{Conclusions and Future Work}
 \par I should probably do the Bandit experiments.
 
 
