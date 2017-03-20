@@ -9,6 +9,10 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: IEEEabrv.bib
 Database file #2: nuthesis.bib
+Repeated entry---line 393 of file nuthesis.bib
+ : @article{Merialdo2001
+ :                      ,
+I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -16,45 +20,45 @@ Warning--empty booktitle in bioPoster
 Warning--empty author in UniProt
 
 Done.
-You've used 25 entries,
+You've used 30 entries,
             4039 wiz_defined-function locations,
-            1405 strings with 20987 characters,
-and the built_in function-call counts, 19790 in all, are:
-= -- 1640
-> -- 513
-< -- 149
-+ -- 269
-- -- 97
-* -- 1012
-:= -- 3066
-add.period$ -- 52
-call.type$ -- 25
-change.case$ -- 26
-chr.to.int$ -- 315
-cite$ -- 27
-duplicate$ -- 1430
-empty$ -- 1514
-format.name$ -- 116
-if$ -- 4526
+            1446 strings with 22344 characters,
+and the built_in function-call counts, 23974 in all, are:
+= -- 1999
+> -- 594
+< -- 185
++ -- 314
+- -- 109
+* -- 1225
+:= -- 3718
+add.period$ -- 64
+call.type$ -- 30
+change.case$ -- 31
+chr.to.int$ -- 402
+cite$ -- 32
+duplicate$ -- 1726
+empty$ -- 1846
+format.name$ -- 132
+if$ -- 5487
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 258
-newline$ -- 130
-num.names$ -- 24
-pop$ -- 586
+int.to.str$ -- 30
+missing$ -- 305
+newline$ -- 155
+num.names$ -- 29
+pop$ -- 689
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1534
+skip$ -- 1852
 stack$ -- 0
-substring$ -- 787
-swap$ -- 1174
-text.length$ -- 44
+substring$ -- 1000
+swap$ -- 1423
+text.length$ -- 51
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 25
+type$ -- 30
 warning$ -- 2
-while$ -- 77
-width$ -- 27
-write$ -- 312
-(There were 2 warnings)
+while$ -- 99
+width$ -- 32
+write$ -- 375
+(There was 1 error message)

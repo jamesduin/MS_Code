@@ -1288,14 +1288,18 @@ accuracy of a coarse-grained (root-level) classifier, and the first
 investigation into active learning in a hierarchical setting where
 label acquisition cost can vary.
 
-Previous work in text classification~\cite{mccallum1998improving} and rich media indexing~\cite{jiang2013} has considered using
+Previous work in text classification~\cite{mccallum1998improving} and
+rich media indexing~\cite{jiang2013} has considered using
 hierarchies of labels to improve a fine-grained classifier, through
 techniques that back off to coarse
-levels of the hierarchy when fine-grained data are sparse. 
+levels of the hierarchy when fine-grained data are sparse.
+
 By contrast, we present novel techniques
 that work in the opposite direction, utilizing selectively
 acquired fine-grained labels to improve
 classification over coarse categories.
+
+
 In named entity recognition (NER), some recent work has targeted
 fine-grained entity categories~\cite{fleischman2002fine,ling2012fine}
 or hierarchies~\cite{yosef2012hyena}.  Our work differs from this
@@ -1309,10 +1313,13 @@ which NER approach is most appropriate to use.
 Our approach builds on a variety of previous work in active learning.
 We focus on ``pool-based'' active learning, in which
 a learner selects instances from a pool of unlabeled data to be 
-labeled by an oracle. When acquiring
+labeled by an oracle.
+
+When acquiring
 labels is costly, active learning can reduce
 the expense by requesting only a relatively small subset
 of the most informative labels~\cite{Rubens2011}.
+
 One criterion used for selection of instances to label is to
 choose those that reduce uncertainty. In our case,
 uncertainty is measured in terms of the confidence of output values

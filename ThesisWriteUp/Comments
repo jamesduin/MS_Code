@@ -25,7 +25,8 @@ re-run the experiments on a new partitioning? => done
 Or, is this just to tune parameters? => yes the plan is to only present
 results that relate to the tuning parameters.
 
--- Define PR, ROC, and AUC (perhaps in an earlier chapter). => done in 1.1 Machine Learning
+-- Define PR, ROC, and AUC (perhaps in
+an earlier chapter). => done in 1.2 EvaluatingClassifierPerformance
 
 -- Add text in each section, including a summary of results. =>
 
@@ -40,13 +41,15 @@ Ch4 Comments:
 
 -- Refer to tables 4.1 - 4.2 in the main text =>
 
--- Reorder table references, make Accuracy lowercase, remove figures apostrophe, add s to show. => done
+-- Reorder table references, make Accuracy lowercase,
+remove figures apostrophe, add s to show. => done
 
 -- The plots in Figures 4.5--XXX instead of the following plots => done
 
 -- Add a semi-colon, add a because, fix mispelling => done
 
---So, if you're saying that performance on negatives is very important, we should be emphasizing
+--So, if you're saying that performance on negatives is very
+important, we should be emphasizing
 ROC over PR?  Isn't that the opposite of what we discussed, or
 am I missing something?, need to reword this paragraph =>
 
@@ -67,7 +70,7 @@ explain coarse vs fine trade off => done
 explain active over labeling => done
 explain HAL (FFR) algorithm => done
 explain Bandit algorithm => done
-explain Yugi's work =>
+explain Yugi's work => done
 write future work and conclusions =>
 write introduction =>
 re-write abstract =>
