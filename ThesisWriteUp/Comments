@@ -60,8 +60,8 @@ ROC over PR?  Isn't that the opposite of what we discussed, or am I missing some
 ############# My notes
 explanation for bio-dataset => done
 explain log reg => done
-explain SVM =>
-explain Accuracy, F-measure, PR, and Roc =>
+explain SVM => done
+explain Accuracy, F-measure, PR, and Roc => done
 explain coarse vs fine trade off =>
 explain active learning =>
 explain Yugi's work =>

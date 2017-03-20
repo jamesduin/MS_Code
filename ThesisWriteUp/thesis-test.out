@@ -1,39 +1,40 @@
 \BOOKMARK [0][-]{section*.1}{Contents}{}% 1
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 2
 \BOOKMARK [1][-]{section.1.1}{Machine Learning}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Hierarchical Bioinformatics Data Set}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.3}{Coarse-grained vs Fine-grained Trade Off}{chapter.1}% 5
-\BOOKMARK [0][-]{chapter.2}{Background and Related Work}{}% 6
-\BOOKMARK [1][-]{section.2.1}{Active Learning}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.2}{Hierarchical Active Learning}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.3}{Application to Dispatch Dataset}{chapter.2}% 9
-\BOOKMARK [0][-]{chapter.3}{Experimental Setup}{}% 10
-\BOOKMARK [1][-]{section.3.1}{Training and Testing Coarse Grain and Fine Grain Classifiers}{chapter.3}% 11
-\BOOKMARK [2][-]{subsection.3.1.1}{Varying SVM Scaling Methods}{section.3.1}% 12
-\BOOKMARK [2][-]{subsection.3.1.2}{Varying SVM Kernels}{section.3.1}% 13
-\BOOKMARK [2][-]{subsection.3.1.3}{Varying SVM Feature Selection}{section.3.1}% 14
-\BOOKMARK [2][-]{subsection.3.1.4}{Varying Logistic Regression Scaling}{section.3.1}% 15
-\BOOKMARK [2][-]{subsection.3.1.5}{Varying Logistic Regression Feature Selection}{section.3.1}% 16
-\BOOKMARK [2][-]{subsection.3.1.6}{Varying Logistic Regression Postive Class Weight and Cost}{section.3.1}% 17
-\BOOKMARK [2][-]{subsection.3.1.7}{Varying Logistic Regression Fine Class Weights}{section.3.1}% 18
-\BOOKMARK [3][-]{subsubsection.3.1.7.1}{Tune Fine Class 1 Weights}{subsection.3.1.7}% 19
-\BOOKMARK [3][-]{subsubsection.3.1.7.2}{Tune Fine Class 2 Weights}{subsection.3.1.7}% 20
-\BOOKMARK [3][-]{subsubsection.3.1.7.3}{Tune Fine Class 3 Weights}{subsection.3.1.7}% 21
-\BOOKMARK [3][-]{subsubsection.3.1.7.4}{Tune Fine Class 4 Weights}{subsection.3.1.7}% 22
-\BOOKMARK [3][-]{subsubsection.3.1.7.5}{Tune Fine Class 5 Weights}{subsection.3.1.7}% 23
-\BOOKMARK [3][-]{subsubsection.3.1.7.6}{Tune Fine Class 6 Weights}{subsection.3.1.7}% 24
-\BOOKMARK [3][-]{subsubsection.3.1.7.7}{Tune Fine Class 7 Weights}{subsection.3.1.7}% 25
-\BOOKMARK [3][-]{subsubsection.3.1.7.8}{Tune Fine Class 8 Weights}{subsection.3.1.7}% 26
-\BOOKMARK [2][-]{subsection.3.1.8}{Varying Logistic Regression Tolerance}{section.3.1}% 27
-\BOOKMARK [2][-]{subsection.3.1.9}{Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{section.3.1}% 28
-\BOOKMARK [2][-]{subsection.3.1.10}{Varying Logistic Regression Positive Class Weight For Full Dataset}{section.3.1}% 29
-\BOOKMARK [2][-]{subsection.3.1.11}{Varying SVM Gamma}{section.3.1}% 30
-\BOOKMARK [2][-]{subsection.3.1.12}{Varying SVM Cost}{section.3.1}% 31
-\BOOKMARK [0][-]{chapter.4}{Results and Analysis}{}% 32
-\BOOKMARK [1][-]{section.4.1}{SVM and Logit Classifier Performance}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.2}{Active vs Passive curves}{chapter.4}% 34
-\BOOKMARK [2][-]{subsection.4.2.1}{Plots for Logistic Regression Active vs Passive curves}{section.4.2}% 35
-\BOOKMARK [2][-]{subsection.4.2.2}{Plots for SVM Active vs Passive curves}{section.4.2}% 36
-\BOOKMARK [1][-]{section.4.3}{Plots for Fine Fixed Ratio experiments}{chapter.4}% 37
-\BOOKMARK [0][-]{chapter.5}{Conclusions and Future Work}{}% 38
-\BOOKMARK [0][-]{section*.113}{Bibliography}{}% 39
+\BOOKMARK [1][-]{section.1.2}{Evaluating Classifier Performance}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Hierarchical Bioinformatics Data Set}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Coarse-grained vs Fine-grained Trade Off}{chapter.1}% 6
+\BOOKMARK [0][-]{chapter.2}{Background and Related Work}{}% 7
+\BOOKMARK [1][-]{section.2.1}{Active Learning}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.2}{Hierarchical Active Learning}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.3}{Application to Dispatch Dataset}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Experimental Setup}{}% 11
+\BOOKMARK [1][-]{section.3.1}{Training and Testing Coarse Grain and Fine Grain Classifiers}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.1.1}{Varying SVM Scaling Methods}{section.3.1}% 13
+\BOOKMARK [2][-]{subsection.3.1.2}{Varying SVM Kernels}{section.3.1}% 14
+\BOOKMARK [2][-]{subsection.3.1.3}{Varying SVM Feature Selection}{section.3.1}% 15
+\BOOKMARK [2][-]{subsection.3.1.4}{Varying Logistic Regression Scaling}{section.3.1}% 16
+\BOOKMARK [2][-]{subsection.3.1.5}{Varying Logistic Regression Feature Selection}{section.3.1}% 17
+\BOOKMARK [2][-]{subsection.3.1.6}{Varying Logistic Regression Positive Class Weight and Cost}{section.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.7}{Varying Logistic Regression Fine Class Weights}{section.3.1}% 19
+\BOOKMARK [3][-]{subsubsection.3.1.7.1}{Tune Fine Class 1 Weights}{subsection.3.1.7}% 20
+\BOOKMARK [3][-]{subsubsection.3.1.7.2}{Tune Fine Class 2 Weights}{subsection.3.1.7}% 21
+\BOOKMARK [3][-]{subsubsection.3.1.7.3}{Tune Fine Class 3 Weights}{subsection.3.1.7}% 22
+\BOOKMARK [3][-]{subsubsection.3.1.7.4}{Tune Fine Class 4 Weights}{subsection.3.1.7}% 23
+\BOOKMARK [3][-]{subsubsection.3.1.7.5}{Tune Fine Class 5 Weights}{subsection.3.1.7}% 24
+\BOOKMARK [3][-]{subsubsection.3.1.7.6}{Tune Fine Class 6 Weights}{subsection.3.1.7}% 25
+\BOOKMARK [3][-]{subsubsection.3.1.7.7}{Tune Fine Class 7 Weights}{subsection.3.1.7}% 26
+\BOOKMARK [3][-]{subsubsection.3.1.7.8}{Tune Fine Class 8 Weights}{subsection.3.1.7}% 27
+\BOOKMARK [2][-]{subsection.3.1.8}{Varying Logistic Regression Tolerance}{section.3.1}% 28
+\BOOKMARK [2][-]{subsection.3.1.9}{Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{section.3.1}% 29
+\BOOKMARK [2][-]{subsection.3.1.10}{Varying Logistic Regression Positive Class Weight For Full Dataset}{section.3.1}% 30
+\BOOKMARK [2][-]{subsection.3.1.11}{Varying SVM Gamma}{section.3.1}% 31
+\BOOKMARK [2][-]{subsection.3.1.12}{Varying SVM Cost}{section.3.1}% 32
+\BOOKMARK [0][-]{chapter.4}{Results and Analysis}{}% 33
+\BOOKMARK [1][-]{section.4.1}{SVM and Logit Classifier Performance}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.2}{Active vs Passive curves}{chapter.4}% 35
+\BOOKMARK [2][-]{subsection.4.2.1}{Plots for Logistic Regression Active vs Passive curves}{section.4.2}% 36
+\BOOKMARK [2][-]{subsection.4.2.2}{Plots for SVM Active vs Passive curves}{section.4.2}% 37
+\BOOKMARK [1][-]{section.4.3}{Plots for Fine Fixed Ratio experiments}{chapter.4}% 38
+\BOOKMARK [0][-]{chapter.5}{Conclusions and Future Work}{}% 39
+\BOOKMARK [0][-]{section*.113}{Bibliography}{}% 40

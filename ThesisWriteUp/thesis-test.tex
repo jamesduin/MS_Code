@@ -52,7 +52,7 @@
 %% See the memoir docs for details.
 \usepackage[%
 pdfauthor={James D. Duin},
-pdftitle={Hierachical Active Learning Bioinformatics Application},
+pdftitle={Hierarchical Active Learning Bioinformatics Application},
 pdfsubject={BioDataset},
 pdfkeywords={semi-supervised learning, active learning, hierarchical labeling, cost analysis},
 linkcolor=dark-blue,
@@ -72,7 +72,7 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 %% frontmatter is needed to set the page numbering correctly
 \frontmatter
 
-\title{Hierachical Active Learning Bioinformatics Application}
+\title{Hierarchical Active Learning Bioinformatics Application}
 \author{James D. Duin}
 \adviser{Professor Stephen Scott}
 \adviserAbstract{Stephen Scott}
@@ -107,10 +107,10 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
     or not, then the hierarchy breaks down further into specific target
     compartments at the leaf nodes. Our investigation shows that Leveraging separate
     fine-grained classifiers for each of the target compartments produces a higher
-    performing classifer at the highest level in the hierarchy according
+    performing classifier at the highest level in the hierarchy according
     to the Precision-Recall curves area under the curve. Furthermore, new approach in the
      Active Learning setting termed \textit{active over-labeling} is applied to this dataset.
-    The approach solicits labels at a finer level of grainularity than the target concept.
+    The approach solicits labels at a finer level of granularity than the target concept.
     We show that purchasing fine-grained labels in each round of active learning produces a
       higher performing classifier than purchasing coarse labels, and in both cases purchasing
       labels actively by selecting only the most uncertain labels outperforms purchasing labels
@@ -176,11 +176,13 @@ the machine learning algorithms that are used include Support Vector Machines (S
  This work uses implementations by the sci-kit learn python library \cite{scikit-learn} for both algorithms. Our
  experiment requires a binary classification task, each algorithm takes a protein instance with a list of 449 features
  as an input and then outputs a 0 or 1 whether or not the protein belongs to a class. A separate classifier is trained
- for each class in the protein dataset.
- \par Logit is a linear model for classification. The classifier function is shown in \textit{eqn \ref{eq:logit}}.
+ for each class in the protein dataset. Both Logit and SVM classifiers have a decision function method that outputs
+ the predicted confidence score for a given sample, which is the signed distance of that sample to the learned
+ hyperplane.
+ \par Logit is a linear model for classification. The classifier function is shown in \textit{eqn. \ref{eq:logit}}.
  Where x is the vector of features, theta is vector of learned parameters, the function $g(z)$ is the sigmoid
  function \cite{Coursera}.
-
+\FloatBarrier
 \begin{equation}
 \label{eq:logit}
 \begin{aligned}
@@ -188,20 +190,20 @@ h_{\theta}(x) = g(\theta \cdot x) \\
 g(z) = \frac{1}{1+e^{-z}}
 \end{aligned}
 \end{equation}
-
-\par The theta parameters are solved for in order to minimize the sum of square errors (L2-norm)
+\FloatBarrier
+The theta parameters are solved for in order to minimize the sum of square errors (L2-norm)
 in the training set, and also to regularize the theta parameters to prevent them from getting to large
 and overfitting the dataset \cite{scikit-learn}. A cost function is used to solve for theta, this
 function is shown in \textit{eqn \ref{eq:costlogit}}. The $C$ parameter is the inverse of the regularization
 strength, a larger value means a stronger regularization \cite{scikit-learn}.
-
+\FloatBarrier
 \begin{equation}
 \label{eq:costlogit}
 \begin{aligned}
 min_{\theta,c}\frac{1}{2}\theta^{T}\theta + C\sum_{n}^{i=1}log(exp(-y_i(X_{i}^{T}\theta+c))+1)
 \end{aligned}
 \end{equation}
-
+\FloatBarrier
 \par A SVM constructs a hyper-plane or set of hyper-planes in a high or infinite dimensional space, which
 is used to output a classification for a given instance. The goal is to learn a hyper-plane that has
 the largest distance between training data points of separate classes, this is called functional margin
@@ -211,7 +213,7 @@ influence of a subset of the training instances \cite{ethem}. This output is giv
 that are measures of similarity between data instances. The SVM implementation used solves the
 \textit{eqn. \ref{eq:svmfcn}}, where $e$ is a vector of all ones, $C$ is the penalty parameter of the
 error term.
-
+\FloatBarrier
 \begin{equation}
 \label{eq:svmfcn}
 \begin{aligned}
@@ -219,14 +221,24 @@ min_{\alpha} \frac{1}{2} \alpha^{T} Q\alpha - e^T\alpha, \
 subject\  to\ y^T \alpha = 0 \ where\ 0\leq\alpha_i\leq C,i=1,...,n
 \end{aligned}
 \end{equation}
-
+\FloatBarrier
 The $Q$ function is defined in \textit{eqn. \ref{eq:kernelfcn}}, where $K$ is the kernel function.
+\FloatBarrier
 \begin{equation}
 \label{eq:kernelfcn}
 \begin{aligned}
 Q_{ij}\equiv y_i y_j K(x_i,x_j), \ where \ K(x_i,x_j)=\phi (x_i)^T \phi(x_j)
 \end{aligned}
 \end{equation}
+\FloatBarrier
+
+The $C$ parameter trades off misclassification of training examples against simplicity of the
+decision surface \cite{scikit-learn}. A low $C$ makes the decision surface smooth, while a high $C$ aims at
+classifying all the training examples correctly by allowing the model to select more samples as support
+vectors \cite{scikit-learn}. The gamma ($\gamma$) parameter defines the significance a single training example
+ can have, with low values corresponding to a single instance having a large significance to the
+ learned hyperplane \cite{scikit-learn}. The gamma parameter can be seen as the inverse of the radius of
+ influence of samples selected by the model as support vectors.
 
 In this work the following kernel functions were tested \cite{scikit-learn}:
 \begin{itemize}
@@ -239,6 +251,59 @@ In this work the following kernel functions were tested \cite{scikit-learn}:
 \end{itemize}
 
 
+\section{Evaluating Classifier Performance}
+\par The classifier performance is primarily evaluated using Precision-Recall (PR) and Receiver Operator
+Characteristic (ROC) curves, although accuracy, precision, recall, confusion matrix and  F-measure
+are also calculated. Accuracy is the total number of correctly classified instances in the test set
+divided by the total number of instances in the test set. The confusion matrix outputs a 2 by 2 matrix
+for the binary classification task. Each cell ($C_{row,col}$) in the matrix corresponds to one of the
+following metrics:
+\begin{itemize}
+  \item True-Negatives ($T_n$): location $C_{0,0}$, correctly classified negative instances.
+  \item False-Negatives ($F_n$): location $C_{0,1}$, incorrectly classified negative instances.
+  \item False-Positives ($F_p$): location $C_{1,0}$, incorrectly classified positive instances.
+  \item True-Positives ($T_p$): location $C_{1,1}$, correctly classified positive instances.
+\end{itemize}
+
+Precision is a measure of result relevancy and is given in \textit{eqn. \ref{eq:precision}}.
+\FloatBarrier
+\begin{equation}
+\label{eq:precision}
+\begin{aligned}
+P = \frac{T_p}{T_p+F_p}
+\end{aligned}
+\end{equation}
+\FloatBarrier
+
+Recall is a measure of how many truly relevant results are returned and is given in
+\textit{eqn. \ref{eq:recall}}.
+\FloatBarrier
+\begin{equation}
+\label{eq:recall}
+\begin{aligned}
+R = \frac{T_p}{T_p+F_n}
+\end{aligned}
+\end{equation}
+\FloatBarrier
+
+The F-measure or F1-measure (f1) is the harmonic mean of precision and recall and is given in
+\textit{eqn. \ref{eq:fmes}}.
+\FloatBarrier
+\begin{equation}
+\label{eq:fmes}
+\begin{aligned}
+F1 = 2\cdot \frac{P \cdot R}{P+R}
+\end{aligned}
+\end{equation}
+\FloatBarrier
+
+\par PR curves are constructed first by outputting the decision function score for each instance
+in the test set. Each score defines a threshold for computing precision, recall and f1 metrics.
+Precision and Recall are computed for each threshold and plotted on the PR curve,
+with recall on the x-axis and precision on the y-axis. ROC curves also evaluate classifier output
+quality. ROC curves are constructed similar to the PR curve except $F_p$ replaces recall on the
+ x-axis and $T_p$ replaces precision on the y-axis. For both curves larger area under the curve
+ (AUC) is usually correlated to a higher performing classifier.
 
 \section{Hierarchical Bioinformatics Data Set}
 \par Bioinformatics is a field using computer science tools and techniques
@@ -255,7 +320,7 @@ outer and inner membrane, its matrix, and its ribosomes. Identifying the
 source of the mutation is an important problem in the treatment of a
 mitochondrial disease. It is an essential classification task to determine
 wether or not the offending mutation occurs in the mitochondrion or in
-an imported protein \cite{bioPoster}. The postive dataset is composed of 962
+an imported protein \cite{bioPoster}. The positive dataset is composed of 962
 human mitochondrial proteins from the Mitoproteome dataset \cite{mitoproteome}.
 The negative dataset is composed of 19,136 experimentally validated human
  proteins from UniProt \cite{UniProt}. A total of 1099 features were assembled
@@ -282,7 +347,7 @@ The negative dataset is composed of 19,136 experimentally validated human
     polarity (21), polarizability (21), charge (21), secondary structure (21)
     and solvent accessibility (21) & Computed with three descriptors: composition (C),
     transition (T), and distribution (D) \cite{Cui2} \\
-     & Solubility (1), unfoldability (1),
+     & Solubility (1), unfold-ability (1),
     disorder regions (3), global charge (1) and hydrophobility (1) &
     PROSO \cite{PROSO3}, Phobius \cite{Phobius4} \\ \midrule
     Structural properties & Secondary structural content (4), shape
@@ -297,7 +362,7 @@ The negative dataset is composed of 19,136 experimentally validated human
 \end{table}
 \FloatBarrier
 
-\par The datset composes a classification problem, each protein is labeled
+\par The dataset composes a classification problem, each protein is labeled
  according to where it originates in the cell. At the root is is whether or not
  the protein resides within the mitochondria, then there are the sub level labels
  if the protein has a separate target compartment specifications. The complete
@@ -362,7 +427,7 @@ The F-0.5 measure gives more weight to precision, as opposed to recall, so it gi
 incentive to purchase enough fine-grained labels to increase the F-0.5 measure. The
 coarse-grained labels will cost less than fine-grained labels, but the increase in
 the F-0.5 measure justifies the increase in cost up to a certain point. The F-0.5
-measure is used in the results section of this paper. ... That's why we use PRauc in the results.
+measure is used in the results section of this paper. ... That's why we use PR AUC in the results.
 Describe some of the other papers that Yugi cited.
 
 \section{Hierarchical Active Learning}
@@ -417,8 +482,8 @@ learning approach with all fine-grained labels. The passive learning curves were
 \par The next analysis step is to apply a given ratio of fine-grained vs coarse-grained
 labels to purchase at each batch request to the oracle. The results of varying the
 percentage of fine-grained labels purchased are shown in Figure 5. The figure shows
-that even a small amount of fine-grained labels purchased, that is, 20perc provides a
-significant increase in the F-0.5 measure for a given iteration. ...  pr auc results.
+that even a small amount of fine-grained labels purchased, that is, 20 precent provides a
+significant increase in the F-0.5 measure for a given iteration. ...  PR AUC results.
 Add explanation of Bandit approach and results.
 
 
@@ -434,7 +499,7 @@ The positive case of residing within the
   for each of the fine-grained labels. The $8$ fine-grained classifiers are trained such that only the instances of
   the class corresponding to that classifier's target compartment are marked as positive, all the others are treated
   as negative. The coarse-level classifier treats all fine-grained target compartment
-  instances as members of a single positive class. For all classifiers the non mitochondrian instances are treated as
+  instances as members of a single positive class. For all classifiers the non mitochondrion instances are treated as
   negative or $0$ labeled. The totals for each class type is shown in \textit{Table \ref{tab:ClassesAll}}. Throughout
   this experiment a 10 folds cross validation strategy is used, an example partitioning in shown in
   \textit{Table \ref{tab:partitions}}.
@@ -445,7 +510,7 @@ The positive case of residing within the
 \centering
   \caption{This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes
   like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative
-  instances for each positve instance.}
+  instances for each positive instance.}
   \label{tab:dataset}
 \begin{subtable}{.25\linewidth}
   \centering
@@ -527,8 +592,8 @@ containing the entire dataset.
 \FloatBarrier
 \begin{table}[!htb]
 \centering
-  \caption{The subset of instances used for tuning classifier paramters contains approximately
-  $1/5^{th}$ and retains all postive instances.}
+  \caption{The subset of instances used for tuning classifier parameters contains approximately
+  $1/5$ and retains all positive instances.}
   \label{tab:subset}
 \begin{subtable}{.25\linewidth}
   \centering
@@ -594,7 +659,7 @@ containing the entire dataset.
 classification, preprocessing, and evaluation algorithms \cite{scikit-learn}. The Support Vector Machine
 (SVM) supervised learning algorithm is used on the un-scaled subset of the data to obtain the base
 results shown in \textit{Table \ref{tab:SVMDefResStats}}. The coarse and the fine algorithm performance is shown for each
-of the 10 folds along with the average performance across the 10 folds. Also the reciever operator characteristic
+of the 10 folds along with the average performance across the 10 folds. Also the receiver operator characteristic
 and precision recall curves are calculated with fine instances weighted according to the number of of instances in
 the test set divided by the number of positive instances in the test set which is a value of 4.99 for the data subset.
 
@@ -602,7 +667,7 @@ the test set divided by the number of positive instances in the test set which i
 \begin{table}[H]
 \centering
 \caption{SVM default results without parameter selection or preprocessing. Where Precision Recall
-area under the curve is (pr), Reciever Operator Characteristic area under the curve is (roc), accuracy
+area under the curve is (pr), Receiver Operator Characteristic area under the curve is (roc), accuracy
 is (acc), F1-measure is (f1).}
 \label{tab:SVMDefResStats}
 \begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
@@ -676,16 +741,16 @@ used by the classifier to output a given confusion matrix, accuracy, and f-measu
 \subsection{Varying SVM Scaling Methods}
 \par Different scaling methods were used to preprocess the data \cite{scikit-learn}. The standard scaling (std-scaler) strategy
 centers all features around zero and have variance in the same order, it outputs the features with a mean of zero
-and a unit variance. The minimum maximum scaling (minmax-scaler) strategy scales features between a minimum and maximum value,
+and a unit variance. The minimum maximum scaling (minimax-scaler) strategy scales features between a minimum and maximum value,
 which is 0 and 1. The normalization scaling (norm-scaler) strategy scales individual samples to have a unit norm. Each
-preprocessing strategy is applied on the entire dataset before training and testing is performed. Prepocessing was performed
+preprocessing strategy is applied on the entire dataset before training and testing is performed. Preprocessing was performed
 with a radial basis function kernel.
 
 \FloatBarrier
 
 \begin{table}[H]
 \centering
-\caption{SVM minmax-scaler results.}
+\caption{SVM minimax-scaler results.}
 \label{tab:SVMMinMax}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
@@ -963,11 +1028,11 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 \FloatBarrier
 
 
-\subsection{Varying Logistic Regression Postive Class Weight and Cost}
+\subsection{Varying Logistic Regression Positive Class Weight and Cost}
 \par Since there is a class imbalance in the dataset, see \textit{Table \ref{tab:ClassesAll} } on
 \textit{page \pageref{tab:ClassesAll}}, class weight and cost parameter pairs are varied.  The cost
 default value is 1.0, and the class weight default value is 1.0. The original value for weighting the
-fine training instance is the number of instances in the train set divided by the number of postive
+fine training instance is the number of instances in the train set divided by the number of positive
 instances, this is 4.977. The negative instance train weight is always 1.0.
 
 \FloatBarrier
@@ -1739,9 +1804,9 @@ fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \
 \subsection{Varying SVM Gamma}
 \par After the Logit classifier is tuned with class weights, the SVM is ran again with the
 class weights determined by the Logit classifier and a slight advantage for the fine-grained
-classifier is demonstrated with the SVM as well. The SVM parameters for the Radial Basis Function
-kernel of Cost and Gamma are varied. The Cost is related to a penalty parameter for the error term
-and Gamma is the kernel coefficient and determines the relative size of the kernel.
+classifier is demonstrated with the SVM as well. The SVM parameters for the rbf
+kernel of cost and gamma are varied. The cost is related to a penalty parameter for the error term
+and gamma is the kernel coefficient and determines the relative significance a single instance can have.
 The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
  cost is actually 1.0, and the default class weight is balanced which weights each class by
  the number of instances it has in the train set, the same fine class weights used in the LogReg
@@ -2008,7 +2073,7 @@ and a starter set of 1040 instances out of the total 20098 instances.
 The plots are the average of 10 folds, for each fold a test set of 2010 instances
 is used. The test set remains constant throughout the rounds and contains a representative proportion
  of each of the classes. The starter set is chosen out of the remaining 18088 and it also contains representatives
- from each class in proportion to that class's prominance in the dataset. The 17048 non-test set, non-starter set
+ from each class in proportion to that class's prominence in the dataset. The 17048 non-test set, non-starter set
   instances are added to the training set in batches of 100. This results in total of 171 rounds, 170 batch selecting
   rounds and 1 starter set round. The Passive approach selects 100 random instances
    and adds them to the train set. The Active approach runs the classifier on the eligible instances, orders them
@@ -2074,7 +2139,7 @@ surpasses Active Coarse after round 10 while the Active Fine ROC-AUC curve is st
  \ref{fig:rnd20LogRegRoc}}. This is counter-intuitive, because according to a proof in Davis \cite{DavisRocPr}
  ``For a fixed number of positive and negative examples, one curve dominates a second curve in
  ROC space if and only if the first dominates the second in Precision-Recall space". The theorem uses the
- following definition of dominance: that every value in the first curve is above the corrollary value in
+ following definition of dominance: that every value in the first curve is above the corollary value in
  second curve. The correlation between PR and ROC curves is that Recall in the PR curve is equivalent to
  the True Positive Rate in the ROC curve. The average PR-AUC concept is different than that of a plot of
  PR curves for a round, but if all of the PR curves for Fine dominate the curves for Coarse then we would
@@ -2086,7 +2151,7 @@ surpasses Active Coarse after round 10 while the Active Fine ROC-AUC curve is st
    Coarse and Fine. Thus given that the average PR-AUC for Fine is great at round 20 than average Coarse PR-AUC,
    this relationship is not expected to hold between the average ROC-AUC curves.
    \par According to Davis \cite{DavisRocPr}, a large change in the number of false positives can still yield
-   only a small change in the number of false postives and thus not affect ROC curve performance. However,
+   only a small change in the number of false positives and thus not affect ROC curve performance. However,
    Davis states, ``Precision, on the other hand, by comparing false positives to true positives rather than true
    negatives, captures the effect of the large number (incorrectly classified) of negative examples on the
    algorithm's performance" \cite{DavisRocPr}. Since our dataset demonstrates a heavy class imbalance with
@@ -2168,7 +2233,7 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
     \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_roc}
     \label{fig:ActiveVsPassiveROCSVM}
     \caption{The ROC AUC curves for SVM match the Logit results, the convergence of
-     Active Fine to Active Coarse takes slightly longer, round 60 commpared to round 40.}
+     Active Fine to Active Coarse takes slightly longer, round 60 compared to round 40.}
 \end{figure}
 \FloatBarrier
 
@@ -2202,7 +2267,7 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
     1.0 in increments of 0.1. Note that the FFR 0.0 should roughly correlate to the
     Active Coarse curve shown in \textit{Figure \ref{fig:runActPassLogReg_pr}}. Likewise
     the Active Fine curve should roughly correlate to the FFR 1.0 curve. However, the correlation
-    is not exact since the FFR experiements use a combination classifier, it trains Fine and
+    is not exact since the FFR experiments use a combination classifier, it trains Fine and
     Coarse classifiers on a starter set of the same size and proportion as used in the
     Logit Active vs Passive experiment, then uses the confidence of both of those classifiers and
     the end prediction is the max of the two classifiers. Thus even for the FFR 0.0 and FFR 1.0
