@@ -108,291 +108,305 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces A labeling tree based on the text categorization dataset RCV1 \cite  {Lewis2004}.\relax }}{10}{figure.caption.5}}
 \@writefile{brf}{\backcite{Lewis2004}{{10}{2.1}{figure.caption.5}}}
 \newlabel{fig:exp-ontology}{{\M@TitleReference {2.1}{A labeling tree based on the text categorization dataset RCV1 \cite  {Lewis2004}.\relax }}{10}{A labeling tree based on the text categorization dataset RCV1 \cite {Lewis2004}.\relax }{figure.caption.5}{}}
+\citation{bioPoster}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Hierarchical Active Learning}{11}{section.2.2}}
-\newlabel{fig:AL2}{{\M@TitleReference {\caption@xref {fig:AL2}{ on input line 484}}{Hierarchical Active Learning}}{11}{Hierarchical Active Learning}{figure.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagram of HAL approach\relax }}{11}{figure.caption.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Application to Dispatch Dataset}{12}{section.2.3}}
-\newlabel{fig:draft-richmond}{{\M@TitleReference {\caption@xref {fig:draft-richmond}{ on input line 510}}{Application to Dispatch Dataset}}{13}{Application to Dispatch Dataset}{figure.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Application of HAL demonstrating the benefit of Actively selecting the type of labels to purchase for instances rather than randomly selecting labels to purchase, as in the Passive curves.\relax }}{13}{figure.caption.7}}
+\@writefile{brf}{\backcite{bioPoster}{{11}{2.2}{section.2.2}}}
+\citation{yugi}
+\citation{yugi}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagram of HAL approach\relax }}{12}{figure.caption.6}}
+\newlabel{fig:HALapproach}{{\M@TitleReference {2.2}{Diagram of HAL approach\relax }}{12}{Diagram of HAL approach\relax }{figure.caption.6}{}}
+\newlabel{eq:maxcombine}{{2.1}{12}{Hierarchical Active Learning}{equation.2.2.1}{}}
+\newlabel{eq:uncert}{{2.2}{12}{Hierarchical Active Learning}{equation.2.2.2}{}}
+\@writefile{brf}{\backcite{yugi}{{13}{1}{algorithm.1}}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Method hierachical active learning for a fixed fine-grained ratio (FFR) \cite  {yugi}. See text for Purchase and LabelMap. \relax }}{13}{algorithm.1}}
+\newlabel{alg:halalgo}{{\M@TitleReference {1}{Method hierachical active learning for a fixed fine-grained ratio (FFR) \cite  {yugi}. See text for Purchase and LabelMap. \relax }}{13}{Method hierachical active learning for a fixed fine-grained ratio (FFR) \cite {yugi}. See text for Purchase and LabelMap. \relax }{algorithm.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Dynamically Adapting Purchase Proportions}{13}{section.2.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Application to Dispatch Dataset}{14}{section.2.4}}
+\newlabel{fig:draft-RCV1}{{\M@TitleReference {\caption@xref {fig:draft-RCV1}{ on input line 599}}{Application to Dispatch Dataset}}{15}{Application to Dispatch Dataset}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Application of HAL demonstrating the benefit of Actively selecting the type of labels to purchase for instances rather than randomly selecting labels to purchase, as in the Passive curves.\relax }}{15}{figure.caption.7}}
+\newlabel{fig:RCV1-16-nobandit}{{\M@TitleReference {\caption@xref {fig:RCV1-16-nobandit}{ on input line 611}}{Application to Dispatch Dataset}}{16}{Application to Dispatch Dataset}{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Document classification\relax }}{16}{figure.caption.8}}
+\newlabel{fig:curve-RCV1}{{\M@TitleReference {\caption@xref {fig:curve-RCV1}{ on input line 628}}{Application to Dispatch Dataset}}{17}{Application to Dispatch Dataset}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Document classification bandit experiment\relax }}{17}{figure.caption.9}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}Experimental Setup}{14}{chapter.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Training and Testing Coarse Grain and Fine Grain Classifiers}{14}{section.3.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative instances for each positive instance.\relax }}{15}{table.caption.8}}
-\newlabel{tab:dataset}{{\M@TitleReference {3.1}{This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative instances for each positive instance.\relax }}{15}{This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative instances for each positive instance.\relax }{table.caption.8}{}}
-\newlabel{tab:ClassesAll}{{\M@TitleReference {3.1a}{Classes\relax }}{15}{Classes\relax }{table.caption.8}{}}
-\newlabel{sub@tab:ClassesAll}{{\M@TitleReference {a}{Classes\relax }}{15}{Classes\relax }{table.caption.8}{}}
-\newlabel{tab:partitions}{{\M@TitleReference {3.1b}{Folds\relax }}{15}{Folds\relax }{table.caption.8}{}}
-\newlabel{sub@tab:partitions}{{\M@TitleReference {b}{Folds\relax }}{15}{Folds\relax }{table.caption.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Example of totals for the Train and Test corresponding to when the first fold is held out to be the test set.\relax }}{15}{table.caption.9}}
-\newlabel{tab:TrainTest}{{\M@TitleReference {3.2}{Example of totals for the Train and Test corresponding to when the first fold is held out to be the test set.\relax }}{15}{Example of totals for the Train and Test corresponding to when the first fold is held out to be the test set.\relax }{table.caption.9}{}}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}Experimental Setup}{18}{chapter.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Training and Testing Coarse Grain and Fine Grain Classifiers}{18}{section.3.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative instances for each positive instance.\relax }}{19}{table.caption.10}}
+\newlabel{tab:dataset}{{\M@TitleReference {3.1}{This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative instances for each positive instance.\relax }}{19}{This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative instances for each positive instance.\relax }{table.caption.10}{}}
+\newlabel{tab:ClassesAll}{{\M@TitleReference {3.1a}{Classes\relax }}{19}{Classes\relax }{table.caption.10}{}}
+\newlabel{sub@tab:ClassesAll}{{\M@TitleReference {a}{Classes\relax }}{19}{Classes\relax }{table.caption.10}{}}
+\newlabel{tab:partitions}{{\M@TitleReference {3.1b}{Folds\relax }}{19}{Folds\relax }{table.caption.10}{}}
+\newlabel{sub@tab:partitions}{{\M@TitleReference {b}{Folds\relax }}{19}{Folds\relax }{table.caption.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Example of totals for the Train and Test corresponding to when the first fold is held out to be the test set.\relax }}{19}{table.caption.11}}
+\newlabel{tab:TrainTest}{{\M@TitleReference {3.2}{Example of totals for the Train and Test corresponding to when the first fold is held out to be the test set.\relax }}{19}{Example of totals for the Train and Test corresponding to when the first fold is held out to be the test set.\relax }{table.caption.11}{}}
 \citation{scikit-learn}
-\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces The subset of instances used for tuning classifier parameters contains approximately $1/5$ and retains all positive instances.\relax }}{16}{table.caption.10}}
-\newlabel{tab:subset}{{\M@TitleReference {3.3}{The subset of instances used for tuning classifier parameters contains approximately $1/5$ and retains all positive instances.\relax }}{16}{The subset of instances used for tuning classifier parameters contains approximately $1/5$ and retains all positive instances.\relax }{table.caption.10}{}}
-\newlabel{tab:ClassesSub}{{\M@TitleReference {3.3a}{Classes Subset\relax }}{16}{Classes Subset\relax }{table.caption.10}{}}
-\newlabel{sub@tab:ClassesSub}{{\M@TitleReference {a}{Classes Subset\relax }}{16}{Classes Subset\relax }{table.caption.10}{}}
-\newlabel{tab:PartitionsSubset}{{\M@TitleReference {3.3b}{Folds Subset\relax }}{16}{Folds Subset\relax }{table.caption.10}{}}
-\newlabel{sub@tab:PartitionsSubset}{{\M@TitleReference {b}{Folds Subset\relax }}{16}{Folds Subset\relax }{table.caption.10}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces Example totals for the train and test set for the subset of data. The subset of data is used for the majority of the parameter search.\relax }}{16}{table.caption.11}}
-\newlabel{tab:subTrainTest}{{\M@TitleReference {3.4}{Example totals for the train and test set for the subset of data. The subset of data is used for the majority of the parameter search.\relax }}{16}{Example totals for the train and test set for the subset of data. The subset of data is used for the majority of the parameter search.\relax }{table.caption.11}{}}
-\@writefile{brf}{\backcite{scikit-learn}{{17}{3.1}{table.caption.11}}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces SVM default results without parameter selection or preprocessing. Where PR curve AUC is (pr), ROC curve AUC is (roc), accuracy is (acc), F1-measure is (f1).\relax }}{17}{table.caption.12}}
-\newlabel{tab:SVMDefResStats}{{\M@TitleReference {3.5}{SVM default results without parameter selection or preprocessing. Where PR curve AUC is (pr), ROC curve AUC is (roc), accuracy is (acc), F1-measure is (f1).\relax }}{17}{SVM default results without parameter selection or preprocessing. Where PR curve AUC is (pr), ROC curve AUC is (roc), accuracy is (acc), F1-measure is (f1).\relax }{table.caption.12}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.6}{\ignorespaces SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp), False Negatives (fn), True Positives is (tp).\relax }}{18}{table.caption.13}}
-\newlabel{tab:SVMDefConfMat}{{\M@TitleReference {3.6}{SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp), False Negatives (fn), True Positives is (tp).\relax }}{18}{SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp), False Negatives (fn), True Positives is (tp).\relax }{table.caption.13}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.7}{\ignorespaces SVM default condensed view of summary performance metrics, each value is the average of 10 folds.\relax }}{18}{table.caption.14}}
-\newlabel{tab:SVMDef}{{\M@TitleReference {3.7}{SVM default condensed view of summary performance metrics, each value is the average of 10 folds.\relax }}{18}{SVM default condensed view of summary performance metrics, each value is the average of 10 folds.\relax }{table.caption.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces The subset of instances used for tuning classifier parameters contains approximately $1/5$ and retains all positive instances.\relax }}{20}{table.caption.12}}
+\newlabel{tab:subset}{{\M@TitleReference {3.3}{The subset of instances used for tuning classifier parameters contains approximately $1/5$ and retains all positive instances.\relax }}{20}{The subset of instances used for tuning classifier parameters contains approximately $1/5$ and retains all positive instances.\relax }{table.caption.12}{}}
+\newlabel{tab:ClassesSub}{{\M@TitleReference {3.3a}{Classes Subset\relax }}{20}{Classes Subset\relax }{table.caption.12}{}}
+\newlabel{sub@tab:ClassesSub}{{\M@TitleReference {a}{Classes Subset\relax }}{20}{Classes Subset\relax }{table.caption.12}{}}
+\newlabel{tab:PartitionsSubset}{{\M@TitleReference {3.3b}{Folds Subset\relax }}{20}{Folds Subset\relax }{table.caption.12}{}}
+\newlabel{sub@tab:PartitionsSubset}{{\M@TitleReference {b}{Folds Subset\relax }}{20}{Folds Subset\relax }{table.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces Example totals for the train and test set for the subset of data. The subset of data is used for the majority of the parameter search.\relax }}{20}{table.caption.13}}
+\newlabel{tab:subTrainTest}{{\M@TitleReference {3.4}{Example totals for the train and test set for the subset of data. The subset of data is used for the majority of the parameter search.\relax }}{20}{Example totals for the train and test set for the subset of data. The subset of data is used for the majority of the parameter search.\relax }{table.caption.13}{}}
+\@writefile{brf}{\backcite{scikit-learn}{{21}{3.1}{table.caption.13}}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces SVM default results without parameter selection or preprocessing. Where PR curve AUC is (pr), ROC curve AUC is (roc), accuracy is (acc), F1-measure is (f1).\relax }}{21}{table.caption.14}}
+\newlabel{tab:SVMDefResStats}{{\M@TitleReference {3.5}{SVM default results without parameter selection or preprocessing. Where PR curve AUC is (pr), ROC curve AUC is (roc), accuracy is (acc), F1-measure is (f1).\relax }}{21}{SVM default results without parameter selection or preprocessing. Where PR curve AUC is (pr), ROC curve AUC is (roc), accuracy is (acc), F1-measure is (f1).\relax }{table.caption.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.6}{\ignorespaces SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp), False Negatives (fn), True Positives is (tp).\relax }}{22}{table.caption.15}}
+\newlabel{tab:SVMDefConfMat}{{\M@TitleReference {3.6}{SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp), False Negatives (fn), True Positives is (tp).\relax }}{22}{SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp), False Negatives (fn), True Positives is (tp).\relax }{table.caption.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.7}{\ignorespaces SVM default condensed view of summary performance metrics, each value is the average of 10 folds.\relax }}{22}{table.caption.16}}
+\newlabel{tab:SVMDef}{{\M@TitleReference {3.7}{SVM default condensed view of summary performance metrics, each value is the average of 10 folds.\relax }}{22}{SVM default condensed view of summary performance metrics, each value is the average of 10 folds.\relax }{table.caption.16}{}}
 \citation{scikit-learn}
 \citation{scikit-learn}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Varying SVM Scaling Methods}{19}{subsection.3.1.1}}
-\@writefile{brf}{\backcite{scikit-learn}{{19}{3.1.1}{subsection.3.1.1}}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.8}{\ignorespaces SVM minimax-scaler results.\relax }}{19}{table.caption.15}}
-\newlabel{tab:SVMMinMax}{{\M@TitleReference {3.8}{SVM minimax-scaler results.\relax }}{19}{SVM minimax-scaler results.\relax }{table.caption.15}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.9}{\ignorespaces SVM norm-scaler results.\relax }}{19}{table.caption.16}}
-\newlabel{tab:SVMNorm}{{\M@TitleReference {3.9}{SVM norm-scaler results.\relax }}{19}{SVM norm-scaler results.\relax }{table.caption.16}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.10}{\ignorespaces SVM std-scaler results. This option is chosen.\relax }}{19}{table.caption.17}}
-\newlabel{tab:SVMStandard}{{\M@TitleReference {3.10}{SVM std-scaler results. This option is chosen.\relax }}{19}{SVM std-scaler results. This option is chosen.\relax }{table.caption.17}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Varying SVM Kernels}{20}{subsection.3.1.2}}
-\@writefile{brf}{\backcite{scikit-learn}{{20}{3.1.2}{subsection.3.1.2}}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.11}{\ignorespaces Linear kernel results.\relax }}{20}{table.caption.18}}
-\newlabel{tab:Linear}{{\M@TitleReference {3.11}{Linear kernel results.\relax }}{20}{Linear kernel results.\relax }{table.caption.18}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.12}{\ignorespaces Poly degree 3 kernel results.\relax }}{20}{table.caption.19}}
-\newlabel{tab:polyDeg3}{{\M@TitleReference {3.12}{Poly degree 3 kernel results.\relax }}{20}{Poly degree 3 kernel results.\relax }{table.caption.19}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.13}{\ignorespaces Poly degree 6 kernel results.\relax }}{20}{table.caption.20}}
-\newlabel{tab:polyDeg6}{{\M@TitleReference {3.13}{Poly degree 6 kernel results.\relax }}{20}{Poly degree 6 kernel results.\relax }{table.caption.20}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.14}{\ignorespaces Sigmoid kernel results.\relax }}{20}{table.caption.21}}
-\newlabel{tab:sigmoid}{{\M@TitleReference {3.14}{Sigmoid kernel results.\relax }}{20}{Sigmoid kernel results.\relax }{table.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Varying SVM Scaling Methods}{23}{subsection.3.1.1}}
+\@writefile{brf}{\backcite{scikit-learn}{{23}{3.1.1}{subsection.3.1.1}}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.8}{\ignorespaces SVM minimax-scaler results.\relax }}{23}{table.caption.17}}
+\newlabel{tab:SVMMinMax}{{\M@TitleReference {3.8}{SVM minimax-scaler results.\relax }}{23}{SVM minimax-scaler results.\relax }{table.caption.17}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.9}{\ignorespaces SVM norm-scaler results.\relax }}{23}{table.caption.18}}
+\newlabel{tab:SVMNorm}{{\M@TitleReference {3.9}{SVM norm-scaler results.\relax }}{23}{SVM norm-scaler results.\relax }{table.caption.18}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.10}{\ignorespaces SVM std-scaler results. This option is chosen.\relax }}{23}{table.caption.19}}
+\newlabel{tab:SVMStandard}{{\M@TitleReference {3.10}{SVM std-scaler results. This option is chosen.\relax }}{23}{SVM std-scaler results. This option is chosen.\relax }{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Varying SVM Kernels}{24}{subsection.3.1.2}}
+\@writefile{brf}{\backcite{scikit-learn}{{24}{3.1.2}{subsection.3.1.2}}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.11}{\ignorespaces Linear kernel results.\relax }}{24}{table.caption.20}}
+\newlabel{tab:Linear}{{\M@TitleReference {3.11}{Linear kernel results.\relax }}{24}{Linear kernel results.\relax }{table.caption.20}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.12}{\ignorespaces Poly degree 3 kernel results.\relax }}{24}{table.caption.21}}
+\newlabel{tab:polyDeg3}{{\M@TitleReference {3.12}{Poly degree 3 kernel results.\relax }}{24}{Poly degree 3 kernel results.\relax }{table.caption.21}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.13}{\ignorespaces Poly degree 6 kernel results.\relax }}{24}{table.caption.22}}
+\newlabel{tab:polyDeg6}{{\M@TitleReference {3.13}{Poly degree 6 kernel results.\relax }}{24}{Poly degree 6 kernel results.\relax }{table.caption.22}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.14}{\ignorespaces Sigmoid kernel results.\relax }}{24}{table.caption.23}}
+\newlabel{tab:sigmoid}{{\M@TitleReference {3.14}{Sigmoid kernel results.\relax }}{24}{Sigmoid kernel results.\relax }{table.caption.23}{}}
 \citation{scikit-learn}
-\@writefile{lot}{\contentsline {table}{\numberline {3.15}{\ignorespaces RBF kernel results. This option is chosen.\relax }}{21}{table.caption.22}}
-\newlabel{tab:RbfOrig}{{\M@TitleReference {3.15}{RBF kernel results. This option is chosen.\relax }}{21}{RBF kernel results. This option is chosen.\relax }{table.caption.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Varying SVM Feature Selection}{21}{subsection.3.1.3}}
-\@writefile{brf}{\backcite{scikit-learn}{{21}{3.1.3}{subsection.3.1.3}}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.16}{\ignorespaces SVM select percentile, keep 25\% of features.\relax }}{21}{table.caption.23}}
-\newlabel{tab:SVMSel25}{{\M@TitleReference {3.16}{SVM select percentile, keep 25\% of features.\relax }}{21}{SVM select percentile, keep 25\% of features.\relax }{table.caption.23}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.17}{\ignorespaces SVM select percentile, keep 50\% of features.\relax }}{21}{table.caption.24}}
-\newlabel{tab:SVMSel50}{{\M@TitleReference {3.17}{SVM select percentile, keep 50\% of features.\relax }}{21}{SVM select percentile, keep 50\% of features.\relax }{table.caption.24}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.18}{\ignorespaces SVM select percentile, keep 75\% of features. This option is chosen.\relax }}{21}{table.caption.25}}
-\newlabel{tab:SVMSel75}{{\M@TitleReference {3.18}{SVM select percentile, keep 75\% of features. This option is chosen.\relax }}{21}{SVM select percentile, keep 75\% of features. This option is chosen.\relax }{table.caption.25}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Varying Logistic Regression Scaling}{22}{subsection.3.1.4}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.19}{\ignorespaces Logistic Regression - No scaling.\relax }}{22}{table.caption.26}}
-\newlabel{tab:LogRegDef}{{\M@TitleReference {3.19}{Logistic Regression - No scaling.\relax }}{22}{Logistic Regression - No scaling.\relax }{table.caption.26}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.20}{\ignorespaces Logistic Regression standard scaling.\relax }}{22}{table.caption.27}}
-\newlabel{tab:LogRegStandard}{{\M@TitleReference {3.20}{Logistic Regression standard scaling.\relax }}{22}{Logistic Regression standard scaling.\relax }{table.caption.27}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.21}{\ignorespaces Logistic Regression normalization scaling.\relax }}{22}{table.caption.28}}
-\newlabel{tab:LogRegNorm}{{\M@TitleReference {3.21}{Logistic Regression normalization scaling.\relax }}{22}{Logistic Regression normalization scaling.\relax }{table.caption.28}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.22}{\ignorespaces Logistic Regression MinMax scaling. This option is chosen.\relax }}{22}{table.caption.29}}
-\newlabel{tab:LogRegMinMax}{{\M@TitleReference {3.22}{Logistic Regression MinMax scaling. This option is chosen.\relax }}{22}{Logistic Regression MinMax scaling. This option is chosen.\relax }{table.caption.29}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.5}Varying Logistic Regression Feature Selection}{22}{subsection.3.1.5}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.23}{\ignorespaces Logistic Regression select percentile 25\%.\relax }}{23}{table.caption.30}}
-\newlabel{tab:LogRegSel25}{{\M@TitleReference {3.23}{Logistic Regression select percentile 25\%.\relax }}{23}{Logistic Regression select percentile 25\%.\relax }{table.caption.30}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.24}{\ignorespaces Logistic Regression select percentile 50\%.\relax }}{23}{table.caption.31}}
-\newlabel{tab:LogRegSel50}{{\M@TitleReference {3.24}{Logistic Regression select percentile 50\%.\relax }}{23}{Logistic Regression select percentile 50\%.\relax }{table.caption.31}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.25}{\ignorespaces Logistic Regression select percentile 75\%.\relax }}{23}{table.caption.32}}
-\newlabel{tab:LogRegSel75}{{\M@TitleReference {3.25}{Logistic Regression select percentile 75\%.\relax }}{23}{Logistic Regression select percentile 75\%.\relax }{table.caption.32}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.26}{\ignorespaces Logistic Regression select percentile 100\%. This option is chosen.\relax }}{23}{table.caption.33}}
-\newlabel{tab:LogRegMinMax}{{\M@TitleReference {3.26}{Logistic Regression select percentile 100\%. This option is chosen.\relax }}{23}{Logistic Regression select percentile 100\%. This option is chosen.\relax }{table.caption.33}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.6}Varying Logistic Regression Positive Class Weight and Cost}{23}{subsection.3.1.6}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.27}{\ignorespaces Logit weight 4.977, cost 1.0\relax }}{24}{table.caption.34}}
-\newlabel{tab:LogRegWtOrig-C1}{{\M@TitleReference {3.27}{Logit weight 4.977, cost 1.0\relax }}{24}{Logit weight 4.977, cost 1.0\relax }{table.caption.34}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.28}{\ignorespaces Logit weight 4.977, cost 0.1\relax }}{24}{table.caption.35}}
-\newlabel{tab:LogRegWtOrig-Cp1}{{\M@TitleReference {3.28}{Logit weight 4.977, cost 0.1\relax }}{24}{Logit weight 4.977, cost 0.1\relax }{table.caption.35}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.29}{\ignorespaces Logit weight 4.977, cost 10.0\relax }}{24}{table.caption.36}}
-\newlabel{tab:LogRegWtOrig-C10}{{\M@TitleReference {3.29}{Logit weight 4.977, cost 10.0\relax }}{24}{Logit weight 4.977, cost 10.0\relax }{table.caption.36}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.30}{\ignorespaces Logit weight 10.0, cost 1.0\relax }}{24}{table.caption.37}}
-\newlabel{tab:LogRegWt10-C1}{{\M@TitleReference {3.30}{Logit weight 10.0, cost 1.0\relax }}{24}{Logit weight 10.0, cost 1.0\relax }{table.caption.37}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.31}{\ignorespaces Logit weight 10.0, cost 0.1\relax }}{24}{table.caption.38}}
-\newlabel{tab:LogRegWt10-Cp1}{{\M@TitleReference {3.31}{Logit weight 10.0, cost 0.1\relax }}{24}{Logit weight 10.0, cost 0.1\relax }{table.caption.38}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.32}{\ignorespaces Logit weight 10.0, cost 10.0\relax }}{24}{table.caption.39}}
-\newlabel{tab:LogRegWt10-C10}{{\M@TitleReference {3.32}{Logit weight 10.0, cost 10.0\relax }}{24}{Logit weight 10.0, cost 10.0\relax }{table.caption.39}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.33}{\ignorespaces Logit weight 7.5, cost 1.0\relax }}{25}{table.caption.40}}
-\newlabel{tab:LogRegWt7p5-C1}{{\M@TitleReference {3.33}{Logit weight 7.5, cost 1.0\relax }}{25}{Logit weight 7.5, cost 1.0\relax }{table.caption.40}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.34}{\ignorespaces Logit weight 7.5, cost 0.1. This option is chosen due to showing advantage for the fine classifier compared to the coarse classifier.\relax }}{25}{table.caption.41}}
-\newlabel{tab:LogRegWt7p5-Cp1}{{\M@TitleReference {3.34}{Logit weight 7.5, cost 0.1. This option is chosen due to showing advantage for the fine classifier compared to the coarse classifier.\relax }}{25}{Logit weight 7.5, cost 0.1. This option is chosen due to showing advantage for the fine classifier compared to the coarse classifier.\relax }{table.caption.41}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.35}{\ignorespaces Logit weight 7.5, cost 10.0\relax }}{25}{table.caption.42}}
-\newlabel{tab:LogRegWt7p5-C10}{{\M@TitleReference {3.35}{Logit weight 7.5, cost 10.0\relax }}{25}{Logit weight 7.5, cost 10.0\relax }{table.caption.42}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.7}Varying Logistic Regression Fine Class Weights}{25}{subsection.3.1.7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.1}Tune Fine Class 1 Weights}{26}{subsubsection.3.1.7.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.36}{\ignorespaces Logit Class 1 weight ratio 1.0\relax }}{26}{table.caption.43}}
-\newlabel{tab:LogRegCls1-Wt1}{{\M@TitleReference {3.36}{Logit Class 1 weight ratio 1.0\relax }}{26}{Logit Class 1 weight ratio 1.0\relax }{table.caption.43}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.37}{\ignorespaces Logit Class 1 weight ratio 0.5\relax }}{26}{table.caption.44}}
-\newlabel{tab:LogRegCls1-Wtp5}{{\M@TitleReference {3.37}{Logit Class 1 weight ratio 0.5\relax }}{26}{Logit Class 1 weight ratio 0.5\relax }{table.caption.44}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.38}{\ignorespaces Logit Class 1 weight ratio 3.0. This option is chosen.\relax }}{26}{table.caption.45}}
-\newlabel{tab:LogRegCls1-Wt3}{{\M@TitleReference {3.38}{Logit Class 1 weight ratio 3.0. This option is chosen.\relax }}{26}{Logit Class 1 weight ratio 3.0. This option is chosen.\relax }{table.caption.45}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.39}{\ignorespaces Logit Class 1 weight ratio 5.0\relax }}{26}{table.caption.46}}
-\newlabel{tab:LogRegCls1-Wt5}{{\M@TitleReference {3.39}{Logit Class 1 weight ratio 5.0\relax }}{26}{Logit Class 1 weight ratio 5.0\relax }{table.caption.46}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.2}Tune Fine Class 2 Weights}{27}{subsubsection.3.1.7.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.40}{\ignorespaces Logit Class 2 weight ratio 1.0. This option is chosen.\relax }}{27}{table.caption.47}}
-\newlabel{tab:LogRegCls2-Wt1}{{\M@TitleReference {3.40}{Logit Class 2 weight ratio 1.0. This option is chosen.\relax }}{27}{Logit Class 2 weight ratio 1.0. This option is chosen.\relax }{table.caption.47}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.41}{\ignorespaces Logit Class 2 weight ratio 0.5\relax }}{27}{table.caption.48}}
-\newlabel{tab:LogitCls2-Wtp5}{{\M@TitleReference {3.41}{Logit Class 2 weight ratio 0.5\relax }}{27}{Logit Class 2 weight ratio 0.5\relax }{table.caption.48}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.42}{\ignorespaces Logit Class 2 weight ratio 1.5\relax }}{27}{table.caption.49}}
-\newlabel{tab:LogRegCls2-Wt1p5}{{\M@TitleReference {3.42}{Logit Class 2 weight ratio 1.5\relax }}{27}{Logit Class 2 weight ratio 1.5\relax }{table.caption.49}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.3}Tune Fine Class 3 Weights}{27}{subsubsection.3.1.7.3}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.43}{\ignorespaces Logit Class 3 weight ratio 1.0. This option is chosen.\relax }}{27}{table.caption.50}}
-\newlabel{tab:LogRegCls3-Wt1}{{\M@TitleReference {3.43}{Logit Class 3 weight ratio 1.0. This option is chosen.\relax }}{27}{Logit Class 3 weight ratio 1.0. This option is chosen.\relax }{table.caption.50}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.44}{\ignorespaces Logit Class 3 weight ratio 0.5\relax }}{28}{table.caption.51}}
-\newlabel{tab:LogRegCls3-Wtp5}{{\M@TitleReference {3.44}{Logit Class 3 weight ratio 0.5\relax }}{28}{Logit Class 3 weight ratio 0.5\relax }{table.caption.51}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.45}{\ignorespaces Logit Class 3 weight ratio 1.5\relax }}{28}{table.caption.52}}
-\newlabel{tab:LogRegCls3-Wt1p5}{{\M@TitleReference {3.45}{Logit Class 3 weight ratio 1.5\relax }}{28}{Logit Class 3 weight ratio 1.5\relax }{table.caption.52}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.4}Tune Fine Class 4 Weights}{28}{subsubsection.3.1.7.4}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.46}{\ignorespaces Logit Class 4 weight ratio 1.0\relax }}{28}{table.caption.53}}
-\newlabel{tab:LogRegCls4-Wt1}{{\M@TitleReference {3.46}{Logit Class 4 weight ratio 1.0\relax }}{28}{Logit Class 4 weight ratio 1.0\relax }{table.caption.53}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.47}{\ignorespaces Logit Class 4 weight ratio 0.5\relax }}{28}{table.caption.54}}
-\newlabel{tab:LogRegCls4-Wtp5}{{\M@TitleReference {3.47}{Logit Class 4 weight ratio 0.5\relax }}{28}{Logit Class 4 weight ratio 0.5\relax }{table.caption.54}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.48}{\ignorespaces Logit Class 4 weight ratio 1.5. This option is chosen.\relax }}{28}{table.caption.55}}
-\newlabel{tab:LogRegCls4-Wt1p5}{{\M@TitleReference {3.48}{Logit Class 4 weight ratio 1.5. This option is chosen.\relax }}{28}{Logit Class 4 weight ratio 1.5. This option is chosen.\relax }{table.caption.55}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.49}{\ignorespaces Logit Class 4 weight ratio 2.0\relax }}{29}{table.caption.56}}
-\newlabel{tab:LogRegCls4-Wt2}{{\M@TitleReference {3.49}{Logit Class 4 weight ratio 2.0\relax }}{29}{Logit Class 4 weight ratio 2.0\relax }{table.caption.56}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.5}Tune Fine Class 5 Weights}{29}{subsubsection.3.1.7.5}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.50}{\ignorespaces Logit Class 5 weight ratio 1.0\relax }}{29}{table.caption.57}}
-\newlabel{tab:LogRegCls5-Wt1}{{\M@TitleReference {3.50}{Logit Class 5 weight ratio 1.0\relax }}{29}{Logit Class 5 weight ratio 1.0\relax }{table.caption.57}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.51}{\ignorespaces Logit Class 5 weight ratio 0.5\relax }}{29}{table.caption.58}}
-\newlabel{tab:LogRegCls5-Wtp5}{{\M@TitleReference {3.51}{Logit Class 5 weight ratio 0.5\relax }}{29}{Logit Class 5 weight ratio 0.5\relax }{table.caption.58}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.52}{\ignorespaces Logit Class 5 weight ratio 1.5\relax }}{29}{table.caption.59}}
-\newlabel{tab:LogRegCls5-Wt1p5}{{\M@TitleReference {3.52}{Logit Class 5 weight ratio 1.5\relax }}{29}{Logit Class 5 weight ratio 1.5\relax }{table.caption.59}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.53}{\ignorespaces Logit Class 5 weight ratio 5.0\relax }}{29}{table.caption.60}}
-\newlabel{tab:LogRegCls5-Wt5}{{\M@TitleReference {3.53}{Logit Class 5 weight ratio 5.0\relax }}{29}{Logit Class 5 weight ratio 5.0\relax }{table.caption.60}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.54}{\ignorespaces Logit Class 5 weight ratio 10.0. This option is chosen.\relax }}{30}{table.caption.61}}
-\newlabel{tab:LogRegCls5-Wt10}{{\M@TitleReference {3.54}{Logit Class 5 weight ratio 10.0. This option is chosen.\relax }}{30}{Logit Class 5 weight ratio 10.0. This option is chosen.\relax }{table.caption.61}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.55}{\ignorespaces LogitCls5-Wt20\relax }}{30}{table.caption.62}}
-\newlabel{tab:LogRegCls5-Wt20}{{\M@TitleReference {3.55}{LogitCls5-Wt20\relax }}{30}{LogitCls5-Wt20\relax }{table.caption.62}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.6}Tune Fine Class 6 Weights}{30}{subsubsection.3.1.7.6}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.56}{\ignorespaces Logit Class 6 weight ratio 1.0\relax }}{30}{table.caption.63}}
-\newlabel{tab:LogRegCls6-Wt1}{{\M@TitleReference {3.56}{Logit Class 6 weight ratio 1.0\relax }}{30}{Logit Class 6 weight ratio 1.0\relax }{table.caption.63}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.57}{\ignorespaces Logit Class 6 weight ratio 0.5\relax }}{30}{table.caption.64}}
-\newlabel{tab:LogRegCls6-Wtp5}{{\M@TitleReference {3.57}{Logit Class 6 weight ratio 0.5\relax }}{30}{Logit Class 6 weight ratio 0.5\relax }{table.caption.64}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.58}{\ignorespaces Logit Class 6 weight ratio 2.0. This option is chosen.\relax }}{30}{table.caption.65}}
-\newlabel{tab:LogRegCls6-Wt2}{{\M@TitleReference {3.58}{Logit Class 6 weight ratio 2.0. This option is chosen.\relax }}{30}{Logit Class 6 weight ratio 2.0. This option is chosen.\relax }{table.caption.65}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.59}{\ignorespaces Logit Class 6 weight ratio 3.0\relax }}{31}{table.caption.66}}
-\newlabel{tab:LogRegCls6-Wt3}{{\M@TitleReference {3.59}{Logit Class 6 weight ratio 3.0\relax }}{31}{Logit Class 6 weight ratio 3.0\relax }{table.caption.66}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.7}Tune Fine Class 7 Weights}{31}{subsubsection.3.1.7.7}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.60}{\ignorespaces Logit Class 7 weight ratio 1.0\relax }}{31}{table.caption.67}}
-\newlabel{tab:LogRegCls7-Wt1}{{\M@TitleReference {3.60}{Logit Class 7 weight ratio 1.0\relax }}{31}{Logit Class 7 weight ratio 1.0\relax }{table.caption.67}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.61}{\ignorespaces Logit Class 7 weight ratio 0.5\relax }}{31}{table.caption.68}}
-\newlabel{tab:LogRegCls7-Wtp5}{{\M@TitleReference {3.61}{Logit Class 7 weight ratio 0.5\relax }}{31}{Logit Class 7 weight ratio 0.5\relax }{table.caption.68}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.62}{\ignorespaces Logit Class 7 weight ratio 3.0. This option is chosen.\relax }}{31}{table.caption.69}}
-\newlabel{tab:LogRegCls7-Wt3}{{\M@TitleReference {3.62}{Logit Class 7 weight ratio 3.0. This option is chosen.\relax }}{31}{Logit Class 7 weight ratio 3.0. This option is chosen.\relax }{table.caption.69}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.63}{\ignorespaces Logit Class 7 weight ratio 5.0\relax }}{31}{table.caption.70}}
-\newlabel{tab:LogRegCls7-Wt5}{{\M@TitleReference {3.63}{Logit Class 7 weight ratio 5.0\relax }}{31}{Logit Class 7 weight ratio 5.0\relax }{table.caption.70}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.8}Tune Fine Class 8 Weights}{32}{subsubsection.3.1.7.8}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.64}{\ignorespaces Logit Class 8 weight ratio 1.0. This option is chosen.\relax }}{32}{table.caption.71}}
-\newlabel{tab:LogRegCls8-Wt1}{{\M@TitleReference {3.64}{Logit Class 8 weight ratio 1.0. This option is chosen.\relax }}{32}{Logit Class 8 weight ratio 1.0. This option is chosen.\relax }{table.caption.71}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.65}{\ignorespaces Logit Class 8 weight ratio 0.5\relax }}{32}{table.caption.72}}
-\newlabel{tab:LogRegCls8-Wtp5}{{\M@TitleReference {3.65}{Logit Class 8 weight ratio 0.5\relax }}{32}{Logit Class 8 weight ratio 0.5\relax }{table.caption.72}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.66}{\ignorespaces Logit Class 8 weight ratio 1.5\relax }}{32}{table.caption.73}}
-\newlabel{tab:LogRegCls8-Wt1p5}{{\M@TitleReference {3.66}{Logit Class 8 weight ratio 1.5\relax }}{32}{Logit Class 8 weight ratio 1.5\relax }{table.caption.73}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.8}Varying Logistic Regression Tolerance}{32}{subsection.3.1.8}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.67}{\ignorespaces Logit results after fine tuning, effectively had a tolerance of 0.0001\relax }}{32}{table.caption.74}}
-\newlabel{tab:LogRegAftFineTune}{{\M@TitleReference {3.67}{Logit results after fine tuning, effectively had a tolerance of 0.0001\relax }}{32}{Logit results after fine tuning, effectively had a tolerance of 0.0001\relax }{table.caption.74}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.15}{\ignorespaces RBF kernel results. This option is chosen.\relax }}{25}{table.caption.24}}
+\newlabel{tab:RbfOrig}{{\M@TitleReference {3.15}{RBF kernel results. This option is chosen.\relax }}{25}{RBF kernel results. This option is chosen.\relax }{table.caption.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Varying SVM Feature Selection}{25}{subsection.3.1.3}}
+\@writefile{brf}{\backcite{scikit-learn}{{25}{3.1.3}{subsection.3.1.3}}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.16}{\ignorespaces SVM select percentile, keep 25\% of features.\relax }}{25}{table.caption.25}}
+\newlabel{tab:SVMSel25}{{\M@TitleReference {3.16}{SVM select percentile, keep 25\% of features.\relax }}{25}{SVM select percentile, keep 25\% of features.\relax }{table.caption.25}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.17}{\ignorespaces SVM select percentile, keep 50\% of features.\relax }}{25}{table.caption.26}}
+\newlabel{tab:SVMSel50}{{\M@TitleReference {3.17}{SVM select percentile, keep 50\% of features.\relax }}{25}{SVM select percentile, keep 50\% of features.\relax }{table.caption.26}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.18}{\ignorespaces SVM select percentile, keep 75\% of features. This option is chosen.\relax }}{25}{table.caption.27}}
+\newlabel{tab:SVMSel75}{{\M@TitleReference {3.18}{SVM select percentile, keep 75\% of features. This option is chosen.\relax }}{25}{SVM select percentile, keep 75\% of features. This option is chosen.\relax }{table.caption.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Varying Logistic Regression Scaling}{26}{subsection.3.1.4}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.19}{\ignorespaces Logistic Regression - No scaling.\relax }}{26}{table.caption.28}}
+\newlabel{tab:LogRegDef}{{\M@TitleReference {3.19}{Logistic Regression - No scaling.\relax }}{26}{Logistic Regression - No scaling.\relax }{table.caption.28}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.20}{\ignorespaces Logistic Regression standard scaling.\relax }}{26}{table.caption.29}}
+\newlabel{tab:LogRegStandard}{{\M@TitleReference {3.20}{Logistic Regression standard scaling.\relax }}{26}{Logistic Regression standard scaling.\relax }{table.caption.29}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.21}{\ignorespaces Logistic Regression normalization scaling.\relax }}{26}{table.caption.30}}
+\newlabel{tab:LogRegNorm}{{\M@TitleReference {3.21}{Logistic Regression normalization scaling.\relax }}{26}{Logistic Regression normalization scaling.\relax }{table.caption.30}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.22}{\ignorespaces Logistic Regression MinMax scaling. This option is chosen.\relax }}{26}{table.caption.31}}
+\newlabel{tab:LogRegMinMax}{{\M@TitleReference {3.22}{Logistic Regression MinMax scaling. This option is chosen.\relax }}{26}{Logistic Regression MinMax scaling. This option is chosen.\relax }{table.caption.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.5}Varying Logistic Regression Feature Selection}{26}{subsection.3.1.5}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.23}{\ignorespaces Logistic Regression select percentile 25\%.\relax }}{27}{table.caption.32}}
+\newlabel{tab:LogRegSel25}{{\M@TitleReference {3.23}{Logistic Regression select percentile 25\%.\relax }}{27}{Logistic Regression select percentile 25\%.\relax }{table.caption.32}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.24}{\ignorespaces Logistic Regression select percentile 50\%.\relax }}{27}{table.caption.33}}
+\newlabel{tab:LogRegSel50}{{\M@TitleReference {3.24}{Logistic Regression select percentile 50\%.\relax }}{27}{Logistic Regression select percentile 50\%.\relax }{table.caption.33}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.25}{\ignorespaces Logistic Regression select percentile 75\%.\relax }}{27}{table.caption.34}}
+\newlabel{tab:LogRegSel75}{{\M@TitleReference {3.25}{Logistic Regression select percentile 75\%.\relax }}{27}{Logistic Regression select percentile 75\%.\relax }{table.caption.34}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.26}{\ignorespaces Logistic Regression select percentile 100\%. This option is chosen.\relax }}{27}{table.caption.35}}
+\newlabel{tab:LogRegMinMax}{{\M@TitleReference {3.26}{Logistic Regression select percentile 100\%. This option is chosen.\relax }}{27}{Logistic Regression select percentile 100\%. This option is chosen.\relax }{table.caption.35}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.6}Varying Logistic Regression Positive Class Weight and Cost}{27}{subsection.3.1.6}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.27}{\ignorespaces Logit weight 4.977, cost 1.0\relax }}{28}{table.caption.36}}
+\newlabel{tab:LogRegWtOrig-C1}{{\M@TitleReference {3.27}{Logit weight 4.977, cost 1.0\relax }}{28}{Logit weight 4.977, cost 1.0\relax }{table.caption.36}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.28}{\ignorespaces Logit weight 4.977, cost 0.1\relax }}{28}{table.caption.37}}
+\newlabel{tab:LogRegWtOrig-Cp1}{{\M@TitleReference {3.28}{Logit weight 4.977, cost 0.1\relax }}{28}{Logit weight 4.977, cost 0.1\relax }{table.caption.37}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.29}{\ignorespaces Logit weight 4.977, cost 10.0\relax }}{28}{table.caption.38}}
+\newlabel{tab:LogRegWtOrig-C10}{{\M@TitleReference {3.29}{Logit weight 4.977, cost 10.0\relax }}{28}{Logit weight 4.977, cost 10.0\relax }{table.caption.38}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.30}{\ignorespaces Logit weight 10.0, cost 1.0\relax }}{28}{table.caption.39}}
+\newlabel{tab:LogRegWt10-C1}{{\M@TitleReference {3.30}{Logit weight 10.0, cost 1.0\relax }}{28}{Logit weight 10.0, cost 1.0\relax }{table.caption.39}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.31}{\ignorespaces Logit weight 10.0, cost 0.1\relax }}{28}{table.caption.40}}
+\newlabel{tab:LogRegWt10-Cp1}{{\M@TitleReference {3.31}{Logit weight 10.0, cost 0.1\relax }}{28}{Logit weight 10.0, cost 0.1\relax }{table.caption.40}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.32}{\ignorespaces Logit weight 10.0, cost 10.0\relax }}{28}{table.caption.41}}
+\newlabel{tab:LogRegWt10-C10}{{\M@TitleReference {3.32}{Logit weight 10.0, cost 10.0\relax }}{28}{Logit weight 10.0, cost 10.0\relax }{table.caption.41}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.33}{\ignorespaces Logit weight 7.5, cost 1.0\relax }}{29}{table.caption.42}}
+\newlabel{tab:LogRegWt7p5-C1}{{\M@TitleReference {3.33}{Logit weight 7.5, cost 1.0\relax }}{29}{Logit weight 7.5, cost 1.0\relax }{table.caption.42}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.34}{\ignorespaces Logit weight 7.5, cost 0.1. This option is chosen due to showing advantage for the fine classifier compared to the coarse classifier.\relax }}{29}{table.caption.43}}
+\newlabel{tab:LogRegWt7p5-Cp1}{{\M@TitleReference {3.34}{Logit weight 7.5, cost 0.1. This option is chosen due to showing advantage for the fine classifier compared to the coarse classifier.\relax }}{29}{Logit weight 7.5, cost 0.1. This option is chosen due to showing advantage for the fine classifier compared to the coarse classifier.\relax }{table.caption.43}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.35}{\ignorespaces Logit weight 7.5, cost 10.0\relax }}{29}{table.caption.44}}
+\newlabel{tab:LogRegWt7p5-C10}{{\M@TitleReference {3.35}{Logit weight 7.5, cost 10.0\relax }}{29}{Logit weight 7.5, cost 10.0\relax }{table.caption.44}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.7}Varying Logistic Regression Fine Class Weights}{29}{subsection.3.1.7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.1}Tune Fine Class 1 Weights}{30}{subsubsection.3.1.7.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.36}{\ignorespaces Logit Class 1 weight ratio 1.0\relax }}{30}{table.caption.45}}
+\newlabel{tab:LogRegCls1-Wt1}{{\M@TitleReference {3.36}{Logit Class 1 weight ratio 1.0\relax }}{30}{Logit Class 1 weight ratio 1.0\relax }{table.caption.45}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.37}{\ignorespaces Logit Class 1 weight ratio 0.5\relax }}{30}{table.caption.46}}
+\newlabel{tab:LogRegCls1-Wtp5}{{\M@TitleReference {3.37}{Logit Class 1 weight ratio 0.5\relax }}{30}{Logit Class 1 weight ratio 0.5\relax }{table.caption.46}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.38}{\ignorespaces Logit Class 1 weight ratio 3.0. This option is chosen.\relax }}{30}{table.caption.47}}
+\newlabel{tab:LogRegCls1-Wt3}{{\M@TitleReference {3.38}{Logit Class 1 weight ratio 3.0. This option is chosen.\relax }}{30}{Logit Class 1 weight ratio 3.0. This option is chosen.\relax }{table.caption.47}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.39}{\ignorespaces Logit Class 1 weight ratio 5.0\relax }}{30}{table.caption.48}}
+\newlabel{tab:LogRegCls1-Wt5}{{\M@TitleReference {3.39}{Logit Class 1 weight ratio 5.0\relax }}{30}{Logit Class 1 weight ratio 5.0\relax }{table.caption.48}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.2}Tune Fine Class 2 Weights}{31}{subsubsection.3.1.7.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.40}{\ignorespaces Logit Class 2 weight ratio 1.0. This option is chosen.\relax }}{31}{table.caption.49}}
+\newlabel{tab:LogRegCls2-Wt1}{{\M@TitleReference {3.40}{Logit Class 2 weight ratio 1.0. This option is chosen.\relax }}{31}{Logit Class 2 weight ratio 1.0. This option is chosen.\relax }{table.caption.49}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.41}{\ignorespaces Logit Class 2 weight ratio 0.5\relax }}{31}{table.caption.50}}
+\newlabel{tab:LogitCls2-Wtp5}{{\M@TitleReference {3.41}{Logit Class 2 weight ratio 0.5\relax }}{31}{Logit Class 2 weight ratio 0.5\relax }{table.caption.50}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.42}{\ignorespaces Logit Class 2 weight ratio 1.5\relax }}{31}{table.caption.51}}
+\newlabel{tab:LogRegCls2-Wt1p5}{{\M@TitleReference {3.42}{Logit Class 2 weight ratio 1.5\relax }}{31}{Logit Class 2 weight ratio 1.5\relax }{table.caption.51}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.3}Tune Fine Class 3 Weights}{31}{subsubsection.3.1.7.3}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.43}{\ignorespaces Logit Class 3 weight ratio 1.0. This option is chosen.\relax }}{31}{table.caption.52}}
+\newlabel{tab:LogRegCls3-Wt1}{{\M@TitleReference {3.43}{Logit Class 3 weight ratio 1.0. This option is chosen.\relax }}{31}{Logit Class 3 weight ratio 1.0. This option is chosen.\relax }{table.caption.52}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.44}{\ignorespaces Logit Class 3 weight ratio 0.5\relax }}{32}{table.caption.53}}
+\newlabel{tab:LogRegCls3-Wtp5}{{\M@TitleReference {3.44}{Logit Class 3 weight ratio 0.5\relax }}{32}{Logit Class 3 weight ratio 0.5\relax }{table.caption.53}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.45}{\ignorespaces Logit Class 3 weight ratio 1.5\relax }}{32}{table.caption.54}}
+\newlabel{tab:LogRegCls3-Wt1p5}{{\M@TitleReference {3.45}{Logit Class 3 weight ratio 1.5\relax }}{32}{Logit Class 3 weight ratio 1.5\relax }{table.caption.54}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.4}Tune Fine Class 4 Weights}{32}{subsubsection.3.1.7.4}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.46}{\ignorespaces Logit Class 4 weight ratio 1.0\relax }}{32}{table.caption.55}}
+\newlabel{tab:LogRegCls4-Wt1}{{\M@TitleReference {3.46}{Logit Class 4 weight ratio 1.0\relax }}{32}{Logit Class 4 weight ratio 1.0\relax }{table.caption.55}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.47}{\ignorespaces Logit Class 4 weight ratio 0.5\relax }}{32}{table.caption.56}}
+\newlabel{tab:LogRegCls4-Wtp5}{{\M@TitleReference {3.47}{Logit Class 4 weight ratio 0.5\relax }}{32}{Logit Class 4 weight ratio 0.5\relax }{table.caption.56}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.48}{\ignorespaces Logit Class 4 weight ratio 1.5. This option is chosen.\relax }}{32}{table.caption.57}}
+\newlabel{tab:LogRegCls4-Wt1p5}{{\M@TitleReference {3.48}{Logit Class 4 weight ratio 1.5. This option is chosen.\relax }}{32}{Logit Class 4 weight ratio 1.5. This option is chosen.\relax }{table.caption.57}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.49}{\ignorespaces Logit Class 4 weight ratio 2.0\relax }}{33}{table.caption.58}}
+\newlabel{tab:LogRegCls4-Wt2}{{\M@TitleReference {3.49}{Logit Class 4 weight ratio 2.0\relax }}{33}{Logit Class 4 weight ratio 2.0\relax }{table.caption.58}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.5}Tune Fine Class 5 Weights}{33}{subsubsection.3.1.7.5}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.50}{\ignorespaces Logit Class 5 weight ratio 1.0\relax }}{33}{table.caption.59}}
+\newlabel{tab:LogRegCls5-Wt1}{{\M@TitleReference {3.50}{Logit Class 5 weight ratio 1.0\relax }}{33}{Logit Class 5 weight ratio 1.0\relax }{table.caption.59}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.51}{\ignorespaces Logit Class 5 weight ratio 0.5\relax }}{33}{table.caption.60}}
+\newlabel{tab:LogRegCls5-Wtp5}{{\M@TitleReference {3.51}{Logit Class 5 weight ratio 0.5\relax }}{33}{Logit Class 5 weight ratio 0.5\relax }{table.caption.60}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.52}{\ignorespaces Logit Class 5 weight ratio 1.5\relax }}{33}{table.caption.61}}
+\newlabel{tab:LogRegCls5-Wt1p5}{{\M@TitleReference {3.52}{Logit Class 5 weight ratio 1.5\relax }}{33}{Logit Class 5 weight ratio 1.5\relax }{table.caption.61}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.53}{\ignorespaces Logit Class 5 weight ratio 5.0\relax }}{33}{table.caption.62}}
+\newlabel{tab:LogRegCls5-Wt5}{{\M@TitleReference {3.53}{Logit Class 5 weight ratio 5.0\relax }}{33}{Logit Class 5 weight ratio 5.0\relax }{table.caption.62}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.54}{\ignorespaces Logit Class 5 weight ratio 10.0. This option is chosen.\relax }}{34}{table.caption.63}}
+\newlabel{tab:LogRegCls5-Wt10}{{\M@TitleReference {3.54}{Logit Class 5 weight ratio 10.0. This option is chosen.\relax }}{34}{Logit Class 5 weight ratio 10.0. This option is chosen.\relax }{table.caption.63}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.55}{\ignorespaces LogitCls5-Wt20\relax }}{34}{table.caption.64}}
+\newlabel{tab:LogRegCls5-Wt20}{{\M@TitleReference {3.55}{LogitCls5-Wt20\relax }}{34}{LogitCls5-Wt20\relax }{table.caption.64}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.6}Tune Fine Class 6 Weights}{34}{subsubsection.3.1.7.6}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.56}{\ignorespaces Logit Class 6 weight ratio 1.0\relax }}{34}{table.caption.65}}
+\newlabel{tab:LogRegCls6-Wt1}{{\M@TitleReference {3.56}{Logit Class 6 weight ratio 1.0\relax }}{34}{Logit Class 6 weight ratio 1.0\relax }{table.caption.65}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.57}{\ignorespaces Logit Class 6 weight ratio 0.5\relax }}{34}{table.caption.66}}
+\newlabel{tab:LogRegCls6-Wtp5}{{\M@TitleReference {3.57}{Logit Class 6 weight ratio 0.5\relax }}{34}{Logit Class 6 weight ratio 0.5\relax }{table.caption.66}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.58}{\ignorespaces Logit Class 6 weight ratio 2.0. This option is chosen.\relax }}{34}{table.caption.67}}
+\newlabel{tab:LogRegCls6-Wt2}{{\M@TitleReference {3.58}{Logit Class 6 weight ratio 2.0. This option is chosen.\relax }}{34}{Logit Class 6 weight ratio 2.0. This option is chosen.\relax }{table.caption.67}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.59}{\ignorespaces Logit Class 6 weight ratio 3.0\relax }}{35}{table.caption.68}}
+\newlabel{tab:LogRegCls6-Wt3}{{\M@TitleReference {3.59}{Logit Class 6 weight ratio 3.0\relax }}{35}{Logit Class 6 weight ratio 3.0\relax }{table.caption.68}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.7}Tune Fine Class 7 Weights}{35}{subsubsection.3.1.7.7}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.60}{\ignorespaces Logit Class 7 weight ratio 1.0\relax }}{35}{table.caption.69}}
+\newlabel{tab:LogRegCls7-Wt1}{{\M@TitleReference {3.60}{Logit Class 7 weight ratio 1.0\relax }}{35}{Logit Class 7 weight ratio 1.0\relax }{table.caption.69}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.61}{\ignorespaces Logit Class 7 weight ratio 0.5\relax }}{35}{table.caption.70}}
+\newlabel{tab:LogRegCls7-Wtp5}{{\M@TitleReference {3.61}{Logit Class 7 weight ratio 0.5\relax }}{35}{Logit Class 7 weight ratio 0.5\relax }{table.caption.70}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.62}{\ignorespaces Logit Class 7 weight ratio 3.0. This option is chosen.\relax }}{35}{table.caption.71}}
+\newlabel{tab:LogRegCls7-Wt3}{{\M@TitleReference {3.62}{Logit Class 7 weight ratio 3.0. This option is chosen.\relax }}{35}{Logit Class 7 weight ratio 3.0. This option is chosen.\relax }{table.caption.71}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.63}{\ignorespaces Logit Class 7 weight ratio 5.0\relax }}{35}{table.caption.72}}
+\newlabel{tab:LogRegCls7-Wt5}{{\M@TitleReference {3.63}{Logit Class 7 weight ratio 5.0\relax }}{35}{Logit Class 7 weight ratio 5.0\relax }{table.caption.72}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.7.8}Tune Fine Class 8 Weights}{36}{subsubsection.3.1.7.8}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.64}{\ignorespaces Logit Class 8 weight ratio 1.0. This option is chosen.\relax }}{36}{table.caption.73}}
+\newlabel{tab:LogRegCls8-Wt1}{{\M@TitleReference {3.64}{Logit Class 8 weight ratio 1.0. This option is chosen.\relax }}{36}{Logit Class 8 weight ratio 1.0. This option is chosen.\relax }{table.caption.73}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.65}{\ignorespaces Logit Class 8 weight ratio 0.5\relax }}{36}{table.caption.74}}
+\newlabel{tab:LogRegCls8-Wtp5}{{\M@TitleReference {3.65}{Logit Class 8 weight ratio 0.5\relax }}{36}{Logit Class 8 weight ratio 0.5\relax }{table.caption.74}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.66}{\ignorespaces Logit Class 8 weight ratio 1.5\relax }}{36}{table.caption.75}}
+\newlabel{tab:LogRegCls8-Wt1p5}{{\M@TitleReference {3.66}{Logit Class 8 weight ratio 1.5\relax }}{36}{Logit Class 8 weight ratio 1.5\relax }{table.caption.75}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.8}Varying Logistic Regression Tolerance}{36}{subsection.3.1.8}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.67}{\ignorespaces Logit results after fine tuning, effectively had a tolerance of 0.0001\relax }}{36}{table.caption.76}}
+\newlabel{tab:LogRegAftFineTune}{{\M@TitleReference {3.67}{Logit results after fine tuning, effectively had a tolerance of 0.0001\relax }}{36}{Logit results after fine tuning, effectively had a tolerance of 0.0001\relax }{table.caption.76}{}}
 \citation{scikit-learn}
-\@writefile{lot}{\contentsline {table}{\numberline {3.68}{\ignorespaces Logit Tolerance 0.0001, notice that the fine pr and roc decreased by 0.001, and that the coarse roc decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.\relax }}{33}{table.caption.75}}
-\newlabel{tab:LogRegOrig-0001}{{\M@TitleReference {3.68}{Logit Tolerance 0.0001, notice that the fine pr and roc decreased by 0.001, and that the coarse roc decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.\relax }}{33}{Logit Tolerance 0.0001, notice that the fine pr and roc decreased by 0.001, and that the coarse roc decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.\relax }{table.caption.75}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.69}{\ignorespaces Logit Tolerance 0.0001. This option is chosen.\relax }}{33}{table.caption.76}}
-\newlabel{tab:LogReg-00001Redo}{{\M@TitleReference {3.69}{Logit Tolerance 0.0001. This option is chosen.\relax }}{33}{Logit Tolerance 0.0001. This option is chosen.\relax }{table.caption.76}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.70}{\ignorespaces Logit Tolerance 0.000001\relax }}{33}{table.caption.77}}
-\newlabel{tab:LogReg-000001}{{\M@TitleReference {3.70}{Logit Tolerance 0.000001\relax }}{33}{Logit Tolerance 0.000001\relax }{table.caption.77}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.9}Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{33}{subsection.3.1.9}}
-\@writefile{brf}{\backcite{scikit-learn}{{33}{3.1.9}{subsection.3.1.9}}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.71}{\ignorespaces Logit sample weights, drop intermediate values True. The default option is chosen.\relax }}{34}{table.caption.78}}
-\newlabel{tab:LogRegDefSWDropFalse}{{\M@TitleReference {3.71}{Logit sample weights, drop intermediate values True. The default option is chosen.\relax }}{34}{Logit sample weights, drop intermediate values True. The default option is chosen.\relax }{table.caption.78}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.72}{\ignorespaces Logit no sample weights, drop intermediate values True\relax }}{34}{table.caption.79}}
-\newlabel{tab:LogReg-NoSW}{{\M@TitleReference {3.72}{Logit no sample weights, drop intermediate values True\relax }}{34}{Logit no sample weights, drop intermediate values True\relax }{table.caption.79}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.73}{\ignorespaces Logit sample weights, drop intermediate values False\relax }}{34}{table.caption.80}}
-\newlabel{tab:LogReg-DropFalse}{{\M@TitleReference {3.73}{Logit sample weights, drop intermediate values False\relax }}{34}{Logit sample weights, drop intermediate values False\relax }{table.caption.80}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.74}{\ignorespaces Logit no sample weights, drop intermediate values False\relax }}{34}{table.caption.81}}
-\newlabel{tab:LogReg-NoSW-DropFalse}{{\M@TitleReference {3.74}{Logit no sample weights, drop intermediate values False\relax }}{34}{Logit no sample weights, drop intermediate values False\relax }{table.caption.81}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.10}Varying Logistic Regression Positive Class Weight For Full Dataset}{34}{subsection.3.1.10}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.75}{\ignorespaces Logit entire dataset, weight 20.887\relax }}{35}{table.caption.82}}
-\newlabel{tab:LogRegAllOrig-Wt20p887}{{\M@TitleReference {3.75}{Logit entire dataset, weight 20.887\relax }}{35}{Logit entire dataset, weight 20.887\relax }{table.caption.82}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.76}{\ignorespaces Logit entire dataset, weight 23.0. This option is chosen.\relax }}{35}{table.caption.83}}
-\newlabel{tab:LogRegAll-Wt23}{{\M@TitleReference {3.76}{Logit entire dataset, weight 23.0. This option is chosen.\relax }}{35}{Logit entire dataset, weight 23.0. This option is chosen.\relax }{table.caption.83}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.77}{\ignorespaces Logit entire dataset, weight 25.0.\relax }}{35}{table.caption.84}}
-\newlabel{tab:LogRegAll-Wt25}{{\M@TitleReference {3.77}{Logit entire dataset, weight 25.0.\relax }}{35}{Logit entire dataset, weight 25.0.\relax }{table.caption.84}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.11}Varying SVM Gamma}{35}{subsection.3.1.11}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.78}{\ignorespaces SVM Cost 1.0 Gamma 0.0029674\relax }}{36}{table.caption.85}}
-\newlabel{tab:SVM-C1-Gp0029674}{{\M@TitleReference {3.78}{SVM Cost 1.0 Gamma 0.0029674\relax }}{36}{SVM Cost 1.0 Gamma 0.0029674\relax }{table.caption.85}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.79}{\ignorespaces SVM Cost 2.0 Gamma 0.0029674\relax }}{36}{table.caption.86}}
-\newlabel{tab:SVM-C2-Gp0029674}{{\M@TitleReference {3.79}{SVM Cost 2.0 Gamma 0.0029674\relax }}{36}{SVM Cost 2.0 Gamma 0.0029674\relax }{table.caption.86}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.80}{\ignorespaces SVM Cost 0.1 Gamma 0.0029674\relax }}{36}{table.caption.87}}
-\newlabel{tab:SVM-Cp1-Gp0029674}{{\M@TitleReference {3.80}{SVM Cost 0.1 Gamma 0.0029674\relax }}{36}{SVM Cost 0.1 Gamma 0.0029674\relax }{table.caption.87}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.81}{\ignorespaces SVM Cost 0.05 Gamma 0.0029674\relax }}{36}{table.caption.88}}
-\newlabel{tab:SVM-Cp05-Gp0029674}{{\M@TitleReference {3.81}{SVM Cost 0.05 Gamma 0.0029674\relax }}{36}{SVM Cost 0.05 Gamma 0.0029674\relax }{table.caption.88}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.82}{\ignorespaces SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.\relax }}{36}{table.caption.89}}
-\newlabel{tab:SVM-Cp15-Gp0029674}{{\M@TitleReference {3.82}{SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.\relax }}{36}{SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.\relax }{table.caption.89}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.83}{\ignorespaces SVM Cost 0.2 Gamma 0.0029674.\relax }}{37}{table.caption.90}}
-\newlabel{tab:SVM-Cp2-Gp0029674}{{\M@TitleReference {3.83}{SVM Cost 0.2 Gamma 0.0029674.\relax }}{37}{SVM Cost 0.2 Gamma 0.0029674.\relax }{table.caption.90}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.12}Varying SVM Cost}{37}{subsection.3.1.12}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.84}{\ignorespaces SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.\relax }}{37}{table.caption.91}}
-\newlabel{tab:SVM-Cp15-Gp002}{{\M@TitleReference {3.84}{SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.\relax }}{37}{SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.\relax }{table.caption.91}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.85}{\ignorespaces SVM Cost 0.15 Gamma 0.001\relax }}{37}{table.caption.92}}
-\newlabel{tab:SVM-Cp15-Gp001}{{\M@TitleReference {3.85}{SVM Cost 0.15 Gamma 0.001\relax }}{37}{SVM Cost 0.15 Gamma 0.001\relax }{table.caption.92}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.68}{\ignorespaces Logit Tolerance 0.0001, notice that the fine pr and roc decreased by 0.001, and that the coarse roc decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.\relax }}{37}{table.caption.77}}
+\newlabel{tab:LogRegOrig-0001}{{\M@TitleReference {3.68}{Logit Tolerance 0.0001, notice that the fine pr and roc decreased by 0.001, and that the coarse roc decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.\relax }}{37}{Logit Tolerance 0.0001, notice that the fine pr and roc decreased by 0.001, and that the coarse roc decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.\relax }{table.caption.77}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.69}{\ignorespaces Logit Tolerance 0.0001. This option is chosen.\relax }}{37}{table.caption.78}}
+\newlabel{tab:LogReg-00001Redo}{{\M@TitleReference {3.69}{Logit Tolerance 0.0001. This option is chosen.\relax }}{37}{Logit Tolerance 0.0001. This option is chosen.\relax }{table.caption.78}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.70}{\ignorespaces Logit Tolerance 0.000001\relax }}{37}{table.caption.79}}
+\newlabel{tab:LogReg-000001}{{\M@TitleReference {3.70}{Logit Tolerance 0.000001\relax }}{37}{Logit Tolerance 0.000001\relax }{table.caption.79}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.9}Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{37}{subsection.3.1.9}}
+\@writefile{brf}{\backcite{scikit-learn}{{37}{3.1.9}{subsection.3.1.9}}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.71}{\ignorespaces Logit sample weights, drop intermediate values True. The default option is chosen.\relax }}{38}{table.caption.80}}
+\newlabel{tab:LogRegDefSWDropFalse}{{\M@TitleReference {3.71}{Logit sample weights, drop intermediate values True. The default option is chosen.\relax }}{38}{Logit sample weights, drop intermediate values True. The default option is chosen.\relax }{table.caption.80}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.72}{\ignorespaces Logit no sample weights, drop intermediate values True\relax }}{38}{table.caption.81}}
+\newlabel{tab:LogReg-NoSW}{{\M@TitleReference {3.72}{Logit no sample weights, drop intermediate values True\relax }}{38}{Logit no sample weights, drop intermediate values True\relax }{table.caption.81}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.73}{\ignorespaces Logit sample weights, drop intermediate values False\relax }}{38}{table.caption.82}}
+\newlabel{tab:LogReg-DropFalse}{{\M@TitleReference {3.73}{Logit sample weights, drop intermediate values False\relax }}{38}{Logit sample weights, drop intermediate values False\relax }{table.caption.82}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.74}{\ignorespaces Logit no sample weights, drop intermediate values False\relax }}{38}{table.caption.83}}
+\newlabel{tab:LogReg-NoSW-DropFalse}{{\M@TitleReference {3.74}{Logit no sample weights, drop intermediate values False\relax }}{38}{Logit no sample weights, drop intermediate values False\relax }{table.caption.83}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.10}Varying Logistic Regression Positive Class Weight For Full Dataset}{38}{subsection.3.1.10}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.75}{\ignorespaces Logit entire dataset, weight 20.887\relax }}{39}{table.caption.84}}
+\newlabel{tab:LogRegAllOrig-Wt20p887}{{\M@TitleReference {3.75}{Logit entire dataset, weight 20.887\relax }}{39}{Logit entire dataset, weight 20.887\relax }{table.caption.84}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.76}{\ignorespaces Logit entire dataset, weight 23.0. This option is chosen.\relax }}{39}{table.caption.85}}
+\newlabel{tab:LogRegAll-Wt23}{{\M@TitleReference {3.76}{Logit entire dataset, weight 23.0. This option is chosen.\relax }}{39}{Logit entire dataset, weight 23.0. This option is chosen.\relax }{table.caption.85}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.77}{\ignorespaces Logit entire dataset, weight 25.0.\relax }}{39}{table.caption.86}}
+\newlabel{tab:LogRegAll-Wt25}{{\M@TitleReference {3.77}{Logit entire dataset, weight 25.0.\relax }}{39}{Logit entire dataset, weight 25.0.\relax }{table.caption.86}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.11}Varying SVM Gamma}{39}{subsection.3.1.11}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.78}{\ignorespaces SVM Cost 1.0 Gamma 0.0029674\relax }}{40}{table.caption.87}}
+\newlabel{tab:SVM-C1-Gp0029674}{{\M@TitleReference {3.78}{SVM Cost 1.0 Gamma 0.0029674\relax }}{40}{SVM Cost 1.0 Gamma 0.0029674\relax }{table.caption.87}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.79}{\ignorespaces SVM Cost 2.0 Gamma 0.0029674\relax }}{40}{table.caption.88}}
+\newlabel{tab:SVM-C2-Gp0029674}{{\M@TitleReference {3.79}{SVM Cost 2.0 Gamma 0.0029674\relax }}{40}{SVM Cost 2.0 Gamma 0.0029674\relax }{table.caption.88}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.80}{\ignorespaces SVM Cost 0.1 Gamma 0.0029674\relax }}{40}{table.caption.89}}
+\newlabel{tab:SVM-Cp1-Gp0029674}{{\M@TitleReference {3.80}{SVM Cost 0.1 Gamma 0.0029674\relax }}{40}{SVM Cost 0.1 Gamma 0.0029674\relax }{table.caption.89}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.81}{\ignorespaces SVM Cost 0.05 Gamma 0.0029674\relax }}{40}{table.caption.90}}
+\newlabel{tab:SVM-Cp05-Gp0029674}{{\M@TitleReference {3.81}{SVM Cost 0.05 Gamma 0.0029674\relax }}{40}{SVM Cost 0.05 Gamma 0.0029674\relax }{table.caption.90}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.82}{\ignorespaces SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.\relax }}{40}{table.caption.91}}
+\newlabel{tab:SVM-Cp15-Gp0029674}{{\M@TitleReference {3.82}{SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.\relax }}{40}{SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.\relax }{table.caption.91}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.83}{\ignorespaces SVM Cost 0.2 Gamma 0.0029674.\relax }}{41}{table.caption.92}}
+\newlabel{tab:SVM-Cp2-Gp0029674}{{\M@TitleReference {3.83}{SVM Cost 0.2 Gamma 0.0029674.\relax }}{41}{SVM Cost 0.2 Gamma 0.0029674.\relax }{table.caption.92}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.12}Varying SVM Cost}{41}{subsection.3.1.12}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.84}{\ignorespaces SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.\relax }}{41}{table.caption.93}}
+\newlabel{tab:SVM-Cp15-Gp002}{{\M@TitleReference {3.84}{SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.\relax }}{41}{SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.\relax }{table.caption.93}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.85}{\ignorespaces SVM Cost 0.15 Gamma 0.001\relax }}{41}{table.caption.94}}
+\newlabel{tab:SVM-Cp15-Gp001}{{\M@TitleReference {3.85}{SVM Cost 0.15 Gamma 0.001\relax }}{41}{SVM Cost 0.15 Gamma 0.001\relax }{table.caption.94}{}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}Results and Analysis}{38}{chapter.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}SVM and Logit Classifier Performance}{38}{section.4.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Logit entire dataset results after parameter tuning\relax }}{38}{table.caption.93}}
-\newlabel{tab:LogRegAll-Wt23}{{\M@TitleReference {4.1}{Logit entire dataset results after parameter tuning\relax }}{38}{Logit entire dataset results after parameter tuning\relax }{table.caption.93}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces SVM entire dataset results after parameter tuning\relax }}{38}{table.caption.94}}
-\newlabel{tab:SVM-All}{{\M@TitleReference {4.2}{SVM entire dataset results after parameter tuning\relax }}{38}{SVM entire dataset results after parameter tuning\relax }{table.caption.94}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces The Fine default threshold occurs at a point on the PR curve associated with a higher F-measure score compared to the Coarse curves.\relax }}{39}{figure.caption.95}}
-\newlabel{fig:LogRegThreshPr}{{\M@TitleReference {4.1}{The Fine default threshold occurs at a point on the PR curve associated with a higher F-measure score compared to the Coarse curves.\relax }}{39}{The Fine default threshold occurs at a point on the PR curve associated with a higher F-measure score compared to the Coarse curves.\relax }{figure.caption.95}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.\relax }}{40}{figure.caption.96}}
-\newlabel{fig:LogRegThreshAcc}{{\M@TitleReference {4.2}{Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.\relax }}{40}{Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.\relax }{figure.caption.96}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces SVM results for PR curves and F-measure have Coarse and Fine picking different parts of the curves for their respective thresholds. This results in a slight advantage for Fine at the default threshold, similar to the results for the Logit classifier.\relax }}{40}{figure.caption.97}}
-\newlabel{fig:SVMThreshPr}{{\M@TitleReference {4.3}{SVM results for PR curves and F-measure have Coarse and Fine picking different parts of the curves for their respective thresholds. This results in a slight advantage for Fine at the default threshold, similar to the results for the Logit classifier.\relax }}{40}{SVM results for PR curves and F-measure have Coarse and Fine picking different parts of the curves for their respective thresholds. This results in a slight advantage for Fine at the default threshold, similar to the results for the Logit classifier.\relax }{figure.caption.97}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces SVM accuracy results are similar between Coarse and Fine.\relax }}{41}{figure.caption.98}}
-\newlabel{fig:SVMThreshRoc}{{\M@TitleReference {4.4}{SVM accuracy results are similar between Coarse and Fine.\relax }}{41}{SVM accuracy results are similar between Coarse and Fine.\relax }{figure.caption.98}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Active vs Passive curves}{41}{section.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Plots for Logistic Regression Active vs Passive curves}{42}{subsection.4.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces The PR-AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with Active Fine having the highest performance, and Active outperforming Passive for both Coarse and Fine classifier types.\relax }}{42}{figure.caption.99}}
-\newlabel{fig:runActPassLogReg_pr}{{\M@TitleReference {4.5}{The PR-AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with Active Fine having the highest performance, and Active outperforming Passive for both Coarse and Fine classifier types.\relax }}{42}{The PR-AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with Active Fine having the highest performance, and Active outperforming Passive for both Coarse and Fine classifier types.\relax }{figure.caption.99}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces The ROC-AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both Coarse and Fine. Note that Active Fine ROC curve doesn't converge to the Active Coarse ROC curve until round 40. This is contrasted to a dominance of the Active Fine PR curve after round 10.\relax }}{43}{figure.caption.100}}
-\newlabel{fig:runActPassLogReg_roc}{{\M@TitleReference {4.6}{The ROC-AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both Coarse and Fine. Note that Active Fine ROC curve doesn't converge to the Active Coarse ROC curve until round 40. This is contrasted to a dominance of the Active Fine PR curve after round 10.\relax }}{43}{The ROC-AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both Coarse and Fine. Note that Active Fine ROC curve doesn't converge to the Active Coarse ROC curve until round 40. This is contrasted to a dominance of the Active Fine PR curve after round 10.\relax }{figure.caption.100}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces The accuracy of the classifiers stays at roughly the same rate throughout the rounds; this is due to an effective weighting scheme. Both curves show a dominance of Fine over Coarse and Active over Passive.\relax }}{44}{figure.caption.101}}
-\newlabel{fig:ActiveVsPassiveAccFmesLR}{{\M@TitleReference {4.7}{The accuracy of the classifiers stays at roughly the same rate throughout the rounds; this is due to an effective weighting scheme. Both curves show a dominance of Fine over Coarse and Active over Passive.\relax }}{44}{The accuracy of the classifiers stays at roughly the same rate throughout the rounds; this is due to an effective weighting scheme. Both curves show a dominance of Fine over Coarse and Active over Passive.\relax }{figure.caption.101}{}}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}Results and Analysis}{42}{chapter.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}SVM and Logit Classifier Performance}{42}{section.4.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Logit entire dataset results after parameter tuning\relax }}{42}{table.caption.95}}
+\newlabel{tab:LogRegAll-Wt23}{{\M@TitleReference {4.1}{Logit entire dataset results after parameter tuning\relax }}{42}{Logit entire dataset results after parameter tuning\relax }{table.caption.95}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces SVM entire dataset results after parameter tuning\relax }}{42}{table.caption.96}}
+\newlabel{tab:SVM-All}{{\M@TitleReference {4.2}{SVM entire dataset results after parameter tuning\relax }}{42}{SVM entire dataset results after parameter tuning\relax }{table.caption.96}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces The Fine default threshold occurs at a point on the PR curve associated with a higher F-measure score compared to the Coarse curves.\relax }}{43}{figure.caption.97}}
+\newlabel{fig:LogRegThreshPr}{{\M@TitleReference {4.1}{The Fine default threshold occurs at a point on the PR curve associated with a higher F-measure score compared to the Coarse curves.\relax }}{43}{The Fine default threshold occurs at a point on the PR curve associated with a higher F-measure score compared to the Coarse curves.\relax }{figure.caption.97}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.\relax }}{44}{figure.caption.98}}
+\newlabel{fig:LogRegThreshAcc}{{\M@TitleReference {4.2}{Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.\relax }}{44}{Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.\relax }{figure.caption.98}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces SVM results for PR curves and F-measure have Coarse and Fine picking different parts of the curves for their respective thresholds. This results in a slight advantage for Fine at the default threshold, similar to the results for the Logit classifier.\relax }}{44}{figure.caption.99}}
+\newlabel{fig:SVMThreshPr}{{\M@TitleReference {4.3}{SVM results for PR curves and F-measure have Coarse and Fine picking different parts of the curves for their respective thresholds. This results in a slight advantage for Fine at the default threshold, similar to the results for the Logit classifier.\relax }}{44}{SVM results for PR curves and F-measure have Coarse and Fine picking different parts of the curves for their respective thresholds. This results in a slight advantage for Fine at the default threshold, similar to the results for the Logit classifier.\relax }{figure.caption.99}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces SVM accuracy results are similar between Coarse and Fine.\relax }}{45}{figure.caption.100}}
+\newlabel{fig:SVMThreshRoc}{{\M@TitleReference {4.4}{SVM accuracy results are similar between Coarse and Fine.\relax }}{45}{SVM accuracy results are similar between Coarse and Fine.\relax }{figure.caption.100}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Active vs Passive curves}{45}{section.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Plots for Logistic Regression Active vs Passive curves}{46}{subsection.4.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces The PR-AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with Active Fine having the highest performance, and Active outperforming Passive for both Coarse and Fine classifier types.\relax }}{46}{figure.caption.101}}
+\newlabel{fig:runActPassLogReg_pr}{{\M@TitleReference {4.5}{The PR-AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with Active Fine having the highest performance, and Active outperforming Passive for both Coarse and Fine classifier types.\relax }}{46}{The PR-AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with Active Fine having the highest performance, and Active outperforming Passive for both Coarse and Fine classifier types.\relax }{figure.caption.101}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces The ROC-AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both Coarse and Fine. Note that Active Fine ROC curve doesn't converge to the Active Coarse ROC curve until round 40. This is contrasted to a dominance of the Active Fine PR curve after round 10.\relax }}{47}{figure.caption.102}}
+\newlabel{fig:runActPassLogReg_roc}{{\M@TitleReference {4.6}{The ROC-AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both Coarse and Fine. Note that Active Fine ROC curve doesn't converge to the Active Coarse ROC curve until round 40. This is contrasted to a dominance of the Active Fine PR curve after round 10.\relax }}{47}{The ROC-AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both Coarse and Fine. Note that Active Fine ROC curve doesn't converge to the Active Coarse ROC curve until round 40. This is contrasted to a dominance of the Active Fine PR curve after round 10.\relax }{figure.caption.102}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces The accuracy of the classifiers stays at roughly the same rate throughout the rounds; this is due to an effective weighting scheme. Both curves show a dominance of Fine over Coarse and Active over Passive.\relax }}{48}{figure.caption.103}}
+\newlabel{fig:ActiveVsPassiveAccFmesLR}{{\M@TitleReference {4.7}{The accuracy of the classifiers stays at roughly the same rate throughout the rounds; this is due to an effective weighting scheme. Both curves show a dominance of Fine over Coarse and Active over Passive.\relax }}{48}{The accuracy of the classifiers stays at roughly the same rate throughout the rounds; this is due to an effective weighting scheme. Both curves show a dominance of Fine over Coarse and Active over Passive.\relax }{figure.caption.103}{}}
 \citation{DavisRocPr}
 \citation{DavisRocPr}
 \citation{DavisRocPr}
-\@writefile{brf}{\backcite{DavisRocPr}{{45}{4.2.1}{figure.caption.101}}}
-\@writefile{brf}{\backcite{DavisRocPr}{{45}{4.2.1}{figure.caption.101}}}
-\@writefile{brf}{\backcite{DavisRocPr}{{45}{4.2.1}{figure.caption.101}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces PR curves for each fold at Round 20\relax }}{46}{figure.caption.102}}
-\newlabel{fig:rnd20LogRegPr}{{\M@TitleReference {4.8}{PR curves for each fold at Round 20\relax }}{46}{PR curves for each fold at Round 20\relax }{figure.caption.102}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces ROC curves for each fold at Round 20\relax }}{46}{figure.caption.103}}
-\newlabel{fig:rnd20LogRegRoc}{{\M@TitleReference {4.9}{ROC curves for each fold at Round 20\relax }}{46}{ROC curves for each fold at Round 20\relax }{figure.caption.103}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Plots for SVM Active vs Passive curves}{47}{subsection.4.2.2}}
-\newlabel{fig:ActiveVsPassivePRSVM}{{\M@TitleReference {\caption@xref {fig:ActiveVsPassivePRSVM}{ on input line 2260}}{Plots for SVM Active vs Passive curves}}{47}{Plots for SVM Active vs Passive curves}{figure.caption.104}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces The PR AUC curves for SVM show a slight advantage for Active Fine, similar to the Logit results.\relax }}{47}{figure.caption.104}}
-\newlabel{fig:ActiveVsPassiveROCSVM}{{\M@TitleReference {\caption@xref {fig:ActiveVsPassiveROCSVM}{ on input line 2270}}{Plots for SVM Active vs Passive curves}}{48}{Plots for SVM Active vs Passive curves}{figure.caption.105}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces The ROC AUC curves for SVM match the Logit results, the convergence of Active Fine to Active Coarse takes slightly longer, round 60 compared to round 40.\relax }}{48}{figure.caption.105}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Plots for Fine Fixed Ratio experiments}{49}{section.4.3}}
-\newlabel{ffrSection}{{\M@TitleReference {4.3}{Plots for Fine Fixed Ratio experiments}}{49}{Plots for Fine Fixed Ratio experiments}{section.4.3}{}}
-\newlabel{fig:ParamsFFR_PR_Cost1_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost1_rnds0_180}{ on input line 2326}}{Plots for Fine Fixed Ratio experiments}}{50}{Plots for Fine Fixed Ratio experiments}{figure.caption.106}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces For this curve the fine and coarse grain labels both have a cost of 1. The purple 1.0 curve shows that if only fine-grained labels are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round since the cost of the Fine and Coarse instances is the same the budget\relax }}{50}{figure.caption.106}}
-\newlabel{fig:ParamsFFR_PR_Cost2_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost2_rnds0_180}{ on input line 2339}}{Plots for Fine Fixed Ratio experiments}}{51}{Plots for Fine Fixed Ratio experiments}{figure.caption.107}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces At fine cost 2, advantage of the higher FFR values decreases but the ordering of the curves remains unchanged.\relax }}{51}{figure.caption.107}}
-\newlabel{fig:ParamsFFR_PR_Cost4_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost4_rnds0_180}{ on input line 2351}}{Plots for Fine Fixed Ratio experiments}}{52}{Plots for Fine Fixed Ratio experiments}{figure.caption.108}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces At fine cost 4, the highest FFR 1.0 is no longer preferred, the cost is to high for Fine instances PR-AUC utility to overcome the PR-AUC increase gained by purchasing more Coarse instances.\relax }}{52}{figure.caption.108}}
-\newlabel{fig:ParamsFFR_PR_Cost8_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost8_rnds0_180}{ on input line 2363}}{Plots for Fine Fixed Ratio experiments}}{53}{Plots for Fine Fixed Ratio experiments}{figure.caption.109}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces At fine cost 8 the middle FFR values outperform the extreme values for rounds 0 to 180.\relax }}{53}{figure.caption.109}}
-\newlabel{fig:ParamsFFR_PR_Cost8_rnds0_500}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost8_rnds0_500}{ on input line 2373}}{Plots for Fine Fixed Ratio experiments}}{54}{Plots for Fine Fixed Ratio experiments}{figure.caption.110}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces This shows the iterations continuing through round 500, the curves with the higher fine rates eventually settle to the same end point that the curves with the high rates of coarse labels purchased achieved at previous iterations.\relax }}{54}{figure.caption.110}}
-\newlabel{fig:ParamsFFR_PR_Cost8_rnds20_60}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost8_rnds20_60}{ on input line 2385}}{Plots for Fine Fixed Ratio experiments}}{55}{Plots for Fine Fixed Ratio experiments}{figure.caption.111}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces The fine cost 8 curves shown expanding the rounds 20-60. If a round budget of 40 occurs than the recommended Fine Fixed Ratio would be 0.2\relax }}{55}{figure.caption.111}}
-\newlabel{fig:ParamsFFR_PR_Cost16_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost16_rnds0_180}{ on input line 2396}}{Plots for Fine Fixed Ratio experiments}}{56}{Plots for Fine Fixed Ratio experiments}{figure.caption.112}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces The fine cost is increased to 16. The cost is to high for the fine label advantage to offset the decreased number of instances purchased.\relax }}{56}{figure.caption.112}}
+\@writefile{brf}{\backcite{DavisRocPr}{{49}{4.2.1}{figure.caption.103}}}
+\@writefile{brf}{\backcite{DavisRocPr}{{49}{4.2.1}{figure.caption.103}}}
+\@writefile{brf}{\backcite{DavisRocPr}{{49}{4.2.1}{figure.caption.103}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces PR curves for each fold at Round 20\relax }}{50}{figure.caption.104}}
+\newlabel{fig:rnd20LogRegPr}{{\M@TitleReference {4.8}{PR curves for each fold at Round 20\relax }}{50}{PR curves for each fold at Round 20\relax }{figure.caption.104}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces ROC curves for each fold at Round 20\relax }}{50}{figure.caption.105}}
+\newlabel{fig:rnd20LogRegRoc}{{\M@TitleReference {4.9}{ROC curves for each fold at Round 20\relax }}{50}{ROC curves for each fold at Round 20\relax }{figure.caption.105}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Plots for SVM Active vs Passive curves}{51}{subsection.4.2.2}}
+\newlabel{fig:ActiveVsPassivePRSVM}{{\M@TitleReference {\caption@xref {fig:ActiveVsPassivePRSVM}{ on input line 2369}}{Plots for SVM Active vs Passive curves}}{51}{Plots for SVM Active vs Passive curves}{figure.caption.106}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces The PR AUC curves for SVM show a slight advantage for Active Fine, similar to the Logit results.\relax }}{51}{figure.caption.106}}
+\newlabel{fig:ActiveVsPassiveROCSVM}{{\M@TitleReference {\caption@xref {fig:ActiveVsPassiveROCSVM}{ on input line 2379}}{Plots for SVM Active vs Passive curves}}{52}{Plots for SVM Active vs Passive curves}{figure.caption.107}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces The ROC AUC curves for SVM match the Logit results, the convergence of Active Fine to Active Coarse takes slightly longer, round 60 compared to round 40.\relax }}{52}{figure.caption.107}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Plots for Fine Fixed Ratio experiments}{53}{section.4.3}}
+\newlabel{ffrSection}{{\M@TitleReference {4.3}{Plots for Fine Fixed Ratio experiments}}{53}{Plots for Fine Fixed Ratio experiments}{section.4.3}{}}
+\newlabel{fig:ParamsFFR_PR_Cost1_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost1_rnds0_180}{ on input line 2435}}{Plots for Fine Fixed Ratio experiments}}{54}{Plots for Fine Fixed Ratio experiments}{figure.caption.108}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces For this curve the fine and coarse grain labels both have a cost of 1. The purple 1.0 curve shows that if only fine-grained labels are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round since the cost of the Fine and Coarse instances is the same the budget\relax }}{54}{figure.caption.108}}
+\newlabel{fig:ParamsFFR_PR_Cost2_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost2_rnds0_180}{ on input line 2448}}{Plots for Fine Fixed Ratio experiments}}{55}{Plots for Fine Fixed Ratio experiments}{figure.caption.109}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces At fine cost 2, advantage of the higher FFR values decreases but the ordering of the curves remains unchanged.\relax }}{55}{figure.caption.109}}
+\newlabel{fig:ParamsFFR_PR_Cost4_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost4_rnds0_180}{ on input line 2460}}{Plots for Fine Fixed Ratio experiments}}{56}{Plots for Fine Fixed Ratio experiments}{figure.caption.110}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces At fine cost 4, the highest FFR 1.0 is no longer preferred, the cost is to high for Fine instances PR-AUC utility to overcome the PR-AUC increase gained by purchasing more Coarse instances.\relax }}{56}{figure.caption.110}}
+\newlabel{fig:ParamsFFR_PR_Cost8_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost8_rnds0_180}{ on input line 2472}}{Plots for Fine Fixed Ratio experiments}}{57}{Plots for Fine Fixed Ratio experiments}{figure.caption.111}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces At fine cost 8 the middle FFR values outperform the extreme values for rounds 0 to 180.\relax }}{57}{figure.caption.111}}
+\newlabel{fig:ParamsFFR_PR_Cost8_rnds0_500}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost8_rnds0_500}{ on input line 2482}}{Plots for Fine Fixed Ratio experiments}}{58}{Plots for Fine Fixed Ratio experiments}{figure.caption.112}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces This shows the iterations continuing through round 500, the curves with the higher fine rates eventually settle to the same end point that the curves with the high rates of coarse labels purchased achieved at previous iterations.\relax }}{58}{figure.caption.112}}
+\newlabel{fig:ParamsFFR_PR_Cost8_rnds20_60}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost8_rnds20_60}{ on input line 2494}}{Plots for Fine Fixed Ratio experiments}}{59}{Plots for Fine Fixed Ratio experiments}{figure.caption.113}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces The fine cost 8 curves shown expanding the rounds 20-60. If a round budget of 40 occurs than the recommended Fine Fixed Ratio would be 0.2\relax }}{59}{figure.caption.113}}
+\newlabel{fig:ParamsFFR_PR_Cost16_rnds0_180}{{\M@TitleReference {\caption@xref {fig:ParamsFFR_PR_Cost16_rnds0_180}{ on input line 2505}}{Plots for Fine Fixed Ratio experiments}}{60}{Plots for Fine Fixed Ratio experiments}{figure.caption.114}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces The fine cost is increased to 16. The cost is to high for the fine label advantage to offset the decreased number of instances purchased.\relax }}{60}{figure.caption.114}}
 \bibstyle{IEEEtran}
 \bibdata{IEEEabrv,nuthesis}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {5}Conclusions and Future Work}{57}{chapter.5}}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {5}Conclusions and Future Work}{61}{chapter.5}}
 \bibcite{mitchell}{1}
 \bibcite{scikit-learn}{2}
 \bibcite{Coursera}{3}
 \bibcite{ethem}{4}
 \bibcite{bioPoster}{5}
 \bibcite{mitoproteome}{6}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{58}{section*.114}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{62}{section*.116}}
 \bibcite{UniProt}{7}
 \bibcite{PROFEAT1}{8}
 \bibcite{Cui2}{9}
@@ -412,5 +426,5 @@
 \bibcite{Ling2012fine}{23}
 \bibcite{sklearn-api}{24}
 \citation{*}
-\memsetcounter{lastsheet}{68}
-\memsetcounter{lastpage}{62}
+\memsetcounter{lastsheet}{73}
+\memsetcounter{lastpage}{66}

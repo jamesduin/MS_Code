@@ -39,6 +39,10 @@
 %% Make tables with set width
 \usepackage{tabularx}
 
+% % For algorithms
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
 %% make tables closer
 \usepackage{float}
 
@@ -435,7 +439,7 @@ that no value at that level applies \cite{yugi}.
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.75\columnwidth]{fig/exp-ontology}
+    \includegraphics[width=0.85\columnwidth]{fig/exp-ontology}
     \caption{A labeling tree based on the text categorization dataset RCV1 \cite{Lewis2004}.}
     \label{fig:exp-ontology}
 \end{figure}
@@ -459,7 +463,11 @@ is distinguishable from Museum under Building. A purchase of $\ell_2$ for an ins
 in the RCV1 dataset could yield $\langle$Location,Building,?$\rangle$,  $\langle$Location,Attraction,?$\rangle$,
 $\langle$Location,Lake,$X\rangle$, or $\langle X,X,X \rangle$. Note that once an $X$ or
 a leaf is known for the instance, the rest of the vector labels farther from the root are
-known to be $X$.
+known to be $X$. The labeling relationship for an instance for a given
+class is defined as a function
+\Call{LabelMap}{$E', m, i$} where $E'$ is the label vector,
+$m$ is the class for which the label is requested, and $i$ is the
+level in the label hierarchy associated with that class.
 %\footnote{It is assumed
 %that all labels in the same level are distinct, e.g., `Museum' under `Attraction'
 %is distinguishable from `Museum' under
@@ -467,26 +475,107 @@ known to be $X$.
 
 
 \section{Hierarchical Active Learning}
-\par The Hierarchical Active Learning algorithm (HAL) is shown diagrammatically in Figure 3.
-Multiple fine-grained classifiers are trained at each level of the Hierarchy of the dataset.
-Queries to the oracle are performed purchase the most cost effective labels to add to the
-training sets of the classifiers. The active learning cycle continues until a cost budget has
-been reached. The benefit of an active learning approach is to maximize the F-0.5 measure
-for a given cost budget. It was the goal of this study to apply the HAL algorithm to the
-protein dataset, however this is not achieved at this time. An existing application of
-HAL is briefly discussed in the following section.
-
+\par The Hierarchical Active Learning algorithm (HAL) achieves the active over-labeling
+approach and is shown diagrammatically in \textit{Figure \ref{fig:HALapproach}}.
+A high level description of the HAL algorithm is given in
+\textit{Algorithm \ref{alg:halalgo}}.
+Multiple fine-grained classifiers are trained at each level of the hierarchy of the dataset.
+ Every level $i$, and every class $j$ has a corresponding binary fine-grained
+ classifier $C_{i,j}$. The machine learning algorithm used in $C_{i,j}$ is
+ dependent upon the dataset, this work investigates using SVM and Logit
+ on the protein dataset \cite{bioPoster}. The algorithm progresses by
+ purchasing a batch of labels, where the proportion of the total budget $b$
+ used for a given level $i$ is denoted by a vector $p$. This step
+ \Call{Purchase}{$b \cdot p_i, i, C_{i,j}(x)$}, returns $b \cdot p_i$ worth
+  of label vectors defined up to level $i$ of the labeling tree. The
+  classifier $C_{i,j}$ is used in the purchase function to order the
+  unlabeled instances by the uncertainty, so the instances with the
+  highest uncertainty have their labels purchased in order to maximize
+  the ensemble classifier performance.
 
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.5\columnwidth]{fig/AL2}
-    \label{fig:AL2}
+    \includegraphics[width=0.65\columnwidth]{fig/AL2}
     \caption{Diagram of HAL approach}
+    \label{fig:HALapproach}
 \end{figure}
 \FloatBarrier
 
 
+
+
+
+The classifiers $C_{i,j}$ are combined into an ensemble classifier for
+the coarse-grained level-1 concept. The level-1 concept $C_{1,*}$ is a
+disjunction over
+the concepts $j$ at any given level $i$, the equation to combine fine-grained
+classifiers is given in \textit{eqn. \ref{eq:maxcombine}}.
+
+\begin{equation}
+\label{eq:maxcombine}
+  C_{i,*}(x) = \max_{s>=i,j} C_{s,j}(x)
+\end{equation}
+
+
+Furthermore the uncertainty at level $i$
+is measured with respect to the ensemble classifier $C_{i,*}$. The
+uncertainty $u_i(x)$ of the label for example $x$ for level $i$ is defined
+in \textit{eqn. \ref{eq:uncert}}.
+\begin{equation}
+\label{eq:uncert}
+ u_i(x) = \frac{1}{2} - \left| C_{i,*} - \frac{1}{2} \right|
+\enspace .
+\end{equation}
+
+
+
+\begin{algorithm}[!htb]
+\small{
+\caption{Method hierachical active learning for a fixed
+fine-grained ratio (FFR) \cite{yugi}.
+See text for Purchase and LabelMap.
+}
+\label{alg:halalgo}
+\begin{algorithmic}
+\Function{Hal}{Unlabeled examples $U$, labeling tree $T$, machine learner $L$,
+ budget $B$, per-iteration budget $b$, purchase proportions
+ $p = (p_1,\ldots,p_k)$}
+\State  $E_{i,j} \gets \emptyset$  \Comment binary-labeled train set for
+level $i$, label $j$
+\State Initialize $C_{i,j}$ for all $i, j$
+\While{$B > b$}
+  \State $B \gets B-b$
+  \ForAll{Level $i \in T$}
+    \State $E' \gets$ \Call{Purchase}{$b \, p_i, i, C_i^*$}
+    \ForAll{Level $m \le i$}
+       \ForAll{Class $j$ in Level $m$}
+           \State $E_{m,j} \cup=$ \Call{LabelMap}{$E', m, j$}
+       \EndFor
+    \EndFor
+  \EndFor
+  \ForAll{Level $i \in T$}
+  \ForAll{Class $j$ in Level $i$}
+    \State $C_{i,j} \gets$ Train $L$ on $E_{i,j}$
+  \EndFor
+  \EndFor
+\EndWhile
+\State \Return Ensemble classifier
+\EndFunction
+\end{algorithmic}
+}
+\end{algorithm}
+
+\section{Dynamically Adapting Purchase Proportions}
+
+BANDIT iteratively chooses strategies, and uses a running average of the reward observed for each strategy to guide
+its choices.  For active learning, a natural way to define reward in round $j$ is in terms of observed model change:
+\begin{equation}
+g_{j} = \frac{1}{\|X\|}\sum_{x_i \in X} \log{(|f_{j-1}(x_i) - f_{j}(x_i)|)}
+\enspace ,
+\end{equation}
+where $X$ is the set of withheld {\em unlabeled} examples, and $f_{j}(x_i)$ is HAL's output for the
+input $x_i$ after the $j$th iteration.
 
 \section{Application to Dispatch Dataset}
 \par HAL was applied to a Dispatch dataset. This dataset contains 375,026 manually labeled
@@ -506,8 +595,8 @@ learning approach with all fine-grained labels. The passive learning curves were
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/draft-richmond}
-    \label{fig:draft-richmond}
+    \includegraphics[width=1.0\columnwidth]{fig/draft-RCV1}
+    \label{fig:draft-RCV1}
     \caption{Application of HAL demonstrating the benefit of Actively selecting the type
     of labels to purchase for instances rather than randomly selecting labels to purchase,
     as in the Passive curves.}
@@ -515,12 +604,32 @@ learning approach with all fine-grained labels. The passive learning curves were
 \FloatBarrier
 
 
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/RCV1-16-nobandit}
+    \label{fig:RCV1-16-nobandit}
+    \caption{Document classification}
+\end{figure}
+\FloatBarrier
+
 \par The next analysis step is to apply a given ratio of fine-grained vs coarse-grained
 labels to purchase at each batch request to the oracle. The results of varying the
 percentage of fine-grained labels purchased are shown in Figure 5. The figure shows
 that even a small amount of fine-grained labels purchased, that is, 20 precent provides a
 significant increase in the F-0.5 measure for a given iteration. ...  PR AUC results.
 Add explanation of Bandit approach and results.
+
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/curve-RCV1}
+    \label{fig:curve-RCV1}
+    \caption{Document classification bandit experiment}
+\end{figure}
+\FloatBarrier
+
 
 
 
