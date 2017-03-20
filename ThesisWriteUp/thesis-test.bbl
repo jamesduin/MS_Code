@@ -146,6 +146,11 @@ Y.~Mo, S.~D. Scott, and D.~Downey, ``Learning hierarchically decomposable
   concepts with active over-labeling,'' in \emph{2016 IEEE 16th International
   Conference on Data Mining (ICDM)}, Dec 2016, pp. 340--349.
 
+\bibitem{Lewis2004}
+D.~D. Lewis, Y.~Yang, T.~G. Rose, and F.~Li, ``{RCV1: A New Benchmark
+  Collection for Text Categorization Research},'' \emph{Journal of Machine
+  Learning Research}, vol.~5, pp. 361--397, 2004.
+
 \bibitem{DavisRocPr}
 \BIBentryALTinterwordspacing
 J.~Davis and M.~Goadrich, ``The relationship between precision-recall and roc

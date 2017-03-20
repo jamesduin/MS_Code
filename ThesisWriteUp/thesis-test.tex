@@ -379,6 +379,7 @@ The negative dataset is composed of 19,136 experimentally validated human
 \end{figure}
 \FloatBarrier
 
+
 \section{Coarse-grained vs Fine-grained Trade Off}
 \par In hierarchically labeled datasets, over-labeling refers to learning fine-grained
 (non-root) concepts and combining the results to predict the coarse-grained (root) label \cite{yugi}.
@@ -392,7 +393,8 @@ and incidentally return all of the negative diamond instances as
 positive also. A fine-grained approach is preferable for the simple dataset pictured. The
 fine-grained classification approach for a root
 level classifier will achieve higher levels of precision for the same level of recall when
-applied to the protein dataset. In the simple example, in order for the coarse-grained learner to have high
+applied to the protein dataset. In the simple example, in order for the coarse-grained
+learner to have high
     recall, precision must be sacrificed for a large amount of false positives returned.
     By combining fine-grained classifiers, the same level of recall can be achieved with a
     higher level of precision because none of the false positive diamonds will be returned.
@@ -409,25 +411,60 @@ applied to the protein dataset. In the simple example, in order for the coarse-g
 
 
 \chapter{Background and Related Work}
-\section{Active Learning}
-\par Active Learning relates to the coarse-grained vs fine-grained tradeoff because it is
-reasonable to assume that fine-grained labels may not be as readily available as coarse-grained
-labels, and thus have a higher cost. An active learning approach is used to determine how
-many fine-grained labels to purchase in order to minimize the total cost to train the
-algorithm an maximize the precision and recall scores. The following equations for
-precision, recall, and a weighted F score are shown below in equations 1 through 3.
-\break
-$Precision eqn$ \break
-$Recall eqn$ \break
-$F0_5 eqn$ \break
-\break
-\par The goal in an active learning approach is to maximize the F measure where β equals 0.5 [2].
-The F-0.5 measure gives more weight to precision, as opposed to recall, so it gives
-incentive to purchase enough fine-grained labels to increase the F-0.5 measure. The
-coarse-grained labels will cost less than fine-grained labels, but the increase in
-the F-0.5 measure justifies the increase in cost up to a certain point. The F-0.5
-measure is used in the results section of this paper. ... That's why we use PR AUC in the results.
-Describe some of the other papers that Yugi cited.
+\section{Active Over-Labeling}
+\par Active Learning is when the learner is able to generate instances $x$ itself
+and ask a supervisor to provide the corresponding $r$ value during learning one by
+one, instead of passively being given a training set \cite{mitchell}. In conventional
+active learning the task is to learn a target concept
+$f : {\mathcal X} \rightarrow {\mathcal Y}=\{0, 1\} $, where $\mathcal X$
+is the input space. The initial state is a pool of unlabeled examples
+$U \subset {\mathcal X}$. At each iteration, an oracle is queried at some
+cost for the label of an instance $u \in U$, then $L$ is traning on the labeled examples
+$(x,y)$, with the goal of outputting a relatively high performing classifier for a low cost.
+\par Since our dataset is hierachically labeled, this work extends the conventional active
+learning approach to solicit labels at finer levels of the hierarchy for a specified cost.
+ The oracl in this setting returns a vector of labels, corresponding to the path starting
+ at the root of the hierarchy tree or labeling tree. An example labeling tree for the
+ Reuters Corpus Volume~I (RCV1) datset used in text categorization research \cite{Lewis2004}.
+ A labeling tree for this dataset is shown in is shown in
+ \textit{Figure \ref{fig:exp-ontology}}. An instance in this dataset could be labeled as
+ $\langle$Location,Building,Museum$\rangle$,  $\langle$Location,Attraction,Museum$\rangle$,
+$\langle$Location,Lake,$X\rangle$, or $\langle X,X,X \rangle$, where an $X$ indicates
+that no value at that level applies \cite{yugi}.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=0.75\columnwidth]{fig/exp-ontology}
+    \caption{A labeling tree based on the text categorization dataset RCV1 \cite{Lewis2004}.}
+    \label{fig:exp-ontology}
+\end{figure}
+\FloatBarrier
+
+In the active over-labeling setting, each instance $U$ is initially labeled with the vector
+$\langle$?,?,$\ldots$,?$\rangle$, where $?$ denotes an unspecified label that is yet to be
+purchased. A vector of labels is denoted as $\langle \ell_1,\ell_i,\ldots,\ell_k \rangle$.
+A label $\ell_i$ is the instance's label at the $i$th
+level of the tree. Furthermore, if $j > i$, and $\ell_i = X$ or no value at that level,
+then $\ell_j=X$ as well, since no other label farther than $\ell_i$
+from the root can be defined. Thus we let $\ell_i$ denote the largest value for a given
+ instance such that $\ell_i \not\equiv X$. The values $\ell_i,\ldots,\ell_1$ form a path
+  from a leaf to the root of the tree. For a given instance, a value for $\ell_i$ is purchased
+  at a cost $c_i \geq c_k \geq 0$ for all $i>k$. A purchase of $\ell_i$ automatically
+  yields the values of $\ell_1$ through $\ell_{i-1}$. For example a purchase of $\ell_3$ for
+  an instance in the RCV1 dataset could yield $\langle$Location,Building,Museum$\rangle$,  $\langle$Location,Attraction,Museum$\rangle$,
+$\langle$Location,Lake,$X\rangle$, or $\langle X,X,X \rangle$. It is assumed
+that all labels in the same level are distinct, e.g., Museum under Attraction
+is distinguishable from Museum under Building. A purchase of $\ell_2$ for an instance
+in the RCV1 dataset could yield $\langle$Location,Building,?$\rangle$,  $\langle$Location,Attraction,?$\rangle$,
+$\langle$Location,Lake,$X\rangle$, or $\langle X,X,X \rangle$. Note that once an $X$ or
+a leaf is known for the instance, the rest of the vector labels farther from the root are
+known to be $X$.
+%\footnote{It is assumed
+%that all labels in the same level are distinct, e.g., `Museum' under `Attraction'
+%is distinguishable from `Museum' under
+%`Building'.}
+
 
 \section{Hierarchical Active Learning}
 \par The Hierarchical Active Learning algorithm (HAL) is shown diagrammatically in Figure 3.

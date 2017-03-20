@@ -1,7 +1,7 @@
 Ch3 Comments:
 --Need to explain (in this chapter or earlier) where the data set originally
 came from, what it represents, etc. Also, in earlier chapters describe why
-this protein family is important. =>
+this protein family is important. => done in 1.3 Hierarchical Bioinformatics DataSet
 
 
 --Use hyphens in 'coarse-level', 'fine-grained', etc. => done
@@ -23,15 +23,15 @@ re-run the experiments on a new partitioning? => done
 
 -- If this chapter is experimental setup, why are you presenting results?
 Or, is this just to tune parameters? => yes the plan is to only present
-results that relate to tuning parameters.
+results that relate to the tuning parameters.
 
--- Define PR, ROC, and AUC (perhaps in an earlier chapter). =>
+-- Define PR, ROC, and AUC (perhaps in an earlier chapter). => done in 1.1 Machine Learning
 
 -- Add text in each section, including a summary of results. =>
 
 -- Do you discuss logistic regression in an earlier chapter?  It's
 important to define how it works and what its parameters are before
-discussing how you tuned them. =>
+discussing how you tuned them. => done in 1.1 Machine Learning
 
 
 
@@ -47,7 +47,8 @@ Ch4 Comments:
 -- Add a semi-colon, add a because, fix mispelling => done
 
 --So, if you're saying that performance on negatives is very important, we should be emphasizing
-ROC over PR?  Isn't that the opposite of what we discussed, or am I missing something? =>
+ROC over PR?  Isn't that the opposite of what we discussed, or
+am I missing something?, need to reword this paragraph =>
 
 -- Replace section that follows => done
 
@@ -63,7 +64,9 @@ explain log reg => done
 explain SVM => done
 explain Accuracy, F-measure, PR, and Roc => done
 explain coarse vs fine trade off => done
-explain active learning =>
-explain Yugi's work =>
+explain active over labeling => done
 explain HAL (FFR) algorithm =>
+explain Yugi's work =>
 explain continuation to bandit algorithm =>
+write introduction =>
+re-write abstract =>
