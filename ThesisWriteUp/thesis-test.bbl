@@ -32,6 +32,19 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
   Machine learning in {P}ython,'' \emph{Journal of Machine Learning Research},
   vol.~12, pp. 2825--2830, 2011.
 
+\bibitem{Coursera}
+A.~Ng, ``{Machine Learning by Standford University},''
+  \url{https://www.coursera.org/learn/machine-learning/home/welcome}, 2016,
+  accessed: 2016-12-5.
+
+\bibitem{ethem}
+\BIBentryALTinterwordspacing
+E.~Alpaydin, \emph{Introduction to Machine Learning (Adaptive Computation and
+  Machine Learning series)}, 2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax
+  Cambridge, Massachusetts: The MIT Press, 2009. [Online]. Available:
+  \url{https://amzn.com/026201243X}
+\BIBentrySTDinterwordspacing
+
 \bibitem{bioPoster}
 \BIBentryALTinterwordspacing
 J.~Z. Kevin~Chiang, Juan~Cui, ``Prediction of nuclear and locally encoded
@@ -128,6 +141,11 @@ J.~D. Bendtsen, H.~Nielsen, D.~Widdick, T.~Palmer, and S.~Brunak, ``Prediction
   of twin-arginine signal peptides,'' \emph{BMC bioinformatics}, vol.~6, no.~1,
   p. 167, 2005.
 
+\bibitem{yugi}
+Y.~Mo, S.~D. Scott, and D.~Downey, ``Learning hierarchically decomposable
+  concepts with active over-labeling,'' in \emph{2016 IEEE 16th International
+  Conference on Data Mining (ICDM)}, Dec 2016, pp. 340--349.
+
 \bibitem{DavisRocPr}
 \BIBentryALTinterwordspacing
 J.~Davis and M.~Goadrich, ``The relationship between precision-recall and roc
@@ -173,18 +191,5 @@ L.~Buitinck, G.~Louppe, M.~Blondel, F.~Pedregosa, A.~Mueller, O.~Grisel,
   learning software: experiences from the scikit-learn project,'' in \emph{ECML
   PKDD Workshop: Languages for Data Mining and Machine Learning}, 2013, pp.
   108--122.
-
-\bibitem{ethem}
-\BIBentryALTinterwordspacing
-E.~Alpaydin, \emph{Introduction to Machine Learning (Adaptive Computation and
-  Machine Learning series)}, 2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax
-  Cambridge, Massachusetts: The MIT Press, 2009. [Online]. Available:
-  \url{https://amzn.com/026201243X}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Coursera}
-A.~Ng, ``{Machine Learning by Standford University},''
-  \url{https://www.coursera.org/learn/machine-learning/home/welcome}, 2016,
-  accessed: 2016-12-5.
 
 \end{thebibliography}

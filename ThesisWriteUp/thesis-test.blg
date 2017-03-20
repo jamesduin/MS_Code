@@ -16,45 +16,45 @@ Warning--empty booktitle in bioPoster
 Warning--empty author in UniProt
 
 Done.
-You've used 22 entries,
+You've used 23 entries,
             4039 wiz_defined-function locations,
-            1384 strings with 20465 characters,
-and the built_in function-call counts, 17046 in all, are:
-= -- 1415
-> -- 447
-< -- 120
-+ -- 231
-- -- 87
-* -- 878
-:= -- 2679
-add.period$ -- 46
-call.type$ -- 22
-change.case$ -- 23
-chr.to.int$ -- 246
-cite$ -- 24
-duplicate$ -- 1240
-empty$ -- 1304
-format.name$ -- 103
-if$ -- 3883
+            1390 strings with 20646 characters,
+and the built_in function-call counts, 17931 in all, are:
+= -- 1481
+> -- 467
+< -- 128
++ -- 243
+- -- 90
+* -- 920
+:= -- 2796
+add.period$ -- 48
+call.type$ -- 23
+change.case$ -- 24
+chr.to.int$ -- 267
+cite$ -- 25
+duplicate$ -- 1303
+empty$ -- 1385
+format.name$ -- 107
+if$ -- 4096
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 227
-newline$ -- 121
-num.names$ -- 21
-pop$ -- 517
+int.to.str$ -- 23
+missing$ -- 238
+newline$ -- 124
+num.names$ -- 22
+pop$ -- 546
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1322
+skip$ -- 1390
 stack$ -- 0
-substring$ -- 623
-swap$ -- 1006
-text.length$ -- 38
+substring$ -- 673
+swap$ -- 1057
+text.length$ -- 39
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 22
+type$ -- 23
 warning$ -- 2
-while$ -- 63
-width$ -- 24
-write$ -- 282
+while$ -- 67
+width$ -- 25
+write$ -- 291
 (There were 2 warnings)

@@ -307,7 +307,7 @@ quality. ROC curves are constructed similar to the PR curve except $F_p$ replace
 
 \section{Hierarchical Bioinformatics Data Set}
 \par Bioinformatics is a field using computer science tools and techniques
-for solving problems in (molecular) biology. The focus of this work is
+for solving problems in molecular biology. The focus of this work is
 a Bioinformatics dataset developed in order to identify the source of
 a certain class of mutations causing mitochondrial disease. Mitochondria are
 present in every cell of the body, with the exception of red blood cells
@@ -380,30 +380,29 @@ The negative dataset is composed of 19,136 experimentally validated human
 \FloatBarrier
 
 \section{Coarse-grained vs Fine-grained Trade Off}
-\par The classifier that does not take advantage of any of the fine-grained labels works off of the root
-labels for each instance and does not train separate classifiers for the fine-grained labels. This
-classifier is referred to as the coarse-grained classifier. The classifier that does use fine-grained
-labels, and trains a separate classifier for each label, then combines them to generate a root level
-label is referred to as the fine-grained classifier. It can be demonstrated through a dummy example
+\par In hierarchically labeled datasets, over-labeling refers to learning fine-grained
+(non-root) concepts and combining the results to predict the coarse-grained (root) label \cite{yugi}.
+ It can be demonstrated through a simple example
 that for certain datasets, a fine-grained approach to the root level classifier can achieve higher
 levels of precision for the same level of recall. Such a dataset is shown in \textit{Figure
-\ref{fig:union}}. The classifiers for this dataset can be thought of as a function of axis parallel rectangular boxes.
-For the course grained to have high recall and return all of the positive circle instances, it must
-encompass the entire dataset and incidentally return all of the negative diamond instances as
-positive also. A fine-grained approach is preferable for the dummy dataset pictured. It is the
-intention of this study to demonstrate that the fine-grained classification approach for a root
+\ref{fig:union}}. The classifiers for this dataset can be thought of as a function of axis parallel
+rectangular boxes. For the coarse-grained to have high recall and return all of the positive
+circle instances, it must encompass the entire dataset
+and incidentally return all of the negative diamond instances as
+positive also. A fine-grained approach is preferable for the simple dataset pictured. The
+fine-grained classification approach for a root
 level classifier will achieve higher levels of precision for the same level of recall when
-applied to the protein dataset.
+applied to the protein dataset. In the simple example, in order for the coarse-grained learner to have high
+    recall, precision must be sacrificed for a large amount of false positives returned.
+    By combining fine-grained classifiers, the same level of recall can be achieved with a
+    higher level of precision because none of the false positive diamonds will be returned.
 
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=0.5\columnwidth]{fig/union}
     \caption{Demonstration of a dataset that would benefit from multiple fine-grained
-    learners for each circle type. In order for the coarse-grained learner to have high
-    recall, precision must be scarified and a large amount of false positives returned.
-    By combining fine-grained classifiers the same level of recall can be achieved with a
-    higher level of precision because none of the false positive diamonds will be returned}
+    learners for each circle type.}
     \label{fig:union}
 \end{figure}
 \FloatBarrier
@@ -491,7 +490,7 @@ Add explanation of Bandit approach and results.
 \chapter{Experimental Setup}
 \section{Training and Testing Coarse Grain and Fine Grain Classifiers}
 \par The bioinformatics dataset is composed of 9 classes as shown in
-\textit{Figure \ref{fig:Mitotree} }. The coarse-level concept is whether or not
+\textit{Figure \ref{fig:Mitotree}}. The coarse-level concept is whether or not
 the protein resides within the mitochondria. The negative case of not residing within the mitochondria is class $0$.
 The positive case of residing within the
   mitochondria corresponds to any of the $8$ target compartment classes,  numbered $1$ through $8$. Since the
@@ -665,10 +664,10 @@ the test set divided by the number of positive instances in the test set which i
 
 \FloatBarrier
 \begin{table}[H]
+\small
 \centering
-\caption{SVM default results without parameter selection or preprocessing. Where Precision Recall
-area under the curve is (pr), Receiver Operator Characteristic area under the curve is (roc), accuracy
-is (acc), F1-measure is (f1).}
+\caption{SVM default results without parameter selection or preprocessing. Where PR curve AUC
+is (pr), ROC curve AUC is (roc), accuracy is (acc), F1-measure is (f1).}
 \label{tab:SVMDefResStats}
 \begin{tabular}{|l||l||l||l||l||l||l||l|}\toprule
 coarse-pr & fine-pr & coarse-roc & fine-roc & coarse-acc & fine-acc & coarse-f1 & fine-f1 \\ \midrule
