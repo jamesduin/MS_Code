@@ -151,6 +151,11 @@ D.~D. Lewis, Y.~Yang, T.~G. Rose, and F.~Li, ``{RCV1: A New Benchmark
   Collection for Text Categorization Research},'' \emph{Journal of Machine
   Learning Research}, vol.~5, pp. 361--397, 2004.
 
+\bibitem{Auer2002}
+P.~Auer, N.~Cesa-Bianchi, and P.~Fischer, ``Finite-time analysis of the
+  multiarmed bandit problem,'' \emph{Machine Learning}, vol.~47, no. 2--3, pp.
+  235--256, 2002.
+
 \bibitem{DavisRocPr}
 \BIBentryALTinterwordspacing
 J.~Davis and M.~Goadrich, ``The relationship between precision-recall and roc

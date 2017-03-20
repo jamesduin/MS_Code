@@ -1214,19 +1214,25 @@ level $i$, label $j$
 \label{sec:adaptive}
 
 \sys\ takes as input a vector of purchase proportions, specifying how much of the budget should be
-spent acquiring labels at each given level of granularity in the hierarchy.  The cost of labeling an example can
-vary across levels of the hierarchy, and as we show in Section~\ref{sec:cost-sens}, the relative benefit of labels from a given
-level in the hierarchy often changes as learning progresses.  Thus, we desire a cost-sensitive approach that dynamically
-adapts the purchase proportions.
+spent acquiring labels at each given level of granularity in the hierarchy.  The cost of labeling an
+example can
+vary across levels of the hierarchy, and as we show in Section~\ref{sec:cost-sens}, the relative
+benefit of labels from a given
+level in the hierarchy often changes as learning progresses.  Thus, we desire a cost-sensitive
+approach that dynamically adapts the purchase proportions.
 % during learning.
 
-We formulate the task of choosing which level of granularity to purchase next as a multi-armed bandit problem, and solve it using
+We formulate the task of choosing which level of granularity to purchase next as a
+multi-armed bandit problem, and solve it using
 Auer et al.'s~\cite{Auer2002} $\epsilon$-greedy bandit algorithm (we refer to
 this approach as BANDIT).  For clarity, we focus on dynamically choosing
-between two strategies corresponding to purchase proportions, ${\bf p}$ and ${\bf p'}$, but the generalization to more strategies is straightforward.
+between two strategies corresponding to purchase proportions, ${\bf p}$ and ${\bf p'}$,
+but the generalization to more strategies is straightforward.
 
-BANDIT iteratively chooses strategies, and uses a running average of the reward observed for each strategy to guide
-its choices.  For active learning, a natural way to define reward in round $j$ is in terms of observed model change:
+BANDIT iteratively chooses strategies, and uses a running average of the reward
+observed for each strategy to guide
+its choices.  For active learning, a natural way to define reward in round $j$
+is in terms of observed model change:
 \begin{equation}
 g_{j} = \frac{1}{\|X\|}\sum_{x_i \in X} \log{(|f_{j-1}(x_i) - f_{j}(x_i)|)}
 \enspace ,
@@ -1238,10 +1244,13 @@ input $x_i$ after the $j$th iteration.
 However, our problem setting has special characteristics that make the gain equation above unsuitable.
 In particular, this gain score is not stationary as is assumed in the generic BANDIT
 algorithm. Instead,
-as the number of purchased examples increases and \sys\ gradually fits the data, the model becomes less likely to change. 
+as the number of purchased examples increases and \sys\ gradually fits the data,
+the model becomes less likely to change.
 This means the running average of the gain will slowly decrease.  As a result,
-BANDIT will disproportionately favor arms it has not played recently (whose average gains have not recently been updated).
-In our preliminary experiments, we found that these characteristics led the generic BANDIT approach to thrash 
+BANDIT will disproportionately favor arms it has not played recently
+(whose average gains have not recently been updated).
+In our preliminary experiments, we found that these characteristics
+led the generic BANDIT approach to thrash
 between arms in cases where sticking with one arm for longer was a stronger strategy.
 
 To adapt BANDIT to our setting, instead of modeling each purchase strategy as

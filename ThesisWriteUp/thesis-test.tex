@@ -567,17 +567,57 @@ level $i$, label $j$
 \end{algorithm}
 
 \section{Dynamically Adapting Purchase Proportions}
+HAL is a fixed-fine ratio methodology, it takes as input a purchase proportion
+vector $p$, which specifies how much of the budget should be used to purchase at
+a given level in the hierarchy. The following strategy is developed to
+dynamically adapt to purchase proportions \cite{yugi}. The task of choosing the
+level of granularity to purchase labels is framed as a multi-armed bandit problem,
+and solved using Auer et als.'s greedy bandit algorithm (BANDIT) \cite{Auer2002}.
 
-BANDIT iteratively chooses strategies, and uses a running average of the reward observed for each strategy to guide
-its choices.  For active learning, a natural way to define reward in round $j$ is in terms of observed model change:
+
+For each iteration of purchase, BANDIT chooses a purchasing strategy
+based on the running average of the observed reward associated with
+each strategy. The reward or gain for each round is defined in terms of
+observed model change and the equation is given in
+\textit{eqn. \ref{eq:reward}}. Where $n$ is the round number,
+$X$ is the remaining unlabeled examples $f_{j}(x_i)$ is HAL's output for the
+input $x_i$ after the $n$th round of batch purchases.
+
 \begin{equation}
-g_{j} = \frac{1}{\|X\|}\sum_{x_i \in X} \log{(|f_{j-1}(x_i) - f_{j}(x_i)|)}
-\enspace ,
+\label{eq:reward}
+g(n) = \frac{1}{\|X\|}\sum_{x_i \in X} \log{(|f_{j-1}(x_i) - f_{j}(x_i)|)}
 \end{equation}
-where $X$ is the set of withheld {\em unlabeled} examples, and $f_{j}(x_i)$ is HAL's output for the
-input $x_i$ after the $j$th iteration.
+
+The gain equation shown in \textit{eqn. \ref{eq:reward}} is modified to further
+to prevent BANDIT from thrashing between purchasing strategy arms, $p$ and $p'$.
+The observed thrashing is resultant from the running averge of the $g(n)$
+for every strategy slowly decreasing as more instances are obtained. The effect is
+ that the unmodified BANDIT disproportionately favors arms that it has not played
+  recently and have not been recently updated.
+  Thus the following modified
+  BANDIT reward equation is used, it selects between two arms: (1) use the
+  strategy as the previous round, (2) switch strategies. The reward from the
+  (1) is always zero. The reward for (2) is given in
+  \textit{eqn. \ref{eq:modReward}}, and is dependent upon the difference
+  in the gain before and after switching.
+  The modified BANDIT reward
+  equation prevents thrashing between arms and solves for the true optimal
+  purchasing strategy.
+\begin{equation}
+\label{eq:modReward}
+    r(n)=
+\begin{cases}
+   -g(n)/|g(n)| & \text{if } p \rightarrow p'\\
+    g(n)/|g(n)| & \text{if } p' \rightarrow p\\
+    0 & \text{if }  p \rightarrow  p \text{ or }  p' \rightarrow p' \\
+\end{cases}
+\end{equation}
+
 
 \section{Application to Dispatch Dataset}
+\par HAL and BANDIT strategies
+
+
 \par HAL was applied to a Dispatch dataset. This dataset contains 375,026 manually labeled
 hierarchical names across 1,384 newspaper articles [2]. This is a clear example where
 fine-grained labels have a higher cost since it is easier for a person to manually
