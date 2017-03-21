@@ -56,7 +56,7 @@
 %% See the memoir docs for details.
 \usepackage[%
 pdfauthor={James D. Duin},
-pdftitle={Hierarchical Active Learning Bioinformatics Application},
+pdftitle={Hierarchical Active Learning Application to Mitochondrial Disease Protein Dataset},
 pdfsubject={BioDataset},
 pdfkeywords={semi-supervised learning, active learning, hierarchical labeling, cost analysis},
 linkcolor=dark-blue,
@@ -76,7 +76,7 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 %% frontmatter is needed to set the page numbering correctly
 \frontmatter
 
-\title{Hierarchical Active Learning Bioinformatics Application}
+\title{Hierarchical Active Learning Application to Mitochondrial Disease Protein Dataset}
 \author{James D. Duin}
 \adviser{Professor Stephen Scott}
 \adviserAbstract{Stephen Scott}
@@ -103,24 +103,27 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 \maketitle
 %% You have a maximum of 350, which includes your title, name, etc.
 \begin{abstract}
-  \par This study investigates an application of the Support Vector Machine
-   and Logistic Regression machine learning algorithms to a protein dataset labeled
-   according to a proteins location of origin in a cell. The dataset is labeled
-   according to a
-    hierarchical scheme, at the root level the protein is from the mitochondria
-    or not, then the hierarchy breaks down further into specific target
-    compartments at the leaf nodes. Our investigation shows that Leveraging separate
-    fine-grained classifiers for each of the target compartments produces a higher
-    performing classifier at the highest level in the hierarchy according
-    to the Precision-Recall curves area under the curve. Furthermore, new approach in the
-     Active Learning setting termed \textit{active over-labeling} is applied to this dataset.
-    The approach solicits labels at a finer level of granularity than the target concept.
-    We show that purchasing fine-grained labels in each round of active learning produces a
-      higher performing classifier than purchasing coarse labels, and in both cases purchasing
-      labels actively by selecting only the most uncertain labels outperforms purchasing labels
-      passively, i.e. at random. The fine-grained labels also incur a higher cost than coarse-grained
-      labels for this dataset, so multiple cost ratios ran and an optimal FFR
-      purchasing strategy is determined for each fine cost.
+This study investigates an application of active learning to
+a protein dataset developed to identify the source of mutations
+which give rise to mitochondrial disease.
+The dataset is labeled according to the protein's location of origin
+in the cell; whether in the mitochondria or not, or a specific target
+location in the
+mitochondria's outer or inner matrix or its ribosomes. This dataset
+ forms a labeling hierarchy.
+ A new approach is investigated to learn the high-level classifier, i.e.
+ whether the protein is a mitochondrion, by separately learning
+ finer-grained target compartment concepts and combining the results. This
+ approach is termed \textit{active over-labeling}.
+ In experiments on the protein dataset it is shown that
+ active over-labeling improves area under the precision-recall curve
+ compared to standard passive or active learning.
+ Finally, because finer-grained labels are more costly to obtain, alternative
+ strategies exploring using fixed proportions of a given budget to buy
+  fine vs coarse labels at various costs are compared and presented.
+  An approach robust to differences in label cost and budget using
+  a multi-armed bandit to dynamically choose the label granularity to purchase
+  is also discussed.
 \end{abstract}
 
 %% Optional
@@ -143,10 +146,10 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 
 %% Optional
 \begin{acknowledgments}
-  I would like to thank my advisor Dr. Stephen Scott for guidance in selecting this
-  research topic, Yugi Mo for his work in developing the HAL methodology, and Dr.
-  Douglas Downey for his work on this topic. I would like to thank Juan Cui, Jiang Shu,
-  Kevin Chiang for assistance accessing and understanding the protein dataset that is
+  I would like to thank my advisor Dr. Stephen Scott for continual guidance in investigating this
+  research topic. Yugi Mo and Dr. Douglas Downey for their work in developing the HAL and
+  BANDIT methodologies. I would like to thank Dr. Juan Cui, Jiang Shu,
+  Kevin Chiang for their assistance accessing and understanding the protein dataset that is
   the subject of the paper.
 \end{acknowledgments}
 
@@ -158,7 +161,7 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 %%% Uncomment these if need be
 
 %% The ToC is required
-\tableofcontents
+{\small \tableofcontents}
 %% Uncomment these if need be
 %\listoffigures
 %\listoftables
@@ -169,6 +172,40 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 
 %% Thesis goes here
 \chapter{Introduction}
+This study investigates an application of the Support Vector Machine
+and Logistic Regression machine learning algorithms to a protein dataset labeled
+according to a protein's location of origin in a cell. The task of classifying
+a given protein's location of origin can be essential in identifying the
+source of a mutation and helpful in the treatment of various mitochondrial
+diseases \cite{bioPoster}.
+The dataset is labeled
+according to a hierarchical scheme or labeling tree,
+at the root level is whether the protein
+ originates from the
+mitochondria
+or not, then the hierarchy breaks down further into specific target
+compartments at the leaf nodes.
+
+
+Our investigation shows that leveraging separate
+fine-grained classifiers for each of the target compartments produces a higher
+performing classifier at the highest level in the hierarchy.
+Furthermore, a new approach in the
+active learning setting termed \textit{active over-labeling} is applied to this dataset.
+The approach uses a certain proportion of the purchase budget to solicit
+labels at a finer level of granularity than the target concept.
+Purchasing fine-grained labels in each round of active learning produces a
+higher performing root-level (coarse) classifier than purchasing coarse
+labels alone. Analysis for this dataset is performed showing that
+ the active approach of selecting the most uncertain labels significantly
+ outperforms the passive approach of selecting labels at random.
+The fine-grained labels also incur a higher cost than coarse-grained
+labels for this dataset, so multiple cost ratios are investigated and an optimal fixed fine
+ratio (FFR)
+purchasing strategy is determined for each fine cost. An approach optimally selecting
+ FFR strategies throughout the rounds using a multi-armed strategy is also presented
+ and existing experiments using this approach discussed in section \ref{sect:activeOverLabel}.
+
 
 
 
@@ -177,7 +214,7 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 with respect to some class of tasks T and performance measure P, if their performance at
 tasks in T, as measured by P, improves with experience E \cite{mitchell}. In the context of this paper,
 the machine learning algorithms that are used include Support Vector Machines (SVM), and Logistic Regression (Logit).
- This work uses implementations by the sci-kit learn python library \cite{scikit-learn} for both algorithms. Our
+ This work uses implementations by the sci-kit learn python library \cite{sklearn-api} for both algorithms. Our
  experiment requires a binary classification task, each algorithm takes a protein instance with a list of 449 features
  as an input and then outputs a 0 or 1 whether or not the protein belongs to a class. A separate classifier is trained
  for each class in the protein dataset. Both Logit and SVM classifiers have a decision function method that outputs
@@ -246,11 +283,11 @@ vectors \cite{scikit-learn}. The gamma ($\gamma$) parameter defines the signific
 
 In this work the following kernel functions were tested \cite{scikit-learn}:
 \begin{itemize}
-  \item linear: $\left \langle x,x^{'} \right \rangle$
-  \item polynomial: $(\gamma \left \langle x,x^{'} \right \rangle + r)^{d}$. $d$ is the degree
+  \item Linear: $\left \langle x,x^{'} \right \rangle$
+  \item Polynomial: $(\gamma \left \langle x,x^{'} \right \rangle + r)^{d}$. $d$ is the degree
   of the polynomial, and $r$ is a coefficient passed to the solver, default is $0$.
-  \item radial basis function (rbf): $(-\gamma |x-x^{'}|^{2})$. $\gamma$ is the kernel coefficient.
-  \item sigmoid: $sigmoid(tanh(\gamma \left \langle x,x^{'} \right \rangle + r))$
+  \item Radial Basis Function (RBF): $(-\gamma |x-x^{'}|^{2})$. $\gamma$ is the kernel coefficient.
+  \item Sigmoid: $sigmoid(tanh(\gamma \left \langle x,x^{'} \right \rangle + r))$
   $r$ is a coefficient passed to the solver, default is $0$.
 \end{itemize}
 
@@ -424,13 +461,13 @@ active learning the task is to learn a target concept
 $f : {\mathcal X} \rightarrow {\mathcal Y}=\{0, 1\} $, where $\mathcal X$
 is the input space. The initial state is a pool of unlabeled examples
 $U \subset {\mathcal X}$. At each iteration, an oracle is queried at some
-cost for the label of an instance $u \in U$, then $L$ is traning on the labeled examples
+cost for the label of an instance $u \in U$, then $L$ is training on the labeled examples
 $(x,y)$, with the goal of outputting a relatively high performing classifier for a low cost.
-\par Since our dataset is hierachically labeled, this work extends the conventional active
+\par Since our dataset is oracle labeled, this work extends the conventional active
 learning approach to solicit labels at finer levels of the hierarchy for a specified cost.
- The oracl in this setting returns a vector of labels, corresponding to the path starting
+ The oracle in this setting returns a vector of labels, corresponding to the path starting
  at the root of the hierarchy tree or labeling tree. An example labeling tree for the
- Reuters Corpus Volume~I (RCV1) datset used in text categorization research \cite{Lewis2004}.
+ Reuters Corpus Volume~I (RCV1) dataset used in text categorization research \cite{Lewis2004}.
  A labeling tree for this dataset is shown in is shown in
  \textit{Figure \ref{fig:exp-ontology}}. An instance in this dataset could be labeled as
  $\langle$Location,Building,Museum$\rangle$,  $\langle$Location,Attraction,Museum$\rangle$,
@@ -533,7 +570,7 @@ in \textit{eqn. \ref{eq:uncert}}.
 
 \begin{algorithm}[!htb]
 \small{
-\caption{Method hierachical active learning for a fixed
+\caption{Method hierarchical active learning for a fixed
 fine-grained ratio (FFR) \cite{yugi}.
 See text for Purchase and LabelMap.
 }
@@ -574,7 +611,7 @@ vector $p$, which specifies how much of the budget should be used to purchase at
 a given level in the hierarchy. The following strategy is developed to
 dynamically adapt to purchase proportions \cite{yugi}. The task of choosing the
 level of granularity to purchase labels is framed as a multi-armed bandit problem,
-and solved using Auer et als.'s greedy bandit algorithm (BANDIT) \cite{Auer2002}.
+and solved using Auer et al.'s greedy bandit algorithm (BANDIT) \cite{Auer2002}.
 
 
 For each iteration of purchase, BANDIT chooses a purchasing strategy
@@ -592,7 +629,7 @@ g(n) = \frac{1}{\|X\|}\sum_{x_i \in X} \log{(|f_{j-1}(x_i) - f_{j}(x_i)|)}
 
 The gain equation shown in \textit{eqn. \ref{eq:reward}} is modified to further
 to prevent BANDIT from thrashing between purchasing strategy arms, $p$ and $p'$.
-The observed thrashing is resultant from the running averge of the $g(n)$
+The observed thrashing is resultant from the running average of the $g(n)$
 for every strategy slowly decreasing as more instances are obtained. The effect is
  that the unmodified BANDIT disproportionately favors arms that it has not played
   recently and have not been recently updated.
@@ -652,7 +689,7 @@ labels \cite{yugi}.
 \section{Application to Dispatch Dataset}
 \par The analysis of the protein data set presented in this thesis, largely
 follows Mo et al.'s \cite{yugi} experiments on the Reuters Corpus Volume~I (RCV1)
- text categorization datset shown in section \ref{sect:activeOverLabel}. HAL is
+ text categorization dataset shown in section \ref{sect:activeOverLabel}. HAL is
  applied to a Dispatch dataset by Mo et al. \cite{yugi}. This dataset contains 375,026 manually labeled
 hierarchical names across 1,384 newspaper articles \cite{Lewis2004}. This is a
 clear example where
@@ -1939,7 +1976,7 @@ whether or not to drop some suboptimal thresholds which do not appear on a plott
 default setting is to drop intermediate values True, which has the counterintuitive result of a roc curve having on the order of
 150 points even though 497 points are passed to the roc curve library method. If drop intermediate values is set to false
 then the full 497 points are returned in the calculated roc curve. The default
-options of using sample weights and dropping itermediate values are discovered to have the
+options of using sample weights and dropping intermediate values are discovered to have the
 highest performance.
 
 
@@ -2006,7 +2043,7 @@ of instances in the train set divided by the total number of positives in the tr
 to 20.887. The previously determined fine class ratios are used in this analysis. The value selected is
 23, this value along with 7.5 and the original values of 20.887 and 4.977 for a line with two points that
 define a function to map a weight original input to a new tuned weight output for all training set sizes.
-The fine weight of 23 is discoved to have the highest performance when the entire dataset is used.
+The fine weight of 23 is discovered to have the highest performance when the entire dataset is used.
 
 \FloatBarrier
 \begin{table}[H]
@@ -2682,7 +2719,7 @@ demonstrate a prominent advantage for active fine with the Logit classifier. Fur
  HAL is implemented and applied to the protein dataset for various FFR proportions and
  fine label costs. After discussions with Cui et. al's group at UNL \cite{bioPoster} the fine label
  estimated cost is around 10. This correlates to the FFR experiment with fine cost 8, which shows
- that for a budget of aroun 20-60 rounds a FFR strategy of 0.2 would have the highest performance,
+ that for a budget of around 20-60 rounds a FFR strategy of 0.2 would have the highest performance,
  see \textit{Figure \ref{fig:ParamsFFR_PR_Cost8_rnds20_60}}.
  \par Future work is to apply the BANDIT approach to the protein dataset in order to achieve
  an optimal strategy for selecting the FFR proportion vector throughout all rounds, see

@@ -9,12 +9,12 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: IEEEabrv.bib
 Database file #2: nuthesis.bib
-Repeated entry---line 407 of file nuthesis.bib
+Repeated entry---line 390 of file nuthesis.bib
  : @article{Merialdo2001
  :                      ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "GeneOntology" isn't style-file defined
---line 443 of file nuthesis.bib
+--line 426 of file nuthesis.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -22,45 +22,45 @@ Warning--empty booktitle in bioPoster
 Warning--empty author in UniProt
 
 Done.
-You've used 32 entries,
+You've used 30 entries,
             4039 wiz_defined-function locations,
-            1459 strings with 22877 characters,
-and the built_in function-call counts, 25393 in all, are:
-= -- 2109
-> -- 639
+            1448 strings with 22474 characters,
+and the built_in function-call counts, 24473 in all, are:
+= -- 2038
+> -- 617
 < -- 194
-+ -- 338
-- -- 118
-* -- 1293
-:= -- 3937
-add.period$ -- 68
-call.type$ -- 32
-change.case$ -- 33
++ -- 328
+- -- 113
+* -- 1250
+:= -- 3775
+add.period$ -- 64
+call.type$ -- 30
+change.case$ -- 31
 chr.to.int$ -- 426
-cite$ -- 34
-duplicate$ -- 1825
-empty$ -- 1955
-format.name$ -- 142
-if$ -- 5806
+cite$ -- 32
+duplicate$ -- 1747
+empty$ -- 1860
+format.name$ -- 135
+if$ -- 5601
 int.to.chr$ -- 0
-int.to.str$ -- 32
-missing$ -- 325
-newline$ -- 165
-num.names$ -- 31
-pop$ -- 744
+int.to.str$ -- 30
+missing$ -- 310
+newline$ -- 157
+num.names$ -- 29
+pop$ -- 702
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1956
+skip$ -- 1882
 stack$ -- 0
-substring$ -- 1058
-swap$ -- 1503
+substring$ -- 1056
+swap$ -- 1461
 text.length$ -- 52
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 32
+type$ -- 30
 warning$ -- 2
-while$ -- 105
-width$ -- 34
-write$ -- 397
+while$ -- 103
+width$ -- 32
+write$ -- 378
 (There was 1 error message)

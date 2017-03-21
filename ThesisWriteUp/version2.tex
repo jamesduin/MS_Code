@@ -512,24 +512,37 @@ Email: ddowney@eecs.northwestern.edu}
 %\baselineskip=9pt
 Many classification tasks target high-level concepts
 that can be decomposed into a hierarchy of finer-grained
-subconcepts.  For example, some string entities that are Locations
-are also Attractions, some Attractions are Museums, etc.  Such hierarchies are common in
+subconcepts.
+
+For example, some string entities that are Locations
+are also Attractions, some Attractions are Museums, etc.
+
+Such hierarchies are common in
 named entity recognition (NER), document classification, and biological
 sequence analysis.
+
 We present a new approach for learning hierarchically decomposable
-concepts.  The approach learns a high-level classifier
+concepts.
+
+The approach learns a high-level classifier
 (e.g., location vs.\ non-location) by seperately learning multiple finer-grained
 classifiers (e.g., museum vs.\ non-museum), and then combining the results.
+
 Soliciting labels at a finer level of granularity
 than that of the target concept is a new approach to active learning,
 which we term {\em active over-labeling}.
+
 In experiments in NER and document classification tasks, we show that active over-labeling substantially
 improves area under the precision-recall curve
 when compared with standard passive or active learning.
-Finally, because finer-grained labels may be more expensive to obtain, we also present a cost-sensitive
-active learner that uses a multi-armed bandit approach to dynamically choose the label granularity to target, and show that the 
+
+Finally, because finer-grained labels may be more expensive to obtain,
+we also present a cost-sensitive
+active learner that uses a multi-armed bandit approach to
+dynamically choose the label granularity to target, and show that the
 bandit-based learner is
 robust to differences in label cost and labeling budget.
+
 %\end{small}
 \end{abstract} 
 
@@ -1330,7 +1343,7 @@ or the size of a model's decision boundary~\cite{Schohn2000}.
 
 In previous work, active learning has also been shown 
 to reduce sampling bias by utilizing the hierarchical structure of input
-features~\cite{Dasgupta2008, Symons2006}. By contrast, 
+features~\cite{Dasgupta2008, Symons2006}. By contrast,
 our work focuses on active learning over hierarchically
 structured output labels.
 

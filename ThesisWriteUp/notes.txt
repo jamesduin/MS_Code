@@ -1,4 +1,6 @@
 
+
+
 \begin{table}[h]
   \centering
   \begin{tabular}{ll}\toprule
@@ -89,6 +91,23 @@ The clever step is~\eqref{eq:fun}.
 
 
 
+%@article{Ling2012fine,
+%author = {Ling, Xiao and Weld, DS},
+%file = {:Users/ymo/Documents/Mendeley Desktop/Ling, Weld - 2012 - Fine-grained entity recognition.pdf:pdf},
+%journal = {Proceedings of the 26th Conference on Artificial Inteligence},
+%title = {{Fine-grained entity recognition}},
+%url = {http://www.cs.washington.edu/ai/pubs/ling-aaai12.pdf http://www.aaai.org/ocs/index.php/AAAI/AAAI12/paper/download/5152/5124},
+%year = {2012}
+%}
+
+
+%@inproceedings{lsu-lsal-13,
+%author="W. Luo and A. Schwing and R. Urtasun",
+%title="Latent Structured Active Learning",
+%booktitle="Advances in Neural Information Processing Systems
+%(NIPS)",
+%year="2013",
+%}
 
 
 
