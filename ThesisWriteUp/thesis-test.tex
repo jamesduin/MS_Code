@@ -119,8 +119,8 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
       higher performing classifier than purchasing coarse labels, and in both cases purchasing
       labels actively by selecting only the most uncertain labels outperforms purchasing labels
       passively, i.e. at random. The fine-grained labels also incur a higher cost than coarse-grained
-      labels for this dataset, so multiple cost ratios ran and an optimal Fixed Fine
-      ratio purchasing strategy is determined for each fine cost.
+      labels for this dataset, so multiple cost ratios ran and an optimal FFR
+      purchasing strategy is determined for each fine cost.
 \end{abstract}
 
 %% Optional
@@ -707,7 +707,7 @@ label budget.
 
 
 \chapter{Experimental Setup}
-\section{Training and Testing Coarse Grain and Fine Grain Classifiers}
+\section{Training and Testing Coarse-Grain and Fine-Grain Classifiers}
 \par The bioinformatics dataset is composed of 9 classes as shown in
 \textit{Figure \ref{fig:Mitotree}}. The coarse-level concept is whether or not
 the protein resides within the mitochondria. The negative case of not residing within the mitochondria is class $0$.
@@ -952,17 +952,26 @@ varies between the coarse and fine classifier, so at a first glance it appears a
 metrics but an alternative threshold could be selected for the coarse classifier to obtain metrics matching the fine
 output. Alternatively, the PR-AUC and ROC-AUC compare the correctness of the entire ranking of the
 instances in the test set by the classifier, and thus eliminate the need to consider the dynamic tuning of the threshold
-used by the classifier to output a given confusion matrix, accuracy, and f-measure score.
+used by the classifier to output a given confusion matrix, accuracy, and f-measure score. In general
+ as parameter selection in sections \ref{sect:paramStart}-\ref{sect:paramEnd} is
+elicited the choices from previous sections
+are used in any sections that follow.
 
 
 
 \subsection{Varying SVM Scaling Methods}
-\par Different scaling methods were used to preprocess the data \cite{scikit-learn}. The standard scaling (std-scaler) strategy
-centers all features around zero and have variance in the same order, it outputs the features with a mean of zero
+\label{sect:paramStart}
+\par Different scaling methods are used to preprocess the data
+\cite{scikit-learn}. The standard scaling (std-scaler) strategy
+centers all features around zero with variance in the same order, i.e. it
+outputs the features with a mean of zero
 and a unit variance. The minimum maximum scaling (minimax-scaler) strategy scales features between a minimum and maximum value,
-which is 0 and 1. The normalization scaling (norm-scaler) strategy scales individual samples to have a unit norm. Each
-preprocessing strategy is applied on the entire dataset before training and testing is performed. Preprocessing was performed
-with a radial basis function kernel.
+which is $0$ and $1$. The normalization scaling (norm-scaler) strategy scales individual
+samples to have a unit norm. Each
+preprocessing strategy is applied on the entire dataset before training and testing
+is performed. Preprocessing is performed
+with the default kernel option which is Radial Basis Function (RBF). The SVM std-scaler method
+is discovered to have the highest performance.
 
 \FloatBarrier
 
@@ -1007,10 +1016,12 @@ fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bott
 
 
 \subsection{Varying SVM Kernels}
-\par Different kernel functions were used in the SVM classifier including: Radial Basis Function (RBF), Polynomial
-Degree 3 and 6 (Poly), Linear, and Sigmoid \cite{scikit-learn}. The chosen preprocessing strategy of
-std-scaler is used for these results. As parameter selection is elicited the choices from previous sections
-are used in any sections that follow.
+\par Different kernel functions were used in the SVM classifier
+including: Radial Basis Function (RBF), Polynomial
+Degree 3 and 6 (Poly), Linear, and Sigmoid \cite{scikit-learn}. The
+chosen preprocessing strategy of
+std-scaler is used for these results. The RBF kernel is discovered to have the
+highest performance.
 
 
 
@@ -1083,7 +1094,11 @@ fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bott
 \par I tried different feature selection percentages. The Select Percentile library was used from
 sci-kit learn \cite{scikit-learn}. This is a univariate feature selection strategy that ranks the
 features usability for classification according to a statistical measure, then keeps a certain
-percentage of the features. The 100\% example is the option chosen in the previous section.
+percentage of the features. The 100\% of features example is simply the result from the previous
+section. The 75\% feature selection strategy is discovered to have the highest performance. Note
+that leveraging the fine-grained labels did not improve classifier performance
+relative to the coarse classifier. An alternative classifier strategy Logistic Regression
+ (Logit) is investigated, starting in the following section \ref{sect:logitParam}.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1127,13 +1142,11 @@ fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bott
 \end{table}
 \FloatBarrier
 
-\par Note that leveraging the fine-grained labels did not improve classifier performance
-relative to the coarse classifier. An alternative classifier strategy Logistic Regression
- (Logit) is investigated.
-
 
 \subsection{Varying Logistic Regression Scaling}
-\par Tested out the same options for preprocessing scaling, that were varied for SVM.
+\label{sect:logitParam}
+\par Testing out the same options for preprocessing scaling that were varied for SVM.
+The MinMax scaling option is discovered to have the highest performance.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1190,6 +1203,7 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 
 \subsection{Varying Logistic Regression Feature Selection}
 \par Tested out the same options for feature selection that were varied for SVM.
+The 100\% feature selection strategy is discovered to have the highest performance.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1247,11 +1261,14 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 
 
 \subsection{Varying Logistic Regression Positive Class Weight and Cost}
-\par Since there is a class imbalance in the dataset, see \textit{Table \ref{tab:ClassesAll} } on
-\textit{page \pageref{tab:ClassesAll}}, class weight and cost parameter pairs are varied.  The cost
+\par Since there is a class imbalance in the dataset, see \textit{Table \ref{tab:ClassesAll}},
+% on \textit{page \pageref{tab:ClassesAll}},
+class weight and cost parameter pairs are varied.  The cost
 default value is 1.0, and the class weight default value is 1.0. The original value for weighting the
 fine training instance is the number of instances in the train set divided by the number of positive
-instances, this is 4.977. The negative instance train weight is always 1.0.
+instances, this is 4.977. The negative instance train weight is always 1.0. The fine weight of 7.5
+and Logit cost parameter of 0.1 is discovered to have the most desirable performance, showing an
+advantage of fine over coarse.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1387,6 +1404,7 @@ weight ratio of 1.0 would output a fine class weight of 7.5. A weight ratio of
  is not shown as it will not vary or be dependent upon the fine class weight tuning.
 
 \subsubsection{Tune Fine Class 1 Weights}
+\par The fine class 1 weight ratio of 3.0 is discovered to have the highest performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1446,6 +1464,7 @@ testCls-1 & 0.722 & 0.997 & 0.998 & 0.513 & ( 476.9 / 0.5 ) & ( 0.6 / 0.8 ) \\ \
 
 
 \subsubsection{Tune Fine Class 2 Weights}
+\par The fine class 2 weight ratio of 1.0 is discovered to have the highest performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1490,6 +1509,7 @@ testCls-2 & 0.652 & 0.684 & 0.914 & 0.123 & ( 434.8 / 15.6 ) & ( 25.5 / 2.9 ) \\
 
 
 \subsubsection{Tune Fine Class 3 Weights}
+\par The fine class 3 weight ratio of 1.0 is discovered to have the highest performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1535,6 +1555,7 @@ testCls-3 & 0.795 & 0.805 & 0.804 & 0.318 & ( 363.3 / 10.6 ) & ( 83.1 / 21.8 ) \
 
 
 \subsubsection{Tune Fine Class 4 Weights}
+\par The fine class 4 weight ratio of 1.5 is discovered to have the highest performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1593,6 +1614,7 @@ testCls-4 & 0.886 & 0.903 & 0.906 & 0.352 & ( 421.8 / 6.8 ) & ( 38.0 / 12.2 ) \\
 \FloatBarrier
 
 \subsubsection{Tune Fine Class 5 Weights}
+\par The fine class 5 weight ratio of 10.0 is discovered to have the highest performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1680,7 +1702,7 @@ testCls-5 & 0.381 & 0.616 & 0.989 & 0.000 & ( 473.5 / 1.0 ) & ( 4.3 / 0.0 ) \\ \
 \FloatBarrier
 
 \subsubsection{Tune Fine Class 6 Weights}
-
+\par The fine class 6 weight ratio of 2.0 is discovered to have the highest performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1740,6 +1762,7 @@ testCls-6 & 0.898 & 0.940 & 0.915 & 0.281 & ( 430.5 / 2.6 ) & ( 37.9 / 7.8 ) \\ 
 
 
 \subsubsection{Tune Fine Class 7 Weights}
+\par The fine class 7 weight ratio of 3.0 is discovered to have the highest performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1799,6 +1822,7 @@ testCls-7 & 0.674 & 0.744 & 0.948 & 0.099 & ( 452.3 / 4.5 ) & ( 20.6 / 1.4 ) \\ 
 \FloatBarrier
 
 \subsubsection{Tune Fine Class 8 Weights}
+\par The fine class 8 weight ratio of 1.0 is discovered to have the highest performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
@@ -1844,7 +1868,8 @@ testCls-8 & 0.892 & 0.947 & 0.973 & 0.376 & ( 462.2 / 3.9 ) & ( 9.0 / 3.7 ) \\ \
 
 \subsection{Varying Logistic Regression Tolerance}
 \par There is an additional Logistic parameter for determining a tolerance for the
-stopping criteria. The default tolerance is 0.0001.
+stopping criteria. The default tolerance is 0.0001. The tolerance setting of
+0.00001 is discovered to have the highest performance.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1880,7 +1905,7 @@ fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \FloatBarrier
 \begin{table}[h]
 \centering
-\caption{Logit Tolerance 0.0001. This option is chosen.}
+\caption{Logit Tolerance 0.00001. This option is chosen.}
 \label{tab:LogReg-00001Redo}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
@@ -1912,7 +1937,9 @@ weighting is performed identically on the coarse and fine classifier. The ROC cu
 whether or not to drop some suboptimal thresholds which do not appear on a plotted ROC curve \cite{scikit-learn}. The
 default setting is to drop intermediate values True, which has the counterintuitive result of a roc curve having on the order of
 150 points even though 497 points are passed to the roc curve library method. If drop intermediate values is set to false
-then the full 497 points are returned in the calculated roc curve.
+then the full 497 points are returned in the calculated roc curve. The default
+options of using sample weights and dropping itermediate values are discovered to have the
+highest performance.
 
 
 
@@ -1978,6 +2005,7 @@ of instances in the train set divided by the total number of positives in the tr
 to 20.887. The previously determined fine class ratios are used in this analysis. The value selected is
 23, this value along with 7.5 and the original values of 20.887 and 4.977 for a line with two points that
 define a function to map a weight original input to a new tuned weight output for all training set sizes.
+The fine weight of 23 is discoved to have the highest performance when the entire dataset is used.
 
 \FloatBarrier
 \begin{table}[H]
@@ -2019,7 +2047,8 @@ fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \
 \FloatBarrier
 
 
-\subsection{Varying SVM Gamma}
+\subsection{Varying SVM Cost and Gamma}
+\label{sect:paramEnd}
 \par After the Logit classifier is tuned with class weights, the SVM is ran again with the
 class weights determined by the Logit classifier and a slight advantage for the fine-grained
 classifier is demonstrated with the SVM as well. The SVM parameters for the rbf
@@ -2028,9 +2057,8 @@ and gamma is the kernel coefficient and determines the relative significance a s
 The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
  cost is actually 1.0, and the default class weight is balanced which weights each class by
  the number of instances it has in the train set, the same fine class weights used in the LogReg
- classifier are used in the SVM classifier instead of the SVM's default balanced option.
-
-
+ classifier are used in the SVM classifier instead of the SVM's default balanced option. The SVM
+  cost of 0.15 and gamma of 0.0029674 is discovered to have the highest performance.
 
 
 \FloatBarrier
@@ -2117,7 +2145,6 @@ fine & 0.903 & 0.875 & 0.871 & 0.640 & ( 362.1 / 41.2 ) & ( 20.6 / 54.9 ) \\ \bo
 \end{table}
 \FloatBarrier
 
-\subsection{Varying SVM Cost}
 
 \FloatBarrier
 \begin{table}[H]
@@ -2148,10 +2175,12 @@ fine & 0.900 & 0.872 & 0.868 & 0.641 & ( 358.5 / 39.2 ) & ( 24.2 / 56.9 ) \\ \bo
 
 \chapter{Results and Analysis}
 \section{SVM and Logit Classifier Performance}
-\par Both the SVM and the Logit classifiers show a slight advantage for the Fine
-classifier over the Coarse classifier in terms of the PR-AUC metric. The ROC-AUC
+\par Results are presented running both Logit and SVM classifiers on the entire dataset
+see \textit{Tables \ref{tab:LogRegAll-Wt23}-\ref{tab:SVM-All}}.
+Both the SVM and the Logit classifiers show a slight advantage for the fine
+classifier over the coarse classifier in terms of the PR-AUC metric. The ROC-AUC
 metric is close to identical between fine and coarse for both classifiers, a slight
-advantage of 0.002 exists for the Fine classifier in the SVM classifier.
+advantage of 0.002 exists for the fine classifier in the SVM classifier.
 
 
 \FloatBarrier
@@ -2188,10 +2217,10 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
  curves for each of the 10 folds. Each point on the PR and ROC curve has a
  corresponding F-measure or accuracy value, these values are plotted on the graphs
  as a blue line. The graphs demonstrate that the coarse and fine classifiers have close
- to equivalent average AUC, on the order of 0.007 max difference between Fine and Coarse.
-  At the default threshold the Fine appears to outperform Coarse for accuracy and F-measure
+ to equivalent average AUC, on the order of 0.007 max difference between fine and coarse.
+  At the default threshold the fine appears to outperform coarse for accuracy and F-measure
   metrics, but inspection of the plots shows that a coarse threshold can be chosen to match the fine output for
- both accuracy and F-measure. The PR-AUC does show a slight advantage for Fine,
+ both accuracy and F-measure. The PR-AUC does show a slight advantage for fine,
  which warrants application of the HAL algorithm and Active over labeling approach on this dataset.
 
 
@@ -2209,8 +2238,8 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
         \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_fine}
         \caption{Log Reg Pr Curves - Fine}
     \end{subfigure}
-    \caption{The Fine default threshold occurs at a point on the PR curve associated with a higher
-    F-measure score compared to the Coarse curves.}
+    \caption{The fine default threshold occurs at a point on the PR curve associated with a higher
+    F-measure score compared to the coarse curves.}
     \label{fig:LogRegThreshPr}
 \end{figure*}
 \FloatBarrier
@@ -2252,9 +2281,9 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
         \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_PrCurve_fine}
         \caption{SVM Pr Curves - Fine}
     \end{subfigure}
-    \caption{SVM results for PR curves and F-measure have Coarse and Fine picking
+    \caption{SVM results for PR curves and F-measure have coarse and fine picking
     different parts of the curves for their respective thresholds. This results in a slight
-    advantage for Fine at the default threshold, similar to the results for the Logit classifier.}
+    advantage for fine at the default threshold, similar to the results for the Logit classifier.}
     \label{fig:SVMThreshPr}
 \end{figure*}
 \FloatBarrier
@@ -2274,7 +2303,7 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
         \includegraphics[width=\textwidth]{fig/SVM_FindThreshold_RocCurve_fine}
         \caption{SVM ROC Curves - Fine}
     \end{subfigure}
-    \caption{SVM accuracy results are similar between Coarse and Fine.}
+    \caption{SVM accuracy results are similar between coarse and fine.}
     \label{fig:SVMThreshRoc}
 \end{figure*}
 \FloatBarrier
@@ -2296,9 +2325,9 @@ is used. The test set remains constant throughout the rounds and contains a repr
   rounds and 1 starter set round. The Passive approach selects 100 random instances
    and adds them to the train set. The Active approach runs the classifier on the eligible instances, orders them
    by their uncertainty and adds the 100 most uncertain instances to the train set. Coarse and fine classifiers
-   share the same starter set. During each round, Coarse and Fine classifiers are trained on their corresponding
+   share the same starter set. During each round, coarse and fine classifiers are trained on their corresponding
  sets, which are independent of one another, metrics are outputted on the held out test set which is the same for
- both Coarse and Fine.
+ both coarse and fine.
 
 
 \FloatBarrier
@@ -2307,9 +2336,9 @@ is used. The test set remains constant throughout the rounds and contains a repr
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_pr}
     \caption{The PR-AUC curves for rounds with the Logistic
-Regression classifier conforms to expectations, with Active Fine having
-the highest performance, and Active outperforming Passive for both Coarse
-and Fine classifier types.}
+Regression classifier conforms to expectations, with active fine having
+the highest performance, and Active outperforming Passive for both coarse
+and fine classifier types.}
 \label{fig:runActPassLogReg_pr}
 \end{figure}
 \FloatBarrier
@@ -2320,9 +2349,9 @@ and Fine classifier types.}
     \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_roc}
     \caption{The ROC-AUC curves for rounds with the
 Logistic Regression classifier. The active curves beat out the passive
-curves for both Coarse and Fine. Note that Active Fine ROC curve doesn't
-converge to the Active Coarse ROC curve until round 40. This is contrasted
-to a dominance of the Active Fine PR curve after round 10.}
+curves for both coarse and fine. Note that active fine ROC curve doesn't
+converge to the active coarse ROC curve until round 40. This is contrasted
+to a dominance of the active fine PR curve after round 10.}
 \label{fig:runActPassLogReg_roc}
 \end{figure}
 \FloatBarrier
@@ -2344,7 +2373,7 @@ to a dominance of the Active Fine PR curve after round 10.}
     \end{subfigure}
     \caption{The accuracy of the classifiers stays at
 roughly the same rate throughout the rounds; this is due to an effective
-weighting scheme. Both curves show a dominance of Fine over Coarse and
+weighting scheme. Both curves show a dominance of fine over coarse and
 Active over Passive.}
     \label{fig:ActiveVsPassiveAccFmesLR}
 \end{figure*}
@@ -2352,31 +2381,37 @@ Active over Passive.}
 
 
 \par Note that the Active Fine PR-AUC curve
-surpasses Active Coarse after round 10 while the Active Fine ROC-AUC curve is still well below the
- Active Coarse at that round. These curves are shown in \textit{Figures \ref{fig:rnd20LogRegPr}-
+surpasses active coarse after round 10 while the active fine ROC-AUC curve is still well below the
+ active coarse at that round. These curves are shown in \textit{Figures \ref{fig:rnd20LogRegPr}-
  \ref{fig:rnd20LogRegRoc}}. This is counter-intuitive, because according to a proof in Davis \cite{DavisRocPr}
  ``For a fixed number of positive and negative examples, one curve dominates a second curve in
  ROC space if and only if the first dominates the second in Precision-Recall space". The theorem uses the
  following definition of dominance: that every value in the first curve is above the corollary value in
  second curve. The correlation between PR and ROC curves is that Recall in the PR curve is equivalent to
  the True Positive Rate in the ROC curve. The average PR-AUC concept is different than that of a plot of
- PR curves for a round, but if all of the PR curves for Fine dominate the curves for Coarse then we would
-  expect all of the ROC curves for Fine to dominate the ROC curves for coarse and both the ROC-AUC and PR-AUC
-   averages for Fine to be greater than that for Coarse. However it is shown in \textit{Figure \ref{fig:rnd20LogRegPr}}
-   that the PR curves for Fine do not completely dominate the PR curves for coarse, and similarly for the ROC curves
-   in \textit{Figure \ref{fig:rnd20LogRegRoc}}. Active Fine PR-AUC curve does not satisfy the theorem's
+ PR curves for a round, but if all of the PR curves for fine dominate the curves for coarse then we would
+  expect all of the ROC curves for fine to dominate the ROC curves for coarse and both the ROC-AUC and PR-AUC
+   averages for fine to be greater than that for coarse. However it is shown in \textit{Figure \ref{fig:rnd20LogRegPr}}
+   that the PR curves for fine do not completely dominate the PR curves for coarse, and similarly for the ROC curves
+   in \textit{Figure \ref{fig:rnd20LogRegRoc}}. Active fine PR-AUC curve does not satisfy the theorem's
    definition of dominance, since each individual ROC and PR curve contains intersection points between
-   Coarse and Fine. Thus given that the average PR-AUC for Fine is great at round 20 than average Coarse PR-AUC,
+   coarse and fine. Thus given that the average PR-AUC for fine is great at round 20 than average coarse PR-AUC,
    this relationship is not expected to hold between the average ROC-AUC curves.
-   \par According to Davis \cite{DavisRocPr}, a large change in the number of false positives can still yield
-   only a small change in the number of false positives and thus not affect ROC curve performance. However,
-   Davis states, ``Precision, on the other hand, by comparing false positives to true positives rather than true
-   negatives, captures the effect of the large number (incorrectly classified) of negative examples on the
+   \par According to Davis \cite{DavisRocPr}, a large change in the number of false
+   positives can still correlate to only only a small change in the
+   number of true positives and thus not affect ROC curve performance. However,
+   Davis states, ``Precision, on the other hand, by comparing false
+   positives to true positives rather than true
+   negatives, captures the effect of the large number
+    of (incorrectly classified) negative examples on the
    algorithm's performance" \cite{DavisRocPr}. Since our dataset demonstrates a heavy class imbalance with
-    a roughly 1:20 ratio of Positive to Negative instances, the algorithm's ability to classify negative instances
-    should be taken into account when considering overall classifier performance. The PR curve's ability to capture
-    and have a greater sensitivity to the increased number of False Positives, reveals the advantage that the Fine
-    classifier has over the Coarse classifier. This justifies purchasing Fine grained labels over Coarse grained labels
+    a roughly 1:20 ratio of positive to negative instances, the algorithm's ability
+    to classify negative instances
+    should be taken into account when considering overall classifier performance.
+    The PR curve's ability to capture
+    the effect of an increased number of false positives, reveals the advantage that the fine
+    classifier has over the coarse classifier. This justifies purchasing
+    fine-grained labels over coarse-grained labels
     to improve classifier performance.
 
 \FloatBarrier
@@ -2432,15 +2467,15 @@ surpasses Active Coarse after round 10 while the Active Fine ROC-AUC curve is st
 \par The SVM Active vs Passive experiment is performed with the same methodology
 as the previous section detailed with the exception that a SVM classifier is
 substituted for the Logit classifier. Due to the greater advantage of average
-PR-AUC in the Logit classifier, the SVM is not used in the Fixed Fine ratio
-experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
+PR-AUC in the Logit classifier, the SVM is not used in the Fixed fine ratio
+experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experiments.
 
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_pr}
     \label{fig:ActiveVsPassivePRSVM}
-    \caption{The PR AUC curves for SVM show a slight advantage for Active Fine,
+    \caption{The PR AUC curves for SVM show a slight advantage for active fine,
      similar to the Logit results.}
 \end{figure}
 \FloatBarrier
@@ -2451,7 +2486,7 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
     \includegraphics[width=1.0\columnwidth]{fig/runActPassSVM_roc}
     \label{fig:ActiveVsPassiveROCSVM}
     \caption{The ROC AUC curves for SVM match the Logit results, the convergence of
-     Active Fine to Active Coarse takes slightly longer, round 60 compared to round 40.}
+     active fine to active coarse takes slightly longer, round 60 compared to round 40.}
 \end{figure}
 \FloatBarrier
 
@@ -2483,23 +2518,28 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
     per round to having a set budget per round and spending a portion of that budget
     on fine and coarse grained labels. The Fine Fixed Ratio (FFR), ranges from 0.0 to
     1.0 in increments of 0.1. Note that the FFR 0.0 should roughly correlate to the
-    Active Coarse curve shown in \textit{Figure \ref{fig:runActPassLogReg_pr}}. Likewise
-    the Active Fine curve should roughly correlate to the FFR 1.0 curve. However, the correlation
-    is not exact since the FFR experiments use a combination classifier, it trains Fine and
-    Coarse classifiers on a starter set of the same size and proportion as used in the
+    active coarse curve shown in \textit{Figure \ref{fig:runActPassLogReg_pr}}. Likewise
+    the active fine curve should roughly correlate to the FFR 1.0 curve. However, the correlation
+    is not exact since the FFR experiments use a combination classifier, it trains fine and
+    coarse classifiers on a starter set of the same size and proportion as used in the
     Logit Active vs Passive experiment, then uses the confidence of both of those classifiers and
     the end prediction is the max of the two classifiers. Thus even for the FFR 0.0 and FFR 1.0
-    the starter set trained Fine or Coarse classifier still contributes to the PR-AUC curve
+    the starter set trained fine or coarse classifier still contributes to the PR-AUC curve
     even at the final round 180. The results are an average of 10 folds.
 
-    \par To determine the number of instances to purchase each round the FFR is multiplied by the
-    round budget of 100, then the round budget for the coarse labels are purchased at a cost of 1.0.
-    The cost of the fine labels will vary and if a decimal occurs it is resolved by randomly purchasing
-    an extra fine label with the probability of the decimal value. For example, if the fine cost is 16 and
-    FFR is 0.5, 50 instances are bought for coarse and 3.125 instances are
-    bought for fine. The remainder 0.125 is then turned into a 0.125 chance for any round to
-    purchase an extra fine label. The round size for the FFR 1.0 curve is very small, with only
-    7 labels purchased per iteration.
+    \par To determine the number of instances to purchase each round, the FFR proportion vector $p$
+    is multiplied by the
+    round budget of 100. The coarse labels are purchased at a cost of 1.0.
+    The cost of the fine labels will vary, experiments are performed for fine costs of 1,2,4,8,16. After
+     discussions with Cui et al.'s group \cite{bioPoster}, a reasonable estimate for the fine label cost
+      for the protein data set is around 10, due to the increased number of features needed to distinguish
+      a protein's target compartment. An example of this cost breakdown is as follows,
+      if the fine cost is 8 and $p$ is 0.5, then 50 labels are
+      purchased for coarse and 6.25 labels are purchased for fine. The 0.25 of a fine instance is
+      resolved by purchasing
+    an extra fine label with the probability of 25\%. There is a 25\% chance for any round to
+    purchase an extra fine label. The round size for the FFR 1.0 curve is relatively small, with
+    at most 13 labels purchased per iteration.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -2509,7 +2549,7 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
     \caption{For this curve the fine and coarse grain labels
     both have a cost of 1. The purple 1.0 curve shows that if only fine-grained labels
     are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round
-    since the cost of the Fine and Coarse instances is the same the budget}
+    since the cost of the fine and coarse instances is the same the budget}
 \end{figure}
 \FloatBarrier
 
@@ -2532,8 +2572,8 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost4_rnds0_180}
     \label{fig:ParamsFFR_PR_Cost4_rnds0_180}
     \caption{At fine cost 4, the highest FFR 1.0 is no longer preferred, the
-    cost is to high for Fine instances PR-AUC utility to overcome the PR-AUC
-    increase gained by purchasing more Coarse instances.}
+    cost is to high for fine instances PR-AUC utility to overcome the PR-AUC
+    increase gained by purchasing more coarse instances.}
 \end{figure}
 \FloatBarrier
 
@@ -2566,7 +2606,7 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds20_60}
     \label{fig:ParamsFFR_PR_Cost8_rnds20_60}
     \caption{The fine cost 8 curves shown expanding the rounds 20-60. If a round budget of 40
-    occurs than the recommended Fine Fixed Ratio would be 0.2}
+    occurs than the recommended FFR would be 0.2}
 \end{figure}
 \FloatBarrier
 
@@ -2631,7 +2671,8 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio experiments.
 
 
 \chapter{Conclusions and Future Work}
-\par I should probably do the Bandit experiments.
+\par The protein data set demonstrated that fine-grained labels can be used
+to improve the
 
 
 

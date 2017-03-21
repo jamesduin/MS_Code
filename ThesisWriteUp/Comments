@@ -28,7 +28,8 @@ results that relate to the tuning parameters.
 -- Define PR, ROC, and AUC (perhaps in
 an earlier chapter). => done in 1.2 EvaluatingClassifierPerformance
 
--- Add text in each section, including a summary of results. =>
+-- Add text in each section, including a summary of results. Added a brief
+summary in each section. => done
 
 -- Do you discuss logistic regression in an earlier chapter?  It's
 important to define how it works and what its parameters are before
@@ -39,7 +40,7 @@ discussing how you tuned them. => done in 1.1 Machine Learning
 Ch4 Comments:
 -- Move table captions to top => done
 
--- Refer to tables 4.1 - 4.2 in the main text =>
+-- Refer to tables 4.1 - 4.2 in the main text => done
 
 -- Reorder table references, make Accuracy lowercase,
 remove figures apostrophe, add s to show. => done
@@ -51,13 +52,13 @@ remove figures apostrophe, add s to show. => done
 --So, if you're saying that performance on negatives is very
 important, we should be emphasizing
 ROC over PR?  Isn't that the opposite of what we discussed, or
-am I missing something?, need to reword this paragraph =>
+am I missing something?, need to reword this paragraph => done
 
 -- Replace section that follows => done
 
--- Fix wording add a period => done
+-- Fix wording, add a comma, add a period => done
 
--- Reword a paragraph =>
+-- Reword paragraph explaining FFR cost breakdown => done
 
 
 
