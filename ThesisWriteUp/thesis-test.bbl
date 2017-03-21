@@ -47,7 +47,7 @@ E.~Alpaydin, \emph{Introduction to Machine Learning (Adaptive Computation and
 
 \bibitem{bioPoster}
 \BIBentryALTinterwordspacing
-J.~Z. Kevin~Chiang, Juan~Cui, ``Prediction of nuclear and locally encoded
+J.~Z. Juan~Cui, Kevin~Chiang, ``Prediction of nuclear and locally encoded
   mitochondrion.''\hskip 1em plus 0.5em minus 0.4em\relax Lincoln, NE: Nebraska
   Gateway to Nutrigenomics 6th Annual Retreat, June 9 2014. [Online].
   Available:
@@ -209,6 +209,25 @@ G.~Schohn and D.~Cohn, ``{Less is more: Active learning with support vector
   http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.31.6090\&rep=rep1\&type=pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Dasgupta2008}
+\BIBentryALTinterwordspacing
+S.~Dasgupta and D.~Hsu, ``{Hierarchical sampling for active learning},''
+  \emph{Proceedings of the 25th international conference on Machine learning -
+  ICML '08}, pp. 208--215, 2008. [Online]. Available:
+  \url{http://portal.acm.org/citation.cfm?doid=1390156.1390183}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Symons2006}
+\BIBentryALTinterwordspacing
+C.~Symons, N.~Samatova, R.~Krishnamurthy, B.~Park, T.~Umar, D.~Buttler,
+  T.~Critchlow, and D.~Hysom, ``{Multi-Criterion Active Learning in Conditional
+  Random Fields},'' \emph{2006 18th IEEE International Conference on Tools with
+  Artificial Intelligence (ICTAI'06)}, pp. 323--331, Nov. 2006. [Online].
+  Available:
+  \url{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=4031915
+  http://dl.acm.org/citation.cfm?id=1190614.1191040}
+\BIBentrySTDinterwordspacing
+
 \bibitem{DavisRocPr}
 \BIBentryALTinterwordspacing
 J.~Davis and M.~Goadrich, ``The relationship between precision-recall and roc
@@ -218,17 +237,15 @@ J.~Davis and M.~Goadrich, ``The relationship between precision-recall and roc
   \url{http://doi.acm.org/10.1145/1143844.1143874}
 \BIBentrySTDinterwordspacing
 
+\bibitem{GeneOntology}
+\BIBentryALTinterwordspacing
+{GO Consortium}, ``The {Gene} {Ontology},'' 2014. [Online]. Available:
+  \url{geneontology.org}
+\BIBentrySTDinterwordspacing
+
 \bibitem{lsu-lsal-13}
 W.~Luo, A.~Schwing, and R.~Urtasun, ``Latent structured active learning,'' in
   \emph{Advances in Neural Information Processing Systems (NIPS)}, 2013.
-
-\bibitem{Dasgupta2008}
-\BIBentryALTinterwordspacing
-S.~Dasgupta and D.~Hsu, ``{Hierarchical sampling for active learning},''
-  \emph{Proceedings of the 25th international conference on Machine learning -
-  ICML '08}, pp. 208--215, 2008. [Online]. Available:
-  \url{http://portal.acm.org/citation.cfm?doid=1390156.1390183}
-\BIBentrySTDinterwordspacing
 
 \bibitem{Ling2012fine}
 \BIBentryALTinterwordspacing

@@ -568,6 +568,7 @@ level $i$, label $j$
 \end{algorithm}
 
 \section{Dynamically Adapting Purchase Proportions}
+\label{sect:BANDIT}
 HAL is a fixed-fine ratio methodology, it takes as input a purchase proportion
 vector $p$, which specifies how much of the budget should be used to purchase at
 a given level in the hierarchy. The following strategy is developed to
@@ -2314,6 +2315,7 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
 
 
 \section{Active vs Passive curves}
+\label{sect:actpass}
 \par The plots in \textit{Figures \ref{fig:runActPassLogReg_pr}-\ref{fig:rnd20LogRegRoc}}
 were obtained with a round batch size of 100
 and a starter set of 1040 instances out of the total 20098 instances.
@@ -2545,11 +2547,11 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost1_rnds0_180}
-    \label{fig:ParamsFFR_PR_Cost1_rnds0_180}
     \caption{For this curve the fine and coarse grain labels
     both have a cost of 1. The purple 1.0 curve shows that if only fine-grained labels
     are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round
     since the cost of the fine and coarse instances is the same the budget}
+    \label{fig:ParamsFFR_PR_Cost1_rnds0_180}
 \end{figure}
 \FloatBarrier
 
@@ -2558,9 +2560,9 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost2_rnds0_180}
-    \label{fig:ParamsFFR_PR_Cost2_rnds0_180}
     \caption{At fine cost 2, advantage of the higher FFR values decreases but the ordering
     of the curves remains unchanged.}
+    \label{fig:ParamsFFR_PR_Cost2_rnds0_180}
 \end{figure}
 \FloatBarrier
 
@@ -2570,10 +2572,10 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost4_rnds0_180}
-    \label{fig:ParamsFFR_PR_Cost4_rnds0_180}
     \caption{At fine cost 4, the highest FFR 1.0 is no longer preferred, the
     cost is to high for fine instances PR-AUC utility to overcome the PR-AUC
     increase gained by purchasing more coarse instances.}
+    \label{fig:ParamsFFR_PR_Cost4_rnds0_180}
 \end{figure}
 \FloatBarrier
 
@@ -2582,9 +2584,9 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_180}
-    \label{fig:ParamsFFR_PR_Cost8_rnds0_180}
     \caption{At fine cost 8 the middle FFR values outperform the extreme values
     for rounds 0 to 180.}
+    \label{fig:ParamsFFR_PR_Cost8_rnds0_180}
 \end{figure}
 \FloatBarrier
 
@@ -2592,11 +2594,11 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_500}
-    \label{fig:ParamsFFR_PR_Cost8_rnds0_500}
     \caption{This shows the iterations continuing through round 500, the curves
     with the higher fine rates eventually settle to the same end point that the
     curves with the high rates of coarse labels purchased achieved at previous
     iterations.}
+    \label{fig:ParamsFFR_PR_Cost8_rnds0_500}
 \end{figure}
 \FloatBarrier
 
@@ -2604,9 +2606,9 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds20_60}
-    \label{fig:ParamsFFR_PR_Cost8_rnds20_60}
     \caption{The fine cost 8 curves shown expanding the rounds 20-60. If a round budget of 40
     occurs than the recommended FFR would be 0.2}
+    \label{fig:ParamsFFR_PR_Cost8_rnds20_60}
 \end{figure}
 \FloatBarrier
 
@@ -2615,9 +2617,9 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost16_rnds0_180}
-    \label{fig:ParamsFFR_PR_Cost16_rnds0_180}
     \caption{The fine cost is increased to 16. The cost is to high for the fine label advantage to offset
     the decreased number of instances purchased.}
+    \label{fig:ParamsFFR_PR_Cost16_rnds0_180}
 \end{figure}
 \FloatBarrier
 
@@ -2672,14 +2674,21 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 
 \chapter{Conclusions and Future Work}
 \par The protein data set demonstrated that fine-grained labels can be used
-to improve the
-
-
-
-
-
-
-
+to improve the coarse-grained classifier performance. Both SVM and Logit
+classifiers show an advantage of around 0.005 in average PR curve AUC and around
+0.001 in ROC curve AUC. Experiments comparing active and passive learning for both
+fine and coarse classifiers are performed, the results shown in section \ref{sect:actpass}
+demonstrate a prominent advantage for active fine with the Logit classifier. Furthermore
+ HAL is implemented and applied to the protein dataset for various FFR proportions and
+ fine label costs. After discussions with Cui et. al's group at UNL \cite{bioPoster} the fine label
+ estimated cost is around 10. This correlates to the FFR experiment with fine cost 8, which shows
+ that for a budget of aroun 20-60 rounds a FFR strategy of 0.2 would have the highest performance,
+ see \textit{Figure \ref{fig:ParamsFFR_PR_Cost8_rnds20_60}}.
+ \par Future work is to apply the BANDIT approach to the protein dataset in order to achieve
+ an optimal strategy for selecting the FFR proportion vector throughout all rounds, see
+ section \ref{sect:BANDIT}. The active over-labeling approach could be applied to other
+ datasets with more complex hierarchical label trees; datasets derived from
+ Gene Ontology research could be investigated \cite{GeneOntology}.
 
 
 
