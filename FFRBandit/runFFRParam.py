@@ -1,6 +1,6 @@
 import numpy as np
 import time
-import methodsFFR as m
+import methodsFFRParam as m
 from sklearn import preprocessing
 import pickle
 import copy
@@ -13,27 +13,28 @@ import random
 getcontext().prec = 8
 rootDir = re.split('[/\.]',__file__)[1]
 if(rootDir == 'py'):
-    os.chdir('_results')
+    os.chdir('BanditTest')
     dataDir = '../../'
 else:
-    os.chdir('/work/scott/jamesd/runFFRR_Cst2')
+    os.chdir('/work/scott/jamesd/BanditTest_Cst8')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
 
-FFR = float(sys.argv[1])
-testFold = int(sys.argv[2])
+testFold = int(sys.argv[1])
 batch = Decimal(100.0)
-fineCost = Decimal(2.0)
+fineCost = Decimal(8.0)
 coarseCost = Decimal(1.0)
+
+
 add = dict()
-add['fine'] = batch*(Decimal(FFR))/fineCost
-add['coarse'] = batch*(Decimal(1.0)-Decimal(FFR))/coarseCost
-roundSize = int(add['fine']+add['coarse']+Decimal(1))
+add['fine'] = batch/fineCost
+add['coarse'] = batch/coarseCost
+roundSize = 100
 results = []
-m.addPrint(results,['batch']+[float(batch)]+['FFR']+[float(FFR)]+['fineCost']
+m.addPrint(results,['batch']+[float(batch)]+['fineCost']
 +[float(fineCost)]+['coarseCost']+[float(coarseCost)]+['addFine']+[float(add['fine'])]
            +['addCoarse']+[float(add['coarse'])]+['roundSize']+[roundSize])
-FFR = str(FFR).replace('.','p')
+
 
 start_time = [time.perf_counter()]
 classes_all = {0:[],1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[]}
@@ -73,16 +74,18 @@ for i in sorted(classes_all):
 
 instanceCount = 0
 rndNum = 0
-while((18088-instanceCount) > roundSize):
-#while(rndNum < 2):
+combPredScoreRnd = dict()
+rndReward = dict()
+#while((18088-instanceCount) > roundSize and rndNum <= 750):
+while(rndNum < 3):
     start_time.append(time.perf_counter())
     if(rndNum>=1):
         ###### run confidence estimate for coarse and fine
         m.confEstAdd(results,classes_all,sets,rnds,add)
     rndNum += 1
     rnds = dict()
-    rnds['coarse'] = m.CoarseRound(testFold, rndNum, FFR)
-    rnds['fine'] = m.FineRound(testFold, rndNum, FFR)
+    rnds['coarse'] = m.CoarseRound(testFold, rndNum)
+    rnds['fine'] = m.FineRound(testFold, rndNum)
     y_testCoarse, y_sampleWeight, X_test = m.createTestSet(test_part)
     #### Run rounds
     y_predCoarse = dict()
@@ -94,14 +97,27 @@ while((18088-instanceCount) > roundSize):
         y_predCoarse[lvl], y_pred_score[lvl] = rnds[lvl].predictTestSet(X_test)
         rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], results)
         rnds[lvl].plotRocPrCurves(y_testCoarse, y_pred_score[lvl], y_sampleWeight, results)
-    m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,FFR)
+    m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold)
+    combPredScoreRnd[rndNum] = m.predictCombUnlabeled()
     ##### Append round time and fold counts
     instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, results, sets, start_time)
+    if(rndNum>=2):
+        print(combPredScoreRnd[rndNum - 1][:20])
+        print(combPredScoreRnd[rndNum][:20])
+        dif = combPredScoreRnd[rndNum-1] - combPredScoreRnd[rndNum]
+        print(dif[:20])
+        absDif = np.abs(combPredScoreRnd[rndNum-1] - combPredScoreRnd[rndNum])
+        print(absDif[:20])
+        absDifLog = np.log(np.abs(combPredScoreRnd[rndNum-1] - combPredScoreRnd[rndNum]))
+        print(absDifLog[:20])
+        sumAbsDifLog = np.sum(np.log(np.abs(combPredScoreRnd[rndNum-1] - combPredScoreRnd[rndNum])))
+        print(sumAbsDifLog)
+
     m.appendSetTotal(rndNum, results, classes_all,'classes_all')
     tot = time.perf_counter() - start_time[0]
     m.addPrint(results,['Total Time:']+['{:.0f}hr {:.0f}m {:.2f}sec'.format(
         *divmod(divmod(tot,60)[0],60),divmod(tot,60)[1])])
-    fileName = open('results/FFR_'+FFR+'_'+str(testFold)+'.res','wb')
+    fileName = open('results/Bandit_'+str(testFold)+'.res','wb')
     pickle.dump(results,fileName)
     fileName.close()
 

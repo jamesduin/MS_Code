@@ -31,12 +31,14 @@ def getRndTypeSet(resultsDir):
     print(rndTypeSet)
     return rndTypeSet
 
-#resultsDir = 'runFFRR_Cst1/results'
-#resultsDir = 'runFFRR_Cst16/results'
-resultsDir = 'runFFRR_Cst4/results'
-#Xlims = [0, 171]
-Xlims = [20,60]
-cost = 4
+#resultsDir = 'runFFRParam_Cst16/results'
+#resultsDir = 'runFFRParam_Cst8/results'
+resultsDir = 'BanditTest/results'
+#Xlims = [0, 500]
+#Xlims = [20,60]
+Xlims = [0,180]
+Ylims = [0.827, 0.863]
+cost = 8
 #resultsDir = '_results/results'
 
 
@@ -56,8 +58,10 @@ for type in rndTypeSet:
             file = re.split("[/\.]", fname)[-2]
             rndType = re.split("[_]", file)
             instType = rndType[0]+'_'+rndType[1]
-            typeNm = rndType[0]+'_'+type.replace('.','p')
-            if (typeNm == instType and str(fold) == rndType[2] ):
+            typeNm = rndType[0]+'_'+type
+            print('instType {}'.format(instType))
+            print('typeNm {}'.format(typeNm))
+            if (typeNm == instType and str(fold) == rndType[1] ):
                 # print(fold)
                 # print(instType)
                 foldMatrix[fold] = []
@@ -170,7 +174,7 @@ for linInd,type in enumerate(sorted(rndTypeSet)):
 
     axes.set_xlim(Xlims)
     #axes.set_ylim([0.842, 0.875])
-    axes.set_ylim([0.838, 0.87])
+    axes.set_ylim(Ylims)
 
 plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')
@@ -181,4 +185,5 @@ if(Xlims[1] == 60):
     title = title + ' - '+ str(Xlims[0])+' to '+ str(Xlims[1]) + ' Rounds'
 plt.title(title)
 plt.legend(loc="lower right")
-plt.savefig('../ThesisWriteUp/fig'+'/FFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')
+#plt.savefig('../ThesisWriteUp/fig'+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')
+plt.savefig(resultsDir+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')

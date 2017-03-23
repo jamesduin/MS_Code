@@ -18,10 +18,9 @@ import random
 getcontext().prec = 8
 
 class LearnRound:
-    def __init__(self,testFold,rndNum, lvl,FFR):
+    def __init__(self,testFold,rndNum, lvl):
         self.lvl_rndTime = 0
         self.rndNum = rndNum
-        self.FFR = FFR
         self.testFold = testFold
         self.lvl = lvl
 
@@ -58,46 +57,18 @@ class LearnRound:
         ###### Plot ROC and PR curves
         fpr, tpr, threshRoc = roc_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         roc_auc = auc(fpr, tpr, reorder=True)
-        if (self.rndNum % 50 == 0):
-            plt.figure()
-            plt.plot(fpr, tpr,
-                     label='ROC curve (area = {0:0.3f})'.format(roc_auc),
-                     color='red', linestyle=':', linewidth=4)
-            plt.plot([0, 1], [0, 1], 'k--')
-            plt.xlim([0.0, 1.0])
-            plt.ylim([0.0, 1.05])
-            plt.xlabel('False Positive Rate')
-            plt.ylabel('True Positive Rate')
-            plt.title('Receiver operating characteristic')
-            plt.legend(loc="lower right")
-            plt.savefig(self.lvl + '_results/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + str(self.testFold) +'_' + self.lvl + '_ROC.png')
-            plt.clf()
-            plt.close()
 
         ##### Plog pr_curve
         precision, recall, threshPr = precision_recall_curve(y_testCoarse, y_pred_score, sample_weight=y_sampleWeight)
         pr_auc = auc(recall, precision)
-        if (self.rndNum % 50 == 0):
-            plt.figure()
-            plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
-                     label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
-            plt.xlabel('Recall')
-            plt.ylabel('Precision')
-            plt.ylim([0.0, 1.05])
-            plt.xlim([0.0, 1.0])
-            plt.title('Precision-Recall')
-            plt.legend(loc="lower right")
-            plt.savefig(self.lvl + '_results/FFR'+ self.FFR+'_'+ str(self.rndNum) +  '_' + str(self.testFold) +'_' + self.lvl + '_PR.png')
-            plt.clf()
-            plt.close()
         addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
                        +['pr']+ [pr_auc]+ ['roc']+[roc_auc])
         addPrint(results,['rnd']+[self.rndNum]+['fold']+[self.testFold]+['lvl']+[self.lvl]
                        +['rndTime'] + [str(round(time.perf_counter() - self.lvl_rndTime, 2))])
 
 class CoarseRound(LearnRound):
-    def __init__(self,testFold,rndNum,FFR):
-        LearnRound.__init__(self, testFold,rndNum, 'coarse',FFR)
+    def __init__(self,testFold,rndNum):
+        LearnRound.__init__(self, testFold,rndNum, 'coarse')
         self.clf = []
         self.train_wt = 0.0
 
@@ -115,15 +86,14 @@ class CoarseRound(LearnRound):
 
     def trainClassifier(self,X_train,y_trainCoarse):
         ##### Train classifier for coarse
-        classifier = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                     fit_intercept=False, intercept_scaling=1,
-                                                     class_weight={1: self.train_wt},
+        classifier = linear_model.LogisticRegression(penalty='l2',
+                                                     C=0.1,
+                                                     tol=0.00001,
                                                      solver='liblinear',
-                                                     max_iter=1000, n_jobs=-1)
+                                                     class_weight={1: self.train_wt},
+                                                     n_jobs=-1)
         self.clf = classifier.fit(X_train, y_trainCoarse)
-        if (self.rndNum % 50 == 0):
-            joblib.dump(self.clf, self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
-        #self.clf = joblib.load(self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + self.lvl + '.pkl')
+
 
     def predictTestSet(self,X_test):
         ##### Predict test set for coarse
@@ -132,8 +102,8 @@ class CoarseRound(LearnRound):
         return y_predCoarse,y_pred_score
 
 class FineRound(LearnRound):
-    def __init__(self,testFold,rndNum,FFR):
-        LearnRound.__init__(self, testFold,rndNum, 'fine',FFR)
+    def __init__(self,testFold,rndNum):
+        LearnRound.__init__(self, testFold,rndNum, 'fine')
         self.classifier = dict()
         self.Fine_wt = []
 
@@ -143,22 +113,20 @@ class FineRound(LearnRound):
         wt = len(y_train) / np.sum(y_trainBin)
         train_wt = fcnSclWeight(wt)
         self.Fine_wt = np.array(
-            [0.8695652173913044, 0.4347826086956522, 0.782608695652174, 0.6521739130434783, 3.4782608695652177,
-             0.782608695652174, 1.7391304347826089, 0.8695652173913044]) * train_wt
+            [3.0, 1.0, 1.0, 1.5,
+             10.0, 2.0, 3.0, 1.0]) * train_wt
         return y_trainBin
 
     def trainClassifier(self,X_train,y_trainBin):
         #### train classifier for fine
         for cls in range(8):
-            classif = linear_model.LogisticRegression(penalty='l2', dual=False, tol=0.00001, C=0.1,
-                                                      fit_intercept=False, intercept_scaling=1,
-                                                      class_weight={1: self.Fine_wt[cls]},
-                                                      solver='liblinear',
-                                                      max_iter=1000, n_jobs=-1)
+            classif = linear_model.LogisticRegression(penalty='l2',
+                                                         C=0.1,
+                                                         tol=0.00001,
+                                                         solver='liblinear',
+                                                         class_weight={1: self.Fine_wt[cls]},
+                                                         n_jobs=-1)
             clf = classif.fit(X_train, y_trainBin[:, cls])
-            if(self.rndNum % 50 == 0):
-                joblib.dump(clf, self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
-            # clf = joblib.load(self.lvl + '_models/FFR'+ self.FFR+'_'+ str(self.rndNum) + '_' + str(self.lvl) + '_' + str(cls + 1) + '.pkl')
             self.classifier[cls] = clf
 
 
@@ -218,7 +186,9 @@ def createTestSet(test_part):
     return y_testCoarse, y_sampleWeight, X_test
 
 
-def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold,FFR):
+
+
+def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold):
     combPredScore = []
     combPredCoarse = []
     combPredLvl = []
@@ -288,39 +258,13 @@ def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,test
     ###### Plot ROC and PR curves
     fpr, tpr, threshRoc = roc_curve(y_testCoarse, combPredScore, sample_weight=y_sampleWeight)
     roc_auc = auc(fpr, tpr, reorder=True)
-    if (rndNum % 50 == 0):
-        plt.figure()
-        plt.plot(fpr, tpr,
-                 label='ROC curve (area = {0:0.3f})'.format(roc_auc),
-                 color='red', linestyle=':', linewidth=4)
-        plt.plot([0, 1], [0, 1], 'k--')
-        plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.05])
-        plt.xlabel('False Positive Rate')
-        plt.ylabel('True Positive Rate')
-        plt.title('Receiver operating characteristic')
-        plt.legend(loc="lower right")
-        plt.savefig('comb_results/FFR'+ str(FFR)+'_'+ str(rndNum) + '_' + str(testFold) +'_comb_ROC.png')
-        plt.clf()
-        plt.close()
 
-    ##### Plog pr_curve
+
+
+    ##### Plot pr_curve
     precision, recall, threshPr = precision_recall_curve(y_testCoarse, combPredScore, sample_weight=y_sampleWeight)
     pr_auc = auc(recall, precision)
-    if (rndNum % 50 == 0):
-        plt.figure()
-        plt.plot(recall, precision, color='blue', lw=2, linestyle=':',
-                 label='Precision-recall curve (area = {0:0.3f})'.format(pr_auc))
-        plt.xlabel('Recall')
-        plt.ylabel('Precision')
-        plt.ylim([0.0, 1.05])
-        plt.xlim([0.0, 1.0])
-        plt.title('Precision-Recall')
-        plt.legend(loc="lower right")
-        plt.savefig('comb_results/FFR'+ str(FFR)+'_'+ str(rndNum) + '_' + str(testFold) +'_comb_PR.png')
-        plt.clf()
-        plt.close()
-    addPrint(results,['FFR']+[FFR]+['fold']+[testFold]
+    addPrint(results,['fold']+[testFold]
                    +['comb_pr']+ [pr_auc]+ ['roc']+[roc_auc])
 
 

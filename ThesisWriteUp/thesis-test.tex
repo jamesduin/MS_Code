@@ -494,7 +494,8 @@ from the root can be defined. Thus we let $\ell_i$ denote the largest value for 
   from a leaf to the root of the tree. For a given instance, a value for $\ell_i$ is purchased
   at a cost $c_i \geq c_k \geq 0$ for all $i>k$. A purchase of $\ell_i$ automatically
   yields the values of $\ell_1$ through $\ell_{i-1}$. For example a purchase of $\ell_3$ for
-  an instance in the RCV1 dataset could yield $\langle$Location,Building,Museum$\rangle$,  $\langle$Location,Attraction,Museum$\rangle$,
+  an instance in the RCV1 dataset could yield $\langle$Location,Building,Museum$\rangle$,
+  $\langle$Location,Attraction,Museum$\rangle$,
 $\langle$Location,Lake,$X\rangle$, or $\langle X,X,X \rangle$. It is assumed
 that all labels in the same level are distinct, e.g., Museum under Attraction
 is distinguishable from Museum under Building. A purchase of $\ell_2$ for an instance
@@ -585,7 +586,7 @@ level $i$, label $j$
 \While{$B > b$}
   \State $B \gets B-b$
   \ForAll{Level $i \in T$}
-    \State $E' \gets$ \Call{Purchase}{$b \, p_i, i, C_i^*$}
+    \State $E' \gets$ \Call{Purchase}{$b \, p_i, i, C_{i,j}$}
     \ForAll{Level $m \le i$}
        \ForAll{Class $j$ in Level $m$}
            \State $E_{m,j} \cup=$ \Call{LabelMap}{$E', m, j$}
