@@ -75,7 +75,8 @@ for i in sorted(classes_all):
 instanceCount = 0
 rndNum = 0
 combPredScoreRnd = dict()
-rndReward = dict()
+crsFinePredScore = dict()
+rndClassifier = dict()
 #while((18088-instanceCount) > roundSize and rndNum <= 750):
 while(rndNum < 3):
     start_time.append(time.perf_counter())
@@ -98,10 +99,15 @@ while(rndNum < 3):
         rnds[lvl].printConfMatrix(y_testCoarse, y_predCoarse[lvl], results)
         rnds[lvl].plotRocPrCurves(y_testCoarse, y_pred_score[lvl], y_sampleWeight, results)
     m.predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,testFold)
-    combPredScoreRnd[rndNum] = m.predictCombUnlabeled()
+    rndClassifier[rndNum] = rnds
     ##### Append round time and fold counts
     instanceCount = m.appendRndTimesFoldCnts(testFold, rndNum, results, sets, start_time)
     if(rndNum>=2):
+        crsFinePredScore[rndNum-1] = m.getScoresUnlabeledX(results,classes_all,rndClassifier[rndNum-1])
+        combPredScoreRnd[rndNum-1] = m.predictCombinedUnlabeled(results, crsFinePredScore[rndNum-1],rndNum-1)
+        crsFinePredScore[rndNum] = m.getScoresUnlabeledX(results, classes_all, rndClassifier[rndNum])
+        combPredScoreRnd[rndNum] = m.predictCombinedUnlabeled(results, crsFinePredScore[rndNum], rndNum)
+
         print(combPredScoreRnd[rndNum - 1][:20])
         print(combPredScoreRnd[rndNum][:20])
         dif = combPredScoreRnd[rndNum-1] - combPredScoreRnd[rndNum]

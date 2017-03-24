@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRParams/methodsFFR.py" afterPath="$PROJECT_DIR$/FFRBandit/methodsFFRParam.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRParams/plotFFR.py" afterPath="$PROJECT_DIR$/FFRBandit/plotFFR.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRParams/runFFR.py" afterPath="$PROJECT_DIR$/FFRBandit/runFFRParam.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/Comments" afterPath="$PROJECT_DIR$/ThesisWriteUp/Comments" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFRBandit/BanditTest/results/Bandit_1.res" afterPath="$PROJECT_DIR$/FFRBandit/BanditTest/results/Bandit_1.res" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFRBandit/methodsFFRParam.py" afterPath="$PROJECT_DIR$/FFRBandit/methodsFFRParam.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFRBandit/runFFRParam.py" afterPath="$PROJECT_DIR$/FFRBandit/runFFRParam.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,14 +18,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5178702">
+    <splitter split-orientation="horizontal" split-proportion="0.55215174">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="runFFRParam.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/FFRBandit/runFFRParam.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
+                <state relative-caret-position="304">
+                  <caret line="108" column="94" lean-forward="false" selection-start-line="108" selection-start-column="94" selection-end-line="108" selection-end-column="94" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -42,7 +36,7 @@
           <file leaf-file-name="plotFFR.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/FFRBandit/plotFFR.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
+                <state relative-caret-position="-926">
                   <caret line="63" column="61" lean-forward="false" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
@@ -58,8 +52,8 @@
           <file leaf-file-name="methodsFFRParam.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/FFRBandit/methodsFFRParam.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="217">
-                  <caret line="258" column="0" lean-forward="true" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
+                <state relative-caret-position="397">
+                  <caret line="282" column="13" lean-forward="false" selection-start-line="282" selection-start-column="13" selection-end-line="282" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -180,8 +174,8 @@
         <option value="$PROJECT_DIR$/FFRParams/runFFR.py" />
         <option value="$PROJECT_DIR$/FFRBandit/test" />
         <option value="$PROJECT_DIR$/FFRBandit/plotFFR.py" />
-        <option value="$PROJECT_DIR$/FFRBandit/runFFRParam.py" />
         <option value="$PROJECT_DIR$/FFRBandit/methodsFFRParam.py" />
+        <option value="$PROJECT_DIR$/FFRBandit/runFFRParam.py" />
       </list>
     </option>
   </component>
@@ -250,42 +244,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="BanditTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FFRBandit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BanditTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="results" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ActivePassiveLearnParams" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -901,18 +859,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FFRBandit/plotFFR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
+        <state relative-caret-position="-926">
           <caret line="63" column="61" lean-forward="false" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FFRBandit/runFFRParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -921,9 +869,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FFRBandit/methodsFFRParam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="258" column="0" lean-forward="true" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
+        <state relative-caret-position="397">
+          <caret line="282" column="13" lean-forward="false" selection-start-line="282" selection-start-column="13" selection-end-line="282" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FFRBandit/runFFRParam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="108" column="94" lean-forward="false" selection-start-line="108" selection-start-column="94" selection-end-line="108" selection-end-column="94" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

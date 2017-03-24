@@ -268,6 +268,23 @@ def predictCombined(results,y_pred_score,y_testCoarse,y_sampleWeight,rndNum,test
                    +['comb_pr']+ [pr_auc]+ ['roc']+[roc_auc])
 
 
+
+def predictCombinedUnlabeled(results,y_pred_score,rndNum):
+    combPredScore = []
+    combPredCoarse = []
+    for i in range(len(y_pred_score['coarse'])):
+        pred = max(y_pred_score['coarse'][i][2],y_pred_score['fine'][i][2])
+        combPredScore.append(pred)
+        if(pred > 0.0):
+            combPredCoarse.append(1.0)
+        else:
+            combPredCoarse.append(0.0)
+    addPrint(results, ['rndNum'] + [rndNum]+
+             ['combPredScoreRndLen'] + [len(combPredCoarse)])
+    return np.array(combPredScore)
+
+
+
 def retAddNum(add):
     remain = add % Decimal(1.0)
     num = int(add-remain)
@@ -277,6 +294,30 @@ def retAddNum(add):
             num+= 1
     return num
 
+
+
+def getScoresUnlabeledX(results,classes_all,rnds):
+    decFcn = dict()
+    for lvl in ['coarse', 'fine']:
+        decFcn[lvl] = []
+
+    for cls in sorted(classes_all):
+        partition = np.asarray(classes_all[cls])
+        data = partition
+        if (len(data) > 0):
+            y_train, X_train = data[:, 0], data[:, 1:]
+            for lvl in ['coarse', 'fine']:
+                y_predCoarse, scores = rnds[lvl].predictTestSet(X_train)
+                s_tmp = np.abs(scores).reshape(scores.shape[0], 1)
+                s_cls = np.ones(len(s_tmp)).reshape(len(s_tmp), 1) * cls
+                s_ind = np.array(range(len(s_tmp))).reshape(len(s_tmp), 1)
+                prefixCols = np.hstack((s_cls, s_ind))
+                decFcnTmp = np.hstack((prefixCols, s_tmp))
+                if decFcn[lvl] == []:
+                    decFcn[lvl] = decFcnTmp
+                else:
+                    decFcn[lvl] = np.vstack((decFcnTmp, decFcn[lvl]))
+    return decFcn
 
 
 def confEstAdd(results,classes_all,sets,rnds,add):
