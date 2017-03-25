@@ -31,11 +31,15 @@ def getRndTypeSet(resultsDir):
     print(rndTypeSet)
     return rndTypeSet
 
-#resultsDir = 'runFFRParam_Cst16/results'
-resultsDir = 'runFFRParam_Cst8/results'
+resultsDir = 'runFFRParam_Cst16/results'
+#resultsDir = 'runFFRParam_Cst8/results'
+#resultsDir = 'runFFRParam_Cst1/results'
+#resultsDir = 'runFFRParam_Cst4/results'
+
 #Xlims = [0, 500]
-Xlims = [20,60]
-Ylims = [0.827, 0.863]
+#Xlims = [20,60]
+Xlims = [0, 1000]
+#Ylims = [0.827, 0.863]
 cost = 8
 #resultsDir = '_results/results'
 
@@ -156,21 +160,22 @@ for linInd,type in enumerate(sorted(rndTypeSet)):
     y_pr = np.mean(prs, axis=1)
     #cVal = tuple(np.multiply(cVals[linInd],(1/270,1/270,1/270,1.0)))
     cVal = cVals[linInd]
+    print('FFR: {},{},{}'.format(type, x_pr[-1], y_pr[-1]))
     plt.plot(x_pr,y_pr, label = 'FFR['+type+']',linewidth = 1.8 ,
              fillstyle='none',
              color=cVal,dashes=lineSty[linInd],
-             marker=markSty[linInd],
-             markersize=6,
-             markeredgecolor=cVal,
-             markeredgewidth=1.0,
-             markevery=markEvSty[linInd]
+             # marker=markSty[linInd],
+             # markersize=6,
+             # markeredgecolor=cVal,
+             # markeredgewidth=1.0,
+             # markevery=markEvSty[linInd]
              )
     leg= plt.legend(fancybox=True)
     axes = plt.gca()
 
-    axes.set_xlim(Xlims)
+    #axes.set_xlim(Xlims)
     #axes.set_ylim([0.842, 0.875])
-    axes.set_ylim(Ylims)
+    #axes.set_ylim(Ylims)
 
 plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')
@@ -181,4 +186,5 @@ if(Xlims[1] == 60):
     title = title + ' - '+ str(Xlims[0])+' to '+ str(Xlims[1]) + ' Rounds'
 plt.title(title)
 plt.legend(loc="lower right")
-plt.savefig('../ThesisWriteUp/fig'+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')
+#plt.savefig('../ThesisWriteUp/fig'+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')
+plt.savefig(resultsDir+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')

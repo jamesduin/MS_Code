@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FFRBandit/runFFRBandit.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HCC/GenerateRshFFRBandit.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/runFFRParam.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/HCC/results/sampleWeight (1).png" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRBandit/methodsFFRParam.py" afterPath="$PROJECT_DIR$/FFRBandit/methodsFFRBandit.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRBandit/plotFFR.py" afterPath="$PROJECT_DIR$/FFRBandit/plotFFRBandit.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFRBandit/BanditTest/results/Bandit_1.res" afterPath="$PROJECT_DIR$/FFRBandit/BanditTest/results/Bandit_1.res" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFRBandit/methodsFFRParam.py" afterPath="$PROJECT_DIR$/FFRBandit/methodsFFRParam.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFRBandit/runFFRParam.py" afterPath="$PROJECT_DIR$/FFRBandit/runFFRParam.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFRBandit/BanditTest/results/ParamsFFR_PR_Cost8_rnds0_180.png" afterPath="$PROJECT_DIR$/FFRBandit/BanditTest/results/ParamsFFR_PR_Cost8_rnds0_180.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFR/plotFFR.py" afterPath="$PROJECT_DIR$/FFR/plotFFR.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFRBandit/BanditTest/results/_Bandit_1.txt" afterPath="$PROJECT_DIR$/FFRBandit/BanditTest/results/_Bandit_1.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HCC/run.sh" afterPath="$PROJECT_DIR$/HCC/run.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,14 +27,36 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.55215174">
+    <splitter split-orientation="horizontal" split-proportion="0.4987715">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="runFFRParam.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/FFRBandit/runFFRParam.py">
+          <file leaf-file-name="runFFRBandit.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/FFRBandit/runFFRBandit.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
-                  <caret line="108" column="94" lean-forward="false" selection-start-line="108" selection-start-column="94" selection-end-line="108" selection-end-column="94" />
+                <state relative-caret-position="165">
+                  <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="35" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GenerateRshFFRBandit.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HCC/GenerateRshFFRBandit.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="plotFFRBandit.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/FFRBandit/plotFFRBandit.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -34,13 +65,11 @@
             </entry>
           </file>
           <file leaf-file-name="plotFFR.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/FFRBandit/plotFFR.py">
+            <entry file="file://$PROJECT_DIR$/FFR/plotFFR.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-926">
-                  <caret line="63" column="61" lean-forward="false" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="195">
+                  <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -48,12 +77,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file leaf-file-name="methodsFFRParam.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/FFRBandit/methodsFFRParam.py">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="methodsFFRBandit.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/FFRBandit/methodsFFRBandit.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="397">
-                  <caret line="282" column="13" lean-forward="false" selection-start-line="282" selection-start-column="13" selection-end-line="282" selection-end-column="13" />
+                <state relative-caret-position="164">
+                  <caret line="295" column="0" lean-forward="false" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -72,11 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Dasgupta2008</find>
-      <find>Symons2006</find>
-      <find>RCV</find>
-      <find>activeOverLabel</find>
-      <find>active</find>
       <find>BANDIT</find>
       <find>Coarse</find>
       <find>Fine</find>
@@ -102,6 +126,11 @@
       <find>Conclus</find>
       <find>\chapter</find>
       <find>FFR</find>
+      <find>retAddNum</find>
+      <find>addPrint</find>
+      <find>random</find>
+      <find>rndGain</find>
+      <find>cost</find>
     </findStrings>
     <replaceStrings>
       <replace>[H]</replace>
@@ -125,9 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/PassiveLearn/Preprocessing1/results/output.txt" />
-        <option value="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard/results/output.txt" />
-        <option value="$PROJECT_DIR$/PassiveLearn/test.py" />
         <option value="$PROJECT_DIR$/data/part_subStd/terminalout.txt" />
         <option value="$PROJECT_DIR$/PassiveLearn/Original/SVMDef/results/output.txt" />
         <option value="$PROJECT_DIR$/HALCreateClasses/createScaledPartitions.py" />
@@ -151,7 +177,6 @@
         <option value="$PROJECT_DIR$/FFR/runFFRParam.py" />
         <option value="$PROJECT_DIR$/HCC/GenerateRshFFR.py" />
         <option value="$PROJECT_DIR$/PassiveLearn/plotPsvThreshold.py" />
-        <option value="$PROJECT_DIR$/HCC/run.sh" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam4Plots.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/runActPassParam4PlotsRocAll.py" />
         <option value="$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam4PlotsRocAll.py" />
@@ -162,7 +187,6 @@
         <option value="$PROJECT_DIR$/PassiveLearn/plotPsv.py" />
         <option value="$PROJECT_DIR$/PassiveLearn/methodsPsv.py" />
         <option value="$PROJECT_DIR$/PassiveLearn/runPsv.py" />
-        <option value="$PROJECT_DIR$/FFR/plotFFR.py" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/jaccard.txt" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/nuthesis.cls" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/Ch3_comments" />
@@ -173,15 +197,20 @@
         <option value="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
         <option value="$PROJECT_DIR$/FFRParams/runFFR.py" />
         <option value="$PROJECT_DIR$/FFRBandit/test" />
-        <option value="$PROJECT_DIR$/FFRBandit/plotFFR.py" />
         <option value="$PROJECT_DIR$/FFRBandit/methodsFFRParam.py" />
+        <option value="$PROJECT_DIR$/FFRBandit/plotFFR.py" />
         <option value="$PROJECT_DIR$/FFRBandit/runFFRParam.py" />
+        <option value="$PROJECT_DIR$/HCC/run.sh" />
+        <option value="$PROJECT_DIR$/FFRBandit/runFFRBandit.py" />
+        <option value="$PROJECT_DIR$/HCC/GenerateRshFFRBandit.py" />
+        <option value="$PROJECT_DIR$/FFR/plotFFR.py" />
+        <option value="$PROJECT_DIR$/FFRBandit/plotFFRBandit.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1620" />
+    <option name="width" value="1552" />
     <option name="height" value="1001" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -225,7 +254,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FFRBandit" />
+              <option name="myItemId" value="HCC" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -239,11 +268,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FFRBandit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BanditTest" />
+              <option name="myItemId" value="FFR" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -254,22 +279,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/jamesduin/Documents/MS_Code/FFR/plotFFR.py" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/jamesduin/Documents/MS_Code/FFRBandit/plotFFR.py" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/FFRBandit" />
-      <recent name="$PROJECT_DIR$/ThesisWriteUp" />
-      <recent name="$PROJECT_DIR$/ActivePassiveLearnParams" />
-      <recent name="$PROJECT_DIR$/HCC" />
-      <recent name="$PROJECT_DIR$/FFR" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/HALCreateClasses/Archive" />
       <recent name="$PROJECT_DIR$/PassiveLearn/Original/SVMDef" />
       <recent name="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard" />
       <recent name="$PROJECT_DIR$/PassiveLearn" />
       <recent name="$PROJECT_DIR$/ActivePassiveFolds/ArchiveResults" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/HCC" />
+      <recent name="$PROJECT_DIR$/FFRBandit" />
+      <recent name="$PROJECT_DIR$/ThesisWriteUp" />
+      <recent name="$PROJECT_DIR$/ActivePassiveLearnParams" />
+      <recent name="$PROJECT_DIR$/FFR" />
     </key>
   </component>
   <component name="RunManager" selected="Python.GenerateRshActPass">
@@ -543,16 +568,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1620" height="1001" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1552" height="1001" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14258912" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20248204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3058306" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43014303" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -575,11 +600,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/mybibtexDB.bib">
-      <provider selected="true" editor-type-id="LaTeXFileEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HCC/GenerateRshFFR.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -643,13 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
           <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HCC/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -758,13 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FFR/plotFFR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="172" column="4" lean-forward="false" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/jaccard.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -841,44 +847,60 @@
     <entry file="file://$PROJECT_DIR$/FFRParams/methodsFFR.py" />
     <entry file="file://$PROJECT_DIR$/FFRBandit/methodsFFR.py" />
     <entry file="file://$PROJECT_DIR$/FFRBandit/runFFR.py" />
-    <entry file="file://$PROJECT_DIR$/FFRBandit/test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/FFRBandit/test" />
     <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
           <caret line="116" column="60" lean-forward="false" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="28" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FFRBandit/plotFFR.py">
+    <entry file="file://$PROJECT_DIR$/HCC/GenerateRshFFRBandit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-926">
-          <caret line="63" column="61" lean-forward="false" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
+        <state relative-caret-position="225">
+          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FFRBandit/runFFRBandit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="35" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FFRBandit/methodsFFRParam.py">
+    <entry file="file://$PROJECT_DIR$/FFRBandit/methodsFFRBandit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="282" column="13" lean-forward="false" selection-start-line="282" selection-start-column="13" selection-end-line="282" selection-end-column="13" />
+        <state relative-caret-position="164">
+          <caret line="295" column="0" lean-forward="false" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FFRBandit/runFFRParam.py">
+    <entry file="file://$PROJECT_DIR$/FFR/plotFFR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="108" column="94" lean-forward="false" selection-start-line="108" selection-start-column="94" selection-end-line="108" selection-end-column="94" />
+        <state relative-caret-position="195">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FFRBandit/plotFFRBandit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
