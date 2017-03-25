@@ -36,14 +36,20 @@ def getRndTypeSet(resultsDir):
 #resultsDir = 'BanditTest/results'
 #resultsDir = 'Bandit_RandEqual/results'
 #resultsDir = 'Bandit_TrueEqualStay_Cst8/results'
+
+
+#resultsDir = 'Bandit_RandEqual_Cst1/results'
+#resultsDir = 'BANDIT_1p1/results'
+#resultsDir = 'BANDIT_2p0/results'
+#resultsDir = 'BANDIT_4p0/results'
 #resultsDir = 'Bandit_RandEqual_Cst8/results'
-resultsDir = 'Bandit_RandEqual_Cst1/results'
+#resultsDir = 'BANDIT_16p0/results'
 
 #Xlims = [0, 500]
 #Xlims = [20,60]
 Xlims = [0,180]
 #Ylims = [0.827, 0.863]
-cost = 1
+cost = 2
 #resultsDir = '_results/results'
 
 
