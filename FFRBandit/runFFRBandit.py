@@ -13,18 +13,30 @@ import numpy as np
 import random
 getcontext().prec = 8
 rootDir = re.split('[/\.]',__file__)[1]
+
+
+
+batch = Decimal(100.0)
+fineCost = Decimal(sys.argv[2])
+coarseCost = Decimal(1.0)
+testFold = int(sys.argv[3])
+dir = sys.argv[1] +'_'+ str(fineCost).replace('.','p')
+
+baseDir = ''
 if(rootDir == 'py'):
-    os.chdir('Bandit_RandEqual_Cst1')
     dataDir = '../../'
+
 else:
-    os.chdir('/work/scott/jamesd/Bandit_RandEqual_Cst1')
+    os.chdir('/work/scott/jamesd/')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
+if not os.path.exists(dir):
+    os.makedirs(dir)
+    os.makedirs(dir + '/log')
+    os.makedirs(dir + '/results')
+os.chdir(dir)
 
-testFold = int(sys.argv[1])
-batch = Decimal(100.0)
-fineCost = Decimal(1.0)
-coarseCost = Decimal(1.0)
+
 
 
 add = dict()

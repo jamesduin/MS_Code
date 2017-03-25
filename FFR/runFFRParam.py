@@ -12,19 +12,29 @@ import numpy as np
 import random
 getcontext().prec = 8
 rootDir = re.split('[/\.]',__file__)[1]
+
+FFR = float(sys.argv[3])
+testFold = int(sys.argv[4])
+batch = Decimal(100.0)
+fineCost = Decimal(sys.argv[2])
+coarseCost = Decimal(1.0)
+dir = sys.argv[1] +'_'+ str(fineCost).replace('.','p')
+
+baseDir = ''
 if(rootDir == 'py'):
-    os.chdir('_results')
     dataDir = '../../'
+
 else:
-    os.chdir('/work/scott/jamesd/runFFRParam_Cst8')
+    os.chdir('/work/scott/jamesd/')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
+if not os.path.exists(dir):
+    os.makedirs(dir)
+    os.makedirs(dir + '/log')
+    os.makedirs(dir + '/results')
+os.chdir(dir)
 
-FFR = float(sys.argv[1])
-testFold = int(sys.argv[2])
-batch = Decimal(100.0)
-fineCost = Decimal(8.0)
-coarseCost = Decimal(1.0)
+
 add = dict()
 add['fine'] = batch*(Decimal(FFR))/fineCost
 add['coarse'] = batch*(Decimal(1.0)-Decimal(FFR))/coarseCost
