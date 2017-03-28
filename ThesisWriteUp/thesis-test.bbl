@@ -34,6 +34,11 @@ J.~Z. Juan~Cui, Kevin~Chiang, ``Prediction of nuclear and locally encoded
 T.~M. Mitchell, \emph{Machine Learning}, 1st~ed.\hskip 1em plus 0.5em minus
   0.4em\relax New York, NY, USA: McGraw-Hill, Inc., 1997.
 
+\bibitem{yugi}
+Y.~Mo, S.~D. Scott, and D.~Downey, ``Learning hierarchically decomposable
+  concepts with active over-labeling,'' in \emph{2016 IEEE 16th International
+  Conference on Data Mining (ICDM)}, Dec 2016, pp. 340--349.
+
 \bibitem{sklearn-api}
 L.~Buitinck, G.~Louppe, M.~Blondel, F.~Pedregosa, A.~Mueller, O.~Grisel,
   V.~Niculae, P.~Prettenhofer, A.~Gramfort, J.~Grobler, R.~Layton,
@@ -148,11 +153,6 @@ K.~Julenius, A.~Mølgaard, R.~Gupta, and S.~Brunak, ``Prediction, conservation
 J.~D. Bendtsen, H.~Nielsen, D.~Widdick, T.~Palmer, and S.~Brunak, ``Prediction
   of twin-arginine signal peptides,'' \emph{BMC bioinformatics}, vol.~6, no.~1,
   p. 167, 2005.
-
-\bibitem{yugi}
-Y.~Mo, S.~D. Scott, and D.~Downey, ``Learning hierarchically decomposable
-  concepts with active over-labeling,'' in \emph{2016 IEEE 16th International
-  Conference on Data Mining (ICDM)}, Dec 2016, pp. 340--349.
 
 \bibitem{Lewis2004}
 D.~D. Lewis, Y.~Yang, T.~G. Rose, and F.~Li, ``{RCV1: A New Benchmark

@@ -184,14 +184,36 @@ at the root level is whether the protein
  originates from the
 mitochondria
 or not, then the hierarchy breaks down further into specific target
-compartments at the leaf nodes.
-
-
-Our investigation shows that leveraging separate
+compartments at the leaf nodes. Our investigation shows that leveraging separate
 fine-grained classifiers for each of the target compartments produces a higher
 performing classifier at the highest level in the hierarchy.
-Furthermore, a new approach in the
-active learning setting termed \textit{active over-labeling} is applied to this dataset.
+
+\par This work uses an approach within the active machine learning setting.
+Active machine learning or active learning, is a case
+of semi-supervised or conventional machine learning. In semi-supervised machine learning (ML)
+some of the data is labeled, and some of the data is unlabeled. In the context of this work
+a data instance is a single protein and its list of defining values or features. A data
+instance also has a label which is the value that we want to learn, in our work this is the
+ protein's location of origin in the cell. Conventional ML learns a function between the
+ the features of an instance and the label of an instance. The input to the function is the vector
+ of features and the output is the label. ML is discussed more
+ formally in Section \ref{sect:machineLearn}.
+
+ \par We work within
+the conventional active learning model, where the learner can query an oracle or supervisor,
+usually a human that labels the data manually. Active learning can be used to solicit new
+instances that can maximally
+improve the performance of the learned classifier \cite{mitchell}. This is contrasted to
+conventional ML where the learner is passively being given a training set irrespective of
+how the new data instances will affect classifier performance \cite{mitchell}. Active learning
+usually associates a cost to the labeling effort and has the goal of generating
+a best performing classifier for a minimal amount of labeling cost. Active learning
+can also learn a best performing classifier for a given purchase budget that it uses to
+purchase labels at some cost.
+
+\par This work applies a new approach in the
+active learning setting, termed \textit{active over-labeling}, to the mitochondrial
+disease protein dataset \cite{yugi}.
 The approach uses a certain proportion of the purchase budget to solicit
 labels at a finer level of granularity than the target concept.
 Purchasing fine-grained labels in each round of active learning produces a
@@ -209,13 +231,132 @@ purchasing strategy is determined for each fine cost. An approach optimally sele
 
 
 
+\chapter{Related Work}
+\par The experiments and methods elicited in this work
+demonstrate how leveraging fine-grained label  information
+can improve the accuracy of a coarse-grained (root-level) classifier, and
+ investigate active learning in a hierarchical setting where
+ label acquisition cost can vary \cite{yugi}. This thesis mirrors the first
+ application of these methods done by Mo et al. \cite{yugi}.
+
+\par Techniques have been investigated using hierarchies of labels to improve
+  a fine-grained classifier, by backing off to coarse levels of the hierarchy
+  when fine-grained data are sparse. Such techniques have been applied to
+  text classification \cite{mccallum1998improving} and rich media indexing
+  \cite{jiang2013}. This work presents techniques that work in the opposite
+  direction, utilizing selectively acquired fine-grained labels to improve
+  classification over coarse categories.
+
+\par Previous work in active learning
+focused on ``pool-based'' active learning, where a learner selects
+instances from a pool of unlabeled data to be labeled by an oracle.
+Active learning can reduce the expense of purchasing labels by only
+requesting the most informative labels \cite{Rubens2011}. Labels that
+have the highest uncertainty are deemed most informative, uncertainty
+can be measured in terms of the confidence of output values
+\cite{Merialdo2001}, uncertainty in the parameters of probabilistic models
+\cite{Hofmann2003}, or the size of the model's decision boundary
+\cite{Schohn2000}. This work uses uncertainty measured in confidence of
+output values and size of the model's decision boundary.
+
+\par Previous work in active learning has been shown to reduce
+sampling bias by utilizing the hierarchical structure of input
+features \cite{Dasgupta2008, Symons2006}. This work focuses on
+active learning over hierarchically structured output
+labels \cite{yugi}.
+
+
+\section{Application to Dispatch Dataset}
+\par The analysis of the protein data set presented in this thesis, largely
+follows Mo et al.'s \cite{yugi} experiments on the Reuters Corpus Volume~I (RCV1)
+ text categorization dataset shown in Section \ref{sect:activeOverLabel}. HAL is
+ applied to a Dispatch dataset by Mo et al. \cite{yugi}. This dataset contains 375,026 manually labeled
+hierarchical names across 1,384 newspaper articles \cite{Lewis2004}. This is a
+clear example of when fine-grained labels have a higher cost. It is relatively
+easy for a person to manually
+determine the coarse level question of whether or not the article pertains to an organization,
+and relatively difficult to determine the fine level question of whether or not the article
+pertains to a railroad or a zoo.
+\par The first analysis step is to confirm that fine-grained classifiers outperform
+coarse-grained classifiers and active learning outperforms passive learning. Passive learning is
+randomly selecting new data instances to be labeled out of the set of unlabeled instances.
+ The advantage for active learning over passive and fine-grained over coarse-grained is shown for the
+ dataset \cite{yugi}. Futhermore, the fine-grained classifier is shown to have a higher level of
+ precision compared to the coarse-grained classifier when both classifiers output the roughly the
+ same recall  \cite{yugi}. These evalutation metrics are discussed futher in
+ Section \ref{sect:PerformanceMetrics}.
+
+%These results are shown in \textit{Figure \ref{fig:draft-RCV1}}.
+%\FloatBarrier
+%\begin{figure}[!htb]
+%	\centering
+%    \includegraphics[width=0.75\columnwidth]{fig/draft-RCV1}
+%    \caption{Application of HAL demonstrating the benefit of fine-grained active learning
+%    on the RCV1 dataset.}
+%    \label{fig:draft-RCV1}
+%\end{figure}
+%\FloatBarrier
+
+\par The next analysis step is to test an implementation of \textit{active over-labeling} called
+HAL with various $p$ proportion ratios. The proportion
+for each fine class used by that rounds purchase-budget remains fixed throughout the rounds of
+the experiment, thus each experiment has a fixed fine ratio (FFR). The experiments by
+Mo et al. \cite{yugi} demonstrate that HAL can be used to determine an optimal FFR strategy
+for the RCV1 dataset at
+various fine costs and budgets. Furthermore, Mo et al. elicits and performs a
+modified \textit{active over-labeling} approach termed BANDIT on the RCV1
+dataset. The BANDIT approach is determined to be robust to differences in label cost and
+label budget. Both the HAL and the BANDIT methodologies are discussed in detail in Sections
+\ref{sect:HAL} - \ref{sect:BANDIT}.
+
+%
+%\FloatBarrier
+%\begin{figure*}[!htb]
+%    \centering
+%    \begin{subfigure}[t]{0.75\textwidth}
+%        \centering
+%        \includegraphics[width=\textwidth]{fig/RCV1-16-nobandit}
+%        \caption{HAL FFR experiments on the RCV1 dataset with fine cost of 16 and coarse cost of 1.}
+%
+%    \end{subfigure}%
+%
+%    \begin{subfigure}[t]{0.75\textwidth}
+%        \centering
+%        \includegraphics[width=\textwidth]{fig/curve-RCV1}
+%        \caption{BANDIT experiments on the RCV1 dataset, again with fine cost of 16.}
+%
+%    \end{subfigure}
+%    \caption{HAL and BANDIT experiments for RCV1 dataset.}
+%    \label{fig:RCV1-16-nobandit-curve-RCV1}
+%\end{figure*}
+%\FloatBarrier
+
+
+
+\chapter{Background and Theory}
+
+
 \section{Machine Learning}
-\par Machine learning (ML) algorithms are defined as computer programs that learn from experience E
+\label{sect:machineLearn}
+Machine learning (ML) algorithms are defined as computer programs that learn from experience E
 with respect to some class of tasks T and performance measure P, if their performance at
 tasks in T, as measured by P, improves with experience E \cite{mitchell}. In the context of this thesis,
 the machine learning algorithms that are used include Support Vector Machines (SVM), and Logistic Regression (Logit).
- This work uses implementations by the sci-kit learn python library \cite{sklearn-api} for both algorithms. Our
- experiment requires a binary classification task, each algorithm takes a protein instance with a list of 449 features
+ This work uses implementations by the sci-kit learn python library \cite{sklearn-api} for both algorithms. The performance
+ measures include the following: precision, recall, accuracy, confusion matrices, and F-measure. These are discussed in
+ Section \ref{sect:PerformanceMetrics}. The task to be learned is a function of a protein's
+    features to a protein's location of origin in the cell. More formally, the task of a learner in conventional ML
+    is to learn a target concept or classifier, given as:
+ \FloatBarrier
+\begin{equation}
+\label{eq:convML}
+\begin{aligned}
+f : {\mathcal X} \rightarrow {\mathcal Y}=\{0, 1\}
+\end{aligned}
+\end{equation}
+\FloatBarrier
+Where $\mathcal X$ is the input space and $\mathcal Y$ is the label output. Our experiment requires a binary
+classification task, each algorithm takes a protein instance with a list of 449 features
  as an input and then outputs a 0 or 1 whether or not the protein belongs to a class. A separate classifier is trained
  for each class in the protein dataset. Both Logit and SVM classifiers have a decision function method that outputs
  the predicted confidence score for a given sample, which is the signed distance of that sample to the learned
@@ -294,6 +435,7 @@ In this work the following kernel functions were tested \cite{scikit-learn}:
 
 
 \section{Evaluating Classifier Performance}
+\label{sect:PerformanceMetrics}
 \par The classifier performance is primarily evaluated using Precision-Recall (PR) and Receiver Operator
 Characteristic (ROC) curves, although accuracy, precision, recall, confusion matrix and  F-measure
 are also calculated. Accuracy is the total number of correctly classified instances in the test set
@@ -357,8 +499,10 @@ in the test set. Each score defines a threshold for computing precision, recall 
 Precision and Recall are computed for each threshold and plotted on the PR curve,
 with recall on the $x$-axis and precision on the $y$-axis. ROC curves also evaluate classifier output
 quality. ROC curves are constructed similar to the PR curve except $F_p$ replaces recall on the
- $x$-axis and $T_p$ replaces precision on the $y$-axis. For both curves larger area under the curve
- (AUC) is usually correlated to a higher performing classifier.
+ $x$-axis and $T_p$ replaces precision on the $y$-axis. For both curves, the curve information is
+ summarized in one number, area under the curve (AUC). AUC is calculated using the trapezoidal rule.
+ Higher values of AUC usually correlate to a better performing the classifier. AUC is used throughout
+ this work to summarize and compare ROC and PR curves using a single number.
 
 \section{Hierarchical Bioinformatics Data Set}
 \par Bioinformatics is a field using computer science tools and techniques
@@ -438,42 +582,52 @@ The negative dataset is composed of 19,136 experimentally validated human
 \section{Coarse-grained vs Fine-grained Trade Off}
 \par In hierarchically labeled datasets, over-labeling refers to learning fine-grained
 (non-root) concepts and combining the results to predict the coarse-grained (root) label \cite{yugi}.
- It can be demonstrated through a simple example
+It can be demonstrated through a simple example
 that for certain datasets, a fine-grained approach to the root level classifier can achieve higher
 levels of precision for the same level of recall. Such a dataset is shown in \textit{Figure
-\ref{fig:union}}. The classifiers for this dataset can be thought of as a function of axis parallel
-rectangular boxes. For the coarse-grained to have high recall and return all of the positive
-circle instances, it must encompass the entire dataset
+\ref{fig:union}} from \cite{yugi}. The classifiers for this dataset can be thought of as a
+function of rectangular boxes with axis parallel sides.
+
+\par The target concept is to learn the circles from the diamonds. If we train a coarse classifier
+of circles verses diamonds and desire a high amount of recall or a large amount of circles to be
+correctly classified, a large amount of diamonds will
+necessarily be returned. In order for the coarse-grained classifier to return all of the positive
+circle instances the it must encompass the entire dataset
 and incidentally return all of the negative diamond instances as
-positive also. A fine-grained approach is preferable for the simple dataset pictured. The
-fine-grained classification approach for a root
+positive. Alternatively, since the circles also belong to the
+fine-grained classes of their respective color and shading, 4 separate fine-grained classifiers
+can be trained and then a union of the fine-grained classifiers can be used to predict either
+circle or diamond for a data instance. Each fine-grained classifier is trained one verses everything
+else, and if any of the fine-grained classifiers output that the instance is a positive for that
+sub-class we predict that the instance is a circle. This union of the fine-grained classifiers
+can learn the entire circle space without encompassing any false positive diamonds.
+
+\par A fine-grained approach is preferable for the simple dataset pictured.
+The fine-grained classification approach for a root
 level classifier will achieve higher levels of precision for the same level of recall when
 applied to the protein dataset. In the simple example, in order for the coarse-grained
-learner to have high
-    recall, precision must be sacrificed for a large amount of false positives returned.
-    By combining fine-grained classifiers, the same level of recall can be achieved with a
-    higher level of precision because none of the false positive diamonds will be returned.
+learner to have high recall, precision must be sacrificed for a large amount of false positives returned.
+By combining fine-grained classifiers, the same level of recall can be achieved with a
+higher level of precision because none of the false positive diamonds will be returned.
 
 \FloatBarrier
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=0.5\columnwidth]{fig/union}
     \caption{Demonstration of a dataset that would benefit from multiple fine-grained
-    learners for each circle type.}
+    learners for each circle type, from \cite{yugi}.}
     \label{fig:union}
 \end{figure}
 \FloatBarrier
 
 
-\chapter{Background and Theory}
 \section{Active Over-Labeling}
 \label{sect:activeOverLabel}
-\par Active Learning is when the learner is able to generate instances $x$ itself
-and ask a supervisor to provide the corresponding $r$ value during learning one by
-one, instead of passively being given a training set \cite{mitchell}. In conventional
-active learning the task is to learn a target concept
-$f : {\mathcal X} \rightarrow {\mathcal Y}=\{0, 1\} $, where $\mathcal X$
-is the input space. The initial state is a pool of unlabeled examples
+%\par Active Learning is when the learner is able to generate instances $x$ itself
+%and ask a supervisor to provide the corresponding $r$ value during learning one by
+%one, instead of passively being given a training set \cite{mitchell}.
+In conventional active learning, as previously defined in Section \ref{sect:machineLearn},
+the initial state is a pool of unlabeled examples
 $U \subset {\mathcal X}$. At each iteration, an oracle is queried at some
 cost for the label of an instance $u \in U$, then $L$ is training on the labeled examples
 $(x,y)$, with the goal of outputting a relatively high performing classifier for a low cost.
@@ -528,6 +682,7 @@ level in the label hierarchy associated with that class.
 
 
 \section{Hierarchical Active Learning}
+\label{sect:HAL}
 \par The Hierarchical Active Learning algorithm (HAL) achieves the active over-labeling
 approach and is shown diagrammatically in \textit{Figure \ref{fig:HALapproach}}.
 A high level description of the HAL algorithm is given in
@@ -626,7 +781,7 @@ vector $p$, which specifies how much of the budget should be used to purchase at
 a given level in the hierarchy. The following strategy is developed to
 dynamically adapt to purchase proportions \cite{yugi}. The task of choosing the
 level of granularity to purchase labels is framed as a multi-armed bandit problem,
-and solved using Auer et al.'s greedy bandit algorithm (BANDIT) \cite{Auer2002}.
+and solved using Auer et al.'s $\epsilon$-greedy bandit algorithm (BANDIT) \cite{Auer2002}.
 
 
 For each iteration of purchase, BANDIT chooses a purchasing strategy
@@ -667,99 +822,62 @@ for every strategy slowly decreasing as more instances are obtained. The effect 
 \end{cases}
 \end{equation}
 
-\chapter{Related Work}
-\par The experiments and methods elicited in this work
-are the first to demonstrate how leveraging fine-grained label  information
-can improve the accuracy of a coarse-grained (root-level) classifier, and the
- first investigation of active learning in a hierarchical setting where
- label acquisition cost can vary \cite{yugi}.
+Pseudocode for the BANDIT algorithm is given in \textit{Algorithm \ref{alg:bandit}}. The
+\textit{Algorithm \ref{alg:bandit}} details how BANDIT it is used to generate
+purchase proportions dynamically for HAL.
 
-\par Techniques have been investigated using hierarchies of labels to improve
-  a fine-grained classifier, by backing off to coarse levels of the hierarchy
-  when fine-grained data are sparse. Such techniques have been applied to
-  text classification \cite{mccallum1998improving} and rich media indexing
-  \cite{jiang2013}. This work presents techniques that work in the opposite
-  direction, utilizing selectively acquired fine-grained labels to improve
-  classification over coarse categories.
-
-\par Previous work in active learning
-focused on ``pool-based'' active learning, where a learner selects
-instances from a pool of unlabeled data to be labeled by an oracle.
-Active learning can reduce the expense of purchasing labels by only
-requesting the most informative labels \cite{Rubens2011}. Labels that
-have the highest uncertainty are deemed most informative, uncertainty
-can be measured in terms of the confidence of output values
-\cite{Merialdo2001}, uncertainty in the parameters of probabilistic models
-\cite{Hofmann2003}, or the size of the model's decision boundary
-\cite{Schohn2000}. This work uses uncertainty measured in confidence of
-output values and size of the model's decision boundary.
-
-\par Previous work in active learning has been shown to reduce
-sampling bias by utilizing the hierarchical structure of input
-features \cite{Dasgupta2008, Symons2006}. This work focuses on
-active learning over hierarchically structured output
-labels \cite{yugi}.
-
-
-\section{Application to Dispatch Dataset}
-\par The analysis of the protein data set presented in this thesis, largely
-follows Mo et al.'s \cite{yugi} experiments on the Reuters Corpus Volume~I (RCV1)
- text categorization dataset shown in Section \ref{sect:activeOverLabel}. HAL is
- applied to a Dispatch dataset by Mo et al. \cite{yugi}. This dataset contains 375,026 manually labeled
-hierarchical names across 1,384 newspaper articles \cite{Lewis2004}. This is a
-clear example where
-fine-grained labels have a higher cost since it is relatively easy for a person to manually
-determine the coarse level question of whether or not the article pertains to an organization.
-And relatively difficult to determine the fine level question of whether or not the article
-pertains to a railroad or a zoo. The first
-analysis step is to confirm that fine-grained classifiers outperform
-coarse-grained classifiers and active learning outperforms passive learning. These results are
-shown in \textit{Figure \ref{fig:draft-RCV1}}.
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=0.75\columnwidth]{fig/draft-RCV1}
-    \caption{Application of HAL demonstrating the benefit of fine-grained active learning
-    on the RCV1 dataset.}
-    \label{fig:draft-RCV1}
-\end{figure}
-\FloatBarrier
-
-\par The next analysis step is to test HAL with various $p$ proportion ratios. Since
-the proportion for each fine class remains fixed throughout the rounds of the experiment
-and have a fixed fine ratio (FFR). The experiments by Mo et al. \cite{yugi} are shown in
- \textit{Figure \ref{fig:RCV1-16-nobandit-curve-RCV1} (a)}.  Furthermore, the Mo et al. performs the
- BANDIT approach on the RCV1
-dataset, these results are shown in \textit{Figure \ref{fig:RCV1-16-nobandit-curve-RCV1} (b)}. The results
-validate the BANDIT approach and confirm that it is robust to differences in label cost and
-label budget.
-
-\FloatBarrier
-\begin{figure*}[!htb]
-    \centering
-    \begin{subfigure}[t]{0.75\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/RCV1-16-nobandit}
-        \caption{HAL FFR experiments on the RCV1 dataset with fine cost of 16 and coarse cost of 1.}
-
-    \end{subfigure}%
-
-    \begin{subfigure}[t]{0.75\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{fig/curve-RCV1}
-        \caption{BANDIT experiments on the RCV1 dataset, again with fine cost of 16.}
-
-    \end{subfigure}
-    \caption{HAL and BANDIT experiments for RCV1 dataset.}
-    \label{fig:RCV1-16-nobandit-curve-RCV1}
-\end{figure*}
-\FloatBarrier
-
+\begin{algorithm}[!htb]
+\small{
+\caption{ BANDIT approach that dynamically selects purchase
+proportions to use for HAL \cite{yugi}. See text for
+$\epsilon$-greedy bandit algorithm, HAL, Gain, and Reward.
+}
+\label{alg:bandit}
+\begin{algorithmic}
+\Function{BANDIT}{Unlabeled examples $U$, labeling tree $T$,
+budget $B$, per-iteration budget $b$, purchase proportions
+ $p = (p_1,\ldots,p_k)$, Arms=$\left \{armStay,armSwitch \right \}$, HAL}
+\State Run HAL for a 1 iteration, randomly select Arms and $p_i$
+\While{$B > b$}
+\State Set round number to $j$
+\State Run HAL for current round with previously determined $p_i$
+\State Get $U$ for the current round.
+\State Get HAL's combined classifier from the previous round, $f_{j-1}$
+\State Get HAL's combined classifier from the previous round, $f_{j}$
+\State Calculate $g_j=Gain(f_{j-1}, f_{j}, U)$
+\State Calculate the $r_j=Reward(g_i)$ for the switch arm and for the stay arm.
+\State Calculate the average round rewards for each arm, $r_{avg} = AVG(r)$
+\State Run $\epsilon$-greedy bandit$(r_{avg}, p)$ to select arm to use for next round
+\State Use selected arm to reset $p_i$ for next round
+\EndWhile
+\EndFunction
+\end{algorithmic}
+}
+\end{algorithm}
 
 
 
 \chapter{Experimental Setup}
+\par This chapter details the experimental settings for the coarse-grained and fine-grained classifiers. First we
+ define our training and testing strategy, using a subset of the data for parameter tuning.
+ Then we progress to running SVM with the default parameters, then
+ vary scaling methods, kernels and feature selection for SVM. At this point the SVM is not showing an advantage for
+ the fine-grained classifier, we switch to a Logit classifier which learns a less complex
+ function than the SVM. The same
+ variations in scaling and feature selection used in the SVM experiments are performed with a Logit classifier.
+ \par The tuning of the Logit cost parameter is determined to have a dependence on the class weighting scheme. The Logit
+  cost and class weight are tuned in conjunction with one another, a unique cost and class weight pair represents
+  a distinct parameter choice. Furthermore, the
+ class weight parameter is tuned for the specific fine-grained classifiers. A Logit tolerance parameter is tuned
+ after the class weights. Options with generating the PR and ROC curves are explored including varying the sample weight
+ and dropping intermediate values in the ROC curve. A distinct advantage for the fine-grained union classifier over the
+ coarse-grained classifier is demonstrated for Logit. Finally, the class weight parameter is once again tuned with
+ the entire dataset partitioned and the experimental setup for the Logit classifier is complete. After the Logit classifier
+ is tuned, then the class weights are applied to the SVM classifier. The SVM cost and
+  gamma parameters are varied in conjunction with one another
+  and a fine-grained classifier advantage over coarse-grained is discovered for the SVM.
+
+
 \section{Training and Testing Coarse-Grain and Fine-Grain Classifiers}
 \par The bioinformatics dataset is composed of 9 classes as shown in
 \textit{Figure \ref{fig:Mitotree}}. The coarse-level concept is whether or not
@@ -856,58 +974,60 @@ number of instances on which the classifiers are trained and tested, a subset wa
 tune the parameters of the classifiers. This allowed variations of the classifier parameters to be
 run rapidly and for the class weight parameter to be tuned for various round sizes. The reduced subset
 contains a randomly chosen group of approximately $1/5$ of the negatives. The class totals and example
-partitioning for the reduced subset is shown in \textit{Table \ref{tab:subset}}. After tuning parameters
-on the subset of data, parameter values are held fixed and experiments are re-run on a new partitioning
-containing the entire dataset.
+partitioning for the reduced subset is shown in \textit{Table \ref{tab:subTrainTest}}. The total number
+of negative instances in the subset paritioning is 3827 down from 19136. The total number of
+positive instances in the subset paritioning stays the same and is 962.
+After tuning parameters on the subset of data, parameter values are held fixed and experiments
+are re-run on a new partitioning containing the entire dataset.
 
-\FloatBarrier
-\begin{table}[!htb]
-\centering
-  \caption{The subset of instances used for tuning classifier parameters contains approximately
-  $1/5$ and retains all positive instances.}
-  \label{tab:subset}
-\begin{subtable}{.25\linewidth}
-  \centering
-  \begin{tabular}{|l||l|}\toprule
-    Classes & Count \\ \midrule
-    0 & 3827 \\
-    1 & 13 \\
-    2 & 185 \\
-    3 & 324 \\
-    4 & 190 \\
-    5 & 11 \\
-    6 & 104 \\
-    7 & 59 \\
-    8 & 76 \\ \midrule
-    Tot All & 4789 \\
-    Tot Coarse & 3827 \\
-    Tot Fine & 962 \\
-    Features & 449 \\ \bottomrule
-  \end{tabular}
-  \caption{Classes Subset}
-  \label{tab:ClassesSub}
-\end{subtable}%
-\begin{subtable}{.75\linewidth}
-\centering
-  \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
-    Folds & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \midrule
-    1 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
-    2 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
-    3 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
-    4 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 5 & 8 \\
-    5 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 10 & 6 & 8 \\
-    6 & 479 & 383 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
-    7 & 479 & 383 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
-    8 & 479 & 382 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
-    9 & 479 & 382 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
-    10 & 478 & 382 & 2 & 18 & 32 & 19 & 2 & 10 & 6 & 7 \\ \midrule
-    Total & 4789 & 3827 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\ \bottomrule
-  \end{tabular}
-  \caption{Folds Subset}
-  \label{tab:PartitionsSubset}
-  \end{subtable}
-\end{table}
-\FloatBarrier
+%\FloatBarrier
+%\begin{table}[!htb]
+%\centering
+%  \caption{The subset of instances used for tuning classifier parameters contains approximately
+%  $1/5$ and retains all positive instances.}
+%  \label{tab:subset}
+%\begin{subtable}{.25\linewidth}
+%  \centering
+%  \begin{tabular}{|l||l|}\toprule
+%    Classes & Count \\ \midrule
+%    0 & 3827 \\
+%    1 & 13 \\
+%    2 & 185 \\
+%    3 & 324 \\
+%    4 & 190 \\
+%    5 & 11 \\
+%    6 & 104 \\
+%    7 & 59 \\
+%    8 & 76 \\ \midrule
+%    Tot All & 4789 \\
+%    Tot Coarse & 3827 \\
+%    Tot Fine & 962 \\
+%    Features & 449 \\ \bottomrule
+%  \end{tabular}
+%  \caption{Classes Subset}
+%  \label{tab:ClassesSub}
+%\end{subtable}%
+%\begin{subtable}{.75\linewidth}
+%\centering
+%  \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
+%    Folds & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \midrule
+%    1 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+%    2 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+%    3 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+%    4 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 11 & 5 & 8 \\
+%    5 & 479 & 383 & 1 & 19 & 32 & 19 & 1 & 10 & 6 & 8 \\
+%    6 & 479 & 383 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+%    7 & 479 & 383 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+%    8 & 479 & 382 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+%    9 & 479 & 382 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+%    10 & 478 & 382 & 2 & 18 & 32 & 19 & 2 & 10 & 6 & 7 \\ \midrule
+%    Total & 4789 & 3827 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\ \bottomrule
+%  \end{tabular}
+%  \caption{Folds Subset}
+%  \label{tab:PartitionsSubset}
+%  \end{subtable}
+%\end{table}
+%\FloatBarrier
 
 \FloatBarrier
 \begin{table}[H]
@@ -1314,6 +1434,7 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 
 
 \subsection{Varying Logistic Regression Positive Class Weight and Cost}
+\label{sect:logitClsWeight}
 \par Since there is a class imbalance in the dataset (see \textit{Table \ref{tab:ClassesAll}}),
 % on \textit{page \pageref{tab:ClassesAll}},
 class weight and cost parameter pairs are varied together, each unique pairing is a distinct option.
@@ -1453,16 +1574,27 @@ fine & 0.863 & 0.839 & 0.810 & 0.588 & ( 323.3 / 31.4 ) & ( 59.4 / 64.7 ) \\ \bo
 
 
 \subsection{Varying Logistic Regression Fine Class Weights}
-\par The weight for each of the separate fine classes is tuned by multiplying,
-the class weight of 7.5, determined in the previous section by a fixed ratio. A
+\par The class weight of 7.5 is
+determined in Section \ref{sect:logitClsWeight}, it is used for both fine and coarse classifiers.
+The weight for each of the separate fine classes is tuned by multiplying,
+the class weight of 7.5 by a fixed ratio. A
 weight ratio of 1.0 would output a fine class weight of 7.5. A weight ratio of
  0.5 would output a fine class weight of 3.75. Subsections showing the tuning results
- for each of the 8 fine-grained classes follow. The confusion matrices and output metrics for the individual
+ for each of the 8 fine-grained classes follow in Sections
+ \ref{sect:startTuneFineClsWeight}-\ref{sect:endTuneFineClsWeight}. The confusion matrices and
+ output metrics for the individual
  fine class are shown in order to demonstrate how well the classifier is learning that
- fine-grained class. These metrics are the average of 10 folds. The coarse classifier output
+ fine-grained class. The results for the fine-grained classifier as a whole is shown on the top row, this is the same
+ result display as shown in previous sections. The corresponding metrics for the specific one versus rest fine-grained
+ classifier on the training set is shown in the middle row, and metrics for that classifier on the test set is shown
+ on the bottom row. It is interesting to note that the fine-grained classifier does not perfectly learn the training
+  set and the Logit theta parameters are using an effective regularization strategy. Although the training set metrics
+  are displayed, only the test set metrics are used to evaluate parameter tuning decisions. In all cases,
+  metrics are the average of 10 folds. The coarse classifier output
  is not shown as it will not vary or be dependent upon the fine class weight tuning.
 
 \subsubsection{Tune Fine Class 1 Weights}
+\label{sect:startTuneFineClsWeight}
 \par The fine class 1 weight ratio of 3.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
@@ -1881,6 +2013,7 @@ testCls-7 & 0.674 & 0.744 & 0.948 & 0.099 & ( 452.3 / 4.5 ) & ( 20.6 / 1.4 ) \\ 
 \FloatBarrier
 
 \subsubsection{Tune Fine Class 8 Weights}
+\label{sect:endTuneFineClsWeight}
 \par The fine class 8 weight ratio of 1.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
@@ -2116,8 +2249,10 @@ and gamma is the kernel coefficient and determines the relative significance a s
 The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
  cost is actually 1.0, and the default class weight is balanced which weights each class by
  the number of instances it has in the train set, the same fine class weights used in the LogReg
- classifier are used in the SVM classifier instead of the SVM's default balanced option. The SVM
-  cost of 0.15 and gamma of 0.0029674 is discovered to have the best performance.
+ classifier are used in the SVM classifier instead of the SVM's default balanced option. The fine-grained
+  classifier achieves a PR-AUC value of 0.906, which is greater than the highest PR-AUC achieved by
+  the coarse-grained classifer which is 0.903. Thus, the SVM parameters of Cost 0.15 and Gamma 0.002
+  are discovered to have the best performance.
 
 
 \FloatBarrier
@@ -2180,7 +2315,7 @@ fine & 0.884 & 0.853 & 0.858 & 0.544 & ( 370.1 / 55.5 ) & ( 12.6 / 40.6 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.}
+\caption{SVM Cost 0.15 Gamma 0.0029674.}
 \label{tab:SVM-Cp15-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
@@ -2233,6 +2368,21 @@ fine & 0.900 & 0.872 & 0.868 & 0.641 & ( 358.5 / 39.2 ) & ( 24.2 / 56.9 ) \\ \bo
 
 
 \chapter{Results and Analysis}
+\par This chapter presents the experimental results for this work. We start by analysing
+ the SVM and Logit classifier performance in the conventional ML setting, we show that the
+ accuracy and F1-measure metrics can be seen as a function of a chosen point on the PR and ROC curves.
+ We show that no clear advantage exists for fine-grained over coarse-grained with respect to the accuracy
+    or F1-measure metrics. An advantage does exist for the PR-AUC metric but not for the ROC-AUC metric, this
+    is examined and shown to be a result of the heavy class imbalance of the protein dataset. PR-AUC is
+    chosen as the primary metric to evaluate classifier performance, due to its sensitivity to false positives as
+    well as true positives, and its lack of dependence on a chosen threshold to generate a confusion matrix.
+    \par Experiments are performed comparing active learning versus passive learning and coarse-grained versus
+    fine-grained with both the Logit and SVM classifier. In both cases active outperforms passive and fine-grained
+    outperforms coarse-grained. Logit shows a greater advantage for fine-grained and is used in subsequent experiments
+    with the HAL approach. HAL is applied to the protein dataset for various costs, budgets and
+    fine-grained purchase proportions. HAL is shown to determine an optimal fine-grained purchase proportion
+    strategy that achieves the best performing classifier for a given budget.
+
 \section{SVM and Logit Classifier Performance}
 \par Results are presented running both Logit and SVM classifiers on the entire dataset
 see \textit{Tables \ref{tab:LogRegAll-Wt23}-\ref{tab:SVM-All}}.
