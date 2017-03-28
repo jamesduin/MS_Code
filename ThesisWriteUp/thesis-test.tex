@@ -278,12 +278,12 @@ determine the coarse level question of whether or not the article pertains to an
 and relatively difficult to determine the fine level question of whether or not the article
 pertains to a railroad or a zoo.
 \par The first analysis step is to confirm that fine-grained classifiers outperform
-coarse-grained classifiers and active learning outperforms passive learning. Passive learning is
+coarse-grained classifierevaluations and active learning outperforms passive learning. Passive learning is
 randomly selecting new data instances to be labeled out of the set of unlabeled instances.
  The advantage for active learning over passive and fine-grained over coarse-grained is shown for the
- dataset \cite{yugi}. Futhermore, the fine-grained classifier is shown to have a higher level of
+ dataset \cite{yugi}. Furthermore, the fine-grained classifier is shown to have a higher level of
  precision compared to the coarse-grained classifier when both classifiers output the roughly the
- same recall  \cite{yugi}. These evalutation metrics are discussed futher in
+ same recall  \cite{yugi}. These evaluation metrics are discussed further in
  Section \ref{sect:PerformanceMetrics}.
 
 %These results are shown in \textit{Figure \ref{fig:draft-RCV1}}.
@@ -975,8 +975,8 @@ tune the parameters of the classifiers. This allowed variations of the classifie
 run rapidly and for the class weight parameter to be tuned for various round sizes. The reduced subset
 contains a randomly chosen group of approximately $1/5$ of the negatives. The class totals and example
 partitioning for the reduced subset is shown in \textit{Table \ref{tab:subTrainTest}}. The total number
-of negative instances in the subset paritioning is 3827 down from 19136. The total number of
-positive instances in the subset paritioning stays the same and is 962.
+of negative instances in the subset partitioning is 3827 down from 19136. The total number of
+positive instances in the subset partitioning stays the same and is 962.
 After tuning parameters on the subset of data, parameter values are held fixed and experiments
 are re-run on a new partitioning containing the entire dataset.
 
@@ -2251,7 +2251,7 @@ The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
  the number of instances it has in the train set, the same fine class weights used in the LogReg
  classifier are used in the SVM classifier instead of the SVM's default balanced option. The fine-grained
   classifier achieves a PR-AUC value of 0.906, which is greater than the highest PR-AUC achieved by
-  the coarse-grained classifer which is 0.903. Thus, the SVM parameters of Cost 0.15 and Gamma 0.002
+  the coarse-grained classifier which is 0.903. Thus, the SVM parameters of Cost 0.15 and Gamma 0.002
   are discovered to have the best performance.
 
 
@@ -2368,7 +2368,7 @@ fine & 0.900 & 0.872 & 0.868 & 0.641 & ( 358.5 / 39.2 ) & ( 24.2 / 56.9 ) \\ \bo
 
 
 \chapter{Results and Analysis}
-\par This chapter presents the experimental results for this work. We start by analysing
+\par This chapter presents the experimental results for this work. We start by analyzing
  the SVM and Logit classifier performance in the conventional ML setting, we show that the
  accuracy and F1-measure metrics can be seen as a function of a chosen point on the PR and ROC curves.
  We show that no clear advantage exists for fine-grained over coarse-grained with respect to the accuracy

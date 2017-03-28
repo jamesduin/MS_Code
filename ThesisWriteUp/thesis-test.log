@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  28 MAR 2017 13:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  28 MAR 2017 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1281,16 +1281,17 @@ _180.png>] (./thesis-test.bbl
 bibitemlist
 [68
 
-] [69]
+] [69] [70]
 Missing character: There is no Ã in font pplr9o!
 Missing character: There is no ¤ in font pplr9o!
 Missing character: There is no Ã in font pplr9o!
 Missing character: There is no ¶ in font pplr9o!
+ [71]
 Missing character: There is no Î in font pplr9o!
 Missing character: There is no ² in font pplr9o!
 Missing character: There is no Ã in font pplr9o!
 Missing character: There is no ¸ in font pplr9o!
- [70] [71] [72])
+ [72])
 
 Class memoir Warning: The material used in the footer is too large
 (10.14995pt) for the given foot skip (0.0pt), it is recommended to
@@ -1341,7 +1342,7 @@ ype1/public/fpl/fplrij8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/ur
 w/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/palat
 ino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/palatino/upl
 ri8a.pfb>
-Output written on thesis-test.pdf (79 pages, 2257503 bytes).
+Output written on thesis-test.pdf (79 pages, 2257514 bytes).
 PDF statistics:
  1086 PDF objects out of 1200 (max. 8388607)
  923 compressed objects within 10 object streams
