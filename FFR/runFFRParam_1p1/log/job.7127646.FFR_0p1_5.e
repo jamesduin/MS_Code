@@ -1,0 +1,1 @@
+slurmstepd: error: *** JOB 7127646 ON c0602 CANCELLED AT 2017-03-25T15:01:03 ***

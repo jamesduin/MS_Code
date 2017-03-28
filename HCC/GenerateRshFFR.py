@@ -1,14 +1,14 @@
 f = open('run.sh','w')
-#f.write('#!/bin/sh\n\n')
-f.write('\n\n')
-#rndType = ['0.0','0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9','1.0']
-rndType = ['0.0']
+f.write('#!/bin/sh\n\n')
+#f.write('\n\n')
+rndType = ['0.0','0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9','1.0']
+#rndType = ['0.0']
 fold = [1,2,3,4,5,6,7,8,9,10]
 add2Short = False
-part1 = False
+part1 = 'gpu_k20'
 part2 = 'gpu_k20'
-part3 = False
-partDict = { 1: part1, 2: part1, 3: part1, 4: part1, 5: part1,
+part3 = 'gpu_m2070'
+partDict = { 1: part1, 2: part1, 3: part1, 4: part1, 5: part3,
 6: part3, 7: part3, 8: part3, 9: part3, 10: part3 }
 # "#SBATCH --partition=highmem\n" #tusker partition
 # "#SBATCH --partition=gpu_k20\n" #crane partition
@@ -17,7 +17,10 @@ partDict = { 1: part1, 2: part1, 3: part1, 4: part1, 5: part1,
 cntShrt = 1
 
 #cost = '1.1'
-cost = '1.2'
+#cost = '1.2'
+#cost = '1.5'
+#cost = '32.0'
+cost = '64.0'
 #runDir = 'runFFRParam_Cst8'
 
 runDir = 'runFFRParam'+ '_' + cost.replace('.', 'p')

@@ -1,0 +1,2 @@
+/var/spool/slurmd/job7127641/slurm_script: line 11: 14997 Killed                  python /home/scott/jamesd/FFRParam/runFFRParam.py runFFRParam_1p1 1.1 0.0 9
+slurmstepd: error: Exceeded step memory limit at some point.

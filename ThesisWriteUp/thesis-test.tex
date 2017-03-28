@@ -103,7 +103,7 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 \maketitle
 %% You have a maximum of 350, which includes your title, name, etc.
 \begin{abstract}
-This study investigates an application of active learning to
+This study investigates an application of active machine learning to
 a protein dataset developed to identify the source of mutations
 which give rise to mitochondrial disease.
 The dataset is labeled according to the protein's location of origin
@@ -147,7 +147,7 @@ mitochondria's outer or inner matrix or its ribosomes. This dataset
 %% Optional
 \begin{acknowledgments}
   I would like to thank my advisor Dr. Stephen Scott for continual guidance in investigating this
-  research topic. Yugi Mo and Dr. Douglas Downey for their work in developing the HAL and
+  research topic, and Yugi Mo and Dr. Douglas Downey for their work in developing the HAL and
   BANDIT methodologies. I would like to thank Dr. Juan Cui, Jiang Shu,
   Kevin Chiang for their assistance accessing and understanding the protein dataset that is
   the subject of the paper.
@@ -204,7 +204,7 @@ labels for this dataset, so multiple cost ratios are investigated and an optimal
 ratio (FFR)
 purchasing strategy is determined for each fine cost. An approach optimally selecting
  FFR strategies throughout the rounds using a multi-armed strategy is also presented
- and existing experiments using this approach discussed in section \ref{sect:activeOverLabel}.
+ and existing experiments using this approach discussed in Section \ref{sect:activeOverLabel}.
 
 
 
@@ -212,7 +212,7 @@ purchasing strategy is determined for each fine cost. An approach optimally sele
 \section{Machine Learning}
 \par Machine learning (ML) algorithms are defined as computer programs that learn from experience E
 with respect to some class of tasks T and performance measure P, if their performance at
-tasks in T, as measured by P, improves with experience E \cite{mitchell}. In the context of this paper,
+tasks in T, as measured by P, improves with experience E \cite{mitchell}. In the context of this thesis,
 the machine learning algorithms that are used include Support Vector Machines (SVM), and Logistic Regression (Logit).
  This work uses implementations by the sci-kit learn python library \cite{sklearn-api} for both algorithms. Our
  experiment requires a binary classification task, each algorithm takes a protein instance with a list of 449 features
@@ -233,8 +233,9 @@ g(z) = \frac{1}{1+e^{-z}}
 \end{equation}
 \FloatBarrier
 The theta parameters are solved for in order to minimize the sum of square errors (L2-norm)
-in the training set, and also to regularize the theta parameters to prevent them from getting to large
-and overfitting the dataset \cite{scikit-learn}. A cost function is used to solve for theta, this
+in the training set, and to regularize the theta parameters \cite{scikit-learn}. Regularization is
+a penalty term that prevents overfitting by constraining the size of the theta coefficients.
+A cost function is used to solve for theta, this
 function is shown in \textit{eqn \ref{eq:costlogit}}. The $C$ parameter is the inverse of the regularization
 strength, a larger value means a stronger regularization \cite{scikit-learn}.
 \FloatBarrier
@@ -247,8 +248,8 @@ min_{\theta,c}\frac{1}{2}\theta^{T}\theta + C\sum_{n}^{i=1}log(exp(-y_i(X_{i}^{T
 \FloatBarrier
 \par A SVM constructs a hyper-plane or set of hyper-planes in a high or infinite dimensional space, which
 is used to output a classification for a given instance. The goal is to learn a hyper-plane that has
-the largest distance between training data points of separate classes, this is called functional margin
-\cite{scikit-learn}. In general the larger the functional margin the lower the generalized error of the
+the largest distance between training data points of separate classes, which is called the functional margin
+\cite{scikit-learn}. In general the larger the functional margin the lower the generalization error of the
 classifier. SVMs are a maximum functional margin method that allow the model to be written as a sum of the
 influence of a subset of the training instances \cite{ethem}. This output is given by kernel functions
 that are measures of similarity between data instances. The SVM implementation used solves the
@@ -284,11 +285,11 @@ vectors \cite{scikit-learn}. The gamma ($\gamma$) parameter defines the signific
 In this work the following kernel functions were tested \cite{scikit-learn}:
 \begin{itemize}
   \item Linear: $\left \langle x,x^{'} \right \rangle$
-  \item Polynomial: $(\gamma \left \langle x,x^{'} \right \rangle + r)^{d}$. $d$ is the degree
+  \item Polynomial: $(\gamma \left \langle x,x^{'} \right \rangle + r)^{d}$. Where $d$ is the degree
   of the polynomial, and $r$ is a coefficient passed to the solver, default is $0$.
-  \item Radial Basis Function (RBF): $(-\gamma |x-x^{'}|^{2})$. $\gamma$ is the kernel coefficient.
-  \item Sigmoid: $sigmoid(tanh(\gamma \left \langle x,x^{'} \right \rangle + r))$
-  $r$ is a coefficient passed to the solver, default is $0$.
+  \item Radial Basis Function (RBF): $\exp(-\gamma |x-x^{'}|^{2})$. Where $\gamma$ is the kernel coefficient.
+  \item Sigmoid: $\sigma(\tanh(\gamma \left \langle x,x^{'} \right \rangle + r))$.
+  Where $r$ is a coefficient passed to the solver, default is $0$, and $\sigma(x)=\frac{1}{1+e^{-x}}$.
 \end{itemize}
 
 
@@ -296,17 +297,32 @@ In this work the following kernel functions were tested \cite{scikit-learn}:
 \par The classifier performance is primarily evaluated using Precision-Recall (PR) and Receiver Operator
 Characteristic (ROC) curves, although accuracy, precision, recall, confusion matrix and  F-measure
 are also calculated. Accuracy is the total number of correctly classified instances in the test set
-divided by the total number of instances in the test set. The confusion matrix outputs a 2 by 2 matrix
-for the binary classification task. Each cell ($C_{row,col}$) in the matrix corresponds to one of the
-following metrics:
+divided by the total number of instances in the test set. The confusion matrix outputs a $2 \times 2$ matrix $C$
+for the binary classification task. Each cell $C_{row,col}$
+corresponds to one of the following metrics, values are given for the example confusion
+matrix shown in \textit{Table \ref{tab:confEx}}:
 \begin{itemize}
-  \item True-Negatives ($T_n$): location $C_{0,0}$, correctly classified negative instances.
-  \item False-Negatives ($F_n$): location $C_{0,1}$, incorrectly classified negative instances.
-  \item False-Positives ($F_p$): location $C_{1,0}$, incorrectly classified positive instances.
-  \item True-Positives ($T_p$): location $C_{1,1}$, correctly classified positive instances.
+  \item True-Negatives ($T_n$): location $C_{0,0} = 90$, correctly classified negative instances.
+  \item False-Negatives ($F_p$): location $C_{0,1} = 10$, incorrectly classified negative instances.
+  \item False-Positives ($F_n$): location $C_{1,0} = 20$, incorrectly classified positive instances.
+  \item True-Positives ($T_p$): location $C_{1,1} = 30$, correctly classified positive instances.
 \end{itemize}
 
-Precision is a measure of result relevancy and is given in \textit{eqn. \ref{eq:precision}}.
+\FloatBarrier
+\begin{table}[H]
+\centering
+\caption{Example of a confusion matrix $C$, with $100$ negative and $50$ positive instances in the test set.}
+\label{tab:confEx}
+\begin{tabular}{|l||l|}\toprule
+conf (tn/fn) & conf (fp/tp) \\ \midrule
+90 & 10 \\ \midrule
+20 & 30 \\ \bottomrule
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+
+Precision is a measure of result relevancy and is given as: %in \textit{eqn. \ref{eq:precision}}.
 \FloatBarrier
 \begin{equation}
 \label{eq:precision}
@@ -316,8 +332,7 @@ P = \frac{T_p}{T_p+F_p}
 \end{equation}
 \FloatBarrier
 
-Recall is a measure of how many truly relevant results are returned and is given in
-\textit{eqn. \ref{eq:recall}}.
+Recall is a measure of how many truly relevant results are returned and is given as: %in \textit{eqn. \ref{eq:recall}}.
 \FloatBarrier
 \begin{equation}
 \label{eq:recall}
@@ -327,8 +342,7 @@ R = \frac{T_p}{T_p+F_n}
 \end{equation}
 \FloatBarrier
 
-The F-measure or F1-measure (f1) is the harmonic mean of precision and recall and is given in
-\textit{eqn. \ref{eq:fmes}}.
+The F-measure or F1-measure (F1) is the harmonic mean of precision and recall and is given as: %in \textit{eqn. \ref{eq:fmes}}.
 \FloatBarrier
 \begin{equation}
 \label{eq:fmes}
@@ -339,17 +353,17 @@ F1 = 2\cdot \frac{P \cdot R}{P+R}
 \FloatBarrier
 
 \par PR curves are constructed first by outputting the decision function score for each instance
-in the test set. Each score defines a threshold for computing precision, recall and f1 metrics.
+in the test set. Each score defines a threshold for computing precision, recall and F1 metrics.
 Precision and Recall are computed for each threshold and plotted on the PR curve,
-with recall on the x-axis and precision on the y-axis. ROC curves also evaluate classifier output
+with recall on the $x$-axis and precision on the $y$-axis. ROC curves also evaluate classifier output
 quality. ROC curves are constructed similar to the PR curve except $F_p$ replaces recall on the
- x-axis and $T_p$ replaces precision on the y-axis. For both curves larger area under the curve
+ $x$-axis and $T_p$ replaces precision on the $y$-axis. For both curves larger area under the curve
  (AUC) is usually correlated to a higher performing classifier.
 
 \section{Hierarchical Bioinformatics Data Set}
 \par Bioinformatics is a field using computer science tools and techniques
 for solving problems in molecular biology. The focus of this work is
-a Bioinformatics dataset developed in order to identify the source of
+a bioinformatics dataset developed in order to identify the source of
 a certain class of mutations causing mitochondrial disease. Mitochondria are
 present in every cell of the body, with the exception of red blood cells
 \cite{bioPoster}. Mitochondrial diseases may be caused by mutations
@@ -367,7 +381,7 @@ The negative dataset is composed of 19,136 experimentally validated human
  proteins from UniProt \cite{UniProt}. A total of 1099 features were assembled
  by Kevin Chiang from Dr. Cui's bioinformatics lab at University of Nebraska
  at Lincoln (UNL), these features are described along with references to their
- sources in \textit{Table \ref{featureList}}. The features were reduced and
+ sources in \textit{Table \ref{tab:featureList}}. The features were reduced and
   combined into a resulting set of 449 dimensions \cite{bioPoster}. This
   bioinformatics dataset is used for experimentation throughout this work.
 
@@ -490,7 +504,7 @@ A label $\ell_i$ is the instance's label at the $i$th
 level of the tree. Furthermore, if $j > i$, and $\ell_i = X$ or no value at that level,
 then $\ell_j=X$ as well, since no other label farther than $\ell_i$
 from the root can be defined. Thus we let $\ell_i$ denote the largest value for a given
- instance such that $\ell_i \not\equiv X$. The values $\ell_i,\ldots,\ell_1$ form a path
+ instance such that $\ell_i \neq X$. The values $\ell_i,\ldots,\ell_1$ form a path
   from a leaf to the root of the tree. For a given instance, a value for $\ell_i$ is purchased
   at a cost $c_i \geq c_k \geq 0$ for all $i>k$. A purchase of $\ell_i$ automatically
   yields the values of $\ell_1$ through $\ell_{i-1}$. For example a purchase of $\ell_3$ for
@@ -549,7 +563,7 @@ The classifiers $C_{i,j}$ are combined into an ensemble classifier for
 the coarse-grained level-1 concept. The level-1 concept $C_{1,*}$ is a
 disjunction over
 the concepts $j$ at any given level $i$, the equation to combine fine-grained
-classifiers is given in \textit{eqn. \ref{eq:maxcombine}}.
+classifiers is given in as: %\textit{eqn. \ref{eq:maxcombine}}.
 
 \begin{equation}
 \label{eq:maxcombine}
@@ -560,7 +574,7 @@ classifiers is given in \textit{eqn. \ref{eq:maxcombine}}.
 Furthermore the uncertainty at level $i$
 is measured with respect to the ensemble classifier $C_{i,*}$. The
 uncertainty $u_i(x)$ of the label for example $x$ for level $i$ is defined
-in \textit{eqn. \ref{eq:uncert}}.
+in as: %\textit{eqn. \ref{eq:uncert}}.
 \begin{equation}
 \label{eq:uncert}
  u_i(x) = \frac{1}{2} - \left| C_{i,*} - \frac{1}{2} \right|
@@ -618,9 +632,9 @@ and solved using Auer et al.'s greedy bandit algorithm (BANDIT) \cite{Auer2002}.
 For each iteration of purchase, BANDIT chooses a purchasing strategy
 based on the running average of the observed reward associated with
 each strategy. The reward or gain for each round is defined in terms of
-observed model change and the equation is given in
-\textit{eqn. \ref{eq:reward}}. Where $n$ is the round number,
-$X$ is the remaining unlabeled examples $f_{j}(x_i)$ is HAL's output for the
+observed model change and the equation is given below, where %in \textit{eqn. \ref{eq:reward}}. Where
+$n$ is the round number,
+$X$ is the remaining unlabeled examples, and $f_{j}(x_i)$ is HAL's output for the
 input $x_i$ after the $n$th round of batch purchases.
 
 \begin{equation}
@@ -690,7 +704,7 @@ labels \cite{yugi}.
 \section{Application to Dispatch Dataset}
 \par The analysis of the protein data set presented in this thesis, largely
 follows Mo et al.'s \cite{yugi} experiments on the Reuters Corpus Volume~I (RCV1)
- text categorization dataset shown in section \ref{sect:activeOverLabel}. HAL is
+ text categorization dataset shown in Section \ref{sect:activeOverLabel}. HAL is
  applied to a Dispatch dataset by Mo et al. \cite{yugi}. This dataset contains 375,026 manually labeled
 hierarchical names across 1,384 newspaper articles \cite{Lewis2004}. This is a
 clear example where
@@ -818,13 +832,13 @@ The positive case of residing within the
 
 \par Each partition contains a representative portion of each class, the instances are randomly
 distributed between partitions. The train set is composed of joining 9 of the partitions together
-holding 1 fold out for the test set. An example of the totals for a Train and Test set
+holding 1 fold out for the test set. An example of the totals for a train and test set
 is shown on \textit{Table \ref{tab:TrainTest}}.
 
 \FloatBarrier
 \begin{table}[H]
   \centering
-  \caption{Example of totals for the Train and Test corresponding to when the first fold is
+  \caption{Example of totals for the train and test partitions when the first fold is
   held out to be the test set.}
   \label{tab:TrainTest}
   \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\toprule
@@ -975,7 +989,7 @@ avg 378.8 & avg 382.6 & avg 3.9 & avg 0.1 & avg 80.1 & avg 94.6 & avg 16.0 & avg
 of 10 folds.}
 \label{tab:SVMDef}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.840 & 0.806 & 0.825 & 0.275 & ( 378.8 / 80.1 ) & ( 3.9 / 16.0 ) \\
 fine & 0.815 & 0.772 & 0.802 & 0.031 & ( 382.6 / 94.6 ) & ( 0.1 / 1.5 ) \\ \bottomrule
 \end{tabular}
@@ -983,16 +997,16 @@ fine & 0.815 & 0.772 & 0.802 & 0.031 & ( 382.6 / 94.6 ) & ( 0.1 / 1.5 ) \\ \bott
 \FloatBarrier
 
 \par The primary metric used to make decisions between alternative parameter choices is the PR-AUC and
-ROC-AUC. The f-measure and accuracy metrics can be shown to be correlated to a chosen point on the ROC or
-PR curves. As shown in \textit{Figure \ref{fig:LogRegThreshAcc}} on \textit{page \pageref{fig:LogRegThreshAcc}},
+ROC-AUC. The F-measure and accuracy metrics can be shown to be correlated to a chosen point on the ROC or
+PR curves. As shown in \textit{Figure \ref{fig:LogRegThreshAcc}}, %on \textit{page \pageref{fig:LogRegThreshAcc}},
 each point on the ROC curve has an associated chosen accuracy point, both the coarse and fine classifiers have similar
-sets of accuracy and f-measure points. The chosen threshold used to output the accuracy, f-measure and confusion matrices
+sets of accuracy and F-measure points. The chosen threshold used to output the accuracy, F-measure and confusion matrices
 varies between the coarse and fine classifier, so at a first glance it appears as if fine out performs coarse in these
 metrics but an alternative threshold could be selected for the coarse classifier to obtain metrics matching the fine
 output. Alternatively, the PR-AUC and ROC-AUC compare the correctness of the entire ranking of the
 instances in the test set by the classifier, and thus eliminate the need to consider the dynamic tuning of the threshold
-used by the classifier to output a given confusion matrix, accuracy, and f-measure score. In general
- as parameter selection in sections \ref{sect:paramStart}-\ref{sect:paramEnd} is
+used by the classifier to output a given confusion matrix, accuracy, and F-measure score. In general
+ as parameter selection in Sections \ref{sect:paramStart}-\ref{sect:paramEnd} is
 elicited the choices from previous sections
 are used in any sections that follow.
 
@@ -1010,7 +1024,7 @@ samples to have a unit norm. Each
 preprocessing strategy is applied on the entire dataset before training and testing
 is performed. Preprocessing is performed
 with the default kernel option which is Radial Basis Function (RBF). The SVM std-scaler method
-is discovered to have the highest performance.
+is discovered to have the best performance.
 
 \FloatBarrier
 
@@ -1019,7 +1033,7 @@ is discovered to have the highest performance.
 \caption{SVM minimax-scaler results.}
 \label{tab:SVMMinMax}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.881 & 0.855 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
 fine & 0.840 & 0.810 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
@@ -1033,7 +1047,7 @@ fine & 0.840 & 0.810 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bott
 \caption{SVM norm-scaler results.}
 \label{tab:SVMNorm}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.801 & 0.791 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
 fine & 0.636 & 0.615 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
@@ -1046,7 +1060,7 @@ fine & 0.636 & 0.615 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bott
 \caption{SVM std-scaler results. This option is chosen.}
 \label{tab:SVMStandard}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.912 & 0.882 & 0.881 & 0.631 & ( 372.7 / 47.1 ) & ( 10.0 / 49.0 ) \\
 fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bottomrule
 \end{tabular}
@@ -1060,7 +1074,7 @@ including: Radial Basis Function (RBF), Polynomial
 Degree 3 and 6 (Poly), Linear, and Sigmoid \cite{scikit-learn}. The
 chosen preprocessing strategy of
 std-scaler is used for these results. The RBF kernel is discovered to have the
-highest performance.
+best performance.
 
 
 
@@ -1070,7 +1084,7 @@ highest performance.
 \caption{Linear kernel results.}
 \label{tab:Linear}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.867 & 0.841 & 0.853 & 0.599 & ( 355.5 / 43.4 ) & ( 27.2 / 52.7 ) \\
 fine & 0.816 & 0.789 & 0.828 & 0.523 & ( 351.1 / 50.8 ) & ( 31.6 / 45.3 ) \\ \bottomrule
 \end{tabular}
@@ -1083,7 +1097,7 @@ fine & 0.816 & 0.789 & 0.828 & 0.523 & ( 351.1 / 50.8 ) & ( 31.6 / 45.3 ) \\ \bo
 \caption{Poly degree 3 kernel results.}
 \label{tab:polyDeg3}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.816 & 0.817 & 0.807 & 0.169 & ( 376.9 / 86.7 ) & ( 5.8 / 9.4 ) \\
 fine & 0.755 & 0.743 & 0.801 & 0.063 & ( 380.3 / 92.9 ) & ( 2.3 / 3.2 ) \\ \bottomrule
 \end{tabular}
@@ -1096,7 +1110,7 @@ fine & 0.755 & 0.743 & 0.801 & 0.063 & ( 380.3 / 92.9 ) & ( 2.3 / 3.2 ) \\ \bott
 \caption{Poly degree 6 kernel results.}
 \label{tab:polyDeg6}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.659 & 0.637 & 0.797 & 0.037 & ( 379.5 / 94.2 ) & ( 3.2 / 1.9 ) \\
 fine & 0.624 & 0.584 & 0.794 & 0.020 & ( 379.0 / 95.1 ) & ( 3.7 / 1.0 ) \\ \bottomrule
 \end{tabular}
@@ -1109,7 +1123,7 @@ fine & 0.624 & 0.584 & 0.794 & 0.020 & ( 379.0 / 95.1 ) & ( 3.7 / 1.0 ) \\ \bott
 \caption{Sigmoid kernel results.}
 \label{tab:sigmoid}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.703 & 0.693 & 0.773 & 0.405 & ( 333.0 / 59.0 ) & ( 49.7 / 37.1 ) \\
 fine & 0.653 & 0.622 & 0.789 & 0.127 & ( 370.3 / 88.7 ) & ( 12.4 / 7.4 ) \\ \bottomrule
 \end{tabular}
@@ -1122,7 +1136,7 @@ fine & 0.653 & 0.622 & 0.789 & 0.127 & ( 370.3 / 88.7 ) & ( 12.4 / 7.4 ) \\ \bot
 \caption{RBF kernel results. This option is chosen.}
 \label{tab:RbfOrig}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.912 & 0.882 & 0.881 & 0.630 & ( 372.6 / 47.1 ) & ( 10.1 / 49.0 ) \\
 fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bottomrule
 \end{tabular}
@@ -1130,14 +1144,14 @@ fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bott
 \FloatBarrier
 
 \subsection{Varying SVM Feature Selection}
-\par I tried different feature selection percentages. The Select Percentile library was used from
+\par We tried different feature selection percentages. The Select Percentile library was used from
 sci-kit learn \cite{scikit-learn}. This is a univariate feature selection strategy that ranks the
 features usability for classification according to a statistical measure, then keeps a certain
 percentage of the features. The 100\% of features example is simply the result from the previous
-section. The 75\% feature selection strategy is discovered to have the highest performance. Note
+section. The 75\% feature selection strategy is discovered to have the best performance. Note
 that leveraging the fine-grained labels did not improve classifier performance
 relative to the coarse classifier. An alternative classifier strategy Logistic Regression
- (Logit) is investigated, starting in the following section \ref{sect:logitParam}.
+ (Logit) is investigated, starting in the following Section \ref{sect:logitParam}.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1145,7 +1159,7 @@ relative to the coarse classifier. An alternative classifier strategy Logistic R
 \caption{SVM select percentile, keep 25\% of features.}
 \label{tab:SVMSel25}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.907 & 0.875 & 0.877 & 0.623 & ( 370.7 / 47.1 ) & ( 12.0 / 49.0 ) \\
 fine & 0.854 & 0.823 & 0.806 & 0.068 & ( 382.7 / 92.7 ) & ( 0.0 / 3.4 ) \\ \bottomrule
 \end{tabular}
@@ -1159,7 +1173,7 @@ fine & 0.854 & 0.823 & 0.806 & 0.068 & ( 382.7 / 92.7 ) & ( 0.0 / 3.4 ) \\ \bott
 \caption{SVM select percentile, keep 50\% of features.}
 \label{tab:SVMSel50}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.913 & 0.885 & 0.879 & 0.632 & ( 371.3 / 46.4 ) & ( 11.4 / 49.7 ) \\
 fine & 0.874 & 0.842 & 0.810 & 0.097 & ( 382.7 / 91.2 ) & ( 0.0 / 4.9 ) \\ \bottomrule
 \end{tabular}
@@ -1174,7 +1188,7 @@ fine & 0.874 & 0.842 & 0.810 & 0.097 & ( 382.7 / 91.2 ) & ( 0.0 / 4.9 ) \\ \bott
 \caption{SVM select percentile, keep 75\% of features. This option is chosen.}
 \label{tab:SVMSel75}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.913 & 0.883 & 0.878 & 0.622 & ( 372.1 / 47.9 ) & ( 10.6 / 48.2 ) \\
 fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bottomrule
 \end{tabular}
@@ -1185,7 +1199,7 @@ fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bott
 \subsection{Varying Logistic Regression Scaling}
 \label{sect:logitParam}
 \par Testing out the same options for preprocessing scaling that were varied for SVM.
-The MinMax scaling option is discovered to have the highest performance.
+The MinMax scaling option is discovered to have the best performance.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1193,7 +1207,7 @@ The MinMax scaling option is discovered to have the highest performance.
 \caption{Logistic Regression - No scaling.}
 \label{tab:LogRegDef}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.887 & 0.862 & 0.867 & 0.615 & ( 364.1 / 45.0 ) & ( 18.6 / 51.1 ) \\
 fine & 0.854 & 0.837 & 0.833 & 0.395 & ( 372.8 / 69.9 ) & ( 9.9 / 26.2 ) \\ \bottomrule
 \end{tabular}
@@ -1206,7 +1220,7 @@ fine & 0.854 & 0.837 & 0.833 & 0.395 & ( 372.8 / 69.9 ) & ( 9.9 / 26.2 ) \\ \bot
 \caption{Logistic Regression standard scaling.}
 \label{tab:LogRegStandard}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.864 & 0.849 & 0.846 & 0.583 & ( 353.8 / 44.8 ) & ( 28.7 / 51.3 ) \\
 fine & 0.833 & 0.816 & 0.831 & 0.471 & ( 362.0 / 60.2 ) & ( 20.5 / 36.0 ) \\ \bottomrule
 \end{tabular}
@@ -1219,7 +1233,7 @@ fine & 0.833 & 0.816 & 0.831 & 0.471 & ( 362.0 / 60.2 ) & ( 20.5 / 36.0 ) \\ \bo
 \caption{Logistic Regression normalization scaling.}
 \label{tab:LogRegNorm}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.790 & 0.761 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\
 fine & 0.767 & 0.735 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bottomrule
 \end{tabular}
@@ -1232,7 +1246,7 @@ fine & 0.767 & 0.735 & 0.799 & 0.000 & ( 382.7 / 96.1 ) & ( 0.0 / 0.0 ) \\ \bott
 \caption{Logistic Regression MinMax scaling. This option is chosen.}
 \label{tab:LogRegMinMax}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.891 & 0.867 & 0.864 & 0.581 & ( 368.6 / 50.9 ) & ( 14.1 / 45.2 ) \\
 fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bottomrule
 \end{tabular}
@@ -1242,7 +1256,7 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 
 \subsection{Varying Logistic Regression Feature Selection}
 \par Tested out the same options for feature selection that were varied for SVM.
-The 100\% feature selection strategy is discovered to have the highest performance.
+The 100\% feature selection strategy is discovered to have the best performance.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1250,7 +1264,7 @@ The 100\% feature selection strategy is discovered to have the highest performan
 \caption{Logistic Regression select percentile 25\%.}
 \label{tab:LogRegSel25}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.872 & 0.848 & 0.849 & 0.497 & ( 370.8 / 60.3 ) & ( 11.9 / 35.8 ) \\
 fine & 0.869 & 0.845 & 0.804 & 0.052 & ( 382.2 / 93.5 ) & ( 0.5 / 2.6 ) \\ \bottomrule
 \end{tabular}
@@ -1264,7 +1278,7 @@ fine & 0.869 & 0.845 & 0.804 & 0.052 & ( 382.2 / 93.5 ) & ( 0.5 / 2.6 ) \\ \bott
 \caption{Logistic Regression select percentile 50\%.}
 \label{tab:LogRegSel50}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.875 & 0.849 & 0.849 & 0.497 & ( 370.8 / 60.3 ) & ( 11.9 / 35.8 ) \\
 fine & 0.872 & 0.846 & 0.803 & 0.050 & ( 382.2 / 93.6 ) & ( 0.5 / 2.5 ) \\ \bottomrule
 \end{tabular}
@@ -1277,7 +1291,7 @@ fine & 0.872 & 0.846 & 0.803 & 0.050 & ( 382.2 / 93.6 ) & ( 0.5 / 2.5 ) \\ \bott
 \caption{Logistic Regression select percentile 75\%.}
 \label{tab:LogRegSel75}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.871 & 0.847 & 0.848 & 0.493 & ( 370.6 / 60.6 ) & ( 12.1 / 35.5 ) \\
 fine & 0.869 & 0.845 & 0.803 & 0.048 & ( 382.0 / 93.7 ) & ( 0.7 / 2.4 ) \\ \bottomrule
 \end{tabular}
@@ -1291,7 +1305,7 @@ fine & 0.869 & 0.845 & 0.803 & 0.048 & ( 382.0 / 93.7 ) & ( 0.7 / 2.4 ) \\ \bott
 \caption{Logistic Regression select percentile 100\%. This option is chosen.}
 \label{tab:LogRegMinMax}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.891 & 0.867 & 0.864 & 0.581 & ( 368.6 / 50.9 ) & ( 14.1 / 45.2 ) \\
 fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bottomrule
 \end{tabular}
@@ -1300,14 +1314,18 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 
 
 \subsection{Varying Logistic Regression Positive Class Weight and Cost}
-\par Since there is a class imbalance in the dataset, see \textit{Table \ref{tab:ClassesAll}},
+\par Since there is a class imbalance in the dataset (see \textit{Table \ref{tab:ClassesAll}}),
 % on \textit{page \pageref{tab:ClassesAll}},
-class weight and cost parameter pairs are varied.  The cost
-default value is 1.0, and the class weight default value is 1.0. The original value for weighting the
-fine training instance is the number of instances in the train set divided by the number of positive
+class weight and cost parameter pairs are varied together, each unique pairing is a distinct option.
+The cost default value is 1.0, and the class weight default value is 1.0. The original value selected for weighting
+the fine training instance is the number of instances in the train set divided by the number of positive
 instances, this is 4.977. The negative instance train weight is always 1.0. The fine weight of 7.5
-and Logit cost parameter of 0.1 is discovered to have the most desirable performance, showing an
-advantage of fine over coarse.
+and Logit cost parameter of 0.1 is discovered to have the most desirable performance. This option is chosen
+because it shows the least advantage for coarse
+or fine in either PR-AUC or in ROC-AUC, the difference in PR-AUC is 0.001 and the difference in
+ROC-AUC is 0.004. Note the \textit{Table \ref{tab:LogRegWtOrig-Cp1}}
+Logit weight 4.977, cost 0.1 has a difference of 0.0 in PR-AUC and a difference of 0.005 in ROC-AUC, a slight
+imbalance in PR-AUC was favored over an increased imbalance in ROC-AUC.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1315,7 +1333,7 @@ advantage of fine over coarse.
 \caption{Logit weight 4.977, cost 1.0}
 \label{tab:LogRegWtOrig-C1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.886 & 0.868 & 0.787 & 0.606 & ( 298.7 / 17.9 ) & ( 84.0 / 78.2 ) \\
 fine & 0.885 & 0.862 & 0.857 & 0.587 & ( 361.7 / 47.3 ) & ( 21.0 / 48.8 ) \\ \bottomrule
 \end{tabular}
@@ -1328,7 +1346,7 @@ fine & 0.885 & 0.862 & 0.857 & 0.587 & ( 361.7 / 47.3 ) & ( 21.0 / 48.8 ) \\ \bo
 \caption{Logit weight 4.977, cost 0.1}
 \label{tab:LogRegWtOrig-Cp1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.861 & 0.755 & 0.579 & ( 280.7 / 15.4 ) & ( 102.0 / 80.7 ) \\
 fine & 0.880 & 0.856 & 0.851 & 0.483 & ( 374.2 / 62.7 ) & ( 8.5 / 33.4 ) \\ \bottomrule
 \end{tabular}
@@ -1342,7 +1360,7 @@ fine & 0.880 & 0.856 & 0.851 & 0.483 & ( 374.2 / 62.7 ) & ( 8.5 / 33.4 ) \\ \bot
 \caption{Logit weight 4.977, cost 10.0}
 \label{tab:LogRegWtOrig-C10}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.876 & 0.855 & 0.793 & 0.603 & ( 304.6 / 21.1 ) & ( 78.1 / 75.0 ) \\
 fine & 0.866 & 0.842 & 0.835 & 0.583 & ( 344.8 / 40.9 ) & ( 37.9 / 55.2 ) \\ \bottomrule
 \end{tabular}
@@ -1356,7 +1374,7 @@ fine & 0.866 & 0.842 & 0.835 & 0.583 & ( 344.8 / 40.9 ) & ( 37.9 / 55.2 ) \\ \bo
 \caption{Logit weight 10.0, cost 1.0}
 \label{tab:LogRegWt10-C1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.883 & 0.865 & 0.690 & 0.536 & ( 245.4 / 10.9 ) & ( 137.3 / 85.2 ) \\
 fine & 0.880 & 0.859 & 0.822 & 0.620 & ( 324.2 / 26.7 ) & ( 58.5 / 69.4 ) \\ \bottomrule
 \end{tabular}
@@ -1370,7 +1388,7 @@ fine & 0.880 & 0.859 & 0.822 & 0.620 & ( 324.2 / 26.7 ) & ( 58.5 / 69.4 ) \\ \bo
 \caption{Logit weight 10.0, cost 0.1}
 \label{tab:LogRegWt10-Cp1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.879 & 0.863 & 0.609 & 0.486 & ( 203.6 / 7.9 ) & ( 179.1 / 88.2 ) \\
 fine & 0.881 & 0.859 & 0.834 & 0.621 & ( 334.5 / 31.1 ) & ( 48.2 / 65.0 ) \\ \bottomrule
 \end{tabular}
@@ -1383,7 +1401,7 @@ fine & 0.881 & 0.859 & 0.834 & 0.621 & ( 334.5 / 31.1 ) & ( 48.2 / 65.0 ) \\ \bo
 \caption{Logit weight 10.0, cost 10.0}
 \label{tab:LogRegWt10-C10}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.871 & 0.851 & 0.723 & 0.554 & ( 264.1 / 13.9 ) & ( 118.6 / 82.2 ) \\
 fine & 0.861 & 0.837 & 0.792 & 0.585 & ( 309.3 / 26.2 ) & ( 73.4 / 69.9 ) \\ \bottomrule
 \end{tabular}
@@ -1396,7 +1414,7 @@ fine & 0.861 & 0.837 & 0.792 & 0.585 & ( 309.3 / 26.2 ) & ( 73.4 / 69.9 ) \\ \bo
 \caption{Logit weight 7.5, cost 1.0}
 \label{tab:LogRegWt7p5-C1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.884 & 0.867 & 0.734 & 0.566 & ( 268.8 / 13.5 ) & ( 113.9 / 82.6 ) \\
 fine & 0.882 & 0.861 & 0.846 & 0.624 & ( 343.4 / 34.6 ) & ( 39.3 / 61.5 ) \\ \bottomrule
 \end{tabular}
@@ -1406,11 +1424,13 @@ fine & 0.882 & 0.861 & 0.846 & 0.624 & ( 343.4 / 34.6 ) & ( 39.3 / 61.5 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{Logit weight 7.5, cost 0.1. This option is chosen due to showing advantage for the
-fine classifier compared to the coarse classifier.}
+%\caption{Logit weight 7.5, cost 0.1. This option is chosen due to showing advantage for the
+%fine classifier compared to the coarse classifier.}
+\caption{Logit weight 7.5, cost 0.1. This option is chosen because it shows the least advantage for coarse
+or fine in either PR-AUC or in ROC-AUC.}
 \label{tab:LogRegWt7p5-Cp1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.881 & 0.858 & 0.859 & 0.613 & ( 357.3 / 42.3 ) & ( 25.4 / 53.8 ) \\ \bottomrule
 \end{tabular}
@@ -1423,7 +1443,7 @@ fine & 0.881 & 0.858 & 0.859 & 0.613 & ( 357.3 / 42.3 ) & ( 25.4 / 53.8 ) \\ \bo
 \caption{Logit weight 7.5, cost 10.0}
 \label{tab:LogRegWt7p5-C10}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.873 & 0.852 & 0.757 & 0.578 & ( 283.2 / 16.7 ) & ( 99.5 / 79.4 ) \\
 fine & 0.863 & 0.839 & 0.810 & 0.588 & ( 323.3 / 31.4 ) & ( 59.4 / 64.7 ) \\ \bottomrule
 \end{tabular}
@@ -1443,14 +1463,14 @@ weight ratio of 1.0 would output a fine class weight of 7.5. A weight ratio of
  is not shown as it will not vary or be dependent upon the fine class weight tuning.
 
 \subsubsection{Tune Fine Class 1 Weights}
-\par The fine class 1 weight ratio of 3.0 is discovered to have the highest performance.
+\par The fine class 1 weight ratio of 3.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
 \caption{Logit Class 1 weight ratio 1.0}
 \label{tab:LogRegCls1-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.881 & 0.858 & 0.859 & 0.613 & ( 357.3 / 42.3 ) & ( 25.4 / 53.8 ) \\
 trainCls-1 & 0.995 & 0.999 & 0.998 & 0.477 & ( 4297.7 / 7.7 ) & ( 0.8 / 4.0 ) \\
 testCls-1 & 0.722 & 0.996 & 0.997 & 0.100 & ( 477.4 / 1.2 ) & ( 0.1 / 0.1 ) \\ \bottomrule
@@ -1465,7 +1485,7 @@ testCls-1 & 0.722 & 0.996 & 0.997 & 0.100 & ( 477.4 / 1.2 ) & ( 0.1 / 0.1 ) \\ \
 \caption{Logit Class 1 weight ratio 0.5}
 \label{tab:LogRegCls1-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.880 & 0.856 & 0.859 & 0.613 & ( 357.4 / 42.3 ) & ( 25.3 / 53.8 ) \\
 trainCls-1 & 0.994 & 0.998 & 0.997 & 0.142 & ( 4298.5 / 10.8 ) & ( 0.0 / 0.9 ) \\
 testCls-1 & 0.696 & 0.995 & 0.997 & 0.000 & ( 477.5 / 1.3 ) & ( 0.0 / 0.0 ) \\ \bottomrule
@@ -1479,7 +1499,7 @@ testCls-1 & 0.696 & 0.995 & 0.997 & 0.000 & ( 477.5 / 1.3 ) & ( 0.0 / 0.0 ) \\ \
 \caption{Logit Class 1 weight ratio 3.0. This option is chosen.}
 \label{tab:LogRegCls1-Wt3}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
 trainCls-1 & 0.995 & 1.000 & 0.999 & 0.854 & ( 4295.8 / 1.0 ) & ( 2.7 / 10.7 ) \\
 testCls-1 & 0.722 & 0.997 & 0.998 & 0.400 & ( 477.1 / 0.7 ) & ( 0.4 / 0.6 ) \\ \bottomrule
@@ -1493,7 +1513,7 @@ testCls-1 & 0.722 & 0.997 & 0.998 & 0.400 & ( 477.1 / 0.7 ) & ( 0.4 / 0.6 ) \\ \
 \caption{Logit Class 1 weight ratio 5.0}
 \label{tab:LogRegCls1-Wt5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.881 & 0.859 & 0.860 & 0.618 & ( 357.0 / 41.5 ) & ( 25.7 / 54.6 ) \\
 trainCls-1 & 0.995 & 1.000 & 0.999 & 0.850 & ( 4294.3 / 0.0 ) & ( 4.2 / 11.7 ) \\
 testCls-1 & 0.722 & 0.997 & 0.998 & 0.513 & ( 476.9 / 0.5 ) & ( 0.6 / 0.8 ) \\ \bottomrule
@@ -1503,14 +1523,14 @@ testCls-1 & 0.722 & 0.997 & 0.998 & 0.513 & ( 476.9 / 0.5 ) & ( 0.6 / 0.8 ) \\ \
 
 
 \subsubsection{Tune Fine Class 2 Weights}
-\par The fine class 2 weight ratio of 1.0 is discovered to have the highest performance.
+\par The fine class 2 weight ratio of 1.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
 \caption{Logit Class 2 weight ratio 1.0. This option is chosen.}
 \label{tab:LogRegCls2-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
 trainCls-2 & 0.800 & 0.804 & 0.952 & 0.200 & ( 4076.9 / 140.5 ) & ( 66.8 / 26.0 ) \\
 testCls-2 & 0.655 & 0.689 & 0.944 & 0.081 & ( 450.7 / 17.3 ) & ( 9.6 / 1.2 ) \\ \bottomrule
@@ -1524,7 +1544,7 @@ testCls-2 & 0.655 & 0.689 & 0.944 & 0.081 & ( 450.7 / 17.3 ) & ( 9.6 / 1.2 ) \\ 
 \caption{Logit Class 2 weight ratio 0.5}
 \label{tab:LogitCls2-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.857 & 0.862 & 0.618 & ( 359.1 / 42.5 ) & ( 23.6 / 53.6 ) \\
 trainCls-2 & 0.785 & 0.787 & 0.961 & 0.052 & ( 4139.4 / 161.9 ) & ( 4.3 / 4.6 ) \\
 testCls-2 & 0.656 & 0.694 & 0.960 & 0.009 & ( 459.4 / 18.4 ) & ( 0.9 / 0.1 ) \\ \bottomrule
@@ -1538,7 +1558,7 @@ testCls-2 & 0.656 & 0.694 & 0.960 & 0.009 & ( 459.4 / 18.4 ) & ( 0.9 / 0.1 ) \\ 
 \caption{Logit Class 2 weight ratio 1.5}
 \label{tab:LogRegCls2-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.877 & 0.857 & 0.855 & 0.620 & ( 352.5 / 39.3 ) & ( 30.2 / 56.8 ) \\
 trainCls-2 & 0.806 & 0.814 & 0.924 & 0.263 & ( 3924.1 / 108.1 ) & ( 219.6 / 58.4 ) \\
 testCls-2 & 0.652 & 0.684 & 0.914 & 0.123 & ( 434.8 / 15.6 ) & ( 25.5 / 2.9 ) \\ \bottomrule
@@ -1548,14 +1568,14 @@ testCls-2 & 0.652 & 0.684 & 0.914 & 0.123 & ( 434.8 / 15.6 ) & ( 25.5 / 2.9 ) \\
 
 
 \subsubsection{Tune Fine Class 3 Weights}
-\par The fine class 3 weight ratio of 1.0 is discovered to have the highest performance.
+\par The fine class 3 weight ratio of 1.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
 \caption{Logit Class 3 weight ratio 1.0. This option is chosen.}
 \label{tab:LogRegCls3-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
 trainCls-3 & 0.846 & 0.852 & 0.882 & 0.401 & ( 3628.6 / 120.7 ) & ( 390.0 / 170.9 ) \\
 testCls-3 & 0.795 & 0.803 & 0.873 & 0.360 & ( 401.2 / 15.4 ) & ( 45.2 / 17.0 ) \\ \bottomrule
@@ -1570,7 +1590,7 @@ testCls-3 & 0.795 & 0.803 & 0.873 & 0.360 & ( 401.2 / 15.4 ) & ( 45.2 / 17.0 ) \
 \caption{Logit Class 3 weight ratio 0.5}
 \label{tab:LogRegCls3-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.870 & 0.852 & 0.839 & 0.445 & ( 370.9 / 65.1 ) & ( 11.8 / 31.0 ) \\
 trainCls-3 & 0.838 & 0.838 & 0.929 & 0.288 & ( 3942.0 / 229.7 ) & ( 76.6 / 61.9 ) \\
 testCls-3 & 0.792 & 0.798 & 0.925 & 0.246 & ( 437.2 / 26.5 ) & ( 9.2 / 5.9 ) \\ \bottomrule
@@ -1584,7 +1604,7 @@ testCls-3 & 0.792 & 0.798 & 0.925 & 0.246 & ( 437.2 / 26.5 ) & ( 9.2 / 5.9 ) \\ 
 \caption{Logit Class 3 weight ratio 1.5}
 \label{tab:LogRegCls3-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.879 & 0.855 & 0.832 & 0.626 & ( 331.2 / 28.9 ) & ( 51.5 / 67.2 ) \\
 trainCls-3 & 0.849 & 0.859 & 0.813 & 0.351 & ( 3288.4 / 74.5 ) & ( 730.2 / 217.1 ) \\
 testCls-3 & 0.795 & 0.805 & 0.804 & 0.318 & ( 363.3 / 10.6 ) & ( 83.1 / 21.8 ) \\ \bottomrule
@@ -1594,14 +1614,14 @@ testCls-3 & 0.795 & 0.805 & 0.804 & 0.318 & ( 363.3 / 10.6 ) & ( 83.1 / 21.8 ) \
 
 
 \subsubsection{Tune Fine Class 4 Weights}
-\par The fine class 4 weight ratio of 1.5 is discovered to have the highest performance.
+\par The fine class 4 weight ratio of 1.5 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
 \caption{Logit Class 4 weight ratio 1.0}
 \label{tab:LogRegCls4-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.859 & 0.617 & ( 357.1 / 41.7 ) & ( 25.6 / 54.4 ) \\
 trainCls-4 & 0.937 & 0.942 & 0.960 & 0.531 & ( 4038.6 / 72.9 ) & ( 100.6 / 98.1 ) \\
 testCls-4 & 0.882 & 0.902 & 0.952 & 0.433 & ( 447.1 / 10.2 ) & ( 12.7 / 8.8 ) \\ \bottomrule
@@ -1615,7 +1635,7 @@ testCls-4 & 0.882 & 0.902 & 0.952 & 0.433 & ( 447.1 / 10.2 ) & ( 12.7 / 8.8 ) \\
 \caption{Logit Class 4 weight ratio 0.5}
 \label{tab:LogRegCls4-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.875 & 0.852 & 0.855 & 0.590 & ( 359.2 / 45.9 ) & ( 23.5 / 50.2 ) \\
 trainCls-4 & 0.928 & 0.932 & 0.965 & 0.397 & ( 4108.1 / 120.9 ) & ( 31.1 / 50.1 ) \\
 testCls-4 & 0.878 & 0.898 & 0.962 & 0.320 & ( 456.0 / 14.6 ) & ( 3.8 / 4.4 ) \\ \bottomrule
@@ -1630,7 +1650,7 @@ testCls-4 & 0.878 & 0.898 & 0.962 & 0.320 & ( 456.0 / 14.6 ) & ( 3.8 / 4.4 ) \\ 
 \caption{Logit Class 4 weight ratio 1.5. This option is chosen.}
 \label{tab:LogRegCls4-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-4 & 0.941 & 0.947 & 0.936 & 0.462 & ( 3918.1 / 53.2 ) & ( 221.1 / 117.8 ) \\
 testCls-4 & 0.886 & 0.903 & 0.926 & 0.382 & ( 432.5 / 8.0 ) & ( 27.3 / 11.0 ) \\ \bottomrule
@@ -1644,7 +1664,7 @@ testCls-4 & 0.886 & 0.903 & 0.926 & 0.382 & ( 432.5 / 8.0 ) & ( 27.3 / 11.0 ) \\
 \caption{Logit Class 4 weight ratio 2.0}
 \label{tab:LogRegCls4-Wt2}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.880 & 0.859 & 0.853 & 0.627 & ( 348.9 / 36.7 ) & ( 33.8 / 59.4 ) \\
 trainCls-4 & 0.943 & 0.950 & 0.917 & 0.429 & ( 3817.7 / 36.5 ) & ( 321.5 / 134.5 ) \\
 testCls-4 & 0.886 & 0.903 & 0.906 & 0.352 & ( 421.8 / 6.8 ) & ( 38.0 / 12.2 ) \\ \bottomrule
@@ -1653,14 +1673,14 @@ testCls-4 & 0.886 & 0.903 & 0.906 & 0.352 & ( 421.8 / 6.8 ) & ( 38.0 / 12.2 ) \\
 \FloatBarrier
 
 \subsubsection{Tune Fine Class 5 Weights}
-\par The fine class 5 weight ratio of 10.0 is discovered to have the highest performance.
+\par The fine class 5 weight ratio of 10.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
 \caption{Logit Class 5 weight ratio 1.0}
 \label{tab:LogRegCls5-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-5 & 0.940 & 0.941 & 0.998 & 0.000 & ( 4300.2 / 10.0 ) & ( 0.0 / 0.0 ) \\
 testCls-5 & 0.393 & 0.681 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \bottomrule
@@ -1675,7 +1695,7 @@ testCls-5 & 0.393 & 0.681 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \
 \caption{Logit Class 5 weight ratio 0.5}
 \label{tab:LogRegCls5-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-5 & 0.911 & 0.912 & 0.998 & 0.000 & ( 4300.2 / 10.0 ) & ( 0.0 / 0.0 ) \\
 testCls-5 & 0.389 & 0.672 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \bottomrule
@@ -1690,7 +1710,7 @@ testCls-5 & 0.389 & 0.672 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \
 \caption{Logit Class 5 weight ratio 1.5}
 \label{tab:LogRegCls5-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-5 & 0.957 & 0.958 & 0.998 & 0.000 & ( 4300.2 / 10.0 ) & ( 0.0 / 0.0 ) \\
 testCls-5 & 0.396 & 0.687 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \bottomrule
@@ -1704,7 +1724,7 @@ testCls-5 & 0.396 & 0.687 & 0.998 & 0.000 & ( 477.8 / 1.0 ) & ( 0.0 / 0.0 ) \\ \
 \caption{Logit Class 5 weight ratio 5.0}
 \label{tab:LogRegCls5-Wt5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.856 & 0.624 & ( 352.4 / 38.8 ) & ( 30.3 / 57.3 ) \\
 trainCls-5 & 0.990 & 0.990 & 0.998 & 0.374 & ( 4299.8 / 7.6 ) & ( 0.4 / 2.4 ) \\
 testCls-5 & 0.401 & 0.694 & 0.998 & 0.000 & ( 477.7 / 1.0 ) & ( 0.1 / 0.0 ) \\ \bottomrule
@@ -1718,7 +1738,7 @@ testCls-5 & 0.401 & 0.694 & 0.998 & 0.000 & ( 477.7 / 1.0 ) & ( 0.1 / 0.0 ) \\ \
 \caption{Logit Class 5 weight ratio 10.0. This option is chosen.}
 \label{tab:LogRegCls5-Wt10}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.855 & 0.623 & ( 352.1 / 38.8 ) & ( 30.6 / 57.3 ) \\
 trainCls-5 & 0.996 & 0.997 & 0.998 & 0.609 & ( 4293.4 / 2.7 ) & ( 6.8 / 7.3 ) \\
 testCls-5 & 0.402 & 0.696 & 0.996 & 0.000 & ( 476.8 / 1.0 ) & ( 1.0 / 0.0 ) \\ \bottomrule
@@ -1732,7 +1752,7 @@ testCls-5 & 0.402 & 0.696 & 0.996 & 0.000 & ( 476.8 / 1.0 ) & ( 1.0 / 0.0 ) \\ \
 \caption{LogitCls5-Wt20}
 \label{tab:LogRegCls5-Wt20}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.881 & 0.860 & 0.854 & 0.622 & ( 351.6 / 38.7 ) & ( 31.1 / 57.4 ) \\
 trainCls-5 & 0.998 & 0.998 & 0.992 & 0.355 & ( 4265.8 / 0.5 ) & ( 34.4 / 9.5 ) \\
 testCls-5 & 0.381 & 0.616 & 0.989 & 0.000 & ( 473.5 / 1.0 ) & ( 4.3 / 0.0 ) \\ \bottomrule
@@ -1741,14 +1761,14 @@ testCls-5 & 0.381 & 0.616 & 0.989 & 0.000 & ( 473.5 / 1.0 ) & ( 4.3 / 0.0 ) \\ \
 \FloatBarrier
 
 \subsubsection{Tune Fine Class 6 Weights}
-\par The fine class 6 weight ratio of 2.0 is discovered to have the highest performance.
+\par The fine class 6 weight ratio of 2.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
 \caption{Logit Class 6 weight ratio 1.0}
 \label{tab:LogRegCls6-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.861 & 0.855 & 0.623 & ( 352.1 / 38.8 ) & ( 30.6 / 57.3 ) \\
 trainCls-6 & 0.945 & 0.962 & 0.976 & 0.303 & ( 4182.5 / 70.8 ) & ( 34.1 / 22.8 ) \\
 testCls-6 & 0.892 & 0.936 & 0.972 & 0.191 & ( 463.9 / 8.8 ) & ( 4.5 / 1.6 ) \\ \bottomrule
@@ -1762,7 +1782,7 @@ testCls-6 & 0.892 & 0.936 & 0.972 & 0.191 & ( 463.9 / 8.8 ) & ( 4.5 / 1.6 ) \\ \
 \caption{Logit Class 6 weight ratio 0.5}
 \label{tab:LogRegCls6-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.882 & 0.860 & 0.855 & 0.622 & ( 352.1 / 38.9 ) & ( 30.6 / 57.2 ) \\
 trainCls-6 & 0.938 & 0.956 & 0.978 & 0.006 & ( 4216.5 / 93.3 ) & ( 0.1 / 0.3 ) \\
 testCls-6 & 0.881 & 0.928 & 0.978 & 0.000 & ( 468.3 / 10.4 ) & ( 0.1 / 0.0 ) \\ \bottomrule
@@ -1777,7 +1797,7 @@ testCls-6 & 0.881 & 0.928 & 0.978 & 0.000 & ( 468.3 / 10.4 ) & ( 0.1 / 0.0 ) \\ 
 \caption{Logit Class 6 weight ratio 2.0. This option is chosen.}
 \label{tab:LogRegCls6-Wt2}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.884 & 0.861 & 0.855 & 0.627 & ( 350.8 / 37.6 ) & ( 31.9 / 58.5 ) \\
 trainCls-6 & 0.950 & 0.967 & 0.949 & 0.380 & ( 4023.8 / 26.4 ) & ( 192.8 / 67.2 ) \\
 testCls-6 & 0.897 & 0.939 & 0.945 & 0.292 & ( 447.0 / 5.0 ) & ( 21.4 / 5.4 ) \\ \bottomrule
@@ -1791,7 +1811,7 @@ testCls-6 & 0.897 & 0.939 & 0.945 & 0.292 & ( 447.0 / 5.0 ) & ( 21.4 / 5.4 ) \\ 
 \caption{Logit Class 6 weight ratio 3.0}
 \label{tab:LogRegCls6-Wt3}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.884 & 0.860 & 0.850 & 0.629 & ( 346.6 / 35.5 ) & ( 36.1 / 60.6 ) \\
 trainCls-6 & 0.952 & 0.969 & 0.921 & 0.335 & ( 3885.8 / 8.3 ) & ( 330.8 / 85.3 ) \\
 testCls-6 & 0.898 & 0.940 & 0.915 & 0.281 & ( 430.5 / 2.6 ) & ( 37.9 / 7.8 ) \\ \bottomrule
@@ -1801,14 +1821,14 @@ testCls-6 & 0.898 & 0.940 & 0.915 & 0.281 & ( 430.5 / 2.6 ) & ( 37.9 / 7.8 ) \\ 
 
 
 \subsubsection{Tune Fine Class 7 Weights}
-\par The fine class 7 weight ratio of 3.0 is discovered to have the highest performance.
+\par The fine class 7 weight ratio of 3.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
 \caption{Logit Class 7 weight ratio 1.0}
 \label{tab:LogRegCls7-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.884 & 0.862 & 0.855 & 0.628 & ( 350.8 / 37.5 ) & ( 31.9 / 58.6 ) \\
 trainCls-7 & 0.892 & 0.893 & 0.988 & 0.000 & ( 4257.1 / 53.1 ) & ( 0.0 / 0.0 ) \\
 testCls-7 & 0.648 & 0.720 & 0.988 & 0.000 & ( 472.9 / 5.9 ) & ( 0.0 / 0.0 ) \\ \bottomrule
@@ -1822,7 +1842,7 @@ testCls-7 & 0.648 & 0.720 & 0.988 & 0.000 & ( 472.9 / 5.9 ) & ( 0.0 / 0.0 ) \\ \
 \caption{Logit Class 7 weight ratio 0.5}
 \label{tab:LogRegCls7-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.884 & 0.861 & 0.855 & 0.627 & ( 350.8 / 37.6 ) & ( 31.9 / 58.5 ) \\
 trainCls-7 & 0.859 & 0.857 & 0.988 & 0.000 & ( 4257.1 / 53.1 ) & ( 0.0 / 0.0 ) \\
 testCls-7 & 0.636 & 0.708 & 0.988 & 0.000 & ( 472.9 / 5.9 ) & ( 0.0 / 0.0 ) \\ \bottomrule
@@ -1838,7 +1858,7 @@ testCls-7 & 0.636 & 0.708 & 0.988 & 0.000 & ( 472.9 / 5.9 ) & ( 0.0 / 0.0 ) \\ \
 \caption{Logit Class 7 weight ratio 3.0. This option is chosen.}
 \label{tab:LogRegCls7-Wt3}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\
 trainCls-7 & 0.930 & 0.939 & 0.986 & 0.344 & ( 4234.1 / 37.3 ) & ( 23.0 / 15.8 ) \\
 testCls-7 & 0.667 & 0.739 & 0.983 & 0.105 & ( 470.1 / 5.4 ) & ( 2.8 / 0.5 ) \\ \bottomrule
@@ -1852,7 +1872,7 @@ testCls-7 & 0.667 & 0.739 & 0.983 & 0.105 & ( 470.1 / 5.4 ) & ( 2.8 / 0.5 ) \\ \
 \caption{Logit Class 7 weight ratio 5.0}
 \label{tab:LogRegCls7-Wt5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.883 & 0.860 & 0.847 & 0.628 & ( 344.0 / 34.4 ) & ( 38.7 / 61.7 ) \\
 trainCls-7 & 0.941 & 0.953 & 0.956 & 0.265 & ( 4086.0 / 18.9 ) & ( 171.1 / 34.2 ) \\
 testCls-7 & 0.674 & 0.744 & 0.948 & 0.099 & ( 452.3 / 4.5 ) & ( 20.6 / 1.4 ) \\ \bottomrule
@@ -1861,14 +1881,14 @@ testCls-7 & 0.674 & 0.744 & 0.948 & 0.099 & ( 452.3 / 4.5 ) & ( 20.6 / 1.4 ) \\ 
 \FloatBarrier
 
 \subsubsection{Tune Fine Class 8 Weights}
-\par The fine class 8 weight ratio of 1.0 is discovered to have the highest performance.
+\par The fine class 8 weight ratio of 1.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
 \centering
 \caption{Logit Class 8 weight ratio 1.0. This option is chosen.}
 \label{tab:LogRegCls8-Wt1}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\
 trainCls-8 & 0.967 & 0.978 & 0.982 & 0.453 & ( 4199.8 / 36.1 ) & ( 42.0 / 32.3 ) \\
 testCls-8 & 0.896 & 0.952 & 0.978 & 0.308 & ( 465.7 / 5.2 ) & ( 5.5 / 2.4 ) \\ \bottomrule
@@ -1883,7 +1903,7 @@ testCls-8 & 0.896 & 0.952 & 0.978 & 0.308 & ( 465.7 / 5.2 ) & ( 5.5 / 2.4 ) \\ \
 \caption{Logit Class 8 weight ratio 0.5}
 \label{tab:LogRegCls8-Wtp5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.885 & 0.862 & 0.855 & 0.630 & ( 350.4 / 37.0 ) & ( 32.3 / 59.1 ) \\
 trainCls-8 & 0.961 & 0.972 & 0.984 & 0.253 & ( 4229.6 / 56.7 ) & ( 12.2 / 11.7 ) \\
 testCls-8 & 0.893 & 0.952 & 0.982 & 0.135 & ( 469.5 / 6.8 ) & ( 1.7 / 0.8 ) \\ \bottomrule
@@ -1897,7 +1917,7 @@ testCls-8 & 0.893 & 0.952 & 0.982 & 0.135 & ( 469.5 / 6.8 ) & ( 1.7 / 0.8 ) \\ \
 \caption{Logit Class 8 weight ratio 1.5}
 \label{tab:LogRegCls8-Wt1p5}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 349.5 / 36.4 ) & ( 33.2 / 59.7 ) \\
 trainCls-8 & 0.967 & 0.980 & 0.978 & 0.478 & ( 4169.7 / 24.3 ) & ( 72.1 / 44.1 ) \\
 testCls-8 & 0.892 & 0.947 & 0.973 & 0.376 & ( 462.2 / 3.9 ) & ( 9.0 / 3.7 ) \\ \bottomrule
@@ -1906,9 +1926,9 @@ testCls-8 & 0.892 & 0.947 & 0.973 & 0.376 & ( 462.2 / 3.9 ) & ( 9.0 / 3.7 ) \\ \
 \FloatBarrier
 
 \subsection{Varying Logistic Regression Tolerance}
-\par There is an additional Logistic parameter for determining a tolerance for the
+\par There is an additional Logit parameter for determining a tolerance for the
 stopping criteria. The default tolerance is 0.0001. The tolerance setting of
-0.00001 is discovered to have the highest performance.
+0.00001 is discovered to have the best performance.
 
 \FloatBarrier
 \begin{table}[H]
@@ -1916,7 +1936,7 @@ stopping criteria. The default tolerance is 0.0001. The tolerance setting of
 \caption{Logit results after fine tuning, effectively had a tolerance of 0.0001}
 \label{tab:LogRegAftFineTune}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.863 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\ \bottomrule
 \end{tabular}
@@ -1927,11 +1947,11 @@ fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{Logit Tolerance 0.0001, notice that the fine pr and roc decreased by 0.001, and that the
-coarse roc decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.}
+\caption{Logit Tolerance 0.0001, notice that the fine PR and ROC decreased by 0.001, and that the
+coarse ROC decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.}
 \label{tab:LogRegOrig-0001}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.862 & 0.668 & 0.518 & ( 234.9 / 11.1 ) & ( 147.8 / 85.0 ) \\
 fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
@@ -1947,7 +1967,7 @@ fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \caption{Logit Tolerance 0.00001. This option is chosen.}
 \label{tab:LogReg-00001Redo}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.863 & 0.668 & 0.517 & ( 234.7 / 11.1 ) & ( 148.0 / 85.0 ) \\
 fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\ \bottomrule
 \end{tabular}
@@ -1962,7 +1982,7 @@ fine & 0.886 & 0.864 & 0.855 & 0.632 & ( 350.1 / 36.6 ) & ( 32.6 / 59.5 ) \\ \bo
 \caption{Logit Tolerance 0.000001}
 \label{tab:LogReg-000001}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
@@ -1974,11 +1994,11 @@ fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 total number of instances in the test set divided by the total number of positives in the test set. This
 weighting is performed identically on the coarse and fine classifier. The ROC curve library has a parameter to determine
 whether or not to drop some suboptimal thresholds which do not appear on a plotted ROC curve \cite{scikit-learn}. The
-default setting is to drop intermediate values True, which has the counterintuitive result of a roc curve having on the order of
-150 points even though 497 points are passed to the roc curve library method. If drop intermediate values is set to false
-then the full 497 points are returned in the calculated roc curve. The default
+default setting is to drop intermediate values True, which has the counterintuitive result of a ROC curve having on the order of
+150 points even though 497 points are passed to the ROC curve library method. If drop intermediate values is set to false
+then the full 497 points are returned in the calculated ROC curve. The default
 options of using sample weights and dropping intermediate values are discovered to have the
-highest performance.
+best performance.
 
 
 
@@ -1988,7 +2008,7 @@ highest performance.
 \caption{Logit sample weights, drop intermediate values True. The default option is chosen.}
 \label{tab:LogRegDefSWDropFalse}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
@@ -2002,7 +2022,7 @@ fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \caption{Logit no sample weights, drop intermediate values True}
 \label{tab:LogReg-NoSW}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.649 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.663 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
@@ -2015,7 +2035,7 @@ fine & 0.663 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \caption{Logit sample weights, drop intermediate values False}
 \label{tab:LogReg-DropFalse}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.880 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
@@ -2028,7 +2048,7 @@ fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \caption{Logit no sample weights, drop intermediate values False}
 \label{tab:LogReg-NoSW-DropFalse}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.649 & 0.862 & 0.668 & 0.517 & ( 234.8 / 11.1 ) & ( 147.9 / 85.0 ) \\
 fine & 0.663 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bottomrule
 \end{tabular}
@@ -2044,7 +2064,7 @@ of instances in the train set divided by the total number of positives in the tr
 to 20.887. The previously determined fine class ratios are used in this analysis. The value selected is
 23, this value along with 7.5 and the original values of 20.887 and 4.977 for a line with two points that
 define a function to map a weight original input to a new tuned weight output for all training set sizes.
-The fine weight of 23 is discovered to have the highest performance when the entire dataset is used.
+The fine weight of 23 is discovered to have the best performance when the entire dataset is used.
 
 \FloatBarrier
 \begin{table}[H]
@@ -2052,7 +2072,7 @@ The fine weight of 23 is discovered to have the highest performance when the ent
 \caption{Logit entire dataset, weight 20.887}
 \label{tab:LogRegAllOrig-Wt20p887}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.867 & 0.868 & 0.803 & 0.280 & ( 1537.6 / 19.2 ) & ( 376.0 / 76.9 ) \\
 fine & 0.871 & 0.868 & 0.919 & 0.404 & ( 1792.3 / 41.0 ) & ( 121.2 / 55.1 ) \\ \bottomrule
 \end{tabular}
@@ -2065,7 +2085,7 @@ fine & 0.871 & 0.868 & 0.919 & 0.404 & ( 1792.3 / 41.0 ) & ( 121.2 / 55.1 ) \\ \
 \caption{Logit entire dataset, weight 23.0. This option is chosen.}
 \label{tab:LogRegAll-Wt23}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.870 & 0.871 & 0.787 & 0.268 & ( 1503.2 / 17.8 ) & ( 410.4 / 78.3 ) \\
 fine & 0.875 & 0.871 & 0.913 & 0.403 & ( 1776.5 / 37.3 ) & ( 137.1 / 58.8 ) \\ \bottomrule
 \end{tabular}
@@ -2078,7 +2098,7 @@ fine & 0.875 & 0.871 & 0.913 & 0.403 & ( 1776.5 / 37.3 ) & ( 137.1 / 58.8 ) \\ \
 \caption{Logit entire dataset, weight 25.0.}
 \label{tab:LogRegAll-Wt25}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.867 & 0.868 & 0.772 & 0.256 & ( 1473.0 / 17.3 ) & ( 440.6 / 78.8 ) \\
 fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \bottomrule
 \end{tabular}
@@ -2090,14 +2110,14 @@ fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \
 \label{sect:paramEnd}
 \par After the Logit classifier is tuned with class weights, the SVM is ran again with the
 class weights determined by the Logit classifier and a slight advantage for the fine-grained
-classifier is demonstrated with the SVM as well. The SVM parameters for the rbf
+classifier is demonstrated with the SVM as well. The SVM parameters for the RBF
 kernel of cost and gamma are varied. The cost is related to a penalty parameter for the error term
 and gamma is the kernel coefficient and determines the relative significance a single instance can have.
 The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
  cost is actually 1.0, and the default class weight is balanced which weights each class by
  the number of instances it has in the train set, the same fine class weights used in the LogReg
  classifier are used in the SVM classifier instead of the SVM's default balanced option. The SVM
-  cost of 0.15 and gamma of 0.0029674 is discovered to have the highest performance.
+  cost of 0.15 and gamma of 0.0029674 is discovered to have the best performance.
 
 
 \FloatBarrier
@@ -2106,7 +2126,7 @@ The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
 \caption{SVM Cost 1.0 Gamma 0.0029674}
 \label{tab:SVM-C1-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.901 & 0.874 & 0.846 & 0.651 & ( 336.0 / 27.2 ) & ( 46.7 / 68.9 ) \\
 fine & 0.896 & 0.865 & 0.871 & 0.598 & ( 371.1 / 50.1 ) & ( 11.6 / 46.0 ) \\ \bottomrule
 \end{tabular}
@@ -2120,7 +2140,7 @@ fine & 0.896 & 0.865 & 0.871 & 0.598 & ( 371.1 / 50.1 ) & ( 11.6 / 46.0 ) \\ \bo
 \caption{SVM Cost 2.0 Gamma 0.0029674}
 \label{tab:SVM-C2-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.903 & 0.873 & 0.866 & 0.672 & ( 348.9 / 30.4 ) & ( 33.8 / 65.7 ) \\
 fine & 0.890 & 0.857 & 0.865 & 0.554 & ( 373.8 / 55.8 ) & ( 8.9 / 40.3 ) \\ \bottomrule
 \end{tabular}
@@ -2135,7 +2155,7 @@ fine & 0.890 & 0.857 & 0.865 & 0.554 & ( 373.8 / 55.8 ) & ( 8.9 / 40.3 ) \\ \bot
 \caption{SVM Cost 0.1 Gamma 0.0029674}
 \label{tab:SVM-Cp1-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.892 & 0.869 & 0.664 & 0.518 & ( 231.5 / 9.8 ) & ( 151.2 / 86.3 ) \\
 fine & 0.899 & 0.870 & 0.868 & 0.623 & ( 363.5 / 43.8 ) & ( 19.2 / 52.3 ) \\ \bottomrule
 \end{tabular}
@@ -2149,7 +2169,7 @@ fine & 0.899 & 0.870 & 0.868 & 0.623 & ( 363.5 / 43.8 ) & ( 19.2 / 52.3 ) \\ \bo
 \caption{SVM Cost 0.05 Gamma 0.0029674}
 \label{tab:SVM-Cp05-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.883 & 0.860 & 0.591 & 0.474 & ( 194.9 / 8.0 ) & ( 187.8 / 88.1 ) \\
 fine & 0.884 & 0.853 & 0.858 & 0.544 & ( 370.1 / 55.5 ) & ( 12.6 / 40.6 ) \\ \bottomrule
 \end{tabular}
@@ -2163,7 +2183,7 @@ fine & 0.884 & 0.853 & 0.858 & 0.544 & ( 370.1 / 55.5 ) & ( 12.6 / 40.6 ) \\ \bo
 \caption{SVM Cost 0.15 Gamma 0.0029674. This cost option is chosen.}
 \label{tab:SVM-Cp15-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.896 & 0.873 & 0.714 & 0.553 & ( 257.5 / 11.6 ) & ( 125.2 / 84.5 ) \\
 fine & 0.902 & 0.874 & 0.871 & 0.640 & ( 362.1 / 41.1 ) & ( 20.6 / 55.0 ) \\ \bottomrule
 \end{tabular}
@@ -2177,7 +2197,7 @@ fine & 0.902 & 0.874 & 0.871 & 0.640 & ( 362.1 / 41.1 ) & ( 20.6 / 55.0 ) \\ \bo
 \caption{SVM Cost 0.2 Gamma 0.0029674.}
 \label{tab:SVM-Cp2-Gp0029674}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.899 & 0.875 & 0.755 & 0.584 & ( 279.6 / 14.0 ) & ( 103.1 / 82.1 ) \\
 fine & 0.903 & 0.875 & 0.871 & 0.640 & ( 362.1 / 41.2 ) & ( 20.6 / 54.9 ) \\ \bottomrule
 \end{tabular}
@@ -2191,7 +2211,7 @@ fine & 0.903 & 0.875 & 0.871 & 0.640 & ( 362.1 / 41.2 ) & ( 20.6 / 54.9 ) \\ \bo
 \caption{SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.}
 \label{tab:SVM-Cp15-Gp002}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.894 & 0.871 & 0.706 & 0.545 & ( 253.6 / 11.7 ) & ( 129.1 / 84.4 ) \\
 fine & 0.906 & 0.877 & 0.869 & 0.646 & ( 358.3 / 38.5 ) & ( 24.4 / 57.6 ) \\ \bottomrule
 \end{tabular}
@@ -2204,7 +2224,7 @@ fine & 0.906 & 0.877 & 0.869 & 0.646 & ( 358.3 / 38.5 ) & ( 24.4 / 57.6 ) \\ \bo
 \caption{SVM Cost 0.15 Gamma 0.001}
 \label{tab:SVM-Cp15-Gp001}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.883 & 0.864 & 0.664 & 0.516 & ( 232.1 / 10.3 ) & ( 150.6 / 85.8 ) \\
 fine & 0.900 & 0.872 & 0.868 & 0.641 & ( 358.5 / 39.2 ) & ( 24.2 / 56.9 ) \\ \bottomrule
 \end{tabular}
@@ -2228,7 +2248,7 @@ advantage of 0.002 exists for the fine classifier in the SVM classifier.
 \caption{Logit entire dataset results after parameter tuning}
 \label{tab:LogRegAll-Wt23}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.870 & 0.871 & 0.787 & 0.268 & ( 1503.2 / 17.8 ) & ( 410.4 / 78.3 ) \\
 fine & 0.875 & 0.871 & 0.913 & 0.403 & ( 1776.5 / 37.3 ) & ( 137.1 / 58.8 ) \\ \bottomrule
 \end{tabular}
@@ -2242,7 +2262,7 @@ fine & 0.875 & 0.871 & 0.913 & 0.403 & ( 1776.5 / 37.3 ) & ( 137.1 / 58.8 ) \\ \
 \caption{SVM entire dataset results after parameter tuning}
 \label{tab:SVM-All}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
-title & pr & roc & acc & f1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
+Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.892 & 0.880 & 0.866 & 0.347 & ( 1669.5 / 24.8 ) & ( 244.1 / 71.3 ) \\
 fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \bottomrule
 \end{tabular}
@@ -2254,7 +2274,7 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
  values is shown in \textit{Figures \ref{fig:LogRegThreshPr}-\ref{fig:LogRegThreshAcc}}
   and \textit{Figures \ref{fig:SVMThreshPr}-\ref{fig:SVMThreshRoc}}. The figures plot the PR and the ROC
  curves for each of the 10 folds. Each point on the PR and ROC curve has a
- corresponding F-measure or accuracy value, these values are plotted on the graphs
+ corresponding F-measure or accuracy value; these values are plotted on the graphs
  as a blue line. The graphs demonstrate that the coarse and fine classifiers have close
  to equivalent average AUC, on the order of 0.007 max difference between fine and coarse.
   At the default threshold the fine appears to outperform coarse for accuracy and F-measure
@@ -2377,7 +2397,7 @@ is used. The test set remains constant throughout the rounds and contains a repr
     \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_pr}
     \caption{The PR-AUC curves for rounds with the Logistic
 Regression classifier conforms to expectations, with active fine having
-the highest performance, and Active outperforming Passive for both coarse
+the best performance, and Active outperforming Passive for both coarse
 and fine classifier types.}
 \label{fig:runActPassLogReg_pr}
 \end{figure}
@@ -2508,7 +2528,7 @@ surpasses active coarse after round 10 while the active fine ROC-AUC curve is st
 as the previous section detailed with the exception that a SVM classifier is
 substituted for the Logit classifier. Due to the greater advantage of average
 PR-AUC in the Logit classifier, the SVM is not used in the Fixed fine ratio
-experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experiments.
+experiments in Section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experiments.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -2715,16 +2735,16 @@ experiments in section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 to improve the coarse-grained classifier performance. Both SVM and Logit
 classifiers show an advantage of around 0.005 in average PR curve AUC and around
 0.001 in ROC curve AUC. Experiments comparing active and passive learning for both
-fine and coarse classifiers are performed, the results shown in section \ref{sect:actpass}
+fine and coarse classifiers are performed, the results shown in Section \ref{sect:actpass}
 demonstrate a prominent advantage for active fine with the Logit classifier. Furthermore
  HAL is implemented and applied to the protein dataset for various FFR proportions and
  fine label costs. After discussions with Cui et. al's group at UNL \cite{bioPoster} the fine label
  estimated cost is around 10. This correlates to the FFR experiment with fine cost 8, which shows
- that for a budget of around 20-60 rounds a FFR strategy of 0.2 would have the highest performance,
+ that for a budget of around 20-60 rounds a FFR strategy of 0.2 would have the best performance,
  see \textit{Figure \ref{fig:ParamsFFR_PR_Cost8_rnds20_60}}.
  \par Future work is to apply the BANDIT approach to the protein dataset in order to achieve
  an optimal strategy for selecting the FFR proportion vector throughout all rounds, see
- section \ref{sect:BANDIT}. The active over-labeling approach could be applied to other
+ Section \ref{sect:BANDIT}. The active over-labeling approach could be applied to other
  datasets with more complex hierarchical label trees; datasets derived from
  Gene Ontology research could be investigated \cite{GeneOntology}.
 

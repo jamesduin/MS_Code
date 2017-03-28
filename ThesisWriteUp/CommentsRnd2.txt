@@ -1,0 +1,120 @@
+Dr. Downey,
+
+One thing, when you’re using figs from Yuji’s paper, probably good practice to cite the paper in the caption – e.g. say “(from [18])” at the end. -- 
+
+Chapter 4 – somewhere near the beginning it would really help to give a paragraph that summarizes what’s to come in that section.  So, first we present our experimental settings, then we try vanilla SVMs and vary kernels and find XXX, we compare SVMs against LR and find ZZZ, then we try class weighting and find YYY, etc.  Tell the story succinctly at the beginning, before diving into the detailed results. -- 
+
+I’m not sure you need tables 4.3, 4.4. -- 
+
+I didn’t understand what the rows in the tables in Sec 4.1.7.x (tune fine class weights) were supposed to mean.  In general just not really sure what’s going on there. -- 
+
+Table 4.84 –how do you define this as the “highest performance?”  I’m also concerned that if part of the story is to compare coarse to fine, you selected settings that seem to disadvantage coarse (at least in terms of acc and F1). -- 
+
+Chapter 5 – again instead of diving directly into results, give me 1-2 paragraphs that says what you’re going to show me, and what the findings are. -- 
+
+
+
+
+
+
+Dr. Scott,
+Chapter 1:
+Use "active machine learning" instead, so if someone outside of CS reads it, they'll see the difference. -- done
+
+Add, and in acknowledgments -- done
+
+Since you haven't yet defined active machine learning, the word 'active' is unclear, as is the phrase 'purchase budget'.  It would be good to briefly mention the usefulness of AL when large amounts of data is available but labeling comes at a cost, typically subject to a budget. --
+
+Capitalize Section. Change this paper to this thesis. -- done
+
+This is an abrupt transition.  You need some example of a learning problem, explaining what you mean by T, E, etc.  Put it in the context of the bioinformatics problem you are studying. --
+
+If you have a 'background' chapter, why not put all of this there? -- 
+
+Define 'regularize' -- done
+
+Change this to which, and use generalization -- done
+
+Add \exp, change sigmoid to \sigma, use \tanh, define \sigma -- done
+
+Replace 2 by 2 with 2 \times 2, give an example -- done
+
+Replace in eqn x.x with 'as:' -- done
+Use upper case 'F1' -- done
+Use math font $x$ and $y$ -- done
+Lower-case b in bioinformatics -- done
+Fix missing table ref -- done
+
+
+Need more explanation of this example.  E.g., that it's circles vs diamonds, but there is a decomposition of circles into the different types.  Then explain how the fine-grained labels help with the problem of circles vs diamonds. --
+Also, cite the paper for this example. -- 
+This example might be best placed in chapter two. -- 
+
+The learner does not generate instances. -- 
+You haven't yet defined 'instances' or 'labels' -- 
+This is also conventional ML; you should define this earlier. -- 
+
+Use \neq, i.e., two horizontal lines. -- done
+
+Pseudocode for BANDIT is a good idea. -- 
+
+Better to move this earlier, before describing the algorithms. (Related Work Section) -- 
+
+I think that it is potentially confusing to include plots of results that are not yours in your thesis.  Instead, you can summarize Mo's results in terms of how AUC and-or F_\beta improved as he changed the fine fraction, and also how performance changed wrt BANDIT. -- 
+
+Use lowercase for train and test sets -- done
+
+Capitalize PR and ROC and F-measure -- done
+Remove page number reference -- done
+Replace highest performance with best performance -- done
+Replace I with We -- done 
+Put parenthesis around see Table 4.10 -- done
+Capitalize RBF -- done 
+
+Since you use PR and ROC a lot, make sure that you have a detailed background section (in an earlier chapter) on these, as well as on AUC.  You mention them in your intro material, but don't give much depth. --
+Change comma to semi-colon -- done
+
+
+
+
+
+
+### notes
+Updated explanation in 4.1.6 Varying Logistic Regression Positive Class Weight and Cost -- done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
