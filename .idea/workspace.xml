@@ -4,8 +4,9 @@
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/CommentsRnd2.txt" afterPath="$PROJECT_DIR$/ThesisWriteUp/CommentsRnd2.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.bbl" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.bbl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
     </list>
@@ -67,7 +68,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Ling</find>
       <find>Blondel</find>
       <find>scikit</find>
       <find>bioPo</find>
@@ -97,6 +97,7 @@
       <find>Varying Logistic Regression</find>
       <find>Varying Logistic Regression Positive</find>
       <find>\chapter</find>
+      <find>bioPost</find>
     </findStrings>
     <replaceStrings>
       <replace>[H]</replace>
@@ -182,7 +183,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="62" />
     <option name="y" value="45" />
-    <option name="width" value="1235" />
+    <option name="width" value="1371" />
     <option name="height" value="944" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -540,10 +541,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="45" width="1235" height="944" extended-state="0" />
+    <frame x="62" y="45" width="1371" height="944" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23970346" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21555555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -844,16 +845,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="315" column="21" lean-forward="false" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="21" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="LaTeXFileEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ActivePassiveLearnParams/methodsActPassParam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -886,6 +877,16 @@
           <caret line="481" column="22" lean-forward="false" selection-start-line="481" selection-start-column="4" selection-end-line="481" selection-end-column="22" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="315" column="21" lean-forward="false" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="LaTeXFileEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">

@@ -137,8 +137,16 @@ Change comma to semi-colon -- done
 ### notes
 Updated explanation in 4.1.6 Varying Logistic Regression 
 Positive Class Weight and Cost -- done
-\label{sect:HAL}
-\label{sect:BANDIT}
+Ran spellcheck -- done
+When presenting experimental results, say something to the effect 
+that no other results on this specific problem are known, just evaluating 
+the HAL approach => Added a couple sentences in Chapter 5 Results and 
+Analysis introduction -- done
+Make sure that the estimate of 10 for the fine cost is stated => 
+confirmed that this is stated in (5.3 PlotsforFineFixedRatioexperiments) -- done
+
+
+
 
 
 
