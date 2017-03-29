@@ -40,8 +40,9 @@ def getRndTypeSet(resultsDir):
 #resultsDir = 'BANDIT_1p1/results'
 #resultsDir = 'BANDIT_2p0/results'
 #resultsDir = 'BANDIT_4p0/results'
-resultsDir = 'Bandit_RandEqual_Cst8/results'
+#resultsDir = 'Bandit_RandEqual_Cst8/results'
 #resultsDir = 'BANDIT_16p0/results'
+resultsDir = 'BANDIT_1p0/results'
 
 #Xlims = [0, 500]
 #Xlims = [20,60]
@@ -212,4 +213,5 @@ title = 'FFR Method Fine Cost '+str(cost)
 plt.title(title)
 plt.legend(loc="lower right")
 #plt.savefig('../ThesisWriteUp/fig'+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')
-plt.savefig(resultsDir+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')
+#plt.savefig(resultsDir+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')
+plt.savefig(resultsDir+'/BanditFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')

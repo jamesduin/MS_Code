@@ -2,13 +2,322 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125596.BT_1.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125596.BT_1.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125597.BT_2.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125597.BT_2.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125598.BT_3.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125598.BT_3.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125599.BT_4.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125599.BT_4.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125600.BT_5.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125600.BT_5.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125601.BT_6.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125601.BT_6.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125602.BT_7.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125602.BT_7.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125603.BT_8.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125603.BT_8.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125604.BT_9.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125604.BT_9.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125605.BT_10.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/log/job.7125605.BT_10.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/Bandit_BpT_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p0_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p1_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p2_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p3_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p4_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p5_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p6_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p7_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p8_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_0p9_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/FFR_1p0_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/ParamsFFR_PR_Cost1_rnds0_180.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p4.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p5.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p6.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p7.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_0p9.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_1p0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst1/results/_FFR_BpT.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125472.BT_1.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125472.BT_1.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125473.BT_2.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125473.BT_2.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125474.BT_3.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125474.BT_3.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125475.BT_4.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125475.BT_4.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125476.BT_5.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125476.BT_5.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125477.BT_6.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125477.BT_6.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125478.BT_7.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125478.BT_7.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125479.BT_8.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125479.BT_8.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125480.BT_9.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125480.BT_9.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125481.BT_10.err" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/log/job.7125481.BT_10.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/Bandit_BpT_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p0_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p1_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p2_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p3_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p4_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p5_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p6_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p7_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p8_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_0p9_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_1.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_10.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_2.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_3.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_4.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_5.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_6.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_7.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_8.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/FFR_1p0_9.res" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/ParamsFFR_PR_Cost8_rnds0_1000.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/ParamsFFR_PR_Cost8_rnds0_180.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/ParamsFFR_PR_Cost8_rnds0_500.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p4.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p5.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p6.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p7.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_0p9.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_1p0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFRBandit/Bandit_RandEqual_Cst8/results/_FFR_BpT.txt" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRBandit/BanditTest/Icon&#13;" afterPath="$PROJECT_DIR$/FFRBandit/Archive/BanditTest/Icon&#13;" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRBandit/BanditTest/results/Bandit_1.res" afterPath="$PROJECT_DIR$/FFRBandit/Archive/BanditTest/results/Bandit_1.res" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRBandit/BanditTest/results/Icon&#13;" afterPath="$PROJECT_DIR$/FFRBandit/Archive/BanditTest/results/Icon&#13;" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRBandit/BanditTest/results/ParamsFFR_PR_Cost8_rnds0_180.png" afterPath="$PROJECT_DIR$/FFRBandit/Archive/BanditTest/results/ParamsFFR_PR_Cost8_rnds0_180.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRBandit/BanditTest/results/_Bandit_1.txt" afterPath="$PROJECT_DIR$/FFRBandit/Archive/BanditTest/results/_Bandit_1.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/FFRBandit/analyzeCost8playBestEqual" afterPath="$PROJECT_DIR$/FFRBandit/Archive/analyzeCost8playBestEqual" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/CommentsRnd2.txt" afterPath="$PROJECT_DIR$/ThesisWriteUp/CommentsRnd2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FFRBandit/plotBanditMetrics.py" afterPath="$PROJECT_DIR$/FFRBandit/plotBanditMetrics.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,37 +332,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GenerateRshFFR.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HCC/GenerateRshFFR.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HCC/run.sh">
+      <file leaf-file-name="plotBanditMetrics.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FFRBandit/plotBanditMetrics.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="780">
-              <caret line="52" column="51" lean-forward="false" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="51" />
+              <caret line="216" column="31" lean-forward="false" selection-start-line="216" selection-start-column="31" selection-end-line="216" selection-end-column="31" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
-          <provider selected="true" editor-type-id="LaTeXFileEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nuthesis.bib" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
-          <provider selected="true" editor-type-id="LaTeXFileEditor">
-            <state />
           </provider>
         </entry>
       </file>
@@ -68,7 +353,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Blondel</find>
       <find>scikit</find>
       <find>bioPo</find>
       <find>tableofcontents</find>
@@ -98,6 +382,7 @@
       <find>Varying Logistic Regression Positive</find>
       <find>\chapter</find>
       <find>bioPost</find>
+      <find>estimate</find>
     </findStrings>
     <replaceStrings>
       <replace>[H]</replace>
@@ -126,7 +411,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/HALCreateClasses/createScaledPartitions.py" />
         <option value="$PROJECT_DIR$/Passive/fine_tune_minDimPartlib8DecFcn_fine.py" />
         <option value="$PROJECT_DIR$/PassiveLearn/FineTune/LogRegCls1_Wtp5/results/_Psv.txt" />
         <option value="$PROJECT_DIR$/PassiveLearn/FineTune/LogRegCls1_Wtp5/results/output.txt" />
@@ -177,14 +461,15 @@
         <option value="$PROJECT_DIR$/HCC/GenerateRshFFR.py" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/CommentsRnd2.txt" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
+        <option value="$PROJECT_DIR$/FFRBandit/plotBanditMetrics.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
-    <option name="y" value="45" />
+    <option name="x" value="162" />
+    <option name="y" value="67" />
     <option name="width" value="1371" />
-    <option name="height" value="944" />
+    <option name="height" value="934" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -228,20 +513,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ThesisWriteUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="FFRBandit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -263,11 +534,11 @@
       <recent name="$PROJECT_DIR$/FFR" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FFRBandit/Archive" />
       <recent name="$PROJECT_DIR$/HALCreateClasses/Archive" />
       <recent name="$PROJECT_DIR$/PassiveLearn/Original/SVMDef" />
       <recent name="$PROJECT_DIR$/PassiveLearn/ScalingDim/SVMStandard" />
       <recent name="$PROJECT_DIR$/PassiveLearn" />
-      <recent name="$PROJECT_DIR$/ActivePassiveFolds/ArchiveResults" />
     </key>
   </component>
   <component name="RunManager" selected="Python.GenerateRshActPass">
@@ -541,7 +812,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="45" width="1371" height="944" extended-state="0" />
+    <frame x="162" y="67" width="1371" height="934" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21555555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -550,7 +821,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30985916" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2695962" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -573,13 +844,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FFR/methodsFFR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="188" column="30" lean-forward="true" selection-start-line="188" selection-start-column="30" selection-end-line="188" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FFR/methodsFFRParam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -806,14 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FFRBandit/plotBanditMetrics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FFRBandit/plotFFRBandit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2115">
@@ -832,14 +1088,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HCC/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="51" lean-forward="false" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/mybibtexDB.bib">
       <provider selected="true" editor-type-id="LaTeXFileEditor">
         <state />
@@ -849,14 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="116" column="60" lean-forward="false" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HCC/GenerateRshFFR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -897,6 +1137,38 @@
       </provider>
       <provider selected="true" editor-type-id="LaTeXFileEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="51" lean-forward="false" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HCC/GenerateRshFFR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FFRBandit/Archive/analyzeCost8playBestEqual">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FFRBandit/plotBanditMetrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="216" column="31" lean-forward="false" selection-start-line="216" selection-start-column="31" selection-end-line="216" selection-end-column="31" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
