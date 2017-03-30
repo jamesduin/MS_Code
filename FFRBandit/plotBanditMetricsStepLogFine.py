@@ -15,8 +15,10 @@ else:
     os.chdir('/work/scott/jamesd/')
     dataDir = '/home/scott/jamesd/MS_Code/'
 
-
-rndSel = 100
+rndSel = 120
+#rndSel = 100
+#rndSel = 45
+#rndSel = 40
 
 costs = {1.0,1.1,1.2,
         1.5,2.0,4.0,
@@ -71,8 +73,95 @@ def main():
     #print(banditRes)
     f = open('output.txt', 'w')
     #printResultMat(f, resultMat)
+    for rec in banditRes:
+        for item in rec:
+            f.write('{}'.format(item)+',')
+        #f.write(str(rec)+'\n')
+        f.write('\n')
 
+    resultMat = []
+    for linInd, i in enumerate(range(0,10)):
+        print(i)
+        a = banditRes[i].reshape(12,4)
+        #print(a)
+        a = a[a[:, 3].argsort()[::-1]]
+        d_ind = np.array(range(0,len(a))).reshape(len(a), 1)
+        a = np.hstack((d_ind, a))
+        #print(a)
+        a = a[a[:, 1].argsort()]
+        print(a)
+        b = a[:,1].reshape(1,12)
+        c = a[:,0].reshape(1,12)
+        print(b)
+        print(c)
+        if len(resultMat) == 0:
+            resultMat = c
+        else:
+            resultMat = np.vstack((resultMat,c))
+
+    resultMat = resultMat.astype(float)
+    print(resultMat.shape)
+    print(resultMat)
+
+    min = (np.min(resultMat, axis=0))
+    max = (np.max(resultMat, axis=0))
+    mean = (np.mean(resultMat,axis=0))
+    std = (np.std(resultMat, axis=0))
+    tableMat = b.reshape((12,1))
+    tableMat = np.hstack((tableMat, min.reshape(12, 1)))
+    tableMat = np.hstack((tableMat,max.reshape(12,1)))
+    tableMat = np.hstack((tableMat, mean.reshape(12, 1)))
+    tableMat = np.hstack((tableMat, std.reshape(12, 1)))
+
+
+    tableMat1 = tableMat[:]
+
+
+    resultMatPR = []
+    for linInd, i in enumerate(range(0, 10)):
+        # print(i)
+        a = banditRes[i].reshape(12, 4)
+        #print(a)
+        #a = a[a[:, 3].argsort()[::-1]]
+        #d_ind = np.array(range(1, len(a) + 1)).reshape(len(a), 1)
+        #a = np.hstack((d_ind, a))
+        print(a)
+        maxNum = np.max(a[:,3].astype(float))
+        print(maxNum)
+        #a = a[a[:, 1].argsort()]
+        # print(a)
+        b = a[:, 0].reshape(1, 12)
+        c = np.abs(a[:, 3].reshape(1, 12).astype(float) - maxNum)
+        print(c)
+        if len(resultMatPR) == 0:
+            resultMatPR = c
+        else:
+            resultMatPR = np.vstack((resultMatPR, c))
+    print(resultMatPR)
+    resultMatPR = resultMatPR.astype(float)
+    tableMat = b.reshape((12, 1))
+    min = (np.min(resultMatPR, axis=0))
+    max = (np.max(resultMatPR, axis=0))
+    mean = (np.mean(resultMatPR,axis=0))
+    std = (np.std(resultMatPR, axis=0))
+    tableMat = np.hstack((tableMat, min.reshape(12, 1)))
+    tableMat = np.hstack((tableMat, max.reshape(12, 1)))
+    tableMat = np.hstack((tableMat, mean.reshape(12, 1)))
+    tableMat = np.hstack((tableMat, std.reshape(12, 1)))
+    tableMat2 = tableMat[:]
+    print(tableMat1)
+    print(tableMat2)
+    tableMat = np.hstack((tableMat2,tableMat1[:,1:]))
+    #tableMat = np.hstack((b.reshape((12, 1)), tableMat))
+    printResultMat(f, tableMat)
+    print(tableMat)
     f.close()
+
+
+
+
+
+
 
 cNorm  = colors.Normalize(vmin=-0.0, vmax=1.1)
 # plt.style.use('ggplot')
@@ -120,26 +209,38 @@ cVals = [(0.90000000000000002, 0.25162433333706963, 0.12708553664078234, 1.0),
 
 def printResultMat(f,resultMat):
     f.write('\FloatBarrier\n')
-    f.write('\\begin{table}[h]\n')
+    f.write('\\begin{table}[H]\n')
     f.write('\centering\n')
-    f.write('\\begin{tabular}{')
-    for i in range(len(resultMat)):
-        f.write('|l|')
-    f.write('}\\toprule\n')
-    for i, row in enumerate(resultMat[0]):
-        for j, col in enumerate(resultMat[:-1]):
-            if (isinstance(resultMat[j][i], str)):
-                f.write('{} & '.format(resultMat[j][i]))
-        if(i == 0):
-            f.write('{} \\\\ \\midrule'.format(resultMat[-1][i]))
-        elif(i == len(resultMat[0]) -1 ):
-            f.write('{} \\\\ \\bottomrule'.format(resultMat[-1][i]))
-        else:
-            f.write('{} \\\\'.format(resultMat[-1][i]))
-        f.write('\n')
-    f.write('\end{tabular}\n')
     f.write('\caption{BanditCostAnalysis}\n')
     f.write('\label{tab:BanditCostAnalysis}\n')
+    f.write('\\begin{tabular}{')
+    for i in range(len(resultMat[0])):
+        f.write('|l|')
+    f.write('}\\toprule\n')
+
+    for i, row in enumerate(range(len(resultMat))):
+        for j, col in enumerate(range(len(resultMat[0])-1)):
+            if(j == 5 or j == 6):
+                f.write('{:.0f} & '.format(resultMat[i][j].astype(float)))
+            elif(j==0):
+                f.write('FFR[{}] & '.format(resultMat[i][j]))
+            else:
+                f.write('{:.3f} & '.format(resultMat[i][j].astype(float)))
+        if (j == 5 or j == 6):
+            f.write('{:.0f} \\\\'.format(resultMat[i][-1].astype(float)))
+        elif(j==0):
+            f.write('FFR[{}] \\\\'.format(resultMat[i][-1]))
+        else:
+            f.write('{:.3f} \\\\'.format(resultMat[i][-1].astype(float)))
+
+        # if(i == 0):
+        #     f.write('{} \\\\ \\midrule'.format(resultMat[-1][j]))
+        # elif(i == len(resultMat[0]) -1 ):
+        #     f.write('{} \\\\ \\bottomrule'.format(resultMat[-1][j]))
+        # else:
+
+        f.write('\n')
+    f.write('\end{tabular}\n')
     f.write('\end{table}\n')
     f.write('\FloatBarrier\n')
     f.write('\n')

@@ -16,7 +16,7 @@ else:
     dataDir = '/home/scott/jamesd/MS_Code/'
 
 
-rndSel = 100
+rndSel = 120
 
 costs = {1.0,1.1,1.2,
         1.5,2.0,4.0,
