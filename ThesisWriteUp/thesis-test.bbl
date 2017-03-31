@@ -39,83 +39,6 @@ Y.~Mo, S.~D. Scott, and D.~Downey, ``Learning hierarchically decomposable
   concepts with active over-labeling,'' in \emph{2016 IEEE 16th International
   Conference on Data Mining (ICDM)}, Dec 2016, pp. 340--349.
 
-\bibitem{mccallum1998improving}
-\BIBentryALTinterwordspacing
-A.~McCallum, R.~Rosenfeld, T.~M. Mitchell, and A.~Y. Ng, ``Improving text
-  classification by shrinkage in a hierarchy of classes,'' in \emph{Proceedings
-  of the Fifteenth International Conference on Machine Learning}, ser. ICML
-  '98.\hskip 1em plus 0.5em minus 0.4em\relax San Francisco, CA, USA: Morgan
-  Kaufmann Publishers Inc., 1998, pp. 359--367. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=645527.657461}
-\BIBentrySTDinterwordspacing
-
-\bibitem{jiang2013}
-\BIBentryALTinterwordspacing
-W.~Jiang and Z.~W. Ras, ``Multi-label automatic indexing of music by cascade
-  classifiers,'' \emph{Web Intelli. and Agent Sys.}, vol.~11, no.~2, pp.
-  149--170, Apr. 2013. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=2590084.2590088}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Rubens2011}
-\BIBentryALTinterwordspacing
-N.~Rubens, D.~Kaplan, and M.~Sugiyama, ``{Active learning in recommender
-  systems},'' \emph{Recommender Systems Handbook}, pp. 1--31, 2011. [Online].
-  Available:
-  \url{http://link.springer.com/chapter/10.1007/978-0-387-85820-3\_23}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Merialdo2001}
-\BIBentryALTinterwordspacing
-A.~Merialdo, ``{Improving Collaborative Filtering For New-Users By Smart Object
-  Selection},'' \emph{In Proceedings of International Conference on Media
-  Features (ICMF)}, May 2001. [Online]. Available:
-  \url{http://www.eurecom.fr/publication/670
-  https://www.eurecom.fr/fr/publication/670/download/mm-kohrar-010508.pdf}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Hofmann2003}
-\BIBentryALTinterwordspacing
-T.~Hofmann, ``{Collaborative filtering via gaussian probabilistic latent
-  semantic analysis},'' in \emph{Proceedings of the 26th annual international
-  ACM SIGIR conference on Research and development in informaion retrieval -
-  SIGIR '03}.\hskip 1em plus 0.5em minus 0.4em\relax New York, New York, USA:
-  ACM Press, Jul. 2003, p. 259. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=860435.860483}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Schohn2000}
-\BIBentryALTinterwordspacing
-G.~Schohn and D.~Cohn, ``{Less is more: Active learning with support vector
-  machines},'' \emph{ICML}, pp. 839--846, Jun. 2000. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=645529.657802
-  http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.31.6090\&rep=rep1\&type=pdf}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Dasgupta2008}
-\BIBentryALTinterwordspacing
-S.~Dasgupta and D.~Hsu, ``{Hierarchical sampling for active learning},''
-  \emph{Proceedings of the 25th international conference on Machine learning -
-  ICML '08}, pp. 208--215, 2008. [Online]. Available:
-  \url{http://portal.acm.org/citation.cfm?doid=1390156.1390183}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Symons2006}
-\BIBentryALTinterwordspacing
-C.~Symons, N.~Samatova, R.~Krishnamurthy, B.~Park, T.~Umar, D.~Buttler,
-  T.~Critchlow, and D.~Hysom, ``{Multi-Criterion Active Learning in Conditional
-  Random Fields},'' \emph{2006 18th IEEE International Conference on Tools with
-  Artificial Intelligence (ICTAI'06)}, pp. 323--331, Nov. 2006. [Online].
-  Available:
-  \url{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=4031915
-  http://dl.acm.org/citation.cfm?id=1190614.1191040}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Lewis2004}
-D.~D. Lewis, Y.~Yang, T.~G. Rose, and F.~Li, ``{RCV1: A New Benchmark
-  Collection for Text Categorization Research},'' \emph{Journal of Machine
-  Learning Research}, vol.~5, pp. 361--397, 2004.
-
 \bibitem{sklearn-api}
 L.~Buitinck, G.~Louppe, M.~Blondel, F.~Pedregosa, A.~Mueller, O.~Grisel,
   V.~Niculae, P.~Prettenhofer, A.~Gramfort, J.~Grobler, R.~Layton,
@@ -231,10 +154,87 @@ J.~D. Bendtsen, H.~Nielsen, D.~Widdick, T.~Palmer, and S.~Brunak, ``Prediction
   of twin-arginine signal peptides,'' \emph{BMC bioinformatics}, vol.~6, no.~1,
   p. 167, 2005.
 
+\bibitem{Lewis2004}
+D.~D. Lewis, Y.~Yang, T.~G. Rose, and F.~Li, ``{RCV1: A New Benchmark
+  Collection for Text Categorization Research},'' \emph{Journal of Machine
+  Learning Research}, vol.~5, pp. 361--397, 2004.
+
 \bibitem{Auer2002}
 P.~Auer, N.~Cesa-Bianchi, and P.~Fischer, ``Finite-time analysis of the
   multiarmed bandit problem,'' \emph{Machine Learning}, vol.~47, no. 2--3, pp.
   235--256, 2002.
+
+\bibitem{mccallum1998improving}
+\BIBentryALTinterwordspacing
+A.~McCallum, R.~Rosenfeld, T.~M. Mitchell, and A.~Y. Ng, ``Improving text
+  classification by shrinkage in a hierarchy of classes,'' in \emph{Proceedings
+  of the Fifteenth International Conference on Machine Learning}, ser. ICML
+  '98.\hskip 1em plus 0.5em minus 0.4em\relax San Francisco, CA, USA: Morgan
+  Kaufmann Publishers Inc., 1998, pp. 359--367. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=645527.657461}
+\BIBentrySTDinterwordspacing
+
+\bibitem{jiang2013}
+\BIBentryALTinterwordspacing
+W.~Jiang and Z.~W. Ras, ``Multi-label automatic indexing of music by cascade
+  classifiers,'' \emph{Web Intelli. and Agent Sys.}, vol.~11, no.~2, pp.
+  149--170, Apr. 2013. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=2590084.2590088}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Rubens2011}
+\BIBentryALTinterwordspacing
+N.~Rubens, D.~Kaplan, and M.~Sugiyama, ``{Active learning in recommender
+  systems},'' \emph{Recommender Systems Handbook}, pp. 1--31, 2011. [Online].
+  Available:
+  \url{http://link.springer.com/chapter/10.1007/978-0-387-85820-3\_23}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Merialdo2001}
+\BIBentryALTinterwordspacing
+A.~Merialdo, ``{Improving Collaborative Filtering For New-Users By Smart Object
+  Selection},'' \emph{In Proceedings of International Conference on Media
+  Features (ICMF)}, May 2001. [Online]. Available:
+  \url{http://www.eurecom.fr/publication/670
+  https://www.eurecom.fr/fr/publication/670/download/mm-kohrar-010508.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Hofmann2003}
+\BIBentryALTinterwordspacing
+T.~Hofmann, ``{Collaborative filtering via gaussian probabilistic latent
+  semantic analysis},'' in \emph{Proceedings of the 26th annual international
+  ACM SIGIR conference on Research and development in informaion retrieval -
+  SIGIR '03}.\hskip 1em plus 0.5em minus 0.4em\relax New York, New York, USA:
+  ACM Press, Jul. 2003, p. 259. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=860435.860483}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Schohn2000}
+\BIBentryALTinterwordspacing
+G.~Schohn and D.~Cohn, ``{Less is more: Active learning with support vector
+  machines},'' \emph{ICML}, pp. 839--846, Jun. 2000. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=645529.657802
+  http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.31.6090\&rep=rep1\&type=pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Dasgupta2008}
+\BIBentryALTinterwordspacing
+S.~Dasgupta and D.~Hsu, ``{Hierarchical sampling for active learning},''
+  \emph{Proceedings of the 25th international conference on Machine learning -
+  ICML '08}, pp. 208--215, 2008. [Online]. Available:
+  \url{http://portal.acm.org/citation.cfm?doid=1390156.1390183}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Symons2006}
+\BIBentryALTinterwordspacing
+C.~Symons, N.~Samatova, R.~Krishnamurthy, B.~Park, T.~Umar, D.~Buttler,
+  T.~Critchlow, and D.~Hysom, ``{Multi-Criterion Active Learning in Conditional
+  Random Fields},'' \emph{2006 18th IEEE International Conference on Tools with
+  Artificial Intelligence (ICTAI'06)}, pp. 323--331, Nov. 2006. [Online].
+  Available:
+  \url{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=4031915
+  http://dl.acm.org/citation.cfm?id=1190614.1191040}
+\BIBentrySTDinterwordspacing
 
 \bibitem{DavisRocPr}
 \BIBentryALTinterwordspacing

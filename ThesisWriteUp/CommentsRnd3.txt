@@ -1,0 +1,78 @@
+Dr. Scott,
+
+Add "machine learning" in abstract, add a comma. -- done
+Mention 3rd committee member in Acknowledgements -- done
+
+
+Give a road map: "The rest of this thesis is 
+organized as follows.  Chapter 2 ... ", remove 
+reference to Section 3.5 --
+
+Move this chapter to after background. 
+ Much of the terminology you use needs 
+ to be defined first. -- done
+
+Change elicited to described -- done
+
+It's not clear yet, since labeling hierarchies have not been defined yet.   
+Also, need to explain a little more what the hierarchy 
+looks like; maybe include a picture -- 
+
+spelling fix with classifierevaluations -- done 
+Replace of with of an algorithm for -- done
+
+What does this have to do with anything?  Is this part 
+of the active over-labeling? If so, why 
+mention it here? => removed sentence confirmed it is mentioned 
+else where. -- done
+Remove "Logit is a linear model for classification." -- done
+Add "For Logit", make period a comma, use eqn $theta$, 
+add an 'and', replace period with :, remove a 'for' -- done
+Explain L2-norm function -- done
+Use : instead of . when leading into an eqn -- done
+Use non italicized fcns cost eqn -- done
+Delete - in hyper-plane -- done
+"high- or infinite-dimensional " -- done
+Use $\gamma$ instead of gamma -- done
+Replace . Where with , where in kernel fcn list -- done
+Replace The with A, use classifier's -- done
+In the previous section, C is a SVM parameter. Don’t overload it. => 
+replace C with conf -- done
+Add periods after P, R and F1 equations -- done
+
+Give examples of PR and ROC curves, and 
+give formulas for calculating AUC for both. -- 
+
+molecular biology and ecology, and virology, and zoology, and … -- done
+Use comprises instead of composes -- done
+Put the names of the values of TC branches here -- done
+Add 'single' use axis-parallel -- done
+
+Correct Active learning previously defined location -- done
+Correct "An example labeling tree for the Reuters Corpus Volume I (RCV1) 
+dataset used in text categorization research [12]." -- done
+Change achieves to applies -- done
+Use \ge in classifier eqn, fix "in as" -- done
+Change U= to just Union in HAL pseuodo code -- done
+Change , it to . it -- done
+"Auer et al.’s e-greedy bandit algorithm" describe this more -- done
+Add comma after explored -- done
+Use consists instead of composed -- done
+Add comma after In general, and after i.e.,-- done
+Use semi-colon instead of comma -- done
+Use are instead of is -- done
+Delete spurious True -- done
+
+
+### notes
+Added results for BANDIT 
+Capitalized Curves in section titles -- done
+
+
+
+
+
+
+
+
+
