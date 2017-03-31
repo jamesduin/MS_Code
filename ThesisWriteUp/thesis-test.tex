@@ -81,7 +81,7 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 \adviser{Professor Stephen Scott}
 \adviserAbstract{Stephen Scott}
 \major{Computer Science}
-\degreemonth{March}
+\degreemonth{May}
 \degreeyear{2017}
 %%
 %% For most people the defaults will be correct, so they are commented
@@ -232,9 +232,9 @@ purchasing strategy is determined for each fine cost. An approach optimally sele
  and shown to be robust to variations in labeling cost and budget.
 
 \par The rest of this thesis is organized as follows. In Chapter 2.1-2.2 we formally define machine learning
-and evaulation metrics used throughout this thesis. In Chapter 2.3 we present the origin of the protein dataset.
+and evaluation metrics used throughout this thesis. In Chapter 2.3 we present the origin of the protein dataset.
  Chapter 2.4-2.7 details the active over-labeling approach and theoretical justifications for its success.
- Chapter 3 presents related work and describes Mo et Al.'s experiments using the active over-labeling approach on
+ Chapter 3 presents related work and describes Mo et al.'s experiments using the active over-labeling approach on
   other datasets. Chapter 4 describes conventional ML applied to the protein dataset, which is used in Chapter 5 where
   experiments applying the active over-labeling approach to the protein dataset are presented and discussed.
 
@@ -2999,7 +2999,7 @@ as fine cost varies. The metric \textit{diff} is the learner's absolute differen
  $0$ indexed ranking in terms of PR-AUC for a given cost. For each purchase strategy,
  these metrics are calculated for each fine cost experiment. The min, max,
  mean, and std are calculated for the $10$ diff and rank values for each purchase strategy
- and the resuls are presented in \textit{Table \ref{tab:banditLogFine}}. The diff of BANDIT
+ and its results are presented in \textit{Table \ref{tab:banditLogFine}}. The diff of BANDIT
  is in the range of $[0.000-0.003]$ and averages $0.001$ away from the top learner. This is the
  lowest among all learners, tying the FFR $0.3$. The rank of BANDIT is in the range of $0-8$ with
  a mean of $4.8$. This outperforms the FFR $0.3$ strategy, which has a mean of $5.1$. BANDIT has
@@ -3035,7 +3035,7 @@ FFR[$1.0$] & 0.000 & 0.038 & 0.009 & 0.013 & 1 & 11 & 5.6 & 4.630 \\
 \end{table}
 
 BANDIT is evaluated as budget changes by averaging the PR-AUC values across the various
-cost experiements for every budget iteration. These results are presented in
+cost experiments for every budget iteration. These results are presented in
 \textit{Figure \ref{fig:BanditMixedCostPR}}. For each fine cost experiment a different
 FFR ratio may be preferred, e.g., FFR $1.0$ is preferable at fine cost 1, but not at a
 more expensive fine cost of 16. BANDIT performs well against the FFR strategies across
