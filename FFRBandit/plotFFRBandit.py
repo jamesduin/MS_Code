@@ -40,13 +40,13 @@ def getRndTypeSet(resultsDir):
 #resultsDir = 'BANDIT_1p1/results'
 #resultsDir = 'BANDIT_2p0/results'
 #resultsDir = 'BANDIT_4p0/results'
-resultsDir = 'Bandit_RandEqual_Cst8/results'
+resultsDir = 'BANDIT_8p0/results'
 #resultsDir = 'BANDIT_16p0/results'
 
 #Xlims = [0, 500]
-#Xlims = [20,60]
-Xlims = [0,180]
-#Ylims = [0.827, 0.863]
+Xlims = [20,60]
+#Xlims = [0,180]
+Ylims = [0.827, 0.863]
 cost = 8
 #resultsDir = '_results/results'
 
@@ -185,22 +185,25 @@ for linInd,type in enumerate(sorted(rndTypeSet)):
     y_pr = np.mean(prs, axis=1)
     #cVal = tuple(np.multiply(cVals[linInd],(1/270,1/270,1/270,1.0)))
     cVal = cVals[linInd]
-    print('FFR: {},{},{}'.format(type,x_pr[-1],y_pr[-1]))
-    plt.plot(x_pr,y_pr, label = 'FFR['+type+']',linewidth = 1.8 ,
+    print('FFR: {},{},{}'.format(type,x_pr[40],y_pr[40]))
+
+    label = 'FFR['+type+']'
+    if(type == 'B.T'):
+        label = 'BANDIT'
+    plt.plot(x_pr,y_pr, label = label,linewidth = 1.8 ,
              fillstyle='none',
              color=cVal,dashes=lineSty[linInd],
-             # marker=markSty[linInd],
-             # markersize=6,
-             # markeredgecolor=cVal,
-             # markeredgewidth=1.0,
-             # markevery=markEvSty[linInd]
+             marker=markSty[linInd],
+             markersize=6,
+             markeredgecolor=cVal,
+             markeredgewidth=1.0,
+             markevery=markEvSty[linInd]
              )
     leg= plt.legend(fancybox=True)
     axes = plt.gca()
 
     axes.set_xlim(Xlims)
-    #axes.set_ylim([0.842, 0.875])
-    #axes.set_ylim(Ylims)
+    axes.set_ylim(Ylims)
 
 plt.ylabel('PR-AUC')
 plt.xlabel('Iteration')
@@ -210,6 +213,9 @@ title = 'FFR Method Fine Cost '+str(cost)
 # if(Xlims[1] == 60):
 #     title = title + ' - '+ str(Xlims[0])+' to '+ str(Xlims[1]) + ' Rounds'
 plt.title(title)
-plt.legend(loc="lower right")
+# plt.legend(loc="lower right")
+leg = plt.legend(loc="lower right")
+# set the alpha value of the legend: it will be translucent
+leg.get_frame().set_alpha(0.0)
 #plt.savefig('../ThesisWriteUp/fig'+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')
 plt.savefig(resultsDir+'/ParamsFFR_PR_Cost'+str(cost)+'_rnds'+str(Xlims[0])+'_'+str(Xlims[1])+'.png')

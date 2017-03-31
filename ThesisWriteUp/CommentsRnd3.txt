@@ -16,11 +16,10 @@ Change elicited to described -- done
 
 It's not clear yet, since labeling hierarchies have not been defined yet.   
 Also, need to explain a little more what the hierarchy 
-looks like; maybe include a picture -- 
-
+looks like; maybe include a picture => resolved by moving to second chapter -- done
 spelling fix with classifierevaluations -- done 
 Replace of with of an algorithm for -- done
-
+Delete spurious "the context of" -- done
 What does this have to do with anything?  Is this part 
 of the active over-labeling? If so, why 
 mention it here? => removed sentence confirmed it is mentioned 
@@ -41,7 +40,7 @@ replace C with conf -- done
 Add periods after P, R and F1 equations -- done
 
 Give examples of PR and ROC curves, and 
-give formulas for calculating AUC for both. -- 
+give formulas for calculating AUC for both. -- done
 
 molecular biology and ecology, and virology, and zoology, and … -- done
 Use comprises instead of composes -- done
@@ -62,11 +61,20 @@ Add comma after In general, and after i.e.,-- done
 Use semi-colon instead of comma -- done
 Use are instead of is -- done
 Delete spurious True -- done
+Change ran to run -- done
+Replace comma with a semi-colon -- done
+Delete space between figure numbers -- done
+Replace , with : -- done
+End figure captions with a period -- done
 
 
 ### notes
-Added results for BANDIT 
+Add BANDIT Approach Results section --
+Update abstract -- done
+Updated conclusions -- 
+Update intro -- 
 Capitalized Curves in section titles -- done
+run spell check -- 
 
 
 

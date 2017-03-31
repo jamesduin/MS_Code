@@ -108,8 +108,7 @@ a protein dataset developed to identify the source of mutations
 which give rise to mitochondrial disease.
 The dataset is labeled according to the protein's location of origin
 in the cell; whether in the mitochondria or not, or a specific target
-location in the
-mitochondria's outer or inner matrix or its ribosomes. This dataset
+location in the mitochondria's outer or inner membrane, its matrix, or its ribosomes. This dataset
  forms a labeling hierarchy.
  A new machine learning approach is investigated to learn the
  high-level classifier, i.e.,
@@ -124,7 +123,7 @@ mitochondria's outer or inner matrix or its ribosomes. This dataset
   fine vs. coarse labels at various costs are compared and presented.
   Finally, we present a cost-sensitive active learner that uses
   a multi-armed bandit approach to dynamically choose the label
-  granularity to purchase, and show that the bandit-based leaner is
+  granularity to purchase, and show that the bandit-based learner is
   robust to variations in both labeling cost and budget.
 \end{abstract}
 
@@ -153,7 +152,7 @@ mitochondria's outer or inner matrix or its ribosomes. This dataset
   BANDIT methodologies. I would like to thank Dr. Juan Cui and Dr. Ashok Samal for serving on
   my committee. Additionally, I would like to thank Jiang Shu and
   Kevin Chiang for their assistance accessing and understanding the protein dataset that is
-  the subject of the paper.
+  the subject of this thesis.
 \end{acknowledgments}
 
 %% Optional
@@ -242,7 +241,7 @@ purchasing strategy is determined for each fine cost. An approach optimally sele
 \label{sect:machineLearn}
 Machine learning (ML) algorithms are defined as computer programs that learn from experience E
 with respect to some class of tasks T and performance measure P, if their performance at
-tasks in T, as measured by P, improves with experience E \cite{mitchell}. In the context of this thesis,
+tasks in T, as measured by P, improves with experience E \cite{mitchell}. In this thesis,
 the machine learning algorithms that are used include Support Vector Machines (SVM), and Logistic Regression (Logit).
  This work uses implementations by the sci-kit learn python library \cite{sklearn-api} for both algorithms. The performance
  measures include the following: precision, recall, accuracy, confusion matrices, and F-measure. These are discussed in
@@ -278,7 +277,7 @@ g(z) = \frac{1}{1+e^{-z}}
 \end{equation}
 \FloatBarrier
 The $\theta$ parameters are solved in order to minimize the sum of square errors (L2-norm) in the
-training set, and to regularize the theta parameters \cite{scikit-learn}. The
+training set, and to regularize the $\theta$ parameters \cite{scikit-learn}. The
 L2-norm is a function that assigns a strictly positive size to a given vector, it is a special case
 of the Lp-norm function given as:
 \FloatBarrier
@@ -417,9 +416,53 @@ Precision and Recall are computed for each threshold and plotted on the PR curve
 with recall on the $x$-axis and precision on the $y$-axis. ROC curves also evaluate classifier output
 quality. ROC curves are constructed similar to the PR curve except $F_p$ replaces recall on the
  $x$-axis and $T_p$ replaces precision on the $y$-axis. For both curves, the curve information is
- summarized in one number, area under the curve (AUC). AUC is calculated using the trapezoidal rule.
+ summarized in one number, area under the curve (AUC). Both PR-AUC and ROC-AUC are calculated using
+ the trapezoidal rule, given as:
+\FloatBarrier
+\begin{equation}
+\label{eq:trapRule}
+\begin{aligned}
+\sum_{i=x(1)}^{k} (i-(i-1)) \left[\frac{f(i) + f(i-1)}{2} \right]
+\end{aligned}
+\end{equation}
+\FloatBarrier
+Where k is the total number of points on the curve, $x(i)$ returns a points $x$-axis value,
+ and $f(0)=0$. Examples of ROC and PR curves and their
+respective AUC values are given in \textit{Figure \ref{fig:PRRocExamples}}.
+
+\FloatBarrier
+\begin{figure*}[!htb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/Psv_1_2_fine_PR}
+        \caption{PR curve.}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/Psv_1_2_fine_ROC}
+        \caption{ROC curve.}
+    \end{subfigure}
+    \caption{Examples of PR and ROC curves with their corresponding AUC values.}
+    \label{fig:PRRocExamples}
+\end{figure*}
+\FloatBarrier
+
+
+
+
+
  Higher values of AUC usually correlate to a better performing the classifier. AUC is used throughout
  this work to summarize and compare ROC and PR curves using a single number.
+
+
+
+
+
+
+
+
 
 \section{Hierarchical Bioinformatics Data Set}
 \par Bioinformatics is a field using computer science tools and techniques
@@ -498,7 +541,7 @@ The negative dataset is composed of 19,136 experimentally validated human
 \FloatBarrier
 
 
-\section{Coarse-grained vs Fine-grained Trade Off}
+\section{Coarse-grained vs. Fine-grained Trade Off}
 \par In hierarchically labeled datasets, over-labeling refers to learning fine-grained
 (non-root) concepts and combining the results to predict the coarse-grained (root) label \cite{yugi}.
 It can be demonstrated through a simple example
@@ -2279,7 +2322,7 @@ fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \
 
 \subsection{Varying SVM Cost and Gamma}
 \label{sect:paramEnd}
-\par After the Logit classifier is tuned with class weights, the SVM is ran again with the
+\par After the Logit classifier is tuned with class weights, the SVM is run again with the
 class weights determined by the Logit classifier and a slight advantage for the fine-grained
 classifier is demonstrated with the SVM as well. The SVM parameters for the RBF
 kernel of cost and gamma are varied. The cost is related to a penalty parameter for the error term
@@ -2412,7 +2455,7 @@ fine & 0.900 & 0.872 & 0.868 & 0.641 & ( 358.5 / 39.2 ) & ( 24.2 / 56.9 ) \\ \bo
  the SVM and Logit classifier performance in the conventional ML setting, we show that the
  accuracy and F1-measure metrics can be seen as a function of a chosen point on the PR and ROC curves.
  We show that no clear advantage exists for fine-grained over coarse-grained with respect to the accuracy
-    or F1-measure metrics. An advantage does exist for the PR-AUC metric but not for the ROC-AUC metric, this
+    or F1-measure metrics. An advantage does exist for the PR-AUC metric but not for the ROC-AUC metric; this
     is examined and shown to be a result of the heavy class imbalance of the protein dataset. PR-AUC is
     chosen as the primary metric to evaluate classifier performance, due to its sensitivity to false positives as
     well as true positives, and its lack of dependence on a chosen threshold to generate a confusion matrix.
@@ -2562,7 +2605,7 @@ fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \b
 
 
 
-\section{Active vs Passive Curve Analysis}
+\section{Active vs. Passive Curve Analysis}
 \label{sect:actpass}
 \par The plots in \textit{Figures \ref{fig:runActPassLogReg_pr}-\ref{fig:rnd20LogRegRoc}}
 were obtained with a round batch size of 100
@@ -2581,7 +2624,7 @@ is used. The test set remains constant throughout the rounds and contains a repr
 
 
 \FloatBarrier
-\subsection{Plots for Logistic Regression Active vs Passive Curves}
+\subsection{Plots for Logistic Regression Active vs. Passive Curves}
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/runActPassLogReg_pr}
@@ -2632,8 +2675,7 @@ Active over Passive.}
 
 \par Note that the Active Fine PR-AUC curve
 surpasses active coarse after round 10 while the active fine ROC-AUC curve is still well below the
- active coarse at that round. These curves are shown in \textit{Figures \ref{fig:rnd20LogRegPr}-
- \ref{fig:rnd20LogRegRoc}}. This is counter-intuitive, because according to a proof in Davis \cite{DavisRocPr}
+ active coarse at that round. These curves are shown in \textit{Figures \ref{fig:rnd20LogRegPr}-\ref{fig:rnd20LogRegRoc}}. This is counter-intuitive, because according to a proof in Davis \cite{DavisRocPr}
  ``For a fixed number of positive and negative examples, one curve dominates a second curve in
  ROC space if and only if the first dominates the second in Precision-Recall space". The theorem uses the
  following definition of dominance: that every value in the first curve is above the corollary value in
@@ -2713,8 +2755,8 @@ surpasses active coarse after round 10 while the active fine ROC-AUC curve is st
 
 \clearpage
 
-\subsection{Plots for SVM Active vs Passive Curves}
-\par The SVM Active vs Passive experiment is performed with the same methodology
+\subsection{Plots for SVM Active vs. Passive Curves}
+\par The SVM Active vs. Passive experiment is performed with the same methodology
 as the previous section detailed with the exception that a SVM classifier is
 substituted for the Logit classifier. Due to the greater advantage of average
 PR-AUC in the Logit classifier, the SVM is not used in the Fixed fine ratio
@@ -2767,28 +2809,28 @@ experiments in Section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \par The strategy is changed from purchasing a set number of instances
     per round to having a set budget per round and spending a portion of that budget
     on fine and coarse grained labels. The Fine Fixed Ratio (FFR), ranges from 0.0 to
-    1.0 in increments of 0.1. Note that the FFR 0.0 should roughly correlate to the
+    1.0 in increments of 0.1. Note that the FFR $0.0$ should roughly correlate to the
     active coarse curve shown in \textit{Figure \ref{fig:runActPassLogReg_pr}}. Likewise
-    the active fine curve should roughly correlate to the FFR 1.0 curve. However, the correlation
+    the active fine curve should roughly correlate to the FFR $1.0$ curve. However, the correlation
     is not exact since the FFR experiments use a combination classifier, it trains fine and
     coarse classifiers on a starter set of the same size and proportion as used in the
-    Logit Active vs Passive experiment, then uses the confidence of both of those classifiers and
-    the end prediction is the max of the two classifiers. Thus even for the FFR 0.0 and FFR 1.0
+    Logit Active vs. Passive experiment, then uses the confidence of both of those classifiers and
+    the end prediction is the max of the two classifiers. Thus even for the FFR $0.0$ and FFR $1.0$
     the starter set trained fine or coarse classifier still contributes to the PR-AUC curve
     even at the final round 180. The results are an average of 10 folds.
 
     \par To determine the number of instances to purchase each round, the FFR proportion vector $p$
     is multiplied by the
     round budget of 100. The coarse labels are purchased at a cost of 1.0.
-    The cost of the fine labels will vary, experiments are performed for fine costs of 1,2,4,8,16. After
+    The cost of the fine labels will vary, experiments are performed for fine costs of $\{1,2,4,8,16\}$. After
      discussions with Cui et al.'s group \cite{bioPoster}, a reasonable estimate for the fine label cost
       for the protein data set is around 10, due to the increased number of features needed to distinguish
-      a protein's target compartment. An example of this cost breakdown is as follows,
+      a protein's target compartment. An example of this cost breakdown is as follows:
       if the fine cost is 8 and $p$ is 0.5, then 50 labels are
       purchased for coarse and 6.25 labels are purchased for fine. The 0.25 of a fine instance is
       resolved by purchasing
     an extra fine label with the probability of 25\%. There is a 25\% chance for any round to
-    purchase an extra fine label. The round size for the FFR 1.0 curve is relatively small, with
+    purchase an extra fine label. The round size for the FFR $1.0$ curve is relatively small, with
     at most 13 labels purchased per iteration.
 
 \FloatBarrier
@@ -2798,7 +2840,7 @@ experiments in Section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
     \caption{For this curve the fine and coarse grain labels
     both have a cost of 1. The purple 1.0 curve shows that if only fine-grained labels
     are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round
-    since the cost of the fine and coarse instances is the same the budget}
+    since the cost of the fine and coarse instances is the same the budget.}
     \label{fig:ParamsFFR_PR_Cost1_rnds0_180}
 \end{figure}
 \FloatBarrier
@@ -2820,7 +2862,7 @@ experiments in Section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \begin{figure}[!htb]
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost4_rnds0_180}
-    \caption{At fine cost 4, the highest FFR 1.0 is no longer preferred, the
+    \caption{At fine cost 4, the highest FFR $1.0$ is no longer preferred, the
     cost is to high for fine instances PR-AUC utility to overcome the PR-AUC
     increase gained by purchasing more coarse instances.}
     \label{fig:ParamsFFR_PR_Cost4_rnds0_180}
@@ -2855,7 +2897,7 @@ experiments in Section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 	\centering
     \includegraphics[width=1.0\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds20_60}
     \caption{The fine cost 8 curves shown expanding the rounds 20-60. If a round budget of 40
-    occurs than the recommended FFR would be 0.2}
+    occurs than the recommended FFR would be $0.2$.}
     \label{fig:ParamsFFR_PR_Cost8_rnds20_60}
 \end{figure}
 \FloatBarrier
@@ -2919,9 +2961,22 @@ experiments in Section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 %\FloatBarrier
 
 \section{BANDIT Approach Results}
-
-
-
+\label{sect:BANDITResults}
+The BANDIT approach is applied to the protein dataset. The two arms or purchasing
+strategies are all-coarse (FFR $0.0$) or all-fine (FFR $1.0$). A starter set is selected
+of the same size and proportion as used in the Logit Active vs. Passive and FFR experiments.
+The combined prediction strategy is the same as used in the FFR experiments. The BANDIT approach is
+compared to the previous FFR curves for the following fine-grain costs
+$\{1.0, 1.1, 1.2, 1.5, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0\}$. We evaluate
+the robustness of the algorithm with respect to cost by holding the budget fixed, and then
+plotting the PR-AUC as cost varies, see \textit{Figure \ref{fig:BanditPlotLogFine}}.
+The budget iteration of 120 is selected as it is late enough in the
+progression of rounds for separation of the purchase strategies PR-AUC to occur and curve
+orderings to stabilize. \textit{Figure \ref{fig:BanditPlotLogFine}} shows that FFR $0.0$ is not
+ affected by variation in fine cost, this is expected since no fine labels are purchased
+ in that strategy. The AUC values for the other FFR strategies decreases drastically as
+ the fine cost increases and labels become more expensive. The BANDIT curve is robust to
+ changes in cost and is almost always among the top curves.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -2932,19 +2987,19 @@ experiments in Section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 \end{figure}
 \FloatBarrier
 
-
-
-\FloatBarrier
-\begin{figure}[!htb]
-	\centering
-    \includegraphics[width=1.0\columnwidth]{fig/BanditMixedCostPR}
-    \caption{BANDIT mixed fine cost plot.}
-    \label{fig:BanditMixedCostPR}
-\end{figure}
-\FloatBarrier
-
-
-
+Further metrics are developed to compare the performance of the purchase strategies
+as fine cost varies. The metric \textit{diff} is the learner's absolute difference
+ in PR-AUC from the top learner for a given cost. The metric \textit{rank} is the learners
+ $0$ indexed ranking in terms of PR-AUC for a given cost. For each purchase strategy,
+ these metrics are calculated for each fine cost experiment. The min, max,
+ mean, and std are calculated for the $10$ diff and rank values for each purchase strategy
+ and the resuls are presented in \textit{Table \ref{tab:banditLogFine}}. The diff of BANDIT
+ is in the range of $[0.000-0.003]$ and averages $0.001$ away from the top learner. This is the
+ lowest among all learners, tying the FFR $0.3$. The rank of BANDIT is in the range of $0-8$ with
+ a mean of $4.8$. This outperforms the FFR $0.3$ strategy, which has a mean of $5.1$. BANDIT has
+ one of the lowest mean ranks and diffs among all learners, and thus is robust to variations in fine
+ cost. This is important since the real cost of a fine-grained label vs. a coarse-grained label is
+ often not known or can only estimated.
 
 \begin{table}[H]
 \caption{Aggregated PR AUC for the protein dataset}
@@ -2956,22 +3011,54 @@ experiments in Section \ref{ffrSection} Plots for Fine Fixed Ratio (FFR) experim
 {} &   min &   max &  mean &   std &  min & max &   mean &   std \\
 \hline
 algorithm &       &       &       &       &      &     &        &       \\
-BANDIT & 0.000 & 0.003 & \underline{\textbf{0.001}} & 0.001 & 0 & 8 & 4.800 & 2.315 \\
-FFR[0.0] & 0.000 & 0.011 & 0.007 & 0.004 & 1 & 11 & 8.800 & 3.429 \\
-FFR[0.1] & 0.001 & 0.006 & 0.003 & 0.002 & 3 & 10 & 8.000 & 2.793 \\
-FFR[0.2] & 0.000 & 0.004 & 0.002 & 0.001 & 0 & 9 & 6.500 & 3.500 \\
-FFR[0.3] & 0.000 & 0.003 & 0.001 & 0.001 & 0 & 8 & 5.100 & 2.663 \\
-FFR[0.4] & 0.000 & 0.004 & 0.002 & 0.001 & 1 & 8 & 5.600 & 2.200 \\
-FFR[0.5] & 0.000 & 0.008 & 0.002 & 0.002 & 0 & 8 & 4.600 & 2.200 \\
-FFR[0.6] & 0.000 & 0.009 & 0.002 & 0.003 & 1 & 7 & 4.600 & 1.855 \\
-FFR[0.7] & 0.000 & 0.012 & 0.002 & 0.004 & 0 & 8 & \underline{\textbf{3.300}} & 2.571 \\
-FFR[0.8] & 0.000 & 0.015 & 0.003 & 0.005 & 1 & 9 & 4.800 & 3.027 \\
-FFR[0.9] & 0.000 & 0.020 & 0.005 & 0.007 & 0 & 10 & 4.300 & 4.605 \\
-FFR[1.0] & 0.000 & 0.038 & 0.009 & 0.013 & 1 & 11 & 5.600 & 4.630 \\
+BANDIT & 0.000 & 0.003 & \underline{\textbf{0.001}} & 0.001 & 0 & 8 & 4.8 & 2.315 \\
+FFR[$0.0$] & 0.000 & 0.011 & 0.007 & 0.004 & 1 & 11 & 8.8 & 3.429 \\
+FFR[$0.1$] & 0.001 & 0.006 & 0.003 & 0.002 & 3 & 10 & 8.0 & 2.793 \\
+FFR[$0.2$] & 0.000 & 0.004 & 0.002 & 0.001 & 0 & 9 & 6.5 & 3.500 \\
+FFR[$0.3$] & 0.000 & 0.003 & 0.001 & 0.001 & 0 & 8 & 5.1 & 2.663 \\
+FFR[$0.4$] & 0.000 & 0.004 & 0.002 & 0.001 & 1 & 8 & 5.6 & 2.200 \\
+FFR[$0.5$] & 0.000 & 0.008 & 0.002 & 0.002 & 0 & 8 & 4.6 & 2.200 \\
+FFR[$0.6$] & 0.000 & 0.009 & 0.002 & 0.003 & 1 & 7 & 4.6 & 1.855 \\
+FFR[$0.7$] & 0.000 & 0.012 & 0.002 & 0.004 & 0 & 8 & \underline{\textbf{3.3}} & 2.571 \\
+FFR[$0.8$] & 0.000 & 0.015 & 0.003 & 0.005 & 1 & 9 & 4.8 & 3.027 \\
+FFR[$0.9$] & 0.000 & 0.020 & 0.005 & 0.007 & 0 & 10 & 4.3 & 4.605 \\
+FFR[$1.0$] & 0.000 & 0.038 & 0.009 & 0.013 & 1 & 11 & 5.6 & 4.630 \\
 \hline
 \end{tabular}}
-\label{tb:synth}
+\label{tab:banditLogFine}
 \end{table}
+
+BANDIT is evaluated as budget changes by averaging the PR-AUC values across the various
+cost experiements for every budget iteration. These results are presented in
+\textit{Figure \ref{fig:BanditMixedCostPR}}. For each fine cost experiment a different
+FFR ratio may be preferred, e.g., FFR $1.0$ is preferable at fine cost 1, but not at a
+more expensive fine cost of 16. BANDIT performs well against the FFR strategies across
+all budget iterations and is consistently among the top learners. Thus, BANDIT is robust
+to variation in both labeling budget and cost.
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/BanditMixedCostPR}
+    \caption{BANDIT mixed fine cost plot.}
+    \label{fig:BanditMixedCostPR}
+\end{figure}
+\FloatBarrier
+
+
+\FloatBarrier
+\begin{figure}[!htb]
+	\centering
+    \includegraphics[width=1.0\columnwidth]{fig/BANDIT_PR_Cost8_rnds20_60}
+    \caption{
+    The fine cost 8 curves shown expanding the rounds 20-60. With the BANDIT approach
+    plotted. At budget iteration 40, BANDIT PR-AUC is within $0.0007$ of the top learner's
+    PR-AUC.
+    }
+    \label{fig:BANDIT_PR_Cost8_rnds20_60}
+\end{figure}
+\FloatBarrier
+
 
 %\begin{table}[H]
 %\caption{Aggregated PR AUC for the protein dataset}
@@ -3004,19 +3091,22 @@ FFR[1.0] & 0.000 & 0.038 & 0.009 & 0.013 & 1 & 11 & 5.600 & 4.630 \\
 \chapter{Conclusions and Future Work}
 \par The protein data set demonstrated that fine-grained labels can be used
 to improve the coarse-grained classifier performance. Both SVM and Logit
-classifiers show an advantage of around 0.005 in average PR curve AUC and around
-0.001 in ROC curve AUC. Experiments comparing active and passive learning for both
+classifiers show an advantage of around $0.005$ in average PR-AUC and around
+$0.001$ in ROC-AUC. Experiments comparing active and passive learning for both
 fine and coarse classifiers are performed, the results shown in Section \ref{sect:actpass}
 demonstrate a prominent advantage for active fine with the Logit classifier. Furthermore
  HAL is implemented and applied to the protein dataset for various FFR proportions and
  fine label costs. After discussions with Cui et. al's group at UNL \cite{bioPoster} the fine label
  estimated cost is around 10. This correlates to the FFR experiment with fine cost 8, which shows
- that for a budget of around 20-60 rounds a FFR strategy of 0.2 would have the best performance,
+ that for a budget of around 20-60 rounds a FFR strategy of $0.2$ would have the best performance,
  see \textit{Figure \ref{fig:ParamsFFR_PR_Cost8_rnds20_60}}.
- \par Future work is to apply the BANDIT approach to the protein dataset in order to achieve
- an optimal strategy for selecting the FFR proportion vector throughout all rounds, see
- Section \ref{sect:BANDIT}. The active over-labeling approach could be applied to other
- datasets with more complex hierarchical label trees; datasets derived from
+ \par The BANDIT approach is applied to the protein dataset in order to achieve
+ an optimal strategy for dynamically selecting the FFR proportion vector throughout all rounds, see
+ Section \ref{sect:BANDITResults}. The BANDIT approach is shown to be robust to variations in both
+ labeling cost and budget for the protein dataset. For a budget of around 20-60 rounds and fine cost of
+ 8, BANDIT is consistently within $0.001$ in PR-AUC of the top FFR learner see
+ \textit{Figure \ref{fig:BANDIT_PR_Cost8_rnds20_60}}. Future work is to apply the
+ active over-labeling approach to other datasets with more complex hierarchical label trees; datasets derived from
  Gene Ontology research could be investigated \cite{GeneOntology}.
 
 

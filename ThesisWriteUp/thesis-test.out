@@ -4,7 +4,7 @@
 \BOOKMARK [1][-]{section.2.1}{Machine Learning}{chapter.2}% 4
 \BOOKMARK [1][-]{section.2.2}{Evaluating Classifier Performance}{chapter.2}% 5
 \BOOKMARK [1][-]{section.2.3}{Hierarchical Bioinformatics Data Set}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.4}{Coarse-grained vs Fine-grained Trade Off}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.4}{Coarse-grained vs. Fine-grained Trade Off}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.5}{Active Over-Labeling}{chapter.2}% 8
 \BOOKMARK [1][-]{section.2.6}{Hierarchical Active Learning}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.7}{Dynamically Adapting Purchase Proportions}{chapter.2}% 10
@@ -33,10 +33,10 @@
 \BOOKMARK [2][-]{subsection.4.1.11}{Varying SVM Cost and Gamma}{section.4.1}% 33
 \BOOKMARK [0][-]{chapter.5}{Results and Analysis}{}% 34
 \BOOKMARK [1][-]{section.5.1}{SVM and Logit Classifier Performance}{chapter.5}% 35
-\BOOKMARK [1][-]{section.5.2}{Active vs Passive Curve Analysis}{chapter.5}% 36
-\BOOKMARK [2][-]{subsection.5.2.1}{Plots for Logistic Regression Active vs Passive Curves}{section.5.2}% 37
-\BOOKMARK [2][-]{subsection.5.2.2}{Plots for SVM Active vs Passive Curves}{section.5.2}% 38
+\BOOKMARK [1][-]{section.5.2}{Active vs. Passive Curve Analysis}{chapter.5}% 36
+\BOOKMARK [2][-]{subsection.5.2.1}{Plots for Logistic Regression Active vs. Passive Curves}{section.5.2}% 37
+\BOOKMARK [2][-]{subsection.5.2.2}{Plots for SVM Active vs. Passive Curves}{section.5.2}% 38
 \BOOKMARK [1][-]{section.5.3}{Plots for Fine Fixed Ratio Results}{chapter.5}% 39
 \BOOKMARK [1][-]{section.5.4}{BANDIT Approach Results}{chapter.5}% 40
 \BOOKMARK [0][-]{chapter.6}{Conclusions and Future Work}{}% 41
-\BOOKMARK [0][-]{section*.116}{Bibliography}{}% 42
+\BOOKMARK [0][-]{section*.118}{Bibliography}{}% 42

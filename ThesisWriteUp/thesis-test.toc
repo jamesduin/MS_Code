@@ -3,8 +3,8 @@
 \contentsline {chapter}{\chapternumberline {2}Background and Theory}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Machine Learning}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}Evaluating Classifier Performance}{6}{section.2.2}
-\contentsline {section}{\numberline {2.3}Hierarchical Bioinformatics Data Set}{7}{section.2.3}
-\contentsline {section}{\numberline {2.4}Coarse-grained vs Fine-grained Trade Off}{10}{section.2.4}
+\contentsline {section}{\numberline {2.3}Hierarchical Bioinformatics Data Set}{8}{section.2.3}
+\contentsline {section}{\numberline {2.4}Coarse-grained vs. Fine-grained Trade Off}{10}{section.2.4}
 \contentsline {section}{\numberline {2.5}Active Over-Labeling}{12}{section.2.5}
 \contentsline {section}{\numberline {2.6}Hierarchical Active Learning}{14}{section.2.6}
 \contentsline {section}{\numberline {2.7}Dynamically Adapting Purchase Proportions}{16}{section.2.7}
@@ -33,10 +33,10 @@
 \contentsline {subsection}{\numberline {4.1.11}Varying SVM Cost and Gamma}{45}{subsection.4.1.11}
 \contentsline {chapter}{\chapternumberline {5}Results and Analysis}{48}{chapter.5}
 \contentsline {section}{\numberline {5.1}SVM and Logit Classifier Performance}{49}{section.5.1}
-\contentsline {section}{\numberline {5.2}Active vs Passive Curve Analysis}{52}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Plots for Logistic Regression Active vs Passive Curves}{53}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Plots for SVM Active vs Passive Curves}{58}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.2}Active vs. Passive Curve Analysis}{52}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Plots for Logistic Regression Active vs. Passive Curves}{53}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Plots for SVM Active vs. Passive Curves}{58}{subsection.5.2.2}
 \contentsline {section}{\numberline {5.3}Plots for Fine Fixed Ratio Results}{60}{section.5.3}
 \contentsline {section}{\numberline {5.4}BANDIT Approach Results}{67}{section.5.4}
-\contentsline {chapter}{\chapternumberline {6}Conclusions and Future Work}{71}{chapter.6}
-\contentsline {chapter}{Bibliography}{72}{section*.116}
+\contentsline {chapter}{\chapternumberline {6}Conclusions and Future Work}{72}{chapter.6}
+\contentsline {chapter}{Bibliography}{74}{section*.118}
