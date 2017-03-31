@@ -6,7 +6,7 @@ Mention 3rd committee member in Acknowledgements -- done
 
 Give a road map: "The rest of this thesis is 
 organized as follows.  Chapter 2 ... ", remove 
-reference to Section 3.5 --
+reference to Section 3.5 -- done
 
 Move this chapter to after background. 
  Much of the terminology you use needs 
@@ -69,12 +69,14 @@ End figure captions with a period -- done
 
 
 ### notes
-Add BANDIT Approach Results section --
+Add BANDIT Approach Results section -- done
 Update abstract -- done
-Updated conclusions -- 
-Update intro -- 
+Updated conclusions -- done
+Update intro -- done
 Capitalized Curves in section titles -- done
+Replace vs with vs. -- done
 run spell check -- 
+
 
 
 
