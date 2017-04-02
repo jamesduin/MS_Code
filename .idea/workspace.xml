@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/CommentsRnd3.txt" afterPath="$PROJECT_DIR$/ThesisWriteUp/CommentsRnd3.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,22 +16,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
-          <provider selected="true" editor-type-id="LaTeXFileEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="experiment.tex" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/experiment.tex">
-          <provider selected="true" editor-type-id="LaTeXFileEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
