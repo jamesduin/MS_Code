@@ -4,13 +4,8 @@
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.pdf" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.aux" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.aux" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.log" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.nav" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.nav" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.out" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.snm" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.snm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.tex" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.toc" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.toc" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +23,8 @@
       <file leaf-file-name="ThesisPresentation.tex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="626" column="23" lean-forward="false" selection-start-line="626" selection-start-column="23" selection-end-line="626" selection-end-column="23" />
+            <state relative-caret-position="135">
+              <caret line="57" column="65" lean-forward="false" selection-start-line="57" selection-start-column="65" selection-end-line="57" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -899,8 +894,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="626" column="23" lean-forward="false" selection-start-line="626" selection-start-column="23" selection-end-line="626" selection-end-column="23" />
+        <state relative-caret-position="135">
+          <caret line="57" column="65" lean-forward="false" selection-start-line="57" selection-start-column="65" selection-end-line="57" selection-end-column="65" />
           <folding />
         </state>
       </provider>

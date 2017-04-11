@@ -55,10 +55,10 @@
     \frametitle{Introduction}
     \framesubtitle{}
     \begin{itemize}
-      \item Identify the source of mutations which give rise to Mitochondrial disease.
+      \item Identify the source of mutations which give rise to mitochondrial disease.
       \item Leigh Syndrome, Leber’s Hereditary Optic Neuropathy %- blindness %- respiratory failure
-      \item Hierarchically labeled according to location in Mitochondria
-      \item Learn Mitochondrion concept (Coarse) by combining classifiers for each target compartment (Fine)
+      \item Hierarchically labeled according to location in mitochondria
+      \item Learn mitochondrion concept (Coarse) by combining classifiers for each target compartment (Fine)
     \end{itemize}
 \end{frame}
 \begin{frame}
@@ -119,7 +119,7 @@ tasks in T, as measured by P, improves with experience E - (Mitchell 1997).
     \framesubtitle{}
 \begin{itemize}
   \item The learner queries an oracle or supervisor which labels the data at a certain cost
-  \item Active learning solicits new instances that can maximally improve performance of the learned classifer
+  \item Active learning solicits new instances that can maximally improve performance of the learned classifier
   \item Learns the best performing classifier for the minimal amount of labeling cost,
   or for a given purchase budget
 \end{itemize}
@@ -128,8 +128,8 @@ tasks in T, as measured by P, improves with experience E - (Mitchell 1997).
     \frametitle{Evaluating Classifier Performance}
     \framesubtitle{Confusion Matrix}
 %    \begin{itemize}
-%      \item Divide data into train and a test set. Analyse test set with the following values:
-\par Divide data into train and a test set. Analyse test set with the following values:
+%      \item Divide data into train and a test set. Analyze test set with the following values:
+\par Divide data into train and a test set. Analyze test set with the following values:
       \begin{itemize}
       \item True-Negatives ($T_n$): Correctly classified negatives
       \item False-Negatives ($F_p$): Incorrectly classified negatives
@@ -274,7 +274,7 @@ tasks in T, as measured by P, improves with experience E - (Mitchell 1997).
     \begin{itemize}
       \item HAL is a fixed-fine ratio (FFR) methodology
       \item Input is a purchase proportion
-vector $p$, which alocates budget to purchase labels at a given level in the hierarchy %specifies how much of the budget should be
+vector $p$, which allocates budget to purchase labels at a given level in the hierarchy %specifies how much of the budget should be
       \item The task of choosing the
 level of granularity to purchase labels is solved using Auer et al.'s $\epsilon$-greedy bandit algorithm %framed as a multi-armed bandit problem, and
 \item With probability $1-\varepsilon_n$ play arm with highest current average reward for round $n$, otherwise explore
