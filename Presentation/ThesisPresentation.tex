@@ -31,30 +31,66 @@
 
 
 
+%1. Introduction: define problem, present a “car-
+%rot”, put in context, and give outline
+%2. Body: high level summary of key results
+%3. Technicalities: more depth into a key result
+%4. Conclusion: review key results, wrap up, give future work
 
 
-
+%The Introduction
+%• Define the Problem
+%– minimize use of terminology
+%– use pictures/examples/props if possible
+%• Motivate the audience (give a “carrot”) – why is problem important?
+%– how does it fit into larger picture?
+%– what are applications?
+%• Discuss related work
+%– table useful (mention authors and dates)
+%• Succinctly state contributions of your work • Provide a road-map (outline)
 
 
 \section{Introduction}
 \begin{frame}
     \frametitle{Introduction}
     \framesubtitle{}
+    \begin{itemize}
+      \item Identify the source of mutations which give rise to Mitochondrial disease.
+      \item Leigh Syndrome, Leber’s Hereditary Optic Neuropathy %- blindness %- respiratory failure
+      \item Hierarchically labeled according to location in Mitochondria
+      \item Learn Mitochondrion concept (Coarse) by combining classifiers for each target compartment (Fine)
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Introduction}
+    \framesubtitle{Related Work}
+    \begin{itemize}
+      \item Previous work in text classification and and rich media indexing use hierarchies of
+      labels to improve fine level classification (McCallum et al. 1998, Jiang et al. 2013)
+      \item Previous work in named entity recognition to target fine-grained entity categories (Fleischman et al. 2002)
+      \item This work is done in conjunction with Yugi Mo, Dr. Scott, and Dr. Downey
+      \item First investigation of active learning in a hierarchical setting where label acquisition cost can vary
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Introduction}
+    \framesubtitle{}
 \begin{itemize}
-  \item Machine Learning
+  \item Active Machine Learning
   \item Evaluating Classifier Performance
-  \item Hierarchical Bioinformatics Dataset
+  \item Hierarchical Protein Dataset
   \item Coarse-grained vs Fine-grained Trade Off
   \item Active Over-Labeling
-  \item Hierarchical Active Learning
-  \item Dynamically Adapting Purchase Proportions
-  \item Related Work
-  \item Training and Testing Coarse-grained and Fine-grained Classifiers
-  \item SVM and Logit Classifier Performance
-  \item Active vs Passive Curve Analysis
-  \item Plots for Fine Fixed Ratio Results
-  \item BANDIT Approach Results
-  \item Conclusions and Future Work
+%  \item Hierarchical Active Learning
+%  \item Dynamically Adapting Purchase Proportions
+  \item Application to Protein Dataset
+%  \item Related Work
+%  \item Training and Testing Coarse-grained and Fine-grained Classifiers
+%  \item SVM and Logit Classifier Performance
+%  \item Active vs Passive Curve Analysis
+%  \item Plots for Fine Fixed Ratio Results
+%  \item BANDIT Approach Results
+%  \item Conclusions and Future Work
 \end{itemize}
 \end{frame}
 
@@ -73,26 +109,41 @@
 \begin{itemize}
   \item Machine learning (ML) algorithms are defined as computer programs that learn from experience E
 with respect to some class of tasks T and performance measure P, if their performance at
-tasks in T, as measured by P, improves with experience E - \textit{Mitchell}.
-  \item Support Vector Machine
-  \item Logistic Regression
+tasks in T, as measured by P, improves with experience E - (Mitchell 1997).
+  \item Support Vector Machine (SVM) - Uses support vectors and kernel functions %which give measures of similarity between data instances to output classification labels
+  \item Logistic Regression (Logit) - Uses logistic function %to output classification labels
+\end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Active Machine Learning}
+    \framesubtitle{}
+\begin{itemize}
+  \item The learner queries an oracle or supervisor which labels the data at a certain cost
+  \item Active learning solicits new instances that can maximally improve performance of the learned classifer
+  \item Learns the best performing classifier for the minimal amount of labeling cost,
+  or for a given purchase budget
 \end{itemize}
 \end{frame}
 \begin{frame}
     \frametitle{Evaluating Classifier Performance}
     \framesubtitle{Confusion Matrix}
-    \begin{itemize}
-      \item True-Negatives ($T_n$): Correctly classified negative instances.
-      \item False-Negatives ($F_p$): Incorrectly classified negative instances.
-      \item False-Positives ($F_n$): Incorrectly classified positive instances.
-      \item True-Positives ($T_p$): Correctly classified positive instances.
+%    \begin{itemize}
+%      \item Divide data into train and a test set. Analyse test set with the following values:
+\par Divide data into train and a test set. Analyse test set with the following values:
+      \begin{itemize}
+      \item True-Negatives ($T_n$): Correctly classified negatives
+      \item False-Negatives ($F_p$): Incorrectly classified negatives
+      \item False-Positives ($F_n$): Incorrectly classified positives
+      \item True-Positives ($T_p$): Correctly classified positives
+%    \end{itemize}
     \end{itemize}
+    \par Example of a confusion matrix for a test set with $100$ negatives and $50$ positives:
     \begin{table}[H]
     \centering
-    \caption{Example of a confusion matrix, with $100$ negative and $50$ positive instances in the test set.}
+    %\caption{Example of a confusion matrix, with $100$ negative and $50$ positive instances in the test set}
     \label{tab:confEx}
     \begin{tabular}{|l||l|}\hline
-    conf (tn/fn) & conf (fp/tp) \\ \hline
+    conf ($T_n$/$F_n$) & conf ($F_p$/$T_p$) \\ \hline
     90 & 10 \\ \hline
     20 & 30 \\ \hline
     \end{tabular}
@@ -157,16 +208,16 @@ tasks in T, as measured by P, improves with experience E - \textit{Mitchell}.
 %    \end{itemize}
     \begin{table}[H]
       \centering
-      \caption{Features of the protein dataset along with their respective sources.}
+      \caption{Features of the protein dataset along with their respective sources:}
       \label{tab:featureList}
       \resizebox{1.0\columnwidth}{!}{
       \begin{tabular}{|c|c|c|} \hline
 %Type of Properties & Features & Sources \\ \hline
 \parbox{0.3\linewidth}{\centering \vspace{1ex}\textbf{Type of Properties}\vspace{1ex}} & \parbox{0.45\linewidth}{\centering \textbf{Features}} & \parbox{0.3\linewidth}{\centering \textbf{Sources}} \\ \hline
-\parbox{0.3\linewidth}{\raggedright General sequence features} & \parbox{0.45\linewidth}{\raggedright Amino acid composition, sequence length, etc.} & \parbox{0.3\linewidth}{\raggedright \vspace{1ex} Calculated by Kevin Chiang at UNL \vspace{1ex} } \\ \hline
-\parbox{0.3\linewidth}{\raggedright Physico chemical properties} & \parbox{0.45\linewidth}{\raggedright Hydrophobicity, polarity, etc.} & \parbox{0.3\linewidth}{\raggedright \vspace{1ex} Computed from Cui et al. \vspace{1ex}} \\ \hline
-\parbox{0.3\linewidth}{\raggedright Structural properties} & \parbox{0.45\linewidth}{\raggedright \vspace{1ex} Secondary structural content, shape, etc.\vspace{1ex}} & \parbox{0.3\linewidth}{\raggedright SSCP} \\ \hline
-\parbox{0.3\linewidth}{\raggedright Domains and motifs} & \parbox{0.45\linewidth}{\raggedright \vspace{1ex}Signal peptide, transmembrane domains, etc.\vspace{1ex}} & \parbox{0.3\linewidth}{\raggedright SignalP, NetOgly} \\ \hline
+\parbox{0.3\linewidth}{\raggedright General sequence features} & \parbox{0.45\linewidth}{\raggedright Amino acid composition, sequence length, etc.} & \parbox{0.3\linewidth}{\raggedright \vspace{1ex} Calculated by Kevin Chiang at UNL, etc.\vspace{1ex} } \\ \hline
+\parbox{0.3\linewidth}{\raggedright Physico chemical properties} & \parbox{0.45\linewidth}{\raggedright Hydrophobicity, polarity, etc.} & \parbox{0.3\linewidth}{\raggedright \vspace{1ex} Computed from Cui et al, etc. \vspace{1ex}} \\ \hline
+\parbox{0.3\linewidth}{\raggedright Structural properties} & \parbox{0.45\linewidth}{\raggedright \vspace{1ex} Secondary structural content, shape, etc.\vspace{1ex}} & \parbox{0.3\linewidth}{\raggedright SSCP, etc.} \\ \hline
+\parbox{0.3\linewidth}{\raggedright Domains and motifs} & \parbox{0.45\linewidth}{\raggedright \vspace{1ex}Signal peptide, transmembrane domains, etc.\vspace{1ex}} & \parbox{0.3\linewidth}{\raggedright SignalP, NetOgly, etc.} \\ \hline
 %General sequence features & Amino acid composition, sequence length, etc. & Calculated by Kevin Chiang at UNL\\ \hline
 %Physico chemical properties &  Hydrophobicity, polarity, etc. & Computed from Cui et al. \\ \hline
 %Structural properties & Secondary structural content, shape, etc. & SSCP \\ \hline
@@ -221,14 +272,15 @@ tasks in T, as measured by P, improves with experience E - \textit{Mitchell}.
     \frametitle{Dynamically Adapting Purchase Proportions}
     \framesubtitle{}
     \begin{itemize}
-      \item HAL is a fixed-fine ratio methodology.
-      \item It takes as input a purchase proportion
-vector $p$, which specifies how much of the budget should be used to purchase at
-a given level in the hierarchy.
+      \item HAL is a fixed-fine ratio (FFR) methodology
+      \item Input is a purchase proportion
+vector $p$, which alocates budget to purchase labels at a given level in the hierarchy %specifies how much of the budget should be
       \item The task of choosing the
-level of granularity to purchase labels is framed as a multi-armed bandit problem,
-and solved using Auer et al.'s $\epsilon$-greedy bandit algorithm (BANDIT) From Auer et al.
+level of granularity to purchase labels is solved using Auer et al.'s $\epsilon$-greedy bandit algorithm %framed as a multi-armed bandit problem, and
+\item With probability $1-\varepsilon_n$ play arm with highest current average reward for round $n$, otherwise explore
     \end{itemize}
+
+
 \end{frame}
 
 
@@ -238,17 +290,17 @@ and solved using Auer et al.'s $\epsilon$-greedy bandit algorithm (BANDIT) From 
 
 
 \section{Related Work}
-\begin{frame}
-    \frametitle{Related Work}
-    \framesubtitle{}
-    \begin{itemize}
-      \item The experiments and methods described in this work
-demonstrate how leveraging fine-grained label  information
-can improve the accuracy of a coarse-grained (root-level) classifier, and
- investigate active learning in a hierarchical setting where
- label acquisition cost can vary, from Mo et al.
-    \end{itemize}
-\end{frame}
+%\begin{frame}
+%    \frametitle{Related Work}
+%    \framesubtitle{}
+%    \begin{itemize}
+%      \item The experiments and methods described in this work
+%demonstrate how leveraging fine-grained label  information
+%can improve the accuracy of a coarse-grained (root-level) classifier, and
+% investigate active learning in a hierarchical setting where
+% label acquisition cost can vary, from Mo et al.
+%    \end{itemize}
+%\end{frame}
 \begin{frame}
     \frametitle{Application to Dispatch Dataset}
     \framesubtitle{}
@@ -272,27 +324,28 @@ can improve the accuracy of a coarse-grained (root-level) classifier, and
 \begin{frame}
     \frametitle{Training and Testing Coarse-Grain and Fine-Grain Classifiers}
     \framesubtitle{}
+    \par Number of proteins in each class:
     \begin{table}[H]
       \centering
-        \caption{Class Totals}
+        %\caption{Class Totals}
         \label{tab:ClassesAll}
-        \resizebox{0.3\columnwidth}{!}{%
-      \begin{tabular}{|l||l|}\hline
-        Classes & Count \\ \hline
-        0 & 19136 \\
-        1 & 13 \\
-        2 & 185 \\
-        3 & 324 \\
-        4 & 190 \\
-        5 & 11 \\
-        6 & 104 \\
-        7 & 59 \\
-        8 & 76 \\ \hline
-        Tot All & 20098 \\
-        Tot Coarse & 19136 \\
-        Tot Fine & 962 \\
-        Features & 449 \\ \hline
-      \end{tabular}}
+
+      \begin{tabular}{|l|l||l|}\hline
+        Classes & Count & Totals \\ \hline
+        0 & 19136 & All: 20098 \\
+        1 & 13 & Coarse: 19136 \\
+        2 & 185 & Fine: 962 \\
+        3 & 324 & Features: 449 \\
+        4 & 190 & \\
+        5 & 11 &  \\
+        6 & 104  & \\
+        7 & 59  & \\
+        8 & 76  & \\ \hline
+%        Tot All & 20098 \\
+%        Tot Coarse & 19136 \\
+%        Tot Fine & 962 \\
+%        Features & 449 \\ \hline
+      \end{tabular}%}
     \end{table}
 \end{frame}
 \begin{frame}
@@ -300,7 +353,7 @@ can improve the accuracy of a coarse-grained (root-level) classifier, and
     \framesubtitle{}
     \begin{table}[H]
       \centering
-        \caption{Example Fold Totals}
+        \caption{Number of proteins in each partition:}
         \label{tab:partitions}
         \resizebox{1.0\columnwidth}{!}{%
         \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\hline
@@ -345,7 +398,7 @@ can improve the accuracy of a coarse-grained (root-level) classifier, and
     \framesubtitle{Conventional ML}
     \begin{table}[H]
     \centering
-    \caption{Logit entire dataset results after parameter tuning}
+    \caption{Logit results after parameter tuning:}
     \label{tab:LogRegAll-Wt23}
     \resizebox{0.9\columnwidth}{!}{%
     \begin{tabular}{|l||l||l||l||l||l||l|} \hline
@@ -357,7 +410,7 @@ can improve the accuracy of a coarse-grained (root-level) classifier, and
     \end{table}
     \begin{table}[H]
     \centering
-    \caption{SVM entire dataset results after parameter tuning}
+    \caption{SVM results after parameter tuning:}
     \label{tab:SVM-All}
     \resizebox{0.9\columnwidth}{!}{%
     \begin{tabular}{|l||l||l||l||l||l||l|}\hline
@@ -422,11 +475,11 @@ can improve the accuracy of a coarse-grained (root-level) classifier, and
     \framesubtitle{Logit PR-AUC curves}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.70\columnwidth]{fig/runActPassLogReg_pr}
-        \caption{The PR-AUC curves for rounds with the Logistic
-    Regression classifier conforms to expectations, with active fine having
-    the best performance, and Active outperforming Passive for both coarse
-    and fine classifier types.}
+        \includegraphics[width=0.80\columnwidth]{fig/runActPassLogReg_pr}
+        \caption{The PR-AUC curves for rounds with the Logit classifier conforms to expectations}
+%    , with active fine having
+%    the best performance, and active outperforming passive for both coarse
+%    and fine classifier types.}
     \label{fig:runActPassLogReg_pr}
     \end{figure}
 \end{frame}
@@ -435,9 +488,9 @@ can improve the accuracy of a coarse-grained (root-level) classifier, and
     \framesubtitle{Logit ROC-AUC curves}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.70\columnwidth]{fig/runActPassLogReg_roc}
+        \includegraphics[width=0.80\columnwidth]{fig/runActPassLogReg_roc}
         \caption{The ROC-AUC curves for rounds with the
-    Logistic Regression classifier. The active curves beat out the passive
+    Logit classifier; active curves beat out the passive
     curves for both coarse and fine.}
 %    Note that active fine ROC curve doesn't
 %    converge to the active coarse ROC curve until round 40. This is contrasted
@@ -447,33 +500,10 @@ can improve the accuracy of a coarse-grained (root-level) classifier, and
 \end{frame}
 \begin{frame}
     \frametitle{Active vs. Passive Curve Analysis}
-    \framesubtitle{Logit Accuracy}
-    \begin{figure}[!htb]
-        \centering
-        \includegraphics[width=0.70\columnwidth]{fig/runActPassLogReg_acc}
-        \label{fig:runActPassLogReg_acc}
-        \caption{The accuracy of the classifiers stays at
-roughly the same rate throughout the rounds; this is due to an effective
-weighting scheme.}
-    \end{figure}
-\end{frame}
-\begin{frame}
-    \frametitle{Active vs. Passive Curve Analysis}
-    \framesubtitle{Logit F-measure}
-    \begin{figure}[!htb]
-        \centering
-        \includegraphics[width=0.70\columnwidth]{fig/runActPassLogReg_f1}
-        \label{fig:runActPassLogReg_f1}
-        \caption{Both curves show a dominance of fine over coarse and
-Active over Passive.}
-    \end{figure}
-\end{frame}
-\begin{frame}
-    \frametitle{Active vs. Passive Curve Analysis}
     \framesubtitle{SVM PR-AUC curves}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.70\columnwidth]{fig/runActPassSVM_pr}
+        \includegraphics[width=0.80\columnwidth]{fig/runActPassSVM_pr}
         \label{fig:ActiveVsPassivePRSVM}
         \caption{The PR AUC curves for SVM show a slight advantage for active fine,
          similar to the Logit results.}
@@ -484,10 +514,10 @@ Active over Passive.}
     \framesubtitle{SVM ROC-AUC curves}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.70\columnwidth]{fig/runActPassSVM_roc}
+        \includegraphics[width=0.80\columnwidth]{fig/runActPassSVM_roc}
         \label{fig:ActiveVsPassiveROCSVM}
         \caption{The ROC AUC curves for SVM match the Logit results, the convergence of
-         active fine to active coarse takes slightly longer, round 60 compared to round 40.}
+         active fine to active coarse takes slightly longer.}% , round 60 compared to round 40.}
     \end{figure}
 \end{frame}
 
@@ -504,8 +534,8 @@ Active over Passive.}
     \framesubtitle{Fine Cost 1}
     \begin{figure}[!htb]
 	\centering
-    \includegraphics[width=0.7\columnwidth]{fig/ParamsFFR_PR_Cost1_rnds0_180}
-    \caption{For this curve the fine and coarse grain labels
+    \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost1_rnds0_180}
+    \caption{The fine and coarse grain labels
     both have a cost of 1.}
 %    The purple 1.0 curve shows that if only fine-grained labels
 %    are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round
@@ -518,7 +548,7 @@ Active over Passive.}
     \framesubtitle{Fine Cost 2}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.7\columnwidth]{fig/ParamsFFR_PR_Cost2_rnds0_180}
+        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost2_rnds0_180}
         \caption{At fine cost 2, advantage of the higher FFR values decreases but the ordering
         of the curves remains unchanged.}
         \label{fig:ParamsFFR_PR_Cost2_rnds0_180}
@@ -529,10 +559,11 @@ Active over Passive.}
     \framesubtitle{Fine Cost 4}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.7\columnwidth]{fig/ParamsFFR_PR_Cost4_rnds0_180}
-        \caption{At fine cost 4, the highest FFR $1.0$ is no longer preferred, the
-        cost is to high for fine instances PR-AUC utility to overcome the PR-AUC
-        increase gained by purchasing more coarse instances.}
+        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost4_rnds0_180}
+        \caption{At fine cost 4, the highest FFR $1.0$ is no longer preferred. Purchasing a greater number of coarse instances is a better strategy.}
+%        , the
+%        cost is to high for fine instances PR-AUC utility to overcome the PR-AUC
+%        increase gained by purchasing more coarse instances.}
         \label{fig:ParamsFFR_PR_Cost4_rnds0_180}
     \end{figure}
 \end{frame}
@@ -541,7 +572,7 @@ Active over Passive.}
     \framesubtitle{Fine Cost 8}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.7\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_180}
+        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_180}
         \caption{At fine cost 8 the middle FFR values outperform the extreme values
         for rounds 0 to 180.}
         \label{fig:ParamsFFR_PR_Cost8_rnds0_180}
@@ -552,11 +583,12 @@ Active over Passive.}
     \framesubtitle{Fine Cost 8 - Rnds to 500}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.7\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_500}
+        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_500}
         \caption{This shows the iterations continuing through round 500, the curves
-        with the higher fine rates eventually settle to the same end point that the
-        curves with the high rates of coarse labels purchased achieved at previous
-        iterations.}
+        with the higher fine rates settle to the same end point.}
+%         that the
+%        curves with the high rates of coarse labels purchased achieved at previous
+%        iterations.}
         \label{fig:ParamsFFR_PR_Cost8_rnds0_500}
     \end{figure}
 \end{frame}
@@ -565,7 +597,7 @@ Active over Passive.}
     \framesubtitle{Fine Cost 8 - Rnds 20 to 60}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.7\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds20_60}
+        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds20_60}
         \caption{The fine cost 8 curves shown expanding the rounds 20-60. If a round budget of 40
         occurs than the recommended FFR would be $0.2$.}
         \label{fig:ParamsFFR_PR_Cost8_rnds20_60}
@@ -576,9 +608,10 @@ Active over Passive.}
     \framesubtitle{Fine Cost 16}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.7\columnwidth]{fig/ParamsFFR_PR_Cost16_rnds0_180}
-        \caption{The fine cost is increased to 16. The cost is to high for the fine label advantage to offset
-        the decreased number of instances purchased.}
+        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost16_rnds0_180}
+        \caption{The fine cost is increased to 16. The fine cost is to high to offset the decreased number of instances purchased.}
+%        The cost is to high for the fine label advantage to offset
+%        the decreased number of instances purchased.}
         \label{fig:ParamsFFR_PR_Cost16_rnds0_180}
     \end{figure}
 \end{frame}
@@ -591,13 +624,28 @@ Active over Passive.}
 
 
 
-\section{BANDIT App.}
+\section{BANDIT Results}
+\begin{frame}
+    \frametitle{BANDIT Approach Results}
+    \framesubtitle{Varying Cost Analysis}
+    \begin{figure}[!htb]
+        \begin{itemize}
+      \item The BANDIT approach is compared to the previous FFR curves for the
+      following fine-grain costs $\{1.0, 1.1, 1.2, 1.5, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0\}$
+      \item Budget held fixed at round 120.
+      \item The metric \textit{diff} is the learner's absolute difference
+     in PR-AUC from the top learner for a given cost.
+     \item The metric \textit{rank} is the learners
+     $0$ indexed ranking in terms of PR-AUC for a given cost.
+    \end{itemize}
+    \end{figure}
+\end{frame}
 \begin{frame}
     \frametitle{BANDIT Approach Results}
     \framesubtitle{Varying Cost Analysis - Plot}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.70\columnwidth]{fig/BanditPlotLogFine}
+        \includegraphics[width=0.80\columnwidth]{fig/BanditPlotLogFine}
         \caption{BANDIT log fine cost analysis with budget fixed.}
         \label{fig:BanditPlotLogFine}
     \end{figure}
@@ -637,7 +685,7 @@ Active over Passive.}
     \framesubtitle{Varying Budget Analysis - Mixed Cost}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.70\columnwidth]{fig/BanditMixedCostPR}
+        \includegraphics[width=0.80\columnwidth]{fig/BanditMixedCostPR}
         \caption{BANDIT mixed fine cost plot.}
         \label{fig:BanditMixedCostPR}
     \end{figure}
@@ -647,11 +695,12 @@ Active over Passive.}
     \framesubtitle{BANDIT - Rnds 20 to 60}
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=0.70\columnwidth]{fig/BANDIT_PR_Cost8_rnds20_60}
+        \includegraphics[width=0.80\columnwidth]{fig/BANDIT_PR_Cost8_rnds20_60}
         \caption{
         The fine cost 8 curves shown expanding the rounds 20-60. With the BANDIT approach
-        plotted. At budget iteration 40, BANDIT PR-AUC is within $0.0007$ of the top learner's
-        PR-AUC.
+        plotted.
+%        At budget iteration 40, BANDIT PR-AUC is within $0.0007$ of the top learner's
+%        PR-AUC.
         }
         \label{fig:BANDIT_PR_Cost8_rnds20_60}
     \end{figure}
@@ -665,7 +714,17 @@ Active over Passive.}
 
 \section{Conclusions}
 \begin{frame}
-    \frametitle{Conclusions and Future Work}
+    \frametitle{Conclusions}
+    \framesubtitle{}
+    \begin{itemize}
+    \item Demonstrated fine grained labels can be used to improve a coarse grained classifier for the protein dataset
+    \item Demonstrated a prominent advantage for active fine with the Logit classifier
+    \item HAL is implemented and applied to the protein dataset for various FFR proportions and fine label costs
+    \item The BANDIT approach is shown to be robust to both labeling cost and budget
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Future Work}
     \framesubtitle{}
     \begin{itemize}
       \item Future work is to apply the active over-labeling approach
@@ -691,9 +750,9 @@ Active over Passive.}
     \frametitle{Bibliography}
     \framesubtitle{}
     \begin{itemize}
+      \item Y. Mo, S. D. Scott, and D. Downey, “Learning hierarchically decomposable concepts with active over-labeling,” in 2016 IEEE 16th International Conference on Data Mining (ICDM), Dec 2016, pp. 340–349.
       \item J. Z. Juan Cui, Kevin Chiang, “Prediction of nuclear and locally encoded mitochondrion.” Lincoln, NE: Nebraska Gateway to Nutrigenomics 6th Annual Retreat, June 9 2014. [Online]. Available: http://cehs.unl.edu/nutrigenomics/ nebraska-gateway-nutrigenomics-6th-annual-retreat/
       \item T. M. Mitchell, Machine Learning, 1st ed. New York, NY, USA: McGraw-Hill, Inc., 1997.
-      \item Y. Mo, S. D. Scott, and D. Downey, “Learning hierarchically decomposable concepts with active over-labeling,” in 2016 IEEE 16th International Conference on Data Mining (ICDM), Dec 2016, pp. 340–349.
     \end{itemize}
 \end{frame}
 \begin{frame}
@@ -709,12 +768,41 @@ Active over Passive.}
     \framesubtitle{}
     \begin{itemize}
       \item J. Cui, L. Y. Han, H. Li, C. Y. Ung, Z. Q. Tang, C. J. Zheng, Z. W. Cao, and Y. Z. Chen, “Computer prediction of allergen proteins from sequence-derived protein structural and physicochemical properties,” Molecular Immunology, vol. 44, no. 4, pp. 514 – 520, 2007. [Online]. Available: http://www.sciencedirect.com/science/article/pii/S0161589006000368
+      \item A. McCallum, R. Rosenfeld, T. M. Mitchell, and A. Y. Ng, “Improving text classification by shrinkage in a hierarchy of classes,” in Proceedings of the Fifteenth International Conference on Machine Learning, ser. ICML ’98. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc., 1998, pp. 359–367. [Online]. Available: http://dl.acm.org/citation.cfm?id=645527.657461
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Bibliography}
+    \framesubtitle{}
+    \begin{itemize}
+      \item W. Jiang and Z. W. Ras, “Multi-label automatic indexing of music by cascade classifiers,” Web Intelli. and Agent Sys., vol. 11, no. 2, pp. 149–170, Apr. 2013. [Online]. Available: http://dl.acm.org/citation.cfm?id=2590084.2590088
       \item etc.
     \end{itemize}
 \end{frame}
 
-
-
+\begin{frame}
+    \frametitle{Active vs. Passive Curve Analysis}
+    \framesubtitle{Logit Accuracy}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.80\columnwidth]{fig/runActPassLogReg_acc}
+        \label{fig:runActPassLogReg_acc}
+        \caption{The accuracy of the classifiers stays at
+roughly the same rate throughout the rounds; this is due to an effective
+weighting scheme.}
+    \end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{Active vs. Passive Curve Analysis}
+    \framesubtitle{Logit F-measure}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.70\columnwidth]{fig/runActPassLogReg_f1}
+        \label{fig:runActPassLogReg_f1}
+        \caption{Both curves show a dominance of fine over coarse and
+Active over Passive.}
+    \end{figure}
+\end{frame}
 
 
 

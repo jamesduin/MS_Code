@@ -22,34 +22,14 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-32337">
-                    <caret line="941" column="0" lean-forward="true" selection-start-line="941" selection-start-column="0" selection-end-line="941" selection-end-column="0" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ThesisPresentation.tex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="164" column="85" lean-forward="false" selection-start-line="164" selection-start-column="85" selection-end-line="164" selection-end-column="85" />
+            <state relative-caret-position="257">
+              <caret line="626" column="23" lean-forward="false" selection-start-line="626" selection-start-column="23" selection-end-line="626" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -57,15 +37,11 @@
       </file>
       <file leaf-file-name="nuthesis.bib" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
-          <provider selected="true" editor-type-id="LaTeXFileEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="version2.tex" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/version2.tex">
-          <provider selected="true" editor-type-id="LaTeXFileEditor">
-            <state />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="313" column="12" lean-forward="false" selection-start-line="313" selection-start-column="6" selection-end-line="313" selection-end-column="12" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -73,9 +49,16 @@
         <entry file="file://$PROJECT_DIR$/Presentation/runPresent.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="6" lean-forward="true" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+              <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
+          <provider selected="true" editor-type-id="LaTeXFileEditor">
+            <state />
           </provider>
         </entry>
       </file>
@@ -90,9 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>\chapter</find>
-      <find>conventional</find>
-      <find>list</find>
       <find>kernel</find>
       <find>Active vs</find>
       <find>BANDIT Appro</find>
@@ -108,7 +88,6 @@
       <find>beamer</find>
       <find>A Th</find>
       <find>A THESIS</find>
-      <find>BANDIT</find>
       <find>{frame}</find>
       <find>SVM and Logit</find>
       <find>Plots for Logistic</find>
@@ -120,6 +99,10 @@
       <find>Cui2</find>
       <find>Hierarchical</find>
       <find>SSCP</find>
+      <find>Auer et</find>
+      <find>Training and Testing</find>
+      <find>poster</find>
+      <find>BANDIT</find>
     </findStrings>
     <replaceStrings>
       <replace>[H]</replace>
@@ -205,10 +188,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="574" />
+    <option name="x" value="312" />
     <option name="y" value="23" />
-    <option name="width" value="1106" />
-    <option name="height" value="976" />
+    <option name="width" value="1341" />
+    <option name="height" value="1001" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -228,7 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -271,6 +253,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -565,16 +548,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="574" y="23" width="1106" height="976" extended-state="0" />
+    <frame x="312" y="23" width="1341" height="1001" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17235023" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14090909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280543" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278328" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647059" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25742576" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -876,20 +859,15 @@
     <entry file="file://$PROJECT_DIR$/Presentation/runPresent.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="6" lean-forward="true" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/version2.tex">
-      <provider selected="true" editor-type-id="LaTeXFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32337">
-          <caret line="941" column="0" lean-forward="true" selection-start-line="941" selection-start-column="0" selection-end-line="941" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -898,9 +876,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="313" column="12" lean-forward="false" selection-start-line="313" selection-start-column="6" selection-end-line="313" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="LaTeXFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="315" column="21" lean-forward="false" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="21" />
+        <state relative-caret-position="15">
+          <caret line="941" column="0" lean-forward="false" selection-start-line="941" selection-start-column="0" selection-end-line="941" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="LaTeXFileEditor">
@@ -909,8 +899,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="164" column="85" lean-forward="false" selection-start-line="164" selection-start-column="85" selection-end-line="164" selection-end-column="85" />
+        <state relative-caret-position="257">
+          <caret line="626" column="23" lean-forward="false" selection-start-line="626" selection-start-column="23" selection-end-line="626" selection-end-column="23" />
           <folding />
         </state>
       </provider>
