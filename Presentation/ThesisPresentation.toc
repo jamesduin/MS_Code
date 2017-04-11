@@ -1,4 +1,10 @@
 \beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
-\beamer@sectionintoc {2}{UNL Theme}{3}{0}{2}
-\beamer@sectionintoc {3}{Using The Theme}{5}{0}{3}
+\beamer@sectionintoc {2}{Background}{3}{0}{2}
+\beamer@sectionintoc {3}{Related Work}{14}{0}{3}
+\beamer@sectionintoc {4}{Exp. Setup}{16}{0}{4}
+\beamer@sectionintoc {5}{Conv. ML}{17}{0}{5}
+\beamer@sectionintoc {6}{Act. vs Pass.}{20}{0}{6}
+\beamer@sectionintoc {7}{FFR Results}{26}{0}{7}
+\beamer@sectionintoc {8}{BANDIT Res.}{33}{0}{8}
+\beamer@sectionintoc {9}{Conclusions}{37}{0}{9}

@@ -10,3 +10,4 @@
 #rm -f ThesisPresentation.toc
 #rm -f ThesisPresentation.vrb
 pdflatex ThesisPresentation
+pdflatex ThesisPresentation
