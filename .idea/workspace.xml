@@ -11,8 +11,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.snm" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.snm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.tex" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.tex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.toc" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.toc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/runPresent.sh" afterPath="$PROJECT_DIR$/Presentation/runPresent.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +30,8 @@
             <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="78">
-                    <caret line="876" column="31" lean-forward="true" selection-start-line="876" selection-start-column="31" selection-end-line="876" selection-end-column="31" />
+                  <state relative-caret-position="-32337">
+                    <caret line="941" column="0" lean-forward="true" selection-start-line="941" selection-start-column="0" selection-end-line="941" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
@@ -50,8 +48,8 @@
       <file leaf-file-name="ThesisPresentation.tex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="259" column="48" lean-forward="false" selection-start-line="259" selection-start-column="48" selection-end-line="259" selection-end-column="48" />
+            <state relative-caret-position="333">
+              <caret line="164" column="85" lean-forward="false" selection-start-line="164" selection-start-column="85" selection-end-line="164" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -92,12 +90,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mixedCostPRAtCost</find>
       <find>\chapter</find>
       <find>conventional</find>
       <find>list</find>
       <find>kernel</find>
-      <find>Hierarchical</find>
       <find>Active vs</find>
       <find>BANDIT Appro</find>
       <find>fine-grain co</find>
@@ -122,6 +118,8 @@
       <find>PROFEAT1</find>
       <find>cite</find>
       <find>Cui2</find>
+      <find>Hierarchical</find>
+      <find>SSCP</find>
     </findStrings>
     <replaceStrings>
       <replace>[H]</replace>
@@ -207,9 +205,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="669" />
+    <option name="x" value="574" />
     <option name="y" value="23" />
-    <option name="width" value="1011" />
+    <option name="width" value="1106" />
     <option name="height" value="976" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -567,16 +565,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="669" y="23" width="1011" height="976" extended-state="0" />
-    <editor active="true" />
+    <frame x="574" y="23" width="1106" height="976" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18888889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17235023" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282353" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280543" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647059" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647059" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -888,6 +886,17 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32337">
+          <caret line="941" column="0" lean-forward="true" selection-start-line="941" selection-start-column="0" selection-end-line="941" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="LaTeXFileEditor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -898,21 +907,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="876" column="31" lean-forward="true" selection-start-line="876" selection-start-column="31" selection-end-line="876" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="LaTeXFileEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="259" column="48" lean-forward="false" selection-start-line="259" selection-start-column="48" selection-end-line="259" selection-end-column="48" />
+        <state relative-caret-position="333">
+          <caret line="164" column="85" lean-forward="false" selection-start-line="164" selection-start-column="85" selection-end-line="164" selection-end-column="85" />
           <folding />
         </state>
       </provider>

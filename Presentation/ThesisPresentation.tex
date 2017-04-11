@@ -150,40 +150,29 @@ tasks in T, as measured by P, improves with experience E - \textit{Mitchell}.
 \begin{frame}
     \frametitle{Hierarchical Bioinformatics Data Set}
     \framesubtitle{Feature Sources}
-%    \begin{table}[H]
-%      \centering
-%      \small
-%      \caption{Features of the protein dataset along with their respective sources.}
-%      \label{tab:featureList}
-%      \resizebox{1.0\columnwidth}{!}{
-%      \begin{tabular}{|p{0.25\linewidth}|p{0.5\linewidth}|p{0.25\linewidth}|} \hline
-%        Type of Properties & Features (dimension) & Sources \\ \hline
-%        General sequence features & Amino acid composition (20), sequence length (1), etc. %di-peptides composition (400)
-%        & Calculated by Kevin Chiang at UNL \\
-%         & Normalized Moreau-Broto, autocorrelation (240), etc.
-%%         Moran autocorrelation (240), Geary autocorrelation (240),
-%%         Sequence order (160), Pseudo amino acid composition (50)
-%         & PROFEAT \\ \hline% \cite{PROFEAT1} \\ \hline
-%        Physico chemical properties &  Hydrophobicity (21), normalized Van der Waals volume (21), etc.
-%%        polarity (21), polarizability (21), charge (21), secondary structure (21)
-%%        and solvent accessibility (21)
-%        & Computed
-%%        with composition (C),
-%%        transition (T), and distribution (D)
-%        from Cui et al. \\ %\cite{Cui2} \\
-%         & Solubility (1), unfold-ability (1), etc. &
-%        %disorder regions (3), global charge (1) and hydrophobility (1) &
-%        PROSO and Phobius \\ \hline %\cite{PROSO3}, Phobius \cite{Phobius4} \\ \hline
-%        Structural properties & Secondary structural content (4), shape
-%        (Radius Gyration) (1) & SSCP \cite{PSSCP5} \\ \hline
-%        Domains and motifs & Signal peptide (1), transmembrane domains
-%        (alpha helix and beta barrel) (5), Glycosylation
-%        (both N-linked and O-linked) (4),
-%        Twin-arginine signal peptides motif (TAT) (1) & SignalP \cite{SignalP6},
-%        TMB-Hunt \cite{TMBHunt7}, NetOgly \cite{NetOgly8}, TatP \cite{TatP9} \\
-%          \hline
-%      \end{tabular} }
-%    \end{table}
+%    \begin{itemize}
+%      \item Type of Properties
+%      \item Features
+%      \item Sources
+%    \end{itemize}
+    \begin{table}[H]
+      \centering
+      \caption{Features of the protein dataset along with their respective sources.}
+      \label{tab:featureList}
+      \resizebox{1.0\columnwidth}{!}{
+      \begin{tabular}{|c|c|c|} \hline
+%Type of Properties & Features & Sources \\ \hline
+\parbox{0.3\linewidth}{\centering \vspace{1ex}\textbf{Type of Properties}\vspace{1ex}} & \parbox{0.45\linewidth}{\centering \textbf{Features}} & \parbox{0.3\linewidth}{\centering \textbf{Sources}} \\ \hline
+\parbox{0.3\linewidth}{\raggedright General sequence features} & \parbox{0.45\linewidth}{\raggedright Amino acid composition, sequence length, etc.} & \parbox{0.3\linewidth}{\raggedright \vspace{1ex} Calculated by Kevin Chiang at UNL \vspace{1ex} } \\ \hline
+\parbox{0.3\linewidth}{\raggedright Physico chemical properties} & \parbox{0.45\linewidth}{\raggedright Hydrophobicity, polarity, etc.} & \parbox{0.3\linewidth}{\raggedright \vspace{1ex} Computed from Cui et al. \vspace{1ex}} \\ \hline
+\parbox{0.3\linewidth}{\raggedright Structural properties} & \parbox{0.45\linewidth}{\raggedright \vspace{1ex} Secondary structural content, shape, etc.\vspace{1ex}} & \parbox{0.3\linewidth}{\raggedright SSCP} \\ \hline
+\parbox{0.3\linewidth}{\raggedright Domains and motifs} & \parbox{0.45\linewidth}{\raggedright \vspace{1ex}Signal peptide, transmembrane domains, etc.\vspace{1ex}} & \parbox{0.3\linewidth}{\raggedright SignalP, NetOgly} \\ \hline
+%General sequence features & Amino acid composition, sequence length, etc. & Calculated by Kevin Chiang at UNL\\ \hline
+%Physico chemical properties &  Hydrophobicity, polarity, etc. & Computed from Cui et al. \\ \hline
+%Structural properties & Secondary structural content, shape, etc. & SSCP \\ \hline
+%Domains and motifs & Signal peptide, transmembrane domains, etc. & SignalP, NetOgly \\ \hline
+      \end{tabular} }
+    \end{table}
 \end{frame}
 \begin{frame}
     \frametitle{Hierarchical Bioinformatics Data Set}
@@ -283,8 +272,67 @@ can improve the accuracy of a coarse-grained (root-level) classifier, and
 \begin{frame}
     \frametitle{Training and Testing Coarse-Grain and Fine-Grain Classifiers}
     \framesubtitle{}
+    \begin{table}[H]
+      \centering
+        \caption{Class Totals}
+        \label{tab:ClassesAll}
+        \resizebox{0.3\columnwidth}{!}{%
+      \begin{tabular}{|l||l|}\hline
+        Classes & Count \\ \hline
+        0 & 19136 \\
+        1 & 13 \\
+        2 & 185 \\
+        3 & 324 \\
+        4 & 190 \\
+        5 & 11 \\
+        6 & 104 \\
+        7 & 59 \\
+        8 & 76 \\ \hline
+        Tot All & 20098 \\
+        Tot Coarse & 19136 \\
+        Tot Fine & 962 \\
+        Features & 449 \\ \hline
+      \end{tabular}}
+    \end{table}
 \end{frame}
-
+\begin{frame}
+    \frametitle{Training and Testing Coarse-Grain and Fine-Grain Classifiers}
+    \framesubtitle{}
+    \begin{table}[H]
+      \centering
+        \caption{Example Fold Totals}
+        \label{tab:partitions}
+        \resizebox{1.0\columnwidth}{!}{%
+        \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\hline
+    %    Folds & \multicolumn{9}{c}{Classes} \\ \cmidrule(r){2-11}
+        Folds & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
+        1 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+        2 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+        3 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 5 & 8 \\
+        4 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 10 & 6 & 8 \\
+        5 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+        6 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+        7 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+        8 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+        9 & 2009 & 1913 & 2 & 18 & 32 & 19 & 2 & 10 & 6 & 7 \\
+        10 & 2009 & 1913 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\ \hline
+        Total & 20098 & 19136 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\
+     \hline
+      \end{tabular}}
+    \end{table}
+\end{frame}
+\begin{frame}
+    \frametitle{Training and Testing Coarse-Grain and Fine-Grain Classifiers}
+    \framesubtitle{}
+     \par The following variables were varied for both SVM and Logit classifiers:
+    \begin{itemize}
+      \item Preprocessing Scaling Methods
+      \item Preprocessing Feature Selection
+      \item Class Weight
+      \item SVM Kernel, Cost, and Gamma parameters
+      \item Logit Cost, Fine class weights, Tolerance
+    \end{itemize}
+\end{frame}
 
 
 
@@ -543,7 +591,7 @@ Active over Passive.}
 
 
 
-\section{BANDIT Res.}
+\section{BANDIT App.}
 \begin{frame}
     \frametitle{BANDIT Approach Results}
     \framesubtitle{Varying Cost Analysis - Plot}
@@ -619,10 +667,51 @@ Active over Passive.}
 \begin{frame}
     \frametitle{Conclusions and Future Work}
     \framesubtitle{}
+    \begin{itemize}
+      \item Future work is to apply the active over-labeling approach
+      to other datasets with more complex hierarchical label trees;
+      datasets derived from Gene Ontology research could be investigated
+    \end{itemize}
 \end{frame}
 
 
+\begin{frame}
+    \frametitle{Questions}
+    \framesubtitle{jamesdduin@gmail.com}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=1.0\columnwidth]{fig/question}
+        \label{fig:question}
+    \end{figure}
+\end{frame}
 
+
+\section{Bibliography}
+\begin{frame}
+    \frametitle{Bibliography}
+    \framesubtitle{}
+    \begin{itemize}
+      \item J. Z. Juan Cui, Kevin Chiang, “Prediction of nuclear and locally encoded mitochondrion.” Lincoln, NE: Nebraska Gateway to Nutrigenomics 6th Annual Retreat, June 9 2014. [Online]. Available: http://cehs.unl.edu/nutrigenomics/ nebraska-gateway-nutrigenomics-6th-annual-retreat/
+      \item T. M. Mitchell, Machine Learning, 1st ed. New York, NY, USA: McGraw-Hill, Inc., 1997.
+      \item Y. Mo, S. D. Scott, and D. Downey, “Learning hierarchically decomposable concepts with active over-labeling,” in 2016 IEEE 16th International Conference on Data Mining (ICDM), Dec 2016, pp. 340–349.
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Bibliography}
+    \framesubtitle{}
+    \begin{itemize}
+      \item L. Buitinck, G. Louppe, M. Blondel, F. Pedregosa, A. Mueller, O. Grisel, V. Niculae, P. Prettenhofer, A. Gramfort, J. Grobler, R. Layton, J. VanderPlas, A. Joly, B. Holt, and G. Varoquaux, “API design for machine learning software: experiences from the scikit-learn project,” in ECML PKDD Workshop: Languages for Data Mining and Machine Learning, 2013, pp. 108–122
+      \item D. Cotter, P. Guda, E. Fahy, and S. Subramaniam, “Mitoproteome: mitochondrial protein sequence database and annotation system,” Nucleic Acids Research, vol. 32, no. suppl1, p. D463, 2004. [Online]. Available: +http://dx.doi.org/10.1093/nar/gkh048
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Bibliography}
+    \framesubtitle{}
+    \begin{itemize}
+      \item J. Cui, L. Y. Han, H. Li, C. Y. Ung, Z. Q. Tang, C. J. Zheng, Z. W. Cao, and Y. Z. Chen, “Computer prediction of allergen proteins from sequence-derived protein structural and physicochemical properties,” Molecular Immunology, vol. 44, no. 4, pp. 514 – 520, 2007. [Online]. Available: http://www.sciencedirect.com/science/article/pii/S0161589006000368
+      \item etc.
+    \end{itemize}
+\end{frame}
 
 
 
