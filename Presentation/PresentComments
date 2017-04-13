@@ -28,7 +28,7 @@ learns a probability distribution -- done
 Boldface, or italics -- done
 Give examples of domains where active learning is useful:
 copious unlabeled data, cost associated with
-acquiring labels. --
+acquiring labels. -- done
 
 ### slide 7
 delete slide -- done
@@ -52,14 +52,14 @@ Remove figure caption -- done
 
 ### slide 13
 This belongs earlier, when you describe active over-labeling.
-If you are short on time, then this can be cut. --
+If you are short on time, then this can be cut. -- done
 Remove figure caption -- done
 
 ### slide 14
 delete slide -- done
 
 ### slide 15
-Move to earlier --
+Move to earlier -- done
 Remove figure caption -- done
 
 ### slide 16
@@ -69,8 +69,8 @@ Can you demonstrate this graphically? -- done
 Not related to your work.  After you present HAL,
 you may briefly summarize results in other
 domains, but you should avoid
-detailed descriptions. --
-delete slide -- done
+detailed descriptions. delete slide -- done
+
 
 ### slide 18
 Name the classes -- done
@@ -84,18 +84,18 @@ delete slide -- done
 ### slide 21
 Instead, simply state that you tuned the
 parameters for the learning algorithms via an
-independent run of cross-validation. --
+independent run of cross-validation. -- done
 delete slide -- done
 
 ### slide 22
-On the prior slide, define precision, recall, and P-R curves --
+On the prior slide, define precision, recall, and P-R curves -- done
 Remove figure caption -- done
 
 ### slide 23
 Remove figure caption -- done
 
 ### slide 24
-Define 'iteration' and 'AUC' --
+Define 'iteration' and 'AUC' -- done
 Remove figure caption -- done
 
 ### slide 25
@@ -109,7 +109,7 @@ Remove figure caption -- done
 
 ### slide 28
 On each slide, describe what you are comparing.
-E.g., for varying cost, explain what this means. --
+E.g., for varying cost, explain what this means. -- done
 Remove figure caption -- done
 
 ### slide 29
@@ -124,11 +124,11 @@ Remove figure caption -- done
 ### slide 32
 Is there a reason to display both cost-8 curves?
 Is there something essential that each shows
-that the other doesn't? --
+that the other doesn't? -- done
 Remove figure caption -- done
 
 ### slide 33
-Same comment as earlier: be judicious of which curves to plot  --
+Same comment as earlier: be judicious of which curves to plot  -- done
 Remove figure caption -- done
 
 ### slide 34
@@ -137,8 +137,8 @@ Remove figure caption -- done
 ### slide 35
 You have not defined BANDIT, why it's important, or given an
 example of how it works.  You should do that when you
-describe your original approaches --
-PR-AUC Define before experimental results presented --
+describe your original approaches -- done
+PR-AUC Define before experimental results presented -- done
 
 ### slide 36
 Remove figure caption -- done
@@ -146,7 +146,7 @@ Remove figure caption -- done
 ### slide 37
 diff min, max mean std rank min max mean std; Remember to explain
 what these terms mean, even if you do not define
-them on your slides --
+them on your slides -- done
 Remove figure caption -- done
 
 ### slide 38

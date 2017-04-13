@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  13 APR 2017 12:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  13 APR 2017 14:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -957,7 +957,7 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 ]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 101.
+Package pdftex.def Info: UNL.pdf used on input line 102.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -967,11 +967,11 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 [4
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 131.
+LaTeX Font Info:    Try loading font information for U+msa on input line 132.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 131.
+LaTeX Font Info:    Try loading font information for U+msb on input line 132.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -979,15 +979,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <fig/ML_labels.png, id=224, 546.04pt x 417.56pt>
 File: fig/ML_labels.png Graphic file (type png)
  <use fig/ML_labels.png>
-Package pdftex.def Info: fig/ML_labels.png used on input line 131.
+Package pdftex.def Info: fig/ML_labels.png used on input line 132.
 (pdftex.def)             Requested size: 203.51895pt x 155.62889pt.
 
-Overfull \vbox (6.98363pt too high) detected at line 131
+Overfull \vbox (6.98363pt too high) detected at line 132
  []
 
 File: UNL.pdf Graphic file (type pdf)
 <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 131.
+Package pdftex.def Info: UNL.pdf used on input line 132.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1000,11 +1000,11 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 File: fig/ML2.png Graphic file (type png)
 
 <use fig/ML2.png>
-Package pdftex.def Info: fig/ML2.png used on input line 140.
+Package pdftex.def Info: fig/ML2.png used on input line 141.
 (pdftex.def)             Requested size: 290.74263pt x 172.50902pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 140.
+Package pdftex.def Info: UNL.pdf used on input line 141.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1017,11 +1017,11 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 File: fig/SVM1.png Graphic file (type png)
 
 <use fig/SVM1.png>
-Package pdftex.def Info: fig/SVM1.png used on input line 152.
+Package pdftex.def Info: fig/SVM1.png used on input line 153.
 (pdftex.def)             Requested size: 261.66658pt x 167.6621pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 152.
+Package pdftex.def Info: UNL.pdf used on input line 153.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1034,11 +1034,11 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 File: fig/RBFSVM1.png Graphic file (type png)
 
 <use fig/RBFSVM1.png>
-Package pdftex.def Info: fig/RBFSVM1.png used on input line 163.
+Package pdftex.def Info: fig/RBFSVM1.png used on input line 164.
 (pdftex.def)             Requested size: 232.59499pt x 172.07384pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 163.
+Package pdftex.def Info: UNL.pdf used on input line 164.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1051,15 +1051,15 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 File: fig/RBFSVM2.png Graphic file (type png)
 
 <use fig/RBFSVM2.png>
-Package pdftex.def Info: fig/RBFSVM2.png used on input line 173.
+Package pdftex.def Info: fig/RBFSVM2.png used on input line 174.
 (pdftex.def)             Requested size: 232.59499pt x 175.75124pt.
 
-Overfull \vbox (5.78447pt too high) detected at line 173
+Overfull \vbox (5.78447pt too high) detected at line 174
  []
 
 File: UNL.pdf Graphic file (type pdf)
 <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 173.
+Package pdftex.def Info: UNL.pdf used on input line 174.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1072,11 +1072,11 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 File: fig/logit1.png Graphic file (type png)
 
 <use fig/logit1.png>
-Package pdftex.def Info: fig/logit1.png used on input line 188.
+Package pdftex.def Info: fig/logit1.png used on input line 189.
 (pdftex.def)             Requested size: 290.74263pt x 106.41107pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 188.
+Package pdftex.def Info: UNL.pdf used on input line 189.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1088,7 +1088,7 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
  <./fig/logit1.png>]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 213.
+Package pdftex.def Info: UNL.pdf used on input line 215.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1097,10 +1097,15 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [11
 
-]
+] <fig/union.png, id=490, 373.395pt x 355.3275pt>
+File: fig/union.png Graphic file (type png)
+ <use fig/union.png>
+Package pdftex.def Info: fig/union.png used on input line 227.
+(pdftex.def)             Requested size: 174.44734pt x 166.00632pt.
 File: UNL.pdf Graphic file (type pdf)
- <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 316.
+
+<use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 227.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1109,15 +1114,15 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [12
 
-] <fig/MitoTreeLabels.png, id=525, 552.0625pt x 400.49625pt>
-File: fig/MitoTreeLabels.png Graphic file (type png)
+ <./fig/union.png>] <fig/AL2.png, id=526, 729.72626pt x 578.16pt>
+File: fig/AL2.png Graphic file (type png)
 
-<use fig/MitoTreeLabels.png>
-Package pdftex.def Info: fig/MitoTreeLabels.png used on input line 328.
-(pdftex.def)             Requested size: 218.05696pt x 158.19122pt.
+<use fig/AL2.png>
+Package pdftex.def Info: fig/AL2.png used on input line 238.
+(pdftex.def)             Requested size: 188.98093pt x 149.72697pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 328.
+Package pdftex.def Info: UNL.pdf used on input line 238.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1126,16 +1131,19 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [13
 
- <./fig/MitoTreeLabels.png>]
-<fig/union.png, id=563, 373.395pt x 355.3275pt>
-File: fig/union.png Graphic file (type png)
- <use fig/union.png>
-Package pdftex.def Info: fig/union.png used on input line 339.
-(pdftex.def)             Requested size: 174.44734pt x 166.00632pt.
-File: UNL.pdf Graphic file (type pdf)
+ <./fig/AL2.png>] <fig/BANDIT.png, id=563, 673.51625pt x 478.78876pt>
+File: fig/BANDIT.png Graphic file (type png)
 
+<use fig/BANDIT.png>
+Package pdftex.def Info: fig/BANDIT.png used on input line 247.
+(pdftex.def)             Requested size: 290.74263pt x 206.68608pt.
+
+Overfull \vbox (0.27696pt too high) detected at line 247
+ []
+
+File: UNL.pdf Graphic file (type pdf)
 <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 339.
+Package pdftex.def Info: UNL.pdf used on input line 247.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1144,15 +1152,10 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [14
 
- <./fig/union.png>] <fig/AL2.png, id=600, 729.72626pt x 578.16pt>
-File: fig/AL2.png Graphic file (type png)
-
-<use fig/AL2.png>
-Package pdftex.def Info: fig/AL2.png used on input line 360.
-(pdftex.def)             Requested size: 188.98093pt x 149.72697pt.
+ <./fig/BANDIT.png>]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 360.
+Package pdftex.def Info: UNL.pdf used on input line 276.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1161,19 +1164,15 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [15
 
- <./fig/AL2.png>] <fig/BANDIT.png, id=635, 673.51625pt x 478.78876pt>
-File: fig/BANDIT.png Graphic file (type png)
+] <fig/MitoTreeLabels.png, id=635, 552.0625pt x 400.49625pt>
+File: fig/MitoTreeLabels.png Graphic file (type png)
 
-<use fig/BANDIT.png>
-Package pdftex.def Info: fig/BANDIT.png used on input line 369.
-(pdftex.def)             Requested size: 290.74263pt x 206.68608pt.
-
-Overfull \vbox (0.27696pt too high) detected at line 369
- []
-
+<use fig/MitoTreeLabels.png>
+Package pdftex.def Info: fig/MitoTreeLabels.png used on input line 288.
+(pdftex.def)             Requested size: 218.05696pt x 158.19122pt.
 File: UNL.pdf Graphic file (type pdf)
-<use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 369.
+ <use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 288.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1182,10 +1181,10 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [16
 
- <./fig/BANDIT.png>]
+ <./fig/MitoTreeLabels.png>]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 436.
+Package pdftex.def Info: UNL.pdf used on input line 343.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1195,24 +1194,9 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 [17
 
 ]
-<fig/LogReg_FindThreshold_PrCurve_coarse.png, id=706, 578.16pt x 433.62pt>
-File: fig/LogReg_FindThreshold_PrCurve_coarse.png Graphic file (type png)
-
-<use fig/LogReg_FindThreshold_PrCurve_coarse.png>
-Package pdftex.def Info: fig/LogReg_FindThreshold_PrCurve_coarse.png used on in
-put line 531.
-(pdftex.def)             Requested size: 138.10452pt x 103.57468pt.
-
-<fig/LogReg_FindThreshold_PrCurve_fine.png, id=707, 578.16pt x 433.62pt>
-File: fig/LogReg_FindThreshold_PrCurve_fine.png Graphic file (type png)
-
-<use fig/LogReg_FindThreshold_PrCurve_fine.png>
-Package pdftex.def Info: fig/LogReg_FindThreshold_PrCurve_fine.png used on inpu
-t line 531.
-(pdftex.def)             Requested size: 138.10452pt x 103.57468pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 531.
+Package pdftex.def Info: UNL.pdf used on input line 362.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1221,26 +1205,25 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [18
 
- <./fig/LogReg_FindThreshold_PrCurve_coarse.png> <./fig/LogReg_FindThreshold_Pr
-Curve_fine.png>]
-<fig/LogReg_FindThreshold_RocCurve_coarse.png, id=745, 578.16pt x 433.62pt>
-File: fig/LogReg_FindThreshold_RocCurve_coarse.png Graphic file (type png)
+]
+<fig/LogReg_FindThreshold_PrCurve_coarse.png, id=741, 578.16pt x 433.62pt>
+File: fig/LogReg_FindThreshold_PrCurve_coarse.png Graphic file (type png)
 
-<use fig/LogReg_FindThreshold_RocCurve_coarse.png>
-Package pdftex.def Info: fig/LogReg_FindThreshold_RocCurve_coarse.png used on i
-nput line 551.
+<use fig/LogReg_FindThreshold_PrCurve_coarse.png>
+Package pdftex.def Info: fig/LogReg_FindThreshold_PrCurve_coarse.png used on in
+put line 383.
 (pdftex.def)             Requested size: 138.10452pt x 103.57468pt.
 
-<fig/LogReg_FindThreshold_RocCurve_fine.png, id=746, 578.16pt x 433.62pt>
-File: fig/LogReg_FindThreshold_RocCurve_fine.png Graphic file (type png)
+<fig/LogReg_FindThreshold_PrCurve_fine.png, id=742, 578.16pt x 433.62pt>
+File: fig/LogReg_FindThreshold_PrCurve_fine.png Graphic file (type png)
 
-<use fig/LogReg_FindThreshold_RocCurve_fine.png>
-Package pdftex.def Info: fig/LogReg_FindThreshold_RocCurve_fine.png used on inp
-ut line 551.
+<use fig/LogReg_FindThreshold_PrCurve_fine.png>
+Package pdftex.def Info: fig/LogReg_FindThreshold_PrCurve_fine.png used on inpu
+t line 383.
 (pdftex.def)             Requested size: 138.10452pt x 103.57468pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 551.
+Package pdftex.def Info: UNL.pdf used on input line 383.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1249,17 +1232,26 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [19
 
- <./fig/LogReg_FindThreshold_RocCurve_coarse.png> <./fig/LogReg_FindThreshold_R
-ocCurve_fine.png>]
-<fig/runActPassLogReg_pr.png, id=784, 578.16pt x 433.62pt>
-File: fig/runActPassLogReg_pr.png Graphic file (type png)
+ <./fig/LogReg_FindThreshold_PrCurve_coarse.png> <./fig/LogReg_FindThreshold_Pr
+Curve_fine.png>]
+<fig/LogReg_FindThreshold_RocCurve_coarse.png, id=780, 578.16pt x 433.62pt>
+File: fig/LogReg_FindThreshold_RocCurve_coarse.png Graphic file (type png)
 
-<use fig/runActPassLogReg_pr.png>
-Package pdftex.def Info: fig/runActPassLogReg_pr.png used on input line 572.
-(pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
+<use fig/LogReg_FindThreshold_RocCurve_coarse.png>
+Package pdftex.def Info: fig/LogReg_FindThreshold_RocCurve_coarse.png used on i
+nput line 403.
+(pdftex.def)             Requested size: 138.10452pt x 103.57468pt.
+
+<fig/LogReg_FindThreshold_RocCurve_fine.png, id=781, 578.16pt x 433.62pt>
+File: fig/LogReg_FindThreshold_RocCurve_fine.png Graphic file (type png)
+
+<use fig/LogReg_FindThreshold_RocCurve_fine.png>
+Package pdftex.def Info: fig/LogReg_FindThreshold_RocCurve_fine.png used on inp
+ut line 403.
+(pdftex.def)             Requested size: 138.10452pt x 103.57468pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 572.
+Package pdftex.def Info: UNL.pdf used on input line 403.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1268,16 +1260,21 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [20
 
- <./fig/runActPassLogReg_pr.png>]
-<fig/runActPassLogReg_roc.png, id=823, 578.16pt x 433.62pt>
-File: fig/runActPassLogReg_roc.png Graphic file (type png)
+ <./fig/LogReg_FindThreshold_RocCurve_coarse.png> <./fig/LogReg_FindThreshold_R
+ocCurve_fine.png>]
+<fig/runActPassLogReg_pr.png, id=819, 578.16pt x 433.62pt>
+File: fig/runActPassLogReg_pr.png Graphic file (type png)
 
-<use fig/runActPassLogReg_roc.png>
-Package pdftex.def Info: fig/runActPassLogReg_roc.png used on input line 587.
+<use fig/runActPassLogReg_pr.png>
+Package pdftex.def Info: fig/runActPassLogReg_pr.png used on input line 427.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
+
+Overfull \vbox (4.47725pt too high) detected at line 427
+ []
+
 File: UNL.pdf Graphic file (type pdf)
- <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 587.
+<use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 427.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1286,16 +1283,16 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [21
 
- <./fig/runActPassLogReg_roc.png>]
-<fig/runActPassSVM_pr.png, id=860, 578.16pt x 433.62pt>
-File: fig/runActPassSVM_pr.png Graphic file (type png)
+ <./fig/runActPassLogReg_pr.png>]
+<fig/runActPassLogReg_roc.png, id=857, 578.16pt x 433.62pt>
+File: fig/runActPassLogReg_roc.png Graphic file (type png)
 
-<use fig/runActPassSVM_pr.png>
-Package pdftex.def Info: fig/runActPassSVM_pr.png used on input line 598.
+<use fig/runActPassLogReg_roc.png>
+Package pdftex.def Info: fig/runActPassLogReg_roc.png used on input line 442.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 598.
+Package pdftex.def Info: UNL.pdf used on input line 442.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1304,16 +1301,16 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [22
 
- <./fig/runActPassSVM_pr.png>]
-<fig/runActPassSVM_roc.png, id=896, 578.16pt x 433.62pt>
-File: fig/runActPassSVM_roc.png Graphic file (type png)
+ <./fig/runActPassLogReg_roc.png>]
+<fig/runActPassSVM_pr.png, id=894, 578.16pt x 433.62pt>
+File: fig/runActPassSVM_pr.png Graphic file (type png)
 
-<use fig/runActPassSVM_roc.png>
-Package pdftex.def Info: fig/runActPassSVM_roc.png used on input line 609.
+<use fig/runActPassSVM_pr.png>
+Package pdftex.def Info: fig/runActPassSVM_pr.png used on input line 453.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 609.
+Package pdftex.def Info: UNL.pdf used on input line 453.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1322,17 +1319,16 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [23
 
- <./fig/runActPassSVM_roc.png>]
-<fig/ParamsFFR_PR_Cost1_rnds0_180.png, id=933, 578.16pt x 433.62pt>
-File: fig/ParamsFFR_PR_Cost1_rnds0_180.png Graphic file (type png)
+ <./fig/runActPassSVM_pr.png>]
+<fig/runActPassSVM_roc.png, id=931, 578.16pt x 433.62pt>
+File: fig/runActPassSVM_roc.png Graphic file (type png)
 
-<use fig/ParamsFFR_PR_Cost1_rnds0_180.png>
-Package pdftex.def Info: fig/ParamsFFR_PR_Cost1_rnds0_180.png used on input lin
-e 632.
+<use fig/runActPassSVM_roc.png>
+Package pdftex.def Info: fig/runActPassSVM_roc.png used on input line 464.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 632.
+Package pdftex.def Info: UNL.pdf used on input line 464.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1341,17 +1337,17 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [24
 
- <./fig/ParamsFFR_PR_Cost1_rnds0_180.png>]
-<fig/ParamsFFR_PR_Cost2_rnds0_180.png, id=970, 578.16pt x 433.62pt>
-File: fig/ParamsFFR_PR_Cost2_rnds0_180.png Graphic file (type png)
+ <./fig/runActPassSVM_roc.png>]
+<fig/ParamsFFR_PR_Cost1_rnds0_180.png, id=967, 578.16pt x 433.62pt>
+File: fig/ParamsFFR_PR_Cost1_rnds0_180.png Graphic file (type png)
 
-<use fig/ParamsFFR_PR_Cost2_rnds0_180.png>
-Package pdftex.def Info: fig/ParamsFFR_PR_Cost2_rnds0_180.png used on input lin
-e 643.
+<use fig/ParamsFFR_PR_Cost1_rnds0_180.png>
+Package pdftex.def Info: fig/ParamsFFR_PR_Cost1_rnds0_180.png used on input lin
+e 487.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 643.
+Package pdftex.def Info: UNL.pdf used on input line 487.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1360,17 +1356,17 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [25
 
- <./fig/ParamsFFR_PR_Cost2_rnds0_180.png>]
-<fig/ParamsFFR_PR_Cost4_rnds0_180.png, id=1008, 578.16pt x 433.62pt>
+ <./fig/ParamsFFR_PR_Cost1_rnds0_180.png>]
+<fig/ParamsFFR_PR_Cost4_rnds0_180.png, id=1005, 578.16pt x 433.62pt>
 File: fig/ParamsFFR_PR_Cost4_rnds0_180.png Graphic file (type png)
 
 <use fig/ParamsFFR_PR_Cost4_rnds0_180.png>
 Package pdftex.def Info: fig/ParamsFFR_PR_Cost4_rnds0_180.png used on input lin
-e 657.
+e 501.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 657.
+Package pdftex.def Info: UNL.pdf used on input line 501.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1380,16 +1376,16 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 [26
 
  <./fig/ParamsFFR_PR_Cost4_rnds0_180.png>]
-<fig/ParamsFFR_PR_Cost8_rnds0_180.png, id=1046, 578.16pt x 433.62pt>
+<fig/ParamsFFR_PR_Cost8_rnds0_180.png, id=1043, 578.16pt x 433.62pt>
 File: fig/ParamsFFR_PR_Cost8_rnds0_180.png Graphic file (type png)
 
 <use fig/ParamsFFR_PR_Cost8_rnds0_180.png>
 Package pdftex.def Info: fig/ParamsFFR_PR_Cost8_rnds0_180.png used on input lin
-e 668.
+e 512.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 668.
+Package pdftex.def Info: UNL.pdf used on input line 512.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1399,16 +1395,16 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 [27
 
  <./fig/ParamsFFR_PR_Cost8_rnds0_180.png>]
-<fig/ParamsFFR_PR_Cost8_rnds0_500.png, id=1083, 578.16pt x 433.62pt>
-File: fig/ParamsFFR_PR_Cost8_rnds0_500.png Graphic file (type png)
+<fig/ParamsFFR_PR_Cost8_rnds20_60.png, id=1080, 578.16pt x 433.62pt>
+File: fig/ParamsFFR_PR_Cost8_rnds20_60.png Graphic file (type png)
 
-<use fig/ParamsFFR_PR_Cost8_rnds0_500.png>
-Package pdftex.def Info: fig/ParamsFFR_PR_Cost8_rnds0_500.png used on input lin
-e 682.
+<use fig/ParamsFFR_PR_Cost8_rnds20_60.png>
+Package pdftex.def Info: fig/ParamsFFR_PR_Cost8_rnds20_60.png used on input lin
+e 523.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 682.
+Package pdftex.def Info: UNL.pdf used on input line 523.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1417,17 +1413,21 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [28
 
- <./fig/ParamsFFR_PR_Cost8_rnds0_500.png>]
-<fig/ParamsFFR_PR_Cost8_rnds20_60.png, id=1120, 578.16pt x 433.62pt>
-File: fig/ParamsFFR_PR_Cost8_rnds20_60.png Graphic file (type png)
+ <./fig/ParamsFFR_PR_Cost8_rnds20_60.png>]
+<fig/ParamsFFR_PR_Cost16_rnds0_180.png, id=1116, 578.16pt x 433.62pt>
+File: fig/ParamsFFR_PR_Cost16_rnds0_180.png Graphic file (type png)
 
-<use fig/ParamsFFR_PR_Cost8_rnds20_60.png>
-Package pdftex.def Info: fig/ParamsFFR_PR_Cost8_rnds20_60.png used on input lin
-e 693.
+<use fig/ParamsFFR_PR_Cost16_rnds0_180.png>
+Package pdftex.def Info: fig/ParamsFFR_PR_Cost16_rnds0_180.png used on input li
+ne 535.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
+
+Overfull \vbox (6.0349pt too high) detected at line 535
+ []
+
 File: UNL.pdf Graphic file (type pdf)
- <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 693.
+<use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 535.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1436,21 +1436,10 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [29
 
- <./fig/ParamsFFR_PR_Cost8_rnds20_60.png>]
-<fig/ParamsFFR_PR_Cost16_rnds0_180.png, id=1157, 578.16pt x 433.62pt>
-File: fig/ParamsFFR_PR_Cost16_rnds0_180.png Graphic file (type png)
-
-<use fig/ParamsFFR_PR_Cost16_rnds0_180.png>
-Package pdftex.def Info: fig/ParamsFFR_PR_Cost16_rnds0_180.png used on input li
-ne 705.
-(pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
-
-Overfull \vbox (6.0349pt too high) detected at line 705
- []
-
+ <./fig/ParamsFFR_PR_Cost16_rnds0_180.png>]
 File: UNL.pdf Graphic file (type pdf)
-<use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 705.
+ <use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 560.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1459,10 +1448,15 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [30
 
- <./fig/ParamsFFR_PR_Cost16_rnds0_180.png>]
+] <fig/BanditPlotLogFine.png, id=1190, 578.16pt x 433.62pt>
+File: fig/BanditPlotLogFine.png Graphic file (type png)
+
+<use fig/BanditPlotLogFine.png>
+Package pdftex.def Info: fig/BanditPlotLogFine.png used on input line 570.
+(pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 730.
+Package pdftex.def Info: UNL.pdf used on input line 570.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1471,15 +1465,10 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [31
 
-] <fig/BanditPlotLogFine.png, id=1231, 578.16pt x 433.62pt>
-File: fig/BanditPlotLogFine.png Graphic file (type png)
-
-<use fig/BanditPlotLogFine.png>
-Package pdftex.def Info: fig/BanditPlotLogFine.png used on input line 740.
-(pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
+ <./fig/BanditPlotLogFine.png>]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 740.
+Package pdftex.def Info: UNL.pdf used on input line 600.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1488,10 +1477,15 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [32
 
- <./fig/BanditPlotLogFine.png>]
+] <fig/BanditMixedCostPR.png, id=1264, 578.16pt x 433.62pt>
+File: fig/BanditMixedCostPR.png Graphic file (type png)
+
+<use fig/BanditMixedCostPR.png>
+Package pdftex.def Info: fig/BanditMixedCostPR.png used on input line 610.
+(pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 770.
+Package pdftex.def Info: UNL.pdf used on input line 610.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1500,15 +1494,17 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [33
 
-] <fig/BanditMixedCostPR.png, id=1304, 578.16pt x 433.62pt>
-File: fig/BanditMixedCostPR.png Graphic file (type png)
+ <./fig/BanditMixedCostPR.png>]
+<fig/BANDIT_PR_Cost8_rnds20_60.png, id=1300, 578.16pt x 433.62pt>
+File: fig/BANDIT_PR_Cost8_rnds20_60.png Graphic file (type png)
 
-<use fig/BanditMixedCostPR.png>
-Package pdftex.def Info: fig/BanditMixedCostPR.png used on input line 780.
+<use fig/BANDIT_PR_Cost8_rnds20_60.png>
+Package pdftex.def Info: fig/BANDIT_PR_Cost8_rnds20_60.png used on input line 6
+25.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 780.
+Package pdftex.def Info: UNL.pdf used on input line 625.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1517,17 +1513,10 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [34
 
- <./fig/BanditMixedCostPR.png>]
-<fig/BANDIT_PR_Cost8_rnds20_60.png, id=1340, 578.16pt x 433.62pt>
-File: fig/BANDIT_PR_Cost8_rnds20_60.png Graphic file (type png)
-
-<use fig/BANDIT_PR_Cost8_rnds20_60.png>
-Package pdftex.def Info: fig/BANDIT_PR_Cost8_rnds20_60.png used on input line 7
-95.
-(pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
+ <./fig/BANDIT_PR_Cost8_rnds20_60.png>]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 795.
+Package pdftex.def Info: UNL.pdf used on input line 643.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1536,10 +1525,10 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [35
 
- <./fig/BANDIT_PR_Cost8_rnds20_60.png>]
+]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 813.
+Package pdftex.def Info: UNL.pdf used on input line 652.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1551,7 +1540,7 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 ]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 822.
+Package pdftex.def Info: UNL.pdf used on input line 663.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1560,10 +1549,15 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [37
 
-]
+] <fig/question.jpg, id=1440, 1927.2pt x 1362.08875pt>
+File: fig/question.jpg Graphic file (type jpg)
+
+<use fig/question.jpg>
+Package pdftex.def Info: fig/question.jpg used on input line 672.
+(pdftex.def)             Requested size: 290.74263pt x 205.48917pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 833.
+Package pdftex.def Info: UNL.pdf used on input line 672.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1572,15 +1566,17 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [38
 
-] <fig/question.jpg, id=1481, 1927.2pt x 1362.08875pt>
-File: fig/question.jpg Graphic file (type jpg)
+ <./fig/question.jpg>]
+<fig/ParamsFFR_PR_Cost8_rnds0_500.png, id=1477, 578.16pt x 433.62pt>
+File: fig/ParamsFFR_PR_Cost8_rnds0_500.png Graphic file (type png)
 
-<use fig/question.jpg>
-Package pdftex.def Info: fig/question.jpg used on input line 842.
-(pdftex.def)             Requested size: 290.74263pt x 205.48917pt.
+<use fig/ParamsFFR_PR_Cost8_rnds0_500.png>
+Package pdftex.def Info: fig/ParamsFFR_PR_Cost8_rnds0_500.png used on input lin
+e 706.
+(pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 842.
+Package pdftex.def Info: UNL.pdf used on input line 706.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1589,20 +1585,17 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [39
 
- <./fig/question.jpg>]
-<fig/runActPassLogReg_acc.png, id=1517, 578.16pt x 433.62pt>
-File: fig/runActPassLogReg_acc.png Graphic file (type png)
+ <./fig/ParamsFFR_PR_Cost8_rnds0_500.png>]
+<fig/ParamsFFR_PR_Cost2_rnds0_180.png, id=1514, 578.16pt x 433.62pt>
+File: fig/ParamsFFR_PR_Cost2_rnds0_180.png Graphic file (type png)
 
-<use fig/runActPassLogReg_acc.png>
-Package pdftex.def Info: fig/runActPassLogReg_acc.png used on input line 854.
+<use fig/ParamsFFR_PR_Cost2_rnds0_180.png>
+Package pdftex.def Info: fig/ParamsFFR_PR_Cost2_rnds0_180.png used on input lin
+e 717.
 (pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
-
-Overfull \vbox (6.0349pt too high) detected at line 854
- []
-
 File: UNL.pdf Graphic file (type pdf)
-<use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 854.
+ <use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 717.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1611,16 +1604,10 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [40
 
- <./fig/runActPassLogReg_acc.png>]
-<fig/runActPassLogReg_f1.png, id=1554, 578.16pt x 433.62pt>
-File: fig/runActPassLogReg_f1.png Graphic file (type png)
-
-<use fig/runActPassLogReg_f1.png>
-Package pdftex.def Info: fig/runActPassLogReg_f1.png used on input line 865.
-(pdftex.def)             Requested size: 203.51895pt x 152.63603pt.
+ <./fig/ParamsFFR_PR_Cost2_rnds0_180.png>]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 865.
+Package pdftex.def Info: UNL.pdf used on input line 742.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1629,15 +1616,10 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [41
 
- <./fig/runActPassLogReg_f1.png>]pdfTeX warning (ext4): destination with the sa
-me identifier (name{tab:ClassesAll}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.899 \end{frame}
-                 
+]
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 899.
+Package pdftex.def Info: UNL.pdf used on input line 760.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1647,24 +1629,9 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 [42
 
 ]
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ú in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ù in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ì in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ú in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ù in font cmss10!
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 909.
+Package pdftex.def Info: UNL.pdf used on input line 771.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
@@ -1673,6 +1640,127 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 
 [43
 
+] <fig/Psv_1_2_fine_PR.png, id=1659, 578.16pt x 433.62pt>
+File: fig/Psv_1_2_fine_PR.png Graphic file (type png)
+
+<use fig/Psv_1_2_fine_PR.png>
+Package pdftex.def Info: fig/Psv_1_2_fine_PR.png used on input line 791.
+(pdftex.def)             Requested size: 145.3713pt x 109.02667pt.
+
+<fig/Psv_1_2_fine_ROC.png, id=1660, 578.16pt x 433.62pt>
+File: fig/Psv_1_2_fine_ROC.png Graphic file (type png)
+
+<use fig/Psv_1_2_fine_ROC.png>
+Package pdftex.def Info: fig/Psv_1_2_fine_ROC.png used on input line 791.
+(pdftex.def)             Requested size: 145.3713pt x 109.02667pt.
+
+Overfull \hbox (4.86665pt too wide) in paragraph at lines 791--791
+ []  [] 
+ []
+
+File: UNL.pdf Graphic file (type pdf)
+<use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 791.
+(pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
+
+Overfull \hbox (51.0pt too wide) has occurred while \output is active
+[] [][] 
+ []
+
+[44
+
+ <./fig/Psv_1_2_fine_PR.png> <./fig/Psv_1_2_fine_ROC.png>]
+File: UNL.pdf Graphic file (type pdf)
+ <use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 818.
+(pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
+
+Overfull \hbox (51.0pt too wide) has occurred while \output is active
+[] [][] 
+ []
+
+[45
+
+]
+File: UNL.pdf Graphic file (type pdf)
+ <use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 858.
+(pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
+
+Overfull \hbox (51.0pt too wide) has occurred while \output is active
+[] [][] 
+ []
+
+[46
+
+]
+File: UNL.pdf Graphic file (type pdf)
+ <use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 869.
+(pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
+
+Overfull \hbox (51.0pt too wide) has occurred while \output is active
+[] [][] 
+ []
+
+[47
+
+] <fig/runActPassLogReg_acc.png, id=1805, 578.16pt x 433.62pt>
+File: fig/runActPassLogReg_acc.png Graphic file (type png)
+
+<use fig/runActPassLogReg_acc.png>
+Package pdftex.def Info: fig/runActPassLogReg_acc.png used on input line 881.
+(pdftex.def)             Requested size: 232.59499pt x 174.44402pt.
+
+Overfull \vbox (6.0349pt too high) detected at line 881
+ []
+
+File: UNL.pdf Graphic file (type pdf)
+<use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 881.
+(pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
+
+Overfull \hbox (51.0pt too wide) has occurred while \output is active
+[] [][] 
+ []
+
+[48
+
+ <./fig/runActPassLogReg_acc.png>]
+<fig/runActPassLogReg_f1.png, id=1842, 578.16pt x 433.62pt>
+File: fig/runActPassLogReg_f1.png Graphic file (type png)
+
+<use fig/runActPassLogReg_f1.png>
+Package pdftex.def Info: fig/runActPassLogReg_f1.png used on input line 892.
+(pdftex.def)             Requested size: 203.51895pt x 152.63603pt.
+File: UNL.pdf Graphic file (type pdf)
+ <use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 892.
+(pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
+
+Overfull \hbox (51.0pt too wide) has occurred while \output is active
+[] [][] 
+ []
+
+[49
+
+ <./fig/runActPassLogReg_f1.png>]pdfTeX warning (ext4): destination with the sa
+me identifier (name{tab:ClassesAll}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.926 \end{frame}
+                 
+File: UNL.pdf Graphic file (type pdf)
+ <use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 926.
+(pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
+
+Overfull \hbox (51.0pt too wide) has occurred while \output is active
+[] [][] 
+ []
+
+[50
+
 ]
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
@@ -1691,14 +1779,41 @@ Missing character: There is no Ä in font cmss10!
 Missing character: There is no ù in font cmss10!
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 917.
+Package pdftex.def Info: UNL.pdf used on input line 936.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
 [] [][] 
  []
 
-[44
+[51
+
+]
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ì in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+File: UNL.pdf Graphic file (type pdf)
+ <use UNL.pdf>
+Package pdftex.def Info: UNL.pdf used on input line 944.
+(pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
+
+Overfull \hbox (51.0pt too wide) has occurred while \output is active
+[] [][] 
+ []
+
+[52
 
 ]
 Missing character: There is no ‚ in font cmss10!
@@ -1711,7 +1826,7 @@ Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ì in font cmss10!
 
-Overfull \hbox (55.6124pt too wide) in paragraph at lines 925--925
+Overfull \hbox (55.6124pt too wide) in paragraph at lines 952--952
 \OT1/cmss/m/n/10.95 http://www.sciencedirect.com/science/article/pii/S016158900
 6000368  
  []
@@ -1730,14 +1845,14 @@ Missing character: There is no Ä in font cmss10!
 Missing character: There is no ì in font cmss10!
 File: UNL.pdf Graphic file (type pdf)
 <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 925.
+Package pdftex.def Info: UNL.pdf used on input line 952.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
 [] [][] 
  []
 
-[45
+[53
 
 ]
 Missing character: There is no ‚ in font cmss10!
@@ -1751,14 +1866,14 @@ Missing character: There is no Ä in font cmss10!
 Missing character: There is no ì in font cmss10!
 File: UNL.pdf Graphic file (type pdf)
  <use UNL.pdf>
-Package pdftex.def Info: UNL.pdf used on input line 933.
+Package pdftex.def Info: UNL.pdf used on input line 960.
 (pdftex.def)             Requested size: 38.23862pt x 15.6491pt.
 
 Overfull \hbox (51.0pt too wide) has occurred while \output is active
 [] [][] 
  []
 
-[46
+[54
 
 ]
 \tf@nav=\write6
@@ -1770,12 +1885,11 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `ThesisPresentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1024.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1024.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 963.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 963.
  (./ThesisPresentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1024.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1024.
-
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 963.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 963.
 Package rerunfilecheck Info: File `ThesisPresentation.out' has not changed.
 (rerunfilecheck)             Checksum: 11CCCFF93B7166C508011FE7C2C66EB5;369.
 
@@ -1786,16 +1900,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1024.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 963.
  ) 
 Here is how much of TeX's memory you used:
- 18270 strings out of 493089
- 352849 string characters out of 6134842
- 425521 words of memory out of 5000000
- 21178 multiletter control sequences out of 15000+600000
+ 18335 strings out of 493089
+ 353806 string characters out of 6134842
+ 437968 words of memory out of 5000000
+ 21217 multiletter control sequences out of 15000+600000
  13828 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,20n,60p,417b,634s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,20n,60p,417b,635s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
@@ -1811,10 +1925,10 @@ exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ThesisPresentation.pdf (46 pages, 2610054 bytes).
+Output written on ThesisPresentation.pdf (54 pages, 2689823 bytes).
 PDF statistics:
- 1845 PDF objects out of 2073 (max. 8388607)
- 1688 compressed objects within 17 object streams
- 132 named destinations out of 1000 (max. 500000)
- 327 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2138 PDF objects out of 2487 (max. 8388607)
+ 1966 compressed objects within 20 object streams
+ 156 named destinations out of 1000 (max. 500000)
+ 337 words of extra memory for PDF output out of 10000 (max. 10000000)
 

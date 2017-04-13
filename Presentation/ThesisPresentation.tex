@@ -84,9 +84,9 @@
   \item Machine Learning
   \item Active Machine Learning
   %\item Evaluating Classifier Performance
-  \item Hierarchical Protein Dataset
   \item Coarse-grained vs Fine-grained Trade Off
   \item Active over-labeling algorithms
+  \item Hierarchical Protein Dataset
 %  \item HAL and BANDIT
 %  \item Hierarchical Active Learning
 %  \item Dynamically Adapting Purchase Proportions
@@ -205,87 +205,46 @@
     \frametitle{Active Machine Learning}     % slide 6
     \framesubtitle{}
 \begin{itemize}
+  \item Unlabeled data is abundant but manually labeling is expensive, e.g. text categorization, drug discovery
   \item The learner queries an \textbf{oracle} or \textbf{supervisor} which labels the data at a certain cost
-  \item Active learning solicits new instances that can maximally improve performance of the learned classifier
+  \item Active learning solicits new instances that can maximally improve performance of the learned classifier, uncertainty sampling
   \item Learns the best performing classifier for the minimal amount of labeling cost,
   or for a given purchase budget
   \item Acquires labels for each level of the hierachy at a certain cost, spends according to a purchase budget
 \end{itemize}
 \end{frame}
-%\begin{frame}
-%    \frametitle{Evaluating Classifier Performance}
-%    \framesubtitle{Confusion Matrix}     % slide 7
-%%    \begin{itemize}
-%%      \item Divide data into train and a test set. Analyze test set with the following values:
-%\par Divide data into train and a test set. Analyze test set with the following values:
-%      \begin{itemize}
-%      \item True-Negatives ($T_n$): Correctly classified negatives
-%      \item False-Negatives ($F_p$): Incorrectly classified negatives
-%      \item False-Positives ($F_n$): Incorrectly classified positives
-%      \item True-Positives ($T_p$): Correctly classified positives
-%%    \end{itemize}
-%    \end{itemize}
-%    \par Example of a confusion matrix for a test set with $100$ negatives and $50$ positives:
-%    \begin{table}[H]
-%    \centering
-%    %\caption{Example of a confusion matrix, with $100$ negative and $50$ positive instances in the test set}
-%    \label{tab:confEx}
-%    \begin{tabular}{|l||l|}\hline
-%    conf ($T_n$/$F_n$) & conf ($F_p$/$T_p$) \\ \hline
-%    90 & 10 \\ \hline
-%    20 & 30 \\ \hline
-%    \end{tabular}
-%    \end{table}
-%\end{frame}
-%\begin{frame}
-%    \frametitle{Evaluating Classifier Performance}  % slide 8
-%    \framesubtitle{Precision and Recall}
-%    Precision is a measure of result relevancy:
-%    \begin{equation}
-%    \label{eq:precision}
-%    \begin{aligned}
-%    P = \frac{T_p}{T_p+F_p}
-%    \end{aligned}
-%    \end{equation}
-%    Recall is a measure of how many truly relevant results are returned:
-%    \begin{equation}
-%    \label{eq:recall}
-%    \begin{aligned}
-%    R = \frac{T_p}{T_p+F_n}
-%    \end{aligned}
-%    \end{equation}
-%\end{frame}
-%\begin{frame}
-%    \frametitle{Evaluating Classifier Performance}  % slide 9
-%    \framesubtitle{F-Measure}
-%    The F-measure or F1-measure (F1) is the harmonic mean of precision and recall:
-%    \begin{equation}
-%    \label{eq:fmes}
-%    \begin{aligned}
-%    F1 = 2\cdot \frac{P \cdot R}{P+R}
-%    \end{aligned}
-%    \end{equation}
-%\end{frame}
-%\begin{frame}
-%    \frametitle{Evaluating Classifier Performance}  % slide 10
-%    \framesubtitle{ROC - PR curves}
-%    \begin{figure}[!htb]
-%        \centering
-%        \begin{subfigure}[t]{0.5\textwidth}
-%            \centering
-%            \includegraphics[width=\textwidth]{fig/Psv_1_2_fine_PR}
-%            \caption{PR curve.}
-%        \end{subfigure}%
-%        ~
-%        \begin{subfigure}[t]{0.5\textwidth}
-%            \centering
-%            \includegraphics[width=\textwidth]{fig/Psv_1_2_fine_ROC}
-%            \caption{ROC curve.}
-%        \end{subfigure}
-%        \caption{Examples of PR and ROC curves with their corresponding AUC values.}
-%        \label{fig:PRRocExamples}
-%    \end{figure}
-%\end{frame}
+\begin{frame}
+    \frametitle{Active over-labeling}  % slide 13
+    \framesubtitle{Coarse-grained vs Fine-grained Trade Off}
+    \par Active over-labeling solicits labels at a finer level of granularity than the target concept
+    \begin{figure}[!htb]
+	\centering
+    \includegraphics[width=0.6\columnwidth]{fig/union}
+%    \caption{Demonstration of a dataset that would benefit from multiple fine-grained
+%    learners for each circle type, from Mo et al.}
+    \label{fig:union}
+\end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{Hierarchical Active Learning}  % slide 15
+    \framesubtitle{}
+    \par INPUT: purchase proportion $p$
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.65\columnwidth]{fig/AL2}
+%        \caption{Diagram of HAL approach}
+        \label{fig:HALapproach}
+    \end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{Dynamically Adapting Purchase Proportions}  % slide 16
+    \framesubtitle{}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=1.0\columnwidth]{fig/BANDIT}
+        \label{fig:BANDIT}
+    \end{figure}
+\end{frame}
 \begin{frame}
     \frametitle{Hierarchical Bioinformatics Data Set}    % slide 11
     \framesubtitle{Feature Sources}
@@ -327,17 +286,6 @@
         \label{fig:Mitotree}
     \end{figure}
 \end{frame}
-\begin{frame}
-    \frametitle{Coarse-grained vs Fine-grained Trade Off}  % slide 13
-    \framesubtitle{}
-    \begin{figure}[!htb]
-	\centering
-    \includegraphics[width=0.6\columnwidth]{fig/union}
-%    \caption{Demonstration of a dataset that would benefit from multiple fine-grained
-%    learners for each circle type, from Mo et al.}
-    \label{fig:union}
-\end{figure}
-\end{frame}
 %\begin{frame}
 %    \frametitle{Active Over-Labeling}  % slide 14
 %    \framesubtitle{}
@@ -348,26 +296,6 @@
 %        \label{fig:exp-ontology}
 %    \end{figure}
 %\end{frame}
-\begin{frame}
-    \frametitle{Hierarchical Active Learning}  % slide 15
-    \framesubtitle{}
-    \par INPUT: purchase proportion $p$
-    \begin{figure}[!htb]
-        \centering
-        \includegraphics[width=0.65\columnwidth]{fig/AL2}
-%        \caption{Diagram of HAL approach}
-        \label{fig:HALapproach}
-    \end{figure}
-\end{frame}
-\begin{frame}
-    \frametitle{Dynamically Adapting Purchase Proportions}  % slide 16
-    \framesubtitle{}
-    \begin{figure}[!htb]
-        \centering
-        \includegraphics[width=1.0\columnwidth]{fig/BANDIT}
-        \label{fig:BANDIT}
-    \end{figure}
-\end{frame}
 
 
 
@@ -376,29 +304,7 @@
 
 
 
-%\section{Related Work}
-%%\begin{frame}
-%%    \frametitle{Related Work}
-%%    \framesubtitle{}
-%%    \begin{itemize}
-%%      \item The experiments and methods described in this work
-%%demonstrate how leveraging fine-grained label  information
-%%can improve the accuracy of a coarse-grained (root-level) classifier, and
-%% investigate active learning in a hierarchical setting where
-%% label acquisition cost can vary, from Mo et al.
-%%    \end{itemize}
-%%\end{frame}
-%\begin{frame}
-%    \frametitle{Application to Dispatch Dataset}  % slide 17
-%    \framesubtitle{}
-%    \par Analysis and evaluation follow Mo et al.'s work.
-%    \begin{itemize}
-%      \item Fine outperforms Coarse in PR-AUC
-%      \item Active outperforms Passive in PR-AUC
-%      \item HAL ran with variable cost, fine proportions and budget
-%      \item BANDIT approach shown to be robust to changes in cost and budget
-%    \end{itemize}
-%\end{frame}
+
 
 
 
@@ -435,80 +341,25 @@
       \end{tabular}%}
     \end{table}
 \end{frame}
-%\begin{frame}
-%    \frametitle{Training and Testing Coarse-Grain
-%    and Fine-Grain Classifiers}  % slide 19
-%    \framesubtitle{}
-%    \begin{table}[H]
-%      \centering
-%        \caption{Number of proteins in each partition:}
-%        \label{tab:partitions}
-%        \resizebox{1.0\columnwidth}{!}{%
-%        \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\hline
-%    %    Folds & \multicolumn{9}{c}{Classes} \\ \cmidrule(r){2-11}
-%        Folds & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
-%        1 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
-%        2 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
-%        3 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 5 & 8 \\
-%        4 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 10 & 6 & 8 \\
-%        5 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
-%        6 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
-%        7 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
-%        8 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
-%        9 & 2009 & 1913 & 2 & 18 & 32 & 19 & 2 & 10 & 6 & 7 \\
-%        10 & 2009 & 1913 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\ \hline
-%        Total & 20098 & 19136 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\
-%     \hline
-%      \end{tabular}}
-%    \end{table}
-%\end{frame}
-%\begin{frame}
-%    \frametitle{Training and Testing Coarse-Grain and Fine-Grain Classifiers}  % slide 20
-%    \framesubtitle{}
-%     \par The following variables were varied for both SVM and Logit classifiers:
-%    \begin{itemize}
-%      \item Preprocessing Scaling Methods
-%      \item Preprocessing Feature Selection
-%      \item Class Weight
-%      \item SVM Kernel, Cost, and Gamma parameters
-%      \item Logit Cost, Fine class weights, Tolerance
-%    \end{itemize}
-%\end{frame}
-
-
 
 
 
 
 \section{Conv. ML}
-%\begin{frame}
-%    \frametitle{SVM and Logit Classifier Performance}  % slide 21
-%    \framesubtitle{Conventional ML}
-%    \begin{table}[H]
-%    \centering
-%    \caption{Logit results after parameter tuning:}
-%    \label{tab:LogRegAll-Wt23}
-%    \resizebox{0.9\columnwidth}{!}{%
-%    \begin{tabular}{|l||l||l||l||l||l||l|} \hline
-%    Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \hline
-%    coarse & 0.870 & 0.871 & 0.787 & 0.268 & ( 1503.2 / 17.8 ) & ( 410.4 / 78.3 ) \\
-%    fine & 0.875 & 0.871 & 0.913 & 0.403 & ( 1776.5 / 37.3 ) & ( 137.1 / 58.8 ) \\ \hline
-%    \end{tabular}
-%    }
-%    \end{table}
-%    \begin{table}[H]
-%    \centering
-%    \caption{SVM results after parameter tuning:}
-%    \label{tab:SVM-All}
-%    \resizebox{0.9\columnwidth}{!}{%
-%    \begin{tabular}{|l||l||l||l||l||l||l|}\hline
-%    Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \hline
-%    coarse & 0.892 & 0.880 & 0.866 & 0.347 & ( 1669.5 / 24.8 ) & ( 244.1 / 71.3 ) \\
-%    fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \hline
-%    \end{tabular}
-%    }
-%    \end{table}
-%\end{frame}
+\begin{frame}
+    \frametitle{SVM and Logit Classifier Performance}  % slide 21
+    \framesubtitle{Conventional ML}
+    \begin{itemize}
+        \item Tuned parameters for SVM and Logit via an independent run of cross-validation
+        \item \textbf{Accuracy}: the percentage of correctly classified results
+        \item \textbf{Precision}: a measure of result relevancy
+        \item \textbf{Recall}: a measure of how many truly relevant results are returned
+        \item \textbf{F-measure}: the harmonic mean of precision and recall
+        \item \textbf{PR curve}: plot precision and recall as classifier threshold is varied
+        \item \textbf{ROC curve}: plot false positive rate and true positive rate as classifier threshold is varied
+        \item \textbf{AUC}: area under the curve, both curves have an optimal AUC of $1.0$
+    \end{itemize}
+\end{frame}
 \begin{frame}
     \frametitle{SVM and Logit Classifier Performance}  % slide 22
     \framesubtitle{F-measure Analysis}
@@ -562,6 +413,9 @@
     \frametitle{Active vs. Passive Curve Analysis}  % slide 24
     \framesubtitle{Logit PR-AUC curves}
     \begin{figure}[!htb]
+    \begin{flushleft}
+    \par Iteration: a cycle of the HAL algorithm, a single round of purchasing labels
+    \end{flushleft}
         \centering
         \includegraphics[width=0.80\columnwidth]{fig/runActPassLogReg_pr}
 %        \caption{The PR-AUC curves for rounds with the Logit classifier conforms to expectations}
@@ -619,7 +473,7 @@
 \section{HAL Results}
 \begin{frame}
     \frametitle{Plots for Fine Fixed Ratio Results}  % slide 28
-    \framesubtitle{Fine Cost 1}
+    \framesubtitle{Successive iterations of HAL with fine cost of 1 and coarse cost of 1}
     \begin{figure}[!htb]
 	\centering
     \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost1_rnds0_180}
@@ -632,19 +486,8 @@
 \end{figure}
 \end{frame}
 \begin{frame}
-    \frametitle{Plots for Fine Fixed Ratio Results}  % slide 29
-    \framesubtitle{Fine Cost 2}
-    \begin{figure}[!htb]
-        \centering
-        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost2_rnds0_180}
-%        \caption{At fine cost 2, advantage of the higher FFR values decreases but the ordering
-%        of the curves remains unchanged.}
-        \label{fig:ParamsFFR_PR_Cost2_rnds0_180}
-    \end{figure}
-\end{frame}
-\begin{frame}
     \frametitle{Plots for Fine Fixed Ratio Results}  % slide 30
-    \framesubtitle{Fine Cost 4}
+    \framesubtitle{Successive iterations of HAL with fine cost of 4}
     \begin{figure}[!htb]
         \centering
         \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost4_rnds0_180}
@@ -658,7 +501,7 @@
 \end{frame}
 \begin{frame}
     \frametitle{Plots for Fine Fixed Ratio Results}  % slide 31
-    \framesubtitle{Fine Cost 8}
+    \framesubtitle{Successive iterations of HAL with fine cost of 8}
     \begin{figure}[!htb]
         \centering
         \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_180}
@@ -668,22 +511,8 @@
     \end{figure}
 \end{frame}
 \begin{frame}
-    \frametitle{Plots for Fine Fixed Ratio Results}  % slide 32
-    \framesubtitle{Fine Cost 8 - Rnds to 500}
-    \begin{figure}[!htb]
-        \centering
-        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_500}
-%        \caption{This shows the iterations continuing through round 500, the curves
-%        with the higher fine rates settle to the same end point.}
-%         that the
-%        curves with the high rates of coarse labels purchased achieved at previous
-%        iterations.}
-        \label{fig:ParamsFFR_PR_Cost8_rnds0_500}
-    \end{figure}
-\end{frame}
-\begin{frame}
     \frametitle{Plots for Fine Fixed Ratio Results}  % slide 33
-    \framesubtitle{Fine Cost 8 - Rnds 20 to 60}
+    \framesubtitle{Expanded view Fine Cost 8 - Rnds 20 to 60}
     \begin{figure}[!htb]
         \centering
         \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds20_60}
@@ -694,7 +523,7 @@
 \end{frame}
 \begin{frame}
     \frametitle{Plots for Fine Fixed Ratio Results}  % slide 34
-    \framesubtitle{Fine Cost 16}
+    \framesubtitle{Successive iterations of HAL with fine cost of 16}
     \begin{figure}[!htb]
         \centering
         \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost16_rnds0_180}
@@ -841,6 +670,203 @@
         \label{fig:question}
     \end{figure}
 \end{frame}
+
+
+
+
+
+
+
+
+%\section{Related Work}
+%\begin{frame}
+%    \frametitle{Related Work}
+%    \framesubtitle{}
+%    \begin{itemize}
+%      \item The experiments and methods described in this work
+%demonstrate how leveraging fine-grained label  information
+%can improve the accuracy of a coarse-grained (root-level) classifier, and
+% investigate active learning in a hierarchical setting where
+% label acquisition cost can vary, from Mo et al.
+%    \end{itemize}
+%\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Plots for Fine Fixed Ratio Results}  % slide 32
+    \framesubtitle{Fine Cost 8 - Rnds to 500}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost8_rnds0_500}
+%        \caption{This shows the iterations continuing through round 500, the curves
+%        with the higher fine rates settle to the same end point.}
+%         that the
+%        curves with the high rates of coarse labels purchased achieved at previous
+%        iterations.}
+        \label{fig:ParamsFFR_PR_Cost8_rnds0_500}
+    \end{figure}
+\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Plots for Fine Fixed Ratio Results}  % slide 29
+    \framesubtitle{Successive iterations of HAL with fine cost of 2}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost2_rnds0_180}
+%        \caption{At fine cost 2, advantage of the higher FFR values decreases but the ordering
+%        of the curves remains unchanged.}
+        \label{fig:ParamsFFR_PR_Cost2_rnds0_180}
+    \end{figure}
+\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Evaluating Classifier Performance}
+    \framesubtitle{Confusion Matrix}     % slide 7
+%    \begin{itemize}
+%      \item Divide data into train and a test set. Analyze test set with the following values:
+\par Divide data into train and a test set. Analyze test set with the following values:
+      \begin{itemize}
+      \item True-Negatives ($T_n$): Correctly classified negatives
+      \item False-Negatives ($F_p$): Incorrectly classified negatives
+      \item False-Positives ($F_n$): Incorrectly classified positives
+      \item True-Positives ($T_p$): Correctly classified positives
+%    \end{itemize}
+    \end{itemize}
+    \par Example of a confusion matrix for a test set with $100$ negatives and $50$ positives:
+    \begin{table}[H]
+    \centering
+    %\caption{Example of a confusion matrix, with $100$ negative and $50$ positive instances in the test set}
+    \label{tab:confEx}
+    \begin{tabular}{|l||l|}\hline
+    conf ($T_n$/$F_n$) & conf ($F_p$/$T_p$) \\ \hline
+    90 & 10 \\ \hline
+    20 & 30 \\ \hline
+    \end{tabular}
+    \end{table}
+\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Evaluating Classifier Performance}  % slide 8
+    \framesubtitle{Precision and Recall}
+    Precision is a measure of result relevancy:
+    \begin{equation}
+    \label{eq:precision}
+    \begin{aligned}
+    P = \frac{T_p}{T_p+F_p}
+    \end{aligned}
+    \end{equation}
+    Recall is a measure of how many truly relevant results are returned:
+    \begin{equation}
+    \label{eq:recall}
+    \begin{aligned}
+    R = \frac{T_p}{T_p+F_n}
+    \end{aligned}
+    \end{equation}
+\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Evaluating Classifier Performance}  % slide 9
+    \framesubtitle{F-Measure}
+    The F-measure or F1-measure (F1) is the harmonic mean of precision and recall:
+    \begin{equation}
+    \label{eq:fmes}
+    \begin{aligned}
+    F1 = 2\cdot \frac{P \cdot R}{P+R}
+    \end{aligned}
+    \end{equation}
+\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Evaluating Classifier Performance}  % slide 10
+    \framesubtitle{ROC - PR curves}
+    \begin{figure}[!htb]
+        \centering
+        \begin{subfigure}[t]{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{fig/Psv_1_2_fine_PR}
+            \caption{PR curve.}
+        \end{subfigure}%
+        ~
+        \begin{subfigure}[t]{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{fig/Psv_1_2_fine_ROC}
+            \caption{ROC curve.}
+        \end{subfigure}
+        \caption{Examples of PR and ROC curves with their corresponding AUC values.}
+        \label{fig:PRRocExamples}
+    \end{figure}
+\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Training and Testing Coarse-Grain
+    and Fine-Grain Classifiers}  % slide 19
+    \framesubtitle{}
+    \begin{table}[H]
+      \centering
+        \caption{Number of proteins in each partition:}
+        \label{tab:partitions}
+        \resizebox{1.0\columnwidth}{!}{%
+        \begin{tabular}{|l||l||l||l||l||l||l||l||l||l||l|}\hline
+    %    Folds & \multicolumn{9}{c}{Classes} \\ \cmidrule(r){2-11}
+        Folds & All & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ \hline
+        1 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+        2 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\
+        3 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 11 & 5 & 8 \\
+        4 & 2010 & 1914 & 1 & 19 & 32 & 19 & 1 & 10 & 6 & 8 \\
+        5 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+        6 & 2010 & 1914 & 1 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+        7 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+        8 & 2010 & 1913 & 2 & 18 & 33 & 19 & 1 & 10 & 6 & 8 \\
+        9 & 2009 & 1913 & 2 & 18 & 32 & 19 & 2 & 10 & 6 & 7 \\
+        10 & 2009 & 1913 & 1 & 19 & 32 & 19 & 1 & 11 & 6 & 7 \\ \hline
+        Total & 20098 & 19136 & 13 & 185 & 324 & 190 & 11 & 104 & 59 & 76 \\
+     \hline
+      \end{tabular}}
+    \end{table}
+\end{frame}
+%\begin{frame}
+%    \frametitle{Training and Testing Coarse-Grain and Fine-Grain Classifiers}  % slide 20
+%    \framesubtitle{}
+%     \par The following variables were varied for both SVM and Logit classifiers:
+%    \begin{itemize}
+%      \item Preprocessing Scaling Methods
+%      \item Preprocessing Feature Selection
+%      \item Class Weight
+%      \item SVM Kernel, Cost, and Gamma parameters
+%      \item Logit Cost, Fine class weights, Tolerance
+%    \end{itemize}
+%\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{SVM and Logit Classifier Performance}  % slide 21
+    \framesubtitle{Conventional ML}
+    \begin{table}[H]
+    \centering
+    \caption{Logit results after parameter tuning:}
+    \label{tab:LogRegAll-Wt23}
+    \resizebox{0.9\columnwidth}{!}{%
+    \begin{tabular}{|l||l||l||l||l||l||l|} \hline
+    Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \hline
+    coarse & 0.870 & 0.871 & 0.787 & 0.268 & ( 1503.2 / 17.8 ) & ( 410.4 / 78.3 ) \\
+    fine & 0.875 & 0.871 & 0.913 & 0.403 & ( 1776.5 / 37.3 ) & ( 137.1 / 58.8 ) \\ \hline
+    \end{tabular}
+    }
+    \end{table}
+    \begin{table}[H]
+    \centering
+    \caption{SVM results after parameter tuning:}
+    \label{tab:SVM-All}
+    \resizebox{0.9\columnwidth}{!}{%
+    \begin{tabular}{|l||l||l||l||l||l||l|}\hline
+    Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \hline
+    coarse & 0.892 & 0.880 & 0.866 & 0.347 & ( 1669.5 / 24.8 ) & ( 244.1 / 71.3 ) \\
+    fine & 0.898 & 0.882 & 0.942 & 0.485 & ( 1839.0 / 41.5 ) & ( 74.6 / 54.6 ) \\ \hline
+    \end{tabular}
+    }
+    \end{table}
+\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Application to Dispatch Dataset}  % slide 17
+    \framesubtitle{}
+    \par Analysis and evaluation follow Mo et al.'s work.
+    \begin{itemize}
+      \item Fine outperforms Coarse in PR-AUC
+      \item Active outperforms Passive in PR-AUC
+      \item HAL ran with variable cost, fine proportions and budget
+      \item BANDIT approach shown to be robust to changes in cost and budget
+    \end{itemize}
+\end{frame}
 \begin{frame}[noframenumbering]
     \frametitle{Active vs. Passive Curve Analysis}
     \framesubtitle{Logit Accuracy}
@@ -933,93 +959,5 @@ Active over Passive.}
     \end{itemize}
 \end{frame}
 
-
-
-
-
-
-%\begin{frame}
-%    \frametitle{Introduction}
-%    \framesubtitle{}
-%    \texttt{Beamer} is a wonderful \LaTeX\ document class that produces
-%    high quality PDF slide presentations.
-%    Moreover, you can customize and develop your own themes!
-%\end{frame}
-
-
-%\section{UNL Theme}
-%\begin{frame}
-%    \frametitle{UNL Theme}
-%    \framesubtitle{}
-%    This theme was developed for the University of Nebraska--Lincoln.
-%    The theme itself was developed from the PaloAlto, sidebar and sidbartab
-%    themes available by default in beamer.
-%    However, this theme has several unique features and customizations:
-%    \begin{itemize}
-%      \item The color theme uses UNL's ``scarlet and creme'' colors.
-%      \item Improved spacing.
-%      \item Math mode preserves \LaTeX's serif font.
-%      \item Incorporates UNL's Logo automatically.
-%      \item Unique drop shadows on the top and side bars!
-%    \end{itemize}
-%\end{frame}
-%
-%
-%\begin{frame}
-%    \frametitle{Other Features}
-%    \framesubtitle{}
-%    For convenience, if you are in handout mode, all features, including the
-%    navigation symbols at the bottom right are shut off!
-%    Beamer boxes are by default, rounded and have a drop shadow.  All beamer
-%    boxes (definition, theorem, etc) have the same color scheme.
-%    \begin{definition}
-%      This is my definition
-%      $$A = \{p \mid \textrm{$p$ is prime }\}$$
-%    \end{definition}
-%    \begin{theorem}
-%      The set $A$ is countable.
-%    \end{theorem}
-%\end{frame}
-%
-%
-
-%\section{Using The Theme}
-%\begin{frame}[fragile]
-%    \frametitle{How To Use The Theme}
-%    \framesubtitle{Theme Options}
-%    To use the UNL Theme, after your document class declaration, simply use:
-%    \begin{verbatim}\usetheme{UNLTheme}\end{verbatim}
-%    To pass options to the package, use
-%    \verb"\usetheme[left,hideothersubsections,width=2.5cm]{UNLTheme}"
-%\end{frame}
-%
-%\begin{frame}[fragile]
-%    \frametitle{How To Use The Theme}
-%    \framesubtitle{Theme Options}
-%    There are also several options that you can pass:
-%    \begin{itemize}
-%      \item \texttt{hideothersubsections} -- This hides subsections in the
-%            sidebar \emph{other than} the subsections of the current section.
-%      \item \texttt{hideallsubsections} -- This option doesn't print \emph{any}
-%            subsections in the sidebar.
-%      \item \texttt{width} -- sets the width of the sidebar, default is
-%      	    \verb"2.5\baselineskip"
-%      \item \texttt{height} -- sets the height of the header, default is
-%      	    \verb"2.5\baselineskip"
-%      \item \texttt{left} -- sets the sidebar to the left of the slide (default).
-%      \item \texttt{right} -- sets the sidebar to the right of the slide.
-%    \end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%    \frametitle{How To Get The Theme}
-%    \framesubtitle{}
-%    The theme is available from my home page,
-%    \textcolor{blue}{\url{http://www.cse.unl.edu/~cbourke/}}
-%    You need \texttt{You need beamerthemeUNLTheme.sty} and \texttt{UNL.pdf}
-%    (the UNL logo).
-%    Place them in the working directory or add them to \texttt{beamer/themes/theme}
-%    or somewhere in your \LaTeX\ path and you're good to go!
-%\end{frame}
     
 \end{document}

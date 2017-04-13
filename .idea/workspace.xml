@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Presentation/PresentComments" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.pdf" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/PresentComments" afterPath="$PROJECT_DIR$/Presentation/PresentComments" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.aux" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.aux" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.log" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.nav" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.nav" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.out" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.snm" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.snm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.tex" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.tex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.toc" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.toc" />
@@ -32,10 +30,10 @@
           <file leaf-file-name="ThesisPresentation.tex" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="83" column="8" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+                <state relative-caret-position="-296">
+                  <caret line="525" column="68" lean-forward="false" selection-start-line="525" selection-start-column="68" selection-end-line="525" selection-end-column="68" />
                   <folding>
-                    <marker date="1492106058000" expanded="true" signature="21721:21836" ph="..." />
+                    <marker date="1492111788000" expanded="true" signature="16421:16536" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -72,8 +70,8 @@
           <file leaf-file-name="PresentComments" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Presentation/PresentComments">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="24" column="41" lean-forward="false" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+                <state relative-caret-position="370">
+                  <caret line="148" column="27" lean-forward="false" selection-start-line="148" selection-start-column="27" selection-end-line="148" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -92,8 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fine-grain cost</find>
-      <find>estimate</find>
       <find>newdimen</find>
       <find>beamertheme</find>
       <find>titlepage</find>
@@ -120,8 +116,10 @@
       <find>bioPoster</find>
       <find>protein dataset</find>
       <find>BANDIT</find>
-      <find>frametitle</find>
       <find>sigmoid</find>
+      <find>frametitle</find>
+      <find>21</find>
+      <find>iteration</find>
     </findStrings>
     <replaceStrings>
       <replace>[H]</replace>
@@ -919,10 +917,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="83" column="8" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+        <state relative-caret-position="-296">
+          <caret line="525" column="68" lean-forward="false" selection-start-line="525" selection-start-column="68" selection-end-line="525" selection-end-column="68" />
           <folding>
-            <marker date="1492106058000" expanded="true" signature="21721:21836" ph="..." />
+            <marker date="1492111788000" expanded="true" signature="16421:16536" ph="..." />
           </folding>
         </state>
       </provider>
@@ -932,8 +930,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Presentation/PresentComments">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="41" lean-forward="false" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        <state relative-caret-position="370">
+          <caret line="148" column="27" lean-forward="false" selection-start-line="148" selection-start-column="27" selection-end-line="148" selection-end-column="27" />
           <folding />
         </state>
       </provider>
