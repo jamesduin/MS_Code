@@ -1,11 +1,9 @@
 \beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
 \beamer@sectionintoc {2}{Background}{5}{0}{2}
-\beamer@sectionintoc {3}{Related Work}{17}{0}{3}
-\beamer@sectionintoc {4}{Exp. Setup}{18}{0}{4}
-\beamer@sectionintoc {5}{Conv. ML}{21}{0}{5}
-\beamer@sectionintoc {6}{Act. vs Pass.}{24}{0}{6}
-\beamer@sectionintoc {7}{FFR Results}{28}{0}{7}
-\beamer@sectionintoc {8}{BANDIT Results}{35}{0}{8}
-\beamer@sectionintoc {9}{Conclusions}{40}{0}{9}
-\beamer@sectionintoc {10}{Bibliography}{43}{0}{10}
+\beamer@sectionintoc {3}{Exp. Setup}{17}{0}{3}
+\beamer@sectionintoc {4}{Conv. ML}{18}{0}{4}
+\beamer@sectionintoc {5}{Act. vs Pass.}{20}{0}{5}
+\beamer@sectionintoc {6}{HAL Results}{24}{0}{6}
+\beamer@sectionintoc {7}{BANDIT Results}{31}{0}{7}
+\beamer@sectionintoc {8}{Conclusions}{36}{0}{8}

@@ -1,0 +1,159 @@
+### slide 1
+fix dash -- done
+
+### slide 2
+You haven't yet defined these terms "coarse" and "fine" -- done
+For intro, motivate active learning (with respect to
+some cost model), related to how it can help with
+this problem. Then, describe how HAL can help even more. -- done
+
+### slide 3
+When you use terms such as 'fine' and 'coarse', need to
+briefly define these in Intro. -- done
+Add dash in fine-level, delete acknowledgement -- done
+Define Active learning --
+
+### slide 4
+Add outline, add algorithms and experimental results -- done
+
+### slide 5
+Better to use figure(s) to illustrate what ML is.  E.g., show
+labeled training data feeding into a ML algorithm, output
+hypothesis, and then use hyp to label new instances. -- done
+After graphically describing ML, use pictures to show what an
+SVM looks like, and mention (or graphically show) that logit
+learns a probability distribution -- done
+
+### slide 6
+Boldface, or italics -- done
+Give examples of domains where active learning is useful:
+copious unlabeled data, cost associated with
+acquiring labels. --
+
+### slide 7
+delete slide -- done
+
+### slide 8
+Only describe evaluation methods that you use later in the talk,
+and only describe them at the time
+you present results. delete slide -- done
+
+### slide 9
+delete slide -- done
+
+### slide 10
+delete slide -- done
+
+### slide 11
+Delete table captions, use citations -- done
+
+### slide 12
+Remove figure caption -- done
+
+### slide 13
+This belongs earlier, when you describe active over-labeling.
+If you are short on time, then this can be cut. --
+Remove figure caption -- done
+
+### slide 14
+delete slide -- done
+
+### slide 15
+Move to earlier --
+Remove figure caption -- done
+
+### slide 16
+Can you demonstrate this graphically? -- done
+
+### slide 17
+Not related to your work.  After you present HAL,
+you may briefly summarize results in other
+domains, but you should avoid
+detailed descriptions. --
+delete slide -- done
+
+### slide 18
+Name the classes -- done
+
+### slide 19
+delete slide -- done
+
+### slide 20
+delete slide -- done
+
+### slide 21
+Instead, simply state that you tuned the
+parameters for the learning algorithms via an
+independent run of cross-validation. --
+delete slide -- done
+
+### slide 22
+On the prior slide, define precision, recall, and P-R curves --
+Remove figure caption -- done
+
+### slide 23
+Remove figure caption -- done
+
+### slide 24
+Define 'iteration' and 'AUC' --
+Remove figure caption -- done
+
+### slide 25
+Remove figure caption -- done
+
+### slide 26
+Remove figure caption -- done
+
+### slide 27
+Remove figure caption -- done
+
+### slide 28
+On each slide, describe what you are comparing.
+E.g., for varying cost, explain what this means. --
+Remove figure caption -- done
+
+### slide 29
+Remove figure caption -- done
+
+### slide 30
+Remove figure caption -- done
+
+### slide 31
+Remove figure caption -- done
+
+### slide 32
+Is there a reason to display both cost-8 curves?
+Is there something essential that each shows
+that the other doesn't? --
+Remove figure caption -- done
+
+### slide 33
+Same comment as earlier: be judicious of which curves to plot  --
+Remove figure caption -- done
+
+### slide 34
+Remove figure caption -- done
+
+### slide 35
+You have not defined BANDIT, why it's important, or given an
+example of how it works.  You should do that when you
+describe your original approaches --
+PR-AUC Define before experimental results presented --
+
+### slide 36
+Remove figure caption -- done
+
+### slide 37
+diff min, max mean std rank min max mean std; Remember to explain
+what these terms mean, even if you do not define
+them on your slides --
+Remove figure caption -- done
+
+### slide 38
+Remove figure caption -- done
+
+### slide 39
+Remove figure caption -- done
+
+### slide 40
+add dash in fine-grained, coarse-grained -- done
