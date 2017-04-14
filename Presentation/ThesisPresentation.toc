@@ -5,5 +5,5 @@
 \beamer@sectionintoc {4}{Conv. ML}{18}{0}{4}
 \beamer@sectionintoc {5}{Act. vs Pass.}{21}{0}{5}
 \beamer@sectionintoc {6}{HAL Results}{25}{0}{6}
-\beamer@sectionintoc {7}{BANDIT Results}{30}{0}{7}
+\beamer@sectionintoc {7}{BANDIT Results}{29}{0}{7}
 \beamer@sectionintoc {8}{Conclusions}{35}{0}{8}

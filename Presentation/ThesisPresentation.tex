@@ -56,8 +56,8 @@
     \framesubtitle{}
     \begin{itemize}
       \item Identify the source of mutations which give rise to mitochondrial disease
-      \item Leigh Syndrome, Leber’s Hereditary Optic Neuropathy %- blindness %- respiratory failure
-      \item Hierarchically labeled according to location in mitochondria
+      \item Leigh Syndrome, Leber's Hereditary Optic Neuropathy %- respiratory failure  %- blindness
+      \item Proteins are hierarchically labeled according to location in the mitochondria
       \item Coarse-grained: learning labels near the root of the tree
       \item Fine-grained: learning labels towards the leaf nodes
       \item Learn mitochondrion concept (coarse) by combining classifiers for each target compartment (fine)
@@ -68,12 +68,12 @@
     \framesubtitle{Related Work}
     \begin{itemize}
       \item \textbf{Active learning}: copious unlabeled data, cost associated with acquiring labels,
-      yields best classifier for a given cost, or best for minimal cost
+      yields best classifier for a given cost, or best classifier for minimal cost
       \item Previous work in text classification and and rich media indexing use hierarchies of
       labels to improve fine-level classification (McCallum et al. 1998, Jiang et al. 2013)
-      \item Previous work in named entity recognition to target fine-grained entity categories (Fleischman et al. 2002)
-      \item \textbf{First, investigation of active learning in a hierarchical setting, approach
-      shown to find best classifier for a budget regardless of varying label acquisition cost}
+%      \item Previous work in named entity recognition to target fine-grained entity categories (Fleischman et al. 2002)
+      \item \textbf{First, investigation of active learning in a hierarchical setting, our \textit{active over-labeling} approach is
+      shown to find the best classifier for a given budget regardless of varying label acquisition cost}
     \end{itemize}
 \end{frame}
 \begin{frame}
@@ -207,7 +207,7 @@
 \begin{itemize}
   \item Unlabeled data is abundant but manually labeling is expensive, e.g. text categorization, drug discovery
   \item The learner queries an \textbf{oracle} or \textbf{supervisor} which labels the data at a certain cost
-  \item Active learning solicits new instances that can maximally improve performance of the learned classifier, uncertainty sampling
+  \item Active learning solicits new instances that can maximally improve performance of the learned classifier, e.g., uncertainty sampling
   \item Learns the best performing classifier for the minimal amount of labeling cost,
   or for a given purchase budget
   \item Acquires labels for each level of the hierachy at a certain cost, spends according to a purchase budget
@@ -226,7 +226,7 @@
 \end{figure}
 \end{frame}
 \begin{frame}
-    \frametitle{Hierarchical Active Learning}  % slide 15
+    \frametitle{Hierarchical Active Learning (HAL)}  % slide 15
     \framesubtitle{}
     \par INPUT: purchase proportion $p$
     \begin{figure}[!htb]
@@ -361,45 +361,56 @@
     \end{itemize}
 \end{frame}
 \begin{frame}
-    \frametitle{SVM and Logit Classifier Performance}  % slide 22
-    \framesubtitle{F-measure Analysis}
+    \frametitle{SVM and Logit Classifier Performance}  % slide 23
+    \framesubtitle{Accuracy Analysis (Logit)}
     \begin{figure}[!htb]
         \centering
-        \begin{subfigure}[t]{0.475\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_coarse}
-            \caption{Log Reg Pr Curves - Coarse}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[t]{0.475\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_fine}
-            \caption{Log Reg Pr Curves - Fine}
-        \end{subfigure}
-%        \caption{The fine default threshold occurs at a point on the PR curve associated with a higher
-%        F-measure score compared to the coarse curves.}
-        \label{fig:LogRegThreshPr}
+            \includegraphics[width=1.0\columnwidth]{fig/ROC}
+        \label{fig:ROC}
     \end{figure}
+%    \begin{figure}[!htb]
+%        \centering
+%        \begin{subfigure}[t]{0.5\textwidth}
+%            \centering
+%            \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_RocCurve_coarse}
+%            \caption{Log Reg ROC Curves - coarse}
+%        \end{subfigure}%
+%        ~
+%        \begin{subfigure}[t]{0.5\textwidth}
+%            \centering
+%            \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_RocCurve_fine}
+%            \caption{Log Reg ROC Curves - fine}
+%        \end{subfigure}
+%%        \caption{Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.}
+%        \label{fig:LogRegThreshAcc}
+%    \end{figure}
 \end{frame}
 \begin{frame}
-    \frametitle{SVM and Logit Classifier Performance}  % slide 23
-    \framesubtitle{F-measure Analysis}
+    \frametitle{SVM and Logit Classifier Performance}  % slide 22
+    \framesubtitle{F-measure Analysis (Logit)}
     \begin{figure}[!htb]
-        \centering
-        \begin{subfigure}[t]{0.475\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_RocCurve_coarse}
-            \caption{Log Reg ROC Curves - coarse}
-        \end{subfigure}%
-        ~
-        \begin{subfigure}[t]{0.475\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_RocCurve_fine}
-            \caption{Log Reg ROC Curves - fine}
-        \end{subfigure}
-%        \caption{Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.}
-        \label{fig:LogRegThreshAcc}
+    \centering
+        \includegraphics[width=1.0\columnwidth]{fig/precRec}
+    \label{fig:precRec}
     \end{figure}
+
+%    \begin{figure}[!htb]
+%        \centering
+%        \begin{subfigure}[t]{0.475\textwidth}
+%            \centering
+%            \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_coarse}
+%            \caption{Log Reg Pr Curves - Coarse}
+%        \end{subfigure}
+%        ~
+%        \begin{subfigure}[t]{0.475\textwidth}
+%            \centering
+%            \includegraphics[width=\textwidth]{fig/LogReg_FindThreshold_PrCurve_fine}
+%            \caption{Log Reg Pr Curves - Fine}
+%        \end{subfigure}
+%%        \caption{The fine default threshold occurs at a point on the PR curve associated with a higher
+%%        F-measure score compared to the coarse curves.}
+%        \label{fig:LogRegThreshPr}
+%    \end{figure}
 \end{frame}
 
 
@@ -521,19 +532,6 @@
         \label{fig:ParamsFFR_PR_Cost8_rnds20_60}
     \end{figure}
 \end{frame}
-\begin{frame}
-    \frametitle{Plots for Fine Fixed Ratio Results}  % slide 34
-    \framesubtitle{Successive iterations of HAL with fine cost of 16}
-    \begin{figure}[!htb]
-        \centering
-        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost16_rnds0_180}
-        \caption{The fine cost is increased to 16. The fine cost is to high to offset the decreased number of instances purchased.}
-%        The cost is to high for the fine label advantage to offset
-%        the decreased number of instances purchased.}
-        \label{fig:ParamsFFR_PR_Cost16_rnds0_180}
-    \end{figure}
-\end{frame}
-
 
 
 
@@ -623,9 +621,16 @@
         \label{fig:BANDIT_PR_Cost8_rnds20_60}
     \end{figure}
 \end{frame}
-
-
-
+\begin{frame}
+    \frametitle{Related Work}  % slide 17
+    \framesubtitle{}
+    \par Results agree with Mo et al.'s experiments:
+    \begin{itemize}
+      \item Synthetic Dataset with Gradient Boosted Regression Trees
+      \item Reuters Corpus Volume Text Categorization Dataset with Logit
+      \item Richmond Daily Dispatch Sequence Tagging Dataset with Conditional Random Fields
+    \end{itemize}
+\end{frame}
 
 
 
@@ -635,10 +640,10 @@
     \frametitle{Conclusions}  % slide 40
     \framesubtitle{}
     \begin{itemize}
-    \item Demonstrated fine-grained labels can be used to improve a coarse-grained classifier for the protein dataset
-    \item Demonstrated a prominent advantage for active fine with the Logit classifier
-    \item HAL is implemented and applied to the protein dataset for various FFR proportions and fine label costs
-    \item The BANDIT approach is shown to be robust to both labeling cost and budget
+    \item Fine outperforms Coarse in PR-AUC
+    \item Active outperforms Passive in PR-AUC
+    \item HAL ran with variable cost, fine proportions and budget
+    \item BANDIT approach shown to be robust to changes in cost and budget
     \end{itemize}
 \end{frame}
 \begin{frame}
@@ -677,7 +682,18 @@
 
 
 
-
+\begin{frame}[noframenumbering]
+    \frametitle{Plots for Fine Fixed Ratio Results}  % slide 34
+    \framesubtitle{Successive iterations of HAL with fine cost of 16}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.8\columnwidth]{fig/ParamsFFR_PR_Cost16_rnds0_180}
+        \caption{The fine cost is increased to 16. The fine cost is to high to offset the decreased number of instances purchased.}
+%        The cost is to high for the fine label advantage to offset
+%        the decreased number of instances purchased.}
+        \label{fig:ParamsFFR_PR_Cost16_rnds0_180}
+    \end{figure}
+\end{frame}
 %\section{Related Work}
 %\begin{frame}
 %    \frametitle{Related Work}
@@ -816,18 +832,18 @@
       \end{tabular}}
     \end{table}
 \end{frame}
-%\begin{frame}
-%    \frametitle{Training and Testing Coarse-Grain and Fine-Grain Classifiers}  % slide 20
-%    \framesubtitle{}
-%     \par The following variables were varied for both SVM and Logit classifiers:
-%    \begin{itemize}
-%      \item Preprocessing Scaling Methods
-%      \item Preprocessing Feature Selection
-%      \item Class Weight
-%      \item SVM Kernel, Cost, and Gamma parameters
-%      \item Logit Cost, Fine class weights, Tolerance
-%    \end{itemize}
-%\end{frame}
+\begin{frame}[noframenumbering]
+    \frametitle{Training and Testing Coarse-Grain and Fine-Grain Classifiers}  % slide 20
+    \framesubtitle{}
+     \par The following variables were varied for both SVM and Logit classifiers:
+    \begin{itemize}
+      \item Preprocessing Scaling Methods
+      \item Preprocessing Feature Selection
+      \item Class Weight
+      \item SVM Kernel, Cost, and Gamma parameters
+      \item Logit Cost, Fine class weights, Tolerance
+    \end{itemize}
+\end{frame}
 \begin{frame}[noframenumbering]
     \frametitle{SVM and Logit Classifier Performance}  % slide 21
     \framesubtitle{Conventional ML}
@@ -856,17 +872,17 @@
     }
     \end{table}
 \end{frame}
-\begin{frame}[noframenumbering]
-    \frametitle{Application to Dispatch Dataset}  % slide 17
-    \framesubtitle{}
-    \par Analysis and evaluation follow Mo et al.'s work.
-    \begin{itemize}
-      \item Fine outperforms Coarse in PR-AUC
-      \item Active outperforms Passive in PR-AUC
-      \item HAL ran with variable cost, fine proportions and budget
-      \item BANDIT approach shown to be robust to changes in cost and budget
-    \end{itemize}
-\end{frame}
+%\begin{frame}[noframenumbering]
+%    \frametitle{Application to Dispatch Dataset}  % slide 17
+%    \framesubtitle{}
+%    \par Analysis and evaluation follow Mo et al.'s work.
+%    \begin{itemize}
+%      \item Fine outperforms Coarse in PR-AUC
+%      \item Active outperforms Passive in PR-AUC
+%      \item HAL ran with variable cost, fine proportions and budget
+%      \item BANDIT approach shown to be robust to changes in cost and budget
+%    \end{itemize}
+%\end{frame}
 \begin{frame}[noframenumbering]
     \frametitle{Active vs. Passive Curve Analysis}
     \framesubtitle{Logit Accuracy}
