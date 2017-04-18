@@ -1,95 +1,95 @@
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {2.1}{\ignorespaces Example of a confusion matrix $\mathbf {conf}$, with $100$ negative and $50$ positive instances in the test set.\relax }}{10}{table.caption.4}
-\contentsline {table}{\numberline {2.2}{\ignorespaces Features of the protein dataset along with their respective sources.\relax }}{13}{table.caption.6}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Example of a confusion matrix $\mathbf {conf}$, with $100$ negative and $50$ positive instances in the test set.\relax }}{8}{table.caption.4}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Features of the protein dataset along with their respective sources.\relax }}{11}{table.caption.6}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative instances for each positive instance.\relax }}{30}{table.caption.11}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Example of totals for the train and test partitions when the first fold is held out to be the test set.\relax }}{31}{table.caption.12}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Example totals for the train and test set for the subset of data. The subset of data is used for the majority of the parameter search.\relax }}{32}{table.caption.13}
-\contentsline {table}{\numberline {4.4}{\ignorespaces SVM default results without parameter selection or preprocessing. Where PR curve AUC is (pr), ROC curve AUC is (roc), accuracy is (acc), F1-measure is (f1).\relax }}{33}{table.caption.14}
-\contentsline {table}{\numberline {4.5}{\ignorespaces SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp), False Negatives (fn), True Positives is (tp).\relax }}{33}{table.caption.15}
-\contentsline {table}{\numberline {4.6}{\ignorespaces SVM default condensed view of summary performance metrics, each value is the average of 10 folds.\relax }}{34}{table.caption.16}
-\contentsline {table}{\numberline {4.7}{\ignorespaces SVM minimax-scaler results.\relax }}{35}{table.caption.17}
-\contentsline {table}{\numberline {4.8}{\ignorespaces SVM norm-scaler results.\relax }}{35}{table.caption.18}
-\contentsline {table}{\numberline {4.9}{\ignorespaces SVM std-scaler results. This option is chosen.\relax }}{36}{table.caption.19}
-\contentsline {table}{\numberline {4.10}{\ignorespaces Linear kernel results.\relax }}{36}{table.caption.20}
-\contentsline {table}{\numberline {4.11}{\ignorespaces Poly degree 3 kernel results.\relax }}{36}{table.caption.21}
-\contentsline {table}{\numberline {4.12}{\ignorespaces Poly degree 6 kernel results.\relax }}{36}{table.caption.22}
-\contentsline {table}{\numberline {4.13}{\ignorespaces Sigmoid kernel results.\relax }}{37}{table.caption.23}
-\contentsline {table}{\numberline {4.14}{\ignorespaces RBF kernel results. This option is chosen.\relax }}{37}{table.caption.24}
-\contentsline {table}{\numberline {4.15}{\ignorespaces SVM select percentile, keep 25\% of features.\relax }}{38}{table.caption.25}
-\contentsline {table}{\numberline {4.16}{\ignorespaces SVM select percentile, keep 50\% of features.\relax }}{38}{table.caption.26}
-\contentsline {table}{\numberline {4.17}{\ignorespaces SVM select percentile, keep 75\% of features. This option is chosen.\relax }}{38}{table.caption.27}
-\contentsline {table}{\numberline {4.18}{\ignorespaces Logistic Regression - No scaling.\relax }}{38}{table.caption.28}
-\contentsline {table}{\numberline {4.19}{\ignorespaces Logistic Regression standard scaling.\relax }}{39}{table.caption.29}
-\contentsline {table}{\numberline {4.20}{\ignorespaces Logistic Regression normalization scaling.\relax }}{39}{table.caption.30}
-\contentsline {table}{\numberline {4.21}{\ignorespaces Logistic Regression MinMax scaling. This option is chosen.\relax }}{39}{table.caption.31}
-\contentsline {table}{\numberline {4.22}{\ignorespaces Logistic Regression select percentile 25\%.\relax }}{40}{table.caption.32}
-\contentsline {table}{\numberline {4.23}{\ignorespaces Logistic Regression select percentile 50\%.\relax }}{40}{table.caption.33}
-\contentsline {table}{\numberline {4.24}{\ignorespaces Logistic Regression select percentile 75\%.\relax }}{40}{table.caption.34}
-\contentsline {table}{\numberline {4.25}{\ignorespaces Logistic Regression select percentile 100\%. This option is chosen.\relax }}{40}{table.caption.35}
-\contentsline {table}{\numberline {4.26}{\ignorespaces Logit weight 4.977, cost 1.0\relax }}{41}{table.caption.36}
-\contentsline {table}{\numberline {4.27}{\ignorespaces Logit weight 4.977, cost 0.1\relax }}{41}{table.caption.37}
-\contentsline {table}{\numberline {4.28}{\ignorespaces Logit weight 4.977, cost 10.0\relax }}{42}{table.caption.38}
-\contentsline {table}{\numberline {4.29}{\ignorespaces Logit weight 10.0, cost 1.0\relax }}{42}{table.caption.39}
-\contentsline {table}{\numberline {4.30}{\ignorespaces Logit weight 10.0, cost 0.1\relax }}{42}{table.caption.40}
-\contentsline {table}{\numberline {4.31}{\ignorespaces Logit weight 10.0, cost 10.0\relax }}{42}{table.caption.41}
-\contentsline {table}{\numberline {4.32}{\ignorespaces Logit weight 7.5, cost 1.0\relax }}{42}{table.caption.42}
-\contentsline {table}{\numberline {4.33}{\ignorespaces Logit weight 7.5, cost 0.1. This option is chosen because it shows the least advantage for coarse or fine in either PR-AUC or in ROC-AUC.\relax }}{43}{table.caption.43}
-\contentsline {table}{\numberline {4.34}{\ignorespaces Logit weight 7.5, cost 10.0\relax }}{43}{table.caption.44}
-\contentsline {table}{\numberline {4.35}{\ignorespaces Logit Class 1 weight ratio 1.0\relax }}{44}{table.caption.45}
-\contentsline {table}{\numberline {4.36}{\ignorespaces Logit Class 1 weight ratio 0.5\relax }}{44}{table.caption.46}
-\contentsline {table}{\numberline {4.37}{\ignorespaces Logit Class 1 weight ratio 3.0. This option is chosen.\relax }}{45}{table.caption.47}
-\contentsline {table}{\numberline {4.38}{\ignorespaces Logit Class 1 weight ratio 5.0\relax }}{45}{table.caption.48}
-\contentsline {table}{\numberline {4.39}{\ignorespaces Logit Class 2 weight ratio 1.0. This option is chosen.\relax }}{45}{table.caption.49}
-\contentsline {table}{\numberline {4.40}{\ignorespaces Logit Class 2 weight ratio 0.5\relax }}{45}{table.caption.50}
-\contentsline {table}{\numberline {4.41}{\ignorespaces Logit Class 2 weight ratio 1.5\relax }}{46}{table.caption.51}
-\contentsline {table}{\numberline {4.42}{\ignorespaces Logit Class 3 weight ratio 1.0. This option is chosen.\relax }}{46}{table.caption.52}
-\contentsline {table}{\numberline {4.43}{\ignorespaces Logit Class 3 weight ratio 0.5\relax }}{46}{table.caption.53}
-\contentsline {table}{\numberline {4.44}{\ignorespaces Logit Class 3 weight ratio 1.5\relax }}{46}{table.caption.54}
-\contentsline {table}{\numberline {4.45}{\ignorespaces Logit Class 4 weight ratio 1.0\relax }}{47}{table.caption.55}
-\contentsline {table}{\numberline {4.46}{\ignorespaces Logit Class 4 weight ratio 0.5\relax }}{47}{table.caption.56}
-\contentsline {table}{\numberline {4.47}{\ignorespaces Logit Class 4 weight ratio 1.5. This option is chosen.\relax }}{47}{table.caption.57}
-\contentsline {table}{\numberline {4.48}{\ignorespaces Logit Class 4 weight ratio 2.0\relax }}{47}{table.caption.58}
-\contentsline {table}{\numberline {4.49}{\ignorespaces Logit Class 5 weight ratio 1.0\relax }}{48}{table.caption.59}
-\contentsline {table}{\numberline {4.50}{\ignorespaces Logit Class 5 weight ratio 0.5\relax }}{48}{table.caption.60}
-\contentsline {table}{\numberline {4.51}{\ignorespaces Logit Class 5 weight ratio 1.5\relax }}{48}{table.caption.61}
-\contentsline {table}{\numberline {4.52}{\ignorespaces Logit Class 5 weight ratio 5.0\relax }}{48}{table.caption.62}
-\contentsline {table}{\numberline {4.53}{\ignorespaces Logit Class 5 weight ratio 10.0. This option is chosen.\relax }}{49}{table.caption.63}
-\contentsline {table}{\numberline {4.54}{\ignorespaces LogitCls5-Wt20\relax }}{49}{table.caption.64}
-\contentsline {table}{\numberline {4.55}{\ignorespaces Logit Class 6 weight ratio 1.0\relax }}{49}{table.caption.65}
-\contentsline {table}{\numberline {4.56}{\ignorespaces Logit Class 6 weight ratio 0.5\relax }}{49}{table.caption.66}
-\contentsline {table}{\numberline {4.57}{\ignorespaces Logit Class 6 weight ratio 2.0. This option is chosen.\relax }}{50}{table.caption.67}
-\contentsline {table}{\numberline {4.58}{\ignorespaces Logit Class 6 weight ratio 3.0\relax }}{50}{table.caption.68}
-\contentsline {table}{\numberline {4.59}{\ignorespaces Logit Class 7 weight ratio 1.0\relax }}{50}{table.caption.69}
-\contentsline {table}{\numberline {4.60}{\ignorespaces Logit Class 7 weight ratio 0.5\relax }}{50}{table.caption.70}
-\contentsline {table}{\numberline {4.61}{\ignorespaces Logit Class 7 weight ratio 3.0. This option is chosen.\relax }}{51}{table.caption.71}
-\contentsline {table}{\numberline {4.62}{\ignorespaces Logit Class 7 weight ratio 5.0\relax }}{51}{table.caption.72}
-\contentsline {table}{\numberline {4.63}{\ignorespaces Logit Class 8 weight ratio 1.0. This option is chosen.\relax }}{51}{table.caption.73}
-\contentsline {table}{\numberline {4.64}{\ignorespaces Logit Class 8 weight ratio 0.5\relax }}{51}{table.caption.74}
-\contentsline {table}{\numberline {4.65}{\ignorespaces Logit Class 8 weight ratio 1.5\relax }}{52}{table.caption.75}
-\contentsline {table}{\numberline {4.66}{\ignorespaces Logit results after fine tuning, effectively had a tolerance of 0.0001\relax }}{52}{table.caption.76}
-\contentsline {table}{\numberline {4.67}{\ignorespaces Logit Tolerance 0.0001, notice that the fine PR and ROC decreased by 0.001, and that the coarse ROC decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.\relax }}{52}{table.caption.77}
-\contentsline {table}{\numberline {4.68}{\ignorespaces Logit Tolerance 0.00001. This option is chosen.\relax }}{53}{table.caption.78}
-\contentsline {table}{\numberline {4.69}{\ignorespaces Logit Tolerance 0.000001\relax }}{53}{table.caption.79}
-\contentsline {table}{\numberline {4.70}{\ignorespaces Logit sample weights, drop intermediate values True. The default option is chosen.\relax }}{54}{table.caption.80}
-\contentsline {table}{\numberline {4.71}{\ignorespaces Logit no sample weights, drop intermediate values True\relax }}{54}{table.caption.81}
-\contentsline {table}{\numberline {4.72}{\ignorespaces Logit sample weights, drop intermediate values False\relax }}{54}{table.caption.82}
-\contentsline {table}{\numberline {4.73}{\ignorespaces Logit no sample weights, drop intermediate values False\relax }}{54}{table.caption.83}
-\contentsline {table}{\numberline {4.74}{\ignorespaces Logit entire dataset, weight 20.887\relax }}{55}{table.caption.84}
-\contentsline {table}{\numberline {4.75}{\ignorespaces Logit entire dataset, weight 23.0. This option is chosen.\relax }}{55}{table.caption.85}
-\contentsline {table}{\numberline {4.76}{\ignorespaces Logit entire dataset, weight 25.0.\relax }}{56}{table.caption.86}
-\contentsline {table}{\numberline {4.77}{\ignorespaces SVM Cost 1.0 Gamma 0.003\relax }}{57}{table.caption.87}
-\contentsline {table}{\numberline {4.78}{\ignorespaces SVM Cost 2.0 Gamma 0.003\relax }}{57}{table.caption.88}
-\contentsline {table}{\numberline {4.79}{\ignorespaces SVM Cost 0.1 Gamma 0.003\relax }}{57}{table.caption.89}
-\contentsline {table}{\numberline {4.80}{\ignorespaces SVM Cost 0.05 Gamma 0.003\relax }}{57}{table.caption.90}
-\contentsline {table}{\numberline {4.81}{\ignorespaces SVM Cost 0.15 Gamma 0.003\relax }}{57}{table.caption.91}
-\contentsline {table}{\numberline {4.82}{\ignorespaces SVM Cost 0.2 Gamma 0.003\relax }}{58}{table.caption.92}
-\contentsline {table}{\numberline {4.83}{\ignorespaces SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.\relax }}{58}{table.caption.93}
-\contentsline {table}{\numberline {4.84}{\ignorespaces SVM Cost 0.15 Gamma 0.001\relax }}{58}{table.caption.94}
+\contentsline {table}{\numberline {4.1}{\ignorespaces This dataset contains 20098 instances total with 449 features each. An example partitioning is shown, some classes like 1 and 5 contain only 1-2 instances in a given test set. Note there is a heavy class imbalance with approx. 20 negative instances for each positive instance.\relax }}{26}{table.caption.11}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Example of totals for the train and test partitions when the first fold is held out to be the test set.\relax }}{26}{table.caption.12}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Example totals for the train and test set for the subset of data. The subset of data is used for the majority of the parameter search.\relax }}{27}{table.caption.13}
+\contentsline {table}{\numberline {4.4}{\ignorespaces SVM default results without parameter selection or preprocessing. Where PR curve AUC is (pr), ROC curve AUC is (roc), accuracy is (acc), F1-measure is (f1).\relax }}{28}{table.caption.14}
+\contentsline {table}{\numberline {4.5}{\ignorespaces SVM default results confusion matrix. Where True Negatives is (tn), False Positives is (fp), False Negatives (fn), True Positives is (tp).\relax }}{28}{table.caption.15}
+\contentsline {table}{\numberline {4.6}{\ignorespaces SVM default condensed view of summary performance metrics, each value is the average of 10 folds.\relax }}{28}{table.caption.16}
+\contentsline {table}{\numberline {4.7}{\ignorespaces SVM minimax-scaler results.\relax }}{30}{table.caption.17}
+\contentsline {table}{\numberline {4.8}{\ignorespaces SVM norm-scaler results.\relax }}{30}{table.caption.18}
+\contentsline {table}{\numberline {4.9}{\ignorespaces SVM std-scaler results. This option is chosen.\relax }}{30}{table.caption.19}
+\contentsline {table}{\numberline {4.10}{\ignorespaces Linear kernel results.\relax }}{30}{table.caption.20}
+\contentsline {table}{\numberline {4.11}{\ignorespaces Poly degree 3 kernel results.\relax }}{31}{table.caption.21}
+\contentsline {table}{\numberline {4.12}{\ignorespaces Poly degree 6 kernel results.\relax }}{31}{table.caption.22}
+\contentsline {table}{\numberline {4.13}{\ignorespaces Sigmoid kernel results.\relax }}{31}{table.caption.23}
+\contentsline {table}{\numberline {4.14}{\ignorespaces RBF kernel results. This option is chosen.\relax }}{31}{table.caption.24}
+\contentsline {table}{\numberline {4.15}{\ignorespaces SVM select percentile, keep 25\% of features.\relax }}{32}{table.caption.25}
+\contentsline {table}{\numberline {4.16}{\ignorespaces SVM select percentile, keep 50\% of features.\relax }}{32}{table.caption.26}
+\contentsline {table}{\numberline {4.17}{\ignorespaces SVM select percentile, keep 75\% of features. This option is chosen.\relax }}{32}{table.caption.27}
+\contentsline {table}{\numberline {4.18}{\ignorespaces Logistic Regression - No scaling.\relax }}{32}{table.caption.28}
+\contentsline {table}{\numberline {4.19}{\ignorespaces Logistic Regression standard scaling.\relax }}{33}{table.caption.29}
+\contentsline {table}{\numberline {4.20}{\ignorespaces Logistic Regression normalization scaling.\relax }}{33}{table.caption.30}
+\contentsline {table}{\numberline {4.21}{\ignorespaces Logistic Regression MinMax scaling. This option is chosen.\relax }}{33}{table.caption.31}
+\contentsline {table}{\numberline {4.22}{\ignorespaces Logistic Regression select percentile 25\%.\relax }}{33}{table.caption.32}
+\contentsline {table}{\numberline {4.23}{\ignorespaces Logistic Regression select percentile 50\%.\relax }}{33}{table.caption.33}
+\contentsline {table}{\numberline {4.24}{\ignorespaces Logistic Regression select percentile 75\%.\relax }}{34}{table.caption.34}
+\contentsline {table}{\numberline {4.25}{\ignorespaces Logistic Regression select percentile 100\%. This option is chosen.\relax }}{34}{table.caption.35}
+\contentsline {table}{\numberline {4.26}{\ignorespaces Logit weight 4.977, cost 1.0\relax }}{35}{table.caption.36}
+\contentsline {table}{\numberline {4.27}{\ignorespaces Logit weight 4.977, cost 0.1\relax }}{35}{table.caption.37}
+\contentsline {table}{\numberline {4.28}{\ignorespaces Logit weight 4.977, cost 10.0\relax }}{35}{table.caption.38}
+\contentsline {table}{\numberline {4.29}{\ignorespaces Logit weight 10.0, cost 1.0\relax }}{35}{table.caption.39}
+\contentsline {table}{\numberline {4.30}{\ignorespaces Logit weight 10.0, cost 0.1\relax }}{35}{table.caption.40}
+\contentsline {table}{\numberline {4.31}{\ignorespaces Logit weight 10.0, cost 10.0\relax }}{35}{table.caption.41}
+\contentsline {table}{\numberline {4.32}{\ignorespaces Logit weight 7.5, cost 1.0\relax }}{36}{table.caption.42}
+\contentsline {table}{\numberline {4.33}{\ignorespaces Logit weight 7.5, cost 0.1. This option is chosen because it shows the least advantage for coarse or fine in either PR-AUC or in ROC-AUC.\relax }}{36}{table.caption.43}
+\contentsline {table}{\numberline {4.34}{\ignorespaces Logit weight 7.5, cost 10.0\relax }}{36}{table.caption.44}
+\contentsline {table}{\numberline {4.35}{\ignorespaces Logit Class 1 weight ratio 1.0\relax }}{37}{table.caption.45}
+\contentsline {table}{\numberline {4.36}{\ignorespaces Logit Class 1 weight ratio 0.5\relax }}{37}{table.caption.46}
+\contentsline {table}{\numberline {4.37}{\ignorespaces Logit Class 1 weight ratio 3.0. This option is chosen.\relax }}{37}{table.caption.47}
+\contentsline {table}{\numberline {4.38}{\ignorespaces Logit Class 1 weight ratio 5.0\relax }}{38}{table.caption.48}
+\contentsline {table}{\numberline {4.39}{\ignorespaces Logit Class 2 weight ratio 1.0. This option is chosen.\relax }}{38}{table.caption.49}
+\contentsline {table}{\numberline {4.40}{\ignorespaces Logit Class 2 weight ratio 0.5\relax }}{38}{table.caption.50}
+\contentsline {table}{\numberline {4.41}{\ignorespaces Logit Class 2 weight ratio 1.5\relax }}{38}{table.caption.51}
+\contentsline {table}{\numberline {4.42}{\ignorespaces Logit Class 3 weight ratio 1.0. This option is chosen.\relax }}{39}{table.caption.52}
+\contentsline {table}{\numberline {4.43}{\ignorespaces Logit Class 3 weight ratio 0.5\relax }}{39}{table.caption.53}
+\contentsline {table}{\numberline {4.44}{\ignorespaces Logit Class 3 weight ratio 1.5\relax }}{39}{table.caption.54}
+\contentsline {table}{\numberline {4.45}{\ignorespaces Logit Class 4 weight ratio 1.0\relax }}{39}{table.caption.55}
+\contentsline {table}{\numberline {4.46}{\ignorespaces Logit Class 4 weight ratio 0.5\relax }}{40}{table.caption.56}
+\contentsline {table}{\numberline {4.47}{\ignorespaces Logit Class 4 weight ratio 1.5. This option is chosen.\relax }}{40}{table.caption.57}
+\contentsline {table}{\numberline {4.48}{\ignorespaces Logit Class 4 weight ratio 2.0\relax }}{40}{table.caption.58}
+\contentsline {table}{\numberline {4.49}{\ignorespaces Logit Class 5 weight ratio 1.0\relax }}{40}{table.caption.59}
+\contentsline {table}{\numberline {4.50}{\ignorespaces Logit Class 5 weight ratio 0.5\relax }}{41}{table.caption.60}
+\contentsline {table}{\numberline {4.51}{\ignorespaces Logit Class 5 weight ratio 1.5\relax }}{41}{table.caption.61}
+\contentsline {table}{\numberline {4.52}{\ignorespaces Logit Class 5 weight ratio 5.0\relax }}{41}{table.caption.62}
+\contentsline {table}{\numberline {4.53}{\ignorespaces Logit Class 5 weight ratio 10.0. This option is chosen.\relax }}{41}{table.caption.63}
+\contentsline {table}{\numberline {4.54}{\ignorespaces LogitCls5-Wt20\relax }}{41}{table.caption.64}
+\contentsline {table}{\numberline {4.55}{\ignorespaces Logit Class 6 weight ratio 1.0\relax }}{42}{table.caption.65}
+\contentsline {table}{\numberline {4.56}{\ignorespaces Logit Class 6 weight ratio 0.5\relax }}{42}{table.caption.66}
+\contentsline {table}{\numberline {4.57}{\ignorespaces Logit Class 6 weight ratio 2.0. This option is chosen.\relax }}{42}{table.caption.67}
+\contentsline {table}{\numberline {4.58}{\ignorespaces Logit Class 6 weight ratio 3.0\relax }}{42}{table.caption.68}
+\contentsline {table}{\numberline {4.59}{\ignorespaces Logit Class 7 weight ratio 1.0\relax }}{43}{table.caption.69}
+\contentsline {table}{\numberline {4.60}{\ignorespaces Logit Class 7 weight ratio 0.5\relax }}{43}{table.caption.70}
+\contentsline {table}{\numberline {4.61}{\ignorespaces Logit Class 7 weight ratio 3.0. This option is chosen.\relax }}{43}{table.caption.71}
+\contentsline {table}{\numberline {4.62}{\ignorespaces Logit Class 7 weight ratio 5.0\relax }}{43}{table.caption.72}
+\contentsline {table}{\numberline {4.63}{\ignorespaces Logit Class 8 weight ratio 1.0. This option is chosen.\relax }}{44}{table.caption.73}
+\contentsline {table}{\numberline {4.64}{\ignorespaces Logit Class 8 weight ratio 0.5\relax }}{44}{table.caption.74}
+\contentsline {table}{\numberline {4.65}{\ignorespaces Logit Class 8 weight ratio 1.5\relax }}{44}{table.caption.75}
+\contentsline {table}{\numberline {4.66}{\ignorespaces Logit results after fine tuning, effectively had a tolerance of 0.0001\relax }}{44}{table.caption.76}
+\contentsline {table}{\numberline {4.67}{\ignorespaces Logit Tolerance 0.0001, notice that the fine PR and ROC decreased by 0.001, and that the coarse ROC decreased by 0.001 upon rerunning, there is some statistical variation in these metrics.\relax }}{45}{table.caption.77}
+\contentsline {table}{\numberline {4.68}{\ignorespaces Logit Tolerance 0.00001. This option is chosen.\relax }}{45}{table.caption.78}
+\contentsline {table}{\numberline {4.69}{\ignorespaces Logit Tolerance 0.000001\relax }}{45}{table.caption.79}
+\contentsline {table}{\numberline {4.70}{\ignorespaces Logit sample weights, drop intermediate values True. The default option is chosen.\relax }}{46}{table.caption.80}
+\contentsline {table}{\numberline {4.71}{\ignorespaces Logit no sample weights, drop intermediate values True\relax }}{46}{table.caption.81}
+\contentsline {table}{\numberline {4.72}{\ignorespaces Logit sample weights, drop intermediate values False\relax }}{46}{table.caption.82}
+\contentsline {table}{\numberline {4.73}{\ignorespaces Logit no sample weights, drop intermediate values False\relax }}{46}{table.caption.83}
+\contentsline {table}{\numberline {4.74}{\ignorespaces Logit entire dataset, weight 20.887\relax }}{47}{table.caption.84}
+\contentsline {table}{\numberline {4.75}{\ignorespaces Logit entire dataset, weight 23.0. This option is chosen.\relax }}{47}{table.caption.85}
+\contentsline {table}{\numberline {4.76}{\ignorespaces Logit entire dataset, weight 25.0.\relax }}{47}{table.caption.86}
+\contentsline {table}{\numberline {4.77}{\ignorespaces SVM Cost 1.0 Gamma 0.003\relax }}{48}{table.caption.87}
+\contentsline {table}{\numberline {4.78}{\ignorespaces SVM Cost 2.0 Gamma 0.003\relax }}{48}{table.caption.88}
+\contentsline {table}{\numberline {4.79}{\ignorespaces SVM Cost 0.1 Gamma 0.003\relax }}{49}{table.caption.89}
+\contentsline {table}{\numberline {4.80}{\ignorespaces SVM Cost 0.05 Gamma 0.003\relax }}{49}{table.caption.90}
+\contentsline {table}{\numberline {4.81}{\ignorespaces SVM Cost 0.15 Gamma 0.003\relax }}{49}{table.caption.91}
+\contentsline {table}{\numberline {4.82}{\ignorespaces SVM Cost 0.2 Gamma 0.003\relax }}{49}{table.caption.92}
+\contentsline {table}{\numberline {4.83}{\ignorespaces SVM Cost 0.15 Gamma 0.002. This option for Cost and Gamma is chosen.\relax }}{49}{table.caption.93}
+\contentsline {table}{\numberline {4.84}{\ignorespaces SVM Cost 0.15 Gamma 0.001\relax }}{49}{table.caption.94}
 \addvspace {10pt}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Logit entire dataset results after parameter tuning\relax }}{60}{table.caption.95}
-\contentsline {table}{\numberline {5.2}{\ignorespaces SVM entire dataset results after parameter tuning\relax }}{61}{table.caption.96}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Aggregated PR AUC for the protein dataset\relax }}{83}{table.caption.116}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Logit entire dataset results after parameter tuning\relax }}{51}{table.caption.95}
+\contentsline {table}{\numberline {5.2}{\ignorespaces SVM entire dataset results after parameter tuning\relax }}{51}{table.caption.96}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Aggregated PR AUC for the protein dataset\relax }}{71}{table.caption.116}
 \addvspace {10pt}

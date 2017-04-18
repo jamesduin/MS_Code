@@ -128,7 +128,7 @@
 \ExecuteOptions{double,electronic,phd}
 \ProcessOptions
 \LoadClass[12pt,oneside]{memoir}
-\RequirePackage[letterpaper,margin=1.5in,includehead,nofoot]{geometry}
+\RequirePackage[letterpaper,margin=1.0in,left=1.5in,includehead,nofoot]{geometry}
 \makepagestyle{nu@pagestyle}
 \makeoddhead{nu@pagestyle}%
   {}{}{\normalfont\thepage}

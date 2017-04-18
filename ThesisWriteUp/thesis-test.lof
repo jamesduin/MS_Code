@@ -1,32 +1,32 @@
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of PR and ROC curves with their corresponding AUC values.\relax }}{11}{figure.caption.5}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The protein dataset hierarchy of labels along with the instance count for each label.\relax }}{14}{figure.caption.7}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Demonstration of a dataset that would benefit from multiple fine-grained learners for each circle type, from \cite {yuji}.\relax }}{16}{figure.caption.8}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces A labeling tree based on the text categorization dataset RCV1 \cite {Lewis2004}.\relax }}{17}{figure.caption.9}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Diagram of HAL approach\relax }}{19}{figure.caption.10}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of PR and ROC curves with their corresponding AUC values.\relax }}{9}{figure.caption.5}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The protein dataset hierarchy of labels along with the instance count for each label.\relax }}{12}{figure.caption.7}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Demonstration of a dataset that would benefit from multiple fine-grained learners for each circle type, from \cite {yuji}.\relax }}{14}{figure.caption.8}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces A labeling tree based on the text categorization dataset RCV1 \cite {Lewis2004}.\relax }}{15}{figure.caption.9}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Diagram of HAL approach\relax }}{17}{figure.caption.10}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces The fine default threshold occurs at a point on the PR curve associated with a higher F-measure score compared to the coarse curves.\relax }}{62}{figure.caption.97}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.\relax }}{62}{figure.caption.98}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces SVM results for PR curves and F-measure have coarse and fine picking different parts of the curves for their respective thresholds. This results in a slight advantage for fine at the default threshold, similar to the results for the Logit classifier.\relax }}{63}{figure.caption.99}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces SVM accuracy results are similar between coarse and fine.\relax }}{63}{figure.caption.100}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces The PR-AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with active fine having the best performance, and Active outperforming Passive for both coarse and fine classifier types.\relax }}{65}{figure.caption.101}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces The ROC-AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both coarse and fine. Note that active fine ROC curve doesn't converge to the active coarse ROC curve until round 40. This is contrasted to a dominance of the active fine PR curve after round 10.\relax }}{66}{figure.caption.102}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces The accuracy of the classifiers stays at roughly the same rate throughout the rounds; this is due to an effective weighting scheme. Both curves show a dominance of fine over coarse and Active over Passive.\relax }}{67}{figure.caption.103}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces PR curves for each fold at Round 20\relax }}{69}{figure.caption.104}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces ROC curves for each fold at Round 20\relax }}{70}{figure.caption.105}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces The PR AUC curves for SVM show a slight advantage for active fine, similar to the Logit results.\relax }}{71}{figure.caption.106}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces The ROC AUC curves for SVM match the Logit results, the convergence of active fine to active coarse takes slightly longer, round 60 compared to round 40.\relax }}{72}{figure.caption.107}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces For this curve the fine and coarse grain labels both have a cost of 1. The purple 1.0 curve shows that if only fine-grained labels are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round since the cost of the fine and coarse instances is the same the budget.\relax }}{74}{figure.caption.108}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces At fine cost 2, advantage of the higher FFR values decreases but the ordering of the curves remains unchanged.\relax }}{75}{figure.caption.109}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces At fine cost 4, the highest FFR $1.0$ is no longer preferred, the cost is to high for fine instances PR-AUC utility to overcome the PR-AUC increase gained by purchasing more coarse instances.\relax }}{76}{figure.caption.110}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces At fine cost 8 the middle FFR values outperform the extreme values for rounds 0 to 180.\relax }}{77}{figure.caption.111}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces This shows the iterations continuing through round 500, the curves with the higher fine rates eventually settle to the same end point that the curves with the high rates of coarse labels purchased achieved at previous iterations.\relax }}{78}{figure.caption.112}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces The fine cost 8 curves shown expanding the rounds 20-60. If a round budget of 40 occurs than the recommended FFR would be $0.2$.\relax }}{79}{figure.caption.113}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces The fine cost is increased to 16. The cost is to high for the fine label advantage to offset the decreased number of instances purchased.\relax }}{80}{figure.caption.114}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces BANDIT log fine cost analysis with budget fixed.\relax }}{82}{figure.caption.115}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces BANDIT mixed fine cost plot.\relax }}{84}{figure.caption.117}
-\contentsline {figure}{\numberline {5.21}{\ignorespaces The fine cost 8 curves shown expanding the rounds 20-60. With the BANDIT approach plotted. At budget iteration 40, BANDIT PR-AUC is within $0.0007$ of the top learner's PR-AUC. \relax }}{85}{figure.caption.118}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces The fine default threshold occurs at a point on the PR curve associated with a higher F-measure score compared to the coarse curves.\relax }}{52}{figure.caption.97}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Fine has a higher accuracy than coarse at the default threshold for the Logit classifier.\relax }}{53}{figure.caption.98}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces SVM results for PR curves and F-measure have coarse and fine picking different parts of the curves for their respective thresholds. This results in a slight advantage for fine at the default threshold, similar to the results for the Logit classifier.\relax }}{53}{figure.caption.99}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces SVM accuracy results are similar between coarse and fine.\relax }}{54}{figure.caption.100}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces The PR-AUC curves for rounds with the Logistic Regression classifier conforms to expectations, with active fine having the best performance, and Active outperforming Passive for both coarse and fine classifier types.\relax }}{55}{figure.caption.101}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces The ROC-AUC curves for rounds with the Logistic Regression classifier. The active curves beat out the passive curves for both coarse and fine. Note that active fine ROC curve doesn't converge to the active coarse ROC curve until round 40. This is contrasted to a dominance of the active fine PR curve after round 10.\relax }}{56}{figure.caption.102}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces The accuracy of the classifiers stays at roughly the same rate throughout the rounds; this is due to an effective weighting scheme. Both curves show a dominance of fine over coarse and Active over Passive.\relax }}{57}{figure.caption.103}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces PR curves for each fold at Round 20\relax }}{59}{figure.caption.104}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces ROC curves for each fold at Round 20\relax }}{59}{figure.caption.105}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces The PR AUC curves for SVM show a slight advantage for active fine, similar to the Logit results.\relax }}{60}{figure.caption.106}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces The ROC AUC curves for SVM match the Logit results, the convergence of active fine to active coarse takes slightly longer, round 60 compared to round 40.\relax }}{61}{figure.caption.107}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces For this curve the fine and coarse grain labels both have a cost of 1. The purple 1.0 curve shows that if only fine-grained labels are purchased, the highest performing PR-AUC can be obtained. All FFR ratios end at the same round since the cost of the fine and coarse instances is the same the budget.\relax }}{63}{figure.caption.108}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces At fine cost 2, advantage of the higher FFR values decreases but the ordering of the curves remains unchanged.\relax }}{64}{figure.caption.109}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces At fine cost 4, the highest FFR $1.0$ is no longer preferred, the cost is to high for fine instances PR-AUC utility to overcome the PR-AUC increase gained by purchasing more coarse instances.\relax }}{65}{figure.caption.110}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces At fine cost 8 the middle FFR values outperform the extreme values for rounds 0 to 180.\relax }}{66}{figure.caption.111}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces This shows the iterations continuing through round 500, the curves with the higher fine rates eventually settle to the same end point that the curves with the high rates of coarse labels purchased achieved at previous iterations.\relax }}{67}{figure.caption.112}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces The fine cost 8 curves shown expanding the rounds 20-60. If a round budget of 40 occurs than the recommended FFR would be $0.2$.\relax }}{68}{figure.caption.113}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces The fine cost is increased to 16. The cost is to high for the fine label advantage to offset the decreased number of instances purchased.\relax }}{69}{figure.caption.114}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces BANDIT log fine cost analysis with budget fixed.\relax }}{70}{figure.caption.115}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces BANDIT mixed fine cost plot.\relax }}{72}{figure.caption.117}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces The fine cost 8 curves shown expanding the rounds 20-60. With the BANDIT approach plotted. At budget iteration 40, BANDIT PR-AUC is within $0.0007$ of the top learner's PR-AUC. \relax }}{73}{figure.caption.118}
 \addvspace {10pt}

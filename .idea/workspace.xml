@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/FinalizeThesis" afterPath="$PROJECT_DIR$/ThesisWriteUp/FinalizeThesis" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/nuthesis.cls" afterPath="$PROJECT_DIR$/ThesisWriteUp/nuthesis.cls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.lof" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.lof" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.lot" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.lot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.toc" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.toc" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +29,8 @@
       <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="330" column="48" lean-forward="false" selection-start-line="330" selection-start-column="42" selection-end-line="330" selection-end-column="48" />
+            <state relative-caret-position="210">
+              <caret line="112" column="28" lean-forward="true" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -104,8 +112,8 @@
       <find>yugi</find>
       <find>passive</find>
       <find>et al</find>
-      <find>margin</find>
       <find>left</find>
+      <find>margin</find>
     </findStrings>
     <replaceStrings>
       <replace>[H]</replace>
@@ -896,8 +904,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="330" column="48" lean-forward="false" selection-start-line="330" selection-start-column="42" selection-end-line="330" selection-end-column="48" />
+        <state relative-caret-position="210">
+          <caret line="112" column="28" lean-forward="true" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
           <folding />
         </state>
       </provider>
