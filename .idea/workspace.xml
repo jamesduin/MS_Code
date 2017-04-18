@@ -3,15 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.pdf" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/fig/LogReg_FindThreshold_RocCurve_coarse.png" afterPath="$PROJECT_DIR$/Presentation/fig/LogReg_FindThreshold_RocCurve_coarse.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/fig/LogReg_FindThreshold_RocCurve_fine.png" afterPath="$PROJECT_DIR$/Presentation/fig/LogReg_FindThreshold_RocCurve_fine.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.aux" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.aux" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.log" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.nav" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.nav" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.snm" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.snm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.tex" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presentation/ThesisPresentation.toc" afterPath="$PROJECT_DIR$/Presentation/ThesisPresentation.toc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" afterPath="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.bbl" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.bbl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.lof" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.lof" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.lot" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.lot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.out" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.toc" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.toc" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,23 +31,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ThesisPresentation.tex" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="630" column="53" lean-forward="false" selection-start-line="630" selection-start-column="53" selection-end-line="630" selection-end-column="53" />
-              <folding>
-                <marker date="1492182172000" expanded="true" signature="16843:16958" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="false">
+      <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="171" column="25" lean-forward="false" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -51,8 +44,8 @@
       <file leaf-file-name="nuthesis.bib" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -79,14 +72,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>beamertheme</find>
-      <find>titlepage</find>
-      <find>title</find>
-      <find>beamer</find>
-      <find>A Th</find>
-      <find>A THESIS</find>
-      <find>{frame}</find>
-      <find>SVM and Logit</find>
       <find>Plots for Logistic</find>
       <find>Active Over-Labeling</find>
       <find>table</find>
@@ -109,6 +94,14 @@
       <find>21</find>
       <find>iteration</find>
       <find>Mo et al</find>
+      <find>chapter</find>
+      <find>\subsection</find>
+      <find>\subsubsection</find>
+      <find>gamma</find>
+      <find>002967</find>
+      <find>number</find>
+      <find>\chapter</find>
+      <find>yugi</find>
     </findStrings>
     <replaceStrings>
       <replace>[H]</replace>
@@ -127,6 +120,7 @@
       <replace>ROC</replace>
       <replace>PR</replace>
       <replace />
+      <replace>yuji</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/ThesisWriteUp/bib</dir>
@@ -163,7 +157,6 @@
         <option value="$PROJECT_DIR$/ThesisWriteUp/jaccard.txt" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/nuthesis.cls" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/Ch3_comments" />
-        <option value="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/notes.txt" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/version2.tex" />
         <option value="$PROJECT_DIR$/ThesisWriteUp/Comments" />
@@ -186,17 +179,18 @@
         <option value="$PROJECT_DIR$/FFRBandit/plotBanditMetricsStepLogFine.py" />
         <option value="$PROJECT_DIR$/FFR/plotFFR.py" />
         <option value="$PROJECT_DIR$/FFRBandit/plotFFRBandit.py" />
-        <option value="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
         <option value="$PROJECT_DIR$/Presentation/runPresent.sh" />
         <option value="$PROJECT_DIR$/Presentation/PresentComments" />
         <option value="$PROJECT_DIR$/Presentation/ThesisPresentation.tex" />
+        <option value="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" />
+        <option value="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="265" />
-    <option name="y" value="23" />
-    <option name="width" value="1415" />
+    <option name="x" value="324" />
+    <option name="y" value="49" />
+    <option name="width" value="1356" />
     <option name="height" value="916" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -217,8 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -245,22 +237,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MS_Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Presentation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -554,16 +534,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="265" y="23" width="1415" height="916" extended-state="1" />
+    <frame x="324" y="49" width="1356" height="916" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2661406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22097379" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278328" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37378642" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24514563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -883,10 +863,30 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/PresentComments">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="662" column="9" lean-forward="false" selection-start-line="662" selection-start-column="9" selection-end-line="662" selection-end-column="9" />
+          <folding>
+            <marker date="1492459003000" expanded="true" signature="16843:16958" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="LaTeXFileEditor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -896,30 +896,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="171" column="25" lean-forward="false" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
           <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="LaTeXFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/PresentComments">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Presentation/ThesisPresentation.tex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="630" column="53" lean-forward="false" selection-start-line="630" selection-start-column="53" selection-end-line="630" selection-end-column="53" />
-          <folding>
-            <marker date="1492182172000" expanded="true" signature="16843:16958" ph="..." />
-          </folding>
         </state>
       </provider>
       <provider editor-type-id="LaTeXFileEditor">

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  14 APR 2017 10:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  17 APR 2017 15:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1451,7 +1451,7 @@ Overfull \hbox (51.0pt too wide) has occurred while \output is active
 [32
 
  <./fig/BanditMixedCostPR.png>]
-<fig/BANDIT_PR_Cost8_rnds20_60.png, id=1259, 578.16pt x 433.62pt>
+<fig/BANDIT_PR_Cost8_rnds20_60.png, id=1260, 578.16pt x 433.62pt>
 File: fig/BANDIT_PR_Cost8_rnds20_60.png Graphic file (type png)
 
 <use fig/BANDIT_PR_Cost8_rnds20_60.png>
@@ -1897,10 +1897,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 979.
  ) 
 Here is how much of TeX's memory you used:
- 18329 strings out of 493089
- 353071 string characters out of 6134842
+ 18331 strings out of 493089
+ 353089 string characters out of 6134842
  437949 words of memory out of 5000000
- 21211 multiletter control sequences out of 15000+600000
+ 21213 multiletter control sequences out of 15000+600000
  13828 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,20n,60p,417b,634s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1919,7 +1919,7 @@ exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ThesisPresentation.pdf (55 pages, 3505660 bytes).
+Output written on ThesisPresentation.pdf (55 pages, 3505633 bytes).
 PDF statistics:
  2171 PDF objects out of 2487 (max. 8388607)
  2001 compressed objects within 21 object streams

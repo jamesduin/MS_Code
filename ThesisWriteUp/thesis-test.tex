@@ -65,13 +65,14 @@ citecolor=dark-blue,
 urlcolor=dark-red,
 %colorlinks=true,
 backref,
-plainpages=false,% This helps to fix the issue with hyperref with page numbering
-pdfpagelabels% This helps to fix the issue with hyperref with page numbering
+%plainpages=false,% This helps to fix the issue with hyperref with page numbering
+%pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 ]{hyperref}
 
 %% Needed by memoir to fix things with hyperref
 \usepackage{memhfixc}
 \begin{document}
+\pagestyle{empty}
 %% Start formating the first few special pages
 %% frontmatter is needed to set the page numbering correctly
 \frontmatter
@@ -148,7 +149,7 @@ location in the mitochondria's outer or inner membrane, its matrix, or its ribos
 %% Optional
 \begin{acknowledgments}
   I would like to thank my advisor Dr. Stephen Scott for continual guidance in investigating this
-  research topic, and Yugi Mo and Dr. Douglas Downey for their work in developing the HAL and
+  research topic, and Yuji Mo and Dr. Douglas Downey for their work in developing the HAL and
   BANDIT methodologies. I would like to thank Dr. Juan Cui and Dr. Ashok Samal for serving on
   my committee. Additionally, I would like to thank Jiang Shu and
   Kevin Chiang for their assistance accessing and understanding the protein dataset that is
@@ -163,10 +164,13 @@ location in the mitochondria's outer or inner membrane, its matrix, or its ribos
 %%% Uncomment these if need be
 
 %% The ToC is required
-{\small \tableofcontents}
+\renewcommand{\thepage}{}
+\tableofcontents
 %% Uncomment these if need be
-%\listoffigures
-%\listoftables
+\renewcommand{\thepage}{}
+\listoffigures
+\renewcommand{\thepage}{}
+\listoftables
 
 %%   mainmatter is needed after the ToC, (LoF, and LoT) to set the
 %%   page numbering correctly for the main body
@@ -174,6 +178,7 @@ location in the mitochondria's outer or inner membrane, its matrix, or its ribos
 
 %% Thesis goes here
 \chapter{Introduction}
+\thispagestyle{empty}
 \label{sect:Introduction}
 This study investigates an application of the Support Vector Machine
 and Logistic Regression machine learning algorithms to a protein dataset labeled
@@ -216,7 +221,7 @@ purchase labels at some cost.
 
 \par This work applies a new approach in the
 active learning setting, termed \textit{active over-labeling}, to the mitochondrial
-disease protein dataset \cite{yugi}.
+disease protein dataset \cite{yuji}.
 The approach uses a certain proportion of the purchase budget to solicit
 labels at a finer level of granularity than the target concept.
 Purchasing fine-grained labels in each round of active learning produces a
@@ -241,8 +246,7 @@ and evaluation metrics used throughout this thesis. In Chapter 2.3 we present th
 
 
 \chapter{Background and Theory}
-
-
+\thispagestyle{empty}
 \section{Machine Learning}
 \label{sect:machineLearn}
 Machine learning (ML) algorithms are defined as computer programs that learn from experience E
@@ -549,11 +553,11 @@ The negative dataset is composed of 19,136 experimentally validated human
 
 \section{Coarse-grained vs. Fine-grained Trade Off}
 \par In hierarchically labeled datasets, over-labeling refers to learning fine-grained
-(non-root) concepts and combining the results to predict the coarse-grained (root) label \cite{yugi}.
+(non-root) concepts and combining the results to predict the coarse-grained (root) label \cite{yuji}.
 It can be demonstrated through a simple example
 that for certain datasets, a fine-grained approach to the root level classifier can achieve higher
 levels of precision for the same level of recall. Such a dataset is shown in \textit{Figure
-\ref{fig:union}} from \cite{yugi}. The classifiers for this dataset can be thought of as a
+\ref{fig:union}} from \cite{yuji}. The classifiers for this dataset can be thought of as a
 function of single rectangular boxes with axis-parallel sides.
 
 \par The target concept is to learn the circles from the diamonds. If we train a coarse classifier
@@ -583,7 +587,7 @@ higher level of precision because none of the false positive diamonds will be re
 	\centering
     \includegraphics[width=0.5\columnwidth]{fig/union}
     \caption{Demonstration of a dataset that would benefit from multiple fine-grained
-    learners for each circle type, from \cite{yugi}.}
+    learners for each circle type, from \cite{yuji}.}
     \label{fig:union}
 \end{figure}
 \FloatBarrier
@@ -609,7 +613,7 @@ learning approach to solicit labels at finer levels of the hierarchy for a speci
  An instance in this dataset could be labeled as $\langle$Location,Building,Museum$\rangle$,
   $\langle$Location,Attraction,Museum$\rangle$,
 $\langle$Location,Lake,$X\rangle$, or $\langle X,X,X \rangle$, where an $X$ indicates
-that no value at that level applies \cite{yugi}.
+that no value at that level applies \cite{yuji}.
 
 \FloatBarrier
 \begin{figure}[!htb]
@@ -709,7 +713,7 @@ uncertainty $u_i(x)$ of the label for example $x$ for level $i$ is defined as: %
 \begin{algorithm}[!htb]
 \small{
 \caption{Method hierarchical active learning for a fixed
-fine-grained ratio (FFR) \cite{yugi}.
+fine-grained ratio (FFR) \cite{yuji}.
 See text for Purchase and LabelMap.
 }
 \label{alg:halalgo}
@@ -747,7 +751,7 @@ level $i$, label $j$
 HAL is a fixed-fine ratio methodology. It takes as input a purchase proportion
 vector $p$, which specifies how much of the budget should be used to purchase at
 a given level in the hierarchy. The following strategy is developed to
-dynamically adapt to purchase proportions \cite{yugi}. The task of choosing the
+dynamically adapt to purchase proportions \cite{yuji}. The task of choosing the
 level of granularity to purchase labels is framed as a multi-armed bandit problem,
 and solved using Auer et al.'s $\epsilon$-greedy bandit algorithm (BANDIT) \cite{Auer2002}, given as:
 
@@ -809,7 +813,7 @@ purchase proportions dynamically for HAL.
 \begin{algorithm}[!htb]
 \small{
 \caption{ BANDIT approach that dynamically selects purchase
-proportions to use for HAL \cite{yugi}. See text for
+proportions to use for HAL \cite{yuji}. See text for
 $\epsilon$-greedy bandit algorithm, HAL, Gain, and Reward.
 }
 \label{alg:bandit}
@@ -840,12 +844,14 @@ budget $B$, per-iteration budget $b$, purchase proportions
 
 
 \chapter{Related Work}
+\thispagestyle{empty}
+\section{Previous work in Active Learning}
 \par The experiments and methods described in this work
 demonstrate how leveraging fine-grained label  information
 can improve the accuracy of a coarse-grained (root-level) classifier, and
  investigate active learning in a hierarchical setting where
- label acquisition cost can vary \cite{yugi}. This thesis mirrors the first
- application of these methods done by Mo et al. \cite{yugi}.
+ label acquisition cost can vary \cite{yuji}. This thesis mirrors the first
+ application of these methods done by Mo et al. \cite{yuji}.
 
 \par Techniques have been investigated using hierarchies of labels to improve
   a fine-grained classifier, by backing off to coarse levels of the hierarchy
@@ -871,14 +877,14 @@ output values and size of the model's decision boundary.
 sampling bias by utilizing the hierarchical structure of input
 features \cite{Dasgupta2008, Symons2006}. This work focuses on
 active learning over hierarchically structured output
-labels \cite{yugi}.
+labels \cite{yuji}.
 
 
 \section{Application to Dispatch Dataset}
 \par The analysis of the protein data set presented in this thesis, largely
-follows Mo et al.'s \cite{yugi} experiments on the Reuters Corpus Volume~I (RCV1)
+follows Mo et al.'s \cite{yuji} experiments on the Reuters Corpus Volume~I (RCV1)
  text categorization dataset shown in Section \ref{sect:activeOverLabel}. HAL is
- applied to a Dispatch dataset by Mo et al. \cite{yugi}. This dataset contains 375,026 manually labeled
+ applied to a Dispatch dataset by Mo et al. \cite{yuji}. This dataset contains 375,026 manually labeled
 hierarchical names across 1,384 newspaper articles \cite{Lewis2004}. This is a
 clear example of when fine-grained labels have a higher cost. It is relatively
 easy for a person to manually
@@ -889,9 +895,9 @@ pertains to a railroad or a zoo.
 coarse-grained classifier evaluations and active learning outperforms passive learning. Passive learning is
 randomly selecting new data instances to be labeled out of the set of unlabeled instances.
  The advantage for active learning over passive and fine-grained over coarse-grained is shown for the
- dataset \cite{yugi}. Furthermore, the fine-grained classifier is shown to have a higher level of
+ dataset \cite{yuji}. Furthermore, the fine-grained classifier is shown to have a higher level of
  precision compared to the coarse-grained classifier when both classifiers output the roughly the
- same recall  \cite{yugi}. These evaluation metrics are discussed further in
+ same recall  \cite{yuji}. These evaluation metrics are discussed further in
  Section \ref{sect:PerformanceMetrics}.
 
 %These results are shown in \textit{Figure \ref{fig:draft-RCV1}}.
@@ -910,7 +916,7 @@ randomly selecting new data instances to be labeled out of the set of unlabeled 
 HAL with various $p$ proportion ratios. The proportion
 for each fine class used by that rounds purchase-budget remains fixed throughout the rounds of
 the experiment, thus each experiment has a fixed fine ratio (FFR). The experiments by
-Mo et al. \cite{yugi} demonstrate that HAL can be used to determine an optimal FFR strategy
+Mo et al. \cite{yuji} demonstrate that HAL can be used to determine an optimal FFR strategy
 for the RCV1 dataset at
 various fine costs and budgets. Furthermore, Mo et al. elicits and performs a
 modified \textit{active over-labeling} approach termed BANDIT on the RCV1
@@ -945,6 +951,7 @@ label budget. Both the HAL and the BANDIT methodologies are discussed in detail 
 
 
 \chapter{Experimental Setup}
+\thispagestyle{empty}
 \par This chapter details the experimental settings for the coarse-grained and fine-grained classifiers. First we
  define our training and testing strategy, using a subset of the data for parameter tuning.
  Then we progress to running SVM with the default parameters, then
@@ -1219,7 +1226,7 @@ are used in any sections that follow.
 
 
 
-\subsection{Varying SVM Scaling Methods}
+\section{Varying SVM Scaling Methods}
 \label{sect:paramStart}
 \par Different scaling methods are used to preprocess the data
 \cite{scikit-learn}. The standard scaling (std-scaler) strategy
@@ -1275,7 +1282,7 @@ fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bott
 \FloatBarrier
 
 
-\subsection{Varying SVM Kernels}
+\section{Varying SVM Kernels}
 \par Different kernel functions were used in the SVM classifier
 including: Radial Basis Function (RBF), Polynomial
 Degree 3 and 6 (Poly), Linear, and Sigmoid \cite{scikit-learn}. The
@@ -1350,7 +1357,7 @@ fine & 0.879 & 0.848 & 0.809 & 0.094 & ( 382.7 / 91.3 ) & ( 0.0 / 4.8 ) \\ \bott
 \end{table}
 \FloatBarrier
 
-\subsection{Varying SVM Feature Selection}
+\section{Varying SVM Feature Selection}
 \par We tried different feature selection percentages. The Select Percentile library was used from
 sci-kit learn \cite{scikit-learn}. This is a univariate feature selection strategy that ranks the
 features usability for classification according to a statistical measure, then keeps a certain
@@ -1403,7 +1410,7 @@ fine & 0.880 & 0.848 & 0.809 & 0.089 & ( 382.7 / 91.6 ) & ( 0.0 / 4.5 ) \\ \bott
 \FloatBarrier
 
 
-\subsection{Varying Logistic Regression Scaling}
+\section{Varying Logistic Regression Scaling}
 \label{sect:logitParam}
 \par Testing out the same options for preprocessing scaling that were varied for SVM.
 The MinMax scaling option is discovered to have the best performance.
@@ -1461,7 +1468,7 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 \FloatBarrier
 
 
-\subsection{Varying Logistic Regression Feature Selection}
+\section{Varying Logistic Regression Feature Selection}
 \par Tested out the same options for feature selection that were varied for SVM.
 The 100\% feature selection strategy is discovered to have the best performance.
 
@@ -1520,7 +1527,7 @@ fine & 0.888 & 0.862 & 0.812 & 0.130 & ( 382.1 / 89.3 ) & ( 0.6 / 6.8 ) \\ \bott
 \FloatBarrier
 
 
-\subsection{Varying Logistic Regression Positive Class Weight and Cost}
+\section{Varying Logistic Regression Positive Class Weight and Cost}
 \label{sect:logitClsWeight}
 \par Since there is a class imbalance in the dataset (see \textit{Table \ref{tab:ClassesAll}}),
 % on \textit{page \pageref{tab:ClassesAll}},
@@ -1660,7 +1667,7 @@ fine & 0.863 & 0.839 & 0.810 & 0.588 & ( 323.3 / 31.4 ) & ( 59.4 / 64.7 ) \\ \bo
 
 
 
-\subsection{Varying Logistic Regression Fine Class Weights}
+\section{Varying Logistic Regression Fine Class Weights}
 \par The class weight of 7.5 is
 determined in Section \ref{sect:logitClsWeight}, it is used for both fine and coarse classifiers.
 The weight for each of the separate fine classes is tuned by multiplying,
@@ -1680,7 +1687,7 @@ weight ratio of 1.0 would output a fine class weight of 7.5. A weight ratio of
   metrics are the average of 10 folds. The coarse classifier output
  is not shown as it will not vary or be dependent upon the fine class weight tuning.
 
-\subsubsection{Tune Fine Class 1 Weights}
+\subsection{Tune Fine Class 1 Weights}
 \label{sect:startTuneFineClsWeight}
 \par The fine class 1 weight ratio of 3.0 is discovered to have the best performance.
 \FloatBarrier
@@ -1741,7 +1748,7 @@ testCls-1 & 0.722 & 0.997 & 0.998 & 0.513 & ( 476.9 / 0.5 ) & ( 0.6 / 0.8 ) \\ \
 \FloatBarrier
 
 
-\subsubsection{Tune Fine Class 2 Weights}
+\subsection{Tune Fine Class 2 Weights}
 \par The fine class 2 weight ratio of 1.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
@@ -1786,7 +1793,7 @@ testCls-2 & 0.652 & 0.684 & 0.914 & 0.123 & ( 434.8 / 15.6 ) & ( 25.5 / 2.9 ) \\
 \FloatBarrier
 
 
-\subsubsection{Tune Fine Class 3 Weights}
+\subsection{Tune Fine Class 3 Weights}
 \par The fine class 3 weight ratio of 1.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
@@ -1832,7 +1839,7 @@ testCls-3 & 0.795 & 0.805 & 0.804 & 0.318 & ( 363.3 / 10.6 ) & ( 83.1 / 21.8 ) \
 \FloatBarrier
 
 
-\subsubsection{Tune Fine Class 4 Weights}
+\subsection{Tune Fine Class 4 Weights}
 \par The fine class 4 weight ratio of 1.5 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
@@ -1891,7 +1898,7 @@ testCls-4 & 0.886 & 0.903 & 0.906 & 0.352 & ( 421.8 / 6.8 ) & ( 38.0 / 12.2 ) \\
 \end{table}
 \FloatBarrier
 
-\subsubsection{Tune Fine Class 5 Weights}
+\subsection{Tune Fine Class 5 Weights}
 \par The fine class 5 weight ratio of 10.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
@@ -1979,7 +1986,7 @@ testCls-5 & 0.381 & 0.616 & 0.989 & 0.000 & ( 473.5 / 1.0 ) & ( 4.3 / 0.0 ) \\ \
 \end{table}
 \FloatBarrier
 
-\subsubsection{Tune Fine Class 6 Weights}
+\subsection{Tune Fine Class 6 Weights}
 \par The fine class 6 weight ratio of 2.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
@@ -2039,7 +2046,7 @@ testCls-6 & 0.898 & 0.940 & 0.915 & 0.281 & ( 430.5 / 2.6 ) & ( 37.9 / 7.8 ) \\ 
 \FloatBarrier
 
 
-\subsubsection{Tune Fine Class 7 Weights}
+\subsection{Tune Fine Class 7 Weights}
 \par The fine class 7 weight ratio of 3.0 is discovered to have the best performance.
 \FloatBarrier
 \begin{table}[H]
@@ -2099,7 +2106,7 @@ testCls-7 & 0.674 & 0.744 & 0.948 & 0.099 & ( 452.3 / 4.5 ) & ( 20.6 / 1.4 ) \\ 
 \end{table}
 \FloatBarrier
 
-\subsubsection{Tune Fine Class 8 Weights}
+\subsection{Tune Fine Class 8 Weights}
 \label{sect:endTuneFineClsWeight}
 \par The fine class 8 weight ratio of 1.0 is discovered to have the best performance.
 \FloatBarrier
@@ -2145,7 +2152,7 @@ testCls-8 & 0.892 & 0.947 & 0.973 & 0.376 & ( 462.2 / 3.9 ) & ( 9.0 / 3.7 ) \\ \
 \end{table}
 \FloatBarrier
 
-\subsection{Varying Logistic Regression Tolerance}
+\section{Varying Logistic Regression Tolerance}
 \par There is an additional Logit parameter for determining a tolerance for the
 stopping criteria. The default tolerance is 0.0001. The tolerance setting of
 0.00001 is discovered to have the best performance.
@@ -2209,7 +2216,7 @@ fine & 0.885 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \end{table}
 \FloatBarrier
 
-\subsection{Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}
+\section{Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}
 \par The sample weight, as stated previously, weights fine instances in the ROC and PR curves by the ratio of
 total number of instances in the test set divided by the total number of positives in the test set. This
 weighting is performed identically on the coarse and fine classifier. The ROC curve library has a parameter to determine
@@ -2276,7 +2283,7 @@ fine & 0.663 & 0.863 & 0.855 & 0.632 & ( 350.1 / 36.7 ) & ( 32.6 / 59.4 ) \\ \bo
 \FloatBarrier
 
 
-\subsection{Varying Logistic Regression Positive Class Weight for Full Dataset}
+\section{Varying Logistic Regression Positive Class Weight for Full Dataset}
 \par The fine class weight for the subset of data is determined be to 7.5, this value
 should change and be linearly dependent upon the number of instances in the training set.
 The weight for the fine class is tuned using all of the data, the original value is the total number
@@ -2326,27 +2333,27 @@ fine & 0.871 & 0.868 & 0.905 & 0.389 & ( 1758.8 / 35.6 ) & ( 154.8 / 60.6 ) \\ \
 \FloatBarrier
 
 
-\subsection{Varying SVM Cost and Gamma}
+\section{Varying SVM Cost and Gamma}
 \label{sect:paramEnd}
 \par After the Logit classifier is tuned with class weights, the SVM is run again with the
 class weights determined by the Logit classifier and a slight advantage for the fine-grained
 classifier is demonstrated with the SVM as well. The SVM parameters for the RBF
 kernel of cost and gamma are varied. The cost is related to a penalty parameter for the error term
 and gamma is the kernel coefficient and determines the relative significance a single instance can have.
-The default gamma setting is 0.002967 or (1/num-features) or (1/337). Default
- cost is actually 1.0, and the default class weight is balanced which weights each class by
+The default gamma setting is $0.002967 \approx 0.003$  or (1/num-features) or (1/337). Default
+ cost is actually $1.0$, and the default class weight is balanced which weights each class by
  the number of instances it has in the train set, the same fine class weights used in the LogReg
  classifier are used in the SVM classifier instead of the SVM's default balanced option. The fine-grained
-  classifier achieves a PR-AUC value of 0.906, which is greater than the highest PR-AUC achieved by
-  the coarse-grained classifier which is 0.903. Thus, the SVM parameters of Cost 0.15 and Gamma 0.002
+  classifier achieves a PR-AUC value of $0.906$, which is greater than the highest PR-AUC achieved by
+  the coarse-grained classifier which is $0.903$. Thus, the SVM parameters of Cost $0.15$ and Gamma $0.002$
   are discovered to have the best performance.
 
 
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{SVM Cost 1.0 Gamma 0.0029674}
-\label{tab:SVM-C1-Gp0029674}
+\caption{SVM Cost 1.0 Gamma 0.003}
+\label{tab:SVM-C1-Gp003}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.901 & 0.874 & 0.846 & 0.651 & ( 336.0 / 27.2 ) & ( 46.7 / 68.9 ) \\
@@ -2359,8 +2366,8 @@ fine & 0.896 & 0.865 & 0.871 & 0.598 & ( 371.1 / 50.1 ) & ( 11.6 / 46.0 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{SVM Cost 2.0 Gamma 0.0029674}
-\label{tab:SVM-C2-Gp0029674}
+\caption{SVM Cost 2.0 Gamma 0.003}
+\label{tab:SVM-C2-Gp003}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.903 & 0.873 & 0.866 & 0.672 & ( 348.9 / 30.4 ) & ( 33.8 / 65.7 ) \\
@@ -2374,8 +2381,8 @@ fine & 0.890 & 0.857 & 0.865 & 0.554 & ( 373.8 / 55.8 ) & ( 8.9 / 40.3 ) \\ \bot
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{SVM Cost 0.1 Gamma 0.0029674}
-\label{tab:SVM-Cp1-Gp0029674}
+\caption{SVM Cost 0.1 Gamma 0.003}
+\label{tab:SVM-Cp1-Gp003}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.892 & 0.869 & 0.664 & 0.518 & ( 231.5 / 9.8 ) & ( 151.2 / 86.3 ) \\
@@ -2388,8 +2395,8 @@ fine & 0.899 & 0.870 & 0.868 & 0.623 & ( 363.5 / 43.8 ) & ( 19.2 / 52.3 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{SVM Cost 0.05 Gamma 0.0029674}
-\label{tab:SVM-Cp05-Gp0029674}
+\caption{SVM Cost 0.05 Gamma 0.003}
+\label{tab:SVM-Cp05-Gp003}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.883 & 0.860 & 0.591 & 0.474 & ( 194.9 / 8.0 ) & ( 187.8 / 88.1 ) \\
@@ -2402,8 +2409,8 @@ fine & 0.884 & 0.853 & 0.858 & 0.544 & ( 370.1 / 55.5 ) & ( 12.6 / 40.6 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{SVM Cost 0.15 Gamma 0.0029674.}
-\label{tab:SVM-Cp15-Gp0029674}
+\caption{SVM Cost 0.15 Gamma 0.003}
+\label{tab:SVM-Cp15-Gp003}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.896 & 0.873 & 0.714 & 0.553 & ( 257.5 / 11.6 ) & ( 125.2 / 84.5 ) \\
@@ -2416,8 +2423,8 @@ fine & 0.902 & 0.874 & 0.871 & 0.640 & ( 362.1 / 41.1 ) & ( 20.6 / 55.0 ) \\ \bo
 \FloatBarrier
 \begin{table}[H]
 \centering
-\caption{SVM Cost 0.2 Gamma 0.0029674.}
-\label{tab:SVM-Cp2-Gp0029674}
+\caption{SVM Cost 0.2 Gamma 0.003}
+\label{tab:SVM-Cp2-Gp003}
 \begin{tabular}{|l||l||l||l||l||l||l|}\toprule
 Title & PR & ROC & Acc & F1 & conf (tn/fn) & conf (fp/tp) \\ \midrule
 coarse & 0.899 & 0.875 & 0.755 & 0.584 & ( 279.6 / 14.0 ) & ( 103.1 / 82.1 ) \\
@@ -2455,6 +2462,7 @@ fine & 0.900 & 0.872 & 0.868 & 0.641 & ( 358.5 / 39.2 ) & ( 24.2 / 56.9 ) \\ \bo
 
 
 \chapter{Results and Analysis}
+\thispagestyle{empty}
 \par This chapter presents the experimental results for this work. There are no other results known for classifier
  performance on this dataset to use for comparison \cite{bioPoster}. Our primary concern is to use the
  protein dataset to evaluate the HAL approach. We start by analyzing
@@ -3095,6 +3103,7 @@ to variation in both labeling budget and cost.
 
 
 \chapter{Conclusions and Future Work}
+\thispagestyle{empty}
 \par The protein data set demonstrated that fine-grained labels can be used
 to improve the coarse-grained classifier performance. Both SVM and Logit
 classifiers show an advantage of around $0.005$ in average PR-AUC and around
@@ -3131,11 +3140,11 @@ demonstrate a prominent advantage for active fine with the Logit classifier. Fur
 %% BibTeX is your friend
 %\bibliographystyle{plain}
 \bibliographystyle{IEEEtran}
+\renewcommand{\thepage}{}
 \bibliography{IEEEabrv,nuthesis}
 %% Pull in all the entries in the bibtex file. Is is a useful trick to
 %% check all your references.
 \nocite{*}
-
 
 %% Index go here (if you have one)
 
