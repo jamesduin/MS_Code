@@ -44,6 +44,29 @@ J.~Z. Juan~Cui, Kevin~Chiang, ``Prediction of nuclear and locally encoded
 T.~M. Mitchell, \emph{Machine Learning}, 1st~ed.\hskip 1em plus 0.5em minus
   0.4em\relax New York, NY, USA: McGraw-Hill, Inc., 1997.
 
+\bibitem{TomanekActive}
+\BIBentryALTinterwordspacing
+K.~Tomanek and F.~Olsson, ``A web survey on the use of active learning to
+  support annotation of text data,'' in \emph{Proceedings of the NAACL HLT 2009
+  Workshop on Active Learning for Natural Language Processing}, ser. HLT
+  '09.\hskip 1em plus 0.5em minus 0.4em\relax Stroudsburg, PA, USA: Association
+  for Computational Linguistics, 2009, pp. 45--48. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=1564131.1564140}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Dasgupta2004}
+\BIBentryALTinterwordspacing
+S.~Dasgupta, ``Analysis of a greedy active learning strategy,'' in
+  \emph{Proceedings of the 17th International Conference on Neural Information
+  Processing Systems}, ser. NIPS'04.\hskip 1em plus 0.5em minus 0.4em\relax
+  Cambridge, MA, USA: MIT Press, 2004, pp. 337--344. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=2976040.2976083}
+\BIBentrySTDinterwordspacing
+
+\bibitem{settles1995active}
+B.~Settles, ``Active learning literature survey,'' \emph{Science}, vol.~10,
+  no.~3, pp. 237--304, 1995.
+
 \bibitem{sklearn-api}
 L.~Buitinck, G.~Louppe, M.~Blondel, F.~Pedregosa, A.~Mueller, O.~Grisel,
   V.~Niculae, P.~Prettenhofer, A.~Gramfort, J.~Grobler, R.~Layton,

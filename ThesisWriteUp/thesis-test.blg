@@ -15,6 +15,11 @@ Repeated entry---line 390 of file nuthesis.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "GeneOntology" isn't style-file defined
 --line 426 of file nuthesis.bib
+I was expecting a `,' or a `}'---line 441 of file nuthesis.bib
+ :   
+ :   url = {http://burrsettles.com/pub/settles.activelearning.pdf}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -22,45 +27,45 @@ Warning--empty booktitle in bioPoster
 Warning--empty author in UniProt
 
 Done.
-You've used 30 entries,
+You've used 33 entries,
             4039 wiz_defined-function locations,
-            1448 strings with 22474 characters,
-and the built_in function-call counts, 24473 in all, are:
-= -- 2038
-> -- 617
-< -- 194
-+ -- 328
-- -- 113
-* -- 1250
-:= -- 3775
-add.period$ -- 64
-call.type$ -- 30
-change.case$ -- 31
-chr.to.int$ -- 426
-cite$ -- 32
-duplicate$ -- 1747
-empty$ -- 1860
-format.name$ -- 135
-if$ -- 5601
+            1475 strings with 23207 characters,
+and the built_in function-call counts, 27148 in all, are:
+= -- 2268
+> -- 656
+< -- 221
++ -- 352
+- -- 117
+* -- 1382
+:= -- 4183
+add.period$ -- 72
+call.type$ -- 33
+change.case$ -- 34
+chr.to.int$ -- 492
+cite$ -- 35
+duplicate$ -- 1933
+empty$ -- 2083
+format.name$ -- 140
+if$ -- 6223
 int.to.chr$ -- 0
-int.to.str$ -- 30
-missing$ -- 310
-newline$ -- 157
-num.names$ -- 29
-pop$ -- 702
+int.to.str$ -- 33
+missing$ -- 339
+newline$ -- 170
+num.names$ -- 32
+pop$ -- 759
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1882
+skip$ -- 2091
 stack$ -- 0
-substring$ -- 1056
-swap$ -- 1461
-text.length$ -- 52
+substring$ -- 1213
+swap$ -- 1619
+text.length$ -- 57
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 30
+type$ -- 33
 warning$ -- 2
-while$ -- 103
-width$ -- 32
-write$ -- 378
-(There was 1 error message)
+while$ -- 118
+width$ -- 35
+write$ -- 415
+(There were 2 error messages)

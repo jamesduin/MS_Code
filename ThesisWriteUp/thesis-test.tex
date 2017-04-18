@@ -206,18 +206,28 @@ instance also has a label which is the value that we want to learn, in our work 
  the features of an instance and the label of an instance. The input to the function is the vector
  of features and the output is the label. ML is discussed more
  formally in Section \ref{sect:machineLearn}.
-
  \par We work within
 the conventional active learning model, where the learner can query an oracle or supervisor,
 usually a human that labels the data manually. Active learning can be used to solicit new
 instances that can maximally
 improve the performance of the learned classifier \cite{mitchell}. This is contrasted to
 conventional ML where the learner is passively being given a training set irrespective of
-how the new data instances will affect classifier performance \cite{mitchell}. Active learning
+how the new data instances will affect classifier performance \cite{mitchell}.
+ Although the gains seen by using an active learning approach will be dependent upon
+ the learning model and the dataset, a survey by Tomanek et al. \cite{TomanekActive} reports
+  that $91$\% of researchers who used active learning in large-scale
+  annotation projects had their expectations fully or partially met. Furthemore, Dagsputa
+  \cite{Dasgupta2004} provided a variety of theoretical upper and lower bounds for active
+  learning when batches of instances are purchased at a time and a linear classifier is used,
+   showing that in the worst case active learning is equivalent to passive supervised
+   learning. See Settles \cite{settles1995active} for a more formal empirical and
+   theoretical analysis of the advantages of active learning. Active learning
 usually associates a cost to the labeling effort and has the goal of generating
 a best performing classifier for a minimal amount of labeling cost. Active learning
-can also learn a best performing classifier for a given purchase budget that it uses to
-purchase labels at some cost.
+can also learn a best performing classifier for a given purchase budget. We work with the
+pool-based active learning model where batches of instances are purchased at a time using
+the previous best performing classifer to determine which instances to purchase for the next
+batch that will best improve classifier performance.
 
 \par This work applies a new approach in the
 active learning setting, termed \textit{active over-labeling}, to the mitochondrial
@@ -233,8 +243,10 @@ The fine-grained labels also incur a higher cost than coarse-grained
 labels for this dataset, so multiple cost ratios are investigated and an optimal fixed fine
 ratio (FFR)
 purchasing strategy is determined for each fine cost. An approach optimally selecting
- FFR strategies throughout the rounds using a multi-armed strategy is also applied to the protein dataset
- and shown to be robust to variations in labeling cost and budget.
+ FFR strategies throughout the rounds using a multi-armed bandit strategy is also applied to the protein dataset
+ and shown to be robust to variations in labeling cost and budget. The main contribution of this thesis is applying the
+  multi-armed bandit active over-labeling approach to the protein dataset and demonstrating that this approach
+  is robust to both varying costs and budget.
 
 \par The rest of this thesis is organized as follows. In Chapter 2.1-2.2 we formally define machine learning
 and evaluation metrics used throughout this thesis. In Chapter 2.3 we present the origin of the protein dataset.
