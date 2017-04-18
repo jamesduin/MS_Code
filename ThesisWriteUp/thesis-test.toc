@@ -2,44 +2,44 @@
 \contentsline {chapter}{List of Figures}{}{section*.2}
 \contentsline {chapter}{List of Tables}{}{section*.3}
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\chapternumberline {2}Background and Theory}{4}{chapter.2}
-\contentsline {section}{\numberline {2.1}Machine Learning}{4}{section.2.1}
-\contentsline {section}{\numberline {2.2}Evaluating Classifier Performance}{7}{section.2.2}
-\contentsline {section}{\numberline {2.3}Hierarchical Bioinformatics Data Set}{9}{section.2.3}
-\contentsline {section}{\numberline {2.4}Coarse-grained vs. Fine-grained Trade Off}{11}{section.2.4}
-\contentsline {section}{\numberline {2.5}Active Over-Labeling}{13}{section.2.5}
-\contentsline {section}{\numberline {2.6}Hierarchical Active Learning}{15}{section.2.6}
-\contentsline {section}{\numberline {2.7}Dynamically Adapting Purchase Proportions}{17}{section.2.7}
-\contentsline {chapter}{\chapternumberline {3}Related Work}{20}{chapter.3}
-\contentsline {section}{\numberline {3.1}Previous work in Active Learning}{20}{section.3.1}
-\contentsline {section}{\numberline {3.2}Application to Dispatch Dataset}{21}{section.3.2}
-\contentsline {chapter}{\chapternumberline {4}Experimental Setup}{23}{chapter.4}
-\contentsline {section}{\numberline {4.1}Training and Testing Coarse-Grain and Fine-Grain Classifiers}{24}{section.4.1}
-\contentsline {section}{\numberline {4.2}Varying SVM Scaling Methods}{28}{section.4.2}
-\contentsline {section}{\numberline {4.3}Varying SVM Kernels}{29}{section.4.3}
-\contentsline {section}{\numberline {4.4}Varying SVM Feature Selection}{30}{section.4.4}
-\contentsline {section}{\numberline {4.5}Varying Logistic Regression Scaling}{31}{section.4.5}
-\contentsline {section}{\numberline {4.6}Varying Logistic Regression Feature Selection}{32}{section.4.6}
-\contentsline {section}{\numberline {4.7}Varying Logistic Regression Positive Class Weight and Cost}{33}{section.4.7}
-\contentsline {section}{\numberline {4.8}Varying Logistic Regression Fine Class Weights}{35}{section.4.8}
-\contentsline {subsection}{\numberline {4.8.1}Tune Fine Class 1 Weights}{36}{subsection.4.8.1}
-\contentsline {subsection}{\numberline {4.8.2}Tune Fine Class 2 Weights}{37}{subsection.4.8.2}
-\contentsline {subsection}{\numberline {4.8.3}Tune Fine Class 3 Weights}{37}{subsection.4.8.3}
-\contentsline {subsection}{\numberline {4.8.4}Tune Fine Class 4 Weights}{38}{subsection.4.8.4}
-\contentsline {subsection}{\numberline {4.8.5}Tune Fine Class 5 Weights}{39}{subsection.4.8.5}
-\contentsline {subsection}{\numberline {4.8.6}Tune Fine Class 6 Weights}{41}{subsection.4.8.6}
-\contentsline {subsection}{\numberline {4.8.7}Tune Fine Class 7 Weights}{41}{subsection.4.8.7}
-\contentsline {subsection}{\numberline {4.8.8}Tune Fine Class 8 Weights}{42}{subsection.4.8.8}
-\contentsline {section}{\numberline {4.9}Varying Logistic Regression Tolerance}{43}{section.4.9}
-\contentsline {section}{\numberline {4.10}Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{44}{section.4.10}
-\contentsline {section}{\numberline {4.11}Varying Logistic Regression Positive Class Weight for Full Dataset}{45}{section.4.11}
-\contentsline {section}{\numberline {4.12}Varying SVM Cost and Gamma}{46}{section.4.12}
-\contentsline {chapter}{\chapternumberline {5}Results and Analysis}{49}{chapter.5}
-\contentsline {section}{\numberline {5.1}SVM and Logit Classifier Performance}{50}{section.5.1}
-\contentsline {section}{\numberline {5.2}Active vs. Passive Curve Analysis}{53}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Plots for Logistic Regression Active vs. Passive Curves}{54}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Plots for SVM Active vs. Passive Curves}{59}{subsection.5.2.2}
-\contentsline {section}{\numberline {5.3}Plots for Fine Fixed Ratio Results}{61}{section.5.3}
-\contentsline {section}{\numberline {5.4}BANDIT Approach Results}{68}{section.5.4}
-\contentsline {chapter}{\chapternumberline {6}Conclusions and Future Work}{73}{chapter.6}
+\contentsline {chapter}{\chapternumberline {2}Background and Theory}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Machine Learning}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Evaluating Classifier Performance}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Hierarchical Bioinformatics Data Set}{12}{section.2.3}
+\contentsline {section}{\numberline {2.4}Coarse-grained vs. Fine-grained Trade Off}{14}{section.2.4}
+\contentsline {section}{\numberline {2.5}Active Over-Labeling}{16}{section.2.5}
+\contentsline {section}{\numberline {2.6}Hierarchical Active Learning}{18}{section.2.6}
+\contentsline {section}{\numberline {2.7}Dynamically Adapting Purchase Proportions}{21}{section.2.7}
+\contentsline {chapter}{\chapternumberline {3}Related Work}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}Previous work in Active Learning}{25}{section.3.1}
+\contentsline {section}{\numberline {3.2}Application to Dispatch Dataset}{26}{section.3.2}
+\contentsline {chapter}{\chapternumberline {4}Experimental Setup}{28}{chapter.4}
+\contentsline {section}{\numberline {4.1}Training and Testing Coarse-Grain and Fine-Grain Classifiers}{29}{section.4.1}
+\contentsline {section}{\numberline {4.2}Varying SVM Scaling Methods}{35}{section.4.2}
+\contentsline {section}{\numberline {4.3}Varying SVM Kernels}{36}{section.4.3}
+\contentsline {section}{\numberline {4.4}Varying SVM Feature Selection}{37}{section.4.4}
+\contentsline {section}{\numberline {4.5}Varying Logistic Regression Scaling}{38}{section.4.5}
+\contentsline {section}{\numberline {4.6}Varying Logistic Regression Feature Selection}{39}{section.4.6}
+\contentsline {section}{\numberline {4.7}Varying Logistic Regression Positive Class Weight and Cost}{40}{section.4.7}
+\contentsline {section}{\numberline {4.8}Varying Logistic Regression Fine Class Weights}{43}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}Tune Fine Class 1 Weights}{44}{subsection.4.8.1}
+\contentsline {subsection}{\numberline {4.8.2}Tune Fine Class 2 Weights}{45}{subsection.4.8.2}
+\contentsline {subsection}{\numberline {4.8.3}Tune Fine Class 3 Weights}{46}{subsection.4.8.3}
+\contentsline {subsection}{\numberline {4.8.4}Tune Fine Class 4 Weights}{47}{subsection.4.8.4}
+\contentsline {subsection}{\numberline {4.8.5}Tune Fine Class 5 Weights}{48}{subsection.4.8.5}
+\contentsline {subsection}{\numberline {4.8.6}Tune Fine Class 6 Weights}{49}{subsection.4.8.6}
+\contentsline {subsection}{\numberline {4.8.7}Tune Fine Class 7 Weights}{50}{subsection.4.8.7}
+\contentsline {subsection}{\numberline {4.8.8}Tune Fine Class 8 Weights}{51}{subsection.4.8.8}
+\contentsline {section}{\numberline {4.9}Varying Logistic Regression Tolerance}{52}{section.4.9}
+\contentsline {section}{\numberline {4.10}Varying Sample Weight On Test Set and Dropping Intermediate ROC Curve Values}{53}{section.4.10}
+\contentsline {section}{\numberline {4.11}Varying Logistic Regression Positive Class Weight for Full Dataset}{55}{section.4.11}
+\contentsline {section}{\numberline {4.12}Varying SVM Cost and Gamma}{56}{section.4.12}
+\contentsline {chapter}{\chapternumberline {5}Results and Analysis}{59}{chapter.5}
+\contentsline {section}{\numberline {5.1}SVM and Logit Classifier Performance}{60}{section.5.1}
+\contentsline {section}{\numberline {5.2}Active vs. Passive Curve Analysis}{64}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Plots for Logistic Regression Active vs. Passive Curves}{64}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Plots for SVM Active vs. Passive Curves}{71}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Plots for Fine Fixed Ratio Results}{73}{section.5.3}
+\contentsline {section}{\numberline {5.4}BANDIT Approach Results}{80}{section.5.4}
+\contentsline {chapter}{\chapternumberline {6}Conclusions and Future Work}{86}{chapter.6}
 \contentsline {chapter}{Bibliography}{}{section*.120}
