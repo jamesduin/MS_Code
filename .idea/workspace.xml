@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e727c50a-d3d5-41d9-9217-55f7737ee8f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/FinalizeThesis" afterPath="$PROJECT_DIR$/ThesisWriteUp/FinalizeThesis" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" afterPath="$PROJECT_DIR$/ThesisWriteUp/nuthesis.bib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.bbl" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.bbl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.blg" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.blg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.brf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" afterPath="$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +21,8 @@
       <file leaf-file-name="thesis-test.tex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="247" column="21" lean-forward="false" selection-start-line="247" selection-start-column="21" selection-end-line="247" selection-end-column="21" />
+            <state relative-caret-position="332">
+              <caret line="259" column="0" lean-forward="false" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -902,8 +894,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ThesisWriteUp/thesis-test.tex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="247" column="21" lean-forward="false" selection-start-line="247" selection-start-column="21" selection-end-line="247" selection-end-column="21" />
+        <state relative-caret-position="332">
+          <caret line="259" column="0" lean-forward="false" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
           <folding />
         </state>
       </provider>
